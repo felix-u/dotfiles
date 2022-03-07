@@ -12,3 +12,9 @@
 .config/qutebrowser/bookmarks
 .config/qutebrowser/greasemonkey
 .config/qutebrowser/qsettings
+
+# nnn
+.config/nnn/bookmarks
+.config/nnn/mounts
+.config/nnn/sessions
+.config/nnn/.selection

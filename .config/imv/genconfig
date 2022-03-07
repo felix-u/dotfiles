@@ -18,6 +18,7 @@ q = quit
 y = exec echo working!
 
 # image navigation
+<p> = prev
 <Shift+N> = prev
 <n> = next
 gg = goto 1
@@ -46,7 +47,6 @@ o = zoom -1
 x = close
 f = fullscreen
 d = overlay
-p = exec echo $imv_current_file
 c = center
 s = scaling next
 <Shift+S> = upscaling next

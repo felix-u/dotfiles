@@ -1,0 +1,69 @@
+# shortcuts specific to QWERTY
+#
+#
+
+# ranger
+super + e
+    alacritty --command "ranger"
+
+# terminal shortcut friendly to small layouts
+super + semicolon
+    alacritty
+
+# emoji
+super + shift + e
+    rofi -show emoji
+
+#
+# BSPWM shortcuts
+#
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# swap the current node and the biggest window
+super + u
+	bspc node -s biggest.window
+
+# send the focused node to the newest preselected node
+super + i
+    bspc node -n 'last.!automatic.local'
+# send the newest marked node to the newest preselected node
+super + shift + i
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# focus the older or newer node in the focus history
+# not implemented
+# super + {o,i}
+# 	bspc wm -h off; \
+# 	bspc node {older,newer} -f; \
+# 	bspc wm -h on
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+# hide node
+super + n
+    bspc node -g hidden
+
+# unhide node
+super + shift + n
+    bspc node {,$(bspc query -N -n .hidden -d focused | tail -n1)} -g hidden=off
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# expand a window by moving one of its sides outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -80 0,bottom 0 80,top 0 -80,right 80 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -80 0,top 0 80,bottom 0 -80,left 80 0}

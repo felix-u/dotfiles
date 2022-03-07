@@ -1,0 +1,15 @@
+# disable inserting a blank line between shell prompts
+add_newline = false
+# some more symbols:
+# ➜
+# 
+# 
+# 
+# Replace the default "❯" symbol:
+
+[character]
+success_symbol = "[](bold blue)[](bold yellow)[](bold red)"
+error_symbol   = "[](bold red)[](bold purple)[](bold red)"
+
+[git_status]
+disabled = true # too slow

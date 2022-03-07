@@ -1,0 +1,41 @@
+#!/bin/sh
+# first argument is "inc" or "dec" for increase or decrease gaps
+# second argument is how many pixels the gaps will be adjusted by
+
+# get size of gaps before doing anything
+GAPSPRE=$(cat /tmp/gaps)
+GAPRESET=$(cat /tmp/gapreset)
+DELTA=$2
+
+# if no argument, return error
+if [[ $1 == "" ]]
+then
+	exit 1
+fi
+
+# if argument is inc
+if [[ $1 == "inc" ]]
+then
+	GAPSPOST=$(expr ${GAPSPRE} + ${DELTA})
+fi
+
+# if argument is dec
+if [[ $1 == "dec" ]]
+then
+	GAPSPOST=$(expr ${GAPSPRE} - ${DELTA})
+fi
+
+# if argument is reset
+if [[ $1 == "reset" ]]
+then
+	GAPSPOST=$GAPRESET
+fi
+
+if [ $GAPSPOST -lt 0 ]
+then
+	GAPSPOST=0
+fi
+
+echo ${GAPSPOST} > /tmp/gaps
+
+bspc config window_gap ${GAPSPOST}

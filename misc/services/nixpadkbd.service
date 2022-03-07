@@ -1,0 +1,9 @@
+[Unit]
+Description=Start kmonad
+
+[Service]
+Type=oneshot
+ExecStart=kmonad /home/felix/dotfiles/.config/kmonad/nixpad.kbd
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,76 @@
+! tokyonight
+! special
+*.foreground:   #dce0ef
+*.background:   #1a1b26
+*.cursorColor:  #dce0ef
+
+! black
+*.color0:       #2d2f43
+*.color8:       #4e5173
+
+! red
+*.color1:       #f7768e
+*.color9:       #faa3b4
+
+! green
+*.color2:       #9ece6a
+*.color10:      #b9f27c
+
+! yellow
+*.color3:       #e0af68
+*.color11:      #e8c28d
+
+! blue
+*.color4:       #7aa2f7
+*.color12:      #a4bffa
+
+! magenta
+*.color5:       #9a7ecc
+*.color13:      #b5a0d9
+
+! cyan
+*.color6:       #3ec0d5
+*.color14:      #64cddd
+
+! white
+*.color7:       #6b7394
+*.color15:      #acb0d0
+
+! tokyolight (get it?)
+! special
+*.foreground:   #2d2f43
+*.background:   #c1c4dc
+*.cursorColor:  #2d2f43
+
+! black
+*.color0:       #acb0d0
+*.color8:       #8a8fbd
+
+! red
+*.color1:       #f32b50
+*.color9:       #f7768e
+
+! green
+*.color2:       #5d8a2e
+*.color10:      #9ece6a
+
+! yellow
+*.color3:       #cb892a
+*.color11:      #e0af68
+
+! blue
+*.color4:       #2b6bf2
+*.color12:      #7aa2f7
+
+! magenta
+*.color5:       #6e47b3
+*.color13:      #9a7ecc
+
+! cyan
+*.color6:       #238e9f
+*.color14:      #3ec0d5
+
+! white
+*.color7:       #6b7394
+*.color15:      #4e5173
+

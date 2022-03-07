@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50"
+   height="50"
+   viewBox="0 0 13.229166 13.229167"
+   version="1.1"
+   id="svg1508"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="border.svg"
+   inkscape:export-filename="/home/felix/dotfiles/.config/sway/borders/v2/unfocused.png"
+   inkscape:export-xdpi="4.2760944"
+   inkscape:export-ydpi="4.2760944"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1510"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-page="true"
+     inkscape:zoom="2.1797899"
+     inkscape:cx="429.39918"
+     inkscape:cy="231.90308"
+     inkscape:window-width="2953"
+     inkscape:window-height="1582"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1505">
+    <inkscape:path-effect
+       effect="powermask"
+       id="path-effect3004"
+       is_visible="true"
+       lpeversion="1"
+       uri="#mask-powermask-path-effect3004"
+       invert="false"
+       hide_mask="false"
+       background="true"
+       background_color="#ffffffff" />
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow"
+       id="filter2078"
+       x="-0.17885798"
+       y="-0.1788566"
+       width="1.357716"
+       height="1.3577132">
+      <feFlood
+         flood-opacity="0.752941"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood2068" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite2070" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="0.7"
+         result="blur"
+         id="feGaussianBlur2072" />
+      <feOffset
+         dx="0"
+         dy="0"
+         result="offset"
+         id="feOffset2074" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite2076" />
+    </filter>
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask-powermask-path-effect3004">
+      <path
+         id="mask-powermask-path-effect3004_box"
+         style="fill:#ffffff;fill-opacity:1"
+         d="M -0.76188009,-0.76188004 H 13.991047 V 13.99112 H -0.76188009 Z" />
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.177535;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect3002"
+         width="0.086934514"
+         height="0.086934514"
+         x="6.5711164"
+         y="6.5711527"
+         d="m 6.5711164,6.5711527 h 0.086935 v 0.086934 h -0.086935 z" />
+    </mask>
+    <filter
+       id="mask-powermask-path-effect3004_inverse"
+       inkscape:label="filtermask-powermask-path-effect3004"
+       style="color-interpolation-filters:sRGB"
+       height="100"
+       width="100"
+       x="-50"
+       y="-50">
+      <feColorMatrix
+         id="mask-powermask-path-effect3004_primitive1"
+         values="1"
+         type="saturate"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         id="mask-powermask-path-effect3004_primitive2"
+         values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 "
+         in="fbSourceGraphic" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#002b36;fill-opacity:1;stroke:none;stroke-width:2.00001;filter:url(#filter2078)"
+       id="path1591"
+       mask="url(#mask-powermask-path-effect3004)"
+       inkscape:path-effect="#path-effect3004"
+       sodipodi:type="arc"
+       sodipodi:cx="6.6145835"
+       sodipodi:cy="6.6146197"
+       sodipodi:rx="4.6964636"
+       sodipodi:ry="4.6964998"
+       d="M 11.311047,6.6146197 A 4.6964636,4.6964998 0 0 1 6.6145835,11.31112 4.6964636,4.6964998 0 0 1 1.9181199,6.6146197 4.6964636,4.6964998 0 0 1 6.6145835,1.9181199 4.6964636,4.6964998 0 0 1 11.311047,6.6146197 Z"
+       inkscape:export-filename="/home/felix/dotfiles/.config/sway/borders/v3/color0.png"
+       inkscape:export-xdpi="99.584984"
+       inkscape:export-ydpi="99.584984" />
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#073642;stroke-width:0.52916667;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path2271"
+       cx="-6.6145835"
+       cy="6.6146197"
+       r="3.5197361"
+       transform="scale(-1,1)"
+       inkscape:export-filename="/home/felix/dotfiles/.config/sway/borders/v3/color0.png"
+       inkscape:export-xdpi="99.584984"
+       inkscape:export-ydpi="99.584984" />
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+**/*.swp
+
+# no need to have this file ncspot generates
+.config/ncspot/userstate.cbor
+
+# I only need to back up SOME darktable files
+.config/darktable/data.db-*
+.config/darktable/data.db.lock
+.config/darktable/library.db*
+
+# qutebrowser stuff idk
+.config/qutebrowser/bookmarks
+.config/qutebrowser/greasemonkey
+.config/qutebrowser/qsettings

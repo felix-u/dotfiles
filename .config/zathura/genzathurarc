@@ -1,0 +1,71 @@
+set guioptions ""
+set selection-clipboard clipboard
+set font                        "$(wq fontmono) 12"
+
+set notification-error-fg       "$(wq color1)" #red
+set notification-warning-fg     "$(wq color3)" #yellow
+set notification-fg             "$(wq color2)" #green
+set inputbar-fg                 "$(wq color12)" #bright-blue
+set highlight-color             "$(wq color3)" #yellow
+set highlight-active-color      "$(wq color4)" #blue
+
+set render-loading              true
+set recolor                     "true"
+# setting recolor-keep true will keep any color your pdf has.
+# if it is false, it'll just be black and white
+set recolor-keephue             "true"
+
+
+# dark theme by default
+set notification-error-bg       "$(wq background)" #background
+set notification-warning-bg     "$(wq background)" #background
+set notification-bg             "$(wq background)" #backgound
+
+set completion-bg               "$(wq color0)" #colour0
+set completion-fg               "$(wq color15)" #foreground-dim
+set completion-group-bg         "$(wq color0)" #colour0
+set completion-group-fg         "$(wq color15)" #foreground-dim
+set completion-highlight-bg     "$(wq color8)" #bright black
+set completion-highlight-fg     "$(wq color15)" #foreground-dim
+
+set index-bg                    "$(wq background)" #background
+set index-fg                    "$(wq color15)" #foreground-dim
+set index-active-bg             "$(wq color8)" #colour8
+set index-active-fg             "$(wq color15)" #foreground-dim
+
+set inputbar-bg                 "$(wq color0)" #background
+set statusbar-bg                "$(wq color0)" #background
+set statusbar-fg                "$(wq color15)" #foreground-dim
+
+set default-bg                  "$(wq background)" #background
+set default-fg                  "$(wq foreground)" #foreground
+set render-loading-bg           "$(wq background)" #background
+set render-loading-fg           "$(wq foreground)" #foreground
+
+set recolor-lightcolor          "$(wq background)" #background
+set recolor-darkcolor           "$(wq foreground)" #foreground
+
+
+# light theme binding (press 1)
+map '1' feedkeys ":set statusbar-bg '$(wq light0)'<Return>3"
+map '3' feedkeys ":set statusbar-fg '$(wq lightfg)'<Return>4"
+map '4' feedkeys ":set default-bg '$(wq lightbg)'<Return>5"
+map '5' feedkeys ":set default-fg '$(wq lightfg)'<Return>6"
+map '6' feedkeys ":set render-loading-bg '$(wq lightbg)'<Return>7"
+map '7' feedkeys ":set render-loading-fg '$(wq lightfg)'<Return>8"
+map '8' feedkeys ":set recolor-lightcolor '$(wq lightbg)'<Return>9"
+map '9' feedkeys ":set recolor-darkcolor '$(wq lightfg)'<Return>"
+
+# dark theme binding (press 2)
+map '2' feedkeys ":set statusbar-bg '$(wq color0)'<Return>0"
+map '0' feedkeys ":set statusbar-fg '$(wq color15)'<Return>w"
+map 'w' feedkeys ":set default-bg '$(wq background)'<Return>f"
+map 'f' feedkeys ":set default-fg '$(wq foreground)'<Return>p"
+map 'p' feedkeys ":set render-loading-bg '$(wq background)'<Return>b"
+map 'b' feedkeys ":set render-loading-fg '$(wq foreground)'<Return>u"
+map 'u' feedkeys ":set recolor-lightcolor '$(wq background)'<Return>y"
+map 'y' feedkeys ":set recolor-darkcolor '$(wq foreground)'<Return>"
+
+
+
+# vim:ft=sh

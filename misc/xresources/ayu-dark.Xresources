@@ -1,0 +1,38 @@
+! ayu-dark
+! special
+*.foreground:   #d2d0cb
+*.background:   #131721
+*.cursorColor:  #d2d0cb
+
+! black
+*.color0:       #272b35
+*.color8:       #3c4048
+
+! red
+*.color1:       #f07178
+*.color9:       #f07178
+
+! green
+*.color2:       #aad94c
+*.color10:      #aad94c
+
+! yellow
+*.color3:       #ffb454
+*.color11:      #ffb454
+
+! blue
+*.color4:       #59c2ff
+*.color12:      #59c2ff
+
+! magenta
+*.color5:       #d2a6ff
+*.color13:      #d2a6ff
+
+! cyan
+*.color6:       #95e6cb
+*.color14:      #95e6cb
+
+! white
+*.color7:       #565b66
+*.color15:      #bfbdb6
+

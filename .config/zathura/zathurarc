@@ -1,0 +1,71 @@
+set guioptions ""
+set selection-clipboard clipboard
+set font                        "IosevkaCustom 12"
+
+set notification-error-fg       "#dc322f" #red
+set notification-warning-fg     "#b58900" #yellow
+set notification-fg             "#859900" #green
+set inputbar-fg                 "#268bd2" #bright-blue
+set highlight-color             "#b58900" #yellow
+set highlight-active-color      "#268bd2" #blue
+
+set render-loading              true
+set recolor                     "true"
+# setting recolor-keep true will keep any color your pdf has.
+# if it is false, it'll just be black and white
+set recolor-keephue             "true"
+
+
+# dark theme by default
+set notification-error-bg       "#002b36" #background
+set notification-warning-bg     "#002b36" #background
+set notification-bg             "#002b36" #backgound
+
+set completion-bg               "#073642" #colour0
+set completion-fg               "#839496" #foreground-dim
+set completion-group-bg         "#073642" #colour0
+set completion-group-fg         "#839496" #foreground-dim
+set completion-highlight-bg     "#224750" #bright black
+set completion-highlight-fg     "#839496" #foreground-dim
+
+set index-bg                    "#002b36" #background
+set index-fg                    "#839496" #foreground-dim
+set index-active-bg             "#224750" #colour8
+set index-active-fg             "#839496" #foreground-dim
+
+set inputbar-bg                 "#073642" #background
+set statusbar-bg                "#073642" #background
+set statusbar-fg                "#839496" #foreground-dim
+
+set default-bg                  "#002b36" #background
+set default-fg                  "#93a1a1" #foreground
+set render-loading-bg           "#002b36" #background
+set render-loading-fg           "#93a1a1" #foreground
+
+set recolor-lightcolor          "#002b36" #background
+set recolor-darkcolor           "#93a1a1" #foreground
+
+
+# light theme binding (press 1)
+map '1' feedkeys ":set statusbar-bg '#e2dac1'<Return>3"
+map '3' feedkeys ":set statusbar-fg '#586e75'<Return>4"
+map '4' feedkeys ":set default-bg '#eee8d5'<Return>5"
+map '5' feedkeys ":set default-fg '#586e75'<Return>6"
+map '6' feedkeys ":set render-loading-bg '#eee8d5'<Return>7"
+map '7' feedkeys ":set render-loading-fg '#586e75'<Return>8"
+map '8' feedkeys ":set recolor-lightcolor '#eee8d5'<Return>9"
+map '9' feedkeys ":set recolor-darkcolor '#586e75'<Return>"
+
+# dark theme binding (press 2)
+map '2' feedkeys ":set statusbar-bg '#073642'<Return>0"
+map '0' feedkeys ":set statusbar-fg '#839496'<Return>w"
+map 'w' feedkeys ":set default-bg '#002b36'<Return>f"
+map 'f' feedkeys ":set default-fg '#93a1a1'<Return>p"
+map 'p' feedkeys ":set render-loading-bg '#002b36'<Return>b"
+map 'b' feedkeys ":set render-loading-fg '#93a1a1'<Return>u"
+map 'u' feedkeys ":set recolor-lightcolor '#002b36'<Return>y"
+map 'y' feedkeys ":set recolor-darkcolor '#93a1a1'<Return>"
+
+
+
+# vim:ft=sh

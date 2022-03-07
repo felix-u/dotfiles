@@ -1,0 +1,99 @@
+#! /bin/sh
+
+xquery () {
+    xrdb -query | grep $1 | awk '{print $NF; exit}'
+}
+
+XDPI=$(bc <<< "scale=2; $(xquery dpi)/96")
+
+# if [ $(bc <<< "$XDPI / 2") -eq 1 ]; then
+if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
+    pkill sxhkd
+    pgrep -x sxhkd > /dev/null || sxhkd -c $HOME/.config/sxhkd/sxhkdrc $HOME/.config/sxhkd/qwertyrc &
+    touchegg &
+    dunst -conf ~/.config/dunst/thinkpadrc &
+    # Polybar - main bar
+    killall -q polybar
+    polybar laptop &
+fi
+# elif [ $(bc <<< "$XDPI / 1.25") -eq 1 ]; then
+if [[ $(cat /proc/sys/kernel/hostname) == "archbtw" ]]; then
+    pkill sxhkd
+    pgrep -x sxhkd > /dev/null || sxhkd -c $HOME/.config/sxhkd/sxhkdrc $HOME/.config/sxhkd/colemakrc &
+    dunst -conf ~/.config/dunst/desktoprc &
+    # Polybar - main bar
+    killall -q polybar
+    polybar desktop &
+fi
+
+# define workspaces
+bspc monitor -d "1" "2" "3" "4" "5" "6" "7" "8"
+
+dpi () {
+    VAL=$(bc <<< "scale=2; $1 * $XDPI");
+    printf "%.0f\n" "$(bc <<< "scale=2; $VAL + 0.01")"
+}
+
+GAP=$(dpi 7)
+echo $GAP > /tmp/gapreset
+echo $GAP > /tmp/gaps
+
+bspc config border_width        $(dpi 2)
+bspc config window_gap          $GAP
+
+bspc config split_ratio          0.5
+bspc config single_monocle true
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc config top_padding         $(dpi 38)
+
+# Borders
+exec ~/.config/bspwm/scripts/setborders.sh &
+
+# Workspaces
+bspc -monitor -d I II III IV V VI
+
+#
+#  ##   #    # #####  ####   ####  #####   ##   #####  #####
+# #  #  #    #   #   #    # #        #    #  #  #    #   #
+#    # #    #   #   #    #  ####    #   #    # #    #   #
+###### #    #   #   #    #      #   #   ###### #####    #
+#    # #    #   #   #    # #    #   #   #    # #   #    #
+#    #  ####    #    ####   ####    #   #    # #    #   #
+#
+#
+#
+#
+
+# Cursor
+xsetroot -cursor_name left_ptr &
+unclutter --hide-on-touch &
+# Wallpaper
+exec ~/.config/bspwm/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
+# Compositing
+pkill picom
+picom &
+# Bluetooth and WiFi applets
+# blueman-applet &
+# nm-applet &
+# --- replaced with polybar
+# Swallowing - cleanfullscreen doesn't play nicely with this
+pgrep bspswallow || exec ~/.config/bspwm/scripts/bspswallow &
+# Polkit agent
+polkit-dumb-agent &
+# emacs
+# emacs --daemon &
+# faster key repetition
+xset r rate 200 50
+
+# rules
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+bspc rule -a Zathura state=tiled
+bspc rule -a Emacs state=tiled
+
+# Compositing - catch if previous start failed
+picom &

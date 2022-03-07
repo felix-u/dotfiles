@@ -1,0 +1,95 @@
+:root {
+    --fg: #93a1a1;
+    --bg: #002b36;
+    --black: #073642;
+    --xcolor8: #224750;
+    --red: #dc322f;
+    --green: #859900;
+    --orange: #ca6721;
+    --yellow: #b58900;
+    --blue: #268bd2;
+    --magenta: #6c71c4;
+    --cyan: #2aa198;
+    --grey: #657b83;
+    --xcolor15: #839496;
+
+    --lightbg: #eee8d5;
+    --lightfg: #586e75;
+
+    --sans: Fira Sans;
+    --mono: IosevkaCustom;
+
+    --br: 2em;
+}
+
+main {
+    padding: var(--br);
+    margin: auto;
+    font-family: var(--sans);
+}
+
+.octicon-link { opacity: 0; }
+
+main[data-theme="dark"] {
+    background-color:  var(--bg);
+}
+main[data-theme="light"] {
+    background-color:  var(--lightbg);
+}
+
+hr {
+    color: var(--grey);
+}
+
+main[data-theme="dark"] h1 {color:  var(--fg);}
+main[data-theme="light"] h1 {color:  var(--lightfg);}
+main[data-theme="dark"] h2 {color:  var(--fg);}
+main[data-theme="light"] h2 {color:  var(--lightfg);}
+main[data-theme="dark"] h3 {color:  var(--fg);}
+main[data-theme="light"] h3 {color:  var(--lightfg);}
+main[data-theme="dark"] h4 {color:  var(--fg);}
+main[data-theme="light"] h4 {color:  var(--lightfg);}
+main[data-theme="dark"] h5 {color:  var(--fg);}
+main[data-theme="light"] h5 {color:  var(--lightfg);}
+main[data-theme="dark"] h6 {color:  var(--fg);}
+main[data-theme="light"] h6 {color:  var(--lightfg);}
+
+#page-header {
+    border: 0px transparent none;
+    color: var(--grey);
+    font-family: var(--mono);
+}
+main[data-theme="dark"] #page-header {
+    background-color: var(--bg);
+}
+main[data-theme="light"] #page-header {
+    background-color: var(--lightbg);
+}
+
+main[data-theme="dark"] #page-header {
+    background-color: var(--bg);
+}
+main[data-theme="light"] #page-header {
+    background-color: var(--lightbg);
+}
+
+main[data-theme="dark"] p {
+    color: var(--fg);
+}
+main[data-theme="light"] p {
+    color: var(--lightfg);
+}
+
+main[data-theme="dark"] h1 {
+    color: var(--fg);
+}
+main[data-theme="light"] h1 {
+    color: var(--lightfg);
+}
+
+main[data-theme="dark"] li {
+    color: var(--fg);
+}
+main[data-theme="light"] li {
+    color: var(--lightfg);
+}

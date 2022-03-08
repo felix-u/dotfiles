@@ -193,3 +193,7 @@ source "$XDG_CONFIG_HOME"/zsh/dmenu-aliases.sh
 
 # pomodoro timer
 alias pomo="~/dotfiles/scripts/pomo.sh"
+
+# vieb
+alias vieb="vieb --enable-features=UseOzonePlatform --ozone-platform=wayland --in-process-gpu --no-sandbox --enable-gpu"
+# alias vieb="vieb --enable-features=UseOzonePlatform --ozone-platform=wayland --in-process-gpu --disable-gpu"

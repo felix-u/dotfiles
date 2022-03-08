@@ -18,3 +18,13 @@
 .config/nnn/mounts
 .config/nnn/sessions
 .config/nnn/.selection
+
+# prepare for likely Vieb configs soon
+.config/Vieb/Crashpad
+.config/Vieb/favicons
+.config/Vieb/Local*
+.config/Vieb/Partitions
+.config/Vieb/*hist
+.config/Vieb/Network*
+.config/Vieb/tabs
+.config/Vieb/windowstate

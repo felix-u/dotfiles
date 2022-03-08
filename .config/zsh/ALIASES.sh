@@ -30,8 +30,8 @@ alias dsk="startx \"$HOME/.xinitrc\""
 alias cdu="cd ~/uni/2022/spring"
 alias agenda="nvim ~/uni/2022/spring/agenda/agenda.norg"
 
-alias la="ls --group-directories-first --color=always -lah"
-alias ls="ls --group-directories-first --color=always -a"
+alias la="ls --group-directories-first --color=always -lAh"
+alias ls="ls --group-directories-first --color=always -A"
 
 alias ytfzf="ytfzf -t"
 alias vim="nvim"

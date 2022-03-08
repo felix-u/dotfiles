@@ -1,0 +1,105 @@
+/* COLORS
+*/
+:root {
+    /* general */
+    --bg: $(wq background);
+    --fg: $(wq foreground);
+    --tab-background: $(wq background);
+    --tab-suspended: $(wq color7);
+    --visible-tab: $(wq color0);
+    --tab-split: $(wq color8);
+    --tab-audio: $(wq color4);
+    --tab-muted: $(wq foreground);
+    --tab-muted-playing: $(wq color3);
+    --tab-crashed: $(wq color1);
+    --tab-scrollbar: $(wq color6);
+    --container-background: none;
+    --mode-normal-fg: $(wq color15);
+    --mode-normal-bg: none;
+    --mode-command-fg: $(wq color1);
+    --mode-command-bg: none;
+    --mode-insert-fg: $(wq color2);
+    --mode-insert-bg: none;
+    --mode-follow-fg: $(wq color5);
+    --mode-follow-bg: none;
+    --mode-explore-fg: $(wq color6);
+    --mode-explore-bg: none;
+    --mode-search-fg: $(wq color3);
+    --mode-search-bg: none;
+    --mode-pointer-fg: $(wq color4);
+    --mode-pointer-bg: $(wq foreground);
+    --mode-visual-fg: $(wq background);
+    --mode-visual-bg: $(wq color4);
+    --url-default: $(wq background);
+    --url-search: $(wq color3);
+    --url-searchwords: $(wq color5);
+    --url-url: $(wq color6);
+    --url-suggest: $(wq color2);
+    --url-file: $(wq color2);
+    --url-invalid: $(wq color1);
+    --follow-text: $(wq color0);
+    --follow-url-bg: $(wq color4);
+    --follow-url-border: $(wq color4);
+    --follow-url-hover: $(wq color4)77;
+    --follow-click-bg: $(wq color5);
+    --follow-click-border: $(wq color5);
+    --follow-click-hover: $(wq color5)77;
+    --follow-insert-bg: $(wq color2);
+    --follow-insert-border: $(wq color2);
+    --follow-insert-hover: $(wq color2)77;
+    --follow-onclick-bg: $(wq color3);
+    --follow-onclick-border: $(wq color3);
+    --follow-onclick-hover: $(wq color3)77;
+    --follow-media-bg: $(wq color5);
+    --follow-media-border: $(wq color5);
+    --follow-media-hover: $(wq color5)77;
+    --follow-image-bg: $(wq color1);
+    --follow-image-border: $(wq color1);
+    --follow-image-hover: $(wq color1)77;
+    --follow-other-bg: $(wq foreground);
+    --follow-other-border: $(wq foreground);
+    --follow-other-hover: $(wq foreground)77;
+    --suggestions-border: $(wq color0);
+    --suggestions-bg: $(wq color0);
+    --suggestions-selected: $(wq color8);
+    --suggestions-searchwords: $(wq color5);
+    --suggestions-url: $(wq color4);
+    --suggestions-file: $(wq color3);
+    --notification-border: $(wq color0);
+    --notification-date: $(wq color7);
+    --notification-permission: $(wq color7);
+    --notification-error: $(wq color1);
+    --notification-warning: $(wq color3);
+    --notification-info: $(wq color4);
+    --notification-success: $(wq color2);
+    --url-hover-fg: $(wq background);
+    --url-hover-bg: $(wq foreground)99;
+    --screenshot-highlight: $(wq color4);
+    /* special pages */
+    --link-color: $(wq color4);
+    --link-underline: $(wq color0);
+    --scrollbar-bg: $(wq color0);
+    --scrollbar-thumb: $(wq foreground)99;
+    --button-disabled: $(wq color7);
+    --code-fg: $(wq foreground);
+    --code-bg: $(wq color0);
+    --code-command: $(wq color1);
+    --placeholder-text: $(wq color15);
+    --special-page-element-bg: $(wq color0);
+    --special-page-element-border: $(wq color0);
+    --input-unfocused: $(wq color8);
+    --input-focused: $(wq color7);
+    --download-progress-fg: $(wq color15);
+    --download-progress-bg: $(wq color8);
+    --helppage-h1: $(wq color1);
+    --helppage-h2: $(wq color1);
+    --helppage-h3: $(wq color1);
+    --helppage-countable: $(wq color3);
+    --helppage-range-compat: $(wq color3);
+}
+
+
+/*
+ * GLOBAL
+*/
+body {color: var(--fg);font: 14px "$(wq fontmono)", monospace;padding: 0;margin: 0;opacity: 0;}

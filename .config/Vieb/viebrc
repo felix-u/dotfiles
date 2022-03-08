@@ -62,4 +62,7 @@ cunmap <O>
 
 colorscheme xresources
 
+" empty new tab (don't show top sites)
+set favoritepages= suggesttopsites=0
+
 " vim: ft=vim

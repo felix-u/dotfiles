@@ -21,21 +21,12 @@ set tabreopenposition=previous
 set windowtitle=title
 
 " Mappings
-nmap <C-g> <toSearchMode><nextSearchMatch>
-nmap <C-G> <toSearchMode><previousSearchMatch>
 map <C-f> <toSearchMode>
-map <C-h> <:history>
-map <C-j> <:downloads>
-map <C-k> <toExploreMode>
 map <C-l> <toExploreMode>
-map <C-p> <:hardcopy>
-map <C-q> <:quit>
-map <C-w> <:close>
 map <C-s> <:write>
 map <C-t> <openNewTab><toExploreMode>
 map <C-I> <:devtools>
 map <C-T> <reopenTab>
-map <C-Y> <:downloads>
 map <C-0> <:b -1>
 map <C-1> <:b 0>
 map <C-2> <:b 1>
@@ -47,9 +38,6 @@ map <C-7> <:b 6>
 map <C-8> <:b 7>
 map <C-9> <:b 8>
 map <C-S> <:screenshot>
-vmap <C-f> <p.searchText>
-smap <C-g> <nextSearchMatch>
-smap <C-G> <previousSearchMatch>
 " -----------------------------------------------------------------------------
 "
 "                                 _
@@ -64,9 +52,14 @@ nmap <C-Left> K
 nmap <C-Right> J
 nmap <S-Left> <backInHistory>
 nmap <S-Right> <forwardInHistory>
+
 nmap <x> <:close>
 nmap <o> e
 nmap <O> E
+cunmap <x>
+cunmap <o>
+cunmap <O>
 
+colorscheme xresources
 
 " vim: ft=vim

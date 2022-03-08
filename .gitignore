@@ -20,11 +20,7 @@
 .config/nnn/.selection
 
 # prepare for likely Vieb configs soon
-.config/Vieb/Crashpad
-.config/Vieb/favicons
-.config/Vieb/Local*
-.config/Vieb/Partitions
-.config/Vieb/*hist
-.config/Vieb/Network*
-.config/Vieb/tabs
-.config/Vieb/windowstate
+.config/Vieb/*
+!.config/Vieb/extensions
+!.config/Vieb/blocklists
+!.config/Vieb/viebrc

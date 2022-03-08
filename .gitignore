@@ -1,17 +1,12 @@
 **/*.swp
 
-# no need to have this file ncspot generates
-.config/ncspot/userstate.cbor
-
-# I only need to back up SOME darktable files
-.config/darktable/data.db-*
-.config/darktable/data.db.lock
-.config/darktable/library.db*
+# ncspot
+.config/ncspot/*
+!.config/ncspot/config.toml
 
 # qutebrowser stuff idk
-.config/qutebrowser/bookmarks
-.config/qutebrowser/greasemonkey
-.config/qutebrowser/qsettings
+.config/qutebrowser/*
+!.config/qutebrowser/*config.py
 
 # nnn
 .config/nnn/bookmarks
@@ -19,10 +14,10 @@
 .config/nnn/sessions
 .config/nnn/.selection
 
-# prepare for likely Vieb configs soon
-.config/Vieb/*
-!.config/Vieb/extensions
-!.config/Vieb/blocklists
-!.config/Vieb/viebrc
-!.config/Vieb/colors
-!.config/Vieb/ignore
+# Vieb, if I end up trying it again
+# .config/Vieb/*
+# !.config/Vieb/extensions
+# !.config/Vieb/blocklists
+# !.config/Vieb/viebrc
+# !.config/Vieb/colors
+# !.config/Vieb/ignore

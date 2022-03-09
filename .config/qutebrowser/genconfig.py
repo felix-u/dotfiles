@@ -17,6 +17,7 @@ config.bind(",m", 'hint links spawn mpv {hint-url}')
 # clear downloads
 config.bind("xd", "download-clear")
 
+term = '$TERMINAL'
 colours = {
         'background': '$(wq background)',
         'foreground': '$(wq foreground)',
@@ -41,310 +42,181 @@ colours = {
 
 config.set("fonts.default_family", colours['fontmono'])
 
-# hide some stuff
-config.set("tabs.show", "never")
-config.set("statusbar.show", "never")
+# aesthetics
+c.tabs.show = "multiple"
+c.statusbar.show = "in-mode"
 
-## *.Background color of the completion widget category headers.
-## Type: QssColor
-c.colors.completion.category.bg = colours['background']
 
-## Bottom border color of the completion widget category headers.
-## Type: QssColor
-c.colors.completion.category.border.bottom = colours['background']
+#                      ____
+#     ____  ________  / __/____
+#    / __ \/ ___/ _ \/ /_/ ___/
+#   / /_/ / /  /  __/ __(__  )
+#  / .___/_/   \___/_/ /____/
+# /_/
+#
+#
+#
+#
+# refer to
+# https://github.com/qutebrowser/qutebrowser/blob/master/doc/help/settings.asciidoc
 
-## Top border color of the completion widget category headers.
-## Type: QssColor
-c.colors.completion.category.border.top = colours['background']
-
-## *.Foreground color of completion widget category headers.
-## Type: QtColor
+# completion menu -------------------------------------------------------------
+c.colors.completion.category.bg = colours['color0']
 c.colors.completion.category.fg = colours['foreground']
-
-## *.Background color of the completion widget for even rows.
-## Type: QssColor
-c.colors.completion.even.bg = colours['color0']
-
-## *.Background color of the completion widget for odd rows.
-## Type: QssColor
-c.colors.completion.odd.bg = colours['color0']
-
-## Text color of the completion widget.
-## Type: QtColor
+#
+c.colors.completion.category.border.bottom = colours['background']
+c.colors.completion.category.border.top = colours['background']
+#
+c.colors.completion.even.bg = colours['background']
+c.colors.completion.odd.bg = colours['background']
 c.colors.completion.fg = colours['color15']
-
-## *.Background color of the selected completion item.
-## Type: QssColor
+#
 c.colors.completion.item.selected.bg = colours['color8']
-
-## Bottom border color of the selected completion item.
-## Type: QssColor
 c.colors.completion.item.selected.border.bottom = colours['color8']
-
-## Top border color of the completion widget category headers.
-## Type: QssColor
 c.colors.completion.item.selected.border.top = colours['color8']
-
-## *.Foreground color of the selected completion item.
-## Type: QtColor
 c.colors.completion.item.selected.fg = colours['foreground']
-
-## *.Foreground color of the matched text in the completion.
-## Type: QssColor
-c.colors.completion.match.fg = colours['color3']
-
-## Color of the scrollbar in completion view
-## Type: QssColor
+#
+c.colors.completion.match.fg = colours['color2']
+#
 c.colors.completion.scrollbar.bg = colours['color0']
+c.colors.completion.scrollbar.fg = colours['color7']
+# -----------------------------------------------------------------------------
 
-## Color of the scrollbar handle in completion view.
-## Type: QssColor
-c.colors.completion.scrollbar.fg = colours['foreground']
+# context menu (right click) --------------------------------------------------
+c.colors.contextmenu.disabled.bg = colours['color0']
+c.colors.contextmenu.disabled.fg = colours['color7']
+c.colors.contextmenu.menu.bg = colours['color0']
+c.colors.contextmenu.menu.fg = colours['color15']
+c.colors.contextmenu.selected.bg = colours['color8']
+c.colors.contextmenu.selected.fg = colours['foreground']
+# -----------------------------------------------------------------------------
 
-## *.Background color for the download bar.
-## Type: QssColor
-c.colors.downloads.bar.bg = colours['background']
-
-## *.Background color for downloads with errors.
-## Type: QtColor
+# download bar ----------------------------------------------------------------
+c.colors.downloads.bar.bg = colours['color0']
+#
 c.colors.downloads.error.bg = colours['color1']
-
-## *.Foreground color for downloads with errors.
-## Type: QtColor
-c.colors.downloads.error.fg = colours['foreground']
-
-## Color gradient stop for download *.backgrounds.
-## Type: QtColor
-c.colors.downloads.stop.bg = colours['color5']
-
-## Color gradient interpolation system for download *.backgrounds.
-## Type: ColorSystem
-## Valid values:
-##   - rgb: Interpolate in the RGB color system.
-##   - hsv: Interpolate in the HSV color system.
-##   - hsl: Interpolate in the HSL color system.
-##   - none: Don't show a gradient.
+c.colors.downloads.error.fg = colours['background']
+#
+c.colors.downloads.start.bg = colours['background']
+c.colors.downloads.start.fg = colours['foreground']
+c.colors.downloads.stop.bg = colours['background']
+c.colors.downloads.stop.fg = colours['foreground']
+#
 c.colors.downloads.system.bg = 'none'
+c.colors.downloads.system.fg = 'none'
+# -----------------------------------------------------------------------------
 
-## Type: QssColor
-c.colors.hints.bg = colours['color3']
-
-## Font color for hints.
-## Type: QssColor
-c.colors.hints.fg = colours['background']
-
-## Font color for the matched part of hints.
-## Type: QssColor
-c.colors.hints.match.fg = colours['color4']
-
-## *.Background color of the keyhint widget.
-## Type: QssColor
+# hints (labels on links) -----------------------------------------------------
+c.colors.hints.bg = colours['color0']
+c.colors.hints.fg = colours['color4']
+c.colors.hints.match.fg = colours['color2']
 c.colors.keyhint.bg = colours['color0']
-
-## Text color for the keyhint widget.
-## Type: QssColor
 c.colors.keyhint.fg = colours['foreground']
+c.colors.keyhint.suffix.fg = colours['color5']
+#
+c.hints.border = '0px solid #000000'
+c.hints.mode = 'number'
+# -----------------------------------------------------------------------------
 
-## Highlight color for keys to complete the current keychain.
-## Type: QssColor
-c.colors.keyhint.suffix.fg = colours['color3']
-
-## *.Background color of an error message.
-## Type: QssColor
+# info and error messages -----------------------------------------------------
 c.colors.messages.error.bg = colours['color1']
-
-## Border color of an error message.
-## Type: QssColor
 c.colors.messages.error.border = colours['color1']
-
-## *.Foreground color of an error message.
-## Type: QssColor
-c.colors.messages.error.fg = colours['foreground']
-
-## *.Background color of an info message.
-## Type: QssColor
-c.colors.messages.info.bg = colours['color6']
-
-## Border color of an info message.
-## Type: QssColor
-c.colors.messages.info.border = colours['color6']
-
-## *.Foreground color an info message.
-## Type: QssColor
+c.colors.messages.error.fg = colours['background']
+c.colors.messages.info.bg = colours['color0']
+c.colors.messages.info.border = colours['color0']
 c.colors.messages.info.fg = colours['foreground']
+c.colors.messages.warning.bg = colours['color3']
+c.colors.messages.warning.border = colours['color3']
+c.colors.messages.warning.fg = colours['background']
+# -----------------------------------------------------------------------------
 
-## *.Background color of a warning message.
-## Type: QssColor
-c.colors.messages.warning.bg = colours['color1']
-
-## Border color of a warning message.
-## Type: QssColor
-c.colors.messages.warning.border = colours['color1']
-
-## *.Foreground color a warning message.
-## Type: QssColor
-c.colors.messages.warning.fg = colours['foreground']
-
-## *.Background color for prompts.
-## Type: QssColor
-c.colors.prompts.bg = colours['color8']
-
-# ## Border used around UI elements in prompts.
-# ## Type: String
-c.colors.prompts.border = '1px solid ' + colours['background']
-
-## *.Foreground color for prompts.
-## Type: QssColor
-c.colors.prompts.fg = colours['foreground']
-
-## *.Background color for the selected item in filename prompts.
-## Type: QssColor
+# prompts ---------------------------------------------------------------------
+c.colors.prompts.bg = colours['color0']
+c.colors.prompts.border = colours['color0']
+c.colors.prompts.fg = colours['color15']
 c.colors.prompts.selected.bg = colours['color8']
+c.colors.prompts.selected.fg = colours['foreground']
+# -----------------------------------------------------------------------------
 
-## *.Background color of the statusbar in caret mode.
-## Type: QssColor
-c.colors.statusbar.caret.bg = colours['color5']
-
-## *.Foreground color of the statusbar in caret mode.
-## Type: QssColor
-c.colors.statusbar.caret.fg = colours['foreground']
-
-## *.Background color of the statusbar in caret mode with a selection.
-## Type: QssColor
-c.colors.statusbar.caret.selection.bg = colours['color5']
-
-## *.Foreground color of the statusbar in caret mode with a selection.
-## Type: QssColor
-c.colors.statusbar.caret.selection.fg = colours['foreground']
-
-## *.Background color of the statusbar in command mode.
-## Type: QssColor
-c.colors.statusbar.command.bg = colours['color8']
-
-## *.Foreground color of the statusbar in command mode.
-## Type: QssColor
+# statusbar -------------------------------------------------------------------
+c.colors.statusbar.caret.bg = colours['color6']
+c.colors.statusbar.caret.fg = colours['background']
+c.colors.statusbar.caret.selection.bg = colours['color4']
+c.colors.statusbar.caret.selection.fg = colours['background']
+#
+c.colors.statusbar.command.bg = colours['color0']
 c.colors.statusbar.command.fg = colours['foreground']
-
-## *.Background color of the statusbar in private browsing + command mode.
-## Type: QssColor
-c.colors.statusbar.command.private.bg = colours['color8']
-
-## *.Foreground color of the statusbar in private browsing + command mode.
-## Type: QssColor
-c.colors.statusbar.command.private.fg = colours['foreground']
-
-## *.Background color of the statusbar in insert mode.
-## Type: QssColor
-c.colors.statusbar.insert.bg = colours['color2']
-
-## *.Foreground color of the statusbar in insert mode.
-## Type: QssColor
-c.colors.statusbar.insert.fg = colours['color0']
-
-## *.Background color of the statusbar.
-## Type: QssColor
-c.colors.statusbar.normal.bg = colours['background']
-
-## *.Foreground color of the statusbar.
-## Type: QssColor
+c.colors.statusbar.command.private.bg = colours['color5']
+c.colors.statusbar.command.private.fg = colours['background']
+#
+c.colors.statusbar.insert.bg = colours['color0']
+c.colors.statusbar.insert.fg = colours['color2']
+#
+c.colors.statusbar.normal.bg = colours['color0']
 c.colors.statusbar.normal.fg = colours['foreground']
-
-## *.Background color of the statusbar in passthrough mode.
-## Type: QssColor
+#
 c.colors.statusbar.passthrough.bg = colours['color4']
-
-## *.Foreground color of the statusbar in passthrough mode.
-## Type: QssColor
-c.colors.statusbar.passthrough.fg = colours['foreground']
-
-## *.Background color of the statusbar in private browsing mode.
-## Type: QssColor
-c.colors.statusbar.private.bg = colours['color8']
-
-## *.Foreground color of the statusbar in private browsing mode.
-## Type: QssColor
-c.colors.statusbar.private.fg = colours['foreground']
-
-## *.Background color of the progress bar.
-## Type: QssColor
-c.colors.statusbar.progress.bg = colours['foreground']
-
-## *.Foreground color of the URL in the statusbar on error.
-## Type: QssColor
+c.colors.statusbar.passthrough.fg = colours['background']
+#
+c.colors.statusbar.private.bg = colours['color5']
+c.colors.statusbar.private.fg = colours['background']
+#
+c.colors.statusbar.progress.bg = colours['color8']
+#
 c.colors.statusbar.url.error.fg = colours['color1']
-
-## Default *.foreground color of the URL in the statusbar.
-## Type: QssColor
 c.colors.statusbar.url.fg = colours['foreground']
-
-## *.Foreground color of the URL in the statusbar for hovered links.
-## Type: QssColor
 c.colors.statusbar.url.hover.fg = colours['color6']
-
-## *.Foreground color of the URL in the statusbar on successful load
-## (http).
-## Type: QssColor
-c.colors.statusbar.url.success.http.fg = colours['foreground']
-
-## *.Foreground color of the URL in the statusbar on successful load
-## (https).
-## Type: QssColor
+c.colors.statusbar.url.success.http.fg = colours['color3']
 c.colors.statusbar.url.success.https.fg = colours['color2']
-
-## *.Foreground color of the URL in the statusbar when there's a warning.
-## Type: QssColor
 c.colors.statusbar.url.warn.fg = colours['color1']
+# -----------------------------------------------------------------------------
 
-## *.Background color of the tab bar.
-## Type: QtColor
-c.colors.tabs.bar.bg = colours['color8']
-
-## *.Background color of unselected even tabs.
-## Type: QtColor
-c.colors.tabs.even.bg = colours['color8']
-
-## *.Foreground color of unselected even tabs.
-## Type: QtColor
-c.colors.tabs.even.fg = colours['foreground']
-
-## Color for the tab indicator on errors.
-## Type: QtColor
+# tabs ------------------------------------------------------------------------
+c.colors.tabs.bar.bg = colours['background']
+c.colors.tabs.even.bg = colours['background']
+c.colors.tabs.even.fg = colours['color7']
+c.colors.tabs.odd.bg = colours['background']
+c.colors.tabs.odd.fg = colours['color7']
+#
 c.colors.tabs.indicator.error = colours['color1']
-
-## Color gradient interpolation system for the tab indicator.
-## Type: ColorSystem
-## Valid values:
-##   - rgb: Interpolate in the RGB color system.
-##   - hsv: Interpolate in the HSV color system.
-##   - hsl: Interpolate in the HSL color system.
-##   - none: Don't show a gradient.
+c.colors.tabs.indicator.start = colours['color4']
+c.colors.tabs.indicator.stop = colours['color4']
 c.colors.tabs.indicator.system = 'none'
-
-## *.Background color of unselected odd tabs.
-## Type: QtColor
-c.colors.tabs.odd.bg = colours['color8']
-
-## *.Foreground color of unselected odd tabs.
-## Type: QtColor
-c.colors.tabs.odd.fg = colours['foreground']
-
-# ## *.Background color of selected even tabs.
-# ## Type: QtColor
-c.colors.tabs.selected.even.bg = colours['background']
-
-# ## *.Foreground color of selected even tabs.
-# ## Type: QtColor
+#
+c.colors.tabs.pinned.even.bg = colours['background']
+c.colors.tabs.pinned.even.fg = colours['foreground']
+c.colors.tabs.pinned.odd.bg = colours['background']
+c.colors.tabs.pinned.odd.fg = colours['foreground']
+c.colors.tabs.pinned.selected.even.bg = colours['background']
+c.colors.tabs.pinned.selected.even.fg = colours['foreground']
+c.colors.tabs.pinned.selected.odd.bg = colours['background']
+c.colors.tabs.pinned.selected.odd.fg = colours['foreground']
+#
+c.colors.tabs.selected.even.bg = colours['color0']
+c.colors.tabs.selected.odd.bg = colours['color0']
 c.colors.tabs.selected.even.fg = colours['foreground']
-
-# ## *.Background color of selected odd tabs.
-# ## Type: QtColor
-c.colors.tabs.selected.odd.bg = colours['background']
-
-# ## *.Foreground color of selected odd tabs.
-# ## Type: QtColor
 c.colors.tabs.selected.odd.fg = colours['foreground']
+# -----------------------------------------------------------------------------
 
-## *.Background color for webpages if unset (or empty to use the theme's
-## color)
-## Type: QtColor
+# webpage ---------------------------------------------------------------------
 c.colors.webpage.bg = colours['background']
+c.colors.webpage.preferred_color_scheme = 'dark'
+# -----------------------------------------------------------------------------
+
+# content settings ------------------------------------------------------------
+c.content.blocking.enabled = True
+c.content.blocking.method = 'both'
+c.content.cookies.accept = "no-3rdparty"
+# -----------------------------------------------------------------------------
+
+# downloads -------------------------------------------------------------------
+c.downloads.location.remember = False
+c.downloads.position = 'bottom'
+# -----------------------------------------------------------------------------
+
+# fileselect ------------------------------------------------------------------
+c.fileselect.folder.command = [term, "-e", "ranger", "--choosedir={}"]
+c.fileselect.handler = 'external'
+c.fileselect.multiple_files.command = [term, "-e", "ranger", "--choosefiles={}"]
+c.fileselect.single_file.command = [term, "-e", "ranger", "--choosefile={}"]
+# -----------------------------------------------------------------------------

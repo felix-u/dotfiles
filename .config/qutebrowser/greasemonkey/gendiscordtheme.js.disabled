@@ -1,0 +1,20 @@
+// ==UserScript==
+// @name          Discord theme
+// @run-at        document-end
+// @grant         none
+// @include       https://discord.com/*
+// @noframes
+// ==/UserScript==
+
+function GM_addStyle (cssStr) {
+    var D               = document;
+    var newNode         = D.createElement ('style');
+    newNode.textContent = cssStr;
+
+    var targ    = D.getElementsByTagName ('head')[0] || D.body || D.documentElement;
+    targ.appendChild (newNode);
+}
+
+GM_addStyle ( \`
+$(cat ~/dotfiles/misc/css/discord.css)
+\` )

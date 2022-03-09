@@ -27,7 +27,7 @@ dunst &
 echo "dunst"
 
 # firefox
-wgen ~/dotfiles/.config/firefox/chrome/genuserChrome.css ~/dotfiles/.config/firefox/chrome/userChrome.css &
+wgen ~/dotfiles/firefox/chrome/genuserChrome.css ~/dotfiles/firefox/chrome/userChrome.css &
 echo "firefox"
 
 # nvim
@@ -52,6 +52,12 @@ echo "css"
 
 # qutebrowser
 wgen "$XDG_CONFIG_HOME"/qutebrowser/genconfig.py "$XDG_CONFIG_HOME"/qutebrowser/config.py &
+wgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/gendarkreader.js.disabled \
+     "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/darkreader.js &
+wgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/gendiscordtheme.js.disabled \
+     "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/discordtheme.js &
+wgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/genelementtheme.js.disabled \
+     "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/elementtheme.js &
 echo "qutebrowser"
 
 # wallpaper

@@ -206,7 +206,6 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 c.content.blocking.enabled = True
 c.content.blocking.method = 'both'
 c.content.cookies.accept = "no-3rdparty"
-c.content.user_stylesheets = "~/dotfiles/misc/css/everything.css"
 # -----------------------------------------------------------------------------
 
 # downloads -------------------------------------------------------------------
@@ -230,11 +229,15 @@ c.new_instance_open_target = 'window'
 # -----------------------------------------------------------------------------
 
 # url -------------------------------------------------------------------------
-c.url.default_page = "https://search.brave.com"
-c.url.searchengines = {"DEFAULT": "https://search.brave.com/search?q={}"}
-c.url.start_pages = "https://search.brave.com"
+# google for now, because brave doesn't work with stripped down dark reader
+c.url.default_page = "https://google.com"
+c.url.searchengines = {"DEFAULT": "https://google.com/search?q={}"}
+c.url.start_pages = "https://google.com"
 # -----------------------------------------------------------------------------
 
+# editor ----------------------------------------------------------------------
+c.editor.command = [term, "-e", "nvim", "{file}", "-c", "{line}"]
+# -----------------------------------------------------------------------------
 
 #
 # bindings
@@ -243,6 +246,9 @@ c.url.start_pages = "https://search.brave.com"
 
 # open videos with mpv
 config.bind(",m", 'hint links spawn mpv {hint-url}')
+
+# toggle custom stylesheet
+config.bind(",d", "config-cycle content.user_stylesheets '~/dotfiles/misc/css/everything.css' '' ")
 
 # clear downloads
 config.bind("xd", "download-clear")

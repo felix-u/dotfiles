@@ -1,0 +1,20 @@
+// ==UserScript==
+// @name          Element theme
+// @run-at        document-end
+// @grant         none
+// @include       https://app.element.io/*
+// @noframes
+// ==/UserScript==
+
+function GM_addStyle (cssStr) {
+    var D               = document;
+    var newNode         = D.createElement ('style');
+    newNode.textContent = cssStr;
+
+    var targ    = D.getElementsByTagName ('head')[0] || D.body || D.documentElement;
+    targ.appendChild (newNode);
+}
+
+GM_addStyle ( \`
+$(cat ~/dotfiles/misc/css/element.css)
+\` )

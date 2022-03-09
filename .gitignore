@@ -7,6 +7,7 @@
 # qutebrowser stuff idk
 .config/qutebrowser/*
 !.config/qutebrowser/*config.py
+!.config/qutebrowser/greasemonkey
 
 # nnn
 .config/nnn/bookmarks

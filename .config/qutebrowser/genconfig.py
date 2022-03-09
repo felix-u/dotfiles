@@ -11,12 +11,6 @@ config.load_autoconfig(False)
 config.set("zoom.default", "100%")
 config.set("qt.highdpi", True)
 
-# open videos with mpv
-config.bind(",m", 'hint links spawn mpv {hint-url}')
-
-# clear downloads
-config.bind("xd", "download-clear")
-
 term = '$TERMINAL'
 colours = {
         'background': '$(wq background)',
@@ -41,10 +35,6 @@ colours = {
         }
 
 config.set("fonts.default_family", colours['fontmono'])
-
-# aesthetics
-c.tabs.show = "multiple"
-c.statusbar.show = "in-mode"
 
 
 #                      ____
@@ -169,6 +159,9 @@ c.colors.statusbar.url.hover.fg = colours['color6']
 c.colors.statusbar.url.success.http.fg = colours['color3']
 c.colors.statusbar.url.success.https.fg = colours['color2']
 c.colors.statusbar.url.warn.fg = colours['color1']
+#
+c.statusbar.padding = {"bottom": 6, "left": 4, "right": 4, "top": 6}
+c.statusbar.show = "in-mode"
 # -----------------------------------------------------------------------------
 
 # tabs ------------------------------------------------------------------------
@@ -187,15 +180,21 @@ c.colors.tabs.pinned.even.bg = colours['background']
 c.colors.tabs.pinned.even.fg = colours['foreground']
 c.colors.tabs.pinned.odd.bg = colours['background']
 c.colors.tabs.pinned.odd.fg = colours['foreground']
-c.colors.tabs.pinned.selected.even.bg = colours['background']
+c.colors.tabs.pinned.selected.even.bg = colours['color0']
 c.colors.tabs.pinned.selected.even.fg = colours['foreground']
-c.colors.tabs.pinned.selected.odd.bg = colours['background']
+c.colors.tabs.pinned.selected.odd.bg = colours['color0']
 c.colors.tabs.pinned.selected.odd.fg = colours['foreground']
 #
 c.colors.tabs.selected.even.bg = colours['color0']
 c.colors.tabs.selected.odd.bg = colours['color0']
 c.colors.tabs.selected.even.fg = colours['foreground']
 c.colors.tabs.selected.odd.fg = colours['foreground']
+#
+c.tabs.show = "multiple"
+c.tabs.indicator.padding = {"bottom": 4, "left": 1, "right": 8, "top": 4}
+c.tabs.last_close = 'close'
+c.tabs.padding = {"bottom": 6, "left": 9, "right": 9, "top": 6}
+c.tabs.select_on_remove = 'prev'
 # -----------------------------------------------------------------------------
 
 # webpage ---------------------------------------------------------------------
@@ -220,3 +219,48 @@ c.fileselect.handler = 'external'
 c.fileselect.multiple_files.command = [term, "-e", "ranger", "--choosefiles={}"]
 c.fileselect.single_file.command = [term, "-e", "ranger", "--choosefile={}"]
 # -----------------------------------------------------------------------------
+
+# input behaviour -------------------------------------------------------------
+c.input.insert_mode.auto_load = True
+# -----------------------------------------------------------------------------
+
+# new instance behaviour ------------------------------------------------------
+c.new_instance_open_target = 'window'
+# -----------------------------------------------------------------------------
+
+# url -------------------------------------------------------------------------
+c.url.default_page = "https://search.brave.com"
+c.url.searchengines = {"DEFAULT": "https://search.brave.com/?q={}"}
+c.url.start_pages = "https://search.brave.com"
+# -----------------------------------------------------------------------------
+
+
+#
+# bindings
+#
+#
+
+# open videos with mpv
+config.bind(",m", 'hint links spawn mpv {hint-url}')
+
+# clear downloads
+config.bind("xd", "download-clear")
+
+# ctrl instead of alt for navigation by tab number
+config.bind("<Ctrl-1>", "tab-focus 1")
+config.bind("<Ctrl-2>", "tab-focus 2")
+config.bind("<Ctrl-3>", "tab-focus 3")
+config.bind("<Ctrl-4>", "tab-focus 4")
+config.bind("<Ctrl-5>", "tab-focus 5")
+config.bind("<Ctrl-6>", "tab-focus 6")
+config.bind("<Ctrl-7>", "tab-focus 7")
+config.bind("<Ctrl-8>", "tab-focus 8")
+config.bind("<Ctrl-9>", "tab-focus -1")
+
+# tab navigation by direction
+config.bind("<Ctrl-Left>", "tab-prev")
+config.bind("<Ctrl-Right>", "tab-next")
+
+# history using arrow keys
+config.bind("<Shift-Left>", "back")
+config.bind("<Shift-Right>", "forward")

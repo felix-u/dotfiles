@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+grep "$1:" "$XRESOURCES" | awk '{print $2}'

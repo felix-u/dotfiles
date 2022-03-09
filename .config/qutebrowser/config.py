@@ -272,6 +272,9 @@ config.bind("<Ctrl-Right>", "tab-next")
 config.bind("<Shift-Left>", "back")
 config.bind("<Shift-Right>", "forward")
 
+# fix clipboard behaviour
+config.bind("<Ctrl-v>", 'insert-text {primary}', mode='insert')
+c.content.javascript.can_access_clipboard = True
 
 #
 # stylesheets and other per-domain settings

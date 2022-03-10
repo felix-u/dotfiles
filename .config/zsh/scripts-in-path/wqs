@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+wq "$1" | tr -d \#

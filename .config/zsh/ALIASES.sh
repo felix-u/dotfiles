@@ -72,17 +72,10 @@ xquerystrip () {
     xquery $1 | tr -d \#
 }
 
-# same, but not dependent on X
-wq () {
-    grep "$1:" ~/.Xresources | awk '{print $2}'
-}
-wqs () {
-    wq $1 | tr -d \#
-}
-
 tint () {
     convert $3 -fill $(wq $1) -colorize $2 $4
 }
+
 alias mclr="~/Desktop/mclr/mclr"
 
 schemereload () {
@@ -193,7 +186,3 @@ source "$XDG_CONFIG_HOME"/zsh/dmenu-aliases.sh
 
 # pomodoro timer
 alias pomo="~/dotfiles/scripts/pomo.sh"
-
-# vieb
-alias vieb="vieb --enable-features=UseOzonePlatform --ozone-platform=wayland --in-process-gpu --no-sandbox --enable-gpu"
-# alias vieb="vieb --enable-features=UseOzonePlatform --ozone-platform=wayland --in-process-gpu --disable-gpu"

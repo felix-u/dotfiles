@@ -1,18 +1,5 @@
 #!/usr/bin/env bash
 
-wq () {
-    grep "$1:" ~/.Xresources | awk '{print $2}'
-}
-
-wqs () {
-    wq $1 | tr -d \#
-}
-
-dpi () {
-    VAL=$(bc <<< "scale=2; $1 * $WDPI");
-    printf "%.0f\n" "$(bc <<< "scale=2; $VAL + 0.01")"
-}
-
 WFG=$(wq foreground)
 WBG=$(wq background)
 W00=$(wq color0)
@@ -47,7 +34,7 @@ FILES='thunar'
 SLURP="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
 
 swaymsg "bindsym $MOD+Return exec $TERM" &
-swaymsg "bindsym $MOD+d exec ~/.config/sway/scripts/menu.sh"
+swaymsg "bindsym $MOD+d exec ~/.config/sway/scripts/menu.sh" &
 
 #
 #####  # #    # #####  # #    #  ####   ####
@@ -64,7 +51,8 @@ swaymsg "bindsym $MOD+d exec ~/.config/sway/scripts/menu.sh"
 # apps and scripts
 # when having xwayland installed, some apps may prefer X even if working fine
 # on wayland. launch them with DISPLAY=wayland-0
-swaymsg "bindsym $MOD+b exec MOZ_ENABLE_WAYLAND=1 firefox" &
+swaymsg "bindsym $MOD+b exec $BROWSER" &
+swaymsg "bindsym $MOD+$ALT+b exec MOZ_ENABLE_WAYLAND=1 firefox" &
 swaymsg "bindsym $MOD+a exec $FILES" &
 swaymsg "bindsym $MOD+z exec zathura" &
 #

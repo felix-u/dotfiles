@@ -4,20 +4,20 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$XDG_CONFIG_HOME/zsh/scripts-in-path:$PATH"
 export PKG_CONFIG_PATH="/usr/include"
 export BAT_THEME="ansi"
-export BROWSER="firefox"
 
 # Defaults
 export TERMINAL='foot'
-export TERM='foot'
+export TERM="$TERMINAL"
 export TERM_ITALICS=true
 export EDITOR='nvim'
-export VISUAL='nvim'
+export VISUAL="$TERMINAL -e nvim"
 export READER='zathura'
 export VIDEO='mpv'
 export IMAGE='imv'
 export WM='sway'
 export PAGER='less'
 export MANPAGER=$PAGER
+export BROWSER="qutebrowser"
 
 # LESS colours
 export LESS_TERMCAP_mb=$'\e[1;36m'

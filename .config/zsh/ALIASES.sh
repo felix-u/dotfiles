@@ -186,3 +186,8 @@ source "$XDG_CONFIG_HOME"/zsh/dmenu-aliases.sh
 
 # pomodoro timer
 alias pomo="~/dotfiles/scripts/pomo.sh"
+
+# read markdown with w3m
+mdread () {
+    pandoc $1 --to html5 | w3m -T text/html
+}

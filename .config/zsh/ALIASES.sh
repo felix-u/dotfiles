@@ -33,7 +33,7 @@ alias agenda="nvim ~/uni/2022/spring/agenda/agenda.norg"
 alias la="ls --group-directories-first --color=always -lAh"
 alias ls="ls --group-directories-first --color=always -A"
 
-alias ytfzf="ytfzf -t"
+alias ytfzf="ytfzf -t --thumb-viewer=catimg --thumbnail-quality=medium"
 alias vim="nvim"
 alias v="nvim"
 alias onefetch="onefetch --true-color never"

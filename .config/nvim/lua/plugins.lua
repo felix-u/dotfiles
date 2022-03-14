@@ -91,6 +91,12 @@ return require('packer').startup{function(use, vim)
         run = ':TSUpdate',
     }
 
+    -- syntax highlighting for kerboscript (syntax used in kOS scripts)
+    use {
+        'KSP-KOS/EditorTools',
+        rtp = 'VIM/vim-kerboscript'
+    }
+
     -- colour schemes (which I probably won't actually use)
     use 'rktjmp/lush.nvim'
     use 'sainnhe/gruvbox-material'

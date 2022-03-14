@@ -43,6 +43,7 @@ export NNN_BMS="r:$HOME/Desktop/recordings;\
 s:$HOME/Pictures/screenshots;\
 h:$HOME;\
 d:$HOME/dotfiles;\
+m:/mnt;\
 u:$HOME/uni/2022/spring;"
 
 # xdg-open and xdg-mime associations

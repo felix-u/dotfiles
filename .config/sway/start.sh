@@ -1,30 +1,38 @@
 #!/usr/bin/env bash
 
-WFG=$(wq foreground)
-WBG=$(wq background)
-W00=$(wq color0)
-W01=$(wq color1)
-W02=$(wq color2)
-W03=$(wq color3)
-W04=$(wq color4)
-W05=$(wq color5)
-W06=$(wq color6)
-W07=$(wq color7)
-W08=$(wq color8)
-W15=$(wq color15)
+wq () {
+    grep "$1:" "$XRESOURCES" | awk '{print $2}'
+}
 
-WSFG=$(wqs foreground)
-WSBG=$(wqs background)
-WS00=$(wqs color0)
-WS01=$(wqs color1)
-WS02=$(wqs color2)
-WS03=$(wqs color3)
-WS04=$(wqs color4)
-WS05=$(wqs color5)
-WS06=$(wqs color6)
-WS07=$(wqs color7)
-WS08=$(wqs color8)
-WS15=$(wqs color15)
+wqs () {
+    wq "$1" | tr -d \#
+}
+
+WFG="$(wq foreground)"
+WBG="$(wq background)"
+W00="$(wq color0)"
+W01="$(wq color1)"
+W02="$(wq color2)"
+W03="$(wq color3)"
+W04="$(wq color4)"
+W05="$(wq color5)"
+W06="$(wq color6)"
+W07="$(wq color7)"
+W08="$(wq color8)"
+W15="$(wq color15)"
+
+WSFG="$(wqs foreground)"
+WSBG="$(wqs background)"
+WS00="$(wqs color0)"
+WS01="$(wqs color1)"
+WS02="$(wqs color2)"
+WS03="$(wqs color3)"
+WS04="$(wqs color4)"
+WS05="$(wqs color5)"
+WS06="$(wqs color6)"
+WS07="$(wqs color7)"
+WS08="$(wqs color8)"
+WS15="$(wqs color15)"
 
 MOD='Mod4'
 ALT='Mod1'
@@ -134,20 +142,19 @@ swaymsg "smart_gaps off" &
 #
 swaymsg "font pango:Fira Sans Medium 12" &
 swaymsg "title_format %app_id" &
-CLRFOCUSED=${W08}
-CLRUNFOCUSED=${W00}
-#               class        border       background       text     indicator    child border
-swaymsg "client.focused $CLRUNFOCUSED $CLRFOCUSED ${WFG} $CLRFOCUSED $CLRFOCUSED" &
-swaymsg "client.focused_inactive \
-                        $CLRUNFOCUSED $CLRUNFOCUSED ${WFG} $CLRUNFOCUSED $CLRUNFOCUSED" &
-swaymsg "client.unfocused \
-                        $CLRUNFOCUSED ${WBG} ${WFG} ${W15} $CLRUNFOCUSED" &
-swaymsg "client.urgent  ${W01} $CLRUNFOCUSED ${WFG} ${W15} $CLRUNFOCUSED" &
-swaymsg "client.placeholder \
-                  ${WBG} ${WBG} ${WFG} ${WBG} ${WBG}" &
 
-# # #
-swaymsg "default_border pixel 3" & # remove titlebar
+CLRFOCUSED="$W08"
+CLRUNFOCUSED="$W00"
+swaymsg "default_border pixel 3"
+#               class        border       background       text     indicator    child border
+swaymsg "client.focused "$CLRUNFOCUSED" "$CLRFOCUSED" "$WFG" "$CLRFOCUSED" "$CLRFOCUSED"" &
+swaymsg "client.focused_inactive \
+                        "$CLRUNFOCUSED" "$CLRUNFOCUSED" "$WFG" "$CLRUNFOCUSED" "$CLRUNFOCUSED"" &
+swaymsg "client.unfocused \
+                        "$CLRUNFOCUSED" "$WBG" "$WFG" "$W15" "$CLRUNFOCUSED"" &
+swaymsg "client.urgent  "$W01" "$CLRUNFOCUSED" "$WFG" "$W15" "$CLRUNFOCUSED"" &
+swaymsg "client.placeholder \
+                  "$WBG" "$WBG" "$WFG" "$WBG" "$WBG"" &
 # # #
 # # rounded borders with sway-borders
 # swaymsg "default_border none" # remove titlebar

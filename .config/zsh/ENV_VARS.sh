@@ -1,4 +1,3 @@
-export XDG_CONFIG_HOME="$HOME/.config"
 export XRESOURCES="$HOME/.Xresources"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$XDG_CONFIG_HOME/zsh/scripts-in-path:$PATH"
@@ -59,6 +58,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CURRENT_DESKTOP=sway
 
 # git config
 git config --global core.editor "nvim"

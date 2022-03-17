@@ -1,19 +1,28 @@
 # general settings
 auto-reload yes
-max-items 50
+max-items 100
+text-width 50
+reload-threads 25 # consoom faster
+article-sort-order date-asc
 
 # external browser
-browser "/usr/local/bin/w3m %u"
-macro m set browser "/usr/local/bin/mpv %u"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
-macro l set browser "/usr/local/bin/firefox %u"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
+browser "/usr/bin/env w3m %u"
+macro m set browser "/usr/bin/env mpv %u"; open-in-browser ; set browser "/usr/bin/env w3m %u"
+macro l set browser "/usr/bin/env qutebrowser %u"; open-in-browser ; set browser "/usr/bin/env w3m %u"
 
 # vim style
+unbind-key g
+bind-key g home
+unbind-key G
+bind-key G end
 bind-key LEFT quit
 bind-key RIGHT open
+bind-key i sort
+bind-key I rev-sort
 
 # work better with solarised
 color background         default   default
-color listnormal         default   default
+color listnormal         color7    default
 color listnormal_unread  default   default
 color listfocus          black     cyan
 color listfocus_unread   black     cyan
@@ -24,3 +33,7 @@ color article            default   default
 highlight article "^(Title):.*$" blue default
 highlight article "https?://[^ ]+" red default
 highlight article "\\[image\\ [0-9]+\\]" green default
+
+# highlight section separators
+highlight feedlist "---.*---" blue default bold
+highlight feedlist ".*0/0.." default default invis

@@ -35,5 +35,7 @@ highlight article "https?://[^ ]+" red default
 highlight article "\\[image\\ [0-9]+\\]" green default
 
 # highlight section separators
-highlight feedlist "---.*---" blue default bold
+# highlight feedlist "---.*---" blue default bold
+highlight feedlist "⋅⋅⋅.*⋅⋅⋅" blue default bold
+highlight feedlist "-.*-" green default bold
 highlight feedlist ".*0/0.." default default invis

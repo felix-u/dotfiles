@@ -11,6 +11,7 @@
 // @include       http*
 // @exclude       https://discord.com/*
 // @exclude       https://app.element.io/*
+// @exclude       https://*duckduckgo.com/*
 // @exclude       http://127.0.0.1:*
 // @require       https://cdn.jsdelivr.net/npm/darkreader/darkreader.min.js
 // @noframes

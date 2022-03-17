@@ -39,8 +39,8 @@ alias v="nvim"
 alias onefetch="onefetch --true-color never"
 alias update-mirrors="sudo reflector --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 wf-record () {
-    notify-send 'Recording...'
-    wf-recorder -f ~/Desktop/recordings/$(date +%Y-%m-%d-%H%M).mp4 -e
+    wf-recorder -f ~/Desktop/recordings/$(date +%Y-%m-%d-%H%M).mp4 -e -t \
+        -c h264_vaapi -d /dev/dri/renderD128
 }
 alias cmatrix="unimatrix -s 97"
 

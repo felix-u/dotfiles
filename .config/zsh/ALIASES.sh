@@ -4,7 +4,8 @@ mkcd ()
 	cd -P -- "$1"
 }
 alias shutdwn="shutdown -h now"
-alias weather="curl wttr.in/dc\?m"
+alias weather="curl 'wttr.in/dc?m&format=3'"
+alias weather-report="curl 'wttr.in/dc?m&format=v2d'"
 gitcom () {
     if [ -z "$1" ]
     then

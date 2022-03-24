@@ -213,9 +213,9 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
-" don't highlight current line number
 set cursorline
-autocmd VimEnter * hi clear CursorLine
+" don't highlight current line number
+" autocmd VimEnter * hi clear CursorLine
 
 let g:user_emmet_leader_key='<C-f>'
 

@@ -522,3 +522,5 @@ user_pref("privacy.resistFingerprinting", false);
 
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_user.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
+
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);

@@ -115,7 +115,9 @@ urlbar_popup_full_width.css is VERY MUCH recommended for Firefox 71+ because of 
   }
 }
 
-
+#TabsToolbar {
+  visibility: collapse;
+}
 
 #tabbrowser-tabs {
   --tab-min-height: calc(var(--uc-toolbar-height) - 2 * var(--tab-block-margin,0px)) !important;
@@ -641,4 +643,39 @@ urlbar_popup_full_width.css is VERY MUCH recommended for Firefox 71+ because of 
   :root[sizemode="fullscreen"] #window-controls {
     right: unset;
   }
+}
+
+statuspanel[type="overLink"],
+#statuspanel[type="overLink"] {
+  display: none !important;
+}
+
+:root:not([customizing]) #navigator-toolbox:not(:hover):not(:focus-within) {
+  max-height: 1px;
+  min-height: calc(0px);
+  overflow: hidden;
+}
+
+:root:not([customizing]) #navigator-toolbox:not(:hover):not(:focus-within) #nav-bar {
+  max-height: 0;
+  min-height: 0!important;
+  --tridactyl-auto-show-zone: 10px;
+  margin-bottom: calc(-1 * var(--tridactyl-auto-show-zone));
+  opacity: 0;
+}
+
+#navigator-toolbox::after {
+  display: none !important;
+}
+
+
+
+
+
+#navigator-toolbox:not(:hover):not(:focus-within) #toolbar-menubar > * {
+  background-color: rgb(232, 232, 231);
+}
+
+#main-window[sizemode="maximized"] #content-deck {
+  padding-top: 8px;
 }

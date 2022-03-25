@@ -1,250 +1,180 @@
 :root {
-  --fg: #93a1a1;
-  --bg: #002b36;
-  --black: #073642;
-  --red: #dc322f;
-  --green: #859900;
-  --yellow: #b58900;
-  --blue: #268bd2;
-  --magenta: #6c71c4;
-  --cyan: #2aa198;
-  --grey: #657b83;
-  --xcolor15: #839496;
-  --sans: Fira Sans;
-  --mono: IosevkaCustom;
-  --br: 2em;
+    --fg: #93a1a1;
+    --bg: #002b36;
+    --black: #073642;
+    --red: #dc322f;
+    --green: #859900;
+    --yellow: #b58900;
+    --blue: #268bd2;
+    --magenta: #6c71c4;
+    --cyan: #2aa198;
+    --grey: #657b83;
+    --xcolor15: #839496;
+
+    --sans: Fira Sans;
+    --mono: IosevkaCustom;
+
+    --br: 2em;
 }
 
 /* Mostly from https://github.com/MrOtherGuy/firefox-csshacks */
 
 /* ------------------------------------------------------------------------- */
-
 /* Set blank page background-color */
-
 /* Uses color from theme_colors if available */
 
-#tabbrowser-tabpanels {
+#tabbrowser-tabpanels{
   background-color: var(--bg) !important;
 }
 
 /* hide "PLAYING" text, which increases bar height */
-
 .tab-icon-sound-label {
-  display: none !important;
+    display: none !important;
 }
 
 /* ------------------------------------------------------------------------- */
-
 /* background colour of selected tab */
-
 .tab-background[selected="true"] {
-  background-color: var(--black) !important;
-  background-image: none !important;
+    background-color: var(--black) !important;
+    background-image: none !important;
 }
 
-/* ------------------------------------------------------------------------- */
 
+/* ------------------------------------------------------------------------- */
 * {
-  font-family: var(--sans);
-  font-size: 16px;
+    font-family: var(--sans);
+    font-size: 16px;
 }
 
+
 /* ------------------------------------------------------------------------- */
-
 /* Centred tab label */
-
 /* .tab-label-container{ display: grid; justify-content: safe center } */
-
 /* .tab-label,.tab-secondary-label{ overflow: hidden } */
-
 /* .tabbrowser-tab[selected]:not(:hover) .tab-label-container, */
-
 /* #tabbrowser-tabs:not([closebuttons="activetab"]) .tabbrowser-tab:not(:hover,[pinned]) .tab-label-container{ margin-inline-end: 7px } */
 
+
 /* ------------------------------------------------------------------------- */
-
 /* Make tabs and navbar appear side-by-side tabs on right */
-
 /* Use page_action_buttons_on_hover.css to hide page-action-buttons to save more space for the address */
-
 /*
 urlbar_popup_full_width.css is VERY MUCH recommended for Firefox 71+ because of new urlbar popup
 */
-
-:root {
-  --tab-block-margin: var(--proton-tab-block-margin);
-}
-
-:root[uidensity="compact"] {
+:root{ --tab-block-margin: var(--proton-tab-block-margin) }
+:root[uidensity="compact"]{
   --tab-block-margin: 2px !important;
   --proton-tab-block-margin: 2px !important;
 }
 
 /* Modify these to change relative widths or default height */
-
-#navigator-toolbox {
+#navigator-toolbox{
   --uc-navigationbar-width: 49vw;
   --uc-toolbar-height: 40px;
   /* --uc-urlbar-min-width: 400px; /1* minimum width for opened urlbar *1/ */
 }
-
-@media (-moz-proton) {
-  #scrollbutton-up,
-  #scrollbutton-down {
-    border-block-width: 2px !important;
-  }
+@media (-moz-proton){
+  #scrollbutton-up,#scrollbutton-down{ border-block-width: 2px !important; }
 }
-
 /* Override for other densities */
-
-:root[uidensity="compact"] #navigator-toolbox {
-  --uc-toolbar-height: 34px;
-}
-
-:root[uidensity="touch"] #navigator-toolbox {
-  --uc-toolbar-height: 44px;
-}
+:root[uidensity="compact"] #navigator-toolbox{ --uc-toolbar-height: 34px; }
+:root[uidensity="touch"] #navigator-toolbox{ --uc-toolbar-height: 44px; }
 
 /* prevent urlbar overflow on narrow windows */
-
 /* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
-
-@media screen and (max-width: 1500px) {
-  #urlbar-container {
-    min-width: 100px !important;
-  }
+@media screen and (max-width: 1500px){
+  #urlbar-container{ min-width:100px !important }
 }
 
-
-
-#tabbrowser-tabs {
+#TabsToolbar{
+  margin-left: var(--uc-navigationbar-width);
+  --tabs-navbar-shadow-size: 0px;
+}
+#tabbrowser-tabs{
   --tab-min-height: calc(var(--uc-toolbar-height) - 2 * var(--tab-block-margin,0px)) !important;
 }
 
 /* This isn't useful when tabs start in the middle of the window */
 
-.titlebar-spacer[type="pre-tabs"] {
-  display: none;
-}
+.titlebar-spacer[type="pre-tabs"]{ display: none }
 
-#navigator-toolbox > #nav-bar {
-  margin-right: calc(100vw - var(--uc-navigationbar-width));
+#navigator-toolbox > #nav-bar{
+  margin-right:calc(100vw - var(--uc-navigationbar-width));
   margin-top: calc(0px - var(--uc-toolbar-height));
 }
 
 /* Window drag space  */
-
-:root[tabsintitlebar="true"] #nav-bar {
-  padding-left: 24px !important;
-}
+:root[tabsintitlebar="true"] #nav-bar{ padding-left: 24px !important }
 
 /* Rules specific to window controls on right layout */
-
-@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled") {
-  .titlebar-buttonbox-container {
-    position: fixed;
-    display: block;
-    left: 0px;
-    z-index: 3;
-  }
-
-  :root[tabsintitlebar="true"] #nav-bar {
-    padding-left: 96px !important;
-    padding-right: 0px !important;
-  }
+@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled"){
+  .titlebar-buttonbox-container{ position: fixed; display: block; left: 0px; z-index: 3; }
+  :root[tabsintitlebar="true"] #nav-bar{ padding-left: 96px !important; padding-right: 0px !important; }
 }
 
 /* 1px margin on touch density causes tabs to be too high */
-
-.tab-close-button {
-  margin-top: 0 !important;
-}
+.tab-close-button{ margin-top: 0 !important }
 
 /* Make opened urlbar overlay the toolbar */
-
-#urlbar[open]:focus-within {
-  min-width: var(--uc-urlbar-min-width,none) !important;
-}
+#urlbar[open]:focus-within{ min-width: var(--uc-urlbar-min-width,none) !important; }
 
 /* Hide dropdown placeholder */
-
-#urlbar-container:not(:hover) .urlbar-history-dropmarker {
-  margin-inline-start: -28px;
-}
+#urlbar-container:not(:hover) .urlbar-history-dropmarker{ margin-inline-start: -28px; }
 
 /* Fix customization view */
+#customization-panelWrapper > .panel-arrowbox > .panel-arrow{ margin-inline-end: initial !important; }
 
-#customization-panelWrapper > .panel-arrowbox > .panel-arrow {
-  margin-inline-end: initial !important;
-}
 
 /* ------------------------------------------------------------------------- */
-
 /* attempt to hide text on non-selected tabs :( */
-
 /* .tabbrowser-tab .tab-icon-image { */
-
 /*     margin-right: 0px !important; */
-
 /* } */
-
 /* #tabbrowser-tabs .tab-label-container { */
-
 /*     padding-left: 0px !important; */
-
 /* } */
 
 /* .tabbrowser-tab:not([selected]) { */
-
 /*     max-width: 64px !important; */
-
 /*     min-width: 25px !important; */
-
 /*     padding-left: 0 !important; */
-
 /* } */
 
-/* ------------------------------------------------------------------------- */
 
+/* ------------------------------------------------------------------------- */
 /* Make urlbar popup appear full size like it did before urlbar re-design */
 
 /* Temporary dummy variables, can probably be removed when Fx92 releases */
-
-:root {
+:root{
   --toolbar-field-background-color: var(--toolbar-field-non-lwt-bgcolor);
   --toolbar-field-focus-background-color: var(--lwt-toolbar-field-focus,Field);
 }
-
-:root:-moz-lwtheme {
+:root:-moz-lwtheme{
   --toolbar-field-background-color: var(--lwt-toolbar-field-background-color);
 }
 
-.urlbarView-row-inner {
-  /* This sets how far the dropdown-items are from window edge */
+.urlbarView-row-inner{
+   /* This sets how far the dropdown-items are from window edge */
   padding-inline-start: 6px !important;
 }
 
 #urlbar-container,
-#urlbar {
+#urlbar{
   position: static !important;
   display: -moz-box !important;
 }
-
-#urlbar {
+#urlbar{
   height: auto !important;
   width: auto !important;
   box-shadow: inset 0 0 0 1px var(--toolbar-field-border-color, hsla(240,5%,5%,.25));
   background-color: var(--toolbar-field-background-color, hsla(0,0%,100%,.8));
   border-radius: var(--toolbarbutton-border-radius);
-  --uc-urlbar-min-width: none;
-  /* navbar_tabs_oneliner.css compatibility */
+  --uc-urlbar-min-width: none; /* navbar_tabs_oneliner.css compatibility */
 }
 
-#urlbar[focused] {
-  box-shadow: inset 0 0 0 1px var(--toolbar-field-focus-border-color, highlight);
-}
+#urlbar[focused]{ box-shadow: inset 0 0 0 1px var(--toolbar-field-focus-border-color, highlight); }
 
-.urlbarView {
+.urlbarView{
   position: absolute !important;
   margin: 0 !important;
   left: 0 !important;
@@ -256,254 +186,144 @@ urlbar_popup_full_width.css is VERY MUCH recommended for Firefox 71+ because of 
   box-shadow: 0 1px 4px rgba(0,0,0,.05);
 }
 
-#urlbar > #urlbar-input-container {
-  padding: 0px !important;
-  width: auto !important;
-  height: auto !important;
-}
-
-#urlbar > #urlbar-background {
-  display: none !important;
-}
+#urlbar > #urlbar-input-container{ padding: 0px !important; width: auto !important; height: auto !important; }
+#urlbar > #urlbar-background{ display: none !important; }
 
 /* This may seem pretty weird, but it gets around an issue where the height of urlbar may suddenly change when one starts typing into it */
-
 /* If you are otherwise modifying the urlbar height then you might need to modify the height of this too */
+#urlbar > #urlbar-input-container::before{ content: ""; display: -moz-box; height: 24px; }
 
-#urlbar > #urlbar-input-container::before {
-  content: "";
-  display: -moz-box;
-  height: 24px;
-}
 
 /* /1* ------------------------------------------------------------------------- *1/ */
-
 /* /1* Makes urlbar popup to appear Like on various Google search services *1/ */
-
 /* /1* Firefox 70+ only *1/ */
-
 /* /1* Popup uses colors from your theme *1/ */
 
 /* /1* Focused  urlbar popup radius, can be edited freely *1/ */
-
 /* #urlbar > .urlbarView:not(.megabar), */
-
 /* #urlbar.megabar[focused] > #urlbar-background { */
-
 /*     border-radius: 8px !important; */
-
 /*     border-width: 0px !important; */
-
 /* } */
 
 /* /1* Layout containing block hackery, don't touch pls *1/ */
-
 /* #urlbar-container:not(.megabar){ transform: translateY(0); position: relative; z-index: 10 } */
 
 /* /1* constrain popup to urlbar width *1/ */
-
 /* .urlbarView:not(.megabar){ */
-
 /*   max-width: 100% !important; */
-
 /*   top: calc(2px + var(--toolbarbutton-outer-padding)) !important; */
-
 /*   border-width: 0 !important; */
-
 /*   background-color: transparent !important; */
-
 /*   pointer-events: none; */
-
 /*   border-radius: inherit; */
-
 /* } */
 
 /* /1* Apply popup background color to the urlbar background when focused *1/ */
-
 /* /1* #urlbar:not(.megabar):focus-within{ background-color: var(--autocomplete-popup-background) } *1/ */
 
 /* /1* Spacer to offset actual results. This is placed over urlbar text  *1/ */
-
 /* .urlbarView:not(.megabar)::before{ */
-
 /*   content: ""; */
-
 /*   display: -moz-box; */
-
 /*   height: calc(0.8em + var(--toolbarbutton-outer-padding)) */
-
 /* } */
 
 /* /1* Add separator line under urlbar text field *1/ */
-
 /* .urlbarView:not(.megabar) > .urlbarView-body-outer::before{ */
-
 /*   content:""; */
-
 /*   display: block; */
-
 /*   height: 1px; */
-
 /*   width: 100%; */
-
 /*   background-image: linear-gradient(to right,transparent,grey 35%, grey 65%, transparent) */
-
 /* } */
 
 /* /1* Remove normal urlbar border and background *1/ */
-
 /* #urlbar:not(.megabar)[focused]{ */
-
 /*   border-color: transparent !important; */
-
 /*   /1* background-color: var(--autocomplete-popup-background) !important; *1/ */
-
 /* } */
 
 /* /1* Add shadow to focused popup + urlbar *1/ */
-
 /* #urlbar:not(.megabar)[focused]:not([open]), */
-
 /* #urlbar.megabar[focused] > #urlbar-background, */
-
 /* #urlbar[open] > .urlbarView:not(.megabar) { box-shadow: 0 0 5px 3px var(--autocomplete-popup-highlight-background) !important; } */
 
 /* #urlbar.megabar[focused] > #urlbar-background{ border-width: 0px !important;; } */
 
 /* /1* Remove horizontal paddings from texts *1/ */
-
 /* .urlbarView-row{ padding: 6px 0px !important; } */
 
 /* /1* change ugly blue border *1/ */
-
 /* #urlbar{ */
-
 /*   border-color: var(--lwt-toolbar-field-border-color, hsla(240,5%,5%,.25)) !important; */
-
 /*   --autocomplete-popup-highlight-background: rgba(255, 255, 255, 0.09); */
-
 /* } */
 
-/* ------------------------------------------------------------------------- */
 
+/* ------------------------------------------------------------------------- */
 /* Modifies the urlbar text color based on connection type - "normal" https: won't be mdofied */
-
 /* Mixed content including neterror */
-
-#identity-box[pageproxystate="valid"].unknownIdentity ~ .urlbar-input-box {
-  color: var(--red);
-}
-
+#identity-box[pageproxystate="valid"].unknownIdentity ~ .urlbar-input-box{ color: var(--red) }
 /* http: and potentially some other insecure connections like ftp: */
-
-#identity-box[pageproxystate="valid"].notSecure ~ .urlbar-input-box {
-  color: var(--red);
-}
-
+#identity-box[pageproxystate="valid"].notSecure ~ .urlbar-input-box{ color: var(--red) }
 /* Extension pages */
-
-#identity-box[pageproxystate="valid"].extensionPage ~ .urlbar-input-box {
-  color: var(--magenta);
-}
-
+#identity-box[pageproxystate="valid"].extensionPage ~ .urlbar-input-box{ color: var(--magenta) }
 /* Internal about: and chrome:// urls (includes reader-view) */
-
 #identity-box[pageproxystate="valid"].localResource ~ .urlbar-input-box,
-#identity-box[pageproxystate="valid"].chromeUI ~ .urlbar-input-box {
-  color: var(--blue);
-}
+#identity-box[pageproxystate="valid"].chromeUI ~ .urlbar-input-box{ color: var(--blue) }
+
 
 /* ------------------------------------------------------------------------- */
-
 /* Make bunch of things in the main UI round */
 
 /* :root{ --toolbarbutton-border-radius: 12 !important } */
-
 /* #urlbar-input-container > box:hover, */
-
 /* #urlbar-input-container > box[open], */
-
 /* #main-menubar >  menu, */
-
 /* .titlebar-button:hover, */
-
 /* #scrollbutton-up, */
-
 /* #scrollbutton-down, */
-
 /* .tab-close-button, */
-
 /* .close-icon > image, */
-
 /* #page-action-buttons > :hover, */
-
 /* .panel-arrowcontent, */
-
 /* .urlbarView-row-inner, */
-
 /* .search-one-offs button, */
-
 /* .subviewbutton-back, */
-
 /* .toolbaritem-combined-buttons > toolbarbutton, */
-
 /* #PopupSearchAutoComplete, */
-
 /* menupopup{ border-radius: 9px } */
-
 /**/
-
 /* button, */
-
 /* .tab-background{ border-radius: 15px !important; } */
-
 /**/
-
 /* .panel-arrowcontent{ margin-inline-end: 0 !important; } */
-
 /* .panel-arrow{ margin-inline: 17px !important; } */
-
 /**/
-
 /* menupopup{ -moz-appearance: none !important; overflow: -moz-hidden-unscrollable !important; } */
-
 /**/
-
 /* .tabbrowser-tab[selected]::after, */
-
 /* .tabbrowser-tab[beforeselected-visible]::after{ border-color: transparent !important; } */
-
 /**/
-
 /* #nav-bar{ box-shadow: none !important; margin-top: 3px } */
-
 /* .tab-line{ display: none } */
-
 /**/
-
 /* .tab-background[selected]{ border-top-width: 2px !important; border-top-color: var(--tab-line-color) !important; } */
-
 /* .tabbrowser-tab[selected]{ z-index: auto !important; } */
-
 /**/
-
 /* .urlbar-icon, */
-
 /* toolbar toolbarbutton:not(#back-button):not(.bookmark-item):not(.titlebar-button) > .toolbarbutton-icon{  border-radius: 0px !important; clip-path: circle() } */
-
 /**/
-
 /* menugroup:hover > menuitem{ clip-path: circle() } */
 
-/* ------------------------------------------------------------------------- */
 
+/* ------------------------------------------------------------------------- */
 /* Page action-buttons "slide in" when cursor is on top of them and don't reserve space when not used */
 
-#page-action-buttons {
-  padding-inline-start: 8px;
-}
+#page-action-buttons{ padding-inline-start: 8px }
 
-.urlbar-page-action {
+.urlbar-page-action{
   margin-inline-end: calc(-10px - 2 * var(--urlbar-icon-padding) );
   opacity: 0;
   transition: margin-inline-end 100ms linear, opacity 200ms linear;
@@ -511,47 +331,38 @@ urlbar_popup_full_width.css is VERY MUCH recommended for Firefox 71+ because of 
 
 #page-action-buttons:hover > .urlbar-page-action,
 .urlbar-page-action[open],
-.urlbar-page-action[open] ~ .urlbar-page-action {
+.urlbar-page-action[open] ~ .urlbar-page-action{
   opacity: 1;
   margin-inline-end: 0px !important;
 }
 
-/* ------------------------------------------------------------------------- */
 
+/* ------------------------------------------------------------------------- */
 /* Show a number before tab text*/
 
-.tab-text::before {
-  content: counter(nth-tab) " ";
-  counter-increment: nth-tab;
-  font-family: Iosevka !important;
-  color: var(--red);
-  /* red */
-  border-radius: 16px;
-  padding-left: 8px;
-  margin-right: 25px;
+.tab-text::before{
+    content: counter(nth-tab) " ";
+    counter-increment: nth-tab;
+    font-family: Iosevka !important;
+    color: var(--red); /* red */
+    border-radius: 16px;
+    padding-left: 8px;
+    margin-right: 25px;
+}
+.tabbrowser-tab:first-child{ counter-reset: nth-tab 0 } /* Change to -1 for 0-indexing */
+.tabbrowser-tab[selected] .tab-text::before{
+    content: counter(nth-tab) " ";
+    counter-increment: nth-tab;
+    font-family: Iosevka !important;
+    color: var(--blue); /* blue */
+    border-radius: 16px;
+    padding-left: 8px;
+    margin-right: 25px;
 }
 
-.tabbrowser-tab:first-child {
-  counter-reset: nth-tab 0;
-}
-
-/* Change to -1 for 0-indexing */
-
-.tabbrowser-tab[selected] .tab-text::before {
-  content: counter(nth-tab) " ";
-  counter-increment: nth-tab;
-  font-family: Iosevka !important;
-  color: var(--blue);
-  /* blue */
-  border-radius: 16px;
-  padding-left: 8px;
-  margin-right: 25px;
-}
 
 /* ------------------------------------------------------------------------- */
-
 /* Creates placeholders for window controls */
-
 /* This is a supporting file used by other stylesheets */
 
 /* This stylesheet is pretty much unnecessary if window titlebar is enabled */
@@ -559,22 +370,16 @@ urlbar_popup_full_width.css is VERY MUCH recommended for Firefox 71+ because of 
 /* This file should preferably be imported before other stylesheets */
 
 /* Defaults for window controls on RIGHT side of the window */
-
 /* Modify these values to match your preferences */
-
-:root[tabsintitlebar] {
-  --uc-window-control-width: 138px;
-  /* Space reserved for window controls (Win10) */
+:root[tabsintitlebar]{
+  --uc-window-control-width: 138px; /* Space reserved for window controls (Win10) */
   /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
-  --uc-window-drag-space-pre: 30px;
-  /* left side*/
-  --uc-window-drag-space-post: 30px;
-  /* right side*/
+  --uc-window-drag-space-pre: 30px; /* left side*/
+  --uc-window-drag-space-post: 30px; /* right side*/
 }
 
 :root[tabsintitlebar][sizemode="maximized"] {
-  --uc-window-drag-space-pre: 0px;
-  /* Remove pre space */
+  --uc-window-drag-space-pre: 0px; /* Remove pre space */
 }
 
 @media (-moz-os-version: windows-win7), (-moz-os-version: windows-win8) {
@@ -590,55 +395,35 @@ urlbar_popup_full_width.css is VERY MUCH recommended for Firefox 71+ because of 
 }
 
 /* macOS settings are further below */
-
-.titlebar-buttonbox,
-#window-controls {
-  color: var(--toolbar-color);
-}
-
-:root[sizemode="fullscreen"] .titlebar-buttonbox-container {
-  display: none;
-}
-
-:root[sizemode="fullscreen"] #navigator-toolbox {
-  position: relative;
-}
+.titlebar-buttonbox, #window-controls{ color: var(--toolbar-color) }
+:root[sizemode="fullscreen"] .titlebar-buttonbox-container{ display: none }
+:root[sizemode="fullscreen"] #navigator-toolbox { position: relative; }
 
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
-:root[sizemode="fullscreen"] #window-controls {
+:root[sizemode="fullscreen"] #window-controls{
   position: absolute;
   display: flex;
   top: 0;
-  right: 0;
+  right:0;
   height: 40px;
 }
 
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
-:root[uidensity="compact"][sizemode="fullscreen"] #window-controls {
-  height: 32px;
-}
+:root[uidensity="compact"][sizemode="fullscreen"] #window-controls{ height: 32px }
 
-#nav-bar {
+#nav-bar{
   border-inline: var(--uc-window-drag-space-pre,0px) solid var(--toolbar-bgcolor);
   border-inline-style: solid !important;
   border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px));
 }
 
 /* Use this pref to check Mac OS where window controls are on left */
-
 /* This pref defaults to true on Mac and doesn't actually do anything on other platforms. So if your system has window controls on LEFT side you can set the pref to true */
-
-@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled") {
-  :root {
-    --uc-window-control-width: 72px;
+@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled"){
+  :root{ --uc-window-control-width: 72px; }
+  :root[tabsintitlebar="true"]:not([inFullscreen]) #nav-bar{
+    border-inline-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) var(--uc-window-drag-space-pre,0px)
   }
-
-  :root[tabsintitlebar="true"]:not([inFullscreen]) #nav-bar {
-    border-inline-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) var(--uc-window-drag-space-pre,0px);
-  }
-
   :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
-  :root[sizemode="fullscreen"] #window-controls {
-    right: unset;
-  }
+  :root[sizemode="fullscreen"] #window-controls{ right: unset }
 }

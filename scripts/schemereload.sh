@@ -1,33 +1,27 @@
 #!/bin/sh
 
-alias wgen="~/Desktop/xgen/xgen-wayland"
-
-wq () {
-    grep "$1:" ~/.Xresources | awk '{print $2}'
-}
-
 # foot
-wgen "$XDG_CONFIG_HOME"/foot/gencolours.ini "$XDG_CONFIG_HOME"/foot/colours.ini &
+shgen "$XDG_CONFIG_HOME"/foot/gencolours.ini "$XDG_CONFIG_HOME"/foot/colours.ini &
 echo "foot"
 
 # cava
-wgen "$XDG_CONFIG_HOME"/cava/genconfig "$XDG_CONFIG_HOME"/cava/config
+shgen "$XDG_CONFIG_HOME"/cava/genconfig "$XDG_CONFIG_HOME"/cava/config
 # pkill -USR1 cava # reloads whole config
 pkill -USR2 cava # reloads colours only
 echo "cava"
 
 # darktable
-wgen "$XDG_CONFIG_HOME"/darktable/genuser.css "$XDG_CONFIG_HOME"/darktable/user.css &
+shgen "$XDG_CONFIG_HOME"/darktable/genuser.css "$XDG_CONFIG_HOME"/darktable/user.css &
 echo "darktable"
 
 # dunst
-wgen "$XDG_CONFIG_HOME"/dunst/gendunstrc "$XDG_CONFIG_HOME"/dunst/dunstrc
+shgen "$XDG_CONFIG_HOME"/dunst/gendunstrc "$XDG_CONFIG_HOME"/dunst/dunstrc
 pkill dunst
 dunst &
 echo "dunst"
 
 # firefox
-wgen ~/dotfiles/firefox/chrome/genuserChrome.css ~/dotfiles/firefox/chrome/userChrome.css &
+shgen ~/dotfiles/firefox/chrome/genuserChrome.css ~/dotfiles/firefox/chrome/userChrome.css &
 echo "firefox"
 
 # nvim
@@ -38,32 +32,33 @@ cd "$DIR" || exit
 echo "nvim"
 
 # zathura
-wgen "$XDG_CONFIG_HOME"/zathura/genzathurarc "$XDG_CONFIG_HOME"/zathura/zathurarc &
+shgen "$XDG_CONFIG_HOME"/zathura/genzathurarc "$XDG_CONFIG_HOME"/zathura/zathurarc &
 echo "zathura"
 
 # css
 DIR=$(pwd)
 cd ~/dotfiles/misc/css || exit
-wgen gendiscord.css discord.css &
-wgen gengithub.css github.css &
-wgen genelement.css element.css &
+shgen gendiscord.css discord.css &
+shgen gengithub.css github.css &
+shgen genelement.css element.css &
 cd "$DIR" || exit
 echo "css"
 
 # qutebrowser
-wgen "$XDG_CONFIG_HOME"/qutebrowser/genconfig.py "$XDG_CONFIG_HOME"/qutebrowser/config.py &
-wgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/gendarkreader.js.disabled \
+shgen "$XDG_CONFIG_HOME"/qutebrowser/genconfig.py "$XDG_CONFIG_HOME"/qutebrowser/config.py &
+shgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/gendarkreader.js.disabled \
      "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/darkreader.js &
-wgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/gendiscordtheme.js.disabled \
+shgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/gendiscordtheme.js.disabled \
      "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/discordtheme.js &
-wgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/genelementtheme.js.disabled \
+shgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/genelementtheme.js.disabled \
      "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/elementtheme.js &
 echo "qutebrowser"
 
 # wallpaper
-convert -size 3840x2400 xc:"$(wq background)" /tmp/wp.png
+# convert -size 10x10 xc:"$(wq background)" /tmp/wp.png
 pkill swaybg
-swaybg -m fill -i /tmp/wp.png &
+# swaybg -m fill -i /tmp/wp.png &
+swaybg -c "$(wq background)" &
 echo "wallpaper"
 
 
@@ -72,7 +67,7 @@ echo "wallpaper"
 #
 #
 # # alacritty
-# wgen "$XDG_CONFIG_HOME"/alacritty/genalacritty.yml "$XDG_CONFIG_HOME"/alacritty/alacritty.yml &
+# shgen "$XDG_CONFIG_HOME"/alacritty/genalacritty.yml "$XDG_CONFIG_HOME"/alacritty/alacritty.yml &
 # echo "alacritty"
 #
 # # picom

@@ -54,10 +54,13 @@ shgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/genelementtheme.js.disabled \
      "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/elementtheme.js &
 echo "qutebrowser"
 
+# theming stuff
+shgen ~/dotfiles/scripts/theme/genlighttheme ~/dotfiles/scripts/theme/lighttheme &
+shgen ~/dotfiles/scripts/theme/gendarktheme ~/dotfiles/scripts/theme/darktheme &
+echo "terminal theme files"
+
 # wallpaper
-# convert -size 10x10 xc:"$(wq background)" /tmp/wp.png
 pkill swaybg
-# swaybg -m fill -i /tmp/wp.png &
 swaybg -c "$(wq background)" &
 echo "wallpaper"
 

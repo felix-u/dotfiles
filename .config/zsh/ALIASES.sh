@@ -195,20 +195,30 @@ mdread () {
 
 # pull or commit all changes to personal repos
 gitall () {
-if [ $1 = "pull" ]; then
-    CWD=$(pwd)
-    echo "dotfiles" && cd ~/dotfiles && git pull
-    echo "uni" && cd ~/uni && git pull
-    echo "privateconfig" && cd ~/privateconfig && git pull
-    cd $CWD
-elif [ $1 = "com" ]; then
-    CWD=$(pwd)
-    echo "dotfiles" && cd ~/dotfiles && gitcom
-    echo "uni" && cd ~/uni && gitcom
-    echo "privateconfig" && cd ~/privateconfig && gitcom
-    cd $CWD
-else
-    echo "Requires option \"pull\" or \"com\""
-    exit 1
-fi
+    if [ $1 = "pull" ]; then
+        CWD=$(pwd)
+        echo "dotfiles" && cd ~/dotfiles && git pull
+        echo "uni" && cd ~/uni && git pull
+        echo "privateconfig" && cd ~/privateconfig && git pull
+        cd $CWD
+    elif [ $1 = "com" ]; then
+        CWD=$(pwd)
+        echo "dotfiles" && cd ~/dotfiles && gitcom
+        echo "uni" && cd ~/uni && gitcom
+        echo "privateconfig" && cd ~/privateconfig && gitcom
+        cd $CWD
+    else
+        echo "Requires option \"pull\" or \"com\""
+    fi
+}
+
+# swap between light and dark terminal theme
+themeterm () {
+    if [ $1 = 'l' ]; then
+        theme.sh < ~/dotfiles/scripts/theme/lighttheme
+    elif [ $1 = 'd' ]; then
+        theme.sh < ~/dotfiles/scripts/theme/darktheme
+    else
+        echo "Requires option \"d\" or \"l\""
+    fi
 }

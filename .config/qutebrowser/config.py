@@ -97,9 +97,9 @@ c.colors.downloads.system.fg = 'none'
 # -----------------------------------------------------------------------------
 
 # hints (labels on links) -----------------------------------------------------
-c.colors.hints.bg = colours['color0']
-c.colors.hints.fg = colours['color4']
-c.colors.hints.match.fg = colours['color2']
+c.colors.hints.bg = colours['color3']
+c.colors.hints.fg = colours['background']
+c.colors.hints.match.fg = colours['background']
 c.colors.keyhint.bg = colours['color0']
 c.colors.keyhint.fg = colours['foreground']
 c.colors.keyhint.suffix.fg = colours['color5']
@@ -214,10 +214,10 @@ c.downloads.position = 'bottom'
 # -----------------------------------------------------------------------------
 
 # fileselect ------------------------------------------------------------------
-c.fileselect.folder.command = [term, "-e", "ranger", "--choosedir={}"]
+c.fileselect.folder.command = [term, "-e", "nnn",  "-p", "{}"]
 c.fileselect.handler = 'external'
-c.fileselect.multiple_files.command = [term, "-e", "ranger", "--choosefiles={}"]
-c.fileselect.single_file.command = [term, "-e", "ranger", "--choosefile={}"]
+c.fileselect.multiple_files.command = [term, "-e", "nnn",  "-p", "{}"]
+c.fileselect.single_file.command = [term, "-e", "nnn",  "-p", "{}"]
 # -----------------------------------------------------------------------------
 
 # input behaviour -------------------------------------------------------------

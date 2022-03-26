@@ -36,7 +36,7 @@ export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_TMPFILE="/tmp/nnn"
 export NNN_COLORS='4444'
 export NNN_TRASH=1
-export NNN_PLUG="v:imgview;d:dragdrop;r:imgresize;p:preview-tui"
+export NNN_PLUG="v:imgview;d:dragdrop;r:imgresize;p:preview-tui;w:waypaper"
 export NNN_OPTS="C"
 export NNN_BMS="r:$HOME/Desktop/recordings;\
 s:$HOME/Pictures/screenshots;\

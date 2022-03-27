@@ -98,23 +98,23 @@ alias ksp='progl /mnt/sda1/Games/KSP_linux/KSP.x86_64'
 
 genclrlist () {
     touch ~/.config/zsh/clrlist
-    pastel gradient "$(xquery background)" "$(xquery foreground)" --number $1 | pastel format hex > ~/.config/zsh/clrlist
-    pastel gradient "$(xquery background)" "$(xquery color0)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery background)" "$(xquery color1)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery background)" "$(xquery color2)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery background)" "$(xquery color3)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery background)" "$(xquery color4)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery background)" "$(xquery color5)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery background)" "$(xquery color6)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery background)" "$(xquery color7)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery background)" "$(xquery color8)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery foreground)" "$(xquery color9)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery foreground)" "$(xquery color10)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery foreground)" "$(xquery color11)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery foreground)" "$(xquery color12)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery foreground)" "$(xquery color13)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery foreground)" "$(xquery color14)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
-    pastel gradient "$(xquery foreground)" "$(xquery color15)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq background)" "$(wq foreground)" --number $1 | pastel format hex > ~/.config/zsh/clrlist
+    pastel gradient "$(wq background)" "$(wq color0)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq background)" "$(wq color1)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq background)" "$(wq color2)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq background)" "$(wq color3)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq background)" "$(wq color4)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq background)" "$(wq color5)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq background)" "$(wq color6)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq background)" "$(wq color7)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq background)" "$(wq color8)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq foreground)" "$(wq color9)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq foreground)" "$(wq color10)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq foreground)" "$(wq color11)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq foreground)" "$(wq color12)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq foreground)" "$(wq color13)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq foreground)" "$(wq color14)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
+    pastel gradient "$(wq foreground)" "$(wq color15)" --number $1 | pastel format hex >> ~/.config/zsh/clrlist
 }
 
 colourise () {
@@ -129,20 +129,6 @@ clrsimple () {
         $(wq color12) $(wq color13) $(wq color14) \
         $(wq color15)
 }
-
-alias xgen="~/Desktop/xgen/xgen-nonposix"
-alias wgen="~/Desktop/xgen/xgen-wayland"
-alias tmux="TERM=xterm-256color tmux -f ~/.config/tmux/tmux.conf"
-
-flacmod () {
-    metaflac --remove-all-tags $5
-    metaflac --set-tag="DATE=$1" $5
-    metaflac --set-tag="ARTIST=$2" $5
-    metaflac --set-tag="ALBUM=$3" $5
-    metaflac --set-tag="TITLE=$4" $5
-}
-
-alias eww="~/git/eww/target/release/eww"
 
 # fuzzy find all the things
 alias sk="sk --color=16 --reverse"

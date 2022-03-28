@@ -137,10 +137,10 @@ in {
         nodePackages.vim-language-server
 
         # TERMINAL UTILS & MISC
-        pipes-rs bat bc lolcat cava colorpicker devour exa figlet fontpreview
-        ranger dragon-drop sxiv ueberzug
-        giph glow go htop hyperfine jpegoptim libqalculate neofetch lowdown
-        maim ncdu ncspot ntfs3g onefetch oneshot pastel pdftk playerctl
+        pipes-rs bat bc lolcat cava figlet
+        dragon-drop
+        glow go htop hyperfine jpegoptim libqalculate neofetch lowdown
+        ncdu ncspot onefetch oneshot pastel pdftk playerctl
         powerline-fonts termdown tldr tmux udiskie udisks unrar unzip ytfzf
         zip
 

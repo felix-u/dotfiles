@@ -54,6 +54,10 @@ shgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/genelementtheme.js.disabled \
      "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/elementtheme.js &
 echo "qutebrowser"
 
+# waybar
+shgen "$XDG_CONFIG_HOME"/waybar/genstyle.css "$XDG_CONFIG_HOME"/waybar/style.css &
+echo "waybar"
+
 # theming stuff
 shgen ~/dotfiles/scripts/theme/genlighttheme ~/dotfiles/scripts/theme/lighttheme &
 shgen ~/dotfiles/scripts/theme/gendarktheme ~/dotfiles/scripts/theme/darktheme &

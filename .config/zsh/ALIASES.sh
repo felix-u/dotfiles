@@ -25,7 +25,6 @@ stopwatch() {
 alias pdftojpeg="pdftoppm -jpeg -r 300"
 alias vconf="nvim ~/.config/nvim/init.vim"
 alias clock="tty-clock -c -C 6 -D"
-alias pacman="sudo pacman"
 alias dsk="startx \"$HOME/.xinitrc\""
 
 alias cdu="cd ~/uni/2022/spring"
@@ -136,6 +135,7 @@ alias fd='cd $(exa -a1D | sk --preview="exa -a1 {}")'
 alias fv='nvim $(sk --preview="bat --color=always -p {}")'
 # pacman
 alias fpi="paru -Slq | sk --multi --preview 'pacman -Si {1}' | xargs -ro paru -S"
+alias fpq="paru -Slq | sk --multi --preview 'pacman -Qi {1}' | xargs -ro echo"
 alias fpr="paru -Qq | sk --multi --preview 'pacman -Qi {1}' | xargs -ro paru -Rns"
 
 # file manager (nnn)

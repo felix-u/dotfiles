@@ -208,3 +208,6 @@ themeterm () {
         echo "Requires option \"d\" or \"l\""
     fi
 }
+
+# nixos
+alias rebuild-switch="sudo nixos-rebuild switch -I nixos-config=$XDG_CONFIG_HOME/nix/thinkpad/configuration.nix"

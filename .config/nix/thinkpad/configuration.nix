@@ -12,9 +12,6 @@ in {
         ];
 
     boot = {
-        kernelParams = [
-            "i915.enable_dc=2"
-        ];
 
         loader = {
             grub = {
@@ -52,9 +49,12 @@ in {
     # enable xorg
     services.xserver.enable = true;
     # startx
-    services.xserver.displayManager.startx.enable = true;
+    # services.xserver.displayManager.startx.enable = true;
     # bspwm
-    services.xserver.windowManager.bspwm.enable = true;
+    # services.xserver.windowManager.bspwm.enable = true;
+
+    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.desktopManager.gnome.enable = true;
 
     # enable CUPS for printing
     services.printing.enable = true;
@@ -73,17 +73,17 @@ in {
         # KMonad user access to /dev/uinput
         KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
       '';
-    # systemd.services.thinkpadkbd = {
-    #     description = "Kmonad";
-    #     serviceConfig = {
-    #         Type = "oneshot";
-    #         ExecStart = "/usr/bin/env kmonad /home/felix/dotfiles/.config/kmonad/nixpad.kbd";
-    #         User = "felix";
-    #         WantedBy = "multi-user.target";
-    #     };
-    #     # WantedBy = "multi-user.target";
-    # };
-    # systemd.services.thinkpadkbd.enable = true;
+    systemd.services.thinkpadkbd = {
+        wantedBy = [ "multi-user.target" ];
+        description = "Start kmonad";
+        serviceConfig = {
+            Type = "oneshot";
+            RemainAfterExit = "yes";
+            ExecStart = "/run/current-system/sw/bin/kmonad /home/felix/dotfiles/.config/kmonad/nixpad.kbd";
+            User = "felix";
+        };
+    };
+    systemd.services.thinkpadkbd.enable = true;
 
     # user account
     users.users.felix = {
@@ -123,25 +123,27 @@ in {
     in
     with pkgs; [
 
+        # temp
+        unstable.helix
+
         # ESSENTIAL UTILITIES
-        alacritty starship
+        foot starship
         nerdfonts fira
-        wget git gh
-        kmonad
+        wget git gh stow
 
         # NEOVIM
-        unstable.neovim
-        nodePackages.bash-language-server clang cmake-language-server
+        unstable.neovim go vimPlugins.packer-nvim tree-sitter
+        nodePackages.npm nodejs nodePackages.bash-language-server clang cmake-language-server
         nodePackages.vscode-langservers-extracted sumneko-lua-language-server
         rnix-lsp nodePackages.pyright rust-analyzer
         nodePackages.vim-language-server
 
         # TERMINAL UTILS & MISC
-        pipes-rs bat bc lolcat cava figlet
-        dragon-drop
-        glow go htop hyperfine jpegoptim libqalculate neofetch lowdown
-        ncdu ncspot onefetch oneshot pastel pdftk playerctl
-        powerline-fonts termdown tldr tmux udiskie udisks unrar unzip ytfzf
+        pipes-rs bat bc lolcat cava figlet neofetch handlr
+        dragon-drop nnn tlp
+        glow htop hyperfine jpegoptim libqalculate lowdown
+        ncdu ncspot onefetch oneshot pastel pdftk
+        termdown tldr tmux udiskie udisks unrar unzip ytfzf
         zip
 
         # INTERNET & BLUETOOTH
@@ -149,38 +151,67 @@ in {
         blueberry blueman bluez
 
         # DESKTOP AND RELATED UTILS
-        pulsemixer dunst polybar rofi rofi-emoji eww i3lock-color
-        libsForQt5.qtstyleplugin-kvantum numix-icon-theme-circle lxappearance
-        pavucontrol picom-next libsForQt5.polkit-kde-agent qt5ct sxhkd
-        xfce.thunar xfce.thunar-archive-plugin unclutter-xfixes wmctrl
-        wmutils-core wmutils-opt bspwm
+        # pulsemixer dunst
+        # libsForQt5.qtstyleplugin-kvantum numix-icon-theme-circle lxappearance
+        # pavucontrol libsForQt5.polkit-kde-agent qt5ct
+        # xfce.thunar xfce.thunar-archive-plugin
+
 
         # X11 UTILS
-        xclip xdg-user-dirs xdg-utils xdo xdotool xf86_input_wacom
-        xorg.xbacklight xorg.xev xorg.xkill xorg.xprop xorg.xrandr xorg.xrdb
-        xsel xwallpaper
+        # xclip xdg-user-dirs xdg-utils xdo xdotool xf86_input_wacom
+        # xorg.xbacklight xorg.xev xorg.xkill xorg.xprop xorg.xrandr xorg.xrdb
+        # xsel xwallpaper
 
         # DEV
-        nodePackages.npm python3Full python39Packages.pip pypy3 rpi-imager lua
-        home-manager
+        # nodePackages.npm python3Full python39Packages.pip pypy3 rpi-imager lua
+        # home-manager
 
         # MISC & ADDITIONAL
-        android-tools calibre etcher godot gparted qalculate-gtk libreoffice
-        mpv noisetorch noto-fonts-emoji obs-studio zathura wally-cli
+        # android-tools calibre etcher godot gparted qalculate-gtk libreoffice
+        # mpv noisetorch noto-fonts-emoji obs-studio zathura wally-cli
 
         # PHOTO, GRAPHICS & VIDEO
-        darktable hugin luminanceHDR
-        gimp-with-plugins krita
-        inkscape-with-extensions
-        olive-editor
+        # darktable hugin luminanceHDR
+        # gimp-with-plugins krita
+        # inkscape-with-extensions
+        # olive-editor
 
         # GAMING
-        steam steamPackages.steam-fonts lutris minecraft
-        protonup protontricks proton-caller
+        # steam steamPackages.steam-fonts lutris minecraft
+        # protonup protontricks proton-caller
 
         # LaTeX
         biber texinfo texlab texlive.combined.scheme-full
 
+        (pkgs.neovim.override {
+         configure = {
+             packages.myPlugins = with pkgs.vimPlugins; {
+                 start = [
+                 (nvim-treesitter.withPlugins (
+                    plugins: with plugins; [
+                        tree-sitter-norg
+                        tree-sitter-bash
+                        tree-sitter-comment
+                        tree-sitter-c
+                        tree-sitter-latex
+                        tree-sitter-json
+                        tree-sitter-lua
+                        tree-sitter-nix
+                        tree-sitter-toml
+                        tree-sitter-yaml
+                        tree-sitter-javascript
+                        tree-sitter-html
+                        tree-sitter-css
+                        tree-sitter-typescript
+                        tree-sitter-rust
+                        tree-sitter-cpp
+                        tree-sitter-python
+                    ]
+                    ))
+                 ];
+             };
+           };
+         })
     ];
 
     system.stateVersion = "21.11";

@@ -161,8 +161,8 @@ alias rainsh="~/dotfiles/scripts/rain.sh"
 alias temps="watch -n 0.5 sensors"
 
 # use custom ASCII with neofetch
-alias neofetch="neofetch --ascii_colors 1 2 3 4 5 6 \
-    --ascii ~/dotfiles/misc/archascii"
+# alias neofetch="neofetch --ascii_colors 1 2 3 4 5 6 \
+#     --ascii ~/dotfiles/misc/archascii"
 
 # my fontpreview version
 # sk instead of fzf, xres colours, and imv rather than sxiv

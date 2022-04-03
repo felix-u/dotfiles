@@ -1,8 +1,8 @@
 (defcfg
   ;; For Linux
   ;; input  (device-file "/dev/input/event3") ;; arch install
-  input  (device-file "/dev/input/event0") ;; nixos
-  ;; input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd") ;; works on all, hopefully
+  ;; input  (device-file "/dev/input/event0") ;; nixos
+  input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd") ;; works on all, hopefully
   output (uinput-sink "My KMonad output")
     ;; To understand the importance of the following line, see the section on
     ;; Compose-key sequences at the near-bottom of this file.
@@ -30,8 +30,17 @@
 (defalias
     sym (layer-toggle symbols)
     nav (layer-toggle navigation)
-    wrk (layer-toggle workspaces)
+    num (layer-toggle numpad)
     dflt (layer-switch default)
+
+    lspc (tap-hold 170 spc @sym)
+    ssft (tap-hold 170 / rsft)
+    nalt (tap-hold 170 n lalt)
+    zsft (tap-hold 170 z lsft)
+
+    vnla (layer-switch vanilla)
+    semi (layer-switch semi)
+    col (layer-switch colemakdh)
 
     m1 M-1
     m2 M-2
@@ -45,50 +54,76 @@
 
 #| empty layer template
 (deflayer X
-  -    -   -   -   -   -   -  -   -   -   -   -    -   -    -   -   -
-  -    -    -    -    -    -    -    -    -    -    -    -    -     -
-  -    -    -    -    -    -    -    -    -    -    -    -    -    -
-  -    -    -    -    -    -    -    -    -    -    -    -    -
-  -    -    -    -    -    -    -    -    -    -    -    -        -     -   -
-  -    -   -    -         -             -     -    -              -    -    -
+  _    _   _   _   _   _   _  _   _   _   _   _    _   _    _   _   _
+  _    _    _    _    _    _    _    _    _    _    _    _    _     _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _        _     _   _
+  _    _   _    _         _             _     _    _              _    _    _
 )
 |#
 
 (deflayer default
-  caps  f1  f2  f3  f4  f5  f6 f7  f8  f9  f10  f11  f12 home end ins del
+  caps  f1  f2  f3  f4  f5  f6 f7  f8  f9  f10  f11  f12 @vnla @col @semi del
   grv  1    2    3    4    5    6    7    8    9    0    -    =     bspc
   tab  q    w    e    r    t    y    u    i    o    p     [   ]    \
-  esc  a    s    d    f    g    h    j    k    l  @wrk     '      ret
-  lsft z    x    c    v    b    n    m    ,    .    /       rsft            pgup  up  ralt
-  lalt     lctl lmet      spc           @nav  @sym @wrk                     left down rght
+  esc  a    s    d    f    g    h    j    k    l    ;     '      ret
+  lsft z    x   c    v     b    n    m    ,    .    /          rsft        pgup  up  ralt
+  lalt     lctl lmet         spc          @nav  @sym rctl                  left down rght
 )
 
 
 (deflayer navigation
-  caps  f1  f2  f3  f4  f5  f6 f7  f8  f9  f10  f11  f12 home end ins del
-  grv  1    2    3    4    5    6    7    8    9    0    -    =     bspc
-  tab  q    w    e    r    t  home  pgdn pgup end   ;     [   ]    \
-  esc  a   @m4  @m5  @m6   g left  down  up right   ;     '       ret
-  lsft z   @m1  @m2  @m3   b   n     m    ,   .     /         rsft            pgup  up  ralt
-  lalt     lctl lmet      spc           @nav  @sym rctl                     left down rght
+  _  _  _  _  _  _  _ _  _  _  _  _  _ _ _ _ _
+  _  _    _    _    _    _    _    _    _    _    _    _    _     _
+  _  _    _    _    _    _  home  pgdn pgup end   _     _   _    _
+  _  _    _    _    _    _  left  down  up right   _     _       _
+  _ _   _  _  _   _   _     _    _   _     _         _            _  _  _
+  _     _ _                 _           _  _ _                     _ _ _
 )
 
 
 (deflayer symbols
-  caps  f1  f2  f3  f4  f5  f6 f7  f8  f9  f10  f11  f12 home end ins del
-  grv  1    2    3    4    5    6    7    8    9    0    -    =     bspc
-  tab  !    @    #    $    %    ^    &    *    ~    ;     [   ]    \
-  esc tab   "    +   @cb  del   \  bspc   '    :     -    '       ret
-  lsft caps |    {    }    b   grv    [   ]    =    \_       rsft           pgup  up  ralt
-  lalt     lctl lmet      spc           @nav  @sym rctl                     left down rght
+  _  _  _  _  _  _  _ _  _  _  _  _  _ _ _ _ _
+  _  _    _    _    _    _    _    _    _    _    _    _    _     _
+  _  !    @    w    q    %    ^    &    *    ~    =     _   _    _
+  _ esc   "    +   \_   del   \  bspc   '    :   ret    _       _
+  _ tab   |    {    }   grv   [  \(     \)   ]     -    _            _  _  _
+  _     _ _                     _           _  _ _                     _ _ _
 )
 
+(deflayer numpad
+  _  _  _  _  _  _  _ _  _  _  _  _  _ _ _ _ _
+  _  _    _    _    _    _    _    _    _    _    _    _    _     _
+  _  _    2    3    4    _    _    5    6    7   _     _   _    _
+  _  1    _    _    0    _    _    9    k    _   8     _       _
+  _  _    _    _    _    _    _    j    _    _   _     _           _ _ _
+  _     _ _                 _           _  _ _                     _ _ _
+)
 
-(deflayer workspaces
-  caps  f1  f2  f3  f4  f5  f6 f7  f8  f9  f10  f11  f12 home end ins del
+(deflayer vanilla
+  esc  f1  f2  f3  f4  f5  f6 f7  f8  f9  f10  f11  f12 @dflt end ins del
   grv  1    2    3    4    5    6    7    8    9    0    -    =     bspc
-  tab  q   w    e    r     t    -    7    8    9    p     [   ]    \
-  esc  a  @m4  @m5  @m6    g    =    4    5    6    ;     '      ret
-  lsft z  @m1  @m2  @m3    b    0    1    2    3    /       rsft            pgup  up  ralt
-  lalt     lctl lmet      spc           @nav  @sym rctl                     left down rght
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft     pgup  up  pgdn
+  lctl     lmet lalt      spc           ralt  ssrq rctl           left down rght
+)
+
+(deflayer semi
+  _  _  _  _  _  _  _ _  _  _  _  _  _ _ _ @dflt _
+  _  _    _    _    _    _    _    _    _    _    _    _    _     _
+  _  f    l    h    v    z    ;    w    u    o    y     _   _    _
+  _  s    r    n    t    k    c    d    e    a    i     _      _
+  _  x    j    b    m    q    p    g    ,    .    /       _            _  _  _
+  _     _ _             _                  _  _ _                     _ _ _
+)
+
+(deflayer colemakdh
+  caps  f1  f2  f3  f4  f5  f6 f7  f8  f9  f10  f11  f12 @vnla @dflt @semi del
+  grv  1    2    3    4    5    6    7    8    9    0    -    =     bspc
+  tab  q    w    f    p    b    j    l    u    y    ;     [   ]    \
+  esc  a    r    s    t    g    m    n    e    i    o     '      ret
+  lsft z    x    c    d    v    k    h    ,    .    /       rsft            pgup  up  ralt
+  lalt     lctl lmet      @lspc         @nav  @num rctl                     left down rght
 )

@@ -46,24 +46,26 @@ in {
         keyMap = "us";
     };
 
-    services.xserver.enable = true;
-    services.xserver.displayManager.gdm.enable = true;
+    # services.xserver.enable = true;
+    # services.xserver.displayManager.gdm.enable = true;
     # services.xserver.desktopManager.gnome.enable = true;
-    # hardware.pulseaudio.enable = true;
+    # hardware.pulseaudio.enable = false;
     # services.xserver.libinput.enable = true;
 
     programs.sway = {
         enable = true;
         wrapperFeatures.gtk = true;
-        # extraPackages = with pkgs; [
-        #     swaylock swaybg swayidle
-        #     wl-clipboard dunst dmenu-wayland waybar
-        #     slurp grim wf-recorder
-        #     brightnessctl flashfocus
-        # ];
+        extraPackages = with pkgs; [
+            swaylock swaybg swayidle
+            wl-clipboard dunst dmenu-wayland bemenu waybar
+            slurp grim wf-recorder
+            brightnessctl flashfocus
+            xwayland
+        ];
     };
-    # rtkit is optional but recommended
-    security.rtkit.enable = false;
+
+    programs.qt5ct.enable = true;
+
     services.pipewire = {
       enable = true;
       alsa.enable = true;
@@ -89,7 +91,6 @@ in {
         description = "Start kmonad";
         serviceConfig = {
             Type = "oneshot";
-            RemainAfterExit = "yes";
             ExecStart = "/run/current-system/sw/bin/kmonad /home/felix/dotfiles/.config/kmonad/nixpad.kbd";
             User = "felix";
         };
@@ -129,105 +130,105 @@ in {
 
     nixpkgs.config.allowUnfree = true;
 
+    fonts.fonts = with pkgs; [
+        nerdfonts fira noto-fonts-emoji
+    ];
+
     environment.systemPackages =
     let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
     in
     with pkgs; [
 
-        swaylock swaybg swayidle
-        wl-clipboard dunst dmenu-wayland waybar
-        slurp grim wf-recorder
-        brightnessctl flashfocus
+        # TEMP
+        unstable.helix
 
-        # temp
-        unstable.helix kmonad
-
-        # ESSENTIAL UTILITIES
+        # ESSENTIAL
         foot starship
-        nerdfonts fira iosevka
         wget git gh stow
+        kmonad neofetch
+
+        # DEV
+        gcc gnumake android-tools godot
+        python3Full python39Packages.pip go
+        home-manager
 
         # NEOVIM
-        unstable.neovim go vimPlugins.packer-nvim tree-sitter
-        nodePackages.npm nodejs nodePackages.bash-language-server gcc cmake-language-server
+        unstable.neovim vimPlugins.packer-nvim tree-sitter
+        nodePackages.npm nodejs nodePackages.bash-language-server
+        cmake-language-server
         nodePackages.vscode-langservers-extracted sumneko-lua-language-server
         rnix-lsp nodePackages.pyright rust-analyzer
         nodePackages.vim-language-server
 
-        # TERMINAL UTILS & MISC
-        pipes-rs bat bc lolcat cava figlet neofetch handlr
-        dragon-drop nnn tlp
-        glow htop hyperfine jpegoptim libqalculate lowdown
-        ncdu ncspot onefetch oneshot pastel pdftk
-        termdown tldr tmux udiskie udisks unrar unzip ytfzf
-        zip fzf skim
+        # TERMINAL MISC
+        pipes-rs bat bc lolcat cava figlet handlr
+        dragon-drop nnn tlp glow htop hyperfine
+        libqalculate lowdown ncdu ncspot onefetch
+        oneshot pastel pdftk termdown tldr tmux
+        udiskie udisks unrar ytfzf unzip zip fzf
+        skim
 
         # INTERNET & BLUETOOTH
-        firefox ungoogled-chromium
+        firefox ungoogled-chromium qutebrowser
         blueberry blueman bluez
 
-        # DESKTOP AND RELATED UTILS
-        pulsemixer
+        # DESKTOP
+        pulsemixer pavucontrol
         libsForQt5.qtstyleplugin-kvantum
-        pavucontrol libsForQt5.polkit-kde-agent qt5ct
+        libsForQt5.polkit-kde-agent qt5ct
         xfce.thunar xfce.thunar-archive-plugin
-        imv handlr imagemagick
+        imv handlr imagemagick qalculate-gtk
+        libreoffice mpv noisetorch obs-studio
+        zathura wally-cli
 
-        # X11 UTILS
-        # xclip xdg-user-dirs xdg-utils xdo xdotool xf86_input_wacom
-        # xorg.xbacklight xorg.xev xorg.xkill xorg.xprop xorg.xrandr xorg.xrdb
-        # xsel xwallpaper
-
-        # DEV
-        # python3Full python39Packages.pip pypy3
-        # home-manager
-
-        # MISC & ADDITIONAL
-        # android-tools calibre etcher godot gparted qalculate-gtk libreoffice
-        # mpv noisetorch noto-fonts-emoji obs-studio zathura wally-cli
+        # VISUAL
+        unstable.gnome.adwaita-icon-theme
+        gtk-engine-murrine gtk_engines gsettings-desktop-schemas
+        solarc-gtk-theme
 
         # PHOTO, GRAPHICS & VIDEO
-        # darktable hugin luminanceHDR
-        # gimp-with-plugins krita
-        # inkscape-with-extensions
-        # olive-editor
+        darktable hugin luminanceHDR
+        unstable.gimp-with-plugins krita
+        inkscape-with-extensions
+        jpegoptim
 
         # GAMING
-        # steam steamPackages.steam-fonts lutris minecraft
-        # protonup protontricks proton-caller
+        steam steamPackages.steam-fonts lutris minecraft
+        protonup protontricks proton-caller
 
-        # LaTeX
+        # LATEX
         biber texinfo texlab texlive.combined.scheme-full
 
-        (pkgs.neovim.override {
-         configure = {
-             packages.myPlugins = with pkgs.vimPlugins; {
-                 start = [
-                 (nvim-treesitter.withPlugins (
-                    plugins: with plugins; [
-                        tree-sitter-norg
-                        tree-sitter-bash
-                        tree-sitter-comment
-                        tree-sitter-c
-                        tree-sitter-latex
-                        tree-sitter-json
-                        tree-sitter-lua
-                        tree-sitter-nix
-                        tree-sitter-toml
-                        tree-sitter-yaml
-                        tree-sitter-javascript
-                        tree-sitter-html
-                        tree-sitter-css
-                        tree-sitter-typescript
-                        tree-sitter-rust
-                        tree-sitter-cpp
-                        tree-sitter-python
-                    ]
-                    ))
-                 ];
-             };
-           };
-         })
+        # (pkgs.neovim.override {
+        #  configure = {
+        #      packages.myPlugins = with pkgs.vimPlugins; {
+        #          start = [
+        #          (nvim-treesitter.withPlugins (
+        #             plugins: with plugins; [
+        #                 tree-sitter-norg
+        #                 tree-sitter-bash
+        #                 tree-sitter-comment
+        #                 tree-sitter-c
+        #                 tree-sitter-latex
+        #                 tree-sitter-json
+        #                 tree-sitter-lua
+        #                 tree-sitter-nix
+        #                 tree-sitter-toml
+        #                 tree-sitter-yaml
+        #                 tree-sitter-javascript
+        #                 tree-sitter-html
+        #                 tree-sitter-css
+        #                 tree-sitter-typescript
+        #                 tree-sitter-rust
+        #                 tree-sitter-cpp
+        #                 tree-sitter-python
+        #             ]
+        #             ))
+        #          ];
+        #      };
+        #    };
+        #  })
+
     ];
 
     system.stateVersion = "21.11";

@@ -193,7 +193,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     swaymsg "bindsym XF86MonBrightnessDown exec brightnessctl set 5%-" &
 
     swaymsg "output * resolution 3840x2400 position 3840 0 scale $WDPI" &
-    swaymsg "seat seat0 xcursor_theme "Adwaita" 24" &
+    swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
     swaymsg "xwayland scale=$WDPI" &
 
     pkill waybar

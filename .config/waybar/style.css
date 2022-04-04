@@ -14,8 +14,7 @@
     border: none;
     border-radius: 0;
     font-family: "Fira Sans", "Iosevka NerdFont";
-    font-size: 15px;
-    min-height: 0px;
+    min-height: 25px;
 }
 
 window#waybar {

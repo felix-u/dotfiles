@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on your
-# system. Help is available in the configuration.nix(5) man page and in the
-# NixOS manual (accessible by running 'nixos-help').
-
 { config, pkgs, ... }:
 
 let kmonad = import ../derivations/kmonad.nix;
@@ -35,7 +31,6 @@ in {
         useDHCP = false;
         interfaces.wlp0s20f3.useDHCP = true;
     };
-    # programs.nm-applet.enable = true;
 
 
     # time and internationalisation
@@ -61,11 +56,8 @@ in {
         enable = true;
         wrapperFeatures.gtk = true;
         extraPackages = with pkgs; [
-            swaylock swaybg swayidle
-            wl-clipboard dunst dmenu-wayland bemenu waybar
-            slurp grim wf-recorder
-            brightnessctl flashfocus
-            xwayland
+            bemenu brightnessctl dmenu-wayland dunst flashfocus grim slurp
+            swaybg swayidle swaylock waybar wf-recorder wl-clipboard xwayland
         ];
     };
     programs.qt5ct.enable = true;

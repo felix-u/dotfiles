@@ -8,8 +8,10 @@ add_newline = false
 # Replace the default "❯" symbol:
 
 [character]
-success_symbol = "[](bold blue)[](bold yellow)[](bold red)"
-error_symbol   = "[](bold red)[](bold purple)[](bold red)"
+# success_symbol = "[](bold blue)[](bold yellow)[](bold red)"
+# error_symbol   = "[](bold red)[](bold purple)[](bold red)"
+success_symbol = "[λ](bold blue)"
+error_symbol   = "[λ](bold purple)"
 
 [git_status]
 disabled = true # too slow

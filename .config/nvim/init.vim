@@ -349,5 +349,8 @@ nnoremap <silent> <leader>gst :TSHighlightCapturesUnderCursor<CR>
 nnoremap <silent> <leader>sl :source ~/.config/nvim/colors/lightxresources.vim<CR>
 nnoremap <silent> <leader>sd :source ~/.config/nvim/colors/xresources.vim<CR>
 
+" handy sorting shortcut
+vnoremap <F2> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
+
 " nvim-cmp
 set completeopt=menu,menuone,noselect

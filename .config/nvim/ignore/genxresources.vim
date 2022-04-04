@@ -27,7 +27,6 @@ let s:gui0B = "$(wqs color2)"
 let s:gui0C = "$(wqs color6)"
 let s:gui0D = "$(wqs color4)"
 let s:gui0E = "$(wqs color5)"
-" let s:gui0F = "$(wqs color1)" " red OR pink
 let s:gui0F = "$(pastel mix $(wq color1) $(wq color5) | pastel saturate 0.2 | pastel format hex | tr -d '#')" " red OR pink
 
 " Terminal color definitions

@@ -27,7 +27,6 @@ let s:gui0B = "859900"
 let s:gui0C = "2aa198"
 let s:gui0D = "268bd2"
 let s:gui0E = "6c71c4"
-" let s:gui0F = "dc322f" " red OR pink
 let s:gui0F = "cf4072" " red OR pink
 
 " Terminal color definitions

@@ -6,7 +6,7 @@ export BAT_THEME="ansi"
 
 # Defaults
 export TERMINAL='foot'
-export TERM="$TERMINAL"
+# export TERM="$TERMINAL"
 export TERM_ITALICS=true
 export EDITOR='nvim'
 export VISUAL="nvim"

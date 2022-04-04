@@ -11,8 +11,9 @@ in {
             /etc/nixos/hardware-configuration.nix
         ];
 
-    boot = {
 
+    # bootloader
+    boot = {
         loader = {
             grub = {
                 enable = true;
@@ -23,35 +24,39 @@ in {
             };
             efi = { canTouchEfiVariables = true; };
         };
+        kernelPackages = pkgs.linuxPackages_latest;
     };
 
-    boot.kernelPackages = pkgs.linuxPackages_latest;
 
-    # hostname
-    networking.hostName = "thonkpad";
-    # enable wireless via networkmanager
-    networking.networkmanager.enable = true;
-    programs.nm-applet.enable = true;
+    # networking
+    networking = {
+        hostName = "thonkpad";
+        networkmanager.enable = true;
+        useDHCP = false;
+        interfaces.wlp0s20f3.useDHCP = true;
+    };
+    # programs.nm-applet.enable = true;
 
-    # time zone
+
+    # time and internationalisation
     time.timeZone = "America/New_York";
-
-    networking.useDHCP = false;
-    networking.interfaces.wlp0s20f3.useDHCP = true;
-
-    # internationalisation
     i18n.defaultLocale = "en_GB.UTF-8";
+    # larger font, because 4K
     console = {
-        font = "Lat2-Terminus16";
+        earlySetup = true;
+        font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
+        packages = with pkgs; [ terminus_font ];
         keyMap = "us";
     };
 
-    # services.xserver.enable = true;
-    # services.xserver.displayManager.gdm.enable = true;
-    # services.xserver.desktopManager.gnome.enable = true;
-    # hardware.pulseaudio.enable = false;
-    # services.xserver.libinput.enable = true;
 
+    # fonts
+    fonts.fonts = with pkgs; [
+        fira nerdfonts noto-fonts-emoji
+    ];
+
+
+    # wayland schtuff
     programs.sway = {
         enable = true;
         wrapperFeatures.gtk = true;
@@ -63,8 +68,8 @@ in {
             xwayland
         ];
     };
-
     programs.qt5ct.enable = true;
+
 
     services.pipewire = {
       enable = true;
@@ -73,11 +78,10 @@ in {
       pulse.enable = true;
     };
 
+
     # enable CUPS for printing
     services.printing.enable = true;
 
-    # sound
-    # sound.enable = true;
 
     # kmonad
     users.groups = { uinput = {}; };
@@ -97,42 +101,41 @@ in {
     };
     systemd.services.thinkpadkbd.enable = true;
 
+
     # user account
     users.users.felix = {
         isNormalUser = true;
         extraGroups = [ "wheel" "networkmanager" "input" "uinput" ];
     };
-
     # shell
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs.zsh;
+
 
     nix = {
         package = pkgs.nixFlakes;
         extraOptions = ''
             experimental-features = nix-command flakes
         '';
-
         autoOptimiseStore = true;
         checkConfig = true;
-
         gc = {
             automatic = true;
             persistent = true;
             dates = "weekly";
             options = "--delete-older-than 30d";
         };
-
         optimise.automatic = true;
-
         trustedUsers = [ "root" "felix" ];
     };
-
     nixpkgs.config.allowUnfree = true;
+    # NUR
+    nixpkgs.config.packageOverrides = pkgs: {
+        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+            inherit pkgs;
+        };
+    };
 
-    fonts.fonts = with pkgs; [
-        nerdfonts fira noto-fonts-emoji
-    ];
 
     environment.systemPackages =
     let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
@@ -143,58 +146,46 @@ in {
         unstable.helix
 
         # ESSENTIAL
-        foot starship
-        wget git gh stow
-        kmonad neofetch
+        foot gh git kmonad neofetch starship stow wget
 
         # DEV
-        gcc gnumake android-tools godot
-        python3Full python39Packages.pip go
-        home-manager
+        android-tools gcc gnumake go godot home-manager python39Packages.pip
+        python3Full
 
         # NEOVIM
-        unstable.neovim vimPlugins.packer-nvim tree-sitter
-        nodePackages.npm nodejs nodePackages.bash-language-server
-        cmake-language-server
-        nodePackages.vscode-langservers-extracted sumneko-lua-language-server
-        rnix-lsp nodePackages.pyright rust-analyzer
-        nodePackages.vim-language-server
+        cmake-language-server nodePackages.bash-language-server
+        nodePackages.npm nodePackages.pyright nodePackages.vim-language-server
+        nodePackages.vscode-langservers-extracted nodejs rnix-lsp
+        rust-analyzer sumneko-lua-language-server tree-sitter unstable.neovim
+        vimPlugins.packer-nvim
 
         # TERMINAL MISC
-        pipes-rs bat bc lolcat cava figlet handlr
-        dragon-drop nnn tlp glow htop hyperfine
-        libqalculate lowdown ncdu ncspot onefetch
-        oneshot pastel pdftk termdown tldr tmux
-        udiskie udisks unrar ytfzf unzip zip fzf
-        skim
+        bat bc cava cmatrix dict dragon-drop entr figlet ffmpeg fzf glow handlr htop
+        hunspell hunspellDicts.en-gb-ise hyperfine
+        libqalculate lolcat lowdown ncdu ncspot nnn onefetch oneshot pastel
+        pdftk pipes-rs skim termdown tldr tlp tmux ttyper udiskie udisks unrar unzip
+        w3m ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH
-        firefox ungoogled-chromium qutebrowser
-        blueberry blueman bluez
+        blueberry blueman bluez firefox qutebrowser ungoogled-chromium
 
         # DESKTOP
-        pulsemixer pavucontrol
-        libsForQt5.qtstyleplugin-kvantum
-        libsForQt5.polkit-kde-agent qt5ct
-        xfce.thunar xfce.thunar-archive-plugin
-        imv handlr imagemagick qalculate-gtk
-        libreoffice mpv noisetorch obs-studio
-        zathura wally-cli
+        handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent
+        libsForQt5.qtstyleplugin-kvantum mpv noisetorch obs-studio pavucontrol
+        pulsemixer qalculate-gtk qt5ct unstable.rnote wally-cli xfce.thunar
+        xfce.thunar-archive-plugin xournalpp zathura
 
         # VISUAL
-        unstable.gnome.adwaita-icon-theme
-        gtk-engine-murrine gtk_engines gsettings-desktop-schemas
-        solarc-gtk-theme
+        gsettings-desktop-schemas gtk-engine-murrine gtk_engines
+        solarc-gtk-theme unstable.gnome.adwaita-icon-theme
 
         # PHOTO, GRAPHICS & VIDEO
-        darktable hugin luminanceHDR
-        unstable.gimp-with-plugins krita
-        inkscape-with-extensions
-        jpegoptim
+        darktable hugin inkscape-with-extensions jpegoptim krita luminanceHDR
+        unstable.gimp-with-plugins
 
         # GAMING
-        steam steamPackages.steam-fonts lutris minecraft
-        protonup protontricks proton-caller
+        lutris minecraft proton-caller protontricks protonup steam
+        steamPackages.steam-fonts unstable.heroic
 
         # LATEX
         biber texinfo texlab texlive.combined.scheme-full

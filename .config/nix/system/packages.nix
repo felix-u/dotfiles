@@ -42,7 +42,7 @@ in {
 
         # DEV
         android-tools gcc gnumake go godot home-manager libresprite
-        python39Packages.pip python3Full
+        python39Packages.pip python3Full unstable.deadnix unstable.statix
 
         # NEOVIM
         cmake-language-server nodePackages.bash-language-server

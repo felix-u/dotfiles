@@ -149,18 +149,19 @@ in {
         foot gh git kmonad neofetch starship stow wget
 
         # DEV
-        android-tools gcc gnumake go godot home-manager python39Packages.pip
-        python3Full
+        android-tools gcc gnumake go godot home-manager libresprite
+        python39Packages.pip python3Full
 
         # NEOVIM
         cmake-language-server nodePackages.bash-language-server
+        nodePackages.js-beautify
         nodePackages.npm nodePackages.pyright nodePackages.vim-language-server
         nodePackages.vscode-langservers-extracted nodejs rnix-lsp
         rust-analyzer sumneko-lua-language-server tree-sitter unstable.neovim
         vimPlugins.packer-nvim
 
         # TERMINAL MISC
-        bat bc cava cmatrix dict dragon-drop entr figlet ffmpeg fzf glow handlr htop
+        bat bc catimg cava cmatrix dict dragon-drop entr figlet ffmpeg fzf glow handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine
         libqalculate lolcat lowdown ncdu ncspot nnn onefetch oneshot pastel
         pdftk pipes-rs skim termdown tldr tlp tmux ttyper udiskie udisks unrar unzip

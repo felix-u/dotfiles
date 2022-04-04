@@ -31,7 +31,7 @@ colours = {
         'color13': '#6c71c4',
         'color14': '#2aa198',
         'color15': '#839496',
-        'fontmono': 'IosevkaCustom'
+        'fontmono': 'Iosevka'
         }
 
 config.set("fonts.default_family", colours['fontmono'])

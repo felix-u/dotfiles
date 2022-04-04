@@ -1,6 +1,6 @@
 set guioptions ""
 set selection-clipboard clipboard
-set font                        "IosevkaCustom 12"
+set font                        "Iosevka 12"
 
 set notification-error-fg       "#dc322f" #red
 set notification-warning-fg     "#b58900" #yellow

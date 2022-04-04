@@ -199,36 +199,6 @@ in {
         # LATEX
         biber texinfo texlab texlive.combined.scheme-full
 
-        # (pkgs.neovim.override {
-        #  configure = {
-        #      packages.myPlugins = with pkgs.vimPlugins; {
-        #          start = [
-        #          (nvim-treesitter.withPlugins (
-        #             plugins: with plugins; [
-        #                 tree-sitter-norg
-        #                 tree-sitter-bash
-        #                 tree-sitter-comment
-        #                 tree-sitter-c
-        #                 tree-sitter-latex
-        #                 tree-sitter-json
-        #                 tree-sitter-lua
-        #                 tree-sitter-nix
-        #                 tree-sitter-toml
-        #                 tree-sitter-yaml
-        #                 tree-sitter-javascript
-        #                 tree-sitter-html
-        #                 tree-sitter-css
-        #                 tree-sitter-typescript
-        #                 tree-sitter-rust
-        #                 tree-sitter-cpp
-        #                 tree-sitter-python
-        #             ]
-        #             ))
-        #          ];
-        #      };
-        #    };
-        #  })
-
     ];
 
     system.stateVersion = "21.11";

@@ -46,25 +46,36 @@ in {
         keyMap = "us";
     };
 
-    # enable xorg
     services.xserver.enable = true;
-    # startx
-    # services.xserver.displayManager.startx.enable = true;
-    # bspwm
-    # services.xserver.windowManager.bspwm.enable = true;
-
     services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+    # services.xserver.desktopManager.gnome.enable = true;
+    # hardware.pulseaudio.enable = true;
+    # services.xserver.libinput.enable = true;
+
+    programs.sway = {
+        enable = true;
+        wrapperFeatures.gtk = true;
+        # extraPackages = with pkgs; [
+        #     swaylock swaybg swayidle
+        #     wl-clipboard dunst dmenu-wayland waybar
+        #     slurp grim wf-recorder
+        #     brightnessctl flashfocus
+        # ];
+    };
+    # rtkit is optional but recommended
+    security.rtkit.enable = false;
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
 
     # enable CUPS for printing
     services.printing.enable = true;
 
     # sound
-    sound.enable = true;
-    hardware.pulseaudio.enable = true;
-
-    # touchpad support
-    services.xserver.libinput.enable = true;
+    # sound.enable = true;
 
     # kmonad
     users.groups = { uinput = {}; };
@@ -123,17 +134,22 @@ in {
     in
     with pkgs; [
 
+        swaylock swaybg swayidle
+        wl-clipboard dunst dmenu-wayland waybar
+        slurp grim wf-recorder
+        brightnessctl flashfocus
+
         # temp
-        unstable.helix
+        unstable.helix kmonad
 
         # ESSENTIAL UTILITIES
         foot starship
-        nerdfonts fira
+        nerdfonts fira iosevka
         wget git gh stow
 
         # NEOVIM
         unstable.neovim go vimPlugins.packer-nvim tree-sitter
-        nodePackages.npm nodejs nodePackages.bash-language-server clang cmake-language-server
+        nodePackages.npm nodejs nodePackages.bash-language-server gcc cmake-language-server
         nodePackages.vscode-langservers-extracted sumneko-lua-language-server
         rnix-lsp nodePackages.pyright rust-analyzer
         nodePackages.vim-language-server
@@ -144,18 +160,18 @@ in {
         glow htop hyperfine jpegoptim libqalculate lowdown
         ncdu ncspot onefetch oneshot pastel pdftk
         termdown tldr tmux udiskie udisks unrar unzip ytfzf
-        zip
+        zip fzf skim
 
         # INTERNET & BLUETOOTH
         firefox ungoogled-chromium
         blueberry blueman bluez
 
         # DESKTOP AND RELATED UTILS
-        # pulsemixer dunst
-        # libsForQt5.qtstyleplugin-kvantum numix-icon-theme-circle lxappearance
-        # pavucontrol libsForQt5.polkit-kde-agent qt5ct
-        # xfce.thunar xfce.thunar-archive-plugin
-
+        pulsemixer
+        libsForQt5.qtstyleplugin-kvantum
+        pavucontrol libsForQt5.polkit-kde-agent qt5ct
+        xfce.thunar xfce.thunar-archive-plugin
+        imv handlr imagemagick
 
         # X11 UTILS
         # xclip xdg-user-dirs xdg-utils xdo xdotool xf86_input_wacom
@@ -163,7 +179,7 @@ in {
         # xsel xwallpaper
 
         # DEV
-        # nodePackages.npm python3Full python39Packages.pip pypy3 rpi-imager lua
+        # python3Full python39Packages.pip pypy3
         # home-manager
 
         # MISC & ADDITIONAL

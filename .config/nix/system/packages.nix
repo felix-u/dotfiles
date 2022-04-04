@@ -1,6 +1,7 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, ... }:
 
-{
+let kmonad = import ../derivations/kmonad.nix;
+in {
     nix = {
         package = pkgs.nixFlakes;
         extraOptions = ''

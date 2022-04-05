@@ -16,6 +16,8 @@
     font-family: "Fira Sans", "Iosevka NerdFont";
     /* min-height: 30px; */
     min-height: 0px;
+    box-shadow: inherit;
+    text-shadow: inherit;
 }
 
 window#waybar {

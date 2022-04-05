@@ -61,7 +61,7 @@ in {
         w3m youtube-dl ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH
-        blueberry blueman bluez firefox qutebrowser ungoogled-chromium
+        blueberry blueman bluez firefox newsboat qutebrowser ungoogled-chromium
 
         # DESKTOP
         handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent

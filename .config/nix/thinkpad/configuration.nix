@@ -20,8 +20,11 @@
             # user configuration (groups, shell, etc.)
             ../system/users.nix
 
-            # packages
+            # general packages
             ../system/packages.nix
+            # thinkpad-specific packages
+            ./packages.nix
+
         ];
 
 

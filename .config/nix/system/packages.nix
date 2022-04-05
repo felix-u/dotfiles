@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 let kmonad = import ../derivations/kmonad.nix;
 in {
@@ -29,6 +29,7 @@ in {
     };
 
 
+    # packages for all systems
     environment.systemPackages =
     let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
     in
@@ -56,7 +57,7 @@ in {
         bat bc catimg cava cmatrix dict dragon-drop entr figlet ffmpeg fzf glow handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine
         libqalculate lolcat lowdown ncdu ncspot nnn onefetch oneshot pastel
-        pdftk pipes-rs skim termdown tldr tlp tmux ttyper udiskie udisks unrar unzip
+        pdftk pipes-rs skim termdown tldr tmux ttyper udiskie udisks unrar unzip
         w3m youtube-dl ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH
@@ -65,8 +66,8 @@ in {
         # DESKTOP
         handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent
         libsForQt5.qtstyleplugin-kvantum mpv noisetorch obs-studio pavucontrol
-        pulsemixer qalculate-gtk qt5ct unstable.rnote wally-cli xfce.thunar
-        xfce.thunar-archive-plugin xournalpp zathura
+        pulsemixer qalculate-gtk qt5ct wally-cli xfce.thunar
+        xfce.thunar-archive-plugin zathura
 
         # VISUAL
         gsettings-desktop-schemas gtk-engine-murrine gtk_engines

@@ -28,7 +28,7 @@
                 font.name = "Fira Sans";
                 font.size = 11;
                 iconTheme.name = "Adwaita";
-                theme.name = "Adwaita-dark";
+                theme.name = "SolArc-Dark";
             };
         };
     };

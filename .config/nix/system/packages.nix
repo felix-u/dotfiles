@@ -57,7 +57,7 @@ in {
         hunspell hunspellDicts.en-gb-ise hyperfine
         libqalculate lolcat lowdown ncdu ncspot nnn onefetch oneshot pastel
         pdftk pipes-rs skim termdown tldr tlp tmux ttyper udiskie udisks unrar unzip
-        w3m ytfzf zip _7zz
+        w3m youtube-dl ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH
         blueberry blueman bluez firefox qutebrowser ungoogled-chromium
@@ -74,7 +74,7 @@ in {
 
         # PHOTO, GRAPHICS & VIDEO
         darktable hugin inkscape-with-extensions jpegoptim krita luminanceHDR
-        unstable.gimp-with-plugins
+        mediainfo unstable.gimp-with-plugins
 
         # GAMING
         lutris minecraft proton-caller protontricks protonup steam

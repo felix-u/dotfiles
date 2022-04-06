@@ -14,8 +14,6 @@
     border: none;
     border-radius: 0;
     font-family: "Fira Sans", "Iosevka NerdFont";
-    /* min-height: 30px; */
-    min-height: 0px;
     box-shadow: inherit;
     text-shadow: inherit;
 }

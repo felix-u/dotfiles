@@ -9,6 +9,8 @@
                 devices = [ "nodev" ];
                 efiSupport = true;
                 useOSProber = true;
+                splashImage = /home/felix/dotfiles/Pictures/cafe-walls/cityfromabove.jpg;
+                fontSize = 32;
             };
             efi = { canTouchEfiVariables = true; };
         };

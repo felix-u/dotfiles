@@ -1,8 +1,6 @@
 { pkgs, config, lib, ... }:
 
-let
-    kmonad = import ../derivations/kmonad.nix;
-in {
+{
     nix = {
         package = pkgs.nixFlakes;
         extraOptions = ''
@@ -37,7 +35,7 @@ in {
     with pkgs; [
 
         # ESSENTIAL
-        foot gh git kmonad neofetch starship stow wget
+        foot gh git neofetch starship stow wget
 
         # DEV
         android-tools gcc gnumake go godot home-manager libresprite

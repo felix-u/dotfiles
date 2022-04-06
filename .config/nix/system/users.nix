@@ -21,6 +21,7 @@
             home.username = "felix";
             home.homeDirectory = "/home/felix";
             home.stateVersion = "21.11";
+
             gtk = {
                 enable = true;
                 cursorTheme.name = "Adwaita";
@@ -30,6 +31,7 @@
                 iconTheme.name = "Adwaita";
                 theme.name = "SolArc-Dark";
             };
+
         };
     };
 }

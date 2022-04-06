@@ -4,7 +4,7 @@ wq () {
     grep "$1:" ~/.Xresources | awk '{print $2}'
 }
 
-# dmenu_run -i -h 36 -fn 'Fira Sans Medium 12' -nb "$(wq background)" -nf "$(wq color15)" -sb "$(wq color0)" -sf "$(wq color4)"
+dmenu-wl_run -i -h 36 -fn 'Fira Sans Medium 12' -nb "$(wq background)" -nf "$(wq color15)" -sb "$(wq color0)" -sf "$(wq color4)"
 
 
 # or FUZZEL
@@ -14,4 +14,4 @@ wq () {
 #     -p 5 -i 'Paper'"
 
 # or bemenu
-bemenu-run -H 30 --fn "Fira Sans Medium 12" --tb "$(wq background)" --tf "$(wq color4)" --fb "$(wq background)" --ff "$(wq color15)" --nb "$(wq background)" --nf "$(wq color7)" --hb "$(wq background)" --hf "$(wq color4)" -i -p "" -n
+# bemenu-run -H 30 --fn "Fira Sans Medium 12" --tb "$(wq background)" --tf "$(wq color4)" --fb "$(wq background)" --ff "$(wq color15)" --nb "$(wq background)" --nf "$(wq color7)" --hb "$(wq background)" --hf "$(wq color4)" -i -p "" -n

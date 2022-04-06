@@ -1,12 +1,14 @@
 { pkgs, config, ... }:
 
-{
+let
+    dmenu-wl_run = import ../derivations/dmenu-wl.nix;
+in {
     # wayland schtuff
     programs.sway = {
         enable = true;
         wrapperFeatures.gtk = true;
         extraPackages = with pkgs; [
-            bemenu brightnessctl dmenu-wayland dunst flashfocus grim slurp
+            brightnessctl dmenu-wayland dmenu-wl_run dunst flashfocus grim slurp
             swaybg swayidle swaylock waybar wf-recorder wl-clipboard xwayland
         ];
     };

@@ -241,7 +241,7 @@ n ()
 rebuild-switch () {
     if [ $(hostname) = "thonkpad" ]; then
         sudo nixos-rebuild switch -I nixos-config=$XDG_CONFIG_HOME/nix/thinkpad/configuration.nix
-    elif [ $(hostname) = "archbtw" ]; then
+    elif [ $(hostname) = "nixbtw" ]; then
         sudo nixos-rebuild switch -I nixos-config=$XDG_CONFIG_HOME/nix/pc/configuration.nix
     fi
 }

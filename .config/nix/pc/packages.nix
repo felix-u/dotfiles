@@ -15,5 +15,9 @@
         # AUDIO/VIDEO
         libsForQt5.kdenlive
 
+
+        # GAMING
+        openspades
+
     ];
 }

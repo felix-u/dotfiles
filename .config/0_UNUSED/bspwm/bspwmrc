@@ -17,7 +17,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     polybar laptop &
 fi
 # elif [ $(bc <<< "$XDPI / 1.25") -eq 1 ]; then
-if [[ $(cat /proc/sys/kernel/hostname) == "archbtw" ]]; then
+if [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
     pkill sxhkd
     pgrep -x sxhkd > /dev/null || sxhkd -c $HOME/.config/sxhkd/sxhkdrc $HOME/.config/sxhkd/colemakrc &
     dunst -conf ~/.config/dunst/desktoprc &

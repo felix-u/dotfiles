@@ -209,7 +209,7 @@ fi
 #
 #
 #
-if [[ $(cat /proc/sys/kernel/hostname) == "archbtw" ]]; then
+if [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
     LEFT='m'
     DOWN='n'
     UP='e'

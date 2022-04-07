@@ -90,7 +90,7 @@ echo "wallpaper"
 # if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 #     killall -q polybar
 #     polybar laptop -q &
-# elif [[ $(cat /proc/sys/kernel/hostname) == "archbtw" ]]; then
+# elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
 #     killall -q polybar
 #     polybar desktop -q &
 # fi

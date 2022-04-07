@@ -15,8 +15,10 @@
         # AUDIO/VIDEO
         libsForQt5.kdenlive
 
-
         # GAMING
+        glxinfo
+        # config.boot.kernelPackages.amdgpu-pro
+        unstable.linuxKernel.packages.linux_5_17.amdgpu-pro
         openspades
 
     ];

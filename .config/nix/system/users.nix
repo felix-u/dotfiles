@@ -35,6 +35,8 @@
             xdg.userDirs.enable = true;
             xdg.userDirs.createDirectories = true;
 
+            services.udiskie.enable = true;
+
         };
     };
 }

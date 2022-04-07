@@ -32,6 +32,9 @@
                 theme.name = "SolArc-Dark";
             };
 
+            xdg.userDirs.enable = true;
+            xdg.userDirs.createDirectories = true;
+
         };
     };
 }

@@ -47,7 +47,7 @@
     "pulseaudio": {
         "format": "{icon}   {volume}%",
         "format-icons": {
-            "headphone": [" ", " ", " ", " "],
+            "headphone": ["  ", "  ", "  ", "  "],
             "default":   ["", "", "", ""],
             "bluetooth": [" ", " ", " ", " "],
         },

@@ -42,7 +42,6 @@ wf-record () {
     wf-recorder -f ~/Desktop/recordings/$(date +%Y-%m-%d-%H%M).mp4 -e -t \
         -c h264_vaapi -d /dev/dri/renderD128
 }
-alias cmatrix="unimatrix -s 97"
 
 # mkdir create parents
 alias mkdir='mkdir -pv'

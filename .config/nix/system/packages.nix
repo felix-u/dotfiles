@@ -38,7 +38,7 @@
         foot gh git neofetch starship stow wget
 
         # DEV
-        android-tools gcc gnumake go godot home-manager libresprite
+        android-tools gcc gnumake go unstable.godot home-manager libresprite
         python39Packages.pip python3Full unstable.deadnix unstable.statix
 
         # MATHS
@@ -63,9 +63,10 @@
         blueberry blueman bluez firefox newsboat qutebrowser ungoogled-chromium
 
         # DESKTOP
-        handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent
-        libsForQt5.qtstyleplugin-kvantum mpv noisetorch obs-studio pavucontrol
-        pulsemixer qt5ct wally-cli xfce.thunar
+        bitwarden handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent
+        libsForQt5.qtstyleplugin-kvantum mpv noisetorch
+        obs-studio obs-studio-plugins.wlrobs
+        pavucontrol pulsemixer qt5ct wally-cli xfce.thunar
         xfce.thunar-archive-plugin zathura
 
         # VISUAL

@@ -10,6 +10,7 @@
                 efiSupport = true;
                 useOSProber = true;
                 splashImage = /home/felix/dotfiles/Pictures/cafe-walls/cityfromabove.jpg;
+                font = "${pkgs.iosevka}/share/fonts/truetype/iosevka-medium.ttf";
                 fontSize = 32;
             };
             efi = { canTouchEfiVariables = true; };

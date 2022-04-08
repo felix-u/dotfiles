@@ -40,6 +40,7 @@
         # DEV
         android-tools gcc gnumake go unstable.godot home-manager libresprite
         python39Packages.pip python3Full unstable.deadnix unstable.statix
+        yarn
 
         # MATHS
         bc gnuplot libqalculate maxima qalculate-gtk wxmaxima
@@ -50,13 +51,12 @@
         nodePackages.npm nodePackages.pyright nodePackages.vim-language-server
         nodePackages.vscode-langservers-extracted nodejs rnix-lsp
         rust-analyzer sumneko-lua-language-server tree-sitter unstable.neovim
-        vimPlugins.packer-nvim
 
         # TERMINAL MISC
         bat catimg cava cmatrix dict dragon-drop entr figlet ffmpeg fzf glow handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine
         lm_sensors lolcat lowdown ncdu ncspot nnn onefetch oneshot pastel
-        pdftk pipes-rs skim termdown tldr tmux tty-clock ttyper udiskie udisks unrar unzip
+        pdftk pipes-rs ripgrep skim termdown tldr tmux tty-clock ttyper udiskie udisks unrar unzip
         w3m youtube-dl ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH

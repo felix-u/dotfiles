@@ -14,6 +14,11 @@ input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" {
     # middle_emulation enabled
 }
 
+# mouse settings
+input "5426:101:Razer_Razer_Basilisk_Essential" {
+    accel_profile flat
+}
+
 ### Output configuration
 #
 # hide that bloody thing away

@@ -78,11 +78,15 @@
         mediainfo unstable.gimp-with-plugins
 
         # GAMING
-        lutris minecraft proton-caller protontricks protonup steam
+        lutris minecraft proton-caller protontricks protonup
         steamPackages.steam-fonts unstable.heroic
 
         # LATEX
         biber texinfo texlab texlive.combined.scheme-full
 
     ];
+
+    # steam here, not working in packages
+    programs.steam.enable = true;
+
 }

@@ -74,7 +74,7 @@
         solarc-gtk-theme unstable.gnome.adwaita-icon-theme
 
         # PHOTO, GRAPHICS & VIDEO
-        darktable hugin inkscape-with-extensions jpegoptim krita luminanceHDR
+        unstable.darktable hugin inkscape-with-extensions jpegoptim krita luminanceHDR
         mediainfo unstable.gimp-with-plugins
 
         # GAMING

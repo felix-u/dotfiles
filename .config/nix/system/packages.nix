@@ -66,7 +66,7 @@
         bitwarden handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent
         libsForQt5.qtstyleplugin-kvantum mpv noisetorch
         obs-studio obs-studio-plugins.wlrobs
-        pavucontrol pulsemixer qt5ct wally-cli xfce.thunar
+        pavucontrol profanity pulsemixer qt5ct wally-cli xfce.thunar
         xfce.thunar-archive-plugin zathura
 
         # VISUAL

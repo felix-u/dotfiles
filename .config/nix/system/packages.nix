@@ -57,7 +57,8 @@
         bat catimg cava cmatrix dict dragon-drop entr figlet ffmpeg fzf glow handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine
         lm_sensors lolcat lowdown ncdu ncspot nnn onefetch oneshot pastel
-        pdftk pipes-rs ripgrep skim termdown tldr tmux tty-clock ttyper udiskie udisks unrar unzip
+        pandoc pdftk pipes-rs ripgrep skim termdown tldr tmux tty-clock ttyper
+        udiskie udisks unrar unzip
         w3m youtube-dl ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH

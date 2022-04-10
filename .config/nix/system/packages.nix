@@ -38,9 +38,10 @@
         foot gh git neofetch starship stow wget
 
         # DEV
-        android-tools gcc gnumake go unstable.godot home-manager libresprite
-        python39Packages.pip python3Full unstable.deadnix unstable.statix
-        yarn
+        android-tools cmake clang-tools gcc gnumake go unstable.godot
+        home-manager
+        libresprite python39Packages.pip python3Full
+        unstable.clang unstable.deadnix unstable.statix yarn
 
         # MATHS
         bc gnuplot libqalculate maxima qalculate-gtk wxmaxima

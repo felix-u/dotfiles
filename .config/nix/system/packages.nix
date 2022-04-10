@@ -28,9 +28,32 @@
     };
 
 
+
+
     # packages for all systems
     environment.systemPackages =
-    let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+    let
+        unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
+        # # latest aseprite, since even "unstable" version is awfully behind
+        # asepriteLatest = pkgs.aseprite-unfree.overrideAttrs (oldAttrs: rec {
+        #     version = "1.3-beta14";
+        #     src = pkgs.fetchFromGitHub {
+        #         owner = "aseprite";
+        #         repo = "aseprite";
+        #         rev = "v${version}";
+        #         fetchSubmodules = true;
+        #         sha256 = "sha256-F8/UmgG2yRLDZnBZaNJTAHDcXyoC3ePMhdEcTHlNR8E=";
+        #       };
+        #     patches = [];
+        #     buildInputs = with pkgs; (oldAttrs.buildInputs or []) ++
+        #         [ xorg.libXi gn (harfbuzz.override {withIcu=true;}) ];
+        #     postPatch = '''';
+        #     cmakeFlags = (oldAttrs.cmakeFlags or []) ++
+        #         [ "-DSKIA_LIBRARY_DIR=${skia}"
+        #           "-DSKIA_LIBRARY=${skia}/libskia.a"
+        #         ];
+        # });
     in
     with pkgs; [
 
@@ -38,10 +61,12 @@
         foot gh git neofetch starship stow wget
 
         # DEV
-        android-tools aseprite-unfree cmake clang-tools gcc gnumake go unstable.godot
+        android-tools cmake clang-tools gcc gnumake go unstable.godot
         home-manager
         libresprite python39Packages.pip python3Full
         unstable.clang unstable.deadnix unstable.statix yarn
+        # asepriteLatest
+        aseprite-unfree
 
         # MATHS
         bc gnuplot libqalculate maxima qalculate-gtk wxmaxima

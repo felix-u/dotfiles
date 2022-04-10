@@ -26,4 +26,13 @@ in {
     # enable CUPS for printing
     services.printing.enable = true;
 
+    # flatpak and xdg portals
+    services.flatpak.enable = true;
+    xdg.portal = {
+        enable = true;
+        gtkUsePortal = true;
+        wlr.enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
+
 }

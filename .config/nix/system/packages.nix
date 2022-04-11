@@ -49,9 +49,12 @@
         #     buildInputs = with pkgs; (oldAttrs.buildInputs or []) ++
         #         [ xorg.libXi gn (harfbuzz.override {withIcu=true;}) ];
         #     postPatch = '''';
+        #     skia = pkgs.callPackage /home/felix/.config/nix/system/customPackages/skia/skia.nix {};
         #     cmakeFlags = (oldAttrs.cmakeFlags or []) ++
-        #         [ "-DSKIA_LIBRARY_DIR=${skia}"
-        #           "-DSKIA_LIBRARY=${skia}/libskia.a"
+        #         [
+        #           "-DSKIA_DIR=${skia}/include/core"
+        #           "-DSKIA_LIBRARY_DIR=${skia}/include"
+        #           "-DSKIA_LIBRARY=${skia}/out/Release/libskia.a"
         #         ];
         # });
     in

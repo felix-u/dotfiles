@@ -34,10 +34,10 @@ WS07="$(wqs color7)"
 WS08="$(wqs color8)"
 WS15="$(wqs color15)"
 
-MOD='Mod4'
-ALT='Mod1'
+MOD="Mod4"
+ALT="Mod1"
+TERM="foot"
 
-TERM='foot'
 FILES='thunar'
 SLURP="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
 
@@ -121,9 +121,8 @@ swaymsg "bindsym $MOD+$ALT+g gaps inner current set 0" &
 swaymsg "bindsym $MOD+period gaps outer current plus 15" &
 swaymsg "bindsym $MOD+Shift+period gaps outer current minus 15" &
 swaymsg "bindsym $MOD+$ALT+period gaps outer current set 0" &
-# colour picker FIXME
-# swaymsg "bindsym $MOD+Shift+p exec $SLURP | grim -g -t ppm - | \
-    # convert - -format '%[pixel:p{0,0}]' txt:-"
+# swap between qwerty and colemak bindings on the fly
+swaymsg "bindsym $MOD+Shift+t exec $XDG_CONFIG_HOME/sway/scripts/bindswitch" &
 
 
 #
@@ -174,18 +173,8 @@ swaymsg "client.placeholder \
 #
 #
 if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
-    LEFT='h'
-    DOWN='j'
-    UP='k'
-    RIGHT='l'
 
-    RETURN="Semicolon"
-    SCRATCH="n"
-
-    SPLITV='u'
-    SPLITH='o'
-    swaymsg "bindsym $MOD+$SPLITH splith" &
-    swaymsg "bindsym $MOD+$SPLITV splitv" &
+    "$XDG_CONFIG_HOME"/sway/scripts/binds qwerty "$MOD" "$ALT" "$TERM" &
 
     WDPI=2
 
@@ -210,18 +199,8 @@ fi
 #
 #
 if [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
-    LEFT='m'
-    DOWN='n'
-    UP='e'
-    RIGHT='i'
 
-    RETURN='o'
-    SCRATCH="h"
-
-    SPLITV='l'
-    SPLITH='y'
-    swaymsg "bindsym $MOD+$SPLITH splith" &
-    swaymsg "bindsym $MOD+$SPLITV splitv" &
+    "$XDG_CONFIG_HOME"/sway/scripts/binds colemak "$MOD" "$ALT" "$TERM" &
 
     WDPI="1.3"
 
@@ -233,26 +212,6 @@ if [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
     waybar -c ~/.config/waybar/desktop.json &
 fi
 
-swaymsg "bindsym $MOD+$RETURN exec $TERM" &
-# navigation
-swaymsg "bindsym $MOD+$LEFT focus left" &
-swaymsg "bindsym $MOD+$DOWN focus down" &
-swaymsg "bindsym $MOD+$UP focus up" &
-swaymsg "bindsym $MOD+$RIGHT focus right" &
-swaymsg "bindsym $MOD+Shift+$LEFT move left 50px" &
-swaymsg "bindsym $MOD+Shift+$DOWN move down 50px" &
-swaymsg "bindsym $MOD+Shift+$UP move up 50px" &
-swaymsg "bindsym $MOD+Shift+$RIGHT move right 50px" &
-# layout stuff
-swaymsg "bindsym $MOD+Control+t splitt" &
-# resizing
-swaymsg "bindsym $MOD+$ALT+$LEFT  resize shrink width  50px" &
-swaymsg "bindsym $MOD+$ALT+$DOWN  resize grow   height 50px" &
-swaymsg "bindsym $MOD+$ALT+$UP    resize shrink height 50px" &
-swaymsg "bindsym $MOD+$ALT+$RIGHT resize grow   width  50px" &
-#
-swaymsg "bindsym $MOD+Shift+$SCRATCH move scratchpad" &
-swaymsg "bindsym $MOD+$SCRATCH scratchpad show" &
 # wallpaper
 ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 

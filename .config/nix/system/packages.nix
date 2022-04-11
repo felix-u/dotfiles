@@ -63,7 +63,7 @@
         # DEV
         android-tools cmake clang-tools gcc gnumake go unstable.godot
         home-manager
-        libresprite python39Packages.pip python3Full
+        libresprite python39Packages.pip python3Full shellcheck
         unstable.clang unstable.deadnix unstable.statix yarn
         # asepriteLatest
         aseprite-unfree
@@ -91,7 +91,7 @@
 
         # DESKTOP
         bitwarden handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent
-        libsForQt5.qtstyleplugin-kvantum mpv noisetorch
+        libnotify libsForQt5.qtstyleplugin-kvantum mpv noisetorch
         obs-studio obs-studio-plugins.wlrobs
         pavucontrol profanity pulsemixer qt5ct wally-cli xfce.thunar
         xfce.thunar-archive-plugin zathura

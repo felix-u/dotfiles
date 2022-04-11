@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+# dmenu alias for proper colours and such
+. "$XDG_CONFIG_HOME"/zsh/dmenu-aliases.sh
+
+TARGET="$(printf "qwerty\ncolemak" | dmenu)"
+
+if [ "$TARGET" = "qwerty" ]; then
+    "$XDG_CONFIG_HOME"/sway/scripts/binds qwerty Mod4 Mod1 foot &
+    notify-send "qwerty keybinds loaded"
+elif [ "$TARGET" = "colemak" ]; then
+    "$XDG_CONFIG_HOME"/sway/scripts/binds colemak Mod4 Mod1 foot &
+    notify-send "colemak keybinds loaded"
+fi

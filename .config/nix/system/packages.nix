@@ -35,7 +35,7 @@
     let
         unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
-        # # latest aseprite, since even "unstable" version is awfully behind
+        # latest aseprite, since even "unstable" version is awfully behind
         # asepriteLatest = pkgs.aseprite-unfree.overrideAttrs (oldAttrs: rec {
         #     version = "1.3-beta14";
         #     src = pkgs.fetchFromGitHub {
@@ -45,18 +45,20 @@
         #         fetchSubmodules = true;
         #         sha256 = "sha256-F8/UmgG2yRLDZnBZaNJTAHDcXyoC3ePMhdEcTHlNR8E=";
         #       };
-        #     patches = [];
+        #     # patches = [];
         #     buildInputs = with pkgs; (oldAttrs.buildInputs or []) ++
         #         [ xorg.libXi gn (harfbuzz.override {withIcu=true;}) ];
         #     postPatch = '''';
         #     skia = pkgs.callPackage /home/felix/.config/nix/system/customPackages/skia/skia.nix {};
         #     cmakeFlags = (oldAttrs.cmakeFlags or []) ++
         #         [
-        #           "-DSKIA_DIR=${skia}/include/core"
-        #           "-DSKIA_LIBRARY_DIR=${skia}/include"
-        #           "-DSKIA_LIBRARY=${skia}/out/Release/libskia.a"
+        #           "-DSKIA_DIR=${skia}"
+        #           "-DSKIA_LIBRARY_DIR=${skia}/out/Release"
+        #           # "-DSKIA_LIBRARY=${skia}/out/Release/libskia.a"
+        #           # "-DSKIA_LIBRARY=${skia}"
         #         ];
         # });
+
     in
     with pkgs; [
 
@@ -69,7 +71,7 @@
         libresprite python39Packages.pip python3Full shellcheck
         unstable.clang unstable.deadnix unstable.statix yarn
         # asepriteLatest
-        aseprite-unfree
+        unstable.aseprite-unfree
 
         # MATHS
         bc gnuplot libqalculate maxima qalculate-gtk wxmaxima

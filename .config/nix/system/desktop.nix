@@ -14,14 +14,13 @@ in {
     };
     programs.qt5ct.enable = true;
 
-
+    # pipewire
     services.pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-
 
     # enable CUPS for printing
     services.printing.enable = true;
@@ -34,5 +33,9 @@ in {
         wlr.enable = true;
         extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
+
+    # bluetooth
+    hardware.bluetooth.enable = true;
+    services.blueman.enable = true;
 
 }

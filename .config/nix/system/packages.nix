@@ -92,7 +92,7 @@
         w3m youtube-dl ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH
-        blueberry blueman bluez firefox newsboat qutebrowser ungoogled-chromium
+        blueberry blueman bluez bluez-tools firefox newsboat qutebrowser ungoogled-chromium
 
         # DESKTOP
         bitwarden calibre handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent

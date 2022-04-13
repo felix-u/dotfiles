@@ -95,7 +95,7 @@
         blueberry blueman bluez firefox newsboat qutebrowser ungoogled-chromium
 
         # DESKTOP
-        bitwarden handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent
+        bitwarden calibre handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent
         libnotify libsForQt5.qtstyleplugin-kvantum mpv noisetorch
         obs-studio obs-studio-plugins.wlrobs
         pavucontrol profanity pulsemixer qt5ct wally-cli xfce.thunar

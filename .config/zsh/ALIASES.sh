@@ -245,3 +245,9 @@ rebuild-switch () {
         sudo nixos-rebuild switch -I nixos-config=$XDG_CONFIG_HOME/nix/pc/configuration.nix
     fi
 }
+
+# get diff from latest switch
+nvdd () {
+    \ls -v /nix/var/nix/profiles | tail -n 2 | \
+        awk '{print "/nix/var/nix/profiles/" $0}' - | xargs nvd diff
+}

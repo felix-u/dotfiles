@@ -59,6 +59,8 @@
         #         ];
         # });
 
+        # godot4-alpha = import ../derivations/godot4alpha.nix;
+
     in
     with pkgs; [
 
@@ -66,7 +68,8 @@
         foot gh git neofetch starship stow wget
 
         # DEV
-        android-tools cmake clang-tools gcc gnumake go unstable.godot
+        android-tools cmake clang-tools gcc gnumake go
+        unstable.godot
         home-manager
         libresprite python39Packages.pip python3Full shellcheck
         unstable.clang unstable.deadnix unstable.statix yarn
@@ -84,7 +87,8 @@
         rust-analyzer sumneko-lua-language-server tree-sitter unstable.neovim
 
         # TERMINAL MISC
-        bat catimg cava cmatrix dict dragon-drop entr figlet ffmpeg fzf glow handlr htop
+        bat catimg cava cmatrix dict dragon-drop entr figlet file ffmpeg fzf
+        glow handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine
         lm_sensors lolcat lowdown ncdu ncspot nnn nvd onefetch oneshot pastel
         pandoc pdftk pipes-rs ripgrep skim termdown tldr tmux tty-clock ttyper

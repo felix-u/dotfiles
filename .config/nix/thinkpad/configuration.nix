@@ -55,6 +55,13 @@
     };
     systemd.services.thinkpadkbd.enable = true;
 
+    # libva
+    nixpkgs.config.packageOverrides = pkgs: {
+        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    };
+    hardware.opengl.extraPackages = with pkgs; [
+        vaapiIntel vaapiVdpau libvdpau-va-gl
+    ];
 
     system.stateVersion = "21.11";
 }

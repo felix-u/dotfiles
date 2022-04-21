@@ -8,10 +8,11 @@ in {
         enable = true;
         wrapperFeatures.gtk = true;
         extraPackages = with pkgs; [
-            brightnessctl dmenu-wayland dmenu-wl_run dunst flashfocus grim slurp
-            swaybg swayidle swaylock waybar wf-recorder wl-clipboard xwayland
+            brightnessctl dmenu-wayland dmenu-wl_run dunst flashfocus grim polkit_gnome
+            slurp swaybg swayidle swaylock waybar wf-recorder wl-clipboard xwayland
         ];
     };
+    environment.pathsToLink = [ "/libexec" ]; # for polkit
     programs.qt5ct.enable = true;
 
     # pipewire

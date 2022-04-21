@@ -223,7 +223,8 @@ fi
 #
 #
 # autotiling &
-polkit-dumb-agent &
+# polkit-dumb-agent &
+/run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
 pkill dunst
 dunst &

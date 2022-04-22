@@ -44,6 +44,25 @@
                 ];
             };
 
+            programs.nnn = {
+                enable = true;
+                bookmarks = {
+                    d = "$HOME/dotfiles";
+                    h = "$HOME";
+                    m = "/mnt";
+                    r = "$HOME/Desktop/recordings";
+                    s = "$HOME/Pictures/screenshots";
+                    u = "$HOME/uni/2022/spring";
+                };
+                plugins.mappings = {
+                    d = "dragdrop";
+                    p = "preview-tui";
+                    r = "imgresize";
+                    w = "waypaper";
+                    v = "imgview";
+                };
+            };
+
         };
     };
 }

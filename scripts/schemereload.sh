@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # foot
-shgen "$XDG_CONFIG_HOME"/foot/gencolours.ini "$XDG_CONFIG_HOME"/foot/colours.ini &
+shgen "$DOTSCONF"/foot/gencolours.ini "$DOTSCONF"/foot/colours.ini &
 echo "foot"
 
 # cava
-shgen "$XDG_CONFIG_HOME"/cava/genconfig "$XDG_CONFIG_HOME"/cava/config
+shgen "$DOTSCONF"/cava/genconfig "$DOTSCONF"/cava/config
 # pkill -USR1 cava # reloads whole config
 pkill -USR2 cava # reloads colours only
 echo "cava"
@@ -15,7 +15,7 @@ shgen "$XDG_CONFIG_HOME"/darktable/genuser.css "$XDG_CONFIG_HOME"/darktable/user
 echo "darktable"
 
 # dunst
-shgen "$XDG_CONFIG_HOME"/dunst/gendunstrc "$XDG_CONFIG_HOME"/dunst/dunstrc
+shgen "$DOTSCONF"/dunst/gendunstrc "$DOTSCONF"/dunst/dunstrc
 pkill dunst
 dunst &
 echo "dunst"
@@ -26,13 +26,13 @@ echo "firefox"
 
 # nvim
 DIR=$(pwd)
-cd "$XDG_CONFIG_HOME"/nvim/colors/ || exit
+cd "$DOTSCONF"/nvim/colors/ || exit
 exec ./schemescript.sh &
 cd "$DIR" || exit
 echo "nvim"
 
 # zathura
-shgen "$XDG_CONFIG_HOME"/zathura/genzathurarc "$XDG_CONFIG_HOME"/zathura/zathurarc &
+shgen "$DOTSCONF"/zathura/genzathurarc "$DOTSCONF"/zathura/zathurarc &
 echo "zathura"
 
 # css
@@ -45,17 +45,17 @@ cd "$DIR" || exit
 echo "css"
 
 # qutebrowser
-shgen "$XDG_CONFIG_HOME"/qutebrowser/genconfig.py "$XDG_CONFIG_HOME"/qutebrowser/config.py &
-shgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/gendarkreader.js.disabled \
-     "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/darkreader.js &
-shgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/gendiscordtheme.js.disabled \
-     "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/discordtheme.js &
-shgen "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/genelementtheme.js.disabled \
-     "$XDG_CONFIG_HOME"/qutebrowser/greasemonkey/elementtheme.js &
+shgen "$DOTSCONF"/qutebrowser/genconfig.py "$DOTSCONF"/qutebrowser/config.py &
+shgen "$DOTSCONF"/qutebrowser/greasemonkey/gendarkreader.js.disabled \
+     "$DOTSCONF"/qutebrowser/greasemonkey/darkreader.js &
+shgen "$DOTSCONF"/qutebrowser/greasemonkey/gendiscordtheme.js.disabled \
+     "$DOTSCONF"/qutebrowser/greasemonkey/discordtheme.js &
+shgen "$DOTSCONF"/qutebrowser/greasemonkey/genelementtheme.js.disabled \
+     "$DOTSCONF"/qutebrowser/greasemonkey/elementtheme.js &
 echo "qutebrowser"
 
 # waybar
-shgen "$XDG_CONFIG_HOME"/waybar/genstyle.css "$XDG_CONFIG_HOME"/waybar/style.css &
+shgen "$DOTSCONF"/waybar/genstyle.css "$DOTSCONF"/waybar/style.css &
 echo "waybar"
 
 # theming stuff
@@ -74,19 +74,19 @@ echo "wallpaper"
 #
 #
 # # alacritty
-# shgen "$XDG_CONFIG_HOME"/alacritty/genalacritty.yml "$XDG_CONFIG_HOME"/alacritty/alacritty.yml &
+# shgen "$DOTSCONF"/alacritty/genalacritty.yml "$DOTSCONF"/alacritty/alacritty.yml &
 # echo "alacritty"
 #
 # # picom
-# xgen "$XDG_CONFIG_HOME"/picom/genpicom.conf "$XDG_CONFIG_HOME"/picom/picom.conf
+# xgen "$DOTSCONF"/picom/genpicom.conf "$DOTSCONF"/picom/picom.conf
 # pkill picom && picom &
 #
 # # bspwm
-# exec "$XDG_CONFIG_HOME"/bspwm/scripts/setborders.sh &
+# exec "$DOTSCONF"/bspwm/scripts/setborders.sh &
 # echo "bspwm" echo "picom"
 #
 # # polybar
-# xgen "$XDG_CONFIG_HOME"/polybar/genconfig "$XDG_CONFIG_HOME"/polybar/config
+# xgen "$DOTSCONF"/polybar/genconfig "$DOTSCONF"/polybar/config
 # if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 #     killall -q polybar
 #     polybar laptop -q &
@@ -97,7 +97,7 @@ echo "wallpaper"
 # echo "polybar"
 #
 # # rofi
-# xgen "$XDG_CONFIG_HOME"/rofi/genconfig.rasi "$XDG_CONFIG_HOME"/rofi/config.rasi &
+# xgen "$DOTSCONF"/rofi/genconfig.rasi "$DOTSCONF"/rofi/config.rasi &
 # echo "rofi"
 #
 # # emacs

@@ -1,4 +1,6 @@
 export XRESOURCES="$HOME/.Xresources"
+export DOTFILES="$HOME/dotfiles"
+export DOTSCONF="$DOTFILES/.config"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$XDG_CONFIG_HOME/zsh/scripts-in-path:$PATH"
 export PKG_CONFIG_PATH="/usr/include"
@@ -6,7 +8,6 @@ export BAT_THEME="ansi"
 
 # Defaults
 export TERMINAL='foot'
-# export TERM="$TERMINAL"
 export TERM_ITALICS=true
 export EDITOR='nvim'
 export VISUAL="nvim"
@@ -36,14 +37,14 @@ export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_TMPFILE="/tmp/nnn"
 export NNN_COLORS='4444'
 export NNN_TRASH=1
-export NNN_PLUG="v:imgview;d:dragdrop;r:imgresize;p:preview-tui;w:waypaper"
+# export NNN_PLUG="v:imgview;d:dragdrop;r:imgresize;p:preview-tui;w:waypaper"
 export NNN_OPTS="C"
-export NNN_BMS="r:$HOME/Desktop/recordings;\
-s:$HOME/Pictures/screenshots;\
-h:$HOME;\
-d:$HOME/dotfiles;\
-m:/mnt;\
-u:$HOME/uni/2022/spring;"
+# export NNN_BMS="r:$HOME/Desktop/recordings;\
+# s:$HOME/Pictures/screenshots;\
+# h:$HOME;\
+# d:$HOME/dotfiles;\
+# m:/mnt;\
+# u:$HOME/uni/2022/spring;"
 
 # xdg-open and xdg-mime associations
 handlr set image/png imv.desktop

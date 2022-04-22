@@ -90,7 +90,7 @@
         bat catimg cava cmatrix dict dragon-drop entr figlet file ffmpeg fzf
         glow handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine
-        lm_sensors lolcat lowdown ncdu ncspot nnn nvd onefetch oneshot pastel
+        lm_sensors lolcat lowdown ncdu ncspot nvd onefetch oneshot pastel # nnn
         pandoc pdftk pipes-rs ripgrep skim termdown tldr tmux tty-clock ttyper
         udiskie udisks unrar unzip
         w3m youtube-dl ytfzf zip _7zz

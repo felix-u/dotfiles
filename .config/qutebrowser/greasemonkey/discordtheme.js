@@ -32,7 +32,7 @@ GM_addStyle ( `
     --xcolor15: #839496;
 
     --sans: Fira Sans;
-    --mono: IosevkaCustom;
+    --mono: Iosevka;
 
     --br: 2em;
 }

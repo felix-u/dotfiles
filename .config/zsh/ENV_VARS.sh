@@ -37,14 +37,7 @@ export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_TMPFILE="/tmp/nnn"
 export NNN_COLORS='4444'
 export NNN_TRASH=1
-# export NNN_PLUG="v:imgview;d:dragdrop;r:imgresize;p:preview-tui;w:waypaper"
 export NNN_OPTS="C"
-# export NNN_BMS="r:$HOME/Desktop/recordings;\
-# s:$HOME/Pictures/screenshots;\
-# h:$HOME;\
-# d:$HOME/dotfiles;\
-# m:/mnt;\
-# u:$HOME/uni/2022/spring;"
 
 # xdg-open and xdg-mime associations
 handlr set image/png imv.desktop

@@ -1,6 +1,8 @@
 { pkgs, config, ... }:
 
-{
+let
+    homedir = config.home-manager.users.felix.home.homeDirectory;
+in {
     # user account
     users.users.felix = {
         isNormalUser = true;
@@ -47,12 +49,12 @@
             programs.nnn = {
                 enable = true;
                 bookmarks = {
-                    d = "$HOME/dotfiles";
-                    h = "$HOME";
+                    d = "${homedir}/dotfiles";
+                    h = "${homedir}";
                     m = "/mnt";
-                    r = "$HOME/Desktop/recordings";
-                    s = "$HOME/Pictures/screenshots";
-                    u = "$HOME/uni/2022/spring";
+                    r = "${homedir}/Desktop/recordings";
+                    s = "${homedir}/Pictures/screenshots";
+                    u = "${homedir}/uni/2022/spring";
                 };
                 plugins.mappings = {
                     d = "dragdrop";

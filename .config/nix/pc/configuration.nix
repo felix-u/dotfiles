@@ -42,6 +42,7 @@
         rocm-opencl-icd
         rocm-opencl-runtime
         amdvlk
+        vaapiVdpau libvdpau-va-gl
     ];
     hardware.opengl.driSupport = true;
 

@@ -74,7 +74,6 @@ in {
         enable = true;
         extraRules = [{
             users = [ "felix" ];
-            groups = [ "wheel" "doas" ];
             keepEnv = true;
             persist = true;
         }];

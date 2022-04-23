@@ -246,11 +246,11 @@ rebuild-switch () {
     fi
 }
 
-# replicate sudoedit with doas
-alias doasedit="doas $EDITOR $1"
-
 # get diff from latest switch
 nvdd () {
     \ls -v /nix/var/nix/profiles | tail -n 2 | \
         awk '{print "/nix/var/nix/profiles/" $0}' - | xargs nvd diff
 }
+
+# doasedit
+alias doasedit="doas $EDITOR $1"

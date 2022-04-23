@@ -66,5 +66,18 @@ in {
             };
 
         };
+
     };
+
+    # doas instead of sudo (why not)
+    security.doas = {
+        enable = true;
+        extraRules = [{
+            users = [ "felix" ];
+            groups = [ "wheel" "doas" ];
+            keepEnv = true;
+            persist = true;
+        }];
+    };
+
 }

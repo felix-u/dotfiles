@@ -240,11 +240,14 @@ n ()
 # nixos
 rebuild-switch () {
     if [ $(hostname) = "thonkpad" ]; then
-        sudo nixos-rebuild switch -I nixos-config=$XDG_CONFIG_HOME/nix/thinkpad/configuration.nix
+        doas nixos-rebuild switch -I nixos-config=$XDG_CONFIG_HOME/nix/thinkpad/configuration.nix
     elif [ $(hostname) = "nixbtw" ]; then
-        sudo nixos-rebuild switch -I nixos-config=$XDG_CONFIG_HOME/nix/pc/configuration.nix
+        doas nixos-rebuild switch -I nixos-config=$XDG_CONFIG_HOME/nix/pc/configuration.nix
     fi
 }
+
+# replicate sudoedit with doas
+alias doasedit="doas $EDITOR $1"
 
 # get diff from latest switch
 nvdd () {

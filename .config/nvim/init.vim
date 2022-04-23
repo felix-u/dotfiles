@@ -15,7 +15,7 @@ set termguicolors
 set background=dark
 
 " use theme generated from xresources
-source ~/.config/nvim/colors/xresources.vim
+source /home/felix/.config/nvim/colors/xresources.vim
 
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath

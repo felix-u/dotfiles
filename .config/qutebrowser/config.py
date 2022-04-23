@@ -247,6 +247,9 @@ c.editor.command = [term, "-e", "nvim", "{file}", "-c", "{line}"]
 # open videos with mpv
 config.bind(",m", 'hint links spawn mpv {hint-url}')
 
+# fix copying on wayland (not working)
+config.bind("<Ctrl-Shift-P>", 'spawn wl-paste')
+
 # toggle custom stylesheet
 config.bind(",d", "config-cycle content.user_stylesheets '~/dotfiles/misc/css/everything.css' '' ")
 
@@ -273,7 +276,6 @@ config.bind("<Shift-Left>", "back")
 config.bind("<Shift-Right>", "forward")
 
 # fix clipboard behaviour
-config.bind("<Ctrl-v>", 'insert-text {primary}', mode='insert')
 c.content.javascript.can_access_clipboard = True
 
 #

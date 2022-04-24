@@ -28,8 +28,6 @@
     };
 
 
-
-
     # packages for all systems
     environment.systemPackages =
     let
@@ -68,11 +66,10 @@
         foot gh git neofetch starship stow wget
 
         # DEV
-        android-tools cmake clang-tools gcc gnumake go
-        unstable.godot
-        home-manager
-        libresprite python39Packages.pip python3Full shellcheck
-        unstable.clang unstable.deadnix unstable.statix yarn
+        android-tools cargo clang-tools cmake gcc gnumake go home-manager
+        libresprite man-pages-posix python39Packages.pip python3Full rustc
+        shellcheck
+        unstable.clang unstable.deadnix unstable.godot unstable.statix yarn
         # asepriteLatest
         unstable.aseprite-unfree
 
@@ -119,6 +116,12 @@
 
         # LATEX
         biber texinfo texlab texlive.combined.scheme-full
+
+        # (effectively) symlink sudo to doas
+        (pkgs.writeShellScriptBin "sudo" ''
+            echo "Warning: \"sudo\" runs \"doas\""
+            doas "$@"
+        '')
 
     ];
 

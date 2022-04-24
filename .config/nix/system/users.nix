@@ -70,6 +70,7 @@ in {
     };
 
     # doas instead of sudo (why not)
+    security.sudo.enable = false;
     security.doas = {
         enable = true;
         extraRules = [{

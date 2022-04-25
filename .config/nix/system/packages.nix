@@ -33,6 +33,12 @@
     let
         unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
+        # effectively "symlink" sudo to doas
+        doas-as-sudo = (pkgs.writeShellScriptBin "sudo" ''
+            echo "Warning: \"sudo\" runs \"doas\""
+            doas "$@"
+        '');
+
         # latest aseprite, since even "unstable" version is awfully behind
         # asepriteLatest = pkgs.aseprite-unfree.overrideAttrs (oldAttrs: rec {
         #     version = "1.3-beta14";
@@ -84,13 +90,14 @@
         rust-analyzer sumneko-lua-language-server tree-sitter unstable.neovim
 
         # TERMINAL MISC
-        bat catimg cava cmatrix dict dragon-drop entr figlet file ffmpeg fzf
+        bat catimg cava cmatrix dict doas-as-sudo dragon-drop entr figlet file
+        ffmpeg fzf
         glow handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine
         lm_sensors lolcat lowdown ncdu ncspot nvd onefetch oneshot pastel # nnn
         pandoc pdftk pipes-rs ripgrep skim termdown tldr tmux tty-clock ttyper
         udiskie udisks unrar unzip
-        w3m youtube-dl ytfzf zip _7zz
+        w3m xdg-utils youtube-dl ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH
         blueberry blueman bluez bluez-tools firefox newsboat qutebrowser ungoogled-chromium
@@ -116,12 +123,6 @@
 
         # LATEX
         biber texinfo texlab texlive.combined.scheme-full
-
-        # (effectively) symlink sudo to doas
-        (pkgs.writeShellScriptBin "sudo" ''
-            echo "Warning: \"sudo\" runs \"doas\""
-            doas "$@"
-        '')
 
     ];
 

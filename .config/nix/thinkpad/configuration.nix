@@ -25,6 +25,9 @@
             # thinkpad-specific packages
             ./packages.nix
 
+            # mimetypes
+            ../system/mimetypes.nix
+
         ];
 
 

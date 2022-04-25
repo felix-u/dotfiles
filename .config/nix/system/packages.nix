@@ -97,7 +97,7 @@
         lm_sensors lolcat lowdown ncdu ncspot nvd onefetch oneshot pastel # nnn
         pandoc pdftk pipes-rs ripgrep skim termdown tldr tmux tty-clock ttyper
         udiskie udisks unrar unzip
-        w3m xdg-utils youtube-dl ytfzf zip _7zz
+        w3m xdg-utils youtube-dl unstable.ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH
         blueberry blueman bluez bluez-tools firefox newsboat qutebrowser ungoogled-chromium

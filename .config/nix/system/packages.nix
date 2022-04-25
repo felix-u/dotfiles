@@ -63,7 +63,7 @@
     with pkgs; [
 
         # ESSENTIAL
-        foot gh git neofetch starship stow wget
+        foot unstable.gh git neofetch starship stow wget
 
         # DEV
         android-tools cargo clang-tools cmake gcc gnumake go home-manager

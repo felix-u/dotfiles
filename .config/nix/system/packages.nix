@@ -104,7 +104,8 @@
 
         # DESKTOP
         bitwarden calibre handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent
-        libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils mpv noisetorch
+        libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
+        mpv mpvScripts.youtube-quality noisetorch
         obs-studio obs-studio-plugins.wlrobs
         pavucontrol profanity pulsemixer qt5ct wally-cli xfce.thunar
         xfce.thunar-archive-plugin zathura

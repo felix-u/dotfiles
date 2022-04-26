@@ -65,6 +65,8 @@
 
         godot4-alpha = import ../derivations/godot4alpha.nix;
 
+        neovim-latest = import ../derivations/neovim.nix;
+
     in
     with pkgs; [
 
@@ -90,6 +92,7 @@
         nodePackages.vscode-langservers-extracted nodejs rnix-lsp
         rust-analyzer sumneko-lua-language-server tree-sitter
         unstable.neovim
+        # neovim-latest
 
         # TERMINAL MISC
         bat catimg cava cmatrix dict doas-as-sudo dragon-drop entr figlet file

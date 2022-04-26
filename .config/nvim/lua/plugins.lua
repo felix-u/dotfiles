@@ -130,6 +130,7 @@ return require('packer').startup{function(use, vim)
         config = function()
             require('nvim-autopairs').setup()
         end,
+        event = "InsertEnter",
     }
 
     -- better marks

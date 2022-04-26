@@ -18,6 +18,11 @@ cmp.setup {
         documentation = cmp.config.window.bordered(),
     },
 
+    view = {
+        -- this is the default
+        entries = "custom",
+    },
+
     formatting = {
       format = lspkind.cmp_format({
         mode = "symbol_text",

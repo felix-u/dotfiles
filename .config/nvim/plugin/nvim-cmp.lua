@@ -77,6 +77,13 @@ cmp.setup {
         { name = 'nvim_lua' },
         { name = 'path' },
         { name = 'luasnip' },
+        { name = 'calc' },
+        { name = 'spell' },
+        { name = 'rg' },
+        { name = 'zsh' },
+        { name = 'copilot' },
+        { name = 'emoji' },
+        { name = 'latex_symbols' },
     }, {
         { name = 'buffer' },
     })

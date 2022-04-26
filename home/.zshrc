@@ -115,4 +115,7 @@ add-zsh-hook -Uz chpwd osc7_cwd
 # globbing stuff for negations and idk
 setopt extendedglob
 
+# added for nvim-cmp-zsh
+zmodload zsh/zpty
+
 if [ -e /home/felix/.nix-profile/etc/profile.d/nix.sh ]; then . /home/felix/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

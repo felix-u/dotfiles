@@ -15,7 +15,7 @@ require('nvim-treesitter.configs').setup {
         enable = true,
     },
     autopairs = {
-        enable = true,
+        enable = false,
     },
     playground = {
         enable = true,

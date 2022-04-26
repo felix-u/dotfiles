@@ -18,6 +18,25 @@ return require('packer').startup{function(use, vim)
 
     -- better comments
     use 'numToStr/Comment.nvim'
+    -- todo comments
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+        require("todo-comments").setup {
+            colors = {
+                error = { "#224750", "DiagnosticError", "ErrorMsg", },
+                warning = { "#224750", "DiagnosticWarning", "WarningMsg", },
+                info = { "#224750", "DiagnosticInfo", },
+                hint = { "#224750", "DiagnosticHint", },
+                default = { "#224750", "Identifier", },
+              },
+              highlight = {
+                  after = "",
+              },
+        }
+        end
+    }
 
     -- easily manipulate surroundings
     use 'tpope/vim-surround'
@@ -59,12 +78,8 @@ return require('packer').startup{function(use, vim)
 
     -- LSP --------------------------------------
     use 'neovim/nvim-lspconfig'
-    -- syntax completion and tab autocomplete
-    -- use { 'ms-jpq/coq_nvim', branch = 'coq' }
-    -- use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
-    -- use { 'ms-jpq/coq.thirdparty', branch = '3p' }
 
-    -- TODO switch to nvim-cmp
+    -- syntax completion and tab autocomplete
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-path"
@@ -72,9 +87,12 @@ return require('packer').startup{function(use, vim)
     use "hrsh7th/cmp-nvim-lua"
     use "hrsh7th/cmp-nvim-lsp"
     use "onsails/lspkind.nvim"
-    -- closely related: luasnip
+
+    -- snippets
     use "L3MON4D3/LuaSnip"
     use "saadparwaiz1/cmp_luasnip"
+    -- lots of snippets for different languages
+    use "rafamadriz/friendly-snippets"
 
     -- better text wrapping
     use 'reedes/vim-pencil'
@@ -166,7 +184,7 @@ return require('packer').startup{function(use, vim)
                             neorg_leader = "<Leader>o"
                         }
                     },
-                    -- TODO too slow for now
+                    -- NOTE: too slow for now
                     -- ["core.norg.concealer"] = {}, -- allows the use of icons
                     ["core.norg.dirman"] = { -- manage directories with neorg
                         config = {

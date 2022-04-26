@@ -16,6 +16,9 @@ set background=dark
 
 " use theme generated from xresources
 source /home/felix/.config/nvim/colors/xresources.vim
+" NOTE: in case of emergency, break double quotes:
+" colo NeoSolarized
+" highlight Comment cterm=italic gui=italic
 
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
@@ -158,8 +161,8 @@ require 'packer_compiled'
 require'cutlass'.setup()
 require'Comment'.setup()
 require'telescope'.load_extension('media_files')
+require("luasnip.loaders.from_vscode").lazy_load()
 EOF
-
 
 " cutlass - binding for cutting
 nnoremap <leader>d d
@@ -170,6 +173,10 @@ nnoremap <leader>D D
 " remap increment and decrement to free up C-x and C-a for tmux/terminal
 nnoremap <leader>vi <C-a>
 nnoremap <leader>va <C-x>
+
+" keep selection when indenting
+vnoremap < <gv
+vnoremap > >gv
 
 " lightspeed
 map s <Plug>Lightspeed_s

@@ -68,10 +68,10 @@ in {
             programs.chromium = {
                 enable = true;
                 package = pkgs.ungoogled-chromium;
-                commandLineArgs = [];
-                extensions = [
-                    { }
-                ];
+                # commandLineArgs = [];
+                # extensions = [
+                #     { }
+                # ];
             };
 
         };

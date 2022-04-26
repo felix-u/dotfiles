@@ -103,7 +103,9 @@
         blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
 
         # DESKTOP
-        bitwarden calibre handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent
+        appimage-run
+        bitwarden calibre handlr imagemagick imv libreoffice
+        libsForQt5.polkit-kde-agent
         libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
         mpv mpvScripts.youtube-quality noisetorch
         obs-studio obs-studio-plugins.wlrobs

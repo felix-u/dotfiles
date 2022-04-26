@@ -73,8 +73,8 @@
 
         # DEV
         android-tools cargo clang-tools cmake gcc gnumake go home-manager
-        libresprite man-pages-posix python39Packages.pip python3Full rustc
-        shellcheck
+        libresprite man-pages-posix openssl_3_0 pkg-config python39Packages.pip
+        python3Full unstable.rustc shellcheck
         unstable.clang unstable.deadnix unstable.godot unstable.statix yarn
         # asepriteLatest
         unstable.aseprite-unfree

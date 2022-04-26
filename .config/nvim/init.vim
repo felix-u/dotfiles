@@ -85,7 +85,7 @@ nnoremap N Nzzzv
 nnoremap J mzJ`z
 
 " change poor default autopair shortcut conflicting with rapid ESC-paste
-let g:AutoPairsShortcutToggle = '<C-q>'
+" let g:AutoPairsShortcutToggle = '<C-q>'
 
 " undo break points for less painful undoing
 inoremap , ,<c-g>u
@@ -159,6 +159,7 @@ require'cutlass'.setup()
 require'Comment'.setup()
 require'telescope'.load_extension('media_files')
 EOF
+
 
 " cutlass - binding for cutting
 nnoremap <leader>d d

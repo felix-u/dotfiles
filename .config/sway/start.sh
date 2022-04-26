@@ -202,7 +202,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
 
     "$XDG_CONFIG_HOME"/sway/scripts/binds colemak "$MOD" "$ALT" "$TERM" &
 
-    WDPI="1.302"
+    WDPI="1.3"
 
     swaymsg "output * resolution 3840x2160 position 3840 0 scale $WDPI" &
     swaymsg "seat seat0 xcursor_theme "Adwaita" 24" &

@@ -1,7 +1,0 @@
--- require('bufferline').setup {
---     options = {
---         modified_icon = '●',
---         numbers = "none",
---         offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "center"}}
---     }
--- }

@@ -100,7 +100,7 @@
         w3m xdg-utils youtube-dl unstable.ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH
-        blueberry blueman bluez bluez-tools firefox newsboat qutebrowser ungoogled-chromium
+        blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
 
         # DESKTOP
         bitwarden calibre handlr imagemagick imv libreoffice libsForQt5.polkit-kde-agent

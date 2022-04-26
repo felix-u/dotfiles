@@ -1,5 +1,3 @@
-# NOT WORKING!!!
-
 let
   pkgs = import <nixpkgs> { };
 
@@ -13,6 +11,7 @@ pkgs.runCommand "godot4" {}
       #!${pkgs.stdenv.shell}
       ${pkgs.unzip}/bin/unzip ${godot4-bin}
       mkdir -p $out/bin
-      cp Godot_v4.0-alpha6_linux.64 $out/bin/godot
+      cp Godot_v4.0-alpha6_linux.64 $out/bin/godot4-bin
+      printf "#\!/usr/bin/env sh\nsteam-run godot4-bin" > $out/bin/godot4-run
       chmod +x $out/bin/*
     ''

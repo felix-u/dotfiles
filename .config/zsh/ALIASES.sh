@@ -252,6 +252,9 @@ nvdd () {
         awk '{print "/nix/var/nix/profiles/" $0}' - | xargs nvd diff
 }
 
+# build package from repos locally
+alias nb="nix-build '<nixpkgs>' -A"
+
 # doasedit
 alias doasedit="doas $EDITOR $1"
 

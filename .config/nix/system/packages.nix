@@ -63,7 +63,9 @@
         #         ];
         # });
 
-        # godot4-alpha = import ../derivations/godot4alpha.nix;
+        godot4-alpha = import ../derivations/godot4alpha.nix;
+
+        neovim-latest = import ../derivations/neovim.nix;
 
     in
     with pkgs; [
@@ -76,6 +78,7 @@
         libresprite man-pages-posix openssl_3_0 pkg-config python39Packages.pip
         python3Full unstable.rustc shellcheck
         unstable.clang unstable.deadnix unstable.godot unstable.statix yarn
+        godot4-alpha
         # asepriteLatest
         unstable.aseprite-unfree
 
@@ -87,7 +90,8 @@
         nodePackages.js-beautify
         nodePackages.npm nodePackages.pyright nodePackages.vim-language-server
         nodePackages.vscode-langservers-extracted nodejs rnix-lsp
-        rust-analyzer sumneko-lua-language-server tree-sitter unstable.neovim
+        rust-analyzer sumneko-lua-language-server tree-sitter
+        unstable.neovim
 
         # TERMINAL MISC
         bat catimg cava cmatrix dict doas-as-sudo dragon-drop entr figlet file

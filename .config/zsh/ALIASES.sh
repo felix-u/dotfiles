@@ -254,3 +254,8 @@ nvdd () {
 
 # doasedit
 alias doasedit="doas $EDITOR $1"
+
+# swaybg
+swaybgset () {
+    pkill swaybg; swaybg -m fill -i "$1" &
+}

@@ -112,7 +112,6 @@
         obs-studio obs-studio-plugins.wlrobs
         pavucontrol profanity pulsemixer qt5ct wally-cli xfce.thunar
         xfce.thunar-archive-plugin zathura
-        unstable.river unstable.rivercarro unstable.kile-wl
 
         # VISUAL
         gsettings-desktop-schemas gtk-engine-murrine gtk_engines

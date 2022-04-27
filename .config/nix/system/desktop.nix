@@ -2,6 +2,7 @@
 
 let
     dmenu-wl_run = import ../derivations/dmenu-wl.nix;
+    unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
     # wayland schtuff
     programs.sway = {
@@ -9,7 +10,8 @@ in {
         wrapperFeatures.gtk = true;
         extraPackages = with pkgs; [
             brightnessctl dmenu-wayland dmenu-wl_run dunst flashfocus grim polkit_gnome
-            slurp swaybg swayidle swaylock waybar wf-recorder wl-clipboard xwayland
+            slurp swaybg swayidle swaylock-effects
+            waybar wf-recorder wl-clipboard xwayland
         ];
     };
     environment.pathsToLink = [ "/libexec" ]; # for polkit

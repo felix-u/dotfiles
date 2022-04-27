@@ -74,6 +74,11 @@ in {
                 # ];
             };
 
+            # w3m config
+            home.file.".w3m/config".text = ''
+                confirm_qq false
+            '';
+
         };
 
     };

@@ -10,15 +10,16 @@
 
 # Use the "logo" key as the primary modifier
 mod="Mod4"
+alt="Mod1"
 
 # Mod+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal $mod Return spawn alacritty
+riverctl map normal $mod Return spawn foot
 
 # Mod+Q to close the focused view
 riverctl map normal $mod W close
 
 # Mod+E to exit river
-riverctl map normal $mod+Control Q exit
+riverctl map normal $mod+$alt Q exit
 
 # Mod+J and Mod+K to focus the next/previous view in the layout stack
 riverctl map normal $mod J focus-view next
@@ -49,22 +50,22 @@ riverctl map normal $mod+Shift H mod-layout-value rivertile int main_count +1
 riverctl map normal $mod+Shift L mod-layout-value rivertile int main_count -1
 
 # Mod+Alt+{H,J,K,L} to move views
-riverctl map normal $mod+Mod1 H move left 100
-riverctl map normal $mod+Mod1 J move down 100
-riverctl map normal $mod+Mod1 K move up 100
-riverctl map normal $mod+Mod1 L move right 100
+riverctl map normal $mod+${alt} H move left 100
+riverctl map normal $mod+${alt} J move down 100
+riverctl map normal $mod+${alt} K move up 100
+riverctl map normal $mod+${alt} L move right 100
 
 # Mod+Alt+Control+{H,J,K,L} to snap views to screen edges
-riverctl map normal $mod+Mod1+Control H snap left
-riverctl map normal $mod+Mod1+Control J snap down
-riverctl map normal $mod+Mod1+Control K snap up
-riverctl map normal $mod+Mod1+Control L snap right
+riverctl map normal $mod+${alt}+Control H snap left
+riverctl map normal $mod+${alt}+Control J snap down
+riverctl map normal $mod+${alt}+Control K snap up
+riverctl map normal $mod+${alt}+Control L snap right
 
 # Mod+Alt+Shif+{H,J,K,L} to resize views
-riverctl map normal $mod+Mod1+Shift H resize horizontal -100
-riverctl map normal $mod+Mod1+Shift J resize vertical 100
-riverctl map normal $mod+Mod1+Shift K resize vertical -100
-riverctl map normal $mod+Mod1+Shift L resize horizontal 100
+riverctl map normal $mod+${alt}+Shift H resize horizontal -100
+riverctl map normal $mod+${alt}+Shift J resize vertical 100
+riverctl map normal $mod+${alt}+Shift K resize vertical -100
+riverctl map normal $mod+${alt}+Shift L resize horizontal 100
 
 # Mod + Left Mouse Button to move views
 riverctl map-pointer normal $mod BTN_LEFT move-view
@@ -95,8 +96,7 @@ all_tags=$(((1 << 32) - 1))
 riverctl map normal $mod 0 set-focused-tags $all_tags
 riverctl map normal $mod+Shift 0 set-view-tags $all_tags
 
-# Mod+Space to toggle float
-riverctl map normal $mod Space toggle-float
+riverctl map normal $mod S toggle-float
 
 # Mod+F to toggle fullscreen
 riverctl map normal $mod F toggle-fullscreen

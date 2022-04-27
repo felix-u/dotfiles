@@ -1,18 +1,9 @@
 #!/bin/sh
 
-# This is the example configuration file for river.
-#
-# If you wish to edit this, you will probably want to copy it to
-# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
-#
-# See the river(1), riverctl(1), and rivertile(1) man pages for complete
-# documentation.
-
-# Use the "logo" key as the primary modifier
 mod="Mod4"
 alt="Mod1"
 
-# Mod+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
+# terminal
 riverctl map normal $mod Return spawn foot
 
 # Mod+Q to close the focused view
@@ -141,7 +132,7 @@ do
 done
 
 # Set repeat rate
-riverctl set-repeat 50 300
+riverctl set-repeat 50 200
 
 # Set app-ids of views which should float
 riverctl float-filter-add "float"

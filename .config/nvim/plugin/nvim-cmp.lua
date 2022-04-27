@@ -79,7 +79,7 @@ cmp.setup {
         { name = 'luasnip' },
         { name = 'calc' },
         { name = 'spell' },
-        { name = 'rg' },
+        -- { name = 'rg' },
         { name = 'zsh' },
         { name = 'copilot' },
         { name = 'emoji' },

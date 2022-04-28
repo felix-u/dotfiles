@@ -79,6 +79,19 @@ in {
                 confirm_qq false
             '';
 
+            # helix config
+            home.file.".config/helix/config.toml".text = ''
+                theme = "solarized_dark"
+
+                [editor]
+                line-number = "relative"
+
+                [editor.cursor-shape]
+                insert = "bar"
+                normal = "block"
+                select = "underline"
+            '';
+
         };
 
     };

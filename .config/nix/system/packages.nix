@@ -65,6 +65,8 @@
 
         godot4-alpha = import ../derivations/godot4alpha.nix;
 
+        themesh = import ../derivations/themesh.nix;
+
     in
     with pkgs; [
 
@@ -97,8 +99,9 @@
         glow handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine
         lm_sensors lolcat lowdown ncdu ncspot nvd onefetch oneshot pastel # nnn
-        pandoc pdftk pipes-rs ripgrep skim termdown tldr tmux tty-clock ttyper
-        udiskie udisks unrar unzip
+        pandoc pdftk pipes-rs ripgrep skim termdown themesh tldr tmux tty-clock
+        ttyper
+        udiskie udisks unrar unstable.helix unzip
         w3m xdg-utils youtube-dl unstable.ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH

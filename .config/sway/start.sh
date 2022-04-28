@@ -62,7 +62,6 @@ swaymsg "bindsym $MOD+d exec ~/.config/sway/scripts/menu.sh" &
 swaymsg "bindsym $MOD+b exec $BROWSER" &
 swaymsg "bindsym $MOD+$ALT+b exec MOZ_ENABLE_WAYLAND=1 firefox" &
 swaymsg "bindsym $MOD+a exec $FILES" &
-swaymsg "bindsym $MOD+z exec zathura" &
 #
 swaymsg "bindsym $MOD+Shift+b exec ~/.config/sway/scripts/randwall.sh \
     ~/dotfiles/Pictures/cafe-walls" &
@@ -86,14 +85,15 @@ do
     swaymsg "bindsym $MOD+Shift+$i move container to workspace number $i" &
 done
 #
-swaymsg "bindsym $MOD+v layout stacking" &
+swaymsg "bindsym $MOD+z layout stacking" &
 swaymsg "bindsym $MOD+r layout tabbed" &
 swaymsg "bindsym $MOD+t layout toggle split" &
 swaymsg "bindsym $MOD+f fullscreen" &
 swaymsg "bindsym $MOD+s floating toggle" &
-    # swap focus between tiling and floating area
-# swaymsg "bindsym $MOD+space focus mode_toggle" &
+# swap focus between tiling and floating area
+swaymsg "bindsym $MOD+v focus mode_toggle" &
 swaymsg "bindsym $MOD+p focus parent" &
+swaymsg "bindsym $MOD+Shift+p focus child" &
 swaymsg "bindsym $MOD+Tab workspace back_and_forth" &
 #
 # centre floating window

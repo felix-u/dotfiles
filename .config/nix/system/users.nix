@@ -85,6 +85,7 @@ in {
 
                 [editor]
                 line-number = "relative"
+                idle-timeout = 0
 
                 [editor.cursor-shape]
                 insert = "bar"

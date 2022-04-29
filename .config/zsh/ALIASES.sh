@@ -42,6 +42,9 @@ wf-record () {
     wf-recorder -f ~/Desktop/recordings/$(date +%Y-%m-%d-%H%M).mp4 -e -t \
         -c h264_vaapi -d /dev/dri/renderD128
 }
+wfrecwindow () {
+    wf-recorder -f ~/Desktop/recordings/$(date +%Y-%m-%d-%H%M).mp4 -g $(slurp -d -b $(wq color7)40 -c $(wq color7) -w 3)
+}
 
 # mkdir create parents
 alias mkdir='mkdir -pv'

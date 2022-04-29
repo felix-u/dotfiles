@@ -76,14 +76,11 @@
         # DEV
         android-tools cargo clang-tools cmake gcc gnumake go home-manager
         libresprite man-pages-posix openssl_3_0 pkg-config python39Packages.pip
-        python3Full unstable.rustc shellcheck
+        python3Full so unstable.rustc shellcheck
         unstable.clang unstable.deadnix unstable.godot unstable.statix yarn
         godot4-alpha
         # asepriteLatest
         unstable.aseprite-unfree
-
-        # MATHS
-        bc gnuplot libqalculate maxima qalculate-gtk wxmaxima
 
         # NEOVIM
         cmake-language-server nodePackages.bash-language-server
@@ -92,6 +89,9 @@
         nodePackages.vscode-langservers-extracted nodejs rnix-lsp
         rust-analyzer sumneko-lua-language-server tree-sitter
         unstable.neovim
+
+        # MATHS
+        bc gnuplot libqalculate maxima qalculate-gtk wxmaxima
 
         # TERMINAL MISC
         bat catimg cava cmatrix dict doas-as-sudo dragon-drop entr figlet file

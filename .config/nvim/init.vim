@@ -229,6 +229,7 @@ let g:user_emmet_leader_key='<C-f>'
 
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtext_quickfix_mode=0
 let g:tex_conceal='abdmg'
 let g:vimtex_quickfix_mode = 2

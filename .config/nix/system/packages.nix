@@ -102,6 +102,7 @@
         pandoc pdftk pipes-rs ripgrep skim termdown themesh tldr tmux tty-clock
         ttyper
         udiskie udisks unrar unstable.helix unzip
+        v4l-utils libv4l
         w3m xdg-utils youtube-dl unstable.ytfzf zip _7zz
 
         # INTERNET & BLUETOOTH
@@ -130,6 +131,9 @@
 
         # LATEX
         biber texinfo texlab texlive.combined.scheme-full
+
+        # KERNEL
+        linuxKernel.packages.linux_5_17.v4l2loopback
 
     ];
 

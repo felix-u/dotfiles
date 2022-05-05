@@ -60,6 +60,7 @@ swaymsg "bindsym $MOD+d exec ~/.config/sway/scripts/menu.sh" &
 # when having xwayland installed, some apps may prefer X even if working fine
 # on wayland. launch them with DISPLAY=wayland-0
 swaymsg "bindsym $MOD+b exec $BROWSER" &
+swaymsg "bindsym $MOD+Shift+v exec emacsclient -c" &
 swaymsg "bindsym $MOD+$ALT+b exec MOZ_ENABLE_WAYLAND=1 firefox" &
 swaymsg "bindsym $MOD+a exec $FILES" &
 #
@@ -229,3 +230,6 @@ fi
 
 pkill dunst
 dunst &
+
+# emacs daemon
+emacs --daemon &

@@ -27,6 +27,14 @@
         };
     };
 
+    # emacs setup and overlay
+    services.emacs.package = pkgs.emacsPgtk;
+    services.emacs.enable = true;
+    nixpkgs.overlays = [
+        (import (builtins.fetchTarball {
+          url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+        }))
+      ];
 
     # packages for all systems
     environment.systemPackages =
@@ -39,30 +47,6 @@
             doas "$@"
         '');
 
-        # latest aseprite, since even "unstable" version is awfully behind
-        # asepriteLatest = pkgs.aseprite-unfree.overrideAttrs (oldAttrs: rec {
-        #     version = "1.3-beta14";
-        #     src = pkgs.fetchFromGitHub {
-        #         owner = "aseprite";
-        #         repo = "aseprite";
-        #         rev = "v${version}";
-        #         fetchSubmodules = true;
-        #         sha256 = "sha256-F8/UmgG2yRLDZnBZaNJTAHDcXyoC3ePMhdEcTHlNR8E=";
-        #       };
-        #     # patches = [];
-        #     buildInputs = with pkgs; (oldAttrs.buildInputs or []) ++
-        #         [ xorg.libXi gn (harfbuzz.override {withIcu=true;}) ];
-        #     postPatch = '''';
-        #     skia = pkgs.callPackage /home/felix/.config/nix/system/customPackages/skia/skia.nix {};
-        #     cmakeFlags = (oldAttrs.cmakeFlags or []) ++
-        #         [
-        #           "-DSKIA_DIR=${skia}"
-        #           "-DSKIA_LIBRARY_DIR=${skia}/out/Release"
-        #           # "-DSKIA_LIBRARY=${skia}/out/Release/libskia.a"
-        #           # "-DSKIA_LIBRARY=${skia}"
-        #         ];
-        # });
-
         godot4-alpha = import ../derivations/godot4alpha.nix;
 
         themesh = import ../derivations/themesh.nix;
@@ -74,13 +58,16 @@
         foot unstable.gh git neofetch starship stow wget
 
         # DEV
-        android-tools cargo clang-tools cmake gcc gnumake go home-manager
+        android-tools cargo clang-tools cmake gcc gnumake go
+        home-manager
         libresprite man-pages-posix openssl_3_0 pkg-config python39Packages.pip
         python3Full so unstable.rustc shellcheck
         unstable.clang unstable.deadnix unstable.godot unstable.statix yarn
         godot4-alpha
         # asepriteLatest
         unstable.aseprite-unfree
+        # experimenting with lisp:
+        clisp emacsPgtk sbcl
 
         # NEOVIM
         cmake-language-server nodePackages.bash-language-server

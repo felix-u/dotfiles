@@ -265,3 +265,7 @@ alias doasedit="doas $EDITOR $1"
 swaybgset () {
     pkill swaybg; swaybg -m fill -i "$1" &
 }
+
+# use emacs as terminal when launched from the terminal
+alias emacsg="\emacs"
+alias emacs="emacs -nw"

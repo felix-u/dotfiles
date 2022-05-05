@@ -2,10 +2,10 @@
 
 [options]
 
-background = ffffff
+background = 002b36
 overlay_font = FiraSans:12
 overlay_text_color = 93a1a1
-overlay_background_color = 202020
+overlay_background_color = 073642
 overlay_position_bottom = true
 
 scaling_mode = shrink

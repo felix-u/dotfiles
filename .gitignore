@@ -15,6 +15,9 @@
 .config/nnn/sessions
 .config/nnn/.selection
 
+home/.emacs.d/*
+!home/.emacs.d/init.el
+
 # Vieb, if I end up trying it again
 # .config/Vieb/*
 # !.config/Vieb/extensions

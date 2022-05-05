@@ -61,13 +61,13 @@
         android-tools cargo clang-tools cmake gcc gnumake go
         home-manager
         libresprite man-pages-posix openssl_3_0 pkg-config python39Packages.pip
-        python3Full so unstable.rustc shellcheck
+        python3Full python39Packages.python-lsp-server so unstable.rustc shellcheck
         unstable.clang unstable.deadnix unstable.godot unstable.statix yarn
         godot4-alpha
         # asepriteLatest
         unstable.aseprite-unfree
         # experimenting with lisp:
-        clisp emacsPgtk sbcl
+        clisp emacsPgtk emacs-all-the-icons-fonts sbcl
 
         # NEOVIM
         cmake-language-server nodePackages.bash-language-server

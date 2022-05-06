@@ -13,6 +13,11 @@
 (tooltip-mode -1)       ; Disable tooltips
 (menu-bar-mode -1)      ; Disable the menubar
 
+;; better, usable terminal
+(use-package vterm)
+;; and package for better vterm binding
+(use-package vterm-toggle)
+
 ;; Revert buffers when the underlying file has changed
 (global-auto-revert-mode 1)
 
@@ -103,6 +108,7 @@
 (use-package evil
     :config
     (evil-mode 1)
+
     ;; keep selection when indenting
     (defun my/evil-shift-right ()
         (interactive)
@@ -127,6 +133,11 @@
     (define-key evil-normal-state-map "x" 'delete-forward-char)
     (define-key evil-normal-state-map "X" 'delete-backward-char)
 
+    ;; window shortcuts (more below)
+    (global-set-key (kbd "<C-return>") 'evil-window-new)
+    (global-set-key (kbd "C-<next>") 'evil-window-split)
+    (global-set-key (kbd "C-<end>") 'evil-window-vsplit)
+
     (use-package evil-commentary
         :config (evil-commentary-mode))
     (use-package evil-surround
@@ -147,43 +158,78 @@
 			:prefix "SPC"
 			:global-prefix "C-SPC"))
 
-		(rune/leader-keys
+    ;; used in keymap below
+    (defun kill-other-buffers ()
+        "Kill all other buffers."
+        (interactive)
+        (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 
-		 	"<SPC>" '(ido-find-file :which-key "find file")
-			"." 	'(ido-dired :which-key "browse files (dired)")
-            ","     '(frog-jump-buffer :which-key "switch buffer")
+    (rune/leader-keys
 
-			"c"  '(:ignore t :which-key "code")
-			"ce" '(eval-buffer :which-key "evaluate buffer")
+        "<SPC>" '(ido-find-file :which-key "find file")
+        "." 	'(ido-dired :which-key "browse files (dired)")
+        ","     '(frog-jump-buffer :which-key "switch buffer")
 
-			"f"  '(:ignore t :which-key "file")
-			"f." '(ido-find-file :which-key "find file")
-    		"fr" '(recentf-open-files :which-key "recent files")
+        "b"  '(:ignore t :which-key "buffer")
+        "bb" '(frog-jump-buffer :which-key "switch buffer")
+    	"bi" '(ibuffer :which-key "ibuffer")
+        "bk" '(kill-buffer :which-key "kill buffer")
+        "bo" '(kill-other-buffers :which-key "kill other buffers")
+        "bs" '(save-buffer :which-key "save buffer")
+        "b["  '(previous-buffer :which-key "prev buffer")
+        "b]"  '(next-buffer :which-key "next buffer")
 
-			"l"  '(:ignore t :which-key "lsp")
-			"lr" '(iedit-mode :which-key "rename object (iedit)")
-            "lf" '(flycheck-list-errors :which-key "flycheck errors")
+        "c"  '(:ignore t :which-key "code")
+        "ce" '(eval-buffer :which-key "evaluate buffer")
 
-		  	"t"  '(:ignore t :which-key "toggle")
-			"tf" '(flycheck-mode :which-key "flycheck")
-            "th" '(hl-line-mode :which-key "line highlight")
-    		"tl" '(lsp :which-key "LSP")
-			"tn" '(global-display-line-numbers-mode :which-key "line numbers")
-			"tt" '(load-theme :which-key "theme")
+        "f"  '(:ignore t :which-key "file")
+        "f." '(ido-find-file :which-key "find file")
+        "fr" '(recentf-open-files :which-key "recent files")
 
-			"q"  '(:ignore t :which-key "quit")
-			"qq" '(save-buffers-kill-emacs :which-key "save and quit")
-			"qQ" '(kill-emacs :which-key "quit")
+        "l"  '(:ignore t :which-key "lsp")
+        "lr" '(iedit-mode :which-key "rename object (iedit)")
+        "lf" '(flycheck-list-errors :which-key "flycheck errors")
 
-    		"b"  '(:ignore t :which-key "buffer")
-            "bb" '(frog-jump-buffer :which-key "switch buffer")
-    		"bk" '(kill-buffer :which-key "kill buffer")
-    		"bs" '(save-buffer :which-key "save buffer")
-            "b["  '(previous-buffer :which-key "prev buffer")
-            "b]"  '(next-buffer :which-key "next buffer")
+        "o"  '(:ignore t :which-key "open")
+        "ot" '(vterm-toggle :which-key "vterm")
+	
+        "t"  '(:ignore t :which-key "toggle")
+        "tf" '(flycheck-mode :which-key "flycheck")
+        "th" '(hl-line-mode :which-key "line highlight")
+        "tl" '(lsp :which-key "LSP")
+        "tn" '(global-display-line-numbers-mode :which-key "line numbers")
+        "tt" '(load-theme :which-key "theme")
 
-		   )
-	  )
+        "q"  '(:ignore t :which-key "quit")
+        "qq" '(save-buffers-kill-emacs :which-key "save and quit")
+        "qQ" '(kill-emacs :which-key "quit")
+
+        "w"  '(:ignore t :which-key "window")
+        ;; "ww" '(evil-window-delete :which-key "close")
+        "ww" '(kill-buffer-and-window :which-key "close")
+
+        )
+    )
+
+;; dwm-like tiling
+(use-package edwina
+    :config
+    (setq display-buffer-base-action '(display-buffer-below-selected))
+    (edwina-mode 1)
+    (global-set-key (kbd "<C-left>") 'edwina-select-previous-window)
+    (global-set-key (kbd "<C-up>") 'edwina-select-previous-window)
+    (global-set-key (kbd "<C-right>") 'edwina-select-next-window)
+    (global-set-key (kbd "<C-down>") 'edwina-select-next-window)
+
+    (global-set-key (kbd "C-<S-left>") 'edwina-swap-previous-window)
+    (global-set-key (kbd "C-<S-up>") 'edwina-swap-previous-window)
+    (global-set-key (kbd "C-<S-right>") 'edwina-swap-next-window)
+    (global-set-key (kbd "C-<S-down>") 'edwina-swap-next-window)
+
+    (global-set-key (kbd "C-<M-left>") 'edwina-dec-mfact)
+    (global-set-key (kbd "C-<M-right>") 'edwina-inc-mfact)
+    (global-set-key (kbd "C-<M-up>") 'edwina-dec-nmaster)
+    (global-set-key (kbd "C-<M-down>") 'edwina-inc-nmaster))
 
 (straight-use-package 'evil-terminal-cursor-changer)
 (unless (display-graphic-p)
@@ -343,8 +389,8 @@
     (set-frame-font fontstring)
 
     :custom
-    (window-divider-default-right-width 24)
-    (window-divider-default-bottom-width 12)
+    (window-divider-default-right-width 2)
+    (window-divider-default-bottom-width 2)
     (window-divider-default-places 'right-only)
     (window-divider-mode t))
 

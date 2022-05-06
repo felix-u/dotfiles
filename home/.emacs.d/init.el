@@ -1,3 +1,7 @@
+;; startup time trickery
+(let ((file-name-handler-alist nil))
+(set 'gc-cons-threshold 100000000)
+
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (setq inhibit-startup-message t)
@@ -103,6 +107,7 @@
 
 			"l"  '(:ignore t :which-key "lsp")
 			"lr" '(iedit-mode :which-key "rename object (iedit)")
+            "lf" '(flycheck-list-errors :which-key "flycheck errors")
 
 		  	"t"  '(:ignore t :which-key "toggle")
 			"tt" '(load-theme :which-key "theme")
@@ -112,7 +117,7 @@
 			"q"  '(:ignore t :which-key "quit")
 			"qq" '(save-buffers-kill-emacs :which-key "save and quit")
 			"qQ" '(kill-emacs :which-key "quit")
-			
+
 		   )
 	  )
 
@@ -132,8 +137,8 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t ; if nil, italics is universally disabled
-		doom-solarized-light-padded-modeline t)
-  (load-theme 'doom-solarized-light t)
+		doom-solarized-dark-padded-modeline t)
+  (load-theme 'doom-solarized-dark t)
 
   ;; Enable custom neotree theme (all-the-icons must be installed!)
   ;; (doom-themes-neotree-config)
@@ -182,7 +187,7 @@
 	(use-package iedit)
     (lsp-enable-which-key-integration t)
     (add-hook 'prog-mode-hook 'lsp))
-    
+
 ;; autocomplete
 (use-package company
     :init
@@ -197,7 +202,7 @@
 (add-hook 'c-mode-hook
     (setq c-default-style "linux"
         c-basic-offset 4))
-    
+
 ;; flycheck
 (use-package flycheck
     :config
@@ -257,6 +262,13 @@
                         :font fontfamily
                         :weight fontweight
                         :height fontheight)
+    
+    ;; don't underline flycheck errors and warnings
+    (set-face-attribute 'flycheck-error t
+                        :underline nil)
+    (set-face-attribute 'flycheck-warning t
+                        :underline nil)
+    
     (add-to-list 'default-frame-alist `(font . ,fontstring))
     (set-face-attribute 'default t :font fontstring)
     (set-frame-font fontstring)
@@ -295,3 +307,5 @@
  '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
  '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
  '(evil-goggles-yank-face ((t (:inherit diff-changed)))))
+
+)

@@ -241,7 +241,7 @@ n ()
 }
 
 # nixos
-rebuild-switch () {
+rebuildswitch () {
     if [ $(hostname) = "thonkpad" ]; then
         doas nixos-rebuild switch -I nixos-config=$XDG_CONFIG_HOME/nix/thinkpad/configuration.nix
     elif [ $(hostname) = "nixbtw" ]; then

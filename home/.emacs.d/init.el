@@ -125,9 +125,9 @@
     (evil-define-key 'insert 'global (kbd "C-<tab>") 'insert-tab-char)
 
     ;; delete, don't cut
-    (defun bb/evil-delete (orig-fn beg end &optional type _ &rest args)
-    (apply orig-fn beg end type ?_ args))
-    (advice-add 'evil-delete :around 'bb/evil-delete)
+    ;; (defun bb/evil-delete (orig-fn beg end &optional type _ &rest args)
+    ;; (apply orig-fn beg end type ?_ args))
+    ;; (advice-add 'evil-delete :around 'bb/evil-delete)
 
     ;; delete single character without yanking
     (define-key evil-normal-state-map "x" 'delete-forward-char)
@@ -205,8 +205,9 @@
         "qQ" '(kill-emacs :which-key "quit")
 
         "w"  '(:ignore t :which-key "window")
-        ;; "ww" '(evil-window-delete :which-key "close")
         "ww" '(kill-buffer-and-window :which-key "close")
+
+        "x" '(execute-extended-command :which-key "M-x")
 
         )
     )
@@ -337,6 +338,17 @@
 ;; use system clipboard
 (setq select-enable-clipboard t)
 
+;; magit
+(use-package magit)
+
+;---------------------------------------------------------------language-configs
+(use-package company-nixos-options
+    :config
+    (add-to-list 'company-backends 'company-nixos-options))
+(use-package nix-mode
+  :mode "\\.nix\\'")
+;-------------------------------------------------------------------------------
+    
 ;----------------------------------------------------------------------GUI-only
 (defvar fontfamily "Iosevka")
 (defvar fontsans "Fira Sans")

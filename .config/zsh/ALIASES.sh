@@ -267,5 +267,4 @@ swaybgset () {
 }
 
 # use emacs as terminal when launched from the terminal
-alias emacsg="\emacs"
-alias emacs="emacs -nw"
+alias e="emacsclient -c -nw"

@@ -1,6 +1,7 @@
 ;; startup time trickery
 (let ((file-name-handler-alist nil))
-(set 'gc-cons-threshold 100000000)
+;; (set 'gc-cons-threshold 100000000)
+(set 'gc-cons-threshold (* 100 1000 1000))
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
@@ -11,6 +12,18 @@
 
 (tooltip-mode -1)       ; Disable tooltips
 (menu-bar-mode -1)      ; Disable the menubar
+
+;; Revert buffers when the underlying file has changed
+(global-auto-revert-mode 1)
+
+;; save all tempfiles in $TMPDIR/emacs$UID/
+(defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
+(setq backup-directory-alist
+      `((".*" . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms
+      `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix
+      emacs-tmp-dir)
 
 ;; Visible bell (DISABLE)
 (setq visible-bell nil)
@@ -28,7 +41,14 @@
 (electric-pair-mode 1)
 
 ;; save command history
-(savehist-mode 1)
+(savehist-mode 1) (setq history-length 25)
+;; save recent files
+(recentf-mode 1)
+
+;; enable ido to begin to use in keybinds
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
 
 (unless (featurep 'straight)
   ;; Bootstrap straight.el
@@ -68,24 +88,57 @@
 
 ; Evil mode to make this bloody thing usable
 ;; tabbing
-(setq-default indent-tabs-mode nil) (setq indent-tabs-mode nil)
-(setq-default tab-width 4) (setq tab-width 4)
+(setq indent-tabs-mode nil) 
+(setq tab-width 4) 
+(setq tab-stop-list (number-sequence 4 200 4))
 (setq indent-line-function 'insert-tab)
+(setq c-default-style "linux")
+(setq c-basic-offset 4)
+(c-set-offset 'comment-intro 0)
+
 (defun insert-tab-char ()
   "Insert a tab char (ASCII 9, \t)."
   (interactive) (insert "\t"))
+
 (use-package evil
     :config
     (evil-mode 1)
+    ;; keep selection when indenting
+    (defun my/evil-shift-right ()
+        (interactive)
+        (evil-shift-right evil-visual-beginning evil-visual-end)
+        (evil-normal-state)
+        (evil-visual-restore))
+    (defun my/evil-shift-left ()
+        (interactive)
+        (evil-shift-left evil-visual-beginning evil-visual-end)
+        (evil-normal-state)
+        (evil-visual-restore))
+    (evil-define-key 'visual global-map (kbd ">") 'my/evil-shift-right)
+    (evil-define-key 'visual global-map (kbd "<") 'my/evil-shift-left)
     (evil-define-key 'insert 'global (kbd "C-<tab>") 'insert-tab-char)
-	;; delete, don't cut
-		(defun bb/evil-delete (orig-fn beg end &optional type _ &rest args)
-		(apply orig-fn beg end type ?_ args))
-		(advice-add 'evil-delete :around 'bb/evil-delete)
+
+    ;; delete, don't cut
+    (defun bb/evil-delete (orig-fn beg end &optional type _ &rest args)
+    (apply orig-fn beg end type ?_ args))
+    (advice-add 'evil-delete :around 'bb/evil-delete)
+
+    ;; delete single character without yanking
+    (define-key evil-normal-state-map "x" 'delete-forward-char)
+    (define-key evil-normal-state-map "X" 'delete-backward-char)
+
     (use-package evil-commentary
         :config (evil-commentary-mode))
     (use-package evil-surround
       	:config (global-evil-surround-mode 1))
+    (use-package avy ; like lightspeed.nvim
+        :config
+        (define-key evil-normal-state-map "S" 'avy-goto-char-2-above)
+        (define-key evil-normal-state-map "s" 'avy-goto-char-2-below))
+    (use-package frog-jump-buffer ; for switching buffers quickly
+        :config
+        (use-package all-the-icons-ivy)
+        (setq frog-jump-buffer-use-all-the-icons-ivy t))
 	(use-package general
 		:config
 		(general-evil-setup t)
@@ -96,27 +149,38 @@
 
 		(rune/leader-keys
 
-		 	"<SPC>" '(find-file :which-key "find file")
-			"." 	'(dired :which-key "browse files (dired)")
+		 	"<SPC>" '(ido-find-file :which-key "find file")
+			"." 	'(ido-dired :which-key "browse files (dired)")
+            ","     '(frog-jump-buffer :which-key "switch buffer")
 
 			"c"  '(:ignore t :which-key "code")
 			"ce" '(eval-buffer :which-key "evaluate buffer")
 
 			"f"  '(:ignore t :which-key "file")
-			"f." '(find-file :which-key "find file")
+			"f." '(ido-find-file :which-key "find file")
+    		"fr" '(recentf-open-files :which-key "recent files")
 
 			"l"  '(:ignore t :which-key "lsp")
 			"lr" '(iedit-mode :which-key "rename object (iedit)")
             "lf" '(flycheck-list-errors :which-key "flycheck errors")
 
 		  	"t"  '(:ignore t :which-key "toggle")
-			"tt" '(load-theme :which-key "theme")
 			"tf" '(flycheck-mode :which-key "flycheck")
-			"tl" '(global-display-line-numbers-mode :which-key "line numbers")
+            "th" '(hl-line-mode :which-key "line highlight")
+    		"tl" '(lsp :which-key "LSP")
+			"tn" '(global-display-line-numbers-mode :which-key "line numbers")
+			"tt" '(load-theme :which-key "theme")
 
 			"q"  '(:ignore t :which-key "quit")
 			"qq" '(save-buffers-kill-emacs :which-key "save and quit")
 			"qQ" '(kill-emacs :which-key "quit")
+
+    		"b"  '(:ignore t :which-key "buffer")
+            "bb" '(frog-jump-buffer :which-key "switch buffer")
+    		"bk" '(kill-buffer :which-key "kill buffer")
+    		"bs" '(save-buffer :which-key "save buffer")
+            "b["  '(previous-buffer :which-key "prev buffer")
+            "b]"  '(next-buffer :which-key "next buffer")
 
 		   )
 	  )
@@ -139,6 +203,7 @@
         doom-themes-enable-italic t ; if nil, italics is universally disabled
 		doom-solarized-dark-padded-modeline t)
   (load-theme 'doom-solarized-dark t)
+  (global-hl-line-mode 1) ; enable line highlighting
 
   ;; Enable custom neotree theme (all-the-icons must be installed!)
   ;; (doom-themes-neotree-config)
@@ -198,11 +263,6 @@
 		company-idle-delay 0.0) ;; default is 0.2
     (global-company-mode))
 
-;; lang-specific settings
-(add-hook 'c-mode-hook
-    (setq c-default-style "linux"
-        c-basic-offset 4))
-
 ;; flycheck
 (use-package flycheck
     :config
@@ -211,7 +271,10 @@
     (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 ;; which key
-(use-package which-key :config (which-key-mode))
+(use-package which-key
+    :config
+    (which-key-mode)
+    (setq which-key-popup-type 'minibuffer))
 
 ;; modeline coolness
 (use-package all-the-icons
@@ -221,6 +284,12 @@
     :config
     (setq doom-modeline-height 36)
     (setq doom-modeline-enable-word-count t))
+
+;; respond to prompts with y/n, not yes/no
+(defalias 'yes-or-no #'y-or-n-p)
+
+;; use system clipboard
+(setq select-enable-clipboard t)
 
 ;----------------------------------------------------------------------GUI-only
 (defvar fontfamily "Iosevka")
@@ -262,13 +331,13 @@
                         :font fontfamily
                         :weight fontweight
                         :height fontheight)
-    
+
     ;; don't underline flycheck errors and warnings
     (set-face-attribute 'flycheck-error t
                         :underline nil)
     (set-face-attribute 'flycheck-warning t
                         :underline nil)
-    
+
     (add-to-list 'default-frame-alist `(font . ,fontstring))
     (set-face-attribute 'default t :font fontstring)
     (set-frame-font fontstring)
@@ -284,28 +353,15 @@
 (scroll-bar-mode -1)    ; Disable visible scrollbar
 (tool-bar-mode -1)      ; Disable the toolbar
 (set-fringe-mode 10)    ; Give some breathing room
+(setq use-dialog-box nil) ; Don't use popup dialogue box when prompting
 
 ;------------------------------------------------------------------------------
 
+;; move customisation variables to different file and load it
+(setq custom-file (locate-user-emacs-file "custom-vars.el"))
+(load custom-file 'noerror 'nomessage)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "66bdbe1c7016edfa0db7efd03bb09f9ded573ed392722fb099f6ac6c6aefce32" "028c226411a386abc7f7a0fba1a2ebfae5fe69e2a816f54898df41a6a3412bb5" "613aedadd3b9e2554f39afe760708fc3285bf594f6447822dd29f947f0775d6c" "c4b0cd42365d27c859dc944197c9e5c36ff0725c66eb03fdf21dc8b004566388" "7a7b1d475b42c1a0b61f3b1d1225dd249ffa1abb1b7f726aec59ac7ca3bf4dae" "c4063322b5011829f7fdd7509979b5823e8eea2abf1fe5572ec4b7af1dd78519" "1704976a1797342a1b4ea7a75bdbb3be1569f4619134341bd5a4c1cfb16abad4" "4f1d2476c290eaa5d9ab9d13b60f2c0f1c8fa7703596fa91b235db7f99a9441b" "cf922a7a5c514fad79c483048257c5d8f242b21987af0db813d3f0b138dfaf53" "fede08d0f23fc0612a8354e0cf800c9ecae47ec8f32c5f29da841fe090dfc450" "f5b6be56c9de9fd8bdd42e0c05fecb002dedb8f48a5f00e769370e4517dde0e8" default)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(evil-goggles-change-face ((t (:inherit diff-removed))))
- '(evil-goggles-delete-face ((t (:inherit diff-removed))))
- '(evil-goggles-paste-face ((t (:inherit diff-added))))
- '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
- '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
- '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
- '(evil-goggles-yank-face ((t (:inherit diff-changed)))))
+;; reset garbage collection to make gc pauses faster
+(set 'gc-cons-threshold (* 2 1000 1000))
 
 )

@@ -71,7 +71,7 @@
                     (eval-print-last-sexp)))
             (load bootstrap-file nil 'nomessage)))
 
-                                        ; Initialise package sources
+    ;; Initialise package sources
     (require 'package)
     (setq package-archives '(   ("melpa" . "https://melpa.org/packages/")
                                 ("org" . "https://orgmode.org/elpa/")
@@ -81,7 +81,7 @@
     (unless package-archive-contents
         (package-refresh-contents))
 
-                                        ; Initialise use-package
+    ;; Initialise use-package
     (straight-use-package 'use-package)
     (require 'use-package)
     (require 'use-package-ensure)
@@ -92,7 +92,7 @@
         (setq auto-package-update-hide-results t)
         (auto-package-update-maybe))
 
-                                        ; Evil mode to make this bloody thing usable
+    ;; Evil mode to make this bloody thing usable
     ;; tabbing
     (setq indent-tabs-mode nil
         tab-width 4
@@ -163,13 +163,13 @@
             :config
             (use-package all-the-icons-ivy)
             (setq frog-jump-buffer-use-all-the-icons-ivy t))
-	(use-package general
-	    :config
-	    (general-evil-setup t)
-	    (general-create-definer rune/leader-keys
-		:keymaps '(normal insert visual emacs)
-		:prefix "SPC"
-		:global-prefix "C-SPC")
+	    (use-package general
+	        :config
+	        (general-evil-setup t)
+	        (general-create-definer rune/leader-keys
+		        :keymaps '(normal insert visual emacs)
+		        :prefix "SPC"
+		        :global-prefix "C-SPC")
             )
 
         ;; used in keymap below
@@ -232,8 +232,8 @@
 
             "]"  '(:ignore t :which-key "next")
             "["  '(:ignore t :which-key "previous")
-            "]e" '(flycheck-next-error :which-key "error")        
-            "[e" '(flycheck-previous-error :which-key "error")        
+            "]e" '(flycheck-next-error :which-key "error")
+            "[e" '(flycheck-previous-error :which-key "error")
 
             )
         )
@@ -261,8 +261,8 @@
 
     (straight-use-package 'evil-terminal-cursor-changer)
     (unless (display-graphic-p)
-	(require 'evil-terminal-cursor-changer)
-	(evil-terminal-cursor-changer-activate)) ; or (etcc-on)
+	    (require 'evil-terminal-cursor-changer)
+	    (evil-terminal-cursor-changer-activate)) ; or (etcc-on)
 
     ;; (use-package undo-tree
     ;;     :config
@@ -291,9 +291,21 @@
         ;; (doom-themes-neotree-config)
         ;; or for treemacs users
         ;; (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-        ;; (doom-themes-treemacs-config)
+        (doom-themes-treemacs-config)
         ;; Corrects (and improves) org-mode's native fontification.
         (doom-themes-org-config))
+
+    ;; file tree
+    (use-package treemacs
+        :defer t
+        :init
+        (use-package treemacs-evil
+            :after (treemacs evil))        
+        (use-package treemacs-icons-dired
+            :hook (dired-mode . treemacs-icons-dired-enable-once))        
+        ;; :config
+        
+        )
 
     ;; not working in terminal right now.
     ;; possible fix in docs https://github.com/belak/base16-emacs
@@ -331,13 +343,13 @@
         :init
         (setq lsp-keymap-prefix "C-c l")
         :config
-	(use-package iedit)
+	    (use-package iedit)
         (lsp-enable-which-key-integration t)
         (add-hook 'prog-mode-hook 'lsp)
-	(use-package lsp-ui
-	    :hook (lsp-mode . lsp-ui-mode)
-	    :config
-	    (setq lsp-lens-enable t
+	    (use-package lsp-ui
+	        :hook (lsp-mode . lsp-ui-mode)
+	        :config
+	        (setq lsp-lens-enable t
                 lsp-ui-doc-enable t
                 lsp-ui-sideline-enable nil
                 lsp-enable-symbol-highlighting t
@@ -350,8 +362,8 @@
         (global-set-key (kbd "<tab>")
             #'company-indent-or-complete-common)
         :config
-	(setq company-minimum-prefix-length 1
-	    company-idle-delay 0.0) ;; default is 0.2
+	    (setq company-minimum-prefix-length 1
+	        company-idle-delay 0.0) ;; default is 0.2
         (global-company-mode t))
 
     ;; flycheck
@@ -405,8 +417,8 @@
         (use-package visual-fill-column
             :defer t
             :config
-  	    (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
-  	    (setq-default visual-fill-column-center-text t)))
+  	        (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
+  	        (setq-default visual-fill-column-center-text t)))
 
     ;; for reading epub - https://depp.brause.cc/nov.el/
     ;; (use-package nov)
@@ -426,6 +438,23 @@
     (use-package info-colors
         :defer t)
     (add-hook 'Info-selection-hook 'info-colors-fontify-node)
+
+    ;; dashboard
+    (use-package dashboard
+        :config
+        (dashboard-setup-startup-hook)
+        (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+        (setq dashboard-banner-logo-title "GNU Emacs version 29")
+        (setq dashboard-center-content t)
+        (setq dashboard-show-shortcuts nil)
+        (setq dashboard-items '())
+        (defun dashboard-insert-custom (list-size)
+            (insert "\n\nGNU Emacs"))
+        (add-to-list 'dashboard-item-generators  '(custom . dashboard-insert-custom))
+        (add-to-list 'dashboard-items '(custom) t)
+        (setq dashboard-set-footer nil)
+        (setq dashboard-startup-banner nil)
+        )
 
     ;;-----------------------------------------------------------language-configs
     ;; nix
@@ -462,7 +491,7 @@
             TeX-source-correlate-start-server t) ;; not sure if last line is neccessary
         ;; to have the buffer refresh after compilation
         (add-hook 'TeX-after-compilation-finished-functions
-	    #'TeX-revert-document-buffer)
+	        #'TeX-revert-document-buffer)
         )
     ;;--------------------------------------------------------------------------
 
@@ -548,11 +577,35 @@
     (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 
     ;; smoother scrolling
-    (setq scroll-margin 1
-	scroll-step 1
-	scroll-conservatively 10000
-	scroll-preserve-screen-position 1)
+    (setq scroll-step 1
+	    scroll-conservatively 10000
+	    scroll-preserve-screen-position 1)
 
+    ;;--------------------------------------------------------------------------
+
+    ;;-----------------------------------------------------------------------ORG
+    (use-package org
+        :config
+        (setq org-ellipsis " …"))
+
+    (use-package org-bullets
+	    :after org
+	    :hook (org-mode . org-bullets-mode))
+
+    ;; replace list hyphen with dot
+    (font-lock-add-keywords 'org-mode
+	    '(("^ *\\([-]\\) "
+	          (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+    (dolist (face '((org-level-1 . 1.2)
+		               (org-level-2 . 1.1)
+		               (org-level-3 . 1.05)
+		               (org-level-4 . 1.0)
+		               (org-level-5 . 1.1)
+		               (org-level-6 . 1.1)
+		               (org-level-7 . 1.1)
+		               (org-level-8 . 1.1)))
+	    (set-face-attribute (car face) nil :font fontsans :weight fontweight :height (cdr face)))
     ;;--------------------------------------------------------------------------
 
 

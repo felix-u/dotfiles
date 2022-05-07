@@ -36,8 +36,8 @@
     (setq ring-bell-function 'ignore)
     (setq server-client-instructions nil)
     ;; relative line numbers
-    (global-display-line-numbers-mode 1)
-    (setq display-line-numbers-type 'relative)
+    ;; (global-display-line-numbers-mode 1)
+    ;; (setq display-line-numbers-type 'relative)
     (setq column-number-mode t) ; show columns as well
 
     ;; don't ask about symlinks - just edit the file the link points to
@@ -163,13 +163,13 @@
             :config
             (use-package all-the-icons-ivy)
             (setq frog-jump-buffer-use-all-the-icons-ivy t))
-	    (use-package general
-	        :config
-	        (general-evil-setup t)
-	        (general-create-definer rune/leader-keys
-		        :keymaps '(normal insert visual emacs)
-		        :prefix "SPC"
-		        :global-prefix "C-SPC")
+	(use-package general
+	    :config
+	    (general-evil-setup t)
+	    (general-create-definer rune/leader-keys
+		:keymaps '(normal insert visual emacs)
+		:prefix "SPC"
+		:global-prefix "C-SPC")
             )
 
         ;; used in keymap below
@@ -207,7 +207,7 @@
             "o"  '(:ignore t :which-key "open")
             "ot" '(vterm-toggle :which-key "vterm")
 
-            "s"  '(:ignore t :which-key "colour scheme")        
+            "s"  '(:ignore t :which-key "colour scheme")
             "sl" '((lambda () (interactive) (load-theme 'doom-solarized-light t)) :which-key "light theme")
             "sd" '((lambda () (interactive) (load-theme 'doom-solarized-dark t)) :which-key "dark theme")
 
@@ -229,6 +229,11 @@
             "ww" '(kill-buffer-and-window :which-key "close")
 
             "x" '(execute-extended-command :which-key "M-x")
+
+            "]"  '(:ignore t :which-key "next")
+            "["  '(:ignore t :which-key "previous")
+            "]e" '(flycheck-next-error :which-key "error")        
+            "[e" '(flycheck-previous-error :which-key "error")        
 
             )
         )
@@ -256,8 +261,8 @@
 
     (straight-use-package 'evil-terminal-cursor-changer)
     (unless (display-graphic-p)
-	    (require 'evil-terminal-cursor-changer)
-	    (evil-terminal-cursor-changer-activate)) ; or (etcc-on)
+	(require 'evil-terminal-cursor-changer)
+	(evil-terminal-cursor-changer-activate)) ; or (etcc-on)
 
     ;; (use-package undo-tree
     ;;     :config
@@ -278,9 +283,9 @@
         ;; Global settings (defaults)
         (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
             doom-themes-enable-italic t ; if nil, italics is universally disabled
-		    doom-solarized-dark-padded-modeline t)
+            )
         (load-theme 'doom-solarized-dark t)
-        (global-hl-line-mode 1) ; enable line highlighting
+        ;; (global-hl-line-mode 1) ; enable line highlighting
 
         ;; Enable custom neotree theme (all-the-icons must be installed!)
         ;; (doom-themes-neotree-config)
@@ -326,13 +331,13 @@
         :init
         (setq lsp-keymap-prefix "C-c l")
         :config
-	    (use-package iedit)
+	(use-package iedit)
         (lsp-enable-which-key-integration t)
         (add-hook 'prog-mode-hook 'lsp)
-	    (use-package lsp-ui
-	        :hook (lsp-mode . lsp-ui-mode)
-	        :config
-	        (setq lsp-lens-enable t
+	(use-package lsp-ui
+	    :hook (lsp-mode . lsp-ui-mode)
+	    :config
+	    (setq lsp-lens-enable t
                 lsp-ui-doc-enable t
                 lsp-ui-sideline-enable nil
                 lsp-enable-symbol-highlighting t
@@ -345,8 +350,8 @@
         (global-set-key (kbd "<tab>")
             #'company-indent-or-complete-common)
         :config
-	    (setq company-minimum-prefix-length 1
-		    company-idle-delay 0.0) ;; default is 0.2
+	(setq company-minimum-prefix-length 1
+	    company-idle-delay 0.0) ;; default is 0.2
         (global-company-mode t))
 
     ;; flycheck
@@ -365,11 +370,20 @@
     ;; modeline coolness
     (use-package all-the-icons
         :if (display-graphic-p))
-    (use-package doom-modeline
-        :hook (after-init . doom-modeline-mode)
+
+    ;; (use-package doom-modeline
+    ;;     :hook (after-init . doom-modeline-mode)
+    ;;     :config
+    ;;     (setq doom-modeline-height 36)
+    ;;     (doom-solarized-dark-padded-modeline t)
+    ;;     (setq doom-modeline-enable-word-count t))
+
+    (use-package nano-modeline
         :config
-        (setq doom-modeline-height 36)
-        (setq doom-modeline-enable-word-count t))
+        (nano-modeline-mode)
+        (custom-set-faces
+            '(mode-line ((t (:underline nil))))
+            '(mode-line-inactive ((t (:underline nil))))))
 
     ;; respond to prompts with y/n, not yes/no
     (defalias 'yes-or-no #'y-or-n-p)
@@ -391,8 +405,8 @@
         (use-package visual-fill-column
             :defer t
             :config
-  	        (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
-  	        (setq-default visual-fill-column-center-text t)))
+  	    (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
+  	    (setq-default visual-fill-column-center-text t)))
 
     ;; for reading epub - https://depp.brause.cc/nov.el/
     ;; (use-package nov)
@@ -413,7 +427,7 @@
         :defer t)
     (add-hook 'Info-selection-hook 'info-colors-fontify-node)
 
-                                        ;---------------------------------------------------------------language-configs
+    ;;-----------------------------------------------------------language-configs
     ;; nix
     (use-package company-nixos-options
         :defer t
@@ -448,12 +462,12 @@
             TeX-source-correlate-start-server t) ;; not sure if last line is neccessary
         ;; to have the buffer refresh after compilation
         (add-hook 'TeX-after-compilation-finished-functions
-	        #'TeX-revert-document-buffer)
+	    #'TeX-revert-document-buffer)
         )
+    ;;--------------------------------------------------------------------------
 
-                                        ;-------------------------------------------------------------------------------
 
-                                        ;----------------------------------------------------------------------GUI-only
+    ;;------------------------------------------------------------------GUI-only
     (defvar fontfamily "Iosevka")
     (defvar fontsans "Fira Sans")
     (defvar fontsize 12)
@@ -532,8 +546,15 @@
     (global-subword-mode 1)
     (pixel-scroll-precision-mode t)
     (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
-    
-                                        ;------------------------------------------------------------------------------
+
+    ;; smoother scrolling
+    (setq scroll-margin 1
+	scroll-step 1
+	scroll-conservatively 10000
+	scroll-preserve-screen-position 1)
+
+    ;;--------------------------------------------------------------------------
+
 
     ;; move customisation variables to different file and load it
     (setq custom-file (locate-user-emacs-file "custom-vars.el"))

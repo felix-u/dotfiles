@@ -3,6 +3,6 @@
 {
     # fonts
     fonts.fonts = with pkgs; [
-        fira nerdfonts noto-fonts-emoji
+        fira ibm-plex nerdfonts noto-fonts-emoji
     ];
 }

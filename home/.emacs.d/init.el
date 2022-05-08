@@ -202,6 +202,13 @@
             "o"  '(:ignore t :which-key "open")
             "ot" '(vterm-toggle :which-key "vterm")
 
+            "p"  '(:ignore t :which-key "projectile")        
+            "pf" '(projectile-find-file-dwim :which-key "find file")            
+            "p." '(projectile-dired :which-key "find file")            
+            "pd" '(projectile-find-dir :which-key "find dir")            
+            "pa" '(projectile-add-known-project :which-key "add")            
+            "ps" '(projectile-switch-project :which-key "switch")            
+
             "s"  '(:ignore t :which-key "colour scheme")
             "sl" '((lambda () (interactive) (load-theme 'doom-solarized-light t)) :which-key "light theme")
             "sd" '((lambda () (interactive) (load-theme 'doom-solarized-dark t)) :which-key "dark theme")
@@ -286,21 +293,26 @@
         ;; (doom-themes-neotree-config)
         ;; or for treemacs users
         ;; (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-        (doom-themes-treemacs-config)
+        ;; (doom-themes-treemacs-config)
         ;; Corrects (and improves) org-mode's native fontification.
-        (doom-themes-org-config))
+        ;; (doom-themes-org-config)
+	    )
 
-    ;; file tree
-    (use-package treemacs
-        :defer t
-        :init
-        (use-package treemacs-evil
-            :after (treemacs evil))
-        (use-package treemacs-icons-dired
-            :hook (dired-mode . treemacs-icons-dired-enable-once))
-        ;; :config
+    ;; ;; file tree
+    ;; (use-package treemacs
+    ;;     :defer t
+    ;;     :init
+    ;;     (use-package treemacs-evil
+    ;;         :after (treemacs evil))
+    ;;     (use-package treemacs-icons-dired
+    ;;         :hook (dired-mode . treemacs-icons-dired-enable-once))
+    ;;     )
 
-        )
+    ;; projectile
+    (use-package projectile
+	    :config
+	    (projectile-mode 1)
+	    (setq projectile-enable-caching t))
 
     ;; better, usable terminal
     (use-package vterm)

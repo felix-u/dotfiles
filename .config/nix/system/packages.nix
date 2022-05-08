@@ -72,7 +72,7 @@
         # asepriteLatest
         unstable.aseprite-unfree
         # experimenting with lisp:
-        cachix clisp emacsPgtk emacs-all-the-icons-fonts sbcl
+        cachix clisp emacsPgtk emacs-all-the-icons-fonts libvterm-neovim sbcl
 
         # NEOVIM
         cmake-language-server nodePackages.bash-language-server

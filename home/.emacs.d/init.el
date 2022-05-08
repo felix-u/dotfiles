@@ -14,11 +14,6 @@
     (tooltip-mode -1)       ; Disable tooltips
     (menu-bar-mode -1)      ; Disable the menubar
 
-    ;; better, usable terminal
-    (use-package vterm)
-    ;; and package for better vterm binding
-    (use-package vterm-toggle)
-
     ;; Revert buffers when the underlying file has changed
     (global-auto-revert-mode 1)
 
@@ -306,6 +301,11 @@
         ;; :config
 
         )
+
+    ;; better, usable terminal
+    (use-package vterm)
+    ;; and package for better vterm binding
+    (use-package vterm-toggle)
 
     ;; not working in terminal right now.
     ;; possible fix in docs https://github.com/belak/base16-emacs

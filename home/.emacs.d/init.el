@@ -300,11 +300,11 @@
         :defer t
         :init
         (use-package treemacs-evil
-            :after (treemacs evil))        
+            :after (treemacs evil))
         (use-package treemacs-icons-dired
-            :hook (dired-mode . treemacs-icons-dired-enable-once))        
+            :hook (dired-mode . treemacs-icons-dired-enable-once))
         ;; :config
-        
+
         )
 
     ;; not working in terminal right now.
@@ -499,12 +499,14 @@
     ;;------------------------------------------------------------------GUI-only
     (defvar fontfamily "Iosevka")
     (defvar fontsans "Fira Sans")
+    (defvar fontserif "IBM Plex Serif")
     (defvar fontsize 12)
     (defvar fontweight 'medium)
 
     (defvar fontheight (* fontsize 10))
     (defvar fontstring (format "%s-%s" fontfamily fontsize))
-    (defvar fontsizelarge (/ (* fontsize 4) 3))
+    (defvar fontsizelarge (/ (* fontsize 6) 5))
+    (defvar fontheightlarge (* fontsizelarge 10))
 
     ;; cleaner frame
     (use-package frame
@@ -512,9 +514,11 @@
         :config
         (setq-default default-frame-alist
             (append (list
-                        '(internal-border-width . 16)
-                        '(left-fringe       . 0)
-                        '(right-fringe      . 0)
+                        '(min-height . 1) '(min-width . 1)
+                        '(internal-border-width . 24)
+                        '(vertical-scroll-bars . nil)
+                        '(left-fringe       . 1)
+                        '(right-fringe      . 1)
                         '(tool-bar-lines    . 0)
                         '(menu-bar-lines    . 0)
                         )))
@@ -530,9 +534,9 @@
             :weight fontweight
             :height fontheight)
         (set-face-attribute 'variable-pitch nil
-            :font fontsans
+            :font fontfamily
             :weight fontweight
-            :height fontheight)
+            :height fontheightlarge)
         (set-face-attribute 'line-number nil
             :font fontfamily
             :weight fontweight
@@ -586,7 +590,9 @@
     ;;-----------------------------------------------------------------------ORG
     (use-package org
         :config
-        (setq org-ellipsis " …"))
+        (setq org-ellipsis " …")
+	    (setq org-hide-emphasis-markers t)
+	    (add-hook 'org-mode-hook 'variable-pitch-mode))
 
     (use-package org-bullets
 	    :after org
@@ -597,15 +603,41 @@
 	    '(("^ *\\([-]\\) "
 	          (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
-    (dolist (face '((org-level-1 . 1.2)
-		               (org-level-2 . 1.1)
-		               (org-level-3 . 1.05)
-		               (org-level-4 . 1.0)
-		               (org-level-5 . 1.1)
-		               (org-level-6 . 1.1)
-		               (org-level-7 . 1.1)
-		               (org-level-8 . 1.1)))
-	    (set-face-attribute (car face) nil :font fontsans :weight fontweight :height (cdr face)))
+    ;; proportional fonts for org mode
+    (let* (   (variable-tuple     '(:font "IBM Plex Serif"))
+              (base-font-color     (face-foreground 'default nil 'default))
+              (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
+
+        ;; org level font settings
+        (custom-theme-set-faces
+            'user
+            `(org-level-8 ((t (,@headline ,@variable-tuple))))
+            `(org-level-7 ((t (,@headline ,@variable-tuple))))
+            `(org-level-6 ((t (,@headline ,@variable-tuple))))
+            `(org-level-5 ((t (,@headline ,@variable-tuple))))
+            `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
+            `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
+            `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
+            `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
+            `(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil))))))
+
+    ;; ;; variable pitch definitions
+    ;; (custom-theme-set-faces
+    ;;     'user
+    ;;     '(variable-pitch ((t (:family fontserif :height 160 :weight medium))))
+    ;;     '(fixed-pitch ((t (:family fontfamily :height 120)))))
+
+    ;; ;; headings go from bigger to smaller
+    (dolist (face '((org-level-1 . 1.15)
+		               (org-level-2 . 1.12)
+		               (org-level-3 . 1.06)
+		               (org-level-4 . 1.03)
+		               (org-level-5 . 1.0)
+		               (org-level-6 . 1.0)
+		               (org-level-7 . 1.0)
+		               (org-level-8 . 1.0)))
+	    (set-face-attribute (car face) nil :font fontserif :weight fontweight :height (cdr face)))
+
     ;;--------------------------------------------------------------------------
 
 

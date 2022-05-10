@@ -17,7 +17,7 @@
 
 home/.emacs.d/*
 !home/.emacs.d/init.el
-!home/.emacs.d/custom
+!home/.emacs.d/custom/
 
 # Vieb, if I end up trying it again
 # .config/Vieb/*

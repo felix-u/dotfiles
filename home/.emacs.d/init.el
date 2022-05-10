@@ -49,7 +49,6 @@
     ;; enable ido to begin to use in keybinds
     (setq ido-enable-flex-matching t)
     (setq ido-everywhere t)
-    (ido-mode 1)
 
     (unless (featurep 'straight)
         ;; Bootstrap straight.el
@@ -106,9 +105,49 @@
         :config
         (add-hook 'prog-mode-hook #'aggressive-indent-mode))
 
+    ;; selectrum as a replacement for vertico, helm, and ido
+    (use-package selectrum
+        :config
+        (selectrum-mode +1)
+        (marginalia-mode 1)
+        (use-package selectrum-prescient
+            :config
+            (selectrum-prescient-mode 1)
+            (prescient-persist-mode 1))
+        )
+
+    (use-package consult
+	    :hook (completion-list-mode . consult-preview-at-point-mode)
+	    :init
+	    ;; Optionally configure the register formatting. This improves the register
+	    ;; preview for `consult-register', `consult-register-load',
+	    ;; `consult-register-store' and the Emacs built-ins.
+	    (setq register-preview-delay 0.5
+            register-preview-function #'consult-register-format)
+
+	    ;; Optionally tweak the register preview window.
+	    ;; This adds thin lines, sorting and hides the mode line of the window.
+	    (advice-add #'register-preview :override #'consult-register-window)
+
+	    ;; Use Consult to select xref locations with preview
+	    (setq xref-show-xrefs-function #'consult-xref
+            xref-show-definitions-function #'consult-xref)
+	    :config
+	    ;; Optionally configure the narrowing key.
+	    ;; Both < and C-+ work reasonably well.
+	    (setq consult-narrow-key "<") ;; (kbd "C-+")
+	    )
+
+    ;; marginalia in the minibuffer
+    (use-package marginalia
+        :bind (("M-A" . marginalia-cycle)
+                  :map minibuffer-local-map
+                  ("M-A" . marginalia-cycle))
+        :config
+        (marginalia-mode))
+
 
     (c-set-offset 'comment-intro 0)
-
     (defun insert-tab-char ()
         "Insert a tab char (ASCII 9, \t)."
         (interactive) (insert "\t"))
@@ -132,11 +171,6 @@
         (evil-define-key 'visual global-map (kbd "<") 'my/evil-shift-left)
         (evil-define-key 'insert 'global (kbd "C-<tab>") 'insert-tab-char)
 
-        ;; delete, don't cut
-        ;; (defun bb/evil-delete (orig-fn beg end &optional type _ &rest args)
-        ;; (apply orig-fn beg end type ?_ args))
-        ;; (advice-add 'evil-delete :around 'bb/evil-delete)
-
         ;; delete single character without yanking
         (define-key evil-normal-state-map "x" 'delete-forward-char)
         (define-key evil-normal-state-map "X" 'delete-backward-char)
@@ -154,17 +188,13 @@
             :config
             (define-key evil-normal-state-map "S" 'avy-goto-char-2-above)
             (define-key evil-normal-state-map "s" 'avy-goto-char-2-below))
-        (use-package frog-jump-buffer ; for switching buffers quickly
+        (use-package general
             :config
-            (use-package all-the-icons-ivy)
-            (setq frog-jump-buffer-use-all-the-icons-ivy t))
-	    (use-package general
-	        :config
-	        (general-evil-setup t)
-	        (general-create-definer rune/leader-keys
-		        :keymaps '(normal insert visual emacs)
-		        :prefix "SPC"
-		        :global-prefix "C-SPC")
+            (general-evil-setup t)
+            (general-create-definer rune/leader-keys
+                :keymaps '(normal insert visual emacs)
+                :prefix "SPC"
+                :global-prefix "C-SPC")
             )
 
         ;; used in keymap below
@@ -175,44 +205,57 @@
 
         (rune/leader-keys
 
-            "<SPC>" '(ido-find-file :which-key "find file")
-            "." 	'(ido-dired :which-key "browse files (dired)")
-            ","     '(frog-jump-buffer :which-key "switch buffer")
-
+            ;; BASE            
+            "<SPC>" '(find-file :which-key "find file")
+            "." 	'(dired :which-key "browse files (dired)")
+            ","     '(consult-buffer :which-key "switch buffer")
+            
+            ;; BUFFER
             "b"  '(:ignore t :which-key "buffer")
-            "bb" '(frog-jump-buffer :which-key "switch buffer")
+            "bj" '(consult-buffer :which-key "switch buffer")
             "bi" '(ibuffer :which-key "ibuffer")
             "bk" '(kill-buffer :which-key "kill buffer")
             "bo" '(kill-other-buffers :which-key "kill other buffers")
             "bs" '(save-buffer :which-key "save buffer")
-            "b["  '(previous-buffer :which-key "prev buffer")
-            "b]"  '(next-buffer :which-key "next buffer")
+            "b[" '(previous-buffer :which-key "prev buffer")
+            "b]" '(next-buffer :which-key "next buffer")
 
+            ;; CODE            
             "c"  '(:ignore t :which-key "code")
             "ce" '(eval-buffer :which-key "evaluate buffer")
+            "ci" '(consult-imenu :which-key "imenu")
+            "cl" '(consult-goto-line :which-key "goto line")            
 
+            ;; FIND
             "f"  '(:ignore t :which-key "file")
-            "f." '(ido-find-file :which-key "find file")
-            "fr" '(recentf-open-files :which-key "recent files")
+            "f." '(find-file :which-key "find file")
+            "fr" '(consult-recent-file :which-key "recent files")
+            "fl" '(consult-line :which-key "line")
+            "fm" '(consult-line-multi :which-key "line-multi")        
 
+            ;; LSP
             "l"  '(:ignore t :which-key "lsp")
             "lr" '(iedit-mode :which-key "rename object (iedit)")
             "lf" '(flycheck-list-errors :which-key "flycheck errors")
 
+            ;; OPEN
             "o"  '(:ignore t :which-key "open")
             "ot" '(vterm-toggle :which-key "vterm")
 
-            "p"  '(:ignore t :which-key "projectile")        
-            "pf" '(projectile-find-file-dwim :which-key "find file")            
-            "p." '(projectile-dired :which-key "find file")            
-            "pd" '(projectile-find-dir :which-key "find dir")            
-            "pa" '(projectile-add-known-project :which-key "add")            
-            "ps" '(projectile-switch-project :which-key "switch")            
+            ;; PROJECTILE
+            "p"  '(:ignore t :which-key "projectile")
+            "pf" '(projectile-find-file-dwim :which-key "find file")
+            "p." '(projectile-dired :which-key "find file")
+            "pd" '(projectile-find-dir :which-key "find dir")
+            "pa" '(projectile-add-known-project :which-key "add")
+            "ps" '(projectile-switch-project :which-key "switch")
 
+            ;; (COLOUR) SCHEME
             "s"  '(:ignore t :which-key "colour scheme")
             "sl" '((lambda () (interactive) (load-theme 'doom-solarized-light t)) :which-key "light theme")
             "sd" '((lambda () (interactive) (load-theme 'doom-solarized-dark t)) :which-key "dark theme")
 
+            ;; TOGGLE
             "t"  '(:ignore t :which-key "toggle")
             "tc" '(flycheck-mode :which-key "flycheck")
             "td" '(dimmer-mode :which-key "dimmer")
@@ -220,18 +263,22 @@
             "th" '(hl-line-mode :which-key "line highlight")
             "tl" '(lsp :which-key "LSP")
             "tn" '(global-display-line-numbers-mode :which-key "line numbers")
-            "tt" '(load-theme :which-key "theme")
+            "tt" '(consult-theme :which-key "theme")
             "tw" '(writeroom-mode :which-key "writeroom")
 
+            ;; QUIT
             "q"  '(:ignore t :which-key "quit")
             "qq" '(save-buffers-kill-emacs :which-key "save and quit")
             "qQ" '(kill-emacs :which-key "quit")
 
+            ;; WINDOW
             "w"  '(:ignore t :which-key "window")
             "ww" '(kill-buffer-and-window :which-key "close")
 
+            ;; M-x
             "x" '(execute-extended-command :which-key "M-x")
 
+            ;; NEXT & PREVIOUS
             "]"  '(:ignore t :which-key "next")
             "["  '(:ignore t :which-key "previous")
             "]e" '(flycheck-next-error :which-key "error")
@@ -263,8 +310,8 @@
 
     (straight-use-package 'evil-terminal-cursor-changer)
     (unless (display-graphic-p)
-	    (require 'evil-terminal-cursor-changer)
-	    (evil-terminal-cursor-changer-activate)) ; or (etcc-on)
+        (require 'evil-terminal-cursor-changer)
+        (evil-terminal-cursor-changer-activate)) ; or (etcc-on)
 
     ;; (use-package undo-tree
     ;;     :config
@@ -296,7 +343,7 @@
         ;; (doom-themes-treemacs-config)
         ;; Corrects (and improves) org-mode's native fontification.
         ;; (doom-themes-org-config)
-	    )
+        )
 
     ;; ;; file tree
     ;; (use-package treemacs
@@ -310,9 +357,9 @@
 
     ;; projectile
     (use-package projectile
-	    :config
-	    (projectile-mode 1)
-	    (setq projectile-enable-caching t))
+        :config
+        (projectile-mode 1)
+        (setq projectile-enable-caching t))
 
     ;; better, usable terminal
     (use-package vterm)
@@ -338,30 +385,19 @@
         (global-tree-sitter-mode)
         (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
-    ;; vertical completion UI
-    (use-package vertico :config (vertico-mode))
-
-    ;; marginalia in the minibuffer
-    (use-package marginalia
-        :bind (("M-A" . marginalia-cycle)
-                  :map minibuffer-local-map
-                  ("M-A" . marginalia-cycle))
-        :config
-        (marginalia-mode))
-
     ;; lsp
     (use-package lsp-mode
         :commands (lsp lsp-deferred)
         :init
         (setq lsp-keymap-prefix "C-c l")
         :config
-	    (use-package iedit)
+        (use-package iedit)
         (lsp-enable-which-key-integration t)
         (add-hook 'prog-mode-hook 'lsp)
-	    (use-package lsp-ui
-	        :hook (lsp-mode . lsp-ui-mode)
-	        :config
-	        (setq lsp-lens-enable t
+        (use-package lsp-ui
+            :hook (lsp-mode . lsp-ui-mode)
+            :config
+            (setq lsp-lens-enable t
                 lsp-ui-doc-enable t
                 lsp-ui-sideline-enable nil
                 lsp-enable-symbol-highlighting t
@@ -371,12 +407,16 @@
     ;; autocomplete
     (use-package company
         :init
-        (global-set-key (kbd "<tab>")
+        (global-set-key (kbd "\t")
             #'company-indent-or-complete-common)
         :config
-	    (setq company-minimum-prefix-length 1
-	        company-idle-delay 0.0) ;; default is 0.2
-        (global-company-mode t))
+        (setq company-minimum-prefix-length 1
+            company-idle-delay 0.0) ;; default is 0.2
+        (global-company-mode t)
+        (use-package company-prescient
+            :init
+            (company-prescient-mode +1))
+        )
 
     ;; flycheck
     (use-package flycheck
@@ -588,14 +628,21 @@
         evil-want-fine-undo t
         browse-url-browser-function 'xwidget-webkit-browse-url)
 
-    (global-subword-mode 1)
-    (pixel-scroll-precision-mode t)
-    (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
-
     ;; smoother scrolling
     (setq scroll-step 1
 	    scroll-conservatively 10000
 	    scroll-preserve-screen-position 1)
+
+    (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+    (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+    (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
+    (global-subword-mode 1)
+    (pixel-scroll-precision-mode t)
+    (setq pixel-scroll-precision-large-scroll-height 20.0)
+    (setq pixel-scroll-precision-interpolation-factor 10)
+    (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
+
 
     ;;--------------------------------------------------------------------------
 

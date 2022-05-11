@@ -146,6 +146,16 @@
         :config
         (marginalia-mode))
 
+    ;; fast actions with embark
+    (use-package embark
+	    :bind
+	    (("C-." . embark-act)
+	        ("C-," . embark-dwim))
+	    :init
+	    ;; Optionally replace the key help with a completing-read interface
+	    (setq prefix-help-command #'embark-prefix-help-command)
+	    ;; check repo for some extra integration with consult
+        )
 
     (c-set-offset 'comment-intro 0)
     (defun insert-tab-char ()
@@ -226,6 +236,11 @@
             "ci" '(consult-imenu :which-key "imenu")
             "cl" '(consult-goto-line :which-key "goto line")            
 
+            ;; EMBARK 
+            "e"  '(:ignore t :which-key "embark")
+            "ea" '(embark-act :which-key "act")            
+            "ed" '(embark-dwim :which-key "dwim")            
+            
             ;; FIND
             "f"  '(:ignore t :which-key "file")
             "f." '(find-file :which-key "find file")
@@ -345,16 +360,11 @@
         ;; (doom-themes-org-config)
         )
 
-    ;; ;; file tree
-    ;; (use-package treemacs
-    ;;     :defer t
-    ;;     :init
-    ;;     (use-package treemacs-evil
-    ;;         :after (treemacs evil))
-    ;;     (use-package treemacs-icons-dired
-    ;;         :hook (dired-mode . treemacs-icons-dired-enable-once))
-    ;;     )
-
+    ;; rainbow delimiters to make bracket spaghetti more bearable
+    (use-package rainbow-delimiters
+        :hook
+        (prog-mode . rainbow-delimiters-mode))
+    
     ;; projectile
     (use-package projectile
         :config

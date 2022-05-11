@@ -31,15 +31,12 @@
     services.emacs.package = pkgs.emacsPgtk;
     services.emacs.enable = true;
     nixpkgs.overlays = [
-        # (import (builtins.fetchTarball {
-        #   url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-        # }))
-        (import (builtins.fetchGit {
-            url = "https://github.com/nix-community/emacs-overlay.git";
-            ref = "master";
-            rev = "4e0481c777deab3f01cb5a6bdddffd49321ea1a3";
-        }))
-      ];
+      (import (builtins.fetchGit {
+        url = "https://github.com/nix-community/emacs-overlay.git";
+        ref = "master";
+        rev = "4e0481c777deab3f01cb5a6bdddffd49321ea1a3";
+      }))
+    ];
 
     # packages for all systems
     environment.systemPackages =

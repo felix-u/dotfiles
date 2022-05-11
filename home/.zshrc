@@ -37,15 +37,18 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 #bindkey "^[[A" history-beginning-search-backward-end
 #bindkey "^[[B" history-beginning-search-forward-end
-source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+#
+# # not working :(
+# source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=black"
+# bindkey '^n' autosuggest-accept
+#
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=blue"
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=magenta"
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=black"
-bindkey '^n' autosuggest-accept
 
 # case-insensitive autocomplete
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'

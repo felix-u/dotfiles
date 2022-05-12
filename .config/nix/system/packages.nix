@@ -99,7 +99,8 @@
 
         # DESKTOP
         appimage-run
-        bitwarden calibre handlr imagemagick imv libreoffice
+        bitwarden calibre
+        handlr imagemagick imv libreoffice
         libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
         mpv mpvScripts.youtube-quality noisetorch
         obs-studio obs-studio-plugins.wlrobs

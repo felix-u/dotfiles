@@ -31,10 +31,10 @@ in {
     # flatpak and xdg portals
     services.flatpak.enable = true;
     xdg.portal = {
-        enable = true;
-        gtkUsePortal = true;
-        wlr.enable = true;
-        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      enable = true;
+      gtkUsePortal = true;
+      wlr.enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
 
     # bluetooth

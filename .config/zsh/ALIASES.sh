@@ -38,7 +38,7 @@ alias vim="nvim"
 alias v="nvim"
 alias onefetch="onefetch --true-color never"
 alias update-mirrors="sudo reflector --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
-wf-record () {
+wfrecord () {
     wf-recorder -f ~/Desktop/recordings/$(date +%Y-%m-%d-%H%M).mp4 -e -t \
         -c h264_vaapi -d /dev/dri/renderD128
 }
@@ -90,7 +90,7 @@ dpi () {
     printf "%.0f\n" "$(bc <<< "scale=2; $VAL + 0.01")"
 }
 
-compress-pdf () {
+compresspdf () {
     gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/$1 \
     -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$3 $2 # possible settings are screen, ebook, prepress, printer, and default
 }

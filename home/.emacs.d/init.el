@@ -6,6 +6,9 @@
 
     (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+    ;; only pop up minibuffer for errors, not warnings
+    (setq warning-minimum-level :error)
+
     (setq inhibit-startup-message t)
     (setq-default inhibit-startup-echo-area-message t)
     (setq server-client-instructions nil)
@@ -215,11 +218,11 @@
 
         (rune/leader-keys
 
-            ;; BASE            
+            ;; BASE
             "<SPC>" '(find-file :which-key "find file")
             "." 	'(dired :which-key "browse files (dired)")
             ","     '(consult-buffer :which-key "switch buffer")
-            
+
             ;; BUFFER
             "b"  '(:ignore t :which-key "buffer")
             "bj" '(consult-buffer :which-key "switch buffer")
@@ -230,23 +233,23 @@
             "b[" '(previous-buffer :which-key "prev buffer")
             "b]" '(next-buffer :which-key "next buffer")
 
-            ;; CODE            
+            ;; CODE
             "c"  '(:ignore t :which-key "code")
             "ce" '(eval-buffer :which-key "evaluate buffer")
             "ci" '(consult-imenu :which-key "imenu")
-            "cl" '(consult-goto-line :which-key "goto line")            
+            "cl" '(consult-goto-line :which-key "goto line")
 
-            ;; EMBARK 
+            ;; EMBARK
             "e"  '(:ignore t :which-key "embark")
-            "ea" '(embark-act :which-key "act")            
-            "ed" '(embark-dwim :which-key "dwim")            
-            
+            "ea" '(embark-act :which-key "act")
+            "ed" '(embark-dwim :which-key "dwim")
+
             ;; FIND
             "f"  '(:ignore t :which-key "file")
             "f." '(find-file :which-key "find file")
             "fr" '(consult-recent-file :which-key "recent files")
             "fl" '(consult-line :which-key "line")
-            "fm" '(consult-line-multi :which-key "line-multi")        
+            "fm" '(consult-line-multi :which-key "line-multi")
 
             ;; LSP
             "l"  '(:ignore t :which-key "lsp")
@@ -364,7 +367,7 @@
     (use-package rainbow-delimiters
         :hook
         (prog-mode . rainbow-delimiters-mode))
-    
+
     ;; projectile
     (use-package projectile
         :config
@@ -455,6 +458,7 @@
     (use-package nano-modeline
         :config
         (nano-modeline-mode)
+        ;; (setq nano-modeline-position top)        
         (custom-set-faces
             '(mode-line ((t (:underline nil))))
             '(mode-line-inactive ((t (:underline nil))))))
@@ -468,9 +472,29 @@
     ;; magit
     (use-package magit)
 
-    ;; "auto-activating-snippets" - not yet set up!
-    ;; (use-package aas)
-    ;; (use-package laas) ; aas snippets for LaTeX
+    ;; "auto-activating-snippets" - https://github.com/ymarco/auto-activating-snippets
+    (use-package aas)
+    (use-package laas ; aas snippets for LaTeX
+        :hook (LaTeX-mode . laas-mode)        
+        :config        
+        (add-hook 'prog-mode-hook 'yas-minor-mode)
+        (aas-set-snippets 'laas-mode
+            ;; set condition!
+            :cond #'texmathp ; expand only while in math
+            "supp" "\\supp"
+            "On" "O(n)"
+            "O1" "O(1)"
+            "Olog" "O(\\log n)"
+            "Olon" "O(n \\log n)"
+            ;; bind to functions!
+            "Sum" (lambda () (interactive)
+                      (yas-expand-snippet "\\sum_{$1}^{$2} $0"))
+            "Span" (lambda () (interactive)
+                       (yas-expand-snippet "\\Span($1)$0"))
+            ;; add accent snippets
+            :cond #'laas-object-on-left-condition
+            "qq" (lambda () (interactive) (laas-wrap-previous-object "sqrt")))
+        )
 
     ;;---------------------------------------------------------------writing-focused
     (use-package writeroom-mode
@@ -527,6 +551,26 @@
     (use-package nix-mode
         :defer t
         :mode "\\.nix\\'")
+
+    ;; HTML, CSS, and javascript
+    ;; emmet - https://github.com/smihica/emmet-mode
+    (use-package emmet-mode
+        :init
+        (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+        (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+        (add-hook 'html-mode-hook 'emmet-mode)
+        )
+    ;; impatient - HTML live preview
+    ;; https://github.com/skeeto/impatient-mode
+    ;; go to http://localhost:8080/imp/ when using
+    (use-package impatient-mode)
+
+    ;; gdscript - official support :D
+    (use-package gdscript-mode
+	    :straight (gdscript-mode
+		              :type git
+		              :host github
+		              :repo "godotengine/emacs-gdscript-mode"))
 
     ;; LaTeX
     (use-package tex ; support for latex
@@ -609,8 +653,8 @@
             :underline nil)
         (set-face-attribute 'flycheck-warning nil
             :underline nil)
-        (set-face-attribute 'flymake-note nil
-            :underline nil)
+        ;; (set-face-attribute 'flymake-note nil
+        ;;     :underline nil)
         (set-face-attribute 'flycheck-info nil
             :underline nil)
 

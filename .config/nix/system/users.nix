@@ -58,21 +58,33 @@ in {
                     u = "${homedir}/uni/2022/spring";
                 };
                 plugins.mappings = {
-                    d = "dragdrop";
-                    p = "preview-tui";
-                    r = "imgresize";
-                    w = "waypaper";
-                    v = "imgview";
+                  d = "dragdrop";
+                  p = "preview-tui";
+                  r = "imgresize";
+                  w = "waypaper";
+                  v = "imgview";
                 };
             };
 
             programs.chromium = {
-                enable = true;
-                package = pkgs.ungoogled-chromium;
-                # commandLineArgs = [];
-                # extensions = [
-                #     { }
-                # ];
+              enable = true;
+              package = pkgs.ungoogled-chromium;
+              commandLineArgs = [
+                "-enable-features=UseOzonePlatform"
+                "-ozone-platform=wayland"
+              ];
+              extensions = [
+                # ublock origin
+                { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
+                # surfingkeys
+                { id = "gfbliohnnapiefjpjlpjnehglfpaknnc"; }
+                # dark reader
+                { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; }
+                # decentraleyes
+                { id = "ldpochfccmkkmhdbclfhpagapcfdljkj"; }
+                # stylus
+                { id = "clngdbkpkpeebahjckkjfobafhncgmne"; }
+              ];
             };
 
             # w3m config
@@ -101,12 +113,12 @@ in {
     # doas instead of sudo (why not)
     security.sudo.enable = false;
     security.doas = {
-        enable = true;
-        extraRules = [{
-            users = [ "felix" ];
-            keepEnv = true;
-            persist = true;
-        }];
+      enable = true;
+      extraRules = [{
+        users = [ "felix" ];
+        keepEnv = true;
+        persist = true;
+      }];
     };
 
 }

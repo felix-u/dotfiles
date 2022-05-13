@@ -28,13 +28,13 @@
     };
 
     # emacs setup and overlay
-    services.emacs.package = pkgs.emacsPgtk;
+    services.emacs.package = pkgs.emacsPgtkNativeComp;
     services.emacs.enable = true;
     nixpkgs.overlays = [
       (import (builtins.fetchGit {
         url = "https://github.com/nix-community/emacs-overlay.git";
         ref = "master";
-        rev = "4e0481c777deab3f01cb5a6bdddffd49321ea1a3";
+        rev = "b324b27d58fe93add90d80e081c39d452ae1cb98";
       }))
     ];
 
@@ -60,16 +60,17 @@
         foot unstable.gh git neofetch starship stow wget
 
         # DEV
-        android-tools cargo clang-tools cmake gcc gnumake go
+        android-tools bsdiff cargo clang-tools cmake gcc gnumake go
         home-manager
-        libresprite man-pages-posix openssl_3_0 pkg-config python39Packages.pip
+        libresprite man-pages-posix openssl_3_0 pkg-config protobuf
+        python39Packages.bsdiff4 python39Packages.pip
         python3Full python39Packages.python-lsp-server so unstable.rustc shellcheck
         unstable.clang unstable.deadnix unstable.godot unstable.statix yarn
         godot4-alpha
         # asepriteLatest
         unstable.aseprite-unfree
         # experimenting with lisp:
-        cachix clisp emacsPgtk emacs-all-the-icons-fonts libvterm-neovim sbcl
+        cachix clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
 
         # NEOVIM
         cmake-language-server nodePackages.bash-language-server

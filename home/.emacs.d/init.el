@@ -470,7 +470,9 @@
     (setq select-enable-clipboard t)
 
     ;; magit
-    (use-package magit)
+    (use-package magit
+	:defer t
+	)
 
     ;; "auto-activating-snippets" - https://github.com/ymarco/auto-activating-snippets
     (use-package aas)
@@ -592,6 +594,7 @@
         (add-hook 'LaTeX-mode-hook #'evil-tex-mode))
     ;; to use pdfview with auctex
     (use-package pdf-tools
+	:defer t
         :config
         (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
             TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))

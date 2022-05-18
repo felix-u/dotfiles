@@ -22,9 +22,9 @@
 window#waybar {
     padding: 0px;
     margin: 0px;
-    background: #002b36;
-    color: #93a1a1;
-    border-right: 3px solid #073642;
+    background: $(wq background);
+    color: $(wq foreground);
+    border-bottom: 2px solid $(wq color0);
 }
 
 #window {
@@ -52,7 +52,7 @@ window#waybar {
     transition: none;
     padding-left: 13px;
     padding-right: 13px;
-    color: #657b83;
+    color: $(wq color7);
 }
 
 #workspaces button:hover {
@@ -62,8 +62,8 @@ window#waybar {
 #workspaces button.focused {
     transition: none;
     border-radius: 13px;
-    background: #073642;
-    color: #93a1a1;
+    background: $(wq color0);
+    color: $(wq foreground);
 }
 
 
@@ -79,8 +79,8 @@ window#waybar {
     margin-bottom: 8px;
     margin-left: 8px;
     margin-right: 8px;
-    color: #b58900;
-    background: #073642;
+    color: $(wq color3);
+    background: $(wq color0);
 }
 #cpu.critical {
     padding: 0px 14px;
@@ -89,13 +89,13 @@ window#waybar {
     margin-bottom: 8px;
     margin-left: 8px;
     margin-right: 8px;
-    color: #dc322f;
-    background: #073642;
+    color: $(wq color1);
+    background: $(wq color0);
 }
 
 
 #custom-clock {
-    color: #839496;
+    color: $(wq color15);
 }
 
 
@@ -108,25 +108,25 @@ window#waybar {
 }
 
 #battery.discharging {
-    color: #839496;
+    color: $(wq color15);
 }
 
 #battery.charging {
     padding: 0px 14px;
     border-radius: 13px;
-    background: #073642;
-    color: #859900;
+    background: $(wq color0);
+    color: $(wq color2);
 }
 
 #battery.warning {
-    color: #b58900;
+    color: $(wq color3);
 }
 
 #battery.critical {
     padding: 0px 14px;
     border-radius: 13px;
-    background: #dc322f;
-    color: #073642;
+    background: $(wq color1);
+    color: $(wq color0);
 }
 
 
@@ -136,14 +136,14 @@ window#waybar {
     margin-left: 8px;
     margin-right: 8px;
     padding: 0px 20px 0px 0px;
-    color: #839496;
+    color: $(wq color15);
 }
 #network.disconnected #network.disabled {
-    color: #dc322f;
+    color: $(wq color1);
     margin-left: 16px;
     margin-right: 16px;
     border-radius: 13px;
-    background: #073642;
+    background: $(wq color0);
 }
 
 
@@ -153,11 +153,11 @@ window#waybar {
     margin-left: 8px;
     margin-right: 8px;
     padding: 0px 0px;
-    color: #839496;
+    color: $(wq color15);
 }
 
 #pulseaudio.muted {
-    color: #657b83;
+    color: $(wq color7);
 }
 
 #pulseaudio.bluetooth {
@@ -165,10 +165,10 @@ window#waybar {
     margin-left: 16px;
     margin-right: 16px;
     border-radius: 13px;
-    background: #073642;
-    color: #268bd2;
+    background: $(wq color0);
+    color: $(wq color4);
 }
 
 #pulseaudio.bluetooth.muted {
-    color: #657b83;
+    color: $(wq color7);
 }

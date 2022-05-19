@@ -64,7 +64,9 @@
         home-manager
         libresprite man-pages-posix openssl_3_0 pkg-config protobuf
         python39Packages.bsdiff4 python39Packages.pip
-        python3Full python39Packages.python-lsp-server so unstable.rustc shellcheck
+        python3Full python39Packages.python-lsp-server
+        python39Packages.termcolor
+        so unstable.rustc shellcheck
         unstable.clang unstable.deadnix unstable.godot unstable.statix yarn
         godot4-alpha
         # asepriteLatest
@@ -105,7 +107,8 @@
         libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
         mpv mpvScripts.youtube-quality noisetorch
         obs-studio obs-studio-plugins.wlrobs
-        pavucontrol profanity pulsemixer qt5ct wally-cli xfce.thunar
+        pavucontrol profanity pulsemixer signal-desktop
+        qt5ct wally-cli xfce.thunar
         xfce.thunar-archive-plugin zathura
 
         # VISUAL

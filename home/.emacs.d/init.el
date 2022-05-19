@@ -20,14 +20,9 @@
     ;; Revert buffers when the underlying file has changed
     (global-auto-revert-mode 1)
 
-    ;; save all tempfiles in $TMPDIR/emacs$UID/
-    (defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
+    ;; save all tempfiles in ~/.emacs.d/backups
     (setq backup-directory-alist
-        `((".*" . ,emacs-tmp-dir)))
-    (setq auto-save-file-name-transforms
-        `((".*" ,emacs-tmp-dir t)))
-    (setq auto-save-list-file-prefix
-        emacs-tmp-dir)
+        `(("." . ,(concat user-emacs-directory "backups"))))
 
     ;; Visible bell (DISABLE)
     (setq visible-bell nil)
@@ -120,26 +115,26 @@
         )
 
     (use-package consult
-	    :hook (completion-list-mode . consult-preview-at-point-mode)
-	    :init
-	    ;; Optionally configure the register formatting. This improves the register
-	    ;; preview for `consult-register', `consult-register-load',
-	    ;; `consult-register-store' and the Emacs built-ins.
-	    (setq register-preview-delay 0.5
+	:hook (completion-list-mode . consult-preview-at-point-mode)
+	:init
+	;; Optionally configure the register formatting. This improves the register
+	;; preview for `consult-register', `consult-register-load',
+	;; `consult-register-store' and the Emacs built-ins.
+	(setq register-preview-delay 0.5
             register-preview-function #'consult-register-format)
 
-	    ;; Optionally tweak the register preview window.
-	    ;; This adds thin lines, sorting and hides the mode line of the window.
-	    (advice-add #'register-preview :override #'consult-register-window)
+	;; Optionally tweak the register preview window.
+	;; This adds thin lines, sorting and hides the mode line of the window.
+	(advice-add #'register-preview :override #'consult-register-window)
 
-	    ;; Use Consult to select xref locations with preview
-	    (setq xref-show-xrefs-function #'consult-xref
+	;; Use Consult to select xref locations with preview
+	(setq xref-show-xrefs-function #'consult-xref
             xref-show-definitions-function #'consult-xref)
-	    :config
-	    ;; Optionally configure the narrowing key.
-	    ;; Both < and C-+ work reasonably well.
-	    (setq consult-narrow-key "<") ;; (kbd "C-+")
-	    )
+	:config
+	;; Optionally configure the narrowing key.
+	;; Both < and C-+ work reasonably well.
+	(setq consult-narrow-key "<") ;; (kbd "C-+")
+	)
 
     ;; marginalia in the minibuffer
     (use-package marginalia
@@ -151,13 +146,13 @@
 
     ;; fast actions with embark
     (use-package embark
-	    :bind
-	    (("C-." . embark-act)
-	        ("C-," . embark-dwim))
-	    :init
-	    ;; Optionally replace the key help with a completing-read interface
-	    (setq prefix-help-command #'embark-prefix-help-command)
-	    ;; check repo for some extra integration with consult
+	:bind
+	(("C-." . embark-act)
+	    ("C-," . embark-dwim))
+	:init
+	;; Optionally replace the key help with a completing-read interface
+	(setq prefix-help-command #'embark-prefix-help-command)
+	;; check repo for some extra integration with consult
         )
 
     (c-set-offset 'comment-intro 0)
@@ -247,7 +242,7 @@
             "dm" '(describe-mode :which-key "mode")
             "dn" '(describe-function :which-key "function")
             "dv" '(describe-variable :which-key "variable")
-	        
+	    
             ;; EMBARK
             "e"  '(:ignore t :which-key "embark")
             "ea" '(embark-act :which-key "act")
@@ -474,7 +469,7 @@
 
     ;; ligatures!!!
     (use-package ligature
-	    :ensure nil
+	:ensure nil
         :load-path "custom/"
         :config
         ;; Enable all ligatures in programming modes
@@ -508,8 +503,8 @@
 
     ;; magit
     (use-package magit
-	    :defer t
-	    )
+	:defer t
+	)
 
     ;; "auto-activating-snippets" - https://github.com/ymarco/auto-activating-snippets
     (use-package aas)
@@ -542,8 +537,8 @@
         (use-package visual-fill-column
             :defer t
             :config
-  	        (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
-  	        (setq-default visual-fill-column-center-text t)))
+  	    (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
+  	    (setq-default visual-fill-column-center-text t)))
 
     ;; for reading epub - https://depp.brause.cc/nov.el/
     ;; (use-package nov)
@@ -606,11 +601,11 @@
 
     ;; gdscript - official support :D
     (use-package gdscript-mode
-	    ;; :straight (gdscript-mode
-	    ;; 	      :type git
-	    ;; 	      :host github
-	    ;; 	      :repo "godotengine/emacs-gdscript-mode")
-	    )
+	;; :straight (gdscript-mode
+	;; 	      :type git
+	;; 	      :host github
+	;; 	      :repo "godotengine/emacs-gdscript-mode")
+	)
 
     ;; LaTeX
     (use-package tex ; support for latex
@@ -631,14 +626,14 @@
         (add-hook 'LaTeX-mode-hook #'evil-tex-mode))
     ;; to use pdfview with auctex
     (use-package pdf-tools
-	    :defer t
+	:defer t
         :config
         (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
             TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
             TeX-source-correlate-start-server t) ;; not sure if last line is neccessary
         ;; to have the buffer refresh after compilation
         (add-hook 'TeX-after-compilation-finished-functions
-	        #'TeX-revert-document-buffer)
+	    #'TeX-revert-document-buffer)
         )
     ;;--------------------------------------------------------------------------
 
@@ -725,8 +720,8 @@
 
     ;; smoother scrolling
     (setq scroll-step 1
-	    scroll-conservatively 10000
-	    scroll-preserve-screen-position 1)
+	scroll-conservatively 10000
+	scroll-preserve-screen-position 1)
 
     (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
     (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
@@ -745,17 +740,17 @@
     (use-package org
         :config
         (setq org-ellipsis " …")
-	    (setq org-hide-emphasis-markers t)
-	    (add-hook 'org-mode-hook 'variable-pitch-mode))
+	(setq org-hide-emphasis-markers t)
+	(add-hook 'org-mode-hook 'variable-pitch-mode))
 
     (use-package org-bullets
-	    :after org
-	    :hook (org-mode . org-bullets-mode))
+	:after org
+	:hook (org-mode . org-bullets-mode))
 
     ;; replace list hyphen with dot
     (font-lock-add-keywords 'org-mode
-	    '(("^ *\\([-]\\) "
-	          (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+	'(("^ *\\([-]\\) "
+	      (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
     ;; proportional fonts for org mode
     (let* (   (variable-tuple     '(:font "IBM Plex Serif"))
@@ -783,14 +778,14 @@
 
     ;; ;; headings go from bigger to smaller
     (dolist (face '((org-level-1 . 1.15)
-		               (org-level-2 . 1.12)
-		               (org-level-3 . 1.06)
-		               (org-level-4 . 1.03)
-		               (org-level-5 . 1.0)
-		               (org-level-6 . 1.0)
-		               (org-level-7 . 1.0)
-		               (org-level-8 . 1.0)))
-	    (set-face-attribute (car face) nil :font fontserif :weight fontweight :height (cdr face)))
+		       (org-level-2 . 1.12)
+		       (org-level-3 . 1.06)
+		       (org-level-4 . 1.03)
+		       (org-level-5 . 1.0)
+		       (org-level-6 . 1.0)
+		       (org-level-7 . 1.0)
+		       (org-level-8 . 1.0)))
+	(set-face-attribute (car face) nil :font fontserif :weight fontweight :height (cdr face)))
 
     ;;--------------------------------------------------------------------------
 

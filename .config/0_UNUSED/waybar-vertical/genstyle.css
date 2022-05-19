@@ -24,7 +24,7 @@ window#waybar {
     margin: 0px;
     background: $(wq background);
     color: $(wq foreground);
-    border-bottom: 2px solid $(wq color0);
+    border-right: 3px solid $(wq color0);
 }
 
 #window {

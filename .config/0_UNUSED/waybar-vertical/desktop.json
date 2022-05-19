@@ -1,7 +1,8 @@
 {
     "layer": "top",
+    "position": "left",
     "modules-left": ["sway/workspaces", "sway/mode", "cpu"],
-    "modules-center": ["custom/clock"],
+    "modules-center": ["custom/date1", "custom/date2", "custom/time1", "custom/time2"],
     "modules-right": ["pulseaudio", "network"],
 
     "sway/window": {
@@ -38,10 +39,28 @@
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
     },
 
-    "custom/clock": {
-        "exec": "~/.config/waybar/scripts/date",
-        "restart-interval": 5,
-        "tooltip": false
+    "custom/date1": {
+        "exec": "~/.config/waybar/scripts/date1",
+        "restart-interval": 60,
+        "tooltip": false,
+    },
+
+    "custom/date2": {
+        "exec": "~/.config/waybar/scripts/date2",
+        "restart-interval": 60,
+        "tooltip": false,
+    },
+
+    "custom/time1": {
+        "exec": "~/.config/waybar/scripts/time1",
+        "restart-interval": 60,
+        "tooltip": false,
+    },
+
+    "custom/time2": {
+        "exec": "~/.config/waybar/scripts/time2",
+        "restart-interval": 60,
+        "tooltip": false,
     },
 
     "pulseaudio": {

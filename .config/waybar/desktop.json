@@ -1,5 +1,6 @@
 {
     "layer": "top",
+    "position": "top",
     "modules-left": ["sway/workspaces", "sway/mode", "cpu"],
     "modules-center": ["custom/clock"],
     "modules-right": ["pulseaudio", "network"],

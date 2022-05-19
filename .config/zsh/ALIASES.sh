@@ -266,5 +266,6 @@ swaybgset () {
     pkill swaybg; swaybg -m fill -i "$1" &
 }
 
+# TODO: fix truecolour
 # use emacs as terminal when launched from the terminal
-alias e="emacsclient -c -nw"
+alias e="TERM=tmux emacsclient -c -nw"

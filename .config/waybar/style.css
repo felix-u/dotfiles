@@ -16,7 +16,7 @@
     font-family: "Fira Sans", "Iosevka NerdFont";
     box-shadow: inherit;
     text-shadow: inherit;
-    min-height: 30px;
+    min-height: 20px;
 }
 
 window#waybar {
@@ -39,8 +39,8 @@ window#waybar {
 }
 
 #workspaces {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 6px;
+    margin-bottom: 6px;
     margin-left: 8px;
     margin-right: 8px;
     transition: none;
@@ -50,9 +50,12 @@ window#waybar {
 
 #workspaces button {
     transition: none;
-    padding-left: 13px;
-    padding-right: 13px;
-    color: #657b83;
+    /* padding-left: 13px; */
+    padding-left: 6px;
+    /* padding-right: 13px; */
+    padding-right: 6px;
+    /* color: #657b83; */
+    color: #446069;
 }
 
 #workspaces button:hover {
@@ -61,7 +64,7 @@ window#waybar {
 
 #workspaces button.focused {
     transition: none;
-    border-radius: 13px;
+    border-radius: 10px;
     background: #073642;
     color: #93a1a1;
 }
@@ -69,26 +72,18 @@ window#waybar {
 
 #cpu {
     color: transparent;
-    margin: 0px;
-    padding: 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 10px;
+    padding: 0px 10px;
 }
 #cpu.warning {
-    padding: 0px 14px;
-    border-radius: 13px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
     color: #b58900;
     background: #073642;
 }
 #cpu.critical {
-    padding: 0px 14px;
-    border-radius: 13px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
     color: #dc322f;
     background: #073642;
 }
@@ -100,11 +95,11 @@ window#waybar {
 
 
 #battery {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-right: 8px;
-    margin-left: 8px;
-    padding: 0px 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding: 0px 10px;
 }
 
 #battery.discharging {
@@ -112,7 +107,7 @@ window#waybar {
 }
 
 #battery.charging {
-    padding: 0px 14px;
+    /* padding: 0px 14px; */
     border-radius: 13px;
     background: #073642;
     color: #859900;
@@ -123,36 +118,37 @@ window#waybar {
 }
 
 #battery.critical {
-    padding: 0px 14px;
-    border-radius: 13px;
+    /* padding: 0px 14px; */
+    border-radius: 10px;
     background: #dc322f;
     color: #073642;
 }
 
 
 #network {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
-    padding: 0px 20px 0px 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 0px;
+    margin-right: 20px;
+    padding-left: 6px;
+    padding-right: 6px;
     color: #839496;
 }
 #network.disconnected #network.disabled {
     color: #dc322f;
-    margin-left: 16px;
-    margin-right: 16px;
-    border-radius: 13px;
+    border-radius: 10px;
     background: #073642;
+    padding-left: 9px;
+    padding-right: 15px;
 }
 
 
 #pulseaudio {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
-    padding: 0px 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 0px 10px;
     color: #839496;
 }
 
@@ -161,10 +157,8 @@ window#waybar {
 }
 
 #pulseaudio.bluetooth {
-    padding: 0px 16px;
-    margin-left: 16px;
-    margin-right: 16px;
-    border-radius: 13px;
+    /* padding: 0px 16px; */
+    border-radius: 10px;
     background: #073642;
     color: #268bd2;
 }

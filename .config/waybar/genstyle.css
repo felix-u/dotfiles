@@ -16,7 +16,7 @@
     font-family: "Fira Sans", "Iosevka NerdFont";
     box-shadow: inherit;
     text-shadow: inherit;
-    min-height: 30px;
+    min-height: 20px;
 }
 
 window#waybar {
@@ -39,8 +39,8 @@ window#waybar {
 }
 
 #workspaces {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 6px;
+    margin-bottom: 6px;
     margin-left: 8px;
     margin-right: 8px;
     transition: none;
@@ -50,9 +50,12 @@ window#waybar {
 
 #workspaces button {
     transition: none;
-    padding-left: 13px;
-    padding-right: 13px;
-    color: $(wq color7);
+    /* padding-left: 13px; */
+    padding-left: 6px;
+    /* padding-right: 13px; */
+    padding-right: 6px;
+    /* color: $(wq color7); */
+    color: $(pastel mix $(wq color8) $(wq color7) | pastel format hex);
 }
 
 #workspaces button:hover {
@@ -61,7 +64,7 @@ window#waybar {
 
 #workspaces button.focused {
     transition: none;
-    border-radius: 13px;
+    border-radius: 10px;
     background: $(wq color0);
     color: $(wq foreground);
 }
@@ -69,26 +72,18 @@ window#waybar {
 
 #cpu {
     color: transparent;
-    margin: 0px;
-    padding: 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 10px;
+    padding: 0px 10px;
 }
 #cpu.warning {
-    padding: 0px 14px;
-    border-radius: 13px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
     color: $(wq color3);
     background: $(wq color0);
 }
 #cpu.critical {
-    padding: 0px 14px;
-    border-radius: 13px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
     color: $(wq color1);
     background: $(wq color0);
 }
@@ -100,11 +95,11 @@ window#waybar {
 
 
 #battery {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-right: 8px;
-    margin-left: 8px;
-    padding: 0px 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding: 0px 10px;
 }
 
 #battery.discharging {
@@ -112,7 +107,7 @@ window#waybar {
 }
 
 #battery.charging {
-    padding: 0px 14px;
+    /* padding: 0px 14px; */
     border-radius: 13px;
     background: $(wq color0);
     color: $(wq color2);
@@ -123,36 +118,37 @@ window#waybar {
 }
 
 #battery.critical {
-    padding: 0px 14px;
-    border-radius: 13px;
+    /* padding: 0px 14px; */
+    border-radius: 10px;
     background: $(wq color1);
     color: $(wq color0);
 }
 
 
 #network {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
-    padding: 0px 20px 0px 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 0px;
+    margin-right: 20px;
+    padding-left: 6px;
+    padding-right: 6px;
     color: $(wq color15);
 }
 #network.disconnected #network.disabled {
     color: $(wq color1);
-    margin-left: 16px;
-    margin-right: 16px;
-    border-radius: 13px;
+    border-radius: 10px;
     background: $(wq color0);
+    padding-left: 9px;
+    padding-right: 15px;
 }
 
 
 #pulseaudio {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
-    padding: 0px 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 0px 10px;
     color: $(wq color15);
 }
 
@@ -161,10 +157,8 @@ window#waybar {
 }
 
 #pulseaudio.bluetooth {
-    padding: 0px 16px;
-    margin-left: 16px;
-    margin-right: 16px;
-    border-radius: 13px;
+    /* padding: 0px 16px; */
+    border-radius: 10px;
     background: $(wq color0);
     color: $(wq color4);
 }

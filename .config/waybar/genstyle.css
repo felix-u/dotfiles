@@ -64,8 +64,8 @@ window#waybar {
 
 #workspaces button.focused {
     transition: none;
-    border-radius: 10px;
-    background: $(wq color0);
+    /* border-radius: 10px; */
+    /* background: $(wq color0); */
     color: $(wq foreground);
 }
 
@@ -76,16 +76,16 @@ window#waybar {
     margin-bottom: 6px;
     margin-left: 6px;
     margin-right: 6px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     padding: 0px 10px;
 }
 #cpu.warning {
     color: $(wq color3);
-    background: $(wq color0);
+    /* background: $(wq color0); */
 }
 #cpu.critical {
     color: $(wq color1);
-    background: $(wq color0);
+    /* background: $(wq color0); */
 }
 
 
@@ -98,8 +98,8 @@ window#waybar {
     margin-top: 6px;
     margin-bottom: 6px;
     margin-right: 6px;
-    margin-left: 6px;
-    padding: 0px 10px;
+    margin-left: 0px;
+    padding: 0px 9px;
 }
 
 #battery.discharging {
@@ -108,20 +108,20 @@ window#waybar {
 
 #battery.charging {
     /* padding: 0px 14px; */
-    border-radius: 13px;
-    background: $(wq color0);
+    /* border-radius: 10px; */
+    /* background: $(wq color0); */
     color: $(wq color2);
 }
 
 #battery.warning {
-    color: $(wq color3);
+    color: $(wq color5);
 }
 
 #battery.critical {
     /* padding: 0px 14px; */
-    border-radius: 10px;
-    background: $(wq color1);
-    color: $(wq color0);
+    /* border-radius: 10px; */
+    /* background: $(wq color1); */
+    color: $(wq color1);
 }
 
 
@@ -136,10 +136,10 @@ window#waybar {
 }
 #network.disconnected #network.disabled {
     color: $(wq color1);
-    border-radius: 10px;
-    background: $(wq color0);
-    padding-left: 9px;
-    padding-right: 15px;
+    /* border-radius: 10px; */
+    /* background: $(wq color0); */
+    /* padding-left: 9px; */
+    /* padding-right: 15px; */
 }
 
 
@@ -158,8 +158,8 @@ window#waybar {
 
 #pulseaudio.bluetooth {
     /* padding: 0px 16px; */
-    border-radius: 10px;
-    background: $(wq color0);
+    /* border-radius: 10px; */
+    /* background: $(wq color0); */
     color: $(wq color4);
 }
 

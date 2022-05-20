@@ -3,6 +3,12 @@
 {
     # fonts
     fonts.fonts = with pkgs; [
-        fira ibm-plex nerdfonts noto-fonts-emoji
+
+      # actually used
+      fira nerdfonts noto-fonts-emoji
+
+      # for curiosity
+      cherry cozette creep curie dina-font gohufont scientifica tamsyn ibm-plex
+      
     ];
 }

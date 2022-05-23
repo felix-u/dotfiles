@@ -88,7 +88,7 @@
         # TERMINAL MISC
         bat catimg cava cmatrix dict doas-as-sudo dragon-drop entr figlet file
         ffmpeg fzf
-        glow grc handlr htop
+        glow handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine
         lm_sensors lolcat lowdown ncdu ncspot nvd onefetch oneshot pastel # nnn
         pandoc pdftk pipes-rs ripgrep sdcv skim termdown themesh tldr tmux tty-clock

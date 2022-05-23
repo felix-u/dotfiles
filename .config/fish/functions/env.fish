@@ -23,13 +23,13 @@ set -Ux MANPAGER $PAGER
 set -Ux BROWSER "qutebrowser"
 
 # LESS colours
-set -Ux LESS_TERMCAP_mb '\e[1;36m'
-set -Ux LESS_TERMCAP_md '\e[1;34m'
-set -Ux LESS_TERMCAP_me '\e[32m'
-set -Ux LESS_TERMCAP_se '\e[0m'
-set -Ux LESS_TERMCAP_so '\e[01;31m'
-set -Ux LESS_TERMCAP_ue '\e[0m'
-set -Ux LESS_TERMCAP_us '\e[1;36m'
+set -Ux LESS_TERMCAP_mb \e\[1\;36m
+set -Ux LESS_TERMCAP_md \e\[1\;34m
+set -Ux LESS_TERMCAP_me \e\[32m
+set -Ux LESS_TERMCAP_se \e\[0m
+set -Ux LESS_TERMCAP_so \e\[1\;31m
+set -Ux LESS_TERMCAP_ue \e\[0m
+set -Ux LESS_TERMCAP_us \e\[1\;36m
 
 set -Ux QT_QPA_PLATFORMTHEME "qt5ct"
 

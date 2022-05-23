@@ -3,18 +3,21 @@
 # hide greeting ("Welcome to fish, the friendly inter...")
 set fish_greeting
 
+# use vi keybindings
+fish_vi_key_bindings
+
 # custom bindings
 function fish_user_key_bindings
-    # use vi keybindings
-    fish_vi_key_bindings
-
-    # # CTRL-n to forward (right arrow also works)
-    # bind --preset \cn forward-char
-
+    # CTRL-n to forward (right arrow also works)
+    bind --preset -M insert \cn forward-char
 end
 
 # use green, not blue, for valid commands
 set -U fish_color_command green
+# don't use black background for search matches
+set -U fish_color_search_match --background=normal
+# WHY IS THIS ONE HARDCODED TO THE UGLIEST YELLOW
+set -U fish_pager_color_description blue
 
 # set cursor shape for vi modes
 set fish_cursor_default     block      blink

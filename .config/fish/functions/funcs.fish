@@ -63,4 +63,38 @@ function gitall
         echo "Requires option \"pull\" or \"com\""
     end
 end
-	
+
+# swap between light and dark terminal theme
+function themeterm
+    if [ $argv[1] = 'l' ]
+	theme.sh < ~/dotfiles/scripts/theme/lighttheme
+    else if [ $argv[1] = 'd' ]
+	theme.sh < ~/dotfiles/scripts/theme/darktheme
+    else
+        echo "Requires option \"d\" or \"l\""
+    end
+end
+
+# nixos
+function rebuildswitch
+    if [ (hostname) = "thonkpad" ]
+        doas nixos-rebuild switch \
+	        -I nixos-config=$XDG_CONFIG_HOME/nix/thinkpad/configuration.nix
+    else if [ (hostname) = "nixbtw" ]
+	doas nixos-rebuild switch \
+		-I nixos-config=$XDG_CONFIG_HOME/nix/pc/configuration.nix
+    else
+	echo "No config corresponding to this machine's hostname"
+    end
+end
+
+# get diff from latest switch
+function nvdd
+    \ls -v /nix/var/nix/profiles | tail -n 2 | \
+	awk '{print "/nix/var/nix/profiles/" $0}' - | xargs nvd diff
+end
+
+# swaybg
+function swaybgset
+    pkill swaybg; swaybg -m fill -i $argv[1] &
+end

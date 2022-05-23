@@ -88,14 +88,14 @@
         # TERMINAL MISC
         bat catimg cava cmatrix dict doas-as-sudo dragon-drop entr figlet file
         ffmpeg fzf
-        glow handlr htop
+        glow grc handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine
         lm_sensors lolcat lowdown ncdu ncspot nvd onefetch oneshot pastel # nnn
         pandoc pdftk pipes-rs ripgrep sdcv skim termdown themesh tldr tmux tty-clock
         ttyper
         udiskie udisks unrar unstable.helix unzip
         v4l-utils libv4l
-        w3m xdg-utils youtube-dl unstable.ytfzf zip _7zz
+        w3m xdg-utils youtube-dl unstable.ytfzf zip zsh _7zz
 
         # INTERNET & BLUETOOTH
         blueberry blueman bluez bluez-tools firefox newsboat qutebrowser

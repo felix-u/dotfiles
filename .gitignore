@@ -15,6 +15,12 @@
 .config/nnn/sessions
 .config/nnn/.selection
 
+# fish
+.config/fish/*
+!.config/fish/config.fish
+!.config/fish/functions
+!.config/fish/conf.d
+
 home/.emacs.d/*
 !home/.emacs.d/init.el
 !home/.emacs.d/custom/

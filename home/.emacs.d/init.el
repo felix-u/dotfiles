@@ -637,15 +637,18 @@
     (add-hook 'LaTeX-mode-hook #'evil-tex-mode))
 ;; to use pdfview with auctex
 (use-package pdf-tools
-	:defer t
+    :defer t
     :config
     (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
         TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
         TeX-source-correlate-start-server t) ;; not sure if last line is neccessary
     ;; to have the buffer refresh after compilation
     (add-hook 'TeX-after-compilation-finished-functions
-	    #'TeX-revert-document-buffer)
+	#'TeX-revert-document-buffer)
     )
+
+;; fish scripts (mainly my config)
+(use-package fish-mode :defer t)
 ;;--------------------------------------------------------------------------
 
 

@@ -39,7 +39,7 @@ zle -N history-beginning-search-forward-end history-search-end
 #bindkey "^[[B" history-beginning-search-forward-end
 #
 # # not working :(
-# source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=black"
 # bindkey '^n' autosuggest-accept

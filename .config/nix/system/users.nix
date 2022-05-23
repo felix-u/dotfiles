@@ -12,7 +12,7 @@ in {
 
     # shell
     programs.zsh.enable = true;
-    users.defaultUserShell = pkgs.zsh;
+    users.defaultUserShell = pkgs.fish;
 
     # home-manager
     imports = [ <home-manager/nixos> ];

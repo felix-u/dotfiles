@@ -94,6 +94,15 @@ function nvdd
 	awk '{print "/nix/var/nix/profiles/" $0}' - | xargs nvd diff
 end
 
+function fetch
+    set -Ux PF_INFO "ascii title os host kernel de shell memory"
+    set -Ux PF_COL1 2
+    set -Ux PF_COL2 15
+    set -Ux PF_COL3 6
+    echo # newline
+    pfetch
+end
+
 # swaybg
 function swaybgset
     pkill swaybg; swaybg -m fill -i $argv[1] &

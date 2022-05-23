@@ -806,4 +806,4 @@
 (load custom-file 'noerror 'nomessage)
 
 ;; reset garbage collection to make gc pauses faster
-(set 'gc-cons-threshold (* 2 1000 1000))
+(set 'gc-cons-threshold (* 50 1000 1000))

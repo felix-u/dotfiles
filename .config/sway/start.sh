@@ -80,17 +80,24 @@ swaymsg "floating_modifier $MOD normal" &
 swaymsg "bindsym $MOD+$ALT+r reload" &
 swaymsg "bindsym $MOD+$ALT+q exit" &
 #
-for i in {1..8}
+
+for i in {1..9}
 do
     swaymsg "bindsym $MOD+$i workspace number $i" &
     swaymsg "bindsym $MOD+Shift+$i move container to workspace number $i" &
 done
+# also use 0 for 10
+swaymsg "bindsym $MOD+0 workspace number 10" &
+swaymsg "bindsym $MOD+Shift+0 move container to workspace number 10" &
+
 #
 swaymsg "bindsym $MOD+z layout stacking" &
 swaymsg "bindsym $MOD+r layout tabbed" &
 swaymsg "bindsym $MOD+t layout toggle split" &
 swaymsg "bindsym $MOD+f fullscreen" &
 swaymsg "bindsym $MOD+s floating toggle" &
+# make floating windows sticky
+swaymsg "bindsym $MOD+Shift+t sticky toggle" &
 # swap focus between tiling and floating area
 swaymsg "bindsym $MOD+v focus mode_toggle" &
 swaymsg "bindsym $MOD+p focus parent" &
@@ -137,7 +144,7 @@ swaymsg "bindsym $MOD+Shift+t exec $XDG_CONFIG_HOME/sway/scripts/bindswitch" &
 #    # when using border images
 # swaymsg "gaps inner 50" &
 # swaymsg "smart_gaps on" &
-  # otherwise
+# otherwise
 swaymsg "gaps inner 0" &
 swaymsg "smart_gaps off" &
 #

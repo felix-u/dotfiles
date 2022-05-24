@@ -24,6 +24,8 @@ set -U fish_pager_color_progress grey
 set -U fish_color_autosuggestion brblack
 # bold incorrect commands
 set -U fish_color_error red --bold
+# normal foreground colour rather than cyan for params
+set -U fish_color_param normal
 
 # set cursor shape for vi modes
 set fish_cursor_default     block      blink

@@ -20,8 +20,8 @@ set -U fish_color_search_match --background=normal
 set -U fish_pager_color_description blue
 # "...and n more rows" text in autocompletion menu
 set -U fish_pager_color_progress grey
-# "normal --dim" isn't the same thing as "grey". the latter is better
-set -U fish_color_autosuggestion grey
+# colour of suggestion for which to -> or C-n
+set -U fish_color_autosuggestion brblack
 # bold incorrect commands
 set -U fish_color_error red --bold
 

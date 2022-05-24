@@ -53,6 +53,8 @@
 
         themesh = import ../derivations/themesh.nix;
 
+        shgen = import ../derivations/shgen.nix;
+
     in
     with pkgs; [
 
@@ -91,8 +93,8 @@
       glow handlr htop
       hunspell hunspellDicts.en-gb-ise hyperfine
       lm_sensors lolcat lowdown ncdu ncspot nvd onefetch oneshot pastel # nnn
-      pandoc pdftk pipes-rs ripgrep sdcv skim termdown themesh tldr tmux tty-clock
-      ttyper
+      pandoc pdftk pipes-rs ripgrep sdcv shgen skim
+      termdown themesh tldr tmux tty-clock ttyper
       udiskie udisks unrar unstable.helix unzip
       v4l-utils libv4l
       w3m xdg-utils youtube-dl unstable.ytfzf zip zsh _7zz

@@ -22,6 +22,8 @@ set -U fish_pager_color_description blue
 set -U fish_pager_color_progress grey
 # "normal --dim" isn't the same thing as "grey". the latter is better
 set -U fish_color_autosuggestion grey
+# bold incorrect commands
+set -U fish_color_error red --bold
 
 # set cursor shape for vi modes
 set fish_cursor_default     block      blink

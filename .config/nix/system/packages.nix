@@ -69,7 +69,9 @@
       python3Full python39Packages.python-lsp-server
       python39Packages.termcolor
       so unstable.rustc shellcheck
-      unstable.clang unstable.deadnix unstable.godot unstable.statix yarn
+      unstable.clang unstable.deadnix unstable.godot unstable.statix
+      valgrind
+      yarn
       godot4-alpha
       # asepriteLatest
       unstable.aseprite-unfree

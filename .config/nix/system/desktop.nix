@@ -38,7 +38,12 @@ in {
     };
 
     # bluetooth
-    hardware.bluetooth.enable = true;
+    hardware.bluetooth = {
+      enable = true;
+      package = pkgs.bluezFull;
+      hsphfpd.enable = true;
+      settings = { General = { ControllerMode = "bredr"; }; };
+    };
     services.blueman.enable = true;
 
     hardware.opengl.enable = true;

@@ -26,6 +26,8 @@ set -U fish_color_autosuggestion brblack
 set -U fish_color_error red --bold
 # normal foreground colour rather than cyan for params
 set -U fish_color_param normal
+# colour of syntax such as ; and & (default is green)
+set -U fish_color_end blue
 
 # set cursor shape for vi modes
 set fish_cursor_default     block      blink

@@ -112,8 +112,10 @@
       mpv mpvScripts.youtube-quality noisetorch
       obs-studio obs-studio-plugins.wlrobs
       pavucontrol profanity pulsemixer signal-desktop
-      qt5ct wally-cli xfce.thunar
-      xfce.thunar-archive-plugin zathura
+      qt5ct wally-cli
+      # xfce.thunar xfce.thunar-archive-plugin
+      pcmanfm
+      zathura
 
       # VISUAL
       gsettings-desktop-schemas gtk-engine-murrine gtk_engines

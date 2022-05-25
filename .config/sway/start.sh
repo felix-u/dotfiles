@@ -38,7 +38,7 @@ MOD="Mod4"
 ALT="Mod1"
 TERM="foot"
 
-FILES='thunar'
+FILES='pcmanfm'
 SLURP="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
 
 swaymsg "bindsym $MOD+Return exec $TERM" &

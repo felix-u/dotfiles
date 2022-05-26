@@ -126,7 +126,8 @@
       mediainfo unstable.gimp-with-plugins
 
       # GAMING
-      lutris minecraft proton-caller protontricks protonup
+      lutris minecraft unstable.optifine minetest
+      proton-caller protontricks protonup
       steamPackages.steam-fonts unstable.heroic
 
       # LATEX

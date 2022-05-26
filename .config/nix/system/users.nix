@@ -17,83 +17,83 @@ in {
     # home-manager
     imports = [ <home-manager/nixos> ];
     home-manager = {
-        useUserPackages = true;
-        useGlobalPkgs = true;
-        verbose = true;
-        users.felix = {pkgs, ...}: {
-            home.username = "felix";
-            home.homeDirectory = "/home/felix";
-            home.stateVersion = "21.11";
+      useUserPackages = true;
+      useGlobalPkgs = true;
+      verbose = true;
+      users.felix = {pkgs, ...}: {
+        home.username = "felix";
+        home.homeDirectory = "/home/felix";
+        home.stateVersion = "21.11";
 
-            gtk = {
-                enable = true;
-                cursorTheme.name = "Adwaita";
-                cursorTheme.size = 24;
-                font.name = "Fira Sans";
-                font.size = 11;
-                iconTheme.name = "Adwaita";
-                theme.name = "SolArc-Dark";
-            };
+        gtk = {
+          enable = true;
+          cursorTheme.name = "Adwaita";
+          cursorTheme.size = 24;
+          font.name = "Fira Sans";
+          font.size = 11;
+          iconTheme.name = "Adwaita";
+          theme.name = "SolArc-Dark";
+        };
 
-            xdg.userDirs.enable = true;
-            xdg.userDirs.createDirectories = true;
+        xdg.userDirs.enable = true;
+        xdg.userDirs.createDirectories = true;
 
-            services.udiskie.enable = true;
+        services.udiskie.enable = true;
 
-            programs.neovim = {
-                plugins = with pkgs.vimPlugins; [
-                    markdown-preview-nvim
-                    packer-nvim
-                ];
-            };
+        programs.neovim = {
+          plugins = with pkgs.vimPlugins; [
+            markdown-preview-nvim
+            packer-nvim
+          ];
+        };
 
-            programs.nnn = {
-                enable = true;
-                bookmarks = {
-                    d = "${homedir}/dotfiles";
-                    h = "${homedir}";
-                    m = "/mnt";
-                    r = "${homedir}/Desktop/recordings";
-                    s = "${homedir}/Pictures/screenshots";
-                    u = "${homedir}/uni/2022/spring";
-                };
-                plugins.mappings = {
-                  d = "dragdrop";
-                  p = "preview-tui";
-                  r = "imgresize";
-                  w = "waypaper";
-                  v = "imgview";
-                };
-            };
+        programs.nnn = {
+          enable = true;
+          bookmarks = {
+            d = "${homedir}/dotfiles";
+            h = "${homedir}";
+            m = "/mnt";
+            r = "${homedir}/Desktop/recordings";
+            s = "${homedir}/Pictures/screenshots";
+            u = "${homedir}/uni/2022/spring";
+          };
+          plugins.mappings = {
+            d = "dragdrop";
+            p = "preview-tui";
+            r = "imgresize";
+            w = "waypaper";
+            v = "imgview";
+          };
+        };
 
-            programs.chromium = {
-              enable = true;
-              package = pkgs.ungoogled-chromium;
-              commandLineArgs = [
-                "-enable-features=UseOzonePlatform"
-                "-ozone-platform=wayland"
-              ];
-              extensions = [
-                # ublock origin
-                { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
-                # surfingkeys
-                { id = "gfbliohnnapiefjpjlpjnehglfpaknnc"; }
-                # dark reader
-                { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; }
-                # decentraleyes
-                { id = "ldpochfccmkkmhdbclfhpagapcfdljkj"; }
-                # stylus
-                { id = "clngdbkpkpeebahjckkjfobafhncgmne"; }
-              ];
-            };
+        programs.chromium = {
+          enable = true;
+          package = pkgs.ungoogled-chromium;
+          commandLineArgs = [
+            "-enable-features=UseOzonePlatform"
+            "-ozone-platform=wayland"
+          ];
+          extensions = [
+            # ublock origin
+            { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
+            # surfingkeys
+            { id = "gfbliohnnapiefjpjlpjnehglfpaknnc"; }
+            # dark reader
+            { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; }
+            # decentraleyes
+            { id = "ldpochfccmkkmhdbclfhpagapcfdljkj"; }
+            # stylus
+            { id = "clngdbkpkpeebahjckkjfobafhncgmne"; }
+          ];
+        };
 
-            # w3m config
-            home.file.".w3m/config".text = ''
+        # w3m config
+        home.file.".w3m/config".text = ''
                 confirm_qq false
             '';
 
-            # helix config
-            home.file.".config/helix/config.toml".text = ''
+        # helix config
+        home.file.".config/helix/config.toml".text = ''
                 theme = "solarized_dark"
 
                 [editor]
@@ -106,7 +106,7 @@ in {
                 select = "underline"
             '';
 
-        };
+      };
 
     };
 

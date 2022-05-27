@@ -64,11 +64,12 @@
       # DEV
       android-tools bsdiff cargo clang-tools cmake gcc gnumake go
       home-manager
-      libresprite man-pages-posix openssl_3_0 pkg-config protobuf
+      libresprite libxkbcommon man-pages-posix openssl_3_0 pkg-config protobuf
       python39Packages.bsdiff4 python39Packages.pip
       python3Full python39Packages.python-lsp-server
       python39Packages.termcolor
-      raylib so unstable.rustc shellcheck
+      raylib glfw glfw-wayland
+      so unstable.rustc shellcheck
       unstable.clang unstable.deadnix unstable.godot unstable.statix
       valgrind
       yarn

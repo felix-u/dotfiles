@@ -1,6 +1,6 @@
 function mkcd
-    mkdir -p -- $argv
-    cd -P -- $argv
+    mkdir -p $argv[1]
+    cd $argv[1]
 end
 
 function gitcom

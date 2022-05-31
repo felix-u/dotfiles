@@ -3,6 +3,7 @@ alias weather="curl 'wttr.in/dc?m&format=3'"
 alias weatherreport="curl 'wttr.in/dc?m&format=v2d'"
 
 alias clock="tty-clock -c -C 6 -D"
+alias cmatrix="cmatrix -u 2"
 alias dsk="startx \"$HOME/.xinitrc\""
 alias cdu="cd ~/uni/2022/spring"
 

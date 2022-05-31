@@ -62,13 +62,13 @@
       foot kitty unstable.gh git neofetch pfetch starship stow wget
 
       # DEV
-      android-tools bsdiff cargo clang-tools cmake gcc gnumake go
+      android-tools any-nix-shell bsdiff cargo clang-tools cmake gcc gnumake go
       home-manager
-      libresprite libxkbcommon man-pages-posix openssl_3_0 pkg-config protobuf
+      libresprite libxkbcommon man-pages-posix nix-index
+      openssl_3_0 pkg-config protobuf
       python39Packages.bsdiff4 python39Packages.pip
       python3Full python39Packages.python-lsp-server
       python39Packages.termcolor
-      raylib glfw glfw-wayland
       so unstable.rustc shellcheck
       unstable.clang unstable.deadnix unstable.godot unstable.statix
       valgrind

@@ -44,3 +44,6 @@ source $XDG_CONFIG_HOME/fish/functions/funcs.fish
 
 # starship prompt
 starship init fish | source
+
+# use in nix-shell
+any-nix-shell fish --info-right | source

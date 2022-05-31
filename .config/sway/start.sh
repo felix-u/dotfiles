@@ -36,7 +36,7 @@ WS15="$(wqs color15)"
 
 MOD="Mod4"
 ALT="Mod1"
-TERM="kitty"
+TERM="footclient"
 
 FILES='pcmanfm'
 SLURP="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
@@ -240,3 +240,6 @@ dunst &
 
 # emacs daemon
 emacs --daemon &
+
+# foot terminal server
+foot --server &

@@ -59,7 +59,7 @@
     with pkgs; [
 
         # ESSENTIAL
-      foot unstable.gh git neofetch pfetch starship stow wget
+      foot kitty unstable.gh git neofetch pfetch starship stow wget
 
       # DEV
       android-tools bsdiff cargo clang-tools cmake gcc gnumake go
@@ -91,7 +91,7 @@
       bc gnuplot libqalculate maxima qalculate-gtk wxmaxima
 
       # TERMINAL MISC
-      bat catimg cava cmatrix dict doas-as-sudo dragon-drop entr figlet file
+      bat catimg cava cmatrix dict doas-as-sudo xdragon entr figlet file
       ffmpeg fzf
       glow handlr htop
       hunspell hunspellDicts.en-gb-ise hyperfine
@@ -110,7 +110,7 @@
       bitwarden calibre
       handlr imagemagick imv libreoffice
       libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
-      mpv mpvScripts.youtube-quality noisetorch
+      mpv mpvScripts.youtube-quality
       obs-studio obs-studio-plugins.wlrobs
       pavucontrol profanity pulsemixer signal-desktop
       qt5ct wally-cli
@@ -129,13 +129,13 @@
       # GAMING
       lutris minecraft unstable.optifine minetest
       proton-caller protontricks protonup
-      steamPackages.steam-fonts unstable.heroic
+      unstable.heroic
 
       # LATEX
       biber texinfo texlab texlive.combined.scheme-full
 
       # KERNEL
-      linuxKernel.packages.linux_5_17.v4l2loopback
+      config.boot.kernelPackages.v4l2loopback
 
     ];
 

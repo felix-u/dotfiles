@@ -36,7 +36,7 @@ WS15="$(wqs color15)"
 
 MOD="Mod4"
 ALT="Mod1"
-TERM="foot"
+TERM="kitty"
 
 FILES='pcmanfm'
 SLURP="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"

@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 
 # save backup file
-cp ~/.Xresources ~/.Xresources.bckup
+cp "$XRESOURCES" ~/.Xresources.bckup
 
 # write new file
 shgen ~/dotfiles/scripts/theme/genXresourcesSwap ~/.Xresourcestemp
-mv ~/.Xresourcestemp ~/.Xresources
+mv ~/.Xresourcestemp "$XRESOURCES"
 
 # regenerate configs and everything
 ~/dotfiles/scripts/schemereload.sh

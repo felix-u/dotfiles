@@ -94,7 +94,7 @@ in {
 
         # helix config
         home.file.".config/helix/config.toml".text = ''
-                theme = "solarized_dark"
+                theme = "base16_terminal"
 
                 [editor]
                 line-number = "relative"

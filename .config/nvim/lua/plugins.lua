@@ -160,7 +160,7 @@ return require('packer').startup{function(use, vim)
     }
 
     -- better marks
-    use 'chentau/marks.nvim'
+    use 'chentoast/marks.nvim'
 
     -- git signs (like gitgutter, but better)
     use {

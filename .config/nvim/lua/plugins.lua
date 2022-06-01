@@ -179,6 +179,19 @@ return require('packer').startup{function(use, vim)
     -- what it says on the tin
     use 'ggandor/lightspeed.nvim'
 
+    -- like which-key in emacs
+    -- Lua
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
+    }
+
     -- neorg (like org mode but for nvim)
     use {
         "nvim-neorg/neorg",

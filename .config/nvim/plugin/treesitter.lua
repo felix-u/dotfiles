@@ -1,6 +1,6 @@
 require('nvim-treesitter.configs').setup {
     ensure_installed = { "norg", "norg_meta", "norg_table",
-                         "bash", "comment",
+                         "bash", "fish", "comment",
                          "commonlisp",
                          "c",  "cmake",
                          "bibtex", "latex",

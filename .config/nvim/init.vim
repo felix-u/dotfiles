@@ -244,6 +244,8 @@ let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mySnippets"]
 
+set timeoutlen=400
+
 
 " let g:nvim_tree_icons = {
 "     \ 'default': '',

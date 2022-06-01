@@ -22,7 +22,7 @@ local colors = {
   color7   = utils.extract_color_from_hllist('fg', { 'StatusLine' }, '#000000'),
 }
 
-local none = colors.color0
+local none = colors.bg
 
 require('lualine').setup {
 	options = {
@@ -61,31 +61,31 @@ require('lualine').setup {
 
 	sections = {
 		lualine_a = {
-			{ 'mode', fmt = string.upper,
-                color = { gui = 'italic,bold' } }
+			{ 'filename', fmt = string.lower,
+                color = { bg = colors.bg, fg = colors.color15 } },
+			-- { 'mode', fmt = string.upper,
+   --              color = { gui = 'italic,bold' } }
 		},
 
 		lualine_b = {
-			{ 'branch', fmt = string.lower, color = { gui = 'bold' } }
+			{ 'filetype', color = { gui = 'italic,bold' } }
 		},
 
 		lualine_c = {
-			{ 'filename', fmt = string.lower,
-                color = { bg = colors.color8, fg = colors.color15 } },
             {gps.get_location, cond = gps.is_available, color = { fg = colors.green, bg = colors.color0, gui = 'italic' }},
 			{ 'diff', color = { bg = colors.color0 } }
 		},
 
 		lualine_x = {
-            { user_host, color = { fg = colors.color7, bg = colors.color0 }},
+            -- { user_host, color = { fg = colors.color7, bg = colors.color0 }},
 			{ 'diagnostics', color = { gui = 'italic,bold' } },
 		},
 
 		lualine_y = {
-			{ 'filetype', color = { gui = 'italic,bold' } }
+			{ 'branch', fmt = string.lower, color = { gui = 'bold' } }
 		},
 		lualine_z = {
-			{ 'location', color = { gui = 'bold' } }
+			{ 'location', color = {bg = colors.bg, fg = colors.fg } }
 		}
 	}
 }

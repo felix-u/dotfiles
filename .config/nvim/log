@@ -1,0 +1,140 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.009  000.009: --- NVIM STARTING ---
+000.461  000.452: locale set
+001.006  000.544: inits 1
+001.024  000.019: window checked
+001.090  000.066: parsing arguments
+014.800  013.710: expanding arguments
+014.857  000.057: inits 2
+015.522  000.665: init highlight
+015.525  000.002: waiting for UI
+016.670  001.145: done waiting for UI
+016.689  000.020: init screen for UI
+016.726  000.036: init default mappings
+016.773  000.047: init default autocommands
+016.929  000.156: --cmd commands
+022.166  000.111  000.111: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/ftplugin.vim
+022.922  000.081  000.081: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/indent.vim
+044.343  000.153  000.153: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/syntax/synload.vim
+045.082  000.063  000.063: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/filetype.lua
+053.987  000.019  000.019: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/LuaSnip/ftdetect/snippets.vim
+054.251  000.024  000.024: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/kmonad-vim/ftdetect/kbd.vim
+054.359  000.014  000.014: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/neorg/ftdetect/norg.vim
+054.609  000.013  000.013: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/vim-godot/ftdetect/gdscript.vim
+054.642  000.017  000.017: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/vim-godot/ftdetect/gsl.vim
+054.754  000.028  000.028: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/vimtex/ftdetect/cls.vim
+054.797  000.025  000.025: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/vimtex/ftdetect/tex.vim
+054.835  000.020  000.020: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/vimtex/ftdetect/tikz.vim
+054.916  000.013  000.013: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/yuck.vim/ftdetect/yuck.vim
+055.789  010.679  010.506: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/filetype.vim
+058.613  000.325  000.325: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/ftplugin/vim.vim
+061.903  000.153  000.153: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/indent/vim.vim
+067.320  001.093  001.093: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/syntax/lua.vim
+067.968  004.833  003.740: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/syntax/vim.vim
+070.751  002.714  002.714: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/syntax/vim/generated.vim
+072.085  028.383  009.462: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/syntax/syntax.vim
+081.957  009.682  009.682: sourcing /home/felix/.config/nvim/colors/xresources.vim
+084.184  000.061  000.061: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/filetype.lua
+084.217  000.015  000.015: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/filetype.vim
+084.508  000.008  000.008: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/indent.vim
+084.930  000.018  000.018: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/filetype.lua
+084.952  000.008  000.008: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/filetype.vim
+085.238  000.007  000.007: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/ftplugin.vim
+123.165  099.904  061.722: sourcing /home/felix/.config/nvim/init.vim
+123.178  006.154: sourcing vimrc file(s)
+125.205  000.207  000.207: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/gzip.vim
+125.229  000.009  000.009: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/health.vim
+125.305  000.065  000.065: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/man.vim
+125.980  000.229  000.229: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+126.120  000.803  000.574: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/matchit.vim
+126.273  000.139  000.139: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/matchparen.vim
+126.699  000.412  000.412: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+126.826  000.008  000.008: sourcing /nix/store/jyw0lc243fdy5lbg8fn13331ihsklw1s-neovim-0.7.0/rplugin.vim
+126.931  000.017  000.017: sourcing /home/felix/.local/share/nvim/rplugin.vim
+126.939  000.206  000.181: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/rplugin.vim
+127.055  000.102  000.102: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/shada.vim
+127.095  000.022  000.022: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/spellfile.vim
+127.239  000.125  000.125: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+127.333  000.072  000.072: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/tohtml.vim
+127.368  000.017  000.017: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/tutor.vim
+127.532  000.149  000.149: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+127.836  000.027  000.027: sourcing /home/felix/.config/nvim/plugin/autopairs.lua
+132.641  004.783  004.783: sourcing /home/felix/.config/nvim/plugin/gitsigns.lua
+133.077  000.379  000.379: sourcing /home/felix/.config/nvim/plugin/gps.lua
+134.872  001.771  001.771: sourcing /home/felix/.config/nvim/plugin/harpoon.lua
+134.915  000.016  000.016: sourcing /home/felix/.config/nvim/plugin/lsp.lua
+141.558  006.629  006.629: sourcing /home/felix/.config/nvim/plugin/lualine.lua
+142.123  000.529  000.529: sourcing /home/felix/.config/nvim/plugin/luasnip.lua
+142.819  000.672  000.672: sourcing /home/felix/.config/nvim/plugin/marks.lua
+142.953  000.104  000.104: sourcing /home/felix/.config/nvim/plugin/neorg.lua
+154.901  011.930  011.930: sourcing /home/felix/.config/nvim/plugin/nvim-cmp.lua
+158.218  003.275  003.275: sourcing /home/felix/.config/nvim/plugin/telekasten.lua
+158.297  000.052  000.052: sourcing /home/felix/.config/nvim/plugin/transparent.lua
+161.094  002.782  002.782: sourcing /home/felix/.config/nvim/plugin/treesitter.lua
+161.332  002.876: loading rtp plugins
+162.271  000.350  000.350: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+162.522  000.127  000.127: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/calendar-vim/plugin/calendar.vim
+164.437  001.648  001.648: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/emmet-vim/plugin/emmet.vim
+164.651  000.062  000.062: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/harpoon/plugin/mark.vim
+166.007  001.242  001.242: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/lightspeed.nvim/plugin/lightspeed.vim
+166.171  000.038  000.038: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/lush.nvim/plugin/lush.vim
+166.374  000.133  000.133: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim/plugin/mkdp.vim
+167.067  000.590  000.590: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/marks.nvim/plugin/marks.vim
+167.684  000.452  000.452: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+167.786  000.041  000.041: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/nvim-gps/plugin/nvim-gps.vim
+167.933  000.064  000.064: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+168.102  000.090  000.090: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/nvim-transparent/plugin/transparent.vim
+168.726  000.529  000.529: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+168.951  000.154  000.154: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor/plugin/nvim-treesitter-refactor.vim
+169.410  000.375  000.375: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects/plugin/nvim-treesitter-textobjects.vim
+169.526  000.035  000.035: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+169.847  000.211  000.211: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/playground/plugin/nvim-treesitter-playground.lua
+169.961  000.039  000.039: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+170.261  000.216  000.216: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+170.362  000.021  000.021: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/telekasten.nvim/plugin/telekasten.vim
+170.657  000.190  000.190: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+170.738  000.021  000.021: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/todo-comments.nvim/plugin/todo.vim
+170.933  000.113  000.113: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+171.058  000.055  000.055: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/vim-be-good/plugin/vim-be-good.vim
+171.384  000.259  000.259: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/vim-closetag/plugin/closetag.vim
+171.625  000.150  000.150: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/vim-pencil/plugin/pencil.vim
+172.085  000.371  000.371: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/vim-surround/plugin/surround.vim
+172.193  000.027  000.027: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/vimtex/plugin/vimtex.vim
+172.273  000.009  000.009: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/which-key.nvim/plugin/which-key.vim
+172.556  003.613: loading packages
+173.128  000.210  000.210: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/Comment.nvim/after/plugin/Comment.lua
+173.316  000.139  000.139: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+173.460  000.100  000.100: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp-calc/after/plugin/cmp_calc.lua
+173.613  000.106  000.106: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+173.708  000.046  000.046: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp-emoji/after/plugin/cmp_emoji.lua
+175.856  002.106  002.106: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp-latex-symbols/after/plugin/cmp_latex.lua
+176.043  000.110  000.110: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+176.180  000.090  000.090: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+176.300  000.071  000.071: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+176.424  000.076  000.076: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp-rg/after/plugin/cmp-rg.lua
+176.559  000.054  000.054: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp-spell/after/plugin/cmp-spell.lua
+176.676  000.063  000.063: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp-zsh/after/plugin/cmp_zsh.lua
+176.905  000.183  000.183: sourcing /home/felix/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+176.934  001.023: loading after plugins
+176.948  000.014: inits 3
+179.352  002.404: reading ShaDa
+183.063  000.249  000.249: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/ftplugin/vim.vim
+184.982  000.024  000.024: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/indent/vim.vim
+188.514  000.597  000.597: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/syntax/lua.vim
+188.904  002.611  002.013: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/syntax/vim.vim
+190.499  001.553  001.553: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/syntax/vim/generated.vim
+195.716  000.252  000.252: sourcing /nix/store/0vjynr1jdnvqpy9rcc2kh0agsdgdbzn0-neovim-unwrapped-0.7.0/share/nvim/runtime/autoload/provider/clipboard.vim
+195.988  000.192  000.192: sourcing /home/felix/.local/share/nvim/view//~=+dotfiles=+.config=+nvim=+init.vim=
+196.152  011.919: opening buffers
+197.735  001.583: BufEnter autocommands
+197.740  000.004: editing files in windows
+249.447  051.708: VimEnter autocommands
+249.456  000.008: UIEnter autocommands
+249.460  000.005: before starting main loop
+268.542  019.082: first screen update
+268.547  000.006: --- NVIM STARTED ---

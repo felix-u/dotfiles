@@ -97,8 +97,8 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
 " jumplist mutations
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 
 " moving text
 vnoremap J :m '>+1<CR>gv=gv
@@ -143,7 +143,6 @@ nnoremap <C-y> :%y+<CR>
 
 " " case insensitive spellcheck and last word correction with ctrl-l
 inoremap <C-c> <c-g>u<Esc>[s1z=`]a<c-g>u
-map <leader>cs :setlocal spell! spelllang=en_gb<CR>
 set ic
 
 " Remove trailing whitespace on save
@@ -170,10 +169,6 @@ xnoremap <leader>d d
 nnoremap <leader>dd dd
 nnoremap <leader>D D
 
-" remap increment and decrement to free up C-x and C-a for tmux/terminal
-nnoremap <leader>vi <C-a>
-nnoremap <leader>va <C-x>
-
 " keep selection when indenting
 vnoremap < <gv
 vnoremap > >gv
@@ -182,35 +177,10 @@ vnoremap > >gv
 map s <Plug>Lightspeed_s
 map S <Plug>Lightspeed_S
 
-" harpoon
-nnoremap <leader>mt :lua require("harpoon.mark").add_file()<CR>
-nnoremap <leader>mv :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <leader>mr <C-^>
-nnoremap <leader>mb :lua require("harpoon.ui").nav_prev()<CR>
-nnoremap <leader>mf :lua require("harpoon.ui").nav_next()<CR>
-" colemak
-nnoremap <leader>mgm :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <leader>mgn :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <leader>mge :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <leader>mgi :lua require("harpoon.ui").nav_file(4)<CR>
-" qwerty
-nnoremap <leader>mgh :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <leader>mgj :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <leader>mgk :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <leader>mgl :lua require("harpoon.ui").nav_file(4)<CR>
-
 let g:Hexokinase_highlighters = [ 'backgroundfull' ]
-nnoremap <leader>cc :HexokinaseToggle<CR>
 
 " lsp stuff
 let g:coq_settings = {'auto_start': 'shut-up'}
-
-" use trouble.nvim instead
-nnoremap <silent> <leader>lrf :Trouble lsp_references<CR>
-nnoremap <silent> <leader>ldf :Trouble lsp_definitions<CR>
-nnoremap <silent> <leader>ldn :Trouble document_diagnostics<CR>
-nnoremap <silent> <leader>lt <cmd>TroubleToggle<CR>
-nnoremap <silent> <leader>lrn <cmd>lua vim.lsp.buf.rename()<CR>
 
 " hybrid numbers when in normal mode
 set number
@@ -271,46 +241,10 @@ set timeoutlen=400
 " NvimTreeOpen and NvimTreeClose are also available if you need them
 " a list of groups can be found at `:help nvim_tree_highlight`
 
-" nnn.nvim
-nnoremap <C-t> <cmd>NnnExplorer<CR>
-tnoremap <C-t> <cmd>NnnExplorer<CR>
-tnoremap <C-p> <cmd>:NnnPicker<CR>
-nnoremap <C-p> <cmd>NnnPicker<CR>
-
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fm <cmd>Telescope harpoon marks<cr>
-
 " markdown preview (actually incredible though)
 let g:mkdp_browser = 'qutebrowser'
 let g:mkdp_auto_start = 0
 let g:mkdp_markdown_css = '/home/felix/.config/nvim/ignore/markdown.css'
-nnoremap <leader>pm :MarkdownPreviewToggle<cr>
-
-" zettelkasten
-nnoremap <leader>zfn :Telekasten find_notes<cr>
-nnoremap <leader>zfd :Telekasten find_daily_notes<cr>
-nnoremap <leader>zfw :Telekasten find_weekly_notes<cr>
-nnoremap <leader>zff :Telekasten find_friends<cr>
-nnoremap <leader>zfa :Telekasten search_notes<cr>
-nnoremap <leader>zgl :Telekasten follow_link<cr>
-nnoremap <leader>zgt :Telekasten goto_today<cr>
-nnoremap <leader>zgw :Telekasten goto_thisweek<cr>
-nnoremap <leader>znn :Telekasten new_note<cr>
-nnoremap <leader>znt :Telekasten new_templated_note<cr>
-nnoremap <leader>zc :Telekasten show_calendar<cr>
-nnoremap <leader>zpi :Telekasten paste_img_and_link<cr>
-nnoremap <leader>zii :Telekasten inset_img_link({ i=true })<cr>
-nnoremap <leader>zt :Telekasten toggle_todo<cr>
-nnoremap <leader>zb :Telekasten show_backlinks<cr>
-nnoremap <leader>zsi :Telekasten preview_img<cr>
-nnoremap <leader>zsm :Telekasten browse_media<cr>
-nnoremap <leader>zst :Telekasten show_tags<cr>
-nnoremap <leader>zr :Telekasten rename_note<cr>
-nnoremap <leader>zml :Telekasten insert_link({ i=true })<cr>
-nnoremap <leader>z :Telekasten panel<cr>
 
 " These commands will move the current buffer backwards or forwards in the bufferline
 " disabled
@@ -353,8 +287,6 @@ function! SynGroup()
     let l:s = synID(line('.'), col('.'), 1)
     echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
-nnoremap <silent> <leader>gsn :call SynGroup()<CR>
-nnoremap <silent> <leader>gst :TSHighlightCapturesUnderCursor<CR>
 
 " colourscheme shortcuts
 nnoremap <silent> <leader>sl :source ~/.config/nvim/colors/lightxresources.vim<CR>
@@ -365,3 +297,81 @@ vnoremap <F2> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
 " nvim-cmp
 set completeopt=menu,menuone,noselect
+
+"                              _
+"  _ __ ___   __ _ _ __  _ __ (_)_ __   __ _ ___
+" | '_ ` _ \ / _` | '_ \| '_ \| | '_ \ / _` / __|
+" | | | | | | (_| | |_) | |_) | | | | | (_| \__ \
+" |_| |_| |_|\__,_| .__/| .__/|_|_| |_|\__, |___/
+"                 |_|   |_|            |___/
+
+" F: find
+" telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fm <cmd>Telescope harpoon marks<cr>
+" nnn
+nnoremap <leader>ft <cmd>NnnExplorer<CR>
+
+" G: "goto" - marks and harpoon
+nnoremap <leader>ga :lua require("harpoon.mark").add_file()<CR>
+nnoremap <leader>gq :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <leader>gj <C-^>
+nnoremap <leader>gp :lua require("harpoon.ui").nav_prev()<CR>
+nnoremap <leader>gn :lua require("harpoon.ui").nav_next()<CR>
+" colemak
+nnoremap <leader>ggm :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <leader>ggn :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <leader>gge :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <leader>ggi :lua require("harpoon.ui").nav_file(4)<CR>
+" qwerty
+nnoremap <leader>ggh :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <leader>ggj :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <leader>ggk :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <leader>ggl :lua require("harpoon.ui").nav_file(4)<CR>
+
+" L: LSP
+nnoremap <silent> <leader>lf :Trouble lsp_references<CR>
+nnoremap <silent> <leader>ld :Trouble lsp_definitions<CR>
+nnoremap <silent> <leader>ln :Trouble document_diagnostics<CR>
+nnoremap <silent> <leader>lt <cmd>TroubleToggle<CR>
+nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.rename()<CR>
+
+" T: toggle
+nnoremap <leader>tc :HexokinaseToggle<CR>
+nnoremap <leader>tm :MarkdownPreviewToggle<cr>
+nnoremap <leader>ts :setlocal spell! spelllang=en_gb<CR>
+nnoremap <leader>tt :TransparentToggle<CR>
+nnoremap <silent> <leader>thn :call SynGroup()<CR>
+nnoremap <silent> <leader>tht :TSHighlightCapturesUnderCursor<CR>
+
+" V: vim
+" remap increment and decrement to free up C-x and C-a for tmux/terminal
+nnoremap <leader>vi <C-a>
+nnoremap <leader>va <C-x>
+
+" Z: zettelkasten
+nnoremap <leader>zfn :Telekasten find_notes<cr>
+nnoremap <leader>zfd :Telekasten find_daily_notes<cr>
+nnoremap <leader>zfw :Telekasten find_weekly_notes<cr>
+nnoremap <leader>zff :Telekasten find_friends<cr>
+nnoremap <leader>zfa :Telekasten search_notes<cr>
+nnoremap <leader>zgl :Telekasten follow_link<cr>
+nnoremap <leader>zgt :Telekasten goto_today<cr>
+nnoremap <leader>zgw :Telekasten goto_thisweek<cr>
+nnoremap <leader>znn :Telekasten new_note<cr>
+nnoremap <leader>znt :Telekasten new_templated_note<cr>
+nnoremap <leader>zc :Telekasten show_calendar<cr>
+nnoremap <leader>zpi :Telekasten paste_img_and_link<cr>
+nnoremap <leader>zii :Telekasten inset_img_link({ i=true })<cr>
+nnoremap <leader>zt :Telekasten toggle_todo<cr>
+nnoremap <leader>zb :Telekasten show_backlinks<cr>
+nnoremap <leader>zsi :Telekasten preview_img<cr>
+nnoremap <leader>zsm :Telekasten browse_media<cr>
+nnoremap <leader>zst :Telekasten show_tags<cr>
+nnoremap <leader>zr :Telekasten rename_note<cr>
+nnoremap <leader>zml :Telekasten insert_link({ i=true })<cr>
+nnoremap <leader>z :Telekasten panel<cr>
+

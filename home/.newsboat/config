@@ -4,6 +4,7 @@ max-items 100
 text-width 50
 reload-threads 25 # consoom faster
 article-sort-order date-asc
+confirm-mark-feed-read no
 
 # external browser
 browser "/usr/bin/env w3m %u"

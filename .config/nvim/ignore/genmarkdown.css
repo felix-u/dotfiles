@@ -16,7 +16,7 @@
     --lightbg: $(wq lightbg);
     --lightfg: $(wq lightfg);
 
-    --sans: $(wq fontsans) Sans;
+    --sans: $(wq fontsans);
     --mono: $(wq fontmono);
 
     --br: 2em;

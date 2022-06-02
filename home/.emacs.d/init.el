@@ -241,7 +241,7 @@
         "dm" '(describe-mode :which-key "mode")
         "dn" '(describe-function :which-key "function")
         "dv" '(describe-variable :which-key "variable")
-	    
+
         ;; EMBARK
         "e"  '(:ignore t :which-key "embark")
         "ea" '(embark-act :which-key "act")
@@ -282,7 +282,7 @@
         "td" '(dimmer-mode :which-key "dimmer")
         "tf" '(focus-mode :which-key "focus")
         "th" '(hl-line-mode :which-key "line highlight")
-        "ti" '(aggressive-indent-mode :which-key "aggressive indent")        
+        "ti" '(aggressive-indent-mode :which-key "aggressive indent")
         "tl" '(lsp :which-key "LSP")
 	    "tr" '(rainbow-mode :which-key "rainbow-mode")
         "tn" '(global-display-line-numbers-mode :which-key "line numbers")
@@ -301,11 +301,11 @@
         ;; M-x
         "x" '(execute-extended-command :which-key "M-x")
 
-        ;; PROFILER    
-        "y"  '(:ignore t :which-key "profiler")        
-        "ys" '(profiler-start :which-key "start")        
-        "yt" '(profiler-stop :which-key "stop")        
-        "yr" '(profiler-report :which-key "report")        
+        ;; PROFILER
+        "y"  '(:ignore t :which-key "profiler")
+        "ys" '(profiler-start :which-key "start")
+        "yt" '(profiler-stop :which-key "stop")
+        "yr" '(profiler-report :which-key "report")
 
         ;; NEXT & PREVIOUS
         "]"  '(:ignore t :which-key "next")
@@ -469,7 +469,7 @@
 (use-package nano-modeline
     :config
     (nano-modeline-mode)
-    ;; (setq nano-modeline-position top)        
+    ;; (setq nano-modeline-position top)
     (custom-set-faces
         '(mode-line ((t (:underline nil))))
         '(mode-line-inactive ((t (:underline nil))))))
@@ -504,7 +504,7 @@
 ;; colour emoji and such
 (use-package unicode-fonts
     :config
-    (unicode-fonts-setup)) 
+    (unicode-fonts-setup))
 
 ;; respond to prompts with y/n, not yes/no
 (defalias 'yes-or-no #'y-or-n-p)
@@ -520,8 +520,8 @@
 ;; "auto-activating-snippets" - https://github.com/ymarco/auto-activating-snippets
 (use-package aas)
 (use-package laas ; aas snippets for LaTeX
-    :hook (LaTeX-mode . laas-mode)        
-    :config        
+    :hook (LaTeX-mode . laas-mode)
+    :config
     (add-hook 'prog-mode-hook 'yas-minor-mode)
     (aas-set-snippets 'laas-mode
         ;; set condition!
@@ -654,7 +654,7 @@
 
 ;;------------------------------------------------------------------GUI-only
 (defvar fontfamily "Iosevka")
-(defvar fontsans "Fira Sans")
+(defvar fontsans "FreeSans")
 (defvar fontserif "IBM Plex Serif")
 (defvar fontsize 12)
 (defvar fontweight 'medium)

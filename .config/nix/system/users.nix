@@ -29,7 +29,7 @@ in {
           enable = true;
           cursorTheme.name = "Adwaita";
           cursorTheme.size = 24;
-          font.name = "Fira Sans";
+          font.name = "FreeSans";
           font.size = 11;
           iconTheme.name = "Adwaita";
           theme.name = "SolArc-Dark";

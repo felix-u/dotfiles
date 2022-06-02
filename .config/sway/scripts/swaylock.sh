@@ -22,7 +22,7 @@ swaylock -e -F \
     --separator-color ${WCOLOR0}ff \
     --indicator-radius 150 --indicator-thickness 20 \
     --text-color ${WBACKGROUND}ff \
-    --font-size 40 --font 'Fira Sans' \
+    --font-size 40 --font "$(wq fontsans)" \
     --clock --indicator --timestr "%a %d" --datestr "%H:%M"  \
     --screenshots --effect-blur 15x7 --fade-in 0.1
     # -i "$LOCKWALL"

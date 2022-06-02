@@ -13,7 +13,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Fira Sans", "Iosevka NerdFont";
+    font-family: "$(wq fontsans)", "$(wq fontmono) NerdFont";
     box-shadow: inherit;
     text-shadow: inherit;
     min-height: 20px;

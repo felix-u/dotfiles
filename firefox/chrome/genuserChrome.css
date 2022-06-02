@@ -11,7 +11,7 @@
     --grey: $(wq color7);
     --xcolor15: $(wq color15);
 
-    --sans: Fira Sans;
+    --sans: $(wq fontsans);
     --mono: $(wq fontmono);
 
     --br: 2em;

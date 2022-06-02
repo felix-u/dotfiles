@@ -148,7 +148,7 @@ swaymsg "bindsym $MOD+Shift+t exec $XDG_CONFIG_HOME/sway/scripts/bindswitch" &
 swaymsg "gaps inner 0" &
 swaymsg "smart_gaps off" &
 #
-swaymsg "font pango:Fira Sans Medium 12" &
+swaymsg "font pango:$(wq fontsans) 12" &
 swaymsg "title_format %app_id" &
 
 CLRFOCUSED="$W08"

@@ -63,6 +63,10 @@ shgen ~/dotfiles/scripts/theme/genlighttheme ~/dotfiles/scripts/theme/lighttheme
 shgen ~/dotfiles/scripts/theme/gendarktheme ~/dotfiles/scripts/theme/darktheme &
 echo "terminal theme files"
 
+# imv
+shgen "$XDG_CONFIG_HOME"/imv/genconfig "$XDG_CONFIG_HOME"/imv/config &
+echo "imv"
+
 # wallpaper
 pkill swaybg
 swaybg -c "$(wq background)" &

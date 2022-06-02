@@ -1,5 +1,5 @@
 xgen.fontmono: Iosevka
-xgen.fontsans: Fira
+xgen.fontsans: FreeSans
 
 ! special
 *.foreground:   $(wq lightfg)

@@ -20,17 +20,17 @@
 }
 
 div {
-    font-family: "Fira Sans" !important;
+    font-family: var(--sans) !important;
     font-weight: 400;
 }
 
 body {
-    font-family: "Fira Sans" !important;
+    font-family: var(--sans) !important;
     font-weight: 400;
 }
 
 code {
-    font-family: "Iosevka" !important;
+    font-family: var(--mono) !important;
     font-weight: 400;
 }
 

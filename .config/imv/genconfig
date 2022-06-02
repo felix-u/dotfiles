@@ -2,7 +2,7 @@
 
 [options]
 
-background = $(wqs background)
+background = $(pastel darken 0.05 $(wqs background) | pastel format hex)
 overlay_font = $(wq fontsans)Sans:12
 overlay_text_color = $(wqs foreground)
 overlay_background_color = $(wqs color0)

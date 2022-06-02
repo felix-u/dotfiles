@@ -107,7 +107,7 @@
 
       # DESKTOP
       appimage-run
-      bitwarden calibre
+      bitwarden calibre font-manager
       handlr imagemagick imv libreoffice
       libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
       mpv mpvScripts.youtube-quality

@@ -45,7 +45,7 @@ in {
 
 
         # some more monospace fonts
-        office-code-pro ibm-plex roboto-mono
+        ibm-plex jetbrains-mono office-code-pro roboto-mono
         spacemono # slab monospace font which inspired space-grotesk - FOSS
 
         # low res bitmap fonts, out of curiosity

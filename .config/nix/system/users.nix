@@ -26,13 +26,16 @@ in {
         home.stateVersion = "21.11";
 
         gtk = {
-          enable = true;
-          cursorTheme.name = "Adwaita";
-          cursorTheme.size = 24;
-          font.name = "FreeSans";
-          font.size = 11;
-          iconTheme.name = "Adwaita";
-          theme.name = "SolArc-Dark";
+            enable = true;
+            cursorTheme.name = "Adwaita";
+            cursorTheme.size = 24;
+            font.name = "FreeSans";
+            font.size = 11;
+            iconTheme.name = "Adwaita";
+            theme.name = "SolArc-Dark";
+            gtk3.extraConfig = {
+                gtk-decoration-layout = "menu:";
+            };
         };
 
         xdg.userDirs.enable = true;

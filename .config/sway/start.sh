@@ -145,7 +145,7 @@ swaymsg "bindsym $MOD+Shift+t exec $XDG_CONFIG_HOME/sway/scripts/bindswitch" &
 # swaymsg "gaps inner 50" &
 # swaymsg "smart_gaps on" &
 # otherwise
-swaymsg "gaps inner 0" &
+swaymsg "gaps inner 15" &
 swaymsg "smart_gaps off" &
 #
 swaymsg "font pango:$(wq fontsans) 12" &

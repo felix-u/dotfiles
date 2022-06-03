@@ -22,9 +22,10 @@
 window#waybar {
     padding: 0px;
     margin: 0px;
-    background: #002b36;
+    /* background: #002b36; */
+    background: transparent;
     color: #93a1a1;
-    border-bottom: 2px solid #073642;
+    /* border-bottom: 2px solid #073642; */
 }
 
 #window {
@@ -39,8 +40,8 @@ window#waybar {
 }
 
 #workspaces {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 12px;
+    margin-bottom: 0px;
     margin-left: 8px;
     margin-right: 8px;
     transition: none;
@@ -72,8 +73,8 @@ window#waybar {
 
 #cpu {
     color: transparent;
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 12px;
+    margin-bottom: 0px;
     margin-left: 6px;
     margin-right: 6px;
     /* border-radius: 10px; */
@@ -88,15 +89,16 @@ window#waybar {
     /* background: #073642; */
 }
 
-
 #custom-clock {
+    margin-top: 12px;
+    margin-bottom: 0px;
     color: #839496;
 }
 
 
 #battery {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 12px;
+    margin-bottom: 0px;
     margin-right: 6px;
     margin-left: 0px;
     padding: 0px 9px;
@@ -126,8 +128,8 @@ window#waybar {
 
 
 #network {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 12px;
+    margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 20px;
     padding-left: 6px;
@@ -144,8 +146,8 @@ window#waybar {
 
 
 #pulseaudio {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 12px;
+    margin-bottom: 0px;
     margin-left: 6px;
     margin-right: 6px;
     padding: 0px 10px;

@@ -1,16 +1,16 @@
 { pkgs, config, ... }:
 
 let
-    alte-haas-grotesk = import ../derivations/alte-haas-grotesk.nix;
-    beteckna = import ../derivations/beteckna.nix;
-    league-spartan = import ../derivations/league-spartan.nix;
-    lora = import ../derivations/lora.nix;
-    metropolis = import ../derivations/metropolis.nix;
-    montserrat = import ../derivations/montserrat.nix;
-    oswald = import ../derivations/oswald.nix;
-    playfair = import ../derivations/playfair.nix;
-    space-grotesk = import ../derivations/space-grotesk.nix;
-    spacemono = import ../derivations/spacemono.nix;
+    alte-haas-grotesk = import ../derivations/fonts/alte-haas-grotesk.nix;
+    beteckna = import ../derivations/fonts/beteckna.nix;
+    league-spartan = import ../derivations/fonts/league-spartan.nix;
+    lora = import ../derivations/fonts/lora.nix;
+    metropolis = import ../derivations/fonts/metropolis.nix;
+    montserrat = import ../derivations/fonts/montserrat.nix;
+    oswald = import ../derivations/fonts/oswald.nix;
+    playfair = import ../derivations/fonts/playfair.nix;
+    space-grotesk = import ../derivations/fonts/space-grotesk.nix;
+    spacemono = import ../derivations/fonts/spacemono.nix;
 in {
     # fonts
     fonts.fonts = with pkgs; [

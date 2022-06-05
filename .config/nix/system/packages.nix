@@ -49,7 +49,7 @@
             doas "$@"
         '');
 
-        imgclr = import ../derivations/imgclr.nix;
+        imgclr = (pkgs.callPackage ../derivations/imgclr.nix {});
 
         godot4-alpha = import ../derivations/godot4alpha.nix;
 
@@ -111,7 +111,7 @@
       appimage-run
       bitwarden calibre font-manager
       handlr imagemagick imv libreoffice
-      # imgclr
+      imgclr
       libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
       mpv mpvScripts.youtube-quality
       obs-studio obs-studio-plugins.wlrobs

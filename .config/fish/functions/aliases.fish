@@ -24,9 +24,6 @@ alias cp='cp -i'
 alias ln='ln -i'
 alias rmt="trash"
 
-# TODO: remove in favour of nix derivation (maybe)
-alias mclr="~/Desktop/mclr/mclr"
-
 alias ksp='progl /mnt/sda1/Games/KSP_linux/KSP.x86_64'
 
 # fuzzy finding ftw

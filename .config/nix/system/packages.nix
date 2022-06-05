@@ -49,6 +49,8 @@
             doas "$@"
         '');
 
+        imgclr = import ../derivations/imgclr.nix;
+
         godot4-alpha = import ../derivations/godot4alpha.nix;
 
         themesh = import ../derivations/themesh.nix;
@@ -109,6 +111,7 @@
       appimage-run
       bitwarden calibre font-manager
       handlr imagemagick imv libreoffice
+      # imgclr
       libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
       mpv mpvScripts.youtube-quality
       obs-studio obs-studio-plugins.wlrobs

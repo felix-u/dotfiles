@@ -111,7 +111,7 @@
         glow handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine
         lm_sensors lolcat lowdown ncdu ncspot nvd onefetch oneshot pastel # nnn
-        pandoc pdftk  sdcv shgen
+        pandoc pdftk poppler_utils sdcv shgen
         termdown themesh tldr tmux tty-clock
         udiskie udisks unrar unzip
         v4l-utils libv4l

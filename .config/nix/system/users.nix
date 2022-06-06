@@ -95,20 +95,6 @@ in {
                 confirm_qq false
             '';
 
-        # helix config
-        home.file.".config/helix/config.toml".text = ''
-                theme = "base16_terminal"
-
-                [editor]
-                line-number = "relative"
-                idle-timeout = 0
-
-                [editor.cursor-shape]
-                insert = "bar"
-                normal = "block"
-                select = "underline"
-            '';
-
       };
 
     };

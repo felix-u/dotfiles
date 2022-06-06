@@ -1,0 +1,34 @@
+theme = "base16_terminal"
+
+[editor]
+line-number = "relative"
+idle-timeout = 0
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.normal]
+c = "change_selection_noyank"
+d = "delete_selection_noyank"
+C-left = "jump_view_left"
+C-right = "jump_view_right"
+C-up = "jump_view_up"
+C-down = "jump_view_down"
+C-S-left = "swap_view_left"
+C-S-right = "swap_view_right"
+C-S-up = "swap_view_up"
+C-S-down = "swap_view_down"
+S-up = "move_line_up"
+S-down = "move_line_down"
+g = { left = "goto_first_nonwhitespace", right = "goto_line_end", h = "goto_first_nonwhitespace", l = "goto_line_end", j = "goto_last_accessed_file" }
+V = "extend_line_down"

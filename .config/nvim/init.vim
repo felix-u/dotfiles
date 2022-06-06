@@ -333,8 +333,10 @@ nnoremap <leader>ggk :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <leader>ggl :lua require("harpoon.ui").nav_file(4)<CR>
 
 " L: LSP
+nnoremap <silent> <leader>la :Trouble quickfix<CR>
 nnoremap <silent> <leader>lf :Trouble lsp_references<CR>
 nnoremap <silent> <leader>ld :Trouble lsp_definitions<CR>
+nnoremap <silent> <leader>lk :Trouble lsp_type_definitions<CR>
 nnoremap <silent> <leader>ln :Trouble document_diagnostics<CR>
 nnoremap <silent> <leader>lt <cmd>TroubleToggle<CR>
 nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.rename()<CR>

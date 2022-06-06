@@ -61,7 +61,7 @@
     with pkgs; [
 
         # ESSENTIAL
-        foot kitty unstable.gh git neofetch pfetch starship stow wget
+        foot unstable.gh git neofetch pfetch starship stow wget
 
         # UTILS IN RUST
         bat # cat

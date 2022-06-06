@@ -17,5 +17,8 @@ let
                  ];
   });
 in pkgs.mkShell {
-  nativeBuildInputs = [ raylib-wayland ];
+  nativeBuildInputs = [ 
+    # raylib-wayland 
+    pkgs.raylib
+  ];
 }

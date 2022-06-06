@@ -32,3 +32,6 @@ S-up = "move_line_up"
 S-down = "move_line_down"
 g = { left = "goto_first_nonwhitespace", right = "goto_line_end", h = "goto_first_nonwhitespace", l = "goto_line_end", j = "goto_last_accessed_file" }
 V = "extend_line_down"
+S-pageup = ":theme solarized_light"
+S-pagedown = ":theme base16_terminal"
+C-r = "redo"

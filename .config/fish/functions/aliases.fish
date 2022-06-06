@@ -15,6 +15,8 @@ alias fd="fd --color never -uu"
 # sk instead of fzf, xres colours, and imv rather than sxiv
 alias fontpreview="~/dotfiles/scripts/fontpreview"
 
+alias h="hx"
+
 alias ls="exa --group-directories-first --color=always -a"
 alias la="exa --group-directories-first --color=always -laG --no-user"
 

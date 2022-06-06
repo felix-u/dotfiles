@@ -61,84 +61,96 @@
     with pkgs; [
 
         # ESSENTIAL
-      foot kitty unstable.gh git neofetch pfetch starship stow wget
+        foot kitty unstable.gh git neofetch pfetch starship stow wget
 
-      # DEV
-      android-tools any-nix-shell bsdiff cargo clang-tools cmake gcc gnumake go
-      home-manager
-      libresprite libxkbcommon man-pages-posix nix-index
-      openssl_3_0 pkg-config protobuf
-      python39Packages.bsdiff4 python39Packages.pip
-      python3Full python39Packages.python-lsp-server
-      python39Packages.termcolor
-      so unstable.rustc shellcheck
-      unstable.clang unstable.deadnix unstable.godot unstable.statix
-      valgrind
-      yarn
-      godot4-alpha
-      # asepriteLatest
-      unstable.aseprite-unfree
-      # experimenting with lisp:
-      cachix clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
+        # UTILS IN RUST
+        bat # cat
+        bottom # top
+        exa # ls
+        fd # find
+        unstable.helix # nvim (ish!)
+        imgclr # haha, c'est a moi :D
+        pipes-rs # pipes
+        procs # ps
+        ripgrep # grep
+        skim # fzf
+        ttyper
 
-      # NEOVIM
-      cmake-language-server nodePackages.bash-language-server
-      nodePackages.js-beautify
-      nodePackages.npm nodePackages.pyright nodePackages.vim-language-server
-      nodePackages.vscode-langservers-extracted nodejs rnix-lsp
-      rust-analyzer sumneko-lua-language-server tree-sitter
-      unstable.neovim
+        # DEV
+        android-tools any-nix-shell bsdiff cargo clang-tools cmake gcc gnumake go
+        home-manager
+        libresprite libxkbcommon man-pages-posix nix-index
+        openssl_3_0 pkg-config protobuf
+        python39Packages.bsdiff4 python39Packages.pip
+        python3Full python39Packages.python-lsp-server
+        python39Packages.termcolor
+        so unstable.rustc shellcheck
+        unstable.clang unstable.deadnix unstable.godot unstable.statix
+        valgrind
+        yarn
+        godot4-alpha
+        # asepriteLatest
+        unstable.aseprite-unfree
+        # experimenting with lisp:
+        cachix clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
 
-      # MATHS
-      bc gnuplot libqalculate maxima qalculate-gtk wxmaxima
+        # NEOVIM
+        cmake-language-server nodePackages.bash-language-server
+        nodePackages.js-beautify
+        nodePackages.npm nodePackages.pyright nodePackages.vim-language-server
+        nodePackages.vscode-langservers-extracted nodejs rnix-lsp
+        rust-analyzer sumneko-lua-language-server tree-sitter
+        unstable.neovim
 
-      # TERMINAL MISC
-      bat catimg cava cmatrix dict doas-as-sudo xdragon entr figlet file
-      ffmpeg fzf
-      glow handlr htop
-      hunspell hunspellDicts.en-gb-ise hyperfine
-      lm_sensors lolcat lowdown ncdu ncspot nvd onefetch oneshot pastel # nnn
-      pandoc pdftk pipes-rs ripgrep sdcv shgen skim
-      termdown themesh tldr tmux tty-clock ttyper
-      udiskie udisks unrar unstable.helix unzip
-      v4l-utils libv4l
-      w3m xdg-utils youtube-dl unstable.ytfzf zip zsh _7zz
+        # MATHS
+        bc gnuplot libqalculate maxima qalculate-gtk wxmaxima
 
-      # INTERNET & BLUETOOTH
-      blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
+        # TERMINAL MISC
+        catimg cava cmatrix dict doas-as-sudo xdragon entr figlet file
+        ffmpeg fzf
+        glow handlr htop
+        hunspell hunspellDicts.en-gb-ise hyperfine
+        lm_sensors lolcat lowdown ncdu ncspot nvd onefetch oneshot pastel # nnn
+        pandoc pdftk  sdcv shgen
+        termdown themesh tldr tmux tty-clock
+        udiskie udisks unrar unzip
+        v4l-utils libv4l
+        w3m xdg-utils youtube-dl unstable.ytfzf zip zsh _7zz
 
-      # DESKTOP
-      appimage-run
-      bitwarden calibre font-manager
-      handlr imagemagick imv libreoffice
-      imgclr
-      libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
-      mpv mpvScripts.youtube-quality
-      obs-studio obs-studio-plugins.wlrobs
-      pavucontrol profanity pulsemixer signal-desktop
-      qt5ct wally-cli
-      # xfce.thunar xfce.thunar-archive-plugin
-      pcmanfm
-      zathura
+        # INTERNET & BLUETOOTH
+        blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
 
-      # VISUAL
-      gsettings-desktop-schemas gtk-engine-murrine gtk_engines
-      solarc-gtk-theme unstable.gnome.adwaita-icon-theme
+        # DESKTOP
+        appimage-run
+        bitwarden calibre font-manager
+        handlr imagemagick imv libreoffice
+        libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
+        mpv mpvScripts.youtube-quality
+        obs-studio obs-studio-plugins.wlrobs
+        pavucontrol profanity pulsemixer signal-desktop
+        qt5ct wally-cli
+        # xfce.thunar xfce.thunar-archive-plugin
+        pcmanfm
+        zathura
 
-      # PHOTO, GRAPHICS & VIDEO
-      unstable.darktable hugin inkscape-with-extensions jpegoptim krita luminanceHDR
-      mediainfo unstable.gimp-with-plugins
+        # VISUAL
+        gsettings-desktop-schemas gtk-engine-murrine gtk_engines
+        solarc-gtk-theme unstable.gnome.adwaita-icon-theme
 
-      # GAMING
-      lutris minecraft unstable.optifine minetest
-      proton-caller protontricks protonup
-      unstable.heroic
+        # PHOTO, GRAPHICS & VIDEO
+        unstable.darktable hugin inkscape-with-extensions jpegoptim krita luminanceHDR
+        mediainfo unstable.gimp-with-plugins
 
-      # LATEX
-      biber texinfo texlab texlive.combined.scheme-full
+        # GAMING
+        lutris minecraft unstable.optifine minetest
+        proton-caller protontricks protonup
+        unstable.heroic
 
-      # KERNEL
-      config.boot.kernelPackages.v4l2loopback
+        # LATEX
+        biber texinfo texlab texlive.combined.scheme-full
+
+        # KERNEL
+        config.boot.kernelPackages.v4l2loopback
 
     ];
 

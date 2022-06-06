@@ -22,7 +22,7 @@ alias la="exa --group-directories-first --color=always -laG --no-user"
 
 alias ytfzf="ytfzf -t --thumb-viewer=catimg --thumbnail-quality=medium"
 alias vim="nvim"
-alias v="nvim"
+alias v="hx"
 alias onefetch="onefetch --true-color never"
 
 # mkdir create parents

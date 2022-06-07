@@ -31,6 +31,10 @@ exec ./schemescript.sh &
 cd "$DIR" || exit
 echo "nvim"
 
+# helix
+shgen "$DOTSCONF"/helix/themes/genbase16_custom.toml "$DOTSCONF"/helix/themes/genbase16_custom.toml &
+echo "helix"
+
 # zathura
 shgen "$DOTSCONF"/zathura/genzathurarc "$DOTSCONF"/zathura/zathurarc &
 echo "zathura"

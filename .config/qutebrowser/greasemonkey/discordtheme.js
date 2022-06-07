@@ -31,24 +31,24 @@ GM_addStyle ( `
     --grey: #657b83;
     --xcolor15: #839496;
 
-    --sans: Fira Sans;
+    --sans: FreeSans;
     --mono: Iosevka;
 
     --br: 2em;
 }
 
 div {
-    font-family: "Fira Sans" !important;
+    font-family: var(--sans) !important;
     font-weight: 400;
 }
 
 body {
-    font-family: "Fira Sans" !important;
+    font-family: var(--sans) !important;
     font-weight: 400;
 }
 
 code {
-    font-family: "Iosevka" !important;
+    font-family: var(--mono) !important;
     font-weight: 400;
 }
 

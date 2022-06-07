@@ -3,7 +3,7 @@
 [options]
 
 background = #00171d
-overlay_font = FiraSans:12
+overlay_font = FreeSansSans:12
 overlay_text_color = 93a1a1
 overlay_background_color = 073642
 overlay_position_bottom = true

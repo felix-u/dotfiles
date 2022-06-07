@@ -30,7 +30,7 @@ GM_addStyle ( `
     --grey: #657b83;
     --xcolor15: #839496;
 
-    --sans: Fira Sans;
+    --sans: FreeSans;
     --mono: Iosevka;
 
     --br: 2em;

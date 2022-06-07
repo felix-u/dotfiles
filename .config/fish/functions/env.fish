@@ -12,8 +12,8 @@ set -Ux BAT_THEME "ansi"
 # Defaults
 set -Ux TERMINAL 'foot'
 set -Ux TERM_ITALICS true
-set -Ux EDITOR 'nvim'
-set -Ux VISUAL "nvim"
+set -Ux EDITOR 'hx'
+set -Ux VISUAL "hx"
 set -Ux READER 'zathura'
 set -Ux VIDEO 'mpv'
 set -Ux IMAGE 'imv'
@@ -32,6 +32,9 @@ set -Ux LESS_TERMCAP_ue \e\[0m
 set -Ux LESS_TERMCAP_us \e\[1\;36m
 
 set -Ux QT_QPA_PLATFORMTHEME "qt5ct"
+
+# RUST
+set -Ux RUSTC_WRAPPER "sccache"
 
 set -Ux STARSHIP_CONFIG ~/.config/starship/starship.toml
 

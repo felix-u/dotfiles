@@ -66,7 +66,6 @@
         # UTILS IN RUST
         bat # cat
         bottom # top
-        exa # ls
         fd # find
         unstable.helix # nvim (ish!)
         imgclr # haha, c'est a moi :D

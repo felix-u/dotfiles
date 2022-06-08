@@ -17,8 +17,8 @@ alias fontpreview="~/dotfiles/scripts/fontpreview"
 
 alias h="hx"
 
-alias ls="exa --group-directories-first --color=always -a"
-alias la="exa --group-directories-first --color=always -laG --no-user"
+alias la="ls --group-directories-first --color=always -lAh"
+alias ls="ls --group-directories-first --color=always -Ah"
 
 alias ytfzf="ytfzf -t --thumb-viewer=catimg --thumbnail-quality=medium"
 alias vim="nvim"

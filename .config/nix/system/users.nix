@@ -71,10 +71,12 @@ in {
 
         programs.chromium = {
           enable = true;
-          package = pkgs.ungoogled-chromium;
+          package = pkgs.chromium;
           commandLineArgs = [
+            "-animation-duration-scale=0.5"
             "-enable-features=UseOzonePlatform"
             "-ozone-platform=wayland"
+            "-homepage='https://search.brave.com'"
           ];
           extensions = [
             # ublock origin

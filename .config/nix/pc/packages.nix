@@ -13,7 +13,8 @@
         ckan
 
         # AUDIO/VIDEO
-        libsForQt5.kdenlive
+        davinci-resolve # runs through xwayland :(
+        libsForQt5.kdenlive # QT dropdowns not working on wayland :(((
 
         # GAMING
         corectrl glxinfo

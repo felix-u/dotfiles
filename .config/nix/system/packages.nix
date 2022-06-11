@@ -42,7 +42,7 @@
     environment.systemPackages =
     let
         unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-
+            
         # effectively "symlink" sudo to doas
         doas-as-sudo = (pkgs.writeShellScriptBin "sudo" ''
             echo "Warning: \"sudo\" runs \"doas\""
@@ -62,6 +62,7 @@
 
         # ESSENTIAL
         foot unstable.gh git neofetch pfetch starship stow wget
+        kitty
 
         # UTILS IN RUST
         bat # cat

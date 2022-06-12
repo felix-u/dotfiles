@@ -28,8 +28,8 @@
     };
 
     # emacs setup and overlay
-    services.emacs.package = pkgs.emacsPgtkNativeComp;
-    services.emacs.enable = true;
+    # services.emacs.package = pkgs.emacsPgtkNativeComp;
+    # services.emacs.enable = true;
     nixpkgs.overlays = [
       (import (builtins.fetchGit {
         url = "https://github.com/nix-community/emacs-overlay.git";
@@ -42,7 +42,7 @@
     environment.systemPackages =
     let
         unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-            
+
         # effectively "symlink" sudo to doas
         doas-as-sudo = (pkgs.writeShellScriptBin "sudo" ''
             echo "Warning: \"sudo\" runs \"doas\""
@@ -84,7 +84,7 @@
         python39Packages.bsdiff4 python39Packages.pip
         python3Full python39Packages.python-lsp-server
         python39Packages.termcolor
-        so sccache shellcheck unstable.rustc 
+        so sccache shellcheck unstable.rustc
         unstable.clang unstable.deadnix unstable.godot unstable.statix
         valgrind
         yarn
@@ -92,7 +92,8 @@
         # asepriteLatest
         unstable.aseprite-unfree
         # experimenting with lisp:
-        cachix clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
+        cachix
+        # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
 
         # NEOVIM
         cmake-language-server nodePackages.bash-language-server

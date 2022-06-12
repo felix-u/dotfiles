@@ -238,7 +238,7 @@ pkill dunst
 dunst &
 
 # emacs daemon
-emacs --daemon &
+# emacs --daemon &
 
 # foot terminal server
 foot --server &

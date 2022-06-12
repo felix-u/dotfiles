@@ -37,7 +37,7 @@ swaymsg "bindsym $MOD+$SPLITV splitv" &
 # term
 swaymsg "bindsym $MOD+$RETURN exec $TERM" &
 # emacs
-swaymsg "bindsym $MOD+Shift+$RETURN exec emacsclient -c" &
+swaymsg "bindsym $MOD+Shift+$RETURN exec emacs" &
 # navigation
 swaymsg "bindsym $MOD+$LEFT focus left" &
 swaymsg "bindsym $MOD+$DOWN focus down" &

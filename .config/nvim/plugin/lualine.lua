@@ -22,7 +22,7 @@ local colors = {
   color7   = utils.extract_color_from_hllist('fg', { 'StatusLine' }, '#000000'),
 }
 
-local none = colors.bg
+local none = colors.color0
 
 require('lualine').setup {
 	options = {
@@ -62,13 +62,14 @@ require('lualine').setup {
 	sections = {
 		lualine_a = {
 			{ 'filename', fmt = string.lower,
-                color = { bg = colors.bg, fg = colors.color15 } },
+                -- color = { bg = colors.color8, fg = colors.fg }
+            },
 			-- { 'mode', fmt = string.upper,
    --              color = { gui = 'italic,bold' } }
 		},
 
 		lualine_b = {
-			{ 'filetype', color = { gui = 'italic,bold' } }
+			{}
 		},
 
 		lualine_c = {
@@ -82,10 +83,11 @@ require('lualine').setup {
 		},
 
 		lualine_y = {
-			{ 'branch', fmt = string.lower, color = { gui = 'bold' } }
+			{ 'branch', fmt = string.lower, color = { bg = colors.color0, gui = 'bold', fg = colors.cyan } },
+            -- { 'filetype', color = { gui = 'italic,bold', bg = colors.color0, fg = colors.color7 } }
 		},
 		lualine_z = {
-			{ 'location', color = {bg = colors.bg, fg = colors.fg } }
+			{ 'location', color = {bg = colors.color0, fg = colors.fg } }
 		}
 	}
 }

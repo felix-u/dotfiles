@@ -9,6 +9,7 @@ let
     montserrat = import ../derivations/fonts/montserrat.nix;
     oswald = import ../derivations/fonts/oswald.nix;
     playfair = import ../derivations/fonts/playfair.nix;
+    sf-mono = import ../derivations/fonts/sfmononerdfont.nix;
     space-grotesk = import ../derivations/fonts/space-grotesk.nix;
     spacemono = import ../derivations/fonts/spacemono.nix;
 in {
@@ -46,6 +47,7 @@ in {
 
         # some more monospace fonts
         ibm-plex jetbrains-mono office-code-pro roboto-mono
+        sf-mono # apple's programming font, patched with nerd fonts
         spacemono # slab monospace font which inspired space-grotesk - FOSS
 
         # low res bitmap fonts, out of curiosity

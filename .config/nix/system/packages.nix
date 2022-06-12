@@ -43,6 +43,8 @@
     let
         unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
+        alacritty-ligatures = (pkgs.callPackage ../derivations/alacritty-ligatures.nix {});
+
         # effectively "symlink" sudo to doas
         doas-as-sudo = (pkgs.writeShellScriptBin "sudo" ''
             echo "Warning: \"sudo\" runs \"doas\""
@@ -63,6 +65,7 @@
         # ESSENTIAL
         foot unstable.gh git neofetch pfetch starship stow wget
         kitty
+        # alacritty-ligatures
 
         # UTILS IN RUST
         bat # cat

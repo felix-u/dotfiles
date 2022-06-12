@@ -63,8 +63,7 @@
     with pkgs; [
 
         # ESSENTIAL
-        foot unstable.gh git neofetch pfetch starship stow wget
-        kitty
+        foot unstable.gh git neofetch pfetch starship stow wezterm wget
         # alacritty-ligatures
 
         # UTILS IN RUST

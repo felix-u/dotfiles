@@ -1,20 +1,24 @@
 return require('packer').startup{function(use, vim)
 
     -- spEEd. I am spEEEEED.
-    use 'lewis6991/impatient.nvim'
+    use "lewis6991/impatient.nvim"
 
     -- packer-ception
-    use 'wbthomason/packer.nvim'
+    use "wbthomason/packer.nvim"
 
     -- colour
     use {
-        'RRethy/vim-hexokinase',
+        "RRethy/vim-hexokinase",
         run = 'make hexokinase',
-        cmd  = {"HexokinaseToggle"}
+        cmd  = {"HexokinaseToggle"},
+        opt = true
     }
 
     -- LaTeX babyyyy
-    use 'lervag/vimtex'
+    use {
+        "lervag/vimtex",
+        opt = true
+    }
 
     -- better comments
     use 'numToStr/Comment.nvim'
@@ -42,11 +46,23 @@ return require('packer').startup{function(use, vim)
     use 'tpope/vim-surround'
 
     -- HTML
-    use 'othree/html5.vim'
-    use 'mattn/emmet-vim'
+    use {
+        "othree/html5.vim",
+        opt = true
+    }
+    use {
+        "mattn/emmet-vim",
+        opt = true
+    }
     -- working with tags
-    use 'alvan/vim-closetag'
-    use 'gregsexton/MatchTag'
+    use {
+        "alvan/vim-closetag",
+        opt = true
+    }
+    use {
+        "gregsexton/MatchTag",
+        opt = true
+    }
 
     -- file tree
     -- switched to nnn and ditch nvim-tree.
@@ -63,7 +79,9 @@ return require('packer').startup{function(use, vim)
                 empty = true,
             },
             auto_close = true,
-        }) end
+        }) end,
+        opt = true,
+        cmd = { "NnnExplorer", "NnnPicker" }
     }
 
     -- fuzyy finding and other stuff. pretty kool
@@ -103,7 +121,11 @@ return require('packer').startup{function(use, vim)
     use "rafamadriz/friendly-snippets"
 
     -- better text wrapping
-    use 'reedes/vim-pencil'
+    use {
+        'reedes/vim-pencil',
+        opt = true,
+        ft = { "markdown", "tex",  }
+    }
 
     -- status line :)))))
     use {
@@ -129,11 +151,11 @@ return require('packer').startup{function(use, vim)
         run = ':TSUpdate',
     }
 
-    -- syntax highlighting for kerboscript (syntax used in kOS scripts)
-    use {
-        'KSP-KOS/EditorTools',
-        rtp = 'VIM/vim-kerboscript'
-    }
+    -- -- syntax highlighting for kerboscript (syntax used in kOS scripts)
+    -- use {
+    --     'KSP-KOS/EditorTools',
+    --     rtp = 'VIM/vim-kerboscript'
+    -- }
 
     -- colour schemes (which I probably won't actually use)
     use 'rktjmp/lush.nvim'
@@ -174,7 +196,10 @@ return require('packer').startup{function(use, vim)
     use 'tpope/vim-repeat'
 
     -- godot support
-    use 'habamax/vim-godot'
+    use {
+        'habamax/vim-godot',
+        opt = true
+    }
 
     -- what it says on the tin
     use 'ggandor/lightspeed.nvim'
@@ -234,28 +259,169 @@ return require('packer').startup{function(use, vim)
     }
 
     -- support for yuck (syntax used by eww)
-    use 'elkowar/yuck.vim'
+    use {
+        'elkowar/yuck.vim',
+        opt = true
+    }
 
     -- transparency
-    use 'xiyaowong/nvim-transparent'
+    use {
+        'xiyaowong/nvim-transparent',
+        opt = true,
+        cmd = 'TransparentToggle',
+        config = function()
+            require("transparent").setup({
+              enable = true, -- boolean: enable transparent
+              extra_groups = { -- table/string: additional groups that should be clear
+                -- In particular, when you set it to 'all', that means all avaliable groups
+
+                "all",
+                -- example of akinsho/nvim-bufferline.lua
+                "BufferLineTabClose",
+                "BufferlineBufferSelected",
+                "BufferLineFill",
+                "BufferLineBackground",
+                "BufferLineSeparator",
+                "BufferLineIndicatorSelected",
+                "indentLine_bgcolor_term",
+                "indentLine_bgcolor_gui"
+              },
+              exclude = {}, -- table: groups you don't want to clear
+            })
+        end
+    }
 
     -- harpooon
     use 'ThePrimeagen/harpoon'
-    -- get good at vim through practice games
-    use 'ThePrimeagen/vim-be-good'
 
     -- self-explanatory
-    use {
-        'iamcco/markdown-preview.nvim',
-        run = "cd app && yarn install"
-    }
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 
     -- zettelkasten note-taking
     use {
         'renerocksai/telekasten.nvim',
         requires = {
             'renerocksai/calendar-vim'
-        }
+        },
+        opt = true,
+        config = function ()
+            local home = vim.fn.expand("~/uni/zettelkasten")
+            require('telekasten').setup({
+                home         = home,
+
+                -- if true, telekasten will be enabled when opening a note within the
+                -- configured home
+                take_over_my_home = true,
+
+                -- auto-set telekasten filetype: if false, the telekasten filetype will
+                -- not be used and thus the telekasten syntax will not be loaded either
+                auto_set_filetype = true,
+
+                -- dir names for special notes (absolute path or subdir name)
+                dailies      = home .. '/' .. 'daily',
+                weeklies     = home .. '/' .. 'weekly',
+                templates    = home .. '/' .. 'templates',
+
+                -- image (sub)dir for pasting
+                -- dir name (absolute path or subdir name)
+                -- or nil if pasted images shouldn't go into a special subdir
+                image_subdir = "img",
+
+                -- markdown file extension
+                extension    = ".md",
+
+                -- following a link to a non-existing note will create it
+                follow_creates_nonexisting = true,
+                dailies_create_nonexisting = true,
+                weeklies_create_nonexisting = true,
+
+                -- template for new notes (new_note, follow_link)
+                -- set to `nil` or do not specify if you do not want a template
+                -- template_new_note = home .. '/' .. 'templates/new_note.md',
+                template_new_note = nil,
+
+                -- template for newly created daily notes (goto_today)
+                -- set to `nil` or do not specify if you do not want a template
+                -- template_new_daily = home .. '/' .. 'templates/daily.md',
+                template_new_daily = nil,
+
+                -- template for newly created weekly notes (goto_thisweek)
+                -- set to `nil` or do not specify if you do not want a template
+                -- template_new_weekly= home .. '/' .. 'templates/weekly.md',
+                template_new_weekly= nil,
+
+                -- image link style
+                -- wiki:     ![[image name]]
+                -- markdown: ![](image_subdir/xxxxx.png)
+                image_link_style = "markdown",
+
+                -- integrate with calendar-vim
+                plug_into_calendar = true,
+                calendar_opts = {
+                    -- calendar week display mode: 1 .. 'WK01', 2 .. 'WK 1', 3 .. 'KW01', 4 .. 'KW 1', 5 .. '1'
+                    weeknm = 4,
+                    -- use monday as first day of week: 1 .. true, 0 .. false
+                    calendar_monday = 1,
+                    -- calendar mark: where to put mark for marked days: 'left', 'right', 'left-fit'
+                    calendar_mark = 'left-fit',
+                },
+
+                -- telescope actions behavior
+                close_after_yanking = false,
+                insert_after_inserting = true,
+
+                -- tag notation: '#tag', ':tag:', 'yaml-bare'
+                tag_notation = "#tag",
+
+                -- command palette theme: dropdown (window) or ivy (bottom panel)
+                command_palette_theme = "dropdown",
+
+                -- tag list theme:
+                -- get_cursor: small tag list at cursor; ivy and dropdown like above
+                show_tags_theme = "dropdown",
+
+                -- when linking to a note in subdir/, create a [[subdir/title]] link
+                -- instead of a [[title only]] link
+                subdirs_in_links = true,
+
+                -- template_handling
+                -- What to do when creating a new note via `new_note()` or `follow_link()`
+                -- to a non-existing note
+                -- - prefer_new_note: use `new_note` template
+                -- - smart: if day or week is detected in title, use daily / weekly templates (default)
+                -- - always_ask: always ask before creating a note
+                template_handling = "smart",
+
+                -- path handling:
+                --   this applies to:
+                --     - new_note()
+                --     - new_templated_note()
+                --     - follow_link() to non-existing note
+                --
+                --   it does NOT apply to:
+                --     - goto_today()
+                --     - goto_thisweek()
+                --
+                --   Valid options:
+                --     - smart: put daily-looking notes in daily, weekly-looking ones in weekly,
+                --              all other ones in home, except for notes/with/subdirs/in/title.
+                --              (default)
+                --
+                --     - prefer_home: put all notes in home except for goto_today(), goto_thisweek()
+                --                    except for notes with subdirs/in/title.
+                --
+                --     - same_as_current: put all new notes in the dir of the current note if
+                --                        present or else in home
+                --                        except for notes/with/subdirs/in/title.
+                new_note_location = "smart",
+
+                -- should all links be updated when a file is renamed
+                rename_update_links = true,
+            })
+        end
     }
 
 end,

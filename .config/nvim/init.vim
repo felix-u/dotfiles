@@ -378,4 +378,3 @@ nnoremap <leader>zst :Telekasten show_tags<cr>
 nnoremap <leader>zr :Telekasten rename_note<cr>
 nnoremap <leader>zml :Telekasten insert_link({ i=true })<cr>
 nnoremap <leader>z :Telekasten panel<cr>
-

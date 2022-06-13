@@ -314,7 +314,7 @@ nnoremap <leader>a  <cmd>Lspsaga code_action<cr>
 nnoremap <leader>b  <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
 nnoremap <leader>B  <cmd>Telescope buffers<cr>
 nnoremap <leader>f  <cmd>Telescope find_files<cr>
-nnoremap <leader>k  <cmd>Lspsaga lsp_finder<cr>
+nnoremap <leader>k  <cmd>lua vim.lsp.buf.hover()<cr>
 nnoremap <leader>r  <cmd>Lspsaga rename<cr>
 
 " O: "open"
@@ -352,6 +352,7 @@ nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.rename()<CR>
 
 " T: toggle
 nnoremap <leader>tc :HexokinaseToggle<CR>
+nnoremap <leader>tl <cmd>TroubleToggle<CR>
 nnoremap <leader>tm :MarkdownPreviewToggle<cr>
 nnoremap <leader>ts :setlocal spell! spelllang=en_gb<CR>
 nnoremap <leader>tt :TransparentToggle<CR>

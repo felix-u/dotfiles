@@ -317,30 +317,29 @@ nnoremap <leader>f  <cmd>Telescope find_files<cr>
 nnoremap <leader>k  <cmd>Lspsaga lsp_finder<cr>
 nnoremap <leader>r  <cmd>Lspsaga rename<cr>
 
-" F: find
+" O: "open"
 " telescope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fm <cmd>Telescope harpoon marks<cr>
+nnoremap <leader>og <cmd>Telescope live_grep<cr>
+nnoremap <leader>ob <cmd>Telescope buffers<cr>
+nnoremap <leader>oh <cmd>Telescope help_tags<cr>
+nnoremap <leader>om <cmd>Telescope harpoon marks<cr>
 
 " G: "goto" - marks and harpoon
 nnoremap <leader>ga :lua require("harpoon.mark").add_file()<CR>
-nnoremap <leader>gq :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <leader>gm :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <leader>gj <C-^>
 nnoremap <leader>gp :lua require("harpoon.ui").nav_prev()<CR>
 nnoremap <leader>gn :lua require("harpoon.ui").nav_next()<CR>
-" colemak
-nnoremap <leader>ggm :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <leader>ggn :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <leader>gge :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <leader>ggi :lua require("harpoon.ui").nav_file(4)<CR>
-" qwerty
-nnoremap <leader>ggh :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <leader>ggj :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <leader>ggk :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <leader>ggl :lua require("harpoon.ui").nav_file(4)<CR>
+" numeric
+nnoremap <leader>g1 :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <leader>g2 :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <leader>g3 :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <leader>g4 :lua require("harpoon.ui").nav_file(4)<CR>
+" vim keys
+nnoremap <leader>g<Left> :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <leader>g<Down> :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <leader>g<Up> :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <leader>g<Right> :lua require("harpoon.ui").nav_file(4)<CR>
 
 " L: LSP
 nnoremap <silent> <leader>la :Trouble quickfix<CR>

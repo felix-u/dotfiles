@@ -100,16 +100,17 @@ return require('packer').startup{function(use, vim)
     -- syntax completion and tab autocomplete
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-buffer"
+    use { "mtoohey31/cmp-fish", ft = "fish" }
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-cmdline"
-    use "hrsh7th/cmp-nvim-lua"
+    use { "hrsh7th/cmp-nvim-lua", ft = "lua" }
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-calc"
     use "f3fora/cmp-spell"
     use "lukas-reineke/cmp-rg"
     use "tamago324/cmp-zsh"
     use "hrsh7th/cmp-emoji"
-    use "kdheepak/cmp-latex-symbols"
+    use { "kdheepak/cmp-latex-symbols", ft = "tex" }
 
     -- add icons to completion menu
     use "onsails/lspkind.nvim"

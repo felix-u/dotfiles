@@ -7,6 +7,19 @@ cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex =
 
 cmp.setup {
 
+    -- don't enable completion in comments
+    enabled = function()
+      -- disable completion in comments
+      local context = require 'cmp.config.context'
+      -- keep command mode completion enabled when cursor is in a comment
+      if vim.api.nvim_get_mode().mode == 'c' then
+        return true
+      else
+        return not context.in_treesitter_capture("comment")
+          and not context.in_syntax_group("Comment")
+      end
+    end,
+
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body)
@@ -45,11 +58,11 @@ cmp.setup {
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-n>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<C-Tab>'] = cmp.mapping.confirm({
+        ['<C-y>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         }),
-        ['<C-y>'] = cmp.mapping.confirm({
+        ['<C-o>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         }),
@@ -61,7 +74,7 @@ cmp.setup {
             else
                 fallback()
             end
-        end, { 'i' }),
+        end, { 'i', 's' }),
         ['<S-Tab>'] = cmp.mapping(function(fallback)
               if cmp.visible() then
                 cmp.select_prev_item()
@@ -70,7 +83,7 @@ cmp.setup {
               else
                 fallback()
               end
-        end, { 'i', }),
+        end, { 'i', 's' }),
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
@@ -80,7 +93,8 @@ cmp.setup {
         { name = 'calc' },
         { name = 'spell' },
         -- { name = 'rg' },
-        { name = 'zsh' },
+        -- { name = 'zsh' },
+        { name = 'fish' },
         { name = 'copilot' },
         { name = 'emoji' },
         { name = 'latex_symbols' },
@@ -88,6 +102,25 @@ cmp.setup {
         { name = 'buffer' },
     })
 }
+
+-- These are sort of annoying but I haven't given up on them entirely
+
+-- -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+-- cmp.setup.cmdline('/', {
+--     mapping = cmp.mapping.preset.cmdline(),
+--     sources = {
+--       { name = 'buffer' }
+--     }
+-- })
+-- -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- cmp.setup.cmdline(':', {
+--     mapping = cmp.mapping.preset.cmdline(),
+--     sources = cmp.config.sources({
+--       { name = 'path' }
+--     }, {
+--       { name = 'cmdline' }
+--     })
+-- })
 
 -- set up servers
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())

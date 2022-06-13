@@ -305,6 +305,10 @@ set completeopt=menu,menuone,noselect
 " |_| |_| |_|\__,_| .__/| .__/|_|_| |_|\__, |___/
 "                 |_|   |_|            |___/
 
+" non-leader mappings
+" nnn
+nnoremap <C-t> <cmd>NnnExplorer<cr>
+
 " F: find
 " telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -312,8 +316,6 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fm <cmd>Telescope harpoon marks<cr>
-" nnn
-nnoremap <leader>ft <cmd>NnnExplorer<CR>
 
 " G: "goto" - marks and harpoon
 nnoremap <leader>ga :lua require("harpoon.mark").add_file()<CR>

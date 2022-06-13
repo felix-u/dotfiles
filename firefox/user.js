@@ -51,6 +51,8 @@ user_pref("_user.js.parrot", "0300 syntax error: the parrot's not pinin' for the
 user_pref("extensions.getAddons.showPane", false); // [HIDDEN PREF]
 /* 0321: disable recommendations in about:addons' Extensions and Themes panes [FF68+] ***/
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
+// fullscreen controls fill the firefox window, not the actual screen
+user_pref("full-screen-api.ignore-widgets", true);
 /* 0322: disable personalized Extension Recommendations in about:addons and AMO [FF65+]
  * [NOTE] This pref has no effect when Health Reports (0331) are disabled
  * [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations

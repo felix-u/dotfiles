@@ -258,6 +258,7 @@ return require('packer').startup{function(use, vim)
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
     }
+    use 'glepnir/lspsaga.nvim'
 
     -- support for yuck (syntax used by eww)
     use {

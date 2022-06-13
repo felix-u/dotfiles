@@ -11,7 +11,7 @@ local no_errors, error_msg = pcall(function()
 
   local time
   local profile_info
-  local should_profile = true
+  local should_profile = false
   if should_profile then
     local hrtime = vim.loop.hrtime
     profile_info = {}
@@ -240,6 +240,11 @@ _G.packer_plugins = {
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
   },
+  ["lspsaga.nvim"] = {
+    loaded = true,
+    path = "/home/felix/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
+    url = "https://github.com/glepnir/lspsaga.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -365,7 +370,7 @@ _G.packer_plugins = {
   },
   ["telekasten.nvim"] = {
     after = { "calendar-vim" },
-    config = { "\27LJ\2\nÂ\5\0\0\a\1\16\0\30-\0\0\0009\0\0\0009\0\1\0'\2\2\0B\0\2\0026\1\3\0'\3\4\0B\1\2\0029\1\5\0015\3\6\0=\0\a\3\18\4\0\0'\5\b\0'\6\t\0&\4\6\4=\4\n\3\18\4\0\0'\5\b\0'\6\v\0&\4\6\4=\4\f\3\18\4\0\0'\5\b\0'\6\r\0&\4\6\4=\4\r\0035\4\14\0=\4\15\3B\1\2\1K\0\1\0\1À\18calendar_opts\1\0\3\20calendar_monday\3\1\18calendar_mark\rleft-fit\vweeknm\3\4\14templates\rweeklies\vweekly\fdailies\ndaily\6/\thome\1\0\18\22new_note_location\nsmart\14extension\b.md\22template_handling\nsmart\31follow_creates_nonexisting\2\31dailies_create_nonexisting\2 weeklies_create_nonexisting\2\21image_link_style\rmarkdown\23plug_into_calendar\2\24close_after_yanking\1\27insert_after_inserting\2\17tag_notation\t#tag\26command_palette_theme\rdropdown\20show_tags_theme\rdropdown\21subdirs_in_links\2\22take_over_my_home\2\22auto_set_filetype\2\24rename_update_links\2\17image_subdir\bimg\nsetup\15telekasten\frequire\23~/uni/zettelkasten\vexpand\afn\0" },
+    config = { "\27LJ\2\nÂ\5\0\0\a\1\16\0\30-\0\0\0009\0\0\0009\0\1\0'\2\2\0B\0\2\0026\1\3\0'\3\4\0B\1\2\0029\1\5\0015\3\6\0=\0\a\3\18\4\0\0'\5\b\0'\6\t\0&\4\6\4=\4\n\3\18\4\0\0'\5\b\0'\6\v\0&\4\6\4=\4\f\3\18\4\0\0'\5\b\0'\6\r\0&\4\6\4=\4\r\0035\4\14\0=\4\15\3B\1\2\1K\0\1\0\1À\18calendar_opts\1\0\3\20calendar_monday\3\1\vweeknm\3\4\18calendar_mark\rleft-fit\14templates\rweeklies\vweekly\fdailies\ndaily\6/\thome\1\0\18\22template_handling\nsmart\24rename_update_links\2\22auto_set_filetype\2\22take_over_my_home\2\21subdirs_in_links\2\20show_tags_theme\rdropdown\26command_palette_theme\rdropdown\22new_note_location\nsmart\17tag_notation\t#tag\27insert_after_inserting\2\24close_after_yanking\1\23plug_into_calendar\2\21image_link_style\rmarkdown weeklies_create_nonexisting\2\31dailies_create_nonexisting\2\31follow_creates_nonexisting\2\14extension\b.md\17image_subdir\bimg\nsetup\15telekasten\frequire\23~/uni/zettelkasten\vexpand\afn\0" },
     loaded = false,
     needs_bufread = true,
     path = "/home/felix/.local/share/nvim/site/pack/packer/opt/telekasten.nvim",
@@ -501,15 +506,15 @@ time([[Config for neorg]], false)
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NnnExplorer lua require("packer.load")({'nnn.nvim'}, { cmd = "NnnExplorer", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NnnPicker lua require("packer.load")({'nnn.nvim'}, { cmd = "NnnPicker", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TransparentToggle lua require("packer.load")({'nvim-transparent'}, { cmd = "TransparentToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file HexokinaseToggle lua require("packer.load")({'vim-hexokinase'}, { cmd = "HexokinaseToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TransparentToggle lua require("packer.load")({'nvim-transparent'}, { cmd = "TransparentToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType tex ++once lua require("packer.load")({'vim-pencil', 'cmp-latex-symbols'}, { ft = "tex" }, _G.packer_plugins)]]
+vim.cmd [[au FileType tex ++once lua require("packer.load")({'cmp-latex-symbols', 'vim-pencil'}, { ft = "tex" }, _G.packer_plugins)]]
 vim.cmd [[au FileType fish ++once lua require("packer.load")({'cmp-fish'}, { ft = "fish" }, _G.packer_plugins)]]
 vim.cmd [[au FileType lua ++once lua require("packer.load")({'cmp-nvim-lua'}, { ft = "lua" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-pencil'}, { ft = "markdown" }, _G.packer_plugins)]]

@@ -330,6 +330,22 @@ call <sid>hi("TSKeywordOperator", s:gui04, "", s:cterm04, "", "italic", "")
 call <sid>hi("TSInclude", s:gui0D, "", s:cterm0D, "", "bold", "")
 call <sid>hi("TSType", s:gui0A, "", s:cterm0A, "", "italic", "")
 
+" Lspsaga
+call <sid>hi("LspSagaFinderSelection", s:gui07, s:gui01, s:cterm07, s:cterm01, "bold", "")
+call <sid>hi("LspSagaLspFinderBorder", s:gui02, "", s:cterm02, "", "", "")
+call <sid>hi("LspFloatWinNormal", s:gui07, "", s:cterm07, "", "", "")
+call <sid>hi("LspSagaRenameBorder", s:gui02, "", s:cterm02, "", "", "")
+call <sid>hi("LspSagaHoverBorder", s:gui02, "", s:cterm02, "", "", "")
+call <sid>hi("LspSagaSignatureHelpBorder", s:gui02, "", s:cterm02, "", "", "")
+call <sid>hi("LspSagaCodeActionBorder", s:gui02, "", s:cterm02, "", "", "")
+call <sid>hi("LspSagaAutoPreview", s:gui02, "", s:cterm02, "", "", "")
+call <sid>hi("LspSagaDefPreviewBorder", s:gui02, "", s:cterm02, "", "", "")
+call <sid>hi("LspLinesDiagBorder", s:gui02, "", s:cterm02, "", "", "")
+call <sid>hi("LspSagaDiagnosticBorder", s:gui02, "", s:cterm02, "", "", "")
+call <sid>hi("SagaShadow", s:gui02, "", s:cterm02, "", "", "")
+call <sid>hi("TargetWord", s:gui0B, "", s:cterm0B, "", "", "")
+call <sid>hi("LspSagaRenamePromptPrefix", s:gui0C, "", s:cterm0C, "", "", "")
+
 " Remove functions
 delf <sid>hi
 delf <sid>gui

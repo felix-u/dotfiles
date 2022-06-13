@@ -61,8 +61,8 @@ let mapleader = " "
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
-nnoremap <leader>ii za
-nnoremap <leader>ip zf}
+" nnoremap <leader>ii za
+" nnoremap <leader>ip zf}
 set foldmethod=manual
 hi! link SignColumn Normal
 " remember folds from previous sessions
@@ -308,6 +308,14 @@ set completeopt=menu,menuone,noselect
 " non-leader mappings
 " nnn
 nnoremap <C-t> <cmd>NnnExplorer<cr>
+
+" one-key leader bindings
+nnoremap <leader>a  <cmd>Lspsaga code_action<cr>
+nnoremap <leader>b  <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <leader>B  <cmd>Telescope buffers<cr>
+nnoremap <leader>f  <cmd>Telescope find_files<cr>
+nnoremap <leader>k  <cmd>Lspsaga lsp_finder<cr>
+nnoremap <leader>r  <cmd>Lspsaga rename<cr>
 
 " F: find
 " telescope

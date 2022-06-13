@@ -47,6 +47,8 @@ alias rg="rg -uuu"
 # fuzzy finding ftw
 alias sk="sk --color=16 --reverse"
 
+alias t="tmux"
+
 # get temps by watching lm_sensors every half a second
 alias temps="watch -n 0.5 sensors"
 

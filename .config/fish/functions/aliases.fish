@@ -5,7 +5,8 @@ alias weatherreport="curl 'wttr.in/dc?m&format=v2d'"
 alias cat="bat --style plain"
 alias clock="tty-clock -c -C 6 -D"
 alias cmatrix="cmatrix -u 2"
-alias dsk="startx \"$HOME/.xinitrc\""
+# alias dsk="startx \"$HOME/.xinitrc\""
+alias dsk="sx \"$HOME/.xinitrc\""
 alias cdu="cd ~/uni/2022/spring"
 
 # fd (find) - what is it with people hardcoding colours instead of using ansi??

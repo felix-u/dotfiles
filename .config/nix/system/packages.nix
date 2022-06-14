@@ -146,7 +146,7 @@
         # GAMING
         lutris minecraft unstable.optifine minetest
         proton-caller protontricks protonup
-        unstable.heroic
+        unstable.heroic mangohud
 
         # LATEX
         biber texinfo texlab texlive.combined.scheme-full

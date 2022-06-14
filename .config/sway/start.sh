@@ -171,7 +171,6 @@ swaymsg "client.placeholder \
 # swaymsg "border_images.urgent ~/.config/sway/borders/v3/color0.png"
 # # 3
 
-
 #
 # |   |   _)      |                 |
 #  _|   \  |   \  | / _ \  _` |  _` |

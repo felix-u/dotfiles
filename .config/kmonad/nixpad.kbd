@@ -69,7 +69,7 @@
   tab  q    w    e    r    t    y    u    i    o    p     [   ]    \
   esc  a    s    d    f    g    h    j    k    l    ;     '      ret
   lsft z    x   c    v     b    n    m    ,    .    /          rsft        pgup  up  ralt
-  lalt     lctl lmet         spc          @nav  @sym rctl                  left down rght
+  lalt     lctl lmet         spc          @nav  ralt rctl                  left down rght
 )
 
 

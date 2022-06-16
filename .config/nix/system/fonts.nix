@@ -13,6 +13,7 @@ let
     space-grotesk = import ../derivations/fonts/space-grotesk.nix;
     spacemono = import ../derivations/fonts/spacemono.nix;
 in {
+
     # fonts
     fonts.fonts = with pkgs; [
 

@@ -11,3 +11,5 @@ mv ~/.Xresourcestemp "$XRESOURCES"
 ~/dotfiles/scripts/schemereload.sh
 
 echo "Swapped theme."
+
+rm ~/.Xresources.bckup

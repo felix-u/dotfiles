@@ -17,10 +17,10 @@ function GM_addStyle (cssStr) {
 
 GM_addStyle ( `
 :root {
-    --fg: #93a1a1;
-    --bg: #002b36;
-    --black: #073642;
-    --xcolor8: #224750;
+    --fg: #586e75;
+    --bg: #eee8d5;
+    --black: #e2dac1;
+    --xcolor8: #c6bc9f;
     --red: #dc322f;
     --green: #859900;
     --orange: #ca6721;
@@ -56,7 +56,7 @@ code {
 .theme-light,
 :root {
     --background-primary: var(--bg) !important;
-    --background-secondary: #03303c !important;
+    --background-secondary: #e8e1cb !important;
     --background-secondary-alt: var(--black) !important;
     --background-tertiary: var(--bg) !important;
     --background-accent: var(--bg) !important;
@@ -106,7 +106,7 @@ nav[aria-label="Servers sidebar"]:hover span.item-2LIpTv {
 
 /* server sidebar background colour */
 nav[aria-label="Servers sidebar"] div.scroller-3X7KbA.scrollerBase-_bVAAt {
-    /* background-color: #03303c !important; */
+    /* background-color: #e8e1cb !important; */
     background-color: var(--black) !important;
     transition: background-color 0.2s linear;
 }
@@ -117,7 +117,7 @@ nav[aria-label="Servers sidebar"]:hover div.scroller-3X7KbA.scrollerBase-_bVAAt 
 
 /* thing at the bottom of server bar with personal settings */
 div.container-YkUktl {
-    background-color: #03303c ;
+    background-color: #e8e1cb ;
 }
 
 /* server bar green buttons */
@@ -172,9 +172,9 @@ div.sidebar-1tnWFu:hover .container-YkUktl .avatar-1EWyVD {
 }
 /* header */
 div.sidebar-1tnWFu header.header-3OsQeK {
-    background-color: #03303c !important;
+    background-color: #e8e1cb !important;
     transition: background-color 0.2s linear;
-    /* color: #03303c !important; */
+    /* color: #e8e1cb !important; */
 }
 div.sidebar-1tnWFu:hover header.header-3OsQeK {
     background-color: transparent !important;

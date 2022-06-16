@@ -17,9 +17,9 @@ function GM_addStyle (cssStr) {
 
 GM_addStyle ( `
 :root {
-    --fg: #93a1a1;
-    --bg: #002b36;
-    --black: #073642;
+    --fg: #586e75;
+    --bg: #eee8d5;
+    --black: #e2dac1;
     --red: #dc322f;
     --green: #859900;
     --orange: #ca6721;

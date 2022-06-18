@@ -7,6 +7,8 @@ add_newline = false
 # 
 # Replace the default "❯" symbol:
 
+command_timeout = "100"
+
 [character]
 # success_symbol = "[](bold blue)[](bold yellow)[](bold red)"
 # error_symbol   = "[](bold red)[](bold purple)[](bold red)"

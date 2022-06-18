@@ -46,9 +46,11 @@ set -Ux NNN_TRASH 1
 set -Ux NNN_OPTS "C"
 
 # xdg-open and xdg-mime associations
-handlr set image/png imv.desktop
-handlr set image/jpeg imv.desktop
-handlr set image/ppm imv.desktop
+if type -q handlr
+    handlr set image/png imv.desktop
+    handlr set image/jpeg imv.desktop
+    handlr set image/ppm imv.desktop
+end
 
 # make cd great again
 set cdpath $HOME

@@ -43,7 +43,9 @@ source $XDG_CONFIG_HOME/fish/functions/aliases.fish
 source $XDG_CONFIG_HOME/fish/functions/funcs.fish
 
 # starship prompt
-starship init fish | source
+if type -q starship
+    starship init fish | source
+end
 
 # use in nix-shell
 any-nix-shell fish --info-right | source

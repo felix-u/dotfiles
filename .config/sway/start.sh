@@ -212,7 +212,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
     WDPI="1.3"
 
     swaymsg "output * resolution 3840x2160 position 3840 0 scale $WDPI" &
-    swaymsg "seat seat0 xcursor_theme "Adwaita" 24" &
+    swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
     swaymsg "xwayland scale=$WDPI" &
 
     pkill waybar

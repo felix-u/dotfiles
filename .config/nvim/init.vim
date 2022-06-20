@@ -316,13 +316,7 @@ nnoremap <leader>B  <cmd>Telescope buffers<cr>
 nnoremap <leader>f  <cmd>Telescope find_files<cr>
 nnoremap <leader>k  <cmd>lua vim.lsp.buf.hover()<cr>
 nnoremap <leader>r  <cmd>Lspsaga rename<cr>
-
-" O: "open"
-" telescope
-nnoremap <leader>og <cmd>Telescope live_grep<cr>
-nnoremap <leader>ob <cmd>Telescope buffers<cr>
-nnoremap <leader>oh <cmd>Telescope help_tags<cr>
-nnoremap <leader>om <cmd>Telescope harpoon marks<cr>
+nnoremap <leader>w  <cmd>bd<cr>
 
 " G: "goto" - marks and harpoon
 nnoremap <leader>ga :lua require("harpoon.mark").add_file()<CR>
@@ -349,6 +343,13 @@ nnoremap <silent> <leader>lk :Trouble lsp_type_definitions<CR>
 nnoremap <silent> <leader>ln :Trouble document_diagnostics<CR>
 nnoremap <silent> <leader>lt <cmd>TroubleToggle<CR>
 nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.rename()<CR>
+
+" O: "open"
+" telescope
+nnoremap <leader>og <cmd>Telescope live_grep<cr>
+nnoremap <leader>ob <cmd>Telescope buffers<cr>
+nnoremap <leader>oh <cmd>Telescope help_tags<cr>
+nnoremap <leader>om <cmd>Telescope harpoon marks<cr>
 
 " T: toggle
 nnoremap <leader>tc :HexokinaseToggle<CR>

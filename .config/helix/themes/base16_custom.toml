@@ -19,7 +19,7 @@
 "variable" = "white"
 
 "constant.numeric" = "orange"
-"constant" = "yellow"
+"constant" = "cyan"
 "constant.builtin" = { fg = "cyan", modifiers = ["bold"] }
 
 "attributes" = "yellow"

@@ -266,7 +266,7 @@ _G.packer_plugins = {
     url = "https://github.com/chentoast/marks.nvim"
   },
   neorg = {
-    config = { "\27LJ\2\n¾\2\0\0\a\0\17\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\15\0005\3\3\0004\4\0\0=\4\4\0035\4\6\0005\5\5\0=\5\a\4=\4\b\0035\4\f\0005\5\n\0005\6\t\0=\6\v\5=\5\a\4=\4\r\0034\4\0\0=\4\14\3=\3\16\2B\0\2\1K\0\1\0\tload\1\0\0 core.integrations.telescope\21core.norg.dirman\1\0\0\15workspaces\1\0\0\1\0\1\20uni_2022_spring\29~/uni/2022/spring/agenda\18core.keybinds\vconfig\1\0\0\1\0\2\21default_keybinds\2\17neorg_leader\14<Leader>o\18core.defaults\1\0\0\nsetup\nneorg\frequire\0" },
+    config = { "\27LJ\2\n¾\2\0\0\a\0\17\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\15\0005\3\3\0004\4\0\0=\4\4\0035\4\6\0005\5\5\0=\5\a\4=\4\b\0035\4\f\0005\5\n\0005\6\t\0=\6\v\5=\5\a\4=\4\r\0034\4\0\0=\4\14\3=\3\16\2B\0\2\1K\0\1\0\tload\1\0\0 core.integrations.telescope\21core.norg.dirman\1\0\0\15workspaces\1\0\0\1\0\1\20uni_2022_spring\29~/uni/2022/spring/agenda\18core.keybinds\vconfig\1\0\0\1\0\2\17neorg_leader\14<Leader>o\21default_keybinds\2\18core.defaults\1\0\0\nsetup\nneorg\frequire\0" },
     loaded = true,
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/neorg",
     url = "https://github.com/nvim-neorg/neorg"
@@ -370,7 +370,7 @@ _G.packer_plugins = {
   },
   ["telekasten.nvim"] = {
     after = { "calendar-vim" },
-    config = { "\27LJ\2\nÂ\5\0\0\a\1\16\0\30-\0\0\0009\0\0\0009\0\1\0'\2\2\0B\0\2\0026\1\3\0'\3\4\0B\1\2\0029\1\5\0015\3\6\0=\0\a\3\18\4\0\0'\5\b\0'\6\t\0&\4\6\4=\4\n\3\18\4\0\0'\5\b\0'\6\v\0&\4\6\4=\4\f\3\18\4\0\0'\5\b\0'\6\r\0&\4\6\4=\4\r\0035\4\14\0=\4\15\3B\1\2\1K\0\1\0\1À\18calendar_opts\1\0\3\vweeknm\3\4\18calendar_mark\rleft-fit\20calendar_monday\3\1\14templates\rweeklies\vweekly\fdailies\ndaily\6/\thome\1\0\18\24close_after_yanking\1\20show_tags_theme\rdropdown\22template_handling\nsmart\22new_note_location\nsmart\23plug_into_calendar\2\21image_link_style\rmarkdown weeklies_create_nonexisting\2\31dailies_create_nonexisting\2\31follow_creates_nonexisting\2\14extension\b.md\17image_subdir\bimg\24rename_update_links\2\22auto_set_filetype\2\22take_over_my_home\2\21subdirs_in_links\2\26command_palette_theme\rdropdown\17tag_notation\t#tag\27insert_after_inserting\2\nsetup\15telekasten\frequire\23~/uni/zettelkasten\vexpand\afn\0" },
+    config = { "\27LJ\2\nÂ\5\0\0\a\1\16\0\30-\0\0\0009\0\0\0009\0\1\0'\2\2\0B\0\2\0026\1\3\0'\3\4\0B\1\2\0029\1\5\0015\3\6\0=\0\a\3\18\4\0\0'\5\b\0'\6\t\0&\4\6\4=\4\n\3\18\4\0\0'\5\b\0'\6\v\0&\4\6\4=\4\f\3\18\4\0\0'\5\b\0'\6\r\0&\4\6\4=\4\r\0035\4\14\0=\4\15\3B\1\2\1K\0\1\0\1À\18calendar_opts\1\0\3\18calendar_mark\rleft-fit\vweeknm\3\4\20calendar_monday\3\1\14templates\rweeklies\vweekly\fdailies\ndaily\6/\thome\1\0\18\21image_link_style\rmarkdown\23plug_into_calendar\2\22new_note_location\nsmart\24close_after_yanking\1\27insert_after_inserting\2\17tag_notation\t#tag\22template_handling\nsmart\26command_palette_theme\rdropdown\20show_tags_theme\rdropdown\21subdirs_in_links\2\22take_over_my_home\2\22auto_set_filetype\2\24rename_update_links\2\17image_subdir\bimg\14extension\b.md\31follow_creates_nonexisting\2\31dailies_create_nonexisting\2 weeklies_create_nonexisting\2\nsetup\15telekasten\frequire\23~/uni/zettelkasten\vexpand\afn\0" },
     loaded = false,
     needs_bufread = true,
     path = "/home/felix/.local/share/nvim/site/pack/packer/opt/telekasten.nvim",
@@ -493,29 +493,29 @@ end
 time([[Config for todo-comments.nvim]], true)
 try_loadstring("\27LJ\2\nÓ\2\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\14\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\3=\3\15\0025\3\16\0=\3\17\2B\0\2\1K\0\1\0\14highlight\1\0\1\nafter\5\vcolors\1\0\0\fdefault\1\3\0\0\f#224750\15Identifier\thint\1\3\0\0\f#224750\19DiagnosticHint\tinfo\1\3\0\0\f#224750\19DiagnosticInfo\fwarning\1\4\0\0\f#224750\22DiagnosticWarning\15WarningMsg\nerror\1\0\0\1\4\0\0\f#224750\20DiagnosticError\rErrorMsg\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
 time([[Config for todo-comments.nvim]], false)
+-- Config for: neorg
+time([[Config for neorg]], true)
+try_loadstring("\27LJ\2\n¾\2\0\0\a\0\17\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\15\0005\3\3\0004\4\0\0=\4\4\0035\4\6\0005\5\5\0=\5\a\4=\4\b\0035\4\f\0005\5\n\0005\6\t\0=\6\v\5=\5\a\4=\4\r\0034\4\0\0=\4\14\3=\3\16\2B\0\2\1K\0\1\0\tload\1\0\0 core.integrations.telescope\21core.norg.dirman\1\0\0\15workspaces\1\0\0\1\0\1\20uni_2022_spring\29~/uni/2022/spring/agenda\18core.keybinds\vconfig\1\0\0\1\0\2\17neorg_leader\14<Leader>o\21default_keybinds\2\18core.defaults\1\0\0\nsetup\nneorg\frequire\0", "config", "neorg")
+time([[Config for neorg]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
--- Config for: neorg
-time([[Config for neorg]], true)
-try_loadstring("\27LJ\2\n¾\2\0\0\a\0\17\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\15\0005\3\3\0004\4\0\0=\4\4\0035\4\6\0005\5\5\0=\5\a\4=\4\b\0035\4\f\0005\5\n\0005\6\t\0=\6\v\5=\5\a\4=\4\r\0034\4\0\0=\4\14\3=\3\16\2B\0\2\1K\0\1\0\tload\1\0\0 core.integrations.telescope\21core.norg.dirman\1\0\0\15workspaces\1\0\0\1\0\1\20uni_2022_spring\29~/uni/2022/spring/agenda\18core.keybinds\vconfig\1\0\0\1\0\2\21default_keybinds\2\17neorg_leader\14<Leader>o\18core.defaults\1\0\0\nsetup\nneorg\frequire\0", "config", "neorg")
-time([[Config for neorg]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NnnExplorer lua require("packer.load")({'nnn.nvim'}, { cmd = "NnnExplorer", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NnnPicker lua require("packer.load")({'nnn.nvim'}, { cmd = "NnnPicker", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file HexokinaseToggle lua require("packer.load")({'vim-hexokinase'}, { cmd = "HexokinaseToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TransparentToggle lua require("packer.load")({'nvim-transparent'}, { cmd = "TransparentToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NnnPicker lua require("packer.load")({'nnn.nvim'}, { cmd = "NnnPicker", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NnnExplorer lua require("packer.load")({'nnn.nvim'}, { cmd = "NnnExplorer", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType fish ++once lua require("packer.load")({'cmp-fish'}, { ft = "fish" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-pencil'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType fish ++once lua require("packer.load")({'cmp-fish'}, { ft = "fish" }, _G.packer_plugins)]]
 vim.cmd [[au FileType lua ++once lua require("packer.load")({'cmp-nvim-lua'}, { ft = "lua" }, _G.packer_plugins)]]
 vim.cmd [[au FileType tex ++once lua require("packer.load")({'vim-pencil', 'cmp-latex-symbols'}, { ft = "tex" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)

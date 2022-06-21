@@ -15,6 +15,7 @@
 "ui.cursor" = { fg = "light-gray", modifiers = ["reversed"] }
 "ui.cursor.primary" = { fg = "light-gray", modifiers = ["reversed"] }
 "ui.virtual" = "light-gray"
+"ui.virtual.indent-guide" = { fg = "black" }
 
 "variable" = "white"
 

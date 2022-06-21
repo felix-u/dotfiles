@@ -17,6 +17,10 @@ insert = "bar"
 normal = "block"
 select = "underline"
 
+[editor.indent-guides]
+render = true
+character = "•"
+
 [keys.normal]
 c = "change_selection_noyank"
 d = "delete_selection_noyank"
@@ -33,6 +37,7 @@ S-down = "move_line_down"
 g = { left = "goto_first_nonwhitespace", right = "goto_line_end", h = "goto_first_nonwhitespace", l = "goto_line_end", j = "goto_last_accessed_file" }
 V = "extend_line_down"
 S-pageup = ":theme solarized_light"
-S-pagedown = ":theme base16_custom"
+S-pagedown = ":theme solarized_dark"
+S-end = ":theme base16_custom"
 C-r = "redo"
 X = "extend_line_up"

@@ -41,7 +41,6 @@
     # packages for all systems
     environment.systemPackages =
     let
-        unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
         dmux = (pkgs.callPackage ../derivations/dmux.nix {});
 
@@ -51,13 +50,26 @@
             doas "$@"
         '');
 
-        imgclr = (pkgs.callPackage ../derivations/imgclr.nix {});
+        flake-compat = builtins.fetchTarball {
+            url = "https://github.com/edolstra/flake-compat/archive/b4a34015c698c7793d592d66adbab377907a2be8.tar.gz";
+            sha256 = "sha256:1qc703yg0babixi6wshn5wm2kgl5y1drcswgszh4xxzbrwkk9sv7";
+        };
 
         godot4-alpha = import ../derivations/godot4alpha.nix;
 
-        themesh = import ../derivations/themesh.nix;
+        helix-src = builtins.fetchTarball {
+            url = "https://github.com/helix-editor/helix/archive/5b3b6ffc9e9b34fbbb39ad33cd29c8dec78ac231.tar.gz";
+            sha256 = "sha256:1ix5x3b8prq5gn1rx8578jasx39mmx8jx1hhv0hwkx1dwn6y71y9";
+        };
+        helix-git = import flake-compat { src = helix-src; };
+
+        imgclr = (pkgs.callPackage ../derivations/imgclr.nix {});
 
         shgen = import ../derivations/shgen.nix;
+
+        themesh = import ../derivations/themesh.nix;
+
+        unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
     in
     with pkgs; [
@@ -69,7 +81,8 @@
         bat # cat
         bottom # top
         fd # find
-        unstable.helix # nvim (ish!)
+        # unstable.helix # nvim (ish!)
+        helix-git.defaultNix.defaultPackage.x86_64-linux
         imgclr # haha, c'est a moi :D
         pipes-rs # pipes
         procs # ps

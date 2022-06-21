@@ -111,7 +111,7 @@
         catimg cava cmatrix dict doas-as-sudo xdragon entr figlet file
         ffmpeg fzf
         glow handlr htop
-        hunspell hunspellDicts.en-gb-ise hyperfine
+        hunspell hunspellDicts.en-gb-ise hyperfine killall
         lm_sensors lolcat lowdown unstable.lynis ncdu ncspot nvd onefetch oneshot pastel
         pandoc pdftk poppler_utils sdcv shgen
         termdown themesh tldr tmux tty-clock

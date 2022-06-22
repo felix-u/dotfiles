@@ -4,7 +4,7 @@ Disclaimer: this repository is mainly for my own use so no "support" will be pro
 
 Clone the repo. `git` is required.
 ```sh
-git pull https://github.com/felix-u/dots ~/dotfiles
+git pull https://github.com/felix-u/dotfiles ~/dotfiles
 ```
 
 GNU `stow` is required to "install" using my symlinking script.

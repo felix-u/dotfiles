@@ -48,4 +48,6 @@ if type -q starship
 end
 
 # use in nix-shell
-any-nix-shell fish --info-right | source
+if type -q any-nix-shell
+    any-nix-shell fish --info-right | source
+end

@@ -4,8 +4,10 @@ set -Ux XRESOURCES "$HOME/.Xresources"
 set -Ux DOTFILES "$HOME/dotfiles"
 set -Ux DOTSCONF "$DOTFILES/.config"
 
-fish_add_path "$HOME/.local/bin"
-fish_add_path "$XDG_CONFIG_HOME/zsh/scripts-in-path"
+if type -q fish_add_path
+    fish_add_path "$HOME/.local/bin"
+    fish_add_path "$XDG_CONFIG_HOME/zsh/scripts-in-path"
+end
 set -Ux PKG_CONFIG_PATH "/usr/include"
 set -Ux BAT_THEME "ansi"
 

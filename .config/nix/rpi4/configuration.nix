@@ -29,6 +29,8 @@ in {
           raspberryPi = {
               enable = true;
               version = 4;
+              # avoid spamming logs that no SD card is present
+              firmwareConfig = "dtparam=sd_poll_once=on";
           };
 		  grub.enable = false;
       };

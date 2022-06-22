@@ -1,0 +1,22 @@
+blocks:
+  - permission
+  - size
+  - date
+  - name
+
+color:
+  when: always
+  theme: custom-theme
+
+date: '+%y-%m-%d %H:%M'
+
+icons:
+  when: always
+  theme: fancy
+
+size: short
+
+sorting:
+  dir-grouping: first
+
+symlink-arrow: " "

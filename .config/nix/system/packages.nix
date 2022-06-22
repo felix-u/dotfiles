@@ -84,6 +84,7 @@
         # unstable.helix # nvim (ish!)
         helix-git.defaultNix.defaultPackage.x86_64-linux
         imgclr # haha, c'est a moi :D
+        lsd # ls
         pipes-rs # pipes
         procs # ps
         ripgrep # grep

@@ -2,7 +2,9 @@ alias shutdwn="shutdown -h now"
 alias weather="curl 'wttr.in/dc?m&format=3'"
 alias weatherreport="curl 'wttr.in/dc?m&format=v2d'"
 
-alias cat="bat --style plain"
+if type -q bat
+    alias cat="bat --style plain"
+end
 alias clock="tty-clock -c -C 6 -D"
 alias cmatrix="cmatrix -u 2"
 # alias dsk="startx \"$HOME/.xinitrc\""
@@ -18,10 +20,13 @@ alias fontpreview="~/dotfiles/scripts/fontpreview"
 
 alias h="hx"
 
-# alias la="ls --group-directories-first --color=always -lAh"
-# alias ls="ls --group-directories-first --color=always -Ah"
-alias la="lsd -lA"
-alias ls="lsd -A --icon never"
+if type -q lsd
+    alias la="lsd -lA"
+    alias ls="lsd -A --icon never"
+else
+    alias la="ls --group-directories-first --color=always -lAh"
+    alias ls="ls --group-directories-first --color=always -Ah"
+end
 
 alias ytfzf="ytfzf -t --thumb-viewer=catimg --thumbnail-quality=medium"
 # alias vim="nvim"

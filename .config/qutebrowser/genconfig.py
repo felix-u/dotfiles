@@ -8,7 +8,7 @@ config.set("colors.webpage.darkmode.enabled", False)
 config.set("fonts.default_size", "12pt")
 config.load_autoconfig(False)
 
-config.set("zoom.default", "100%")
+config.set("zoom.default", "120%")
 config.set("qt.highdpi", True)
 
 term = '$TERMINAL'

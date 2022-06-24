@@ -90,7 +90,6 @@
         ripgrep # grep
         skim # fzf
         ttyper
-        xplr # tui file explorer - testing
 
         # DEV
         android-tools any-nix-shell bsdiff cargo clang-tools cmake gcc gnumake go

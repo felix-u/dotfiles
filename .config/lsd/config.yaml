@@ -19,4 +19,4 @@ size: short
 sorting:
   dir-grouping: first
 
-symlink-arrow: " "
+symlink-arrow: "➤ "

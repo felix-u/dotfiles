@@ -8,7 +8,7 @@
                 version = 2;
                 devices = [ "nodev" ];
                 efiSupport = true;
-                useOSProber = true;
+                useOSProber = false;
                 splashImage = /home/felix/dotfiles/Pictures/cafe-walls/cityfromabove.jpg;
                 font = "${pkgs.iosevka}/share/fonts/truetype/iosevka-medium.ttf";
                 fontSize = 32;

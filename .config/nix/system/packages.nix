@@ -58,8 +58,8 @@
         godot4-alpha = import ../derivations/godot4alpha.nix;
 
         helix-src = builtins.fetchTarball {
-            url = "https://github.com/helix-editor/helix/archive/5b3b6ffc9e9b34fbbb39ad33cd29c8dec78ac231.tar.gz";
-            sha256 = "sha256:1ix5x3b8prq5gn1rx8578jasx39mmx8jx1hhv0hwkx1dwn6y71y9";
+            url = "https://github.com/helix-editor/helix/archive/718c3baebecf4a970bc32724c564fa506ed40065.tar.gz";
+            sha256 = "sha256:1c08nbdi6bgnhpc1clqy3swphnwj4jqgcm82g0n7ivsakz58nk4k";
         };
         helix-git = import flake-compat { src = helix-src; };
 
@@ -81,8 +81,7 @@
         bat # cat
         bottom # top
         fd # find
-        # unstable.helix # nvim (ish!)
-        helix-git.defaultNix.defaultPackage.x86_64-linux
+        helix-git.defaultNix.packages.x86_64-linux.default
         imgclr # haha, c'est a moi :D
         lsd # ls
         pipes-rs # pipes
@@ -105,7 +104,8 @@
         yarn
         godot4-alpha
         # asepriteLatest
-        unstable.aseprite-unfree
+        # unstable.aseprite-unfree
+        libresprite
         # experimenting with lisp:
         cachix
         # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl

@@ -91,24 +91,28 @@
         ttyper
 
         # DEV
-        android-tools any-nix-shell bsdiff cargo clang-tools cmake gcc gnumake go
+        # c
+        unstable.clang clang-tools cppcheck cmake gcc gnumake man-pages-posix
+        tinycc valgrind
+              # # lisp
+              # # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
+        # nix
+        any-nix-shell cachix unstable.deadnix nix-index unstable.statix
+        # rust
+        cargo clippy rustc sccache
+        # other
+        android-tools bsdiff
+        go
         home-manager
-        libresprite libxkbcommon man-pages-posix mold nix-index
+        libresprite libxkbcommon mold
         openssl_3_0 pkg-config protobuf
         python39Packages.bsdiff4 python39Packages.pip
         python3Full python39Packages.python-lsp-server
         python39Packages.termcolor
-        so sccache shellcheck unstable.rustc
-        unstable.clang unstable.deadnix unstable.godot unstable.statix
-        valgrind
+        so shellcheck
+        unstable.godot
         yarn
         godot4-alpha
-        # asepriteLatest
-        # unstable.aseprite-unfree
-        libresprite
-        # experimenting with lisp:
-        cachix
-        # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
 
         # NEOVIM
         cmake-language-server nodePackages.bash-language-server

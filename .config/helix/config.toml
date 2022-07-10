@@ -3,6 +3,8 @@ theme = "base16_custom"
 [editor]
 line-number = "relative"
 idle-timeout = 0
+cursorline = true
+color-modes = true
 
 [editor.auto-pairs]
 '(' = ')'

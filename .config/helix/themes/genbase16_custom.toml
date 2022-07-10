@@ -8,8 +8,12 @@
 "ui.window" = { bg = "black" }
 "ui.linenr.selected" = { fg = "light-gray", modifiers = ["bold"] }
 "ui.selection" = { fg = "gray", modifiers = ["reversed"] }
+"ui.cursorline" = { bg = "black" }
 "comment" = { fg = "light-gray", modifiers = ["italic"] }
 "ui.statusline" = { fg = "white", bg = "black" }
+"ui.statusline.normal" = { fg = "black", bg = "blue" }
+"ui.statusline.insert" = { fg = "black", bg = "green" }
+"ui.statusline.select" = { fg = "black", bg = "cyan" }
 "ui.statusline.inactive" = { fg = "gray", bg = "black" }
 "ui.help" = { fg = "white", bg = "black" }
 "ui.cursor" = { fg = "light-gray", modifiers = ["reversed"] }

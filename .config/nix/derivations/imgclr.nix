@@ -8,8 +8,8 @@ rustPlatform.buildRustPackage {
     src = pkgs.fetchFromGitHub {
         owner = "felix-u";
         repo = "imgclr";
-        rev = "0a261c64b4319567f13dde8e3b827ae19ee49334";
-        sha256 = "sha256-01Fe7O6BIHiUNtCrG2gfsLMRbq+TzSj/ywRf7JBUwKY=";
+        rev = "e107cb51513f00fb2d237630eca4a7067451af09";
+        sha256 = "sha256-QiT/GU+coaeSqGMatq76L1Fr4OMss8xhoHG402AowNM=";
     };
-    cargoSha256 = "sha256-YkQSfiWVYcbKmhCmMdo9/g6LppGnztP9sXr4LgJVHm0=";
+    cargoSha256 = "sha256-3rd4WuktomiC8QNEWus1nupqU69gjpJYhf0hL2vSTNI=";
 }

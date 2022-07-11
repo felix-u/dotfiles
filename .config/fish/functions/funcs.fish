@@ -27,6 +27,11 @@ function ximgclr
     (wqs color15)
 end
 
+function simgclr
+   imgclr $argv -p \
+   (wqs background) (wqs foreground) (wqs color7) (wqs color8) (wqs color15)
+end
+
 # pull or commit all changes to personal repos
 function gitall
     if [ $argv[1] = "pull" ]

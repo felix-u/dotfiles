@@ -1,0 +1,4 @@
+[dependencies]
+# bevy = { version = "0.7", features = ["wayland", "dynamic"] }
+
+macroquad = { git = "https://github.com/not-fl3/macroquad", branch = "master" }

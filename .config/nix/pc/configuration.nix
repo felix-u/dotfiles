@@ -35,8 +35,8 @@
     networking = {
         hostName = "nixbtw";
         networkmanager.enable = true;
-        useDHCP = false;
-        interfaces.wlan0.useDHCP = true;
+        # useDHCP = false;
+        # interfaces.wlan0.useDHCP = true;
     };
 
 

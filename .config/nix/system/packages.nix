@@ -141,7 +141,7 @@
         blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
 
         # DESKTOP
-        appimage-run
+        appimage-run anki-bin
         bitwarden calibre font-manager
         handlr imagemagick imv libreoffice
         libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils

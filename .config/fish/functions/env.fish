@@ -40,6 +40,10 @@ set -Ux RUSTC_WRAPPER "sccache"
 
 set -Ux STARSHIP_CONFIG ~/.config/starship/starship.toml
 
+# les graphics
+set -Ux AMD_VULKAN_ICD "RADV"
+set -Ux SDL_VIDEODRIVER "wayland"
+
 # nnn file manager
 set -Ux NNN_FIFO '/tmp/nnn.fifo'
 set -Ux NNN_TMPFILE "/tmp/nnn"

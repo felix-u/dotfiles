@@ -56,6 +56,11 @@
         };
 
         godot4-alpha = import ../derivations/godot4alpha.nix;
+                
+        # # this works, but goxel's UI ends up far too small
+        # goxel-wayland = pkgs.goxel.overrideAttrs (oldAttrs: rec {
+        #     buildInputs = with pkgs; [ glfw-wayland gtk3 libpng12 ];
+        # });
 
         helix-src = builtins.fetchTarball {
             url = "https://github.com/helix-editor/helix/archive/718c3baebecf4a970bc32724c564fa506ed40065.tar.gz";
@@ -112,7 +117,7 @@
         so shellcheck
         unstable.godot
         yarn
-        godot4-alpha
+        godot4-alpha goxel
 
         # NEOVIM
         cmake-language-server nodePackages.bash-language-server

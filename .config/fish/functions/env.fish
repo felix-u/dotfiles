@@ -23,6 +23,7 @@ set -Ux WM 'sway'
 set -Ux PAGER 'less'
 set -Ux MANPAGER $PAGER
 set -Ux BROWSER "qutebrowser"
+set -Ux XCURSOR_SIZE 24
 
 # LESS colours
 set -Ux LESS_TERMCAP_mb \e\[1\;36m

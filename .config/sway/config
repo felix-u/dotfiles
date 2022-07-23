@@ -57,7 +57,6 @@ exec_always gsettings set org.gnome.desktop.interface cursor-theme Adwaita
 exec_always gsettings set org.gnome.desktop.interface cursor-size 24
 # set icons
 exec_always gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
-exec_always gsettings set org.gnome.desktop.interface gtk-theme 'phocus'
 
 # flash focus
 exec_always --no-startup-id flashfocus &

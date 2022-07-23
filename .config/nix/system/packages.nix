@@ -1,8 +1,15 @@
 { pkgs, config, lib, ... }:
 
 let
-    pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+    # pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+    flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+    hyprland = (import flake-compat {
+        src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
+    }).defaultNix;
 in {
+    imports = [
+        hyprland.nixosModules.default        
+    ];
     nix = {
         package = pkgs.nixFlakes;
         extraOptions = ''
@@ -38,7 +45,13 @@ in {
         ref = "master";
         rev = "b324b27d58fe93add90d80e081c39d452ae1cb98";
       }))
+        hyprland.overlays.default
     ];
+    
+    programs.hyprland = {
+        enable = true;
+        package = pkgs.hyprland;
+    };
 
     # packages for all systems
     environment.systemPackages =
@@ -54,10 +67,10 @@ in {
             doas "$@"
         '');
 
-        flake-compat = builtins.fetchTarball {
-            url = "https://github.com/edolstra/flake-compat/archive/b4a34015c698c7793d592d66adbab377907a2be8.tar.gz";
-            sha256 = "sha256:1qc703yg0babixi6wshn5wm2kgl5y1drcswgszh4xxzbrwkk9sv7";
-        };
+        # flake-compat = builtins.fetchTarball {
+        #     url = "https://github.com/edolstra/flake-compat/archive/b4a34015c698c7793d592d66adbab377907a2be8.tar.gz";
+        #     sha256 = "sha256:1qc703yg0babixi6wshn5wm2kgl5y1drcswgszh4xxzbrwkk9sv7";
+        # };
 
         godot4-alpha = import ../derivations/godot4alpha.nix;
                 
@@ -76,11 +89,11 @@ in {
         #     url = "https://github.com/hyprwm/Hyprland/archive/1626707b7f4fd3d2b313e78cb3a41783f072f73b.tar.gz";          
         #     sha256 = "sha256:0lmka2724m0ylsmwd9zkrv8bvhhrn7jvrznn50qqbnp42h27dw11";
         # };
-        # hyprland-git = import flake-compat { src = hyprland-src; };
+        # hyprland-git = (pkgs.callPackage [ import flake-compat { src = hyprland-src; } {} ]);
                 
-        hyprland-git = pkgs-unstable.hyprland.overrideAttrs (oldAttrs: rec {
-            version = "0.7.1beta";            
-        });
+        # hyprland-git = pkgs-unstable.hyprland.overrideAttrs (oldAttrs: rec {
+        #     version = "0.7.1beta";            
+        # });
 
         imgclr = (pkgs.callPackage ../derivations/imgclr.nix {});
 
@@ -161,7 +174,8 @@ in {
         appimage-run anki-bin
         bitwarden calibre font-manager
         handlr 
-        hyprland-git 
+        # hyprland-git 
+        hyprland
         # unstable.hyprland
         imagemagick imv libreoffice
         libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils

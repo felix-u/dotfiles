@@ -9,7 +9,8 @@ in {
         enable = true;
         wrapperFeatures.gtk = true;
         extraPackages = with pkgs; [
-            brightnessctl dmenu-wayland dmenu-wl_run dunst flashfocus grim polkit_gnome
+            brightnessctl dmenu-wayland dmenu-wl_run dunst flashfocus glib
+            grim polkit_gnome
             slurp swaybg swayidle swaylock-effects
             wayland wf-recorder wl-clipboard xwayland
         ];

@@ -35,7 +35,7 @@ in {
         liberation_ttf # FOSS versions of arial, times new roman, and courier new
         libre-baskerville  # baskerville - FOSS
         libre-bodoni # bodoni - FOSS
-        lora # oldstyle-ish serif - FOSS
+        # lora # oldstyle-ish serif - FOSS
         metropolis montserrat # gotham but FOSS
         oswald # classic gothic style sans-serif - FOSS
         playfair # "luxury" serif vaguely resempling bodoni - FOSS

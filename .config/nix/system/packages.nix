@@ -1,6 +1,8 @@
 { pkgs, config, lib, ... }:
 
-{
+let
+    pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in {
     nix = {
         package = pkgs.nixFlakes;
         extraOptions = ''
@@ -42,6 +44,8 @@
     environment.systemPackages =
     let
 
+        unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
         dmux = (pkgs.callPackage ../derivations/dmux.nix {});
 
         # effectively "symlink" sudo to doas
@@ -68,13 +72,21 @@
         };
         helix-git = import flake-compat { src = helix-src; };
 
+        # hyprland-src = builtins.fetchTarball {
+        #     url = "https://github.com/hyprwm/Hyprland/archive/1626707b7f4fd3d2b313e78cb3a41783f072f73b.tar.gz";          
+        #     sha256 = "sha256:0lmka2724m0ylsmwd9zkrv8bvhhrn7jvrznn50qqbnp42h27dw11";
+        # };
+        # hyprland-git = import flake-compat { src = hyprland-src; };
+                
+        hyprland-git = pkgs-unstable.hyprland.overrideAttrs (oldAttrs: rec {
+            version = "0.7.1beta";            
+        });
+
         imgclr = (pkgs.callPackage ../derivations/imgclr.nix {});
 
         shgen = import ../derivations/shgen.nix;
 
         themesh = import ../derivations/themesh.nix;
-
-        unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
     in
     with pkgs; [
@@ -148,7 +160,10 @@
         # DESKTOP
         appimage-run anki-bin
         bitwarden calibre font-manager
-        handlr imagemagick imv libreoffice
+        handlr 
+        hyprland-git 
+        # unstable.hyprland
+        imagemagick imv libreoffice
         libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
         mpv mpvScripts.youtube-quality
         obs-studio obs-studio-plugins.wlrobs

@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+gsettings set org.gnome.desktop.interface cursor-theme Adwaita &
+gsettings set org.gnome.desktop.interface cursor-size 24 &
+gsettings set org.gnome.desktop.interface icon-theme 'Adwaita' &
+
 # wallpaper
 ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 
@@ -60,7 +65,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     hyprctl keyword monitor ",3840x2400@60,0x0,$WDPI"
     Xwayland &
 
-    killall -q waybar; killall -q waybar-unwrapped
+    killall -s SIGKILL waybar; killall -s SIGKILL .waybar-wrapped
     waybar -c ~/.config/waybar/thinkpad.json &
 
     hyprctl keyword gestures:workspace_swipe 1 &
@@ -71,26 +76,29 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     VIM_L="H"
     VIM_D="J"
     VIM_U="K"
-    VIM_R="L"            
+    VIM_R="L"
+    HI_L="Y"
+    HI_D="U"
+    HI_U="I"
+    HI_R="O"
     RET="semicolon"
     
     hyprctl keyword bind "SUPER,$RET,exec,$TERM" &
     hyprctl keyword bind "SUPER,$VIM_L,movefocus,l" &
-    hyprctl keyword bind "SUPER,$VIM_R,movefocus,r" &
-    hyprctl keyword bind "SUPER,$VIM_U,movefocus,u" &
     hyprctl keyword bind "SUPER,$VIM_D,movefocus,d" &
+    hyprctl keyword bind "SUPER,$VIM_U,movefocus,u" &
+    hyprctl keyword bind "SUPER,$VIM_R,movefocus,r" &
 
     hyprctl keyword bind "SUPERSHIFT,$VIM_L,movewindow,l" &
-    hyprctl keyword bind "SUPERSHIFT,$VIM_R,movewindow,r" &
-    hyprctl keyword bind "SUPERSHIFT,$VIM_U,movewindow,u" &
     hyprctl keyword bind "SUPERSHIFT,$VIM_D,movewindow,d" &
+    hyprctl keyword bind "SUPERSHIFT,$VIM_U,movewindow,u" &
+    hyprctl keyword bind "SUPERSHIFT,$VIM_R,movewindow,r" &
 
-    hyprctl keyword bind "SUPERALT,$VIM_L,resizeactive,-40 0" &
-    hyprctl keyword bind "SUPERALT,$VIM_R,resizeactive,0 40" &
-    hyprctl keyword bind "SUPERALT,$VIM_U,resizeactive,0 -40" &
-    hyprctl keyword bind "SUPERALT,$VIM_D,resizeactive,40 0" &
+    hyprctl keyword bind "SUPER,$HI_L,resizeactive,-40 0" &
+    hyprctl keyword bind "SUPER,$HI_D,resizeactive,0 -40" &
+    hyprctl keyword bind "SUPER,$HI_U,resizeactive,0 40" &
+    hyprctl keyword bind "SUPER,$HI_R,resizeactive,40 0" &
     
-fi
 
 # ____   ____
 #|  _ \ / ___|
@@ -101,37 +109,41 @@ fi
 #
 #
 #
-if [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
+elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
 
     WDPI="1.3"
 
     hyprctl keyword monitor ",3840x2160@60,0x0,$WDPI"
     Xwayland &
 
-    killall -q waybar; killall -q waybar-unwrapped
+    killall -s SIGKILL waybar; killall -s SIGKILL .waybar-wrapped
     waybar -c ~/.config/waybar/desktop.json &
 
     VIM_L="M"
     VIM_D="N"
     VIM_U="E"
     VIM_R="I"            
+    HI_L="J"
+    HI_D="L"
+    HI_U="U"
+    HI_R="Y"
     RET="O"
     
     hyprctl keyword bind "SUPER,$RET,exec,$TERM" &
     hyprctl keyword bind "SUPER,$VIM_L,movefocus,l" &
-    hyprctl keyword bind "SUPER,$VIM_R,movefocus,r" &
-    hyprctl keyword bind "SUPER,$VIM_U,movefocus,u" &
     hyprctl keyword bind "SUPER,$VIM_D,movefocus,d" &
+    hyprctl keyword bind "SUPER,$VIM_U,movefocus,u" &
+    hyprctl keyword bind "SUPER,$VIM_R,movefocus,r" &
 
     hyprctl keyword bind "SUPERSHIFT,$VIM_L,movewindow,l" &
-    hyprctl keyword bind "SUPERSHIFT,$VIM_R,movewindow,r" &
-    hyprctl keyword bind "SUPERSHIFT,$VIM_U,movewindow,u" &
     hyprctl keyword bind "SUPERSHIFT,$VIM_D,movewindow,d" &
+    hyprctl keyword bind "SUPERSHIFT,$VIM_U,movewindow,u" &
+    hyprctl keyword bind "SUPERSHIFT,$VIM_R,movewindow,r" &
 
-    hyprctl keyword bind "SUPERALT,$VIM_L,resizeactive,-40 0" &
-    hyprctl keyword bind "SUPERALT,$VIM_R,resizeactive,0 40" &
-    hyprctl keyword bind "SUPERALT,$VIM_U,resizeactive,0 -40" &
-    hyprctl keyword bind "SUPERALT,$VIM_D,resizeactive,40 0" &
+    hyprctl keyword bind "SUPER,$HI_L,resizeactive,-40 0" &
+    hyprctl keyword bind "SUPER,$HI_D,resizeactive,0 -40" &
+    hyprctl keyword bind "SUPER,$HI_U,resizeactive,0 40" &
+    hyprctl keyword bind "SUPER,$HI_R,resizeactive,40 0" &
 fi
 
 hyprctl keyword bind "SUPER,left,moveactive,-40 0" &
@@ -148,7 +160,7 @@ hyprctl keyword bind "SUPERALT,up,resizeactive,0 -40" &
 hyprctl keyword bind "SUPERALT,right,resizeactive,40 0" &
 
 hyprctl keyword bind "SUPER,return,exec,$TERM" &
-hyprctl keyword bind "SUPER,D,exec,~/.config/sway/scripts/menu.sh" &
+hyprctl keyword bind "SUPER,D,exec,rofi -show drun" &
 
 
 #
@@ -210,16 +222,11 @@ hyprctl keyword bind "SUPERSHIFT,parenright,movetoworkspace,10"
 
 #
 # screenshot and screen recording
-hyprctl keyword bind "SUPERSHIFT,D,exec,$SLURP | grim -g - \
-    ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
-hyprctl keyword bind "SUPERSHIFT,S,exec,$SLURP | grim -g - /tmp/screenshot.png && \
-    cat /tmp/screenshot.png | wl-copy -t image/png" &
-hyprctl keyword bind "SUPER,ALT,D,exec,grim \
-   ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
-hyprctl keyword bind "SUPER,ALT,S,exec,grim /tmp/screenshot.png && \
-    cat /tmp/screenshot.png | wl-copy -t image/png" &
+hyprctl keyword bind "SUPERSHIFT,D,exec,$SLURP | grim -g - ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
+hyprctl keyword bind "SUPERSHIFT,S,exec,$SLURP | grim -g - /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
+hyprctl keyword bind "SUPER,ALT,D,exec,grim ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
+hyprctl keyword bind "SUPER,ALT,S,exec,grim /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
 # notifs
-echo "notifs"
 hyprctl keyword bind "SUPER,C,exec,dunstctl close" &
 hyprctl keyword bind "SUPERSHIFT,C,exec,dunstctl close-all" &
 hyprctl keyword bind "SUPER,ALT,C,exec,dunstctl history-pop" &
@@ -272,9 +279,3 @@ hyprctl keyword dwindle:force_split 2 &
 
 pkill dunst
 dunst &
-
-systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
-~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
-gsettings set org.gnome.desktop.interface cursor-theme Adwaita &
-gsettings set org.gnome.desktop.interface cursor-size 24 &
-gsettings set org.gnome.desktop.interface icon-theme 'Adwaita' &

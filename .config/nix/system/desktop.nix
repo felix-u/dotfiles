@@ -11,7 +11,7 @@ in {
         extraPackages = with pkgs; [
             brightnessctl dmenu-wayland dmenu-wl_run dunst flashfocus grim polkit_gnome
             slurp swaybg swayidle swaylock-effects
-            waybar wayland wf-recorder wl-clipboard xwayland
+            wayland wf-recorder wl-clipboard xwayland
         ];
     };
     environment.pathsToLink = [ "/libexec" ]; # for polkit

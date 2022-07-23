@@ -46,6 +46,11 @@ in {
         rev = "b324b27d58fe93add90d80e081c39d452ae1cb98";
       }))
         hyprland.overlays.default
+        (self: super: {
+            waybar = super.waybar.overrideAttrs (oldAttrs: {
+                mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];           
+            });
+        })
     ];
     
     programs.hyprland = {
@@ -185,7 +190,7 @@ in {
         qt5ct wally-cli
         # xfce.thunar xfce.thunar-archive-plugin
         pcmanfm
-        zathura
+        waybar zathura
 
         # VISUAL
         gsettings-desktop-schemas gtk-engine-murrine gtk_engines

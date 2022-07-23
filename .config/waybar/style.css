@@ -63,7 +63,7 @@ window#waybar {
     background: transparent;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
     transition: none;
     /* border-radius: 10px; */
     /* background: #073642; */

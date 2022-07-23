@@ -162,7 +162,7 @@ hyprctl keyword decoration:blur_size 9 &
 hyprctl keyword decoration:blur_passes 2 &
 hyprctl keyword decoration:active_opacity 1 &
 hyprctl keyword decoration:inactive_opacity 0.81 &
-hyprctl keyword decoration:multisample_edges 0 &
+hyprctl keyword decoration:multisample_edges 1 &
 hyprctl keyword decoration:drop_shadow 1 &
 hyprctl keyword decoration:shadow_range 9 &
 hyprctl keyword decoration:shadow_render_power 1 &
@@ -244,10 +244,10 @@ hyprctl keyword bind "SUPERSHIFT,parenright,movetoworkspace,10"
 
 #
 # screenshot and screen recording
-hyprctl keyword bind "SUPERSHIFT,D,exec,$SLURP | grim -g - ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
-hyprctl keyword bind "SUPERSHIFT,S,exec,$SLURP | grim -g - /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
-hyprctl keyword bind "SUPERALT,D,exec,grim ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
-hyprctl keyword bind "SUPERALT,S,exec,grim /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
+hyprctl keyword bind "SUPERALT,D,exec,$SLURP | grim -g - ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
+hyprctl keyword bind "SUPERALT,S,exec,$SLURP | grim -g - /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
+hyprctl keyword bind "SUPERCONTROL,D,exec,grim ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
+hyprctl keyword bind "SUPERCONTROL,S,exec,grim /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
 # notifs
 hyprctl keyword bind "SUPER,C,exec,dunstctl close" &
 hyprctl keyword bind "SUPERSHIFT,C,exec,dunstctl close-all" &

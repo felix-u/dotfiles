@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
-gsettings set org.gnome.desktop.interface cursor-theme Adwaita &
-gsettings set org.gnome.desktop.interface cursor-size 24 &
-gsettings set org.gnome.desktop.interface icon-theme 'Adwaita' &
-
-# wallpaper
-~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
-
 wq () {
     grep "$1:" "$XRESOURCES" | awk '{print $2}'
 }
@@ -146,91 +138,6 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
     hyprctl keyword bind "SUPER,$HI_R,resizeactive,40 0" &
 fi
 
-hyprctl keyword bind "SUPER,left,moveactive,-40 0" &
-hyprctl keyword bind "SUPER,down,moveactive,0 40" &
-hyprctl keyword bind "SUPER,up,moveactive,0 -40" &
-hyprctl keyword bind "SUPER,right,moveactive,40 0" &
-hyprctl keyword bind "SUPERSHIFT,left,movewindow,l" &
-hyprctl keyword bind "SUPERSHIFT,right,movewindow,r" &
-hyprctl keyword bind "SUPERSHIFT,up,movewindow,u" &
-hyprctl keyword bind "SUPERSHIFT,down,movewindow,d" &
-hyprctl keyword bind "SUPERALT,left,resizeactive,-40 0" &
-hyprctl keyword bind "SUPERALT,down,resizeactive,0 40" &
-hyprctl keyword bind "SUPERALT,up,resizeactive,0 -40" &
-hyprctl keyword bind "SUPERALT,right,resizeactive,40 0" &
-
-hyprctl keyword bind "SUPER,return,exec,$TERM" &
-hyprctl keyword bind "SUPER,D,exec,rofi -show drun" &
-
-
-#
-#####  # #    # #####  # #    #  ####   ####
-#    # # ##   # #    # # ##   # #    # #
-#####  # # #  # #    # # # #  # #       ####
-#    # # #  # # #    # # #  # # #  ###      #
-#    # # #   ## #    # # #   ## #    # #    #
-#####  # #    # #####  # #    #  ####   ####
-#
-#
-#
-#
-
-# apps and scripts
-# when having xwayland installed, some apps may prefer X even if working fine
-# on wayland. launch them with DISPLAY=wayland-0
-hyprctl keyword bind "SUPER,B,exec,$BROWSER" &
-hyprctl keyword bind "SUPERALT,B,exec,MOZ_ENABLE_WAYLAND=1 firefox" &
-hyprctl keyword bind "SUPER,A,exec,$FILES" &
-#
-hyprctl keyword bind "SUPERSHIFT,B,exec,~/.config/sway/scripts/randwall.sh \
-    ~/dotfiles/Pictures/cafe-walls" &
-#
-hyprctl keyword bind ",XF86AudioMute,exec,pulsemixer --toggle-mute" &
-hyprctl keyword bind ",XF86AudioRaiseVolume,exec,pulsemixer --change-volume +10" &
-hyprctl keyword bind ",XF86AudioLowerVolume,exec,pulsemixer --change-volume -10" &
-#
-# lock system
-hyprctl keyword bind "SUPER,X,exec,~/.config/sway/scripts/swaylock.sh"
-#
-hyprctl keyword bind "SUPER,F,fullscreen" &
-hyprctl keyword bind "SUPER,S,togglefloating" &
-hyprctl keyword bind "SUPERSHIFT,T,pseudo" &
-hyprctl keyword bind "SUPER,tab,cyclenext,prev" &
-hyprctl keyword bind "SUPER,W,killactive" &
-hyprctl keyword bind "SUPERALT,Q,exit" &
-hyprctl keyword bind "SUPERALT,R,exec,~/.config/hypr/start.sh" &
-#
-
-for i in {1..9}
-do
-    hyprctl keyword bind "SUPER,$i,workspace,$i" &
-done
-# also use 0 for 10
-hyprctl keyword bind "SUPER,0,workspace,10" &
-# move to workspace
-hyprctl keyword bind "SUPERSHIFT,exclam,movetoworkspace,1"
-hyprctl keyword bind "SUPERSHIFT,at,movetoworkspace,2"
-hyprctl keyword bind "SUPERSHIFT,numbersign,movetoworkspace,3"
-hyprctl keyword bind "SUPERSHIFT,dollar,movetoworkspace,4"
-hyprctl keyword bind "SUPERSHIFT,percent,movetoworkspace,5"
-hyprctl keyword bind "SUPERSHIFT,asciicircum,movetoworkspace,6"
-hyprctl keyword bind "SUPERSHIFT,ampersand,movetoworkspace,7"
-hyprctl keyword bind "SUPERSHIFT,asterisk,movetoworkspace,8"
-hyprctl keyword bind "SUPERSHIFT,parenleft,movetoworkspace,9"
-hyprctl keyword bind "SUPERSHIFT,parenright,movetoworkspace,10"
-#
-
-#
-# screenshot and screen recording
-hyprctl keyword bind "SUPERSHIFT,D,exec,$SLURP | grim -g - ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
-hyprctl keyword bind "SUPERSHIFT,S,exec,$SLURP | grim -g - /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
-hyprctl keyword bind "SUPER,ALT,D,exec,grim ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
-hyprctl keyword bind "SUPER,ALT,S,exec,grim /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
-# notifs
-hyprctl keyword bind "SUPER,C,exec,dunstctl close" &
-hyprctl keyword bind "SUPERSHIFT,C,exec,dunstctl close-all" &
-hyprctl keyword bind "SUPER,ALT,C,exec,dunstctl history-pop" &
-
 #
 # _.._ ._  _  _..__.._  _ _
 #(_||_)|_)(/_(_||(_|| |(_(/_
@@ -267,15 +174,81 @@ hyprctl keyword decoration:col.shadow_inactive 0x20000000 &
 #
 hyprctl keyword dwindle:pseudotile 1 &
 hyprctl keyword dwindle:force_split 2 &
+hyprctl keyword bind "SUPER,left,moveactive,-40 0" &
+hyprctl keyword bind "SUPER,down,moveactive,0 40" &
+hyprctl keyword bind "SUPER,up,moveactive,0 -40" &
+hyprctl keyword bind "SUPER,right,moveactive,40 0" &
+hyprctl keyword bind "SUPERSHIFT,left,movewindow,l" &
+hyprctl keyword bind "SUPERSHIFT,right,movewindow,r" &
+hyprctl keyword bind "SUPERSHIFT,up,movewindow,u" &
+hyprctl keyword bind "SUPERSHIFT,down,movewindow,d" &
+hyprctl keyword bind "SUPERALT,left,resizeactive,-40 0" &
+hyprctl keyword bind "SUPERALT,down,resizeactive,0 40" &
+hyprctl keyword bind "SUPERALT,up,resizeactive,0 -40" &
+hyprctl keyword bind "SUPERALT,right,resizeactive,40 0" &
+
+hyprctl keyword bind "SUPER,return,exec,$TERM" &
+hyprctl keyword bind "SUPER,D,exec,rofi -show drun" &
+
 
 #
-# _.  _|_ _  __|_ _..__|_
-#(_||_||_(_)_> |_(_||  |_
+#####  # #    # #####  # #    #  ####   ####
+#    # # ##   # #    # # ##   # #    # #
+#####  # # #  # #    # # # #  # #       ####
+#    # # #  # # #    # # #  # # #  ###      #
+#    # # #   ## #    # # #   ## #    # #    #
+#####  # #    # #####  # #    #  ####   ####
 #
 #
 #
 #
-/run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
-pkill dunst
-dunst &
+# apps and scripts
+# when having xwayland installed, some apps may prefer X even if working fine
+# on wayland. launch them with DISPLAY=wayland-0
+hyprctl keyword bind "SUPER,B,exec,$BROWSER" &
+hyprctl keyword bind "SUPERALT,B,exec,MOZ_ENABLE_WAYLAND=1 firefox" &
+hyprctl keyword bind "SUPER,A,exec,$FILES" &
+#
+hyprctl keyword bind ",XF86AudioMute,exec,pulsemixer --toggle-mute" &
+hyprctl keyword bind ",XF86AudioRaiseVolume,exec,pulsemixer --change-volume +10" &
+hyprctl keyword bind ",XF86AudioLowerVolume,exec,pulsemixer --change-volume -10" &
+#
+hyprctl keyword bind "SUPER,F,fullscreen" &
+hyprctl keyword bind "SUPER,S,togglefloating" &
+hyprctl keyword bind "SUPERSHIFT,T,pseudo" &
+hyprctl keyword bind "SUPER,tab,cyclenext,prev" &
+hyprctl keyword bind "SUPER,W,killactive" &
+hyprctl keyword bind "SUPERALT,Q,exit" &
+hyprctl keyword bind "SUPERALT,R,exec,~/.config/hypr/start.sh" &
+#
+
+for i in {1..9}
+do
+    hyprctl keyword bind "SUPER,$i,workspace,$i" &
+done
+# also use 0 for 10
+hyprctl keyword bind "SUPER,0,workspace,10" &
+# move to workspace
+hyprctl keyword bind "SUPERSHIFT,exclam,movetoworkspace,1"
+hyprctl keyword bind "SUPERSHIFT,at,movetoworkspace,2"
+hyprctl keyword bind "SUPERSHIFT,numbersign,movetoworkspace,3"
+hyprctl keyword bind "SUPERSHIFT,dollar,movetoworkspace,4"
+hyprctl keyword bind "SUPERSHIFT,percent,movetoworkspace,5"
+hyprctl keyword bind "SUPERSHIFT,asciicircum,movetoworkspace,6"
+hyprctl keyword bind "SUPERSHIFT,ampersand,movetoworkspace,7"
+hyprctl keyword bind "SUPERSHIFT,asterisk,movetoworkspace,8"
+hyprctl keyword bind "SUPERSHIFT,parenleft,movetoworkspace,9"
+hyprctl keyword bind "SUPERSHIFT,parenright,movetoworkspace,10"
+#
+
+#
+# screenshot and screen recording
+hyprctl keyword bind "SUPERSHIFT,D,exec,$SLURP | grim -g - ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
+hyprctl keyword bind "SUPERSHIFT,S,exec,$SLURP | grim -g - /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
+hyprctl keyword bind "SUPERALT,D,exec,grim ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
+hyprctl keyword bind "SUPERALT,S,exec,grim /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
+# notifs
+hyprctl keyword bind "SUPER,C,exec,dunstctl close" &
+hyprctl keyword bind "SUPERSHIFT,C,exec,dunstctl close-all" &
+hyprctl keyword bind "SUPERALT,C,exec,dunstctl history-pop" &

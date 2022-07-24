@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 
 let
-    # pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+    pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
     flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
     hyprland = (import flake-compat {
         src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
@@ -51,6 +51,9 @@ in {
                 mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];           
             });
         })
+        (import (builtins.fetchTarball {
+          url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+        }))
     ];
     
     programs.hyprland = {
@@ -153,9 +156,10 @@ in {
         cmake-language-server nodePackages.bash-language-server
         nodePackages.js-beautify
         nodePackages.npm nodePackages.pyright nodePackages.vim-language-server
-        nodePackages.vscode-langservers-extracted nodejs rnix-lsp
+        nodePackages.vscode-langservers-extracted
+        # nodejs
+        rnix-lsp
         rust-analyzer sumneko-lua-language-server tree-sitter
-        unstable.neovim
 
         # MATHS
         bc gnuplot libqalculate maxima qalculate-gtk wxmaxima
@@ -215,5 +219,24 @@ in {
 
     # steam here, not working in packages
     programs.steam.enable = true;
+
+    programs.neovim = {
+        enable = true;
+        package = pkgs.neovim-nightly;
+        withNodeJs = true;
+        withPython3 = true;
+        withRuby = true; 
+        configure = {
+            customRC = ''
+                :luafile ${builtins.getEnv "XDG_CONFIG_HOME" }/nvim/init.lua
+            '';
+        #     packages.myVimPackage = with pkgs-unstable.vimPlugins; {
+        #         # loaded on launch
+        #         start = [ packer-nvim ]; 
+        #         # manually loadable
+        #         # opt = [  ];
+        #     };
+        };
+    };
 
 }

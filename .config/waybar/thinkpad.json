@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "modules-left": [
-    "wlr/workspaces",
+    "sway/workspaces",
     "cpu"
   ],
   "modules-center": [

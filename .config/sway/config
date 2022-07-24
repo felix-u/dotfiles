@@ -23,6 +23,10 @@ input type:keyboard {
 input "5426:101:Razer_Razer_Basilisk_Essential" {
     accel_profile flat
 }
+input "1133:16514:Logitech_MX_Master_3" {
+    accel_profile flat
+    natural_scroll enabled
+}
 
 ### Output configuration
 #

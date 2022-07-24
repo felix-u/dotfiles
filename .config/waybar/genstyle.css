@@ -70,7 +70,7 @@ window#waybar {
     color: $(wq foreground);
 }
 
-#workspaces button.focused{
+#workspaces button.focused {
     transition: none;
     /* border-radius: 10px; */
     /* background: $(wq color0); */

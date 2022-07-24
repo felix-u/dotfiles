@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "modules-left": [
-    "wlr/workspaces",
+    "sway/workspaces",
     "cpu"
   ],
   "modules-center": [

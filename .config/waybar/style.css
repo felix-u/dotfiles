@@ -70,6 +70,12 @@ window#waybar {
     color: #93a1a1;
 }
 
+#workspaces button.focused {
+    transition: none;
+    /* border-radius: 10px; */
+    /* background: #073642; */
+    color: #93a1a1;
+}
 
 #cpu {
     color: transparent;

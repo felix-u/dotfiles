@@ -159,7 +159,7 @@ hyprctl keyword general:damage_tracking full &
 hyprctl keyword decoration:rounding 30 &
 hyprctl keyword decoration:blur 1 &
 hyprctl keyword decoration:blur_size 9 &
-hyprctl keyword decoration:blur_passes 2 &
+hyprctl keyword decoration:blur_passes 3 &
 hyprctl keyword decoration:active_opacity 1 &
 hyprctl keyword decoration:inactive_opacity 0.81 &
 hyprctl keyword decoration:multisample_edges 1 &

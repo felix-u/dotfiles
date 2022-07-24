@@ -15,6 +15,7 @@ vim.opt.iskeyword:append("-") -- see help page. controls which keys are regex an
 vim.opt.laststatus = 3 -- influences which windows have status lines
 vim.opt.lazyredraw = true -- might be enabled by default, but apparently speeds up rendering
 vim.opt.mouse = "a" -- allow mouse use
+vim.opt.number = true -- when used with "relativenumber", only the current line number is shown in its absolute form
 vim.opt.numberwidth = 2 -- minimum width gutter can occupy (default 4)
 vim.opt.pumheight = 10 -- popup menu height
 vim.opt.relativenumber = true -- enable line numbers and show relative numbers

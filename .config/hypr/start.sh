@@ -156,7 +156,7 @@ hyprctl keyword general:cursor_inactive_timeout 10 &
 hyprctl keyword general:apply_sens_to_raw 0 &
 hyprctl keyword general:damage_tracking full &
 #
-hyprctl keyword decoration:rounding 30 &
+hyprctl keyword decoration:rounding 20 &
 hyprctl keyword decoration:blur 1 &
 hyprctl keyword decoration:blur_size 9 &
 hyprctl keyword decoration:blur_passes 3 &
@@ -244,10 +244,11 @@ hyprctl keyword bind "SUPERSHIFT,parenright,movetoworkspace,10"
 
 #
 # screenshot and screen recording
-hyprctl keyword bind "SUPERALT,D,exec,$SLURP | grim -g - ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
-hyprctl keyword bind "SUPERALT,S,exec,$SLURP | grim -g - /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
-hyprctl keyword bind "SUPERCONTROL,D,exec,grim ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
-hyprctl keyword bind "SUPERCONTROL,S,exec,grim /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
+# hyprctl keyword bind "SUPERALT,D,exec,$SLURP | grim -g - ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
+# hyprctl keyword bind "SUPERALT,S,exec,$SLURP | grim -g - /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
+# hyprctl keyword bind "SUPERCONTROL,D,exec,grim ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
+# hyprctl keyword bind "SUPERCONTROL,S,exec,grim /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
+
 # notifs
 hyprctl keyword bind "SUPER,C,exec,dunstctl close" &
 hyprctl keyword bind "SUPERSHIFT,C,exec,dunstctl close-all" &

@@ -62,6 +62,9 @@ keymap("n", "<C-y>", ":%y+<CR>", opts)
 -- close and delete buffer
 keymap("n", "<leader>q", ":bd<CR>", opts)
 
+-- increment with <C-i> to free <C-a> for tmux
+keymap("n", "<C-i>", "<C-a>", opts)
+
 
 -- Insert --
 
@@ -93,19 +96,8 @@ keymap("x", "<leader>d", "d", opts)
 keymap("n", "<leader>dd", "dd", opts)
 keymap("n", "<leader>D", "D", opts)
 
--- lightspeed
-keymap("n", "s", "<Plug>Lightspeed_s", opts)
-keymap("n", "S", "<Plug>Lightspeed_S", opts)
-
 -- emmet (HTML and CSS expander)
 vim.g.user_emmet_leader_key = "<C-f>"
-
--- nnn
-keymap("n", "<C-t>", ":NnnExplorer<CR>", opts)
-
--- telescope
-keymap("n", "<leader>b", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
 
 -- harpoon
 keymap("n", "<leader>hb", ":lua require('harpoon.ui').toggle_quick_menu<CR>", opts)
@@ -115,3 +107,23 @@ keymap("n", "<leader>h<Left>", ":lua require('harpoon.ui').nav_file(1)<CR>", opt
 keymap("n", "<leader>h<Down>", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
 keymap("n", "<leader>h<Up>", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
 keymap("n", "<leader>h<Right>", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
+
+-- lightspeed
+keymap("n", "s", "<Plug>Lightspeed_s", opts)
+keymap("n", "S", "<Plug>Lightspeed_S", opts)
+
+-- nnn
+keymap("n", "<C-t>", ":NnnExplorer<CR>", opts)
+
+-- telescope
+keymap("n", "<leader>b", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>og", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>ot", ":Telescope help_tags<CR>", opts)
+keymap("n", "<leader>oh", ":Telescope harpoon marks<CR>", opts)
+
+-- toggling various plugins
+keymap("n", "<leader>tc", ":HexokinaseToggle<CR>", opts)
+keymap("n", "<leader>ts", ":setlocal spell! spelllang=en_gb<CR>", opts)
+keymap("n", "<leader>thn", ":call SynGroup()<CR>", opts)
+keymap("n", "<leader>tht", ":TSHighlightCapturesUnderCursor<CR>", opts)

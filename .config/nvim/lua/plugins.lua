@@ -50,6 +50,21 @@ return packer.startup{function(use, vim)
 
     use { "windwp/nvim-autopairs" } -- automatic syntax pairs, with treesitter and cmp integration
 
+    -- base lsp
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
+
+    -- lsp eyecandy
+    use({
+      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      config = function()
+        require("lsp_lines").setup()
+      end,
+    })
+
     -- cmp plugins
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-buffer"
@@ -106,6 +121,14 @@ return packer.startup{function(use, vim)
         cmd = { "NnnExplorer", "NnnPicker" }
     }
 
+    -- -- no worky :(
+    -- use { -- incredible file navigation system
+    --     "ThePrimeagen/harpoon",
+    --     requires = "nvim-lua/plenary.nvim",
+    -- }
+
+    -- better comments
+    use 'numToStr/Comment.nvim'
 
   -- automatically set up your configuration after cloning packer.nvim
   -- put this at the end after all plugins

@@ -1,0 +1,95 @@
+:root {
+    --fg: $(wq foreground);
+    --bg: $(wq background);
+    --black: $(wq color0);
+    --xcolor8: $(wq color8);
+    --red: $(wq color1);
+    --green: $(wq color2);
+    --orange: $(pastel mix $(wq color1) $(wq color3) | pastel format hex);
+    --yellow: $(wq color3);
+    --blue: $(wq color4);
+    --magenta: $(wq color5);
+    --cyan: $(wq color6);
+    --grey: $(wq color7);
+    --xcolor15: $(wq color15);
+
+    --lightbg: $(wq lightbg);
+    --lightfg: $(wq lightfg);
+
+    --sans: $(wq fontsans);
+    --mono: $(wq fontmono);
+
+    --br: 2em;
+}
+
+main {
+    padding: var(--br);
+    margin: auto;
+    font-family: var(--sans);
+}
+
+.octicon-link { opacity: 0; }
+
+main[data-theme="dark"] {
+    background-color:  var(--bg);
+}
+main[data-theme="light"] {
+    background-color:  var(--lightbg);
+}
+
+hr {
+    color: var(--grey);
+}
+
+main[data-theme="dark"] h1 {color:  var(--fg);}
+main[data-theme="light"] h1 {color:  var(--lightfg);}
+main[data-theme="dark"] h2 {color:  var(--fg);}
+main[data-theme="light"] h2 {color:  var(--lightfg);}
+main[data-theme="dark"] h3 {color:  var(--fg);}
+main[data-theme="light"] h3 {color:  var(--lightfg);}
+main[data-theme="dark"] h4 {color:  var(--fg);}
+main[data-theme="light"] h4 {color:  var(--lightfg);}
+main[data-theme="dark"] h5 {color:  var(--fg);}
+main[data-theme="light"] h5 {color:  var(--lightfg);}
+main[data-theme="dark"] h6 {color:  var(--fg);}
+main[data-theme="light"] h6 {color:  var(--lightfg);}
+
+#page-header {
+    border: 0px transparent none;
+    color: var(--grey);
+    font-family: var(--mono);
+}
+main[data-theme="dark"] #page-header {
+    background-color: var(--bg);
+}
+main[data-theme="light"] #page-header {
+    background-color: var(--lightbg);
+}
+
+main[data-theme="dark"] #page-header {
+    background-color: var(--bg);
+}
+main[data-theme="light"] #page-header {
+    background-color: var(--lightbg);
+}
+
+main[data-theme="dark"] p {
+    color: var(--fg);
+}
+main[data-theme="light"] p {
+    color: var(--lightfg);
+}
+
+main[data-theme="dark"] h1 {
+    color: var(--fg);
+}
+main[data-theme="light"] h1 {
+    color: var(--lightfg);
+}
+
+main[data-theme="dark"] li {
+    color: var(--fg);
+}
+main[data-theme="light"] li {
+    color: var(--lightfg);
+}

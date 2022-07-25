@@ -67,10 +67,16 @@ keymap("n", "<C-i>", "<C-a>", opts)
 
 -- folding is pretty sick
 keymap("n", "<leader>ft", "za", opts) -- toggle current fold
-keymap("n", "<leader>fo", "zA", opts) -- toggle all folds from cursor's level outwards
+keymap("n", "<leader>fi", "zA", opts) -- toggle all folds from cursor's level outwards
 keymap("n", "<leader>fa", "zR", opts) -- open all folds
 keymap("n", "<leader>fm", "zM", opts) -- close all folds
 
+-- as is LSP
+keymap("n", "<leader>lo", ":lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "<leader>ln", ":lua vim.diagnostic.goto_next()<CR>", opts)
+keymap("n", "<leader>lp", ":lua vim.diagnostic.goto_prev()<CR>", opts)
+vim.diagnostic.config({ virtual_text = false }) -- redundant due to lsp_lines
+keymap("", "<leader>ll", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 
 -- Insert --
 
@@ -106,7 +112,7 @@ keymap("n", "<leader>D", "D", opts)
 vim.g.user_emmet_leader_key = "<C-f>"
 
 -- harpoon
-keymap("n", "<leader>hb", ":lua require('harpoon.ui').toggle_quick_menu<CR>", opts)
+keymap("n", "<leader>hb", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 keymap("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<leader>hf", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 keymap("n", "<leader>h<Left>", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
@@ -119,7 +125,7 @@ keymap("n", "s", "<Plug>Lightspeed_s", opts)
 keymap("n", "S", "<Plug>Lightspeed_S", opts)
 
 -- nnn
-keymap("n", "<C-t>", ":NnnExplorer<CR>", opts)
+keymap("n", "<C-t>", ":NnnPicker<CR>", opts)
 
 -- telescope
 keymap("n", "<leader>ob", ":Telescope buffers<CR>", opts)

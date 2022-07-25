@@ -70,6 +70,17 @@ return packer.startup{function(use, vim)
     use "saadparwaiz1/cmp_luasnip"
     use "rafamadriz/friendly-snippets"
 
+    -- treesitter (eye candy galore)
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        requires = {
+            -- 'nvim-treesitter/nvim-treesitter-refactor',
+            'nvim-treesitter/nvim-treesitter-textobjects',
+            'nvim-treesitter/playground'
+        },
+        -- run = ':TSUpdate',
+    }
+
     use { -- colour preview
         "RRethy/vim-hexokinase",
         run = 'make hexokinase',

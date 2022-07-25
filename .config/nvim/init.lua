@@ -7,7 +7,7 @@ require "options"
 
 -- plugins
 require "plugins"
--- require "packer_compiled"
+require "treesitter"
 require "autopairs"
 require "nvim-cmp"
 require "luasnip"

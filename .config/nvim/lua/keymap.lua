@@ -65,6 +65,12 @@ keymap("n", "<leader>q", ":bd<CR>", opts)
 -- increment with <C-i> to free <C-a> for tmux
 keymap("n", "<C-i>", "<C-a>", opts)
 
+-- folding is pretty sick
+keymap("n", "<leader>ft", "za", opts) -- toggle current fold
+keymap("n", "<leader>fo", "zA", opts) -- toggle all folds from cursor's level outwards
+keymap("n", "<leader>fa", "zR", opts) -- open all folds
+keymap("n", "<leader>fm", "zM", opts) -- close all folds
+
 
 -- Insert --
 
@@ -116,8 +122,8 @@ keymap("n", "S", "<Plug>Lightspeed_S", opts)
 keymap("n", "<C-t>", ":NnnExplorer<CR>", opts)
 
 -- telescope
-keymap("n", "<leader>b", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>ob", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>of", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>og", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>ot", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>oh", ":Telescope harpoon marks<CR>", opts)

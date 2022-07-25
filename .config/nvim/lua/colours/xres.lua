@@ -204,6 +204,12 @@ local highlight_group_normal = {fg = c.white15}
 
 -- This is where the rest of your highlights should go.
 local highlight_groups = {
+
+    -- General vim
+    Bold = {style = 'bold'},
+    Italic = {style = 'italic'},
+    TooLong = {fg = c.red01},
+
 	--[[ 4.1. Text Analysis ]]
 	Comment = {fg = c.grey07, style = 'italic'},
 	NonText = {fg = c.black08},
@@ -214,59 +220,59 @@ local highlight_groups = {
 	Constant = {fg = c.orange},
 	String = {fg = c.green02},
 	Character = {fg = c.red09},
-	Number  = {fg = c.pink},
-	Boolean = {fg = c.yellow03},
+	Number  = {fg = c.orange},
+	Boolean = {fg = c.cyan06, style = {'bold'}},
 	Float   = 'Number',
 
 	--[[ 4.1.2. Identifiers]]
-	Identifier = {fg = highlight_group_normal.fg},
-	Function = {fg = c.magenta05},
+	Identifier = {fg = c.red01, style = 'italic'},
+	Function = {fg = c.blue04},
 
 	--[[ 4.1.3. Syntax]]
-	Statement   = {fg = c.blue04},
-	Conditional = {fg = c.blue04, style = 'italic'},
-	Repeat   = {fg = c.cyan06, style = 'italic'},
+	Statement   = {fg = c.red01},
+	Conditional = {fg = c.magenta05, style = 'italic'},
+	Repeat   = {fg = c.pink, style = {'italic', 'bold'}},
 	Label    = {fg = c.pink, style = 'bold'},
-	Operator = {fg = c.green02, style = 'bold'},
+	Operator = {fg = c.cyan06, style = 'bold'},
 	Keyword  = {fg = c.cyan06},
 	Exception = {fg = c.red09, style = 'bold'},
 	Noise = 'Delimiter',
 
 	--[[ 4.1.4. Metatextual Information]]
 	PreProc = {fg = c.orange},
-	Include = {fg = c.green02, style = 'nocombine'},
+	Include = {fg = c.blue04, style = 'nocombine'},
 	Define = {fg = c.blue04, style = 'nocombine'},
-	Macro  = {fg = c.blue04, style = 'italic'},
+	Macro  = {fg = c.cyan06, style = 'italic'},
 	PreCondit = {fg = c.orange, style = 'italic'},
 
 	--[[ 4.1.5. Semantics]]
-	Type         = {fg = c.cyan06},
+	Type         = {fg = c.yellow03, style = 'italic'},
 	StorageClass = {fg = c.orange, style = 'bold'},
-	Structure = {fg = c.blue04, style = 'bold'},
-	Typedef = {fg = c.cyan06, style = 'italic'},
+	Structure = {fg = c.magenta05, style = 'bold'},
+	Typedef = {fg = c.yellow03, style = 'italic'},
 
 	--[[ 4.1.6. Edge Cases]]
-	Special = {fg = c.magenta05, style = 'bold'},
-	SpecialChar = {fg = c.red09, style = 'italic'},
+	Special = {fg = c.cyan06, style = 'bold'},
+	SpecialChar = {fg = c.pink, style = 'italic'},
 	SpecialKey = 'Character',
 	Tag = 'Underlined',
-	Delimiter = {fg = c.white15},
+	Delimiter = {fg = c.pink},
 	SpecialComment = {fg = c.grey07, style = {'bold', 'nocombine'}},
 	Debug = 'WarningMsg',
 
 	--[[ 4.1.7. Help Syntax]]
 	Underlined = {fg = c.cyan06, style = 'underline'},
 	Ignore = {fg = c.gray07},
-	Error = {fg = c.white15, bg = c.red01, style = 'bold'},
-	Todo = {fg = c.black00, bg = c.yellow03, style = 'bold'},
+	Error = {fg = c.background, bg = c.red01},
+	Todo = {fg = c.background, bg = c.yellow03, style = 'bold'},
 	Hint = {fg = c.black00, bg = c.magenta05, style = 'bold'},
 	Info = {fg = c.black00, bg = c.pink, style = 'bold'},
 	Warning = {fg = c.black00, bg = c.orange, style = 'bold'},
 
 	--[[ 4.2... Editor UI  ]]
 	--[[ 4.2.1. Status Line]]
-	StatusLine = {fg = c.green02, bg = c.black08},
-	StatusLineNC = function(self) return {fg = c.grey07, bg = self.StatusLine.bg} end,
+	StatusLine = {fg = c.grey07, bg = c.black08},
+	StatusLineNC = {fg = c.black08, bg = c.black00},
 	StatusLineTerm = 'StatusLine',
 	StatusLineTermNC = 'StatusLineNC',
 
@@ -275,30 +281,30 @@ local highlight_groups = {
 	TabLine = function(self) return {fg = highlight_group_normal.fg, bg = self.StatusLine.bg} end,
 	TabLineFill = function(self) return {fg = self.TabLine.bg, bg = c.black00} end,
 	TabLineSel = function(self) return {fg = self.TabLine.fg, bg = highlight_group_normal.bg} end,
-	Title = {style = 'bold'},
-	VertSplit = {fg = c.white15},
+	Title = {fg = c.blue04, style = 'bold'},
+	VertSplit = {fg = c.black08},
 
 	--[[ 4.2.3. Conditional Line Highlighting]]
 	Conceal = 'NonText',
-	CursorLine   = {bg = c.black08},
-	CursorLineNr = function(self) return {fg = c.pink, bg = self.LineNr.bg} end,
+	CursorLine   = {bg = c.black00},
+	CursorLineNr = function(self) return {fg = c.white15, bg = self.CursorLine.bg} end,
 	debugBreakpoint = 'ErrorMsg',
 	debugPC = 'ColorColumn',
-	LineNr  = {fg = c.gray07},
+	LineNr  = {fg = c.black08},
 	QuickFixLine = function(self) return {bg = self.StatusLine.bg} end,
 	Visual    = {style = 'inverse'},
 	VisualNOS = {bg = c.black08},
 
 	--[[ 4.2.4. Popup Menu]]
-	Pmenu = {fg = highlight_group_normal.fg, bg = c.black08},
+	Pmenu = {fg = c.white15, bg = c.black00},
 	PmenuSbar = {bg = c.black08},
-	PmenuSel  = {fg = c.black00, bg = c.white15},
-	PmenuThumb = {bg = c.white15},
+	PmenuSel  = {fg = c.background, bg = c.white15},
+	PmenuThumb = {fg = c.black08, bg = c.black08},
 	WildMenu = 'PmenuSel',
 
 	--[[ 4.2.5. Folds]]
-	FoldColumn = {bg = c.black08, style = 'bold'},
-	Folded = {fg = c.black00,  bg = c.magenta05, style = 'italic'},
+	FoldColumn = {fg = c.cyan06, bg = c.black00, style = 'bold'},
+	Folded = {fg = c.grey07, bg = c.black00, style = 'italic'},
 
 	--[[ 4.2.6. Diffs]]
 	DiffAdd    = {fg = c.black00, bg = c.green02},
@@ -309,7 +315,7 @@ local highlight_groups = {
 	--[[ 4.2.7. Searching]]
 	IncSearch  = {style = 'inverse'},
 	MatchParen = {fg = c.green02, style = {'bold', 'underline'}},
-	Search = {style = {'underline', color = c.white15}},
+	Search = {fg = c.background, bg = c.pink,style = {'bold'}},
 
 	--[[ 4.2.8. Spelling]]
 	SpellBad   = {style = {'undercurl', color = c.red01}},
@@ -319,15 +325,16 @@ local highlight_groups = {
 
 	--[[ 4.2.9. Conditional Column Highlighting]]
 	ColorColumn = {style = 'inverse'},
-	SignColumn  = {},
+	SignColumn  = {fg = c.black08},
 
 	--[[ 4.2.10. Messages]]
-	ErrorMsg = {fg = c.red01, style = 'bold'},
+	ErrorMsg = {fg = c.red01},
 	HintMsg  = {fg = c.magenta05, style = 'italic'},
 	InfoMsg  = {fg = c.pink, style = 'italic'},
-	ModeMsg  = {fg = c.yellow03},
+	ModeMsg  = {fg = c.green02},
+	MoreMsg  = {fg = c.green02},
 	WarningMsg = {fg = c.orange, style = 'bold'},
-	Question   = {fg = c.orange, style = 'underline'},
+	Question   = {fg = c.blue04},
 
 	--[[ 4.2.11. LSP / Diagnostics ]]
 	DiagnosticError = 'Error',
@@ -375,7 +382,7 @@ local highlight_groups = {
 	--[[ 4.2.12. Cursor ]]
 	Cursor   = {style = 'inverse'},
 	CursorIM = 'Cursor',
-	CursorColumn = {bg = c.black08},
+	CursorColumn = {bg = c.black00},
 
 	--[[ 4.2.13. Misc ]]
 	Directory = {fg = c.blue04, style = 'bold'},
@@ -795,7 +802,7 @@ local highlight_groups = {
 
 	--[[ 4.4.4. vim-gitgutter / vim-signify / gitsigns.nvim ]]
 	GitGutterAdd    = {fg = c.green02},
-	GitGutterChange = {fg = c.yellow03},
+	GitGutterChange = {fg = c.blue04},
 	GitGutterDelete = {fg = c.red01},
 	GitGutterChangeDelete = {fg = c.orange},
 
@@ -824,11 +831,16 @@ local highlight_groups = {
 
 	--[[ 4.4.8. nvim-treesitter ]]
 	TSConstBuiltin = 'TSConstant',
-	TSConstructor = 'TSFunction',
+	TSConstructor = {fg = c.pink},
 	TSDanger = 'ErrorMsg',
-	TSFuncBuiltin = 'TSFunction',
+	TSFuncBuiltin = {fg = c.cyan06, style = 'italic'},
 	TSTag = 'Tag',
+    TSTypeBuiltin = {fg = c.yellow03, style = {'bold', 'italic'}},
 	TSWarning = 'WarningMsg',
+    TSKeyword = {fg = c.magenta05, style = {'bold'}},
+    TSKeywordFunction = 'Function',
+    TSKeywordOperator = {fg = c.cyan06},
+    TSStringEscape = {fg = c.cyan06, bg = c.black00, style = 'italic'},
 
 	--[[ 4.4.9. barbar.nvim ]]
 	BufferCurrent       = 'TabLineSel',
@@ -870,7 +882,7 @@ local highlight_groups = {
 	TargetWord = 'Title',
 
 	--[[ 4.4.13. indent-blankline.nvim ]]
-	IndentBlanklineChar = function(self) return vim.tbl_extend('force', self.whitespace, {style = 'nocombine'}) end,
+	IndentBlanklineChar = {fg = c.black08},
 	IndentBlanklineSpaceChar = 'IndentBlanklineChar',
 
 	--[[ 4.4.14. trouble.nvim ]]

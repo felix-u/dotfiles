@@ -14,7 +14,7 @@ set -Ux BAT_THEME "ansi"
 # Defaults
 set -Ux TERMINAL 'foot'
 set -Ux TERM_ITALICS true
-set -Ux EDITOR 'hx'
+set -Ux EDITOR 'nvim'
 set -Ux VISUAL "nvim"
 set -Ux READER 'zathura'
 set -Ux VIDEO 'mpv'

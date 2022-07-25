@@ -7,19 +7,20 @@ end
 
 -- Get the colors to create theme
 -- stylua: ignore
+local palette = require "colours.palette"
 local colors = {
-  blue  = utils.extract_color_from_hllist('fg', { 'Title' }, '#000000'),
-  green  = utils.extract_color_from_hllist('fg', { 'String', 'MoreMsg' }, '#000000'),
-  orange = utils.extract_color_from_hllist('fg', { 'Number', 'Type' }, '#000000'),
-  cyan  = utils.extract_color_from_hllist('fg', { 'Special', 'Boolean', 'Constant' }, '#000000'),
-  red = utils.extract_color_from_hllist('fg', { 'Identifier' }, '#000000'),
-  purple = utils.extract_color_from_hllist('fg', { 'Keyword' }, '#000000'),
-  bg   = utils.extract_color_from_hllist('bg', { 'Normal', 'StatusLineNC' }, '#000000'),
-  fg   = utils.extract_color_from_hllist('fg', { 'phpParent' }, '#000000'),
-  color15    = utils.extract_color_from_hllist('fg', { 'Normal', 'StatusLine' }, '#000000'),
-  color8   = utils.extract_color_from_hllist('bg', { 'StatusLine' }, '#000000'),
-  color0   = utils.extract_color_from_hllist('bg', { 'Folded' }, '#000000'),
-  color7   = utils.extract_color_from_hllist('fg', { 'StatusLine' }, '#000000'),
+  blue  = palette.blue04[1],
+  green  = palette.green02[1],
+  orange = palette.orange[1],
+  cyan  = palette.cyan06[1],
+  red = palette.red01[1],
+  purple = palette.magenta05[1],
+  bg   = palette.background[1],
+  fg   = palette.foreground[1],
+  color15    = palette.white15[1],
+  color8   = palette.black08[1],
+  color0   = palette.black00[1],
+  color7   = palette.grey07[1],
 }
 
 local none = colors.color0

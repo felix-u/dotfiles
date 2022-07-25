@@ -48,6 +48,28 @@ return packer.startup{function(use, vim)
         -- cmd = { "PackerCompile", "PackerInstall", "PackerStatus", "PackerSync" },
     }
 
+    -- more vim objects
+    use { "wellle/targets.vim" }
+
+    -- git signs (like gitgutter, but better)
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
+    }
+
+    -- better marks
+    use {
+        "chentoast/marks.nvim",
+        config = function()
+            require"marks".setup {
+                default_mappings = true,
+                builtin_marks = {},
+            }
+        end
+    }
+
     use { "windwp/nvim-autopairs" } -- automatic syntax pairs, with treesitter and cmp integration
 
     -- base lsp
@@ -57,6 +79,26 @@ return packer.startup{function(use, vim)
         "neovim/nvim-lspconfig",
     }
 
+    -- fuzzy finding and other stuff. pretty kool
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope-media-files.nvim'
+        }
+    }
+    use 'nvim-lua/popup.nvim'
+
+    -- status line :)))))
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+            'SmiteshP/nvim-navic', -- shows location in code structure
+            opt = true
+        },
+    }
+
     -- lsp eyecandy
     use({
       "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -64,6 +106,7 @@ return packer.startup{function(use, vim)
         require("lsp_lines").setup()
       end,
     })
+    use { "RRethy/vim-illuminate" }
 
     -- cmp plugins
     use "hrsh7th/nvim-cmp"
@@ -96,6 +139,25 @@ return packer.startup{function(use, vim)
         -- run = ':TSUpdate',
     }
 
+    use { -- delete, don't cut
+        "gbprod/cutlass.nvim",
+        config = function ()
+            require"cutlass".setup()
+        end,
+    }
+
+    -- what it says on the tin
+    use 'ggandor/lightspeed.nvim'
+
+    -- like which-key in emacs
+    -- Lua
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup()
+      end
+    }
+
     use { -- colour preview
         "RRethy/vim-hexokinase",
         run = 'make hexokinase',
@@ -121,14 +183,19 @@ return packer.startup{function(use, vim)
         cmd = { "NnnExplorer", "NnnPicker" }
     }
 
-    -- -- no worky :(
-    -- use { -- incredible file navigation system
-    --     "ThePrimeagen/harpoon",
-    --     requires = "nvim-lua/plenary.nvim",
-    -- }
+    -- no worky :(
+    use { -- incredible file navigation system
+        "ThePrimeagen/harpoon",
+        requires = "nvim-lua/plenary.nvim",
+    }
 
     -- better comments
-    use 'numToStr/Comment.nvim'
+    use {
+        "numToStr/Comment.nvim",
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
   -- automatically set up your configuration after cloning packer.nvim
   -- put this at the end after all plugins

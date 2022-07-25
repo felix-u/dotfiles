@@ -1,5 +1,5 @@
 local utils = require 'lualine.utils.utils'
-local gps = require 'nvim-gps'
+local gps = require 'nvim-navic'
 
 local function user_host()
 	return vim.fn.getenv('USER') .. '@' .. vim.fn.hostname()
@@ -61,15 +61,15 @@ require('lualine').setup {
 
 	sections = {
 		lualine_a = {
-			{ 'filename', fmt = string.lower,
-                -- color = { bg = colors.color8, fg = colors.fg }
-            },
 			{ 'mode', fmt = string.upper,
-                color = { gui = 'italic,bold' } }
+                color = { gui = '', fg = colors.bg }
+            },
 		},
 
 		lualine_b = {
-			{}
+			{ 'filename', fmt = string.lower,
+                color = { bg = colors.color0, fg = colors.fg }
+            },
 		},
 
 		lualine_c = {
@@ -84,10 +84,11 @@ require('lualine').setup {
 
 		lualine_y = {
 			{ 'branch', fmt = string.lower, color = { bg = colors.color0, gui = 'bold', fg = colors.cyan } },
-            -- { 'filetype', color = { gui = 'italic,bold', bg = colors.color0, fg = colors.color7 } }
+            { 'filetype', color = { gui = 'italic', bg = colors.color0, fg = colors.color15 } }
 		},
 		lualine_z = {
 			{ 'location', color = {bg = colors.color0, fg = colors.fg } }
 		}
 	}
 }
+

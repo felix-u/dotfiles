@@ -75,8 +75,19 @@ keymap("n", "<leader>fm", "zM", opts) -- close all folds
 keymap("n", "<leader>lo", ":lua vim.diagnostic.open_float()<CR>", opts)
 keymap("n", "<leader>ln", ":lua vim.diagnostic.goto_next()<CR>", opts)
 keymap("n", "<leader>lp", ":lua vim.diagnostic.goto_prev()<CR>", opts)
+keymap("n", "<leader>ll", ":lua require('lsp_lines').toggle()<CR>", { desc = "Toggle lsp_lines" })
+keymap("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", opts)
+keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts)
+keymap("n", "gr", ":lua vim.lsp.buf.references()<CR>", opts)
+keymap("n", "<leader>a", ":lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("n", "<leader>g", ":lua vim.lsp.buf.open_float()<CR>", opts)
+keymap("n", "<leader>k", ":lua vim.lsp.buf.hover()<CR>", opts)
 vim.diagnostic.config({ virtual_text = false }) -- redundant due to lsp_lines
-keymap("", "<leader>ll", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+
+-- swap ("j" for "jump") more easily between the last two buffers
+keymap("n", "<leader>j", "<C-^>", opts)
+
 
 -- Insert --
 
@@ -132,7 +143,8 @@ keymap("n", "<leader>ob", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>of", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>og", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>ot", ":Telescope help_tags<CR>", opts)
-keymap("n", "<leader>oh", ":Telescope harpoon marks<CR>", opts)
+keymap("n", "<leader>om", ":Telescope harpoon marks<CR>", opts)
+keymap("n", "<leader>oh", ":Telescope help_tags<CR>", opts)
 
 -- toggling various plugins
 keymap("n", "<leader>tc", ":HexokinaseToggle<CR>", opts)

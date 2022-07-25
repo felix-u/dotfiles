@@ -12,8 +12,10 @@ require "treesitter"
 require "autopairs"
 require "nvim-cmp"
 require "luasnip"
--- require "harpoon" -- no worky for now
+require "harpoonconfig"
 require "lsp"
+require "gitsignsconfig"
 
--- colour scheme
+-- colour scheme and statusline
 vim.cmd('source $XDG_CONFIG_HOME/nvim/lua/colours/xresources.vim')
+require "statusline"

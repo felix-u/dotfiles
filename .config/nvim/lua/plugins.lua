@@ -38,8 +38,63 @@ packer.init {
   },
 }
 
+-- Plugins --
 return packer.startup{function(use, vim)
-  use { "wbthomason/packer.nvim" } -- packer can manage itself
+
+    use { "lewis6991/impatient.nvim" } -- spEEEEED
+
+    use { -- packer can manage itself
+        "wbthomason/packer.nvim",
+        -- cmd = { "PackerCompile", "PackerInstall", "PackerStatus", "PackerSync" },
+    }
+
+    use { "windwp/nvim-autopairs" } -- automatic syntax pairs, with treesitter and cmp integration
+
+    -- cmp plugins
+    use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-buffer"
+    use { "mtoohey31/cmp-fish", ft = "fish" }
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-cmdline"
+    use { "hrsh7th/cmp-nvim-lua", ft = "lua" }
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-calc"
+    use "f3fora/cmp-spell"
+    use "lukas-reineke/cmp-rg"
+    use "hrsh7th/cmp-emoji"
+    use { "kdheepak/cmp-latex-symbols", ft = "tex" }
+    use "onsails/lspkind.nvim"
+
+    -- snippets
+    use "L3MON4D3/LuaSnip"
+    use "saadparwaiz1/cmp_luasnip"
+    use "rafamadriz/friendly-snippets"
+
+    use { -- colour preview
+        "RRethy/vim-hexokinase",
+        run = 'make hexokinase',
+        cmd  = {"HexokinaseToggle"},
+        opt = true
+    }
+    use { "tpope/vim-surround" } -- easily manipulate surroundings
+
+    use { -- nnn as my file tree
+        "luukvbaal/nnn.nvim",
+        config = function() require("nnn").setup({
+            picker = {
+                style = {
+                    border = "rounded",
+                },
+            },
+            auto_open = {
+                empty = true,
+            },
+            auto_close = true,
+        }) end,
+        opt = true,
+        cmd = { "NnnExplorer", "NnnPicker" }
+    }
+
 
   -- automatically set up your configuration after cloning packer.nvim
   -- put this at the end after all plugins
@@ -48,6 +103,6 @@ return packer.startup{function(use, vim)
   end
 end,
 config = {
-        compile_path = '~/.config/nvim/lua/packer_compiled.lua' 
+        compile_path = '~/.config/nvim/lua/packer_compiled.lua'
     }
 }

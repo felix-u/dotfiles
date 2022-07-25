@@ -158,6 +158,17 @@ return packer.startup{function(use, vim)
       end
     }
 
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function ()
+            require("indent_blankline").setup {
+                -- for example, context is off by default, use this to turn it on
+                show_current_context = true,
+                show_current_context_start = true,
+            }
+        end,
+    }
+
     use { -- colour preview
         "RRethy/vim-hexokinase",
         run = 'make hexokinase',
@@ -202,8 +213,7 @@ return packer.startup{function(use, vim)
     -- just some colour schemes to muck about with
     use {
         "overcache/NeoSolarized",
-        "folke/tokyonight.nvim",
-        "ellisonleao/gruvbox.nvim"
+        "ellisonleao/gruvbox.nvim",
     }
 
   -- automatically set up your configuration after cloning packer.nvim

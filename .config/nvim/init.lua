@@ -17,8 +17,6 @@ require "lsp"
 require "gitsignsconfig"
 
 -- colour scheme and statusline
-vim.cmd('source $XDG_CONFIG_HOME/nvim/lua/colours/xresources.vim')
+-- vim.cmd('source $XDG_CONFIG_HOME/nvim/lua/colours/xresources.vim')
+require "colours.xres"
 require "statusline"
-
--- if cursor is in a fold, the fold will be opened
-vim.cmd("silent! call feedkeys('zA')")

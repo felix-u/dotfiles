@@ -6,3 +6,13 @@ autocmd BufRead * autocmd FileType <buffer> ++once
 
 -- remove trailing whitespace on save
 vim.cmd([[autocmd BufWritePre * :%s/\s\+$//e]])
+
+-- -- disabled because it's buggy
+-- -- remember folds
+-- vim.cmd([[
+-- augroup remember_folds
+--   autocmd!
+--   autocmd BufWinLeave * mkview
+--   autocmd BufWinEnter * silent! loadview
+-- augroup END
+-- ]])

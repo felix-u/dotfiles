@@ -67,7 +67,7 @@ keymap("n", "<leader>q", ":bd<CR>", opts)
 keymap("n", "<C-i>", "<C-a>", opts)
 
 -- folding is pretty sick
-keymap("n", "<leader>ft", "za", opts) -- toggle current fold
+keymap("n", "<leader>fo", "za", opts) -- toggle current fold
 keymap("n", "<leader>fi", "zA", opts) -- toggle all folds from cursor's level outwards
 keymap("n", "<leader>fa", "zR", opts) -- open all folds
 keymap("n", "<leader>fm", "zM", opts) -- close all folds

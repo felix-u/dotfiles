@@ -10,6 +10,7 @@ vim.opt.fillchars = "fold: " -- fold eye-candy
 vim.opt.fillchars.eob = " " -- separation between splits, I think
 vim.opt.foldenable = true -- enable folds
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
+vim.opt.foldlevel = 99 -- essentially, unfold by default
 vim.opt.foldmethod = "expr"
 vim.opt.foldminlines = 3
 vim.opt.foldnestmax = 4

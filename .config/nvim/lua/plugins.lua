@@ -166,6 +166,9 @@ return packer.startup{function(use, vim)
     }
     use { "tpope/vim-surround" } -- easily manipulate surroundings
 
+    -- allow plugins to tap into vim repeat functionality
+    use 'tpope/vim-repeat'
+
     use { -- nnn as my file tree
         "luukvbaal/nnn.nvim",
         config = function() require("nnn").setup({
@@ -183,7 +186,6 @@ return packer.startup{function(use, vim)
         cmd = { "NnnExplorer", "NnnPicker" }
     }
 
-    -- no worky :(
     use { -- incredible file navigation system
         "ThePrimeagen/harpoon",
         requires = "nvim-lua/plenary.nvim",
@@ -195,6 +197,13 @@ return packer.startup{function(use, vim)
         config = function()
             require('Comment').setup()
         end
+    }
+
+    -- just some colour schemes to muck about with
+    use {
+        "overcache/NeoSolarized",
+        "folke/tokyonight.nvim",
+        "ellisonleao/gruvbox.nvim"
     }
 
   -- automatically set up your configuration after cloning packer.nvim

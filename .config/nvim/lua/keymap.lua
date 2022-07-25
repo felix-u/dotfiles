@@ -33,6 +33,7 @@ keymap("n", "<leader><Left>", "<C-w>h", opts)
 keymap("n", "<leader><Down>", "<C-w>j", opts)
 keymap("n", "<leader><Up>", "<C-w>k", opts)
 keymap("n", "<leader><Right>", "<C-w>l", opts)
+keymap("n", "<leader>i", "<C-w>w", opts) -- "i" for "into"
 -- split resizing
 keymap("n", "<leader><M-Left>", "16<C-w><", opts)
 keymap("n", "<leader><M-Down>", "16<C-w>+", opts)

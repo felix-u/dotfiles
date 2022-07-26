@@ -800,6 +800,18 @@ local highlight_groups = {
 	EasyMotion = 'IncSearch',
 	JumpMotion = 'EasyMotion',
 
+    --[[ 4.4.3. lightspeed.nvim ]]
+    LightspeedDefault = {fg = c.pink, style = 'bold'},
+    LightspeedGreyWash = {fg = c.grey07},
+    LightspeedLabel = {fg = c.background, bg = c.blue12, style = 'bold'},
+    LightspeedShortcut = {fg = c.background, bg = c.pink, style = 'bold'},
+    LightspeedLabelDistant = {fg = c.background, bg = c.orange},
+    LightspeedMaskedChar = 'LightspeedDefault',
+    LightspeedUnlabeledMatch = {fg = c.background, bg = c.foreground, style = 'bold'},
+    LightspeedOneCharMatch = 'LightspeedShortcut',
+
+
+
 	--[[ 4.4.4. vim-gitgutter / vim-signify / gitsigns.nvim ]]
 	GitGutterAdd    = {fg = c.green02},
 	GitGutterChange = {fg = c.blue04},

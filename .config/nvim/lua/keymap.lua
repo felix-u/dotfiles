@@ -35,10 +35,10 @@ keymap("n", "<leader><Up>", "<C-w>k", opts)
 keymap("n", "<leader><Right>", "<C-w>l", opts)
 keymap("n", "<leader>i", "<C-w>w", opts) -- "i" for "into"
 -- split resizing
-keymap("n", "<leader><M-Left>", "16<C-w><", opts)
-keymap("n", "<leader><M-Down>", "16<C-w>+", opts)
-keymap("n", "<leader><M-Up>", "16<C-w>-", opts)
-keymap("n", "<leader><M-Right>", "16<C-w>>", opts)
+keymap("n", "<leader><M-Left>", "9<C-w><", opts)
+keymap("n", "<leader><M-Down>", "9<C-w>+", opts)
+keymap("n", "<leader><M-Up>", "9<C-w>-", opts)
+keymap("n", "<leader><M-Right>", "9<C-w>>", opts)
 -- split creation
 keymap("n", "<leader><PageDown>", ":split scratch<CR>", opts)
 keymap("n", "<leader><End>", ":vsplit scratch<CR>", opts)
@@ -139,6 +139,10 @@ keymap("n", "<leader>h<Right>", ":lua require('harpoon.ui').nav_file(4)<CR>", op
 -- lightspeed
 keymap("n", "s", "<Plug>Lightspeed_s", opts)
 keymap("n", "S", "<Plug>Lightspeed_S", opts)
+-- keymap("n", "s", "<Plug>Lightspeed_omni_s", opts)
+keymap("n", "gs", "<Plug>Lightspeed_omni_gs", opts)
+keymap("n", "<Tab>", "<Plug>Lightspeed_;_sx", opts)
+keymap("n", "<Backspace>", "<Plug>Lightspeed_,_sx", opts)
 
 -- nnn
 keymap("n", "<C-t>", ":NnnPicker<CR>", opts)

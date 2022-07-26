@@ -25,10 +25,7 @@ shgen ~/dotfiles/firefox/chrome/genuserChrome.css ~/dotfiles/firefox/chrome/user
 echo "firefox"
 
 # nvim
-DIR=$(pwd)
-cd "$DOTSCONF"/nvim/colors/ || exit
-exec ./schemescript.sh &
-cd "$DIR" || exit
+shgen "$XDG_CONFIG_HOME"/nvim/lua/colours/genpalette.lua "$XDG_CONFIG_HOME"/nvim/lua/colours/palette.lua &
 echo "nvim"
 
 # helix

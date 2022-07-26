@@ -40,8 +40,8 @@ keymap("n", "<leader><M-Down>", "16<C-w>+", opts)
 keymap("n", "<leader><M-Up>", "16<C-w>-", opts)
 keymap("n", "<leader><M-Right>", "16<C-w>>", opts)
 -- split creation
-keymap("n", "<leader><PageDown>", ":split scratch", opts)
-keymap("n", "<leader><End>", ":vsplit scratch", opts)
+keymap("n", "<leader><PageDown>", ":split scratch<CR>", opts)
+keymap("n", "<leader><End>", ":vsplit scratch<CR>", opts)
 
 -- tab navigation
 keymap("n", "<leader>1", "1gt", opts)
@@ -82,12 +82,16 @@ keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts)
 keymap("n", "gr", ":lua vim.lsp.buf.references()<CR>", opts)
 keymap("n", "<leader>a", ":lua vim.lsp.buf.code_action()<CR>", opts)
-keymap("n", "<leader>g", ":lua vim.lsp.buf.open_float()<CR>", opts)
+keymap("n", "<leader>g", ":lua vim.diagnostic.open_float()<CR>", opts)
 keymap("n", "<leader>k", ":lua vim.lsp.buf.hover()<CR>", opts)
 vim.diagnostic.config({ virtual_text = false }) -- redundant due to lsp_lines
 
 -- swap ("j" for "jump") more easily between the last two buffers
 keymap("n", "<leader>j", "<C-^>", opts)
+
+-- append and prepend lines without leaving normal mode or current position
+keymap("n", "]<Space>", ":<C-u>put =repeat(nr2char(10),v:count)<Bar>execute \"'[-1\"<CR>", opts)
+keymap("n", "[<Space>", ":<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute \"']+1\"<CR>", opts)
 
 
 -- Insert --

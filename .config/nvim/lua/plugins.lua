@@ -210,10 +210,14 @@ return packer.startup{function(use, vim)
         end
     }
 
-    -- just some colour schemes to muck about with
+    -- just some colour schemes to muck about with.
+    -- I don't actually use any though :P
     use {
         "overcache/NeoSolarized",
         "ellisonleao/gruvbox.nvim",
+        "folke/tokyonight.nvim",
+        "rafi/awesome-vim-colorschemes", -- this is a collection
+        "pineapplegiant/spaceduck"
     }
 
   -- automatically set up your configuration after cloning packer.nvim

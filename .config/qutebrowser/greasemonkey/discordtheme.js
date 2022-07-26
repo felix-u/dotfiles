@@ -17,22 +17,22 @@ function GM_addStyle (cssStr) {
 
 GM_addStyle ( `
 :root {
-    --fg: #9c9cae;
-    --bg: #1f2440;
-    --black: #2c314e;
-    --xcolor8: #484b6b;
-    --red: #e9006e;
-    --green: #789d00;
-    --orange: #d36147;
-    --yellow: #b88900;
-    --blue: #5386dc;
-    --magenta: #8d67c0;
-    --cyan: #00a1ba;
-    --grey: #74758d;
-    --xcolor15: #8e8fa3;
+    --fg: #bcbcdb;
+    --bg: #222432;
+    --black: #323140;
+    --xcolor8: #4d4c5d;
+    --red: #dc6f7a;
+    --green: #7cbe8c;
+    --orange: #c48a7f;
+    --yellow: #a8a384;
+    --blue: #589ec6;
+    --magenta: #929be5;
+    --cyan: #59b6b6;
+    --grey: #767687;
+    --xcolor15: #9ea3c0;
 
-    --sans: FreeSans;
-    --mono: Iosevka;
+    --sans: ;
+    --mono: ;
 
     --br: 2em;
 }
@@ -56,7 +56,7 @@ code {
 .theme-light,
 :root {
     --background-primary: var(--bg) !important;
-    --background-secondary: #252a47 !important;
+    --background-secondary: #2a2a39 !important;
     --background-secondary-alt: var(--black) !important;
     --background-tertiary: var(--bg) !important;
     --background-accent: var(--bg) !important;
@@ -106,7 +106,7 @@ nav[aria-label="Servers sidebar"]:hover span.item-2LIpTv {
 
 /* server sidebar background colour */
 nav[aria-label="Servers sidebar"] div.scroller-3X7KbA.scrollerBase-_bVAAt {
-    /* background-color: #252a47 !important; */
+    /* background-color: #2a2a39 !important; */
     background-color: var(--black) !important;
     transition: background-color 0.2s linear;
 }
@@ -117,7 +117,7 @@ nav[aria-label="Servers sidebar"]:hover div.scroller-3X7KbA.scrollerBase-_bVAAt 
 
 /* thing at the bottom of server bar with personal settings */
 div.container-YkUktl {
-    background-color: #252a47 ;
+    background-color: #2a2a39 ;
 }
 
 /* server bar green buttons */
@@ -172,9 +172,9 @@ div.sidebar-1tnWFu:hover .container-YkUktl .avatar-1EWyVD {
 }
 /* header */
 div.sidebar-1tnWFu header.header-3OsQeK {
-    background-color: #252a47 !important;
+    background-color: #2a2a39 !important;
     transition: background-color 0.2s linear;
-    /* color: #252a47 !important; */
+    /* color: #2a2a39 !important; */
 }
 div.sidebar-1tnWFu:hover header.header-3OsQeK {
     background-color: transparent !important;

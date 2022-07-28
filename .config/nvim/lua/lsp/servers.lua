@@ -5,23 +5,30 @@ require("mason-lspconfig").setup({
 
 local lsp = require "lspconfig"
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = {
     "ansiblels",
     "bashls",
     "clangd",
     "cmake",
     "cssls",
+    "cssmodules_ls",
+    "diagnosticls",
     "emmet_ls",
     "gdscript",
+    "gopls",
     "html",
-    "spectral",
-    "quick_lint_js",
-    "texlab",
-    "sumneko_lua",
-    "rnix",
+    "jsonls",
     "pyright",
+    "quick_lint_js",
+    "rnix",
     "rust_analyzer",
+    "spectral",
+    "sumneko_lua",
+    "texlab",
+    "tsserver",
     "vimls",
+    "wgsl_analyzer",
 }
 
 for _, server in pairs(servers) do

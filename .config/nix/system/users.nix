@@ -3,6 +3,7 @@
 
 let
     homedir = config.home-manager.users.felix.home.homeDirectory;
+    pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
     # user account
     users.users.felix = {
@@ -12,7 +13,7 @@ in {
 
     # shell
     programs.zsh.enable = true;
-    users.defaultUserShell = pkgs.fish;
+    users.defaultUserShell = pkgs-unstable.fish;
 
     # home-manager
     imports = [ <home-manager/nixos> ];

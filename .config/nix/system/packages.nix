@@ -8,7 +8,7 @@ let
     }).defaultNix;
 in {
     imports = [
-        hyprland.nixosModules.default        
+        hyprland.nixosModules.default
     ];
     nix = {
         package = pkgs.nixFlakes;
@@ -48,16 +48,16 @@ in {
         hyprland.overlays.default
         (self: super: {
             waybar = super.waybar.overrideAttrs (oldAttrs: {
-                mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];           
+                mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
             });
         })
         (import (builtins.fetchTarball {
           url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
         }))
     ];
-    
+
     programs.hyprland = {
-        enable = true;
+        enable = false;
         package = pkgs.hyprland;
     };
 
@@ -81,7 +81,7 @@ in {
         # };
 
         godot4-alpha = import ../derivations/godot4alpha.nix;
-                
+
         # # this works, but goxel's UI ends up far too small
         # goxel-wayland = pkgs.goxel.overrideAttrs (oldAttrs: rec {
         #     buildInputs = with pkgs; [ glfw-wayland gtk3 libpng12 ];
@@ -94,13 +94,13 @@ in {
         helix-git = import flake-compat { src = helix-src; };
 
         # hyprland-src = builtins.fetchTarball {
-        #     url = "https://github.com/hyprwm/Hyprland/archive/1626707b7f4fd3d2b313e78cb3a41783f072f73b.tar.gz";          
+        #     url = "https://github.com/hyprwm/Hyprland/archive/1626707b7f4fd3d2b313e78cb3a41783f072f73b.tar.gz";
         #     sha256 = "sha256:0lmka2724m0ylsmwd9zkrv8bvhhrn7jvrznn50qqbnp42h27dw11";
         # };
         # hyprland-git = (pkgs.callPackage [ import flake-compat { src = hyprland-src; } {} ]);
-                
+
         # hyprland-git = pkgs-unstable.hyprland.overrideAttrs (oldAttrs: rec {
-        #     version = "0.7.1beta";            
+        #     version = "0.7.1beta";
         # });
 
         imgclr = (pkgs.callPackage ../derivations/imgclr.nix {});
@@ -137,7 +137,7 @@ in {
         # nix
         any-nix-shell cachix unstable.deadnix nix-index unstable.statix
         # rust
-        cargo clippy rustc sccache
+        cargo cargo-flamegraph clippy rustc sccache
         # other
         android-tools bsdiff
         go
@@ -182,8 +182,8 @@ in {
         # DESKTOP
         appimage-run anki-bin
         bitwarden calibre font-manager
-        handlr 
-        # hyprland-git 
+        handlr
+        # hyprland-git
         hyprland
         # unstable.hyprland
         imagemagick imv libreoffice
@@ -225,14 +225,14 @@ in {
         package = pkgs.neovim-nightly;
         withNodeJs = true;
         withPython3 = true;
-        withRuby = true; 
+        withRuby = true;
         configure = {
             customRC = ''
                 :luafile ${builtins.getEnv "XDG_CONFIG_HOME" }/nvim/init.lua
             '';
         #     packages.myVimPackage = with pkgs-unstable.vimPlugins; {
         #         # loaded on launch
-        #         start = [ packer-nvim ]; 
+        #         start = [ packer-nvim ];
         #         # manually loadable
         #         # opt = [  ];
         #     };

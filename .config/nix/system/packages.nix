@@ -109,6 +109,8 @@ in {
 
         themesh = import ../derivations/themesh.nix;
 
+        zig-master = import ../derivations/zig-master.nix;
+
     in
     with pkgs; [
 
@@ -139,7 +141,7 @@ in {
         # rust
         cargo cargo-flamegraph clippy rustc sccache
         # zig
-        unstable.zig
+        zig-master
         # other
         android-tools bsdiff
         go

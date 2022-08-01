@@ -29,6 +29,7 @@ local servers = {
     "tsserver",
     "vimls",
     "wgsl_analyzer",
+    "zls",
 }
 
 for _, server in pairs(servers) do

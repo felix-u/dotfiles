@@ -138,6 +138,8 @@ in {
         any-nix-shell cachix unstable.deadnix nix-index unstable.statix
         # rust
         cargo cargo-flamegraph clippy rustc sccache
+        # zig
+        unstable.zig
         # other
         android-tools bsdiff
         go

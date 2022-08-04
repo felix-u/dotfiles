@@ -1,7 +1,8 @@
 {
   "layer": "top",
+  "position": "top",
   "modules-left": [
-    "wlr/workspaces",
+    "river/tags",
     "cpu"
   ],
   "modules-center": [
@@ -12,6 +13,9 @@
     "battery",
     "network"
   ],
+  "river-tags": {
+    "num-tags": 9
+  },
   "cpu": {
     "interval": 2,
     "format": "   {usage}%",

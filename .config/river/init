@@ -125,15 +125,15 @@ riverctl map normal $mod+$alt $left send-layout-cmd rivercarro "main-ratio -0.05
 riverctl map normal $mod $home send-layout-cmd rivercarro "main-count +1" &
 riverctl map normal $mod $end send-layout-cmd rivercarro "main-count -1" &
 # move views
-riverctl map normal $mod+Control $left move left 100 &
-riverctl map normal $mod+Control $down move down 100 &
-riverctl map normal $mod+Control $up move up 100 &
-riverctl map normal $mod+Control $right move right 100 &
+riverctl map normal $mod+Control Left move left 100 &
+riverctl map normal $mod+Control Down move down 100 &
+riverctl map normal $mod+Control Up move up 100 &
+riverctl map normal $mod+Control Right move right 100 &
 # snap views to screen edges
-riverctl map normal $mod+Shift $left snap left &
-riverctl map normal $mod+Shift $down snap down &
-riverctl map normal $mod+Shift $up snap up &
-riverctl map normal $mod+Shift $right snap right &
+riverctl map normal $mod+Shift Left snap left &
+riverctl map normal $mod+Shift Down snap down &
+riverctl map normal $mod+Shift Up snap up &
+riverctl map normal $mod+Shift Right snap right &
 # resize views
 riverctl map normal $mod+$alt Left resize horizontal -100 &
 riverctl map normal $mod+$alt Down resize vertical 100 &

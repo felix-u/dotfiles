@@ -77,6 +77,40 @@ window#waybar {
     color: $(wq foreground);
 }
 
+#tags {
+    margin-top: 12px;
+    margin-bottom: 0px;
+    margin-left: 8px;
+    margin-right: 8px;
+    transition: none;
+    padding: 0px 0px 0px 10px;
+    background: transparent;
+}
+#tags button {
+    transition: none;
+    padding-left: 6px;
+    padding-right: 6px;
+    /* color: $(pastel mix $(wq color8) $(wq color7) | pastel format hex); */
+    color: $(wq color8);
+}
+#tags button:hover {
+    background: transparent;
+}
+#tags button.occupied {
+    transition: none;
+    /* color: $(wq color7); */
+    color: $(pastel mix $(wq color8) $(wq color7) | pastel format hex);
+}
+#tags button.urgent {
+    transition: none;
+    color: $(wq color1);
+}
+#tags button.focused {
+    transition: none;
+    color: $(wq color6);
+    font-weight: bold;
+}
+
 #cpu {
     color: transparent;
     margin-top: 12px;

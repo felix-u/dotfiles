@@ -281,6 +281,9 @@ riverctl float-filter-add "popup" &
 # riverctl csd-filter-add "gedit"
 
 riverctl attach-mode bottom &
+# hide cursor when typing or after ten seconds of inactivity
+riverctl hide-cursor timeout 10000 &
+riverctl hide-cursor when-typing enabled &
 # wallpaper
 riverctl background-color "0x$(pastel darken 0.01 "$(wq background)" | pastel format hex | tr -d \#)"
 #"$XDG_CONFIG_HOME"/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &

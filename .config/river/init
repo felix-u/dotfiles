@@ -39,7 +39,7 @@ alt="Mod1"
 
 terminal="foot"
 files="pcmanfm"
-slurpcommand="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
+SLURPCOMMAND="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
 
 # laptop-specific configuration
 if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
@@ -169,12 +169,35 @@ riverctl map normal $mod+$alt B spawn "MOZ_ENABLE_WAYLAND=1 firefox" &
 # menu
 riverctl map normal $mod D spawn "$XDG_CONFIG_HOME/sway/scripts/menu.sh" &
 
+# files
+riverctl map normal $mod A spawn "$files" &
+
 # Mod+w to close the focused view
 riverctl map normal $mod W close &
 
 # Mod+Alt+q to exit river
 riverctl map normal $mod+$alt Q exit &
 
+# Mod+x for swaylock
+riverctl map normal $mod X spawn "$XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
+
+# Mod+Tab between the two most recent tags, with Shift to send window there
+riverctl map normal $mod Tab focus-previous-tags &
+riverctl map normal $mod+Shift Tab send-to-previous-tags &
+
+# screenshots
+riverctl map normal $mod+Shift D spawn "${SLURPCOMMAND} | grim -g - \
+    ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H%M).png" &
+riverctl map normal $mod+Shift S spawn "${SLURPCOMMAND} | grim -g - /tmp/screenshot.png && \
+    cat /tmp/screenshot.png | wl-copy -t image/png" &
+riverctl map normal $mod+$alt D spawn "grim \
+   ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H%M).png" &
+riverctl map normal $mod+$alt S spawn "grim /tmp/screenshot.png && \
+    cat /tmp/screenshot.png | wl-copy -t image/png" &
+# notifs
+riverctl map normal $mod C spawn "dunstctl close" &
+riverctl map normal $mod+Shift C spawn "dunstctl close-all" &
+riverctl map normal $mod+$alt C spawn "dunstctl history-pop" &
 
 # # Mod+Period and Mod+Comma to focus the next/previous output
 # riverctl map normal $mod Period focus-output next
@@ -202,10 +225,10 @@ do
     riverctl map normal $mod+Shift "$i" set-view-tags $tags &
 
     # Mod+Ctrl+[1-9] to toggle focus of tag [0-8]
-    riverctl map normal $mod+Control "$i" toggle-focused-tags $tags &
+    riverctl map normal $mod+$alt "$i" toggle-focused-tags $tags &
 
     # Mod+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
-    riverctl map normal $mod+Shift+Control "$i" toggle-view-tags $tags &
+    riverctl map normal $mod+Control "$i" toggle-view-tags $tags &
 done
 
 # Mod+0 to focus all tags
@@ -219,6 +242,24 @@ riverctl map normal $mod S toggle-float &
 
 # Mod+F to toggle fullscreen
 riverctl map normal $mod F toggle-fullscreen &
+riverctl map normal $mod+Shift F send-layout-cmd rivercarro "main-location monocle" &
+
+# scratchpad
+# The scratchpad will live on an unused tag. Which tags are used depends on your
+# config, but rivers default uses the first 9 tags.
+scratch_tag=$((1 << 20 ))
+
+# Toggle the scratchpad with Super+P
+riverctl map normal $mod $pagedown toggle-focused-tags ${scratch_tag}
+
+# Send windows to the scratchpad with Super+Shift+P
+riverctl map normal $mod+Shift $pagedown set-view-tags ${scratch_tag}
+
+# Set spawn tagmask to ensure new windows don't have the scratchpad tag unless
+# explicitly set.
+all_but_scratch_tag=$(( ((1 << 32) - 1) ^ $scratch_tag ))
+riverctl spawn-tagmask ${all_but_scratch_tag}
+
 
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier

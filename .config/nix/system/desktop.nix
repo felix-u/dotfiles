@@ -21,10 +21,15 @@ in {
     environment.systemPackages =
     let
         river-with-xwayland = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
+            installPhase = ''
+                runHook preInstall
+                zig build -Drelease-safe -Dcpu=baseline -Dxwayland=true -Dman-pages --prefix $out install
+                runHook postInstall
+              '';
         });
     in
     with pkgs; [
-        unstable.kile-wl unstable.river unstable.rivercarro wlr-randr
+        unstable.kile-wl river-with-xwayland unstable.rivercarro wlr-randr
     ];
 
     # pipewire

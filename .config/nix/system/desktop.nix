@@ -3,6 +3,7 @@
 let
     dmenu-wl_run = import ../derivations/dmenu-wl.nix;
     unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+    pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
     # wayland schtuff
     programs.sway = {
@@ -17,7 +18,12 @@ in {
     };
     environment.pathsToLink = [ "/libexec" ]; # for polkit
     programs.qt5ct.enable = true;
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages =
+    let
+        river-with-xwayland = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
+        });
+    in
+    with pkgs; [
         unstable.kile-wl unstable.river unstable.rivercarro wlr-randr
     ];
 

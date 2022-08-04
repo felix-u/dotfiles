@@ -36,7 +36,7 @@ in {
             theme.name = "SolArc-Dark";
             gtk3.extraConfig = {
                 gtk-decoration-layout = "menu:";
-                gtk-button-layout = "";
+                button-layout = "";
             };
         };
 

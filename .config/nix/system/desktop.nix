@@ -21,9 +21,27 @@ in {
     environment.systemPackages =
     let
         river-with-xwayland = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
+            src = pkgs.fetchFromGitHub {
+                owner = "riverwm";
+                repo = "river";
+                rev = "d4b2f2b0fc5766c8ae14a6f42fe76d058bfb3505";
+                sha256 = "sha256-Sb2EoVW06Iq734PHTw8+F2Q3DdAolOfvmKebqmqMiTU=";
+                fetchSubmodules = true;
+            };
+            buildInputs = with pkgs; [
+                wayland-protocols
+                wlroots
+                libxkbcommon
+                pixman
+                udev
+                libevdev
+                libinput
+                libGL
+                xorg.libX11
+            ];
             installPhase = ''
                 runHook preInstall
-                zig build -Drelease-safe -Dcpu=baseline -Dxwayland=true -Dman-pages --prefix $out install
+                zig build -Drelease-safe -Dcpu=baseline -Dxwayland -Dman-pages --prefix $out install
                 runHook postInstall
               '';
         });

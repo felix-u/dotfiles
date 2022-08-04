@@ -66,19 +66,19 @@ riverctl map-pointer normal $mod BTN_RIGHT resize-view
 
 for i in $(seq 1 9)
 do
-    tags=$((1 << ($i - 1)))
+    tags=$((1 << (i - 1)))
 
     # Mod+[1-9] to focus tag [0-8]
-    riverctl map normal $mod $i set-focused-tags $tags
+    riverctl map normal $mod "$i" set-focused-tags $tags
 
     # Mod+Shift+[1-9] to tag focused view with tag [0-8]
-    riverctl map normal $mod+Shift $i set-view-tags $tags
+    riverctl map normal $mod+Shift "$i" set-view-tags $tags
 
     # Mod+Ctrl+[1-9] to toggle focus of tag [0-8]
-    riverctl map normal $mod+Control $i toggle-focused-tags $tags
+    riverctl map normal $mod+Control "$i" toggle-focused-tags $tags
 
     # Mod+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
-    riverctl map normal $mod+Shift+Control $i toggle-view-tags $tags
+    riverctl map normal $mod+Shift+Control "$i" toggle-view-tags $tags
 done
 
 # Mod+0 to focus all tags
@@ -100,7 +100,7 @@ riverctl map normal $mod Left  set-layout-value rivertile string main_location l
 
 # Declare a passthrough mode. This mode has only a single mapping to return to
 # normal mode. This makes it useful for testing a nested wayland compositor
-riverctl declare-mode passthrough
+# riverctl declare-mode passthrough
 
 # Mod+F11 to enter passthrough mode
 riverctl map normal $mod F11 enter-mode passthrough
@@ -139,12 +139,26 @@ riverctl float-filter-add "float"
 riverctl float-filter-add "popup"
 
 # Set app-ids of views which should use client side decorations
-riverctl csd-filter-add "gedit"
+# riverctl csd-filter-add "gedit"
 
-# Set opacity and fade effect
-# riverctl opacity 1.0 0.75 0.0 0.1 20
+riverctl attach-mode bottom &
+riverctl background-color "0x$(pastel darken 0.02 "$(wq background)" | pastel format hex | tr -d \#)" &
+riverctl border-color-focused "0x$(wqs color4)" &
+riverctl border-color-unfocused "0x$(wqs color0)" &
+riverctl border-color-urgent "0x$(wqs color1)" &
+riverctl border-width 3 &
+riverctl xcursor-theme Adwaita 24 &
+gsettings set org.gnome.desktop.wm.preferences button-layout "" &
+TOUCHPAD="1739:52824:SYNA8008:00_06CB:CE58_Touchpad"
+riverctl input "$TOUCHPAD" click-method clickfinger &
+riverctl input "$TOUCHPAD" disable-while-typing enabled &
+riverctl input "$TOUCHPAD" natural-scroll enabled &
+riverctl input "$TOUCHPAD" tap enabled &
+riverctl input "$TOUCHPAD" tap-button-map left-right-middle &
+wlr-randr --output "eDP-1" --scale 2
+
 
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-exec rivertile
+rivertile -outer-padding 16 &

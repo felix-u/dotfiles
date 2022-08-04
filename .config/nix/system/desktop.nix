@@ -18,7 +18,7 @@ in {
     environment.pathsToLink = [ "/libexec" ]; # for polkit
     programs.qt5ct.enable = true;
     environment.systemPackages = with pkgs; [
-        unstable.river wlr-randr
+        unstable.kile-wl unstable.river unstable.rivercarro wlr-randr
     ];
 
     # pipewire

@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# fixes xdg-desktop-portal bug causing GTK apps to launch very slowly
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
+
 wq () {
     grep "$1:" "$XRESOURCES" | awk '{print $2}'
 }
@@ -292,7 +295,7 @@ riverctl border-color-unfocused "0x$WS00" &
 riverctl border-color-urgent "0x$WS01" &
 riverctl border-width 3 &
 riverctl xcursor-theme Adwaita 24 &
-gsettings set org.gnome.desktop.wm.preferences button-layout "" &
+# gsettings set org.gnome.desktop.wm.preferences button-layout "" &
 
 /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 

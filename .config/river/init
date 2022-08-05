@@ -48,17 +48,17 @@ SLURPCOMMAND="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
 if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     WDPI=2
 
-    riverctl map normal XF86MonBrightnessUp spawn "brightnessctl set +5%" &
-    riverctl map normal XFXF86MonBrightnessDown spawn "brightnessctl set 5%-" &
-    riverctl map locked XF86MonBrightnessUp spawn "brightnessctl set +5%" &
-    riverctl map locked XFXF86MonBrightnessDown spawn "brightnessctl set 5%-" &
+    riverctl map normal None XF86MonBrightnessUp spawn "brightnessctl set +5%" &
+    riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl set 5%-" &
+    riverctl map locked None XF86MonBrightnessUp spawn "brightnessctl set +5%" &
+    riverctl map locked None XF86MonBrightnessDown spawn "brightnessctl set 5%-" &
 
     wlr-randr --output "eDP-1" --scale "$WDPI" &
 
     pkill waybar
     waybar -c ~/.config/waybar/river_thinkpad.json &
 
-    TOUCHPAD="1739:52824:SYNA8008:00_06CB:CE58_Touchpad"
+    TOUCHPAD="pointer-1739-52824-SYNA8008:00_06CB:CE58_Touchpad"
     riverctl input "$TOUCHPAD" click-method clickfinger &
     riverctl input "$TOUCHPAD" disable-while-typing enabled &
     riverctl input "$TOUCHPAD" natural-scroll enabled &

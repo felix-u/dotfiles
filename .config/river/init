@@ -247,6 +247,11 @@ riverctl map normal $mod S toggle-float &
 riverctl map normal $mod F toggle-fullscreen &
 riverctl map normal $mod+Shift F send-layout-cmd rivercarro "main-location monocle" &
 
+# Mod+Shift+B to fetch random wallpaper
+riverctl map normal $mod+Shift B spawn "${XDG_CONFIG_HOME}/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls" &
+# Mod+Alt+Shift+B to kill swaybg and get back solid colour background
+riverctl map normal $mod+${alt}+Shift B spawn "killall -q swaybg" &
+
 # scratchpad
 # The scratchpad will live on an unused tag. Which tags are used depends on your
 # config, but rivers default uses the first 9 tags.

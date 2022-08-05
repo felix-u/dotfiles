@@ -1,19 +1,48 @@
 # disable inserting a blank line between shell prompts
 add_newline = false
+command_timeout = 100
+# default format but without all the language versions, because
+# they take up too much space and sometimes USE HARDCODED COLOURS :[
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$buf\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+$character"""
+
+[character]
+success_symbol = "[λ](bold blue)"
+error_symbol   = "[λ](bold purple)"
 # some more symbols:
 # ➜
 # 
 # 
 # 
-# Replace the default "❯" symbol:
 
-command_timeout = 100
-
-[character]
-# success_symbol = "[](bold blue)[](bold yellow)[](bold red)"
-# error_symbol   = "[](bold red)[](bold purple)[](bold red)"
-success_symbol = "[λ](bold blue)"
-error_symbol   = "[λ](bold purple)"
-
+# too slow
 [git_status]
-disabled = true # too slow
+disabled = true
+
+# clutter
+[package]
+disabled = true

@@ -292,8 +292,17 @@ riverctl attach-mode bottom &
 # hide cursor when typing or after ten seconds of inactivity
 riverctl hide-cursor timeout 10000 &
 riverctl hide-cursor when-typing enabled &
+# binding to toggle this behaviour (it interferes with mouse control in games)
+riverctl map normal $mod+Shift V spawn \
+    "riverctl hide-cursor timeout 0 && \
+     riverctl hide-cursor when-typing disabled && \
+     notify-send 'Disabled cursor hiding'" &
+riverctl map normal $mod V spawn \
+    "riverctl hide-cursor timeout 10000 && \
+     riverctl hide-cursor when-typing enabled && \
+     notify-send 'Enabled cursor hiding'" &
 # wallpaper
-riverctl background-color "0x$(pastel darken 0.01 "$(wq background)" | pastel format hex | tr -d \#)"
+riverctl background-color "0x$(pastel darken 0.01 "$(wq background)" | pastel format hex | tr -d \#)" &
 #"$XDG_CONFIG_HOME"/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 riverctl border-color-focused "0x$WS04" &
 riverctl border-color-unfocused "0x$WS00" &

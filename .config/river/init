@@ -325,6 +325,8 @@ rivercarro -outer-gaps 13 -inner-gaps 9 -no-smart-gaps &
 
 riverctl map normal $mod G send-layout-cmd rivercarro "gaps +9" &
 riverctl map normal $mod+Shift G send-layout-cmd rivercarro "gaps -9" &
+riverctl map normal $mod Period send-layout-cmd rivercarro "outer-gaps +9" &
+riverctl map normal $mod+Shift Period send-layout-cmd rivercarro "outer-gaps -9" &
 resetgaps="\
     riverctl send-layout-cmd rivercarro 'outer-gaps 13' & \
     riverctl send-layout-cmd rivercarro 'inner-gaps 9' & \

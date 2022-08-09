@@ -19,6 +19,7 @@ local servers = {
     "gopls",
     "html",
     "jsonls",
+    "ols",
     "pyright",
     "quick_lint_js",
     "rnix",

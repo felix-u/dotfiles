@@ -138,6 +138,8 @@ in {
               # # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
         # nix
         any-nix-shell cachix unstable.deadnix nix-index unstable.statix
+        # odin
+        unstable.odin
         # rust
         cargo cargo-flamegraph clippy rustc sccache
         # zig

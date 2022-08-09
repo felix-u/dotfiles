@@ -212,6 +212,13 @@ in {
         lutris minecraft unstable.optifine minetest
         proton-caller protontricks protonup
         unstable.heroic mangohud
+        # retro
+        (retroarchFull.overrideAttrs (oldAttrs: {
+            cores = oldAttrs.cores ++ [
+                libretro.tic80
+            ];
+        }))
+        vice # commodore emulation
 
         # LATEX
         biber texinfo texlab texlive.combined.scheme-full

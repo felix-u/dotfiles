@@ -181,6 +181,9 @@ riverctl map normal $mod W close &
 # Mod+Alt+q to exit river
 riverctl map normal $mod+$alt Q exit &
 
+# Mod+Alt+R to run init script
+riverctl map normal $mod+$alt R spawn "$XDG_CONFIG_HOME/river/init" &
+
 # Mod+x for swaylock
 riverctl map normal $mod X spawn "$XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
 

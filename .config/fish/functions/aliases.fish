@@ -71,3 +71,5 @@ alias doasedit="doas $EDITOR $1"
 # TODO: fix truecolour
 # use emacs as terminal when launched from the terminal
 alias e="TERM=tmux emacsclient -c -nw"
+
+alias w4="steam-run w4"

@@ -109,6 +109,8 @@ in {
 
         themesh = import ../derivations/themesh.nix;
 
+        w4 = import ../derivations/wasm-4.nix;
+
         zig-master = import ../derivations/zig-master.nix;
 
     in
@@ -221,6 +223,7 @@ in {
             ];
         }))
         vice # commodore emulation
+        w4 # wasm-4 fantasy console
 
         # LATEX
         biber texinfo texlab texlive.combined.scheme-full

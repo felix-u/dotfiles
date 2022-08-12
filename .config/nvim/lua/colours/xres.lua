@@ -842,12 +842,15 @@ local highlight_groups = {
 	NERDTreeLinkTarget = 'Tag',
 
 	--[[ 4.4.8. nvim-treesitter ]]
-	TSConstBuiltin = 'TSConstant',
+	TSConstBuiltin = {fg = c.cyan06},
 	TSConstructor = {fg = c.pink},
 	TSDanger = 'ErrorMsg',
+    TSField = {fg = c.cyan14},
 	TSFuncBuiltin = {fg = c.cyan06, style = 'italic'},
+    TSPunctBracket = {fg = c.pink},
 	TSTag = 'Tag',
-    TSTypeBuiltin = {fg = c.yellow03, style = {'bold', 'italic'}},
+    TSTypeBuiltin = {fg = c.yellow03},
+    TSType = {fg = c.yellow03, style = {'italic'}},
 	TSWarning = 'WarningMsg',
     TSKeyword = {fg = c.magenta05, style = {'bold'}},
     TSKeywordFunction = 'Function',

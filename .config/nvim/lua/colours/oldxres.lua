@@ -211,42 +211,42 @@ local highlight_groups = {
     TooLong = {fg = c.red01},
 
 	--[[ 4.1. Text Analysis ]]
-	Comment = {fg = c.green02, style = 'italic'},
+	Comment = {fg = c.grey07, style = 'italic'},
 	NonText = {fg = c.black08},
 	EndOfBuffer = 'NonText',
 	whitespace  = 'NonText',
 
 	--[[ 4.1.1. Literals]]
-	Constant = {fg = c.cyan14},
-	String = {fg = c.cyan06},
+	Constant = {fg = c.orange},
+	String = {fg = c.green02},
 	Character = {fg = c.red09},
-	Number  = {fg = c.cyan14},
+	Number  = {fg = c.orange},
 	Boolean = {fg = c.cyan06, style = {'bold'}},
 	Float   = 'Number',
 
 	--[[ 4.1.2. Identifiers]]
 	Identifier = {fg = c.red01, style = 'italic'},
-	Function = {fg = c.white15},
+	Function = {fg = c.blue04},
 
 	--[[ 4.1.3. Syntax]]
 	Statement   = {fg = c.red01},
-	Conditional = {fg = c.foreground, style = 'bold'},
-	Repeat   = 'Conditional',
+	Conditional = {fg = c.magenta05, style = 'italic'},
+	Repeat   = {fg = c.pink, style = {'italic', 'bold'}},
 	Label    = {fg = c.pink, style = 'bold'},
-	Operator = {fg = c.white15},
+	Operator = {fg = c.cyan06, style = 'bold'},
 	Keyword  = {fg = c.cyan06},
-	Exception = {fg = c.white15, style = 'bold'},
+	Exception = {fg = c.red09, style = 'bold'},
 	Noise = 'Delimiter',
 
 	--[[ 4.1.4. Metatextual Information]]
 	PreProc = {fg = c.orange},
 	Include = {fg = c.blue04, style = 'nocombine'},
 	Define = {fg = c.blue04, style = 'nocombine'},
-	Macro  = {fg = c.pink},
+	Macro  = {fg = c.cyan06, style = 'italic'},
 	PreCondit = {fg = c.orange, style = 'italic'},
 
 	--[[ 4.1.5. Semantics]]
-	Type         = {fg = c.green10},
+	Type         = {fg = c.yellow03, style = 'italic'},
 	StorageClass = {fg = c.orange, style = 'bold'},
 	Structure = {fg = c.magenta05, style = 'bold'},
 	Typedef = {fg = c.yellow03, style = 'italic'},
@@ -256,7 +256,7 @@ local highlight_groups = {
 	SpecialChar = {fg = c.pink, style = 'italic'},
 	SpecialKey = 'Character',
 	Tag = 'Underlined',
-	Delimiter = {fg = c.white15},
+	Delimiter = {fg = c.pink},
 	SpecialComment = {fg = c.grey07, style = {'bold', 'nocombine'}},
 	Debug = 'WarningMsg',
 
@@ -328,12 +328,12 @@ local highlight_groups = {
 	SignColumn  = {fg = c.black08},
 
 	--[[ 4.2.10. Messages]]
-	ErrorMsg = {fg = c.blue12, bg = c.black00, style = 'bold'},
+	ErrorMsg = {fg = c.red01},
 	HintMsg  = {fg = c.magenta05, style = 'italic'},
 	InfoMsg  = {fg = c.pink, style = 'italic'},
 	ModeMsg  = {fg = c.green02},
 	MoreMsg  = {fg = c.green02},
-	WarningMsg = {fg = c.green10, bg = c.black00, style = 'bold'},
+	WarningMsg = {fg = c.orange, style = 'bold'},
 	Question   = {fg = c.blue04},
 
 	--[[ 4.2.11. LSP / Diagnostics ]]
@@ -843,25 +843,19 @@ local highlight_groups = {
 
 	--[[ 4.4.8. nvim-treesitter ]]
 	TSConstBuiltin = {fg = c.cyan06},
-    TSConstMacro = {fg = c.pink},
-	TSConstructor = {fg = c.white15},
+	TSConstructor = {fg = c.pink},
 	TSDanger = 'ErrorMsg',
-    TSField = {fg = c.white15},
-	TSFuncBuiltin = {fg = c.blue12},
-    TSFuncMacro = 'Macro',
-    TSPunctBracket = {fg = c.white15},
+    TSField = {fg = c.cyan14},
+	TSFuncBuiltin = {fg = c.cyan06, style = 'italic'},
+    TSPunctBracket = {fg = c.pink},
 	TSTag = 'Tag',
-    TSTypeBuiltin = {fg = c.pink},
-    TSType = {fg = c.pink},
+    TSTypeBuiltin = {fg = c.yellow03},
+    TSType = {fg = c.yellow03, style = {'italic'}},
 	TSWarning = 'WarningMsg',
-    TSKeyword = {fg = c.blue12, style = {'bold'}},
-    TSKeywordFunction = 'TSKeyword',
-    TSKeywordOperator = {fg = c.white15},
-    TSNote = 'WarningMsg',
-    TSParameter = {fg = c.white15},
-    TSProperty = {fg = c.white15},
+    TSKeyword = {fg = c.magenta05, style = {'bold'}},
+    TSKeywordFunction = 'Function',
+    TSKeywordOperator = {fg = c.cyan06},
     TSStringEscape = {fg = c.cyan06, bg = c.black00, style = 'italic'},
-    TSVariable = {fg = c.white15},
 
 	--[[ 4.4.9. barbar.nvim ]]
 	BufferCurrent       = 'TabLineSel',

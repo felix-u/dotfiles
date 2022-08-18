@@ -158,5 +158,7 @@ keymap("n", "<leader>oh", ":Telescope help_tags<CR>", opts)
 -- toggling various plugins
 keymap("n", "<leader>tc", ":HexokinaseToggle<CR>", opts)
 keymap("n", "<leader>ts", ":setlocal spell! spelllang=en_gb<CR>", opts)
+keymap("n", "<leader>tls", ":set number<CR>:set relativenumber<CR>", opts)
+keymap("n", "<leader>tlh", ":set nonumber<CR>:set norelativenumber<CR>", opts)
 keymap("n", "<leader>thn", ":call SynGroup()<CR>", opts)
 keymap("n", "<leader>tht", ":TSHighlightCapturesUnderCursor<CR>", opts)

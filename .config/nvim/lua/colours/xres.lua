@@ -217,25 +217,26 @@ local highlight_groups = {
 	whitespace  = 'NonText',
 
 	--[[ 4.1.1. Literals]]
-	Constant = {fg = c.cyan14},
+	Constant = {fg = c.cyan06},
 	String = {fg = c.cyan06},
 	Character = {fg = c.red09},
-	Number  = {fg = c.cyan14},
+	Number  = {fg = c.cyan06},
 	Boolean = {fg = c.cyan06, style = {'bold'}},
 	Float   = 'Number',
 
 	--[[ 4.1.2. Identifiers]]
 	Identifier = {fg = c.red01, style = 'italic'},
-	Function = {fg = c.white15},
+	Function = {fg = c.blue04},
 
 	--[[ 4.1.3. Syntax]]
 	Statement   = {fg = c.red01},
-	Conditional = {fg = c.foreground, style = 'bold'},
+	Conditional = {fg = c.magenta05, style = 'bold'},
 	Repeat   = 'Conditional',
-	Label    = {fg = c.pink, style = 'bold'},
+    -- this affects the currently highlighted scope in indent-blankline
+	Label    = {fg = c.black08, style = 'bold'},
 	Operator = {fg = c.white15},
-	Keyword  = {fg = c.cyan06},
-	Exception = {fg = c.white15, style = 'bold'},
+	Keyword  = {fg = c.blue12},
+	Exception = {fg = c.magenta13},
 	Noise = 'Delimiter',
 
 	--[[ 4.1.4. Metatextual Information]]
@@ -246,7 +247,7 @@ local highlight_groups = {
 	PreCondit = {fg = c.orange, style = 'italic'},
 
 	--[[ 4.1.5. Semantics]]
-	Type         = {fg = c.green10},
+	Type         = {fg = c.yellow03, style = 'italic'},
 	StorageClass = {fg = c.orange, style = 'bold'},
 	Structure = {fg = c.magenta05, style = 'bold'},
 	Typedef = {fg = c.yellow03, style = 'italic'},
@@ -328,12 +329,13 @@ local highlight_groups = {
 	SignColumn  = {fg = c.black08},
 
 	--[[ 4.2.10. Messages]]
-	ErrorMsg = {fg = c.blue12, bg = c.black00, style = 'bold'},
+	ErrorMsg = {fg = c.background, bg = c.pink, style = 'bold'},
 	HintMsg  = {fg = c.magenta05, style = 'italic'},
 	InfoMsg  = {fg = c.pink, style = 'italic'},
 	ModeMsg  = {fg = c.green02},
 	MoreMsg  = {fg = c.green02},
-	WarningMsg = {fg = c.green10, bg = c.black00, style = 'bold'},
+	-- WarningMsg = {fg = c.background, bg = c.gr, style = 'bold'},
+	WarningMsg = function(self) return {bg = c.black00, fg = self.Comment.fg, style = 'bold'} end,
 	Question   = {fg = c.blue04},
 
 	--[[ 4.2.11. LSP / Diagnostics ]]
@@ -843,25 +845,26 @@ local highlight_groups = {
 
 	--[[ 4.4.8. nvim-treesitter ]]
 	TSConstBuiltin = {fg = c.cyan06},
-    TSConstMacro = {fg = c.pink},
-	TSConstructor = {fg = c.white15},
+	TSConstructor = 'Delimiter',
 	TSDanger = 'ErrorMsg',
     TSField = {fg = c.white15},
-	TSFuncBuiltin = {fg = c.blue12},
+	TSFuncBuiltin = 'Function',
     TSFuncMacro = 'Macro',
-    TSPunctBracket = {fg = c.white15},
+    TSPunctBracket = 'Delimiter',
 	TSTag = 'Tag',
-    TSTypeBuiltin = {fg = c.pink},
+    TSTypeBuiltin = 'TSType',
     TSType = {fg = c.pink},
-	TSWarning = 'WarningMsg',
-    TSKeyword = {fg = c.blue12, style = {'bold'}},
+	TSWarning = {fg = c.background, bg = c.green02, style = 'bold'},
+    TSKeywordOperator = 'Keyword',
+    TSKeyword = 'Keyword',
     TSKeywordFunction = 'TSKeyword',
-    TSKeywordOperator = {fg = c.white15},
     TSNote = 'WarningMsg',
     TSParameter = {fg = c.white15},
     TSProperty = {fg = c.white15},
-    TSStringEscape = {fg = c.cyan06, bg = c.black00, style = 'italic'},
-    TSVariable = {fg = c.white15},
+    -- TSNote = function(self) return {fg = self.ErrorMsg.fg} end,
+    TSStringEscape = {fg = c.magenta05},
+    TSStringSpecial = {fg = c.blue04},
+    TSSymbol = {fg = c.pink},
 
 	--[[ 4.4.9. barbar.nvim ]]
 	BufferCurrent       = 'TabLineSel',
@@ -903,7 +906,7 @@ local highlight_groups = {
 	TargetWord = 'Title',
 
 	--[[ 4.4.13. indent-blankline.nvim ]]
-	IndentBlanklineChar = {fg = c.black08},
+	IndentBlanklineChar = {fg = c.black00},
 	IndentBlanklineSpaceChar = 'IndentBlanklineChar',
 
 	--[[ 4.4.14. trouble.nvim ]]

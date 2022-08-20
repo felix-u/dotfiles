@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ ... }:
 
 let
     editor = "nvim.desktop";

@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 let
     alte-haas-grotesk = import ../derivations/fonts/alte-haas-grotesk.nix;

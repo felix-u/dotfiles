@@ -139,6 +139,9 @@ return packer.startup{function(use, vim)
         -- run = ':TSUpdate',
     }
 
+    -- syntax highlighting for odin (no treesitter support that I've found)
+    use "Tetralux/odin.vim"
+
     use { -- delete, don't cut
         "gbprod/cutlass.nvim",
         config = function ()

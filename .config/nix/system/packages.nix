@@ -99,9 +99,32 @@ in {
         # };
         # hyprland-git = (pkgs.callPackage [ import flake-compat { src = hyprland-src; } {} ]);
 
-        # hyprland-git = pkgs-unstable.hyprland.overrideAttrs (oldAttrs: rec {
-        #     version = "0.7.1beta";
-        # });
+        odin-dev = pkgs.odin.overrideAttrs (oldAttrs: rec {
+            nativeBuildInputs = with pkgs; oldAttrs.nativeBuildInputs ++ [
+                which llvmPackages.llvm.dev
+            ];
+            preBuild = ''
+              patchShebangs build_odin.sh
+            '';
+            src = pkgs.fetchFromGitHub {
+                owner = "odin-lang";
+                repo = "Odin";
+                rev = "dev-2022-08";
+                sha256 = "sha256-SLzqb3hOwRhFuGT7JQRWoBZ81giLwV6Qeb+u3T0JAJQ=";
+            };
+            installPhase = ''
+                mkdir -p $out/bin
+                cp odin $out/bin/odin
+                cp -r core $out/bin/core
+                cp -r vendor $out/bin/vendor
+                wrapProgram $out/bin/odin --prefix PATH : ${lib.makeBinPath (with pkgs.llvmPackages; [
+                  bintools
+                  llvm
+                  clang
+                  lld
+                ])}
+            '';
+        });
 
         imgclr = (pkgs.callPackage ../derivations/imgclr.nix {});
 
@@ -141,7 +164,7 @@ in {
         # nix
         any-nix-shell cachix unstable.deadnix nix-index unstable.statix
         # odin
-        unstable.odin
+        odin-dev
         # rust
         cargo cargo-flamegraph clippy rustc sccache
         # zig

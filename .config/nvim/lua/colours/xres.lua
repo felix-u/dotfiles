@@ -247,7 +247,7 @@ local highlight_groups = {
 	PreCondit = {fg = c.orange, style = 'italic'},
 
 	--[[ 4.1.5. Semantics]]
-	Type         = {fg = c.yellow03, style = 'italic'},
+	Type         = {fg = c.pink},
 	StorageClass = {fg = c.orange, style = 'bold'},
 	Structure = {fg = c.magenta05, style = 'bold'},
 	Typedef = {fg = c.yellow03, style = 'italic'},
@@ -265,7 +265,7 @@ local highlight_groups = {
 	Underlined = {fg = c.cyan06, style = 'underline'},
 	Ignore = {fg = c.gray07},
 	Error = {fg = c.background, bg = c.red01},
-	Todo = {fg = c.background, bg = c.yellow03, style = 'bold'},
+	Todo = 'WarningMsg',
 	Hint = {fg = c.black00, bg = c.magenta05, style = 'bold'},
 	Info = {fg = c.black00, bg = c.pink, style = 'bold'},
 	Warning = {fg = c.black00, bg = c.orange, style = 'bold'},

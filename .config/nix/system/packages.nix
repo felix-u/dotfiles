@@ -126,6 +126,8 @@ in {
             '';
         });
 
+        ols = import ../derivations/ols.nix;
+
         imgclr = (pkgs.callPackage ../derivations/imgclr.nix {});
 
         shgen = import ../derivations/shgen.nix;
@@ -161,10 +163,12 @@ in {
         tinycc valgrind
               # # lisp
               # # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
+        # lua
+        lua vscodium-fhs
         # nix
         any-nix-shell cachix unstable.deadnix nix-index unstable.statix
         # odin
-        odin-dev
+        odin-dev ols
         # rust
         cargo cargo-flamegraph clippy rustc sccache
         # zig

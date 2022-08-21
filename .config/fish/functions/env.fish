@@ -71,3 +71,6 @@ set -Ux XDG_CURRENT_DESKTOP sway
 
 # git config
 git config --global core.editor $EDITOR
+
+# wayland
+set -Ux NIXOS_OZONE_WL 1

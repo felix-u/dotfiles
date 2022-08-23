@@ -845,6 +845,7 @@ local highlight_groups = {
 
 	--[[ 4.4.8. nvim-treesitter ]]
 	TSConstBuiltin = {fg = c.cyan06},
+    TSConstMacro = 'Macro',
 	TSConstructor = 'Delimiter',
 	TSDanger = 'ErrorMsg',
     TSField = {fg = c.white15},

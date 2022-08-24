@@ -159,10 +159,10 @@ in {
 
         # DEV
         # c
-        unstable.clang clang-tools cppcheck cmake gcc gnumake man-pages-posix
-        tinycc valgrind
-              # # lisp
-              # # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
+        unstable.clang clang-tools cppcheck cmake gcc gdb gnumake
+        man-pages-posix tinycc valgrind
+        # # lisp
+        # # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
         # lua
         lua vscodium-fhs
         # nix

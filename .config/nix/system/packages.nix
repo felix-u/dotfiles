@@ -177,7 +177,9 @@ in {
         android-tools bsdiff
         go
         home-manager
-        libresprite libxkbcommon mold
+        # libresprite
+        pixelorama rx
+        libxkbcommon mold
         openssl_3_0 pkg-config protobuf
         python39Packages.bsdiff4 python39Packages.pip
         python3Full python39Packages.python-lsp-server

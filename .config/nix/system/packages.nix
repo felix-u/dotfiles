@@ -116,6 +116,9 @@ in {
                 mkdir -p $out/bin
                 cp odin $out/bin/odin
                 cp -r core $out/bin/core
+                CWD="$(pwd)"
+                cd vendor/stb/src && ${pkgs.gnumake}/bin/make
+                cd "$CWD"
                 cp -r vendor $out/bin/vendor
                 wrapProgram $out/bin/odin --prefix PATH : ${lib.makeBinPath (with pkgs.llvmPackages; [
                   bintools
@@ -159,8 +162,8 @@ in {
 
         # DEV
         # c
-        unstable.clang clang-tools cppcheck cmake gcc gdb gnumake
-        man-pages-posix tinycc valgrind
+        binutils-unwrapped-all-targets unstable.clang clang-tools cppcheck
+        cmake gcc gdb gnumake man-pages-posix tinycc valgrind
         # # lisp
         # # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
         # lua

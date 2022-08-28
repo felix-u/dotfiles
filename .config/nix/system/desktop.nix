@@ -47,7 +47,8 @@ in {
         });
     in
     with pkgs; [
-        unstable.kile-wl river-with-xwayland unstable.rivercarro wlr-randr
+        # unstable.kile-wl
+        river-with-xwayland unstable.rivercarro wlr-randr
     ];
 
     # pipewire

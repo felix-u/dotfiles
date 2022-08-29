@@ -213,6 +213,16 @@ return packer.startup{function(use, vim)
         end
     }
 
+    -- latex, along with better text wrapping when in tex mode
+    use {
+       "lervag/vimtex",
+       ft = "tex",
+    }
+    -- use {
+    --     "reedes/vim-pencil",
+    --     ft = { "markdown", "tex", }
+    -- }
+
     -- just some colour schemes to muck about with.
     -- I don't actually use any though :P
     use {

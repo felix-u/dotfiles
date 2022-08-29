@@ -145,16 +145,14 @@ in {
     with pkgs; [
 
         # ESSENTIAL
-        foot unstable.gh git neofetch pfetch starship stow wezterm wget
+        foot unstable.gh git neofetch pfetch starship stow wget
 
         # UTILS IN RUST
         bat # cat
-        bottom # top
         fd # find
         helix-git.defaultNix.packages.x86_64-linux.default
         imgclr # haha, c'est a moi :D
         lsd # ls
-        pipes-rs # pipes
         procs # ps
         ripgrep # grep
         skim # fzf
@@ -163,51 +161,48 @@ in {
         # DEV
         # c
         binutils-unwrapped-all-targets unstable.clang clang-tools cppcheck
-        cmake gcc gdb gnumake man-pages-posix tinycc valgrind
+        cmake cmake-language-server gcc gdb gnumake man-pages-posix tinycc valgrind
+        # go
+        go
+        # web (HTML, CSS, JS)
+        nodejs yarn
+        nodePackages.npm nodePackages.js-beautify
         # # lisp
         # # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
         # lua
-        lua vscodium-fhs
+        lua sumneko-lua-language-server
         # nix
-        any-nix-shell cachix unstable.deadnix nix-index unstable.statix
+        any-nix-shell cachix home-manager unstable.deadnix nix-index unstable.statix
+        rnix-lsp
         # odin
         odin-dev ols
+        # python
+        python3Full nodePackages.pyright
         # rust
         cargo cargo-flamegraph clippy rustc sccache
+        rust-analyzer
+        # shell
+        nodePackages.bash-language-server shellcheck
+        # vim
+        unstable.neovim tree-sitter
+        nodePackages.vscode-langservers-extracted
+        nodePackages.vim-language-server
         # zig
         zig-master
         # other
         android-tools bsdiff
-        go
-        home-manager
-        # libresprite
-        pixelorama rx
+        libresprite # pixelorama rx
         libxkbcommon mold
         openssl_3_0 pkg-config protobuf
-        python39Packages.bsdiff4 python39Packages.pip
-        python3Full python39Packages.python-lsp-server
-        python39Packages.termcolor
-        so shellcheck
-        unstable.godot
-        yarn
-        godot4-alpha goxel
-
-        # NEOVIM
-        cmake-language-server nodePackages.bash-language-server
-        nodePackages.js-beautify
-        nodePackages.npm nodePackages.pyright nodePackages.vim-language-server
-        nodePackages.vscode-langservers-extracted
-        # nodejs
-        rnix-lsp
-        rust-analyzer sumneko-lua-language-server tree-sitter
+        # unstable.godot godot4-alpha
 
         # MATHS
         bc gnuplot libqalculate maxima qalculate-gtk wxmaxima
 
         # TERMINAL MISC
-        catimg cava cmatrix dict doas-as-sudo xdragon entr figlet file
+        cava cmatrix dict doas-as-sudo xdragon entr figlet file
         ffmpeg fzf
-        glow handlr htop
+        handlr htop
         hunspell hunspellDicts.en-gb-ise hyperfine killall
         lm_sensors lolcat lowdown unstable.lynis ncdu ncspot nvd onefetch oneshot pastel
         pandoc pdftk poppler_utils sdcv shgen
@@ -268,23 +263,19 @@ in {
     # steam here, not working in packages
     programs.steam.enable = true;
 
-    programs.neovim = {
-        enable = true;
-        package = pkgs.neovim-nightly;
-        withNodeJs = true;
-        withPython3 = true;
-        withRuby = true;
-        configure = {
-            customRC = ''
-                :luafile ${builtins.getEnv "XDG_CONFIG_HOME" }/nvim/init.lua
-            '';
-        #     packages.myVimPackage = with pkgs-unstable.vimPlugins; {
-        #         # loaded on launch
-        #         start = [ packer-nvim ];
-        #         # manually loadable
-        #         # opt = [  ];
-        #     };
-        };
-    };
+    # # wasn't working
+    # programs.neovim = {
+    #     enable = true;
+    #     # package = pkgs.neovim-nightly;
+    #     package = pkgs-unstable.neovim;
+    #     withNodeJs = true;
+    #     withPython3 = true;
+    #     withRuby = true;
+    #     configure = {
+    #         customRC = ''
+    #             :luafile ${builtins.getEnv "XDG_CONFIG_HOME" }/nvim/init.lua
+    #         '';
+    #     };
+    # };
 
 }

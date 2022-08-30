@@ -219,7 +219,7 @@ local highlight_groups = {
 	--[[ 4.1.1. Literals]]
 	Constant = {fg = c.cyan06},
 	String = {fg = c.cyan06},
-	Character = {fg = c.red09},
+	Character = 'String',
 	Number  = {fg = c.cyan06},
 	Boolean = {fg = c.cyan06, style = {'bold'}},
 	Float   = 'Number',

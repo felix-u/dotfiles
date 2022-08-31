@@ -38,6 +38,7 @@
         useDHCP = false;
         interfaces.wlp0s20f3.useDHCP = true;
     };
+    programs.nm-applet.enable = true;
 
 
     # kmonad

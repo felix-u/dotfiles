@@ -142,6 +142,13 @@ return packer.startup{function(use, vim)
     -- syntax highlighting for odin (no treesitter support that I've found)
     use "Tetralux/odin.vim"
 
+    use {
+        "iamcco/markdown-preview.nvim",
+        run = function()
+            vim.fn["mkdp#util#install"]()
+        end
+    }
+
     use { -- delete, don't cut
         "gbprod/cutlass.nvim",
         config = function ()

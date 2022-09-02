@@ -1,52 +1,56 @@
-;; (set 'gc-cons-threshold 100000000)
+;; Garbage collection settings for faster startup
 (set 'gc-cons-threshold (* 100 1000 1000))
 
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
-;; only pop up minibuffer for errors, not warnings
-(setq warning-minimum-level :error)
-
-(setq inhibit-startup-message t)
-(setq-default inhibit-startup-echo-area-message t)
-(setq server-client-instructions nil)
+;; Set user directory
 (setq user-emacs-directory "~/.emacs.d/")
 
-(tooltip-mode -1)       ; Disable tooltips
-(menu-bar-mode -1)      ; Disable the menubar
+;; Use <esc> to exit popups and such
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+;; Only show minibuffer for errors, not warnings
+(setq warning-minimum-level :error)
+
+;; Disable tooltips
+(tooltip-mode -1)
+
+;; Disable the menubar
+(menu-bar-mode -1)
 
 ;; Revert buffers when the underlying file has changed
 (global-auto-revert-mode 1)
 
-;; save all tempfiles in ~/.emacs.d/backups
+;; Save all tempfiles in ~/.emacs.d/backups
 (setq backup-directory-alist
     `(("." . ,(concat user-emacs-directory "backups"))))
 
-;; Visible bell (DISABLE)
-(setq visible-bell nil)
-(setq ring-bell-function 'ignore)
-(setq server-client-instructions nil)
-;; relative line numbers
+;; ;; Uncomment this to show line numbers by default
 ;; (global-display-line-numbers-mode 1)
 ;; (setq display-line-numbers-type 'relative)
-(setq column-number-mode t) ; show columns as well
 
-;; don't ask about symlinks - just edit the file the link points to
+;; Show columns as well as current line
+(setq column-number-mode t)
+
+;; Don't ask about symlinks, just edit the file pointed to
 (setq vc-follow-symlinks t)
 
-;; automatic syntax pairs. might replace with a more intelligent plugin later
+;; Automatic syntax pairs
 (electric-pair-mode 1)
 
-;; save command history
-(savehist-mode 1) (setq history-length 25)
-;; save recent files
+;; Save command history
+(savehist-mode 1)
+(setq history-length 25)
+
+;; Save file history
 (recentf-mode 1)
 
-;; enable ido to begin to use in keybinds
+;; ido
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 
+
+;; Bootstrap straight.el
+
 (unless (featurep 'straight)
-    ;; Bootstrap straight.el
     (defvar bootstrap-version)
     (let ((bootstrap-file
               (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -62,9 +66,9 @@
 
 ;; Initialise package sources
 (require 'package)
-(setq package-archives '(   ("melpa" . "https://melpa.org/packages/")
-                            ("org" . "https://orgmode.org/elpa/")
-                            ("elpa" . "https://elpa.gnu.org/packages/")))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 (unless package-archive-contents
@@ -81,83 +85,8 @@
     (setq auto-package-update-hide-results t)
     (auto-package-update-maybe))
 
-;; Evil mode to make this bloody thing usable
-;; tabbing
-(setq indent-tabs-mode nil
-    tab-width 4
-    tab-stop-list (number-sequence 4 200 4)
-    indent-line-function 'insert-tab
-    backward-delete-char-untabify-method 'hungry
 
-    c-default-style "linux"
-    c-basic-offset 4
-
-    lisp-indent-offset 4)
-
-
-;; aggressive indent
-(use-package aggressive-indent
-    :config
-    (add-hook 'prog-mode-hook #'aggressive-indent-mode)
-    (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
-    )
-
-;; selectrum as a replacement for vertico, helm, and ido
-(use-package selectrum
-    :config
-    (selectrum-mode +1)
-    (marginalia-mode 1)
-    (use-package selectrum-prescient
-        :config
-        (selectrum-prescient-mode 1)
-        (prescient-persist-mode 1))
-    )
-
-(use-package consult
-    :hook (completion-list-mode . consult-preview-at-point-mode)
-    :init
-    ;; Optionally configure the register formatting. This improves the register
-    ;; preview for `consult-register', `consult-register-load',
-    ;; `consult-register-store' and the Emacs built-ins.
-    (setq register-preview-delay 0.5
-        register-preview-function #'consult-register-format)
-
-    ;; Optionally tweak the register preview window.
-    ;; This adds thin lines, sorting and hides the mode line of the window.
-    (advice-add #'register-preview :override #'consult-register-window)
-
-    ;; Use Consult to select xref locations with preview
-    (setq xref-show-xrefs-function #'consult-xref
-        xref-show-definitions-function #'consult-xref)
-    :config
-    ;; Optionally configure the narrowing key.
-    ;; Both < and C-+ work reasonably well.
-    (setq consult-narrow-key "<") ;; (kbd "C-+")
-    )
-
-;; marginalia in the minibuffer
-(use-package marginalia
-    :bind (("M-A" . marginalia-cycle)
-              :map minibuffer-local-map
-              ("M-A" . marginalia-cycle))
-    :config
-    (marginalia-mode))
-
-;; fast actions with embark
-(use-package embark
-	:bind
-	(("C-." . embark-act)
-	    ("C-," . embark-dwim))
-	:init
-	;; Optionally replace the key help with a completing-read interface
-	(setq prefix-help-command #'embark-prefix-help-command)
-	;; check repo for some extra integration with consult
-    )
-
-(c-set-offset 'comment-intro 0)
-(defun insert-tab-char ()
-    "Insert a tab char (ASCII 9, \t)."
-    (interactive) (insert "\t"))
+;; MWAHAHAHAHAHAHAHA
 
 (use-package evil
     :config
@@ -317,36 +246,29 @@
     )
 
 
-;; dwm-like tiling
-(use-package edwina
-    :config
-    (setq display-buffer-base-action '(display-buffer-below-selected))
-    (edwina-mode 1)
-    (global-set-key (kbd "<C-left>") 'evil-window-left)
-    (global-set-key (kbd "<C-up>") 'evil-window-up)
-    (global-set-key (kbd "<C-right>") 'evil-window-right)
-    (global-set-key (kbd "<C-down>") 'evil-window-down)
+;; Tabbing
+(defun insert-tab-char ()
+    "Insert a tab char (ASCII 9, \t)."
+    (interactive) (insert "    "))
+(setq
+    indent-tabs-mode nil
+    tab-width 4
+    tab-stop-list (number-sequence 4 200 4)
+    indent-line-function 'insert-tab
+    backward-delete-char-untabify-method 'hungry
+    lisp-indent-offset 4)
 
-    (global-set-key (kbd "C-<S-left>") 'evil-window-move-far-left)
-    (global-set-key (kbd "C-<S-up>") 'evil-window-move-very-top)
-    (global-set-key (kbd "C-<S-right>") 'evil-window-move-far-right)
-    (global-set-key (kbd "C-<S-down>") 'evil-window-move-very-bottom)
+;; LANGUAGE CONFIGURATION ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-    (global-set-key (kbd "C-<M-left>") 'edwina-dec-mfact)
-    (global-set-key (kbd "C-<M-right>") 'edwina-inc-mfact)
-    (global-set-key (kbd "C-<M-up>") 'edwina-dec-nmaster)
-    (global-set-key (kbd "C-<M-down>") 'edwina-inc-nmaster))
+;; C
+(setq
+    c-default-style "linux"
+    c-basic-offset 4)
+(c-set-offset 'comment-intro 0)
 
-(straight-use-package 'evil-terminal-cursor-changer)
-(unless (display-graphic-p)
-    (require 'evil-terminal-cursor-changer)
-    (evil-terminal-cursor-changer-activate)) ; or (etcc-on)
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (use-package undo-tree
-;;     :config
-;;     (global-undo-tree-mode)
-;;     (evil-set-undo-system 'undo-tree)
-;;     (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))))
+;; Proper undo tree
 (use-package undo-fu
     :ensure t
     :commands (undo-fu-only-undo undo-fu-only-redo))
@@ -356,6 +278,45 @@
         "u" 'undo-fu-only-undo
         "\C-r" 'undo-fu-only-redo))
 
+;; Rainbow delimiters to make bracket spaghetti more bearable (could remove?)
+(use-package rainbow-delimiters
+    :hook
+    (prog-mode . rainbow-delimiters-mode))
+
+;; Save cursor position
+(require 'saveplace)
+(if (fboundp #'save-place-mode)
+    (save-place-mode +1)
+    (setq save-place-file "~/.cache/emacs_saveplace")
+    (setq-default save-place t))
+
+;; which-key
+(use-package which-key
+    :config
+    (which-key-mode)
+    (setq which-key-popup-type 'minibuffer))
+
+;; ;; Nicer modeline
+;; (use-package nano-modeline
+;;     :config
+;;     (nano-modeline-mode)
+;;     (setq nano-modeline-position 'bottom)
+;;     (custom-set-faces
+;;         '(mode-line ((t (:underline nil))))
+;;         '(mode-line-inactive ((t (:underline nil))))))
+
+;; Highlight colour codes with relevant colour
+(use-package rainbow-mode :defer t)
+
+;; Use system clipboard
+(setq select-enable-clipboard t)
+
+;; Theme
+
+;; (use-package solarized-theme)
+;; (setq solarized-use-more-italic t)
+;; (load-theme 'solarized-dark t)
+
 (use-package doom-themes
     :config
     ;; Global settings (defaults)
@@ -363,7 +324,7 @@
         doom-themes-enable-italic t ; if nil, italics is universally disabled
         )
     (load-theme 'doom-solarized-dark t)
-    ;; (global-hl-line-mode 1) ; enable line highlighting
+    (global-hl-line-mode 1) ; enable line highlighting
 
     ;; Enable custom neotree theme (all-the-icons must be installed!)
     ;; (doom-themes-neotree-config)
@@ -374,288 +335,9 @@
     ;; (doom-themes-org-config)
     )
 
-;; rainbow delimiters to make bracket spaghetti more bearable
-(use-package rainbow-delimiters
-    :hook
-    (prog-mode . rainbow-delimiters-mode))
-
-;; projectile
-(use-package projectile
-    :config
-    (projectile-mode 1)
-    (setq projectile-enable-caching t))
-
-;; better, usable terminal
-(use-package vterm)
-;; and package for better vterm binding
-(use-package vterm-toggle)
-
-;; not working in terminal right now.
-;; possible fix in docs https://github.com/belak/base16-emacs
-(use-package base16-theme)
-(setq custom-safe-themes t)
-
-;; save cursor position
-(require 'saveplace)
-(if (fboundp #'save-place-mode)
-    (save-place-mode +1)
-    (setq save-place-file "~/.cache/emacs_saveplace")
-    (setq-default save-place t))
-
-;; treesitter - syntax highlighting and other cool shit
-(use-package tree-sitter
-    :config
-    (use-package tree-sitter-langs)
-    (global-tree-sitter-mode)
-    (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
-;; lsp
-(use-package lsp-mode
-    :commands (lsp lsp-deferred)
-    :init
-    (setq lsp-keymap-prefix "C-c l")
-    :config
-    (use-package iedit)
-    (lsp-enable-which-key-integration t)
-    (add-hook 'prog-mode-hook 'lsp)
-    (use-package lsp-ui
-        :hook (lsp-mode . lsp-ui-mode)
-        :config
-        (setq lsp-lens-enable t
-            lsp-ui-doc-enable t
-            lsp-ui-sideline-enable nil
-            lsp-enable-symbol-highlighting t
-            lsp-enable-semantic-tokens-enable t
-            lsp-headerline-breadcrumb-enable nil)))
-
-;; autocomplete
-(use-package company
-    :init
-    (global-set-key (kbd "\t")
-        #'company-indent-or-complete-common)
-    :config
-    (setq company-minimum-prefix-length 1
-        company-idle-delay 0.0) ;; default is 0.2
-    (global-company-mode t)
-    (use-package company-prescient
-        :init
-        (company-prescient-mode +1))
-    )
-
-;; flycheck
-(use-package flycheck
-    :config
-    (global-flycheck-mode)
-    ;; only run flycheck on file save
-    (setq flycheck-check-syntax-automatically '(save mode-enabled)))
-
-;; which key
-(use-package which-key
-    :config
-    (which-key-mode)
-    (setq which-key-popup-type 'minibuffer))
-
-;; modeline coolness
-(use-package all-the-icons
-    :if (display-graphic-p))
-
-;; (use-package doom-modeline
-;;     :hook (after-init . doom-modeline-mode)
-;;     :config
-;;     (setq doom-modeline-height 36)
-;;     (doom-solarized-dark-padded-modeline t)
-;;     (setq doom-modeline-enable-word-count t))
-
-(use-package nano-modeline
-    :config
-    (nano-modeline-mode)
-    ;; (setq nano-modeline-position top)
-    (custom-set-faces
-        '(mode-line ((t (:underline nil))))
-        '(mode-line-inactive ((t (:underline nil))))))
-
-;; ligatures!!!
-(use-package ligature
-	:ensure nil
-    :load-path "custom/"
-    :config
-    ;; Enable all ligatures in programming modes
-    (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
-                                            ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
-                                            "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
-                                            "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
-                                            "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
-                                            "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
-                                            "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
-                                            "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
-                                            ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
-                                            "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
-                                            "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
-                                            "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
-                                            "\\\\" "://"))
-    ;; Enables ligature checks globally in all buffers. You can also do it
-    ;; per mode with `ligature-mode'.
-    (global-ligature-mode t))
-
-;; highlight colour codes with relevant colour
-(use-package rainbow-mode
-	:defer t)
-
-;; colour emoji and such
-(use-package unicode-fonts
-    :config
-    (unicode-fonts-setup))
-
-;; respond to prompts with y/n, not yes/no
-(defalias 'yes-or-no #'y-or-n-p)
-
-;; use system clipboard
-(setq select-enable-clipboard t)
-
-;; magit
-(use-package magit
-	:defer t
-	)
-
-;; "auto-activating-snippets" - https://github.com/ymarco/auto-activating-snippets
-(use-package aas)
-(use-package laas ; aas snippets for LaTeX
-    :hook (LaTeX-mode . laas-mode)
-    :config
-    (add-hook 'prog-mode-hook 'yas-minor-mode)
-    (aas-set-snippets 'laas-mode
-        ;; set condition!
-        :cond #'texmathp ; expand only while in math
-        "supp" "\\supp"
-        "On" "O(n)"
-        "O1" "O(1)"
-        "Olog" "O(\\log n)"
-        "Olon" "O(n \\log n)"
-        ;; bind to functions!
-        "Sum" (lambda () (interactive)
-                  (yas-expand-snippet "\\sum_{$1}^{$2} $0"))
-        "Span" (lambda () (interactive)
-                   (yas-expand-snippet "\\Span($1)$0"))
-        ;; add accent snippets
-        :cond #'laas-object-on-left-condition
-        "qq" (lambda () (interactive) (laas-wrap-previous-object "sqrt")))
-    )
-
-;;---------------------------------------------------------------writing-focused
-(use-package writeroom-mode
-    :defer t
-    :config
-    (use-package visual-fill-column
-        :defer t
-        :config
-  	    (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
-  	    (setq-default visual-fill-column-center-text t)))
-
-;; for reading epub - https://depp.brause.cc/nov.el/
-;; (use-package nov)
-;;------------------------------------------------------------------------------
-
-;; dim surrounding text - larstvei/Focus
-(use-package focus
-    :defer t)
-;; in a similar vein, dim unfocused buffers
-(use-package dimmer
-    :defer t
-    :config
-    (dimmer-configure-which-key)
-    (dimmer-configure-company-box))
-
-;; extra colours for info mode
-(use-package info-colors
-    :defer t)
-(add-hook 'Info-selection-hook 'info-colors-fontify-node)
-
-;; dashboard
-(use-package dashboard
-    :config
-    (dashboard-setup-startup-hook)
-    (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-    (setq dashboard-banner-logo-title "GNU Emacs version 29")
-    (setq dashboard-center-content t)
-    (setq dashboard-show-shortcuts nil)
-    (setq dashboard-items '())
-    (defun dashboard-insert-custom (list-size)
-        (insert "\n\nGNU Emacs"))
-    (add-to-list 'dashboard-item-generators  '(custom . dashboard-insert-custom))
-    (add-to-list 'dashboard-items '(custom) t)
-    (setq dashboard-set-footer nil)
-    (setq dashboard-startup-banner nil)
-    )
-
-;;-----------------------------------------------------------language-configs
-;; nix
-(use-package company-nixos-options
-    :defer t
-    :config
-    (add-to-list 'company-backends 'company-nixos-options))
-(use-package nix-mode
-    :defer t
-    :mode "\\.nix\\'")
-
-;; HTML, CSS, and javascript
-;; emmet - https://github.com/smihica/emmet-mode
-(use-package emmet-mode
-    :init
-    (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-    (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-    (add-hook 'html-mode-hook 'emmet-mode)
-    )
-;; impatient - HTML live preview
-;; https://github.com/skeeto/impatient-mode
-;; go to http://localhost:8080/imp/ when using
-(use-package impatient-mode)
-
-;; gdscript - official support :D
-(use-package gdscript-mode
-    ;; :straight (gdscript-mode
-    ;; 	      :type git
-    ;; 	      :host github
-    ;; 	      :repo "godotengine/emacs-gdscript-mode")
-    )
-
-;; LaTeX
-(use-package tex ; support for latex
-    :defer t
-    :ensure auctex
-    :config
-    (setq TeX-auto-save t)
-    (setq TeX-parse-self t)
-    (setq-default TeX-master nil)
-    )
-;; (use-package preview-latex :defer t)
-(use-package latex-preview-pane
-    :defer t
-    :config
-    (latex-preview-pane-enable))
-(use-package evil-tex ; successor to evil-latex-textobjects, inspired by vimtex
-    :config
-    (add-hook 'LaTeX-mode-hook #'evil-tex-mode))
-;; to use pdfview with auctex
-(use-package pdf-tools
-    :defer t
-    :config
-    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
-        TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
-        TeX-source-correlate-start-server t) ;; not sure if last line is neccessary
-    ;; to have the buffer refresh after compilation
-    (add-hook 'TeX-after-compilation-finished-functions
-	#'TeX-revert-document-buffer)
-    )
-
-;; fish scripts (mainly my config)
-(use-package fish-mode :defer t)
-;;--------------------------------------------------------------------------
-
-
-;;------------------------------------------------------------------GUI-only
+;; GUI CONFIGURATION ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar fontfamily "Iosevka")
 (defvar fontsans "FreeSans")
-(defvar fontserif "IBM Plex Serif")
 (defvar fontsize 12)
 (defvar fontweight 'medium)
 
@@ -664,7 +346,7 @@
 (defvar fontsizelarge (/ (* fontsize 6) 5))
 (defvar fontheightlarge (* fontsizelarge 10))
 
-;; cleaner frame
+;; Nicer-looking frame
 (use-package frame
     :ensure nil
     :config
@@ -697,17 +379,6 @@
         :font fontfamily
         :weight fontweight
         :height fontheight)
-
-    ;; don't underline flycheck errors and warnings
-    (set-face-attribute 'flycheck-error nil
-        :underline nil)
-    (set-face-attribute 'flycheck-warning nil
-        :underline nil)
-    ;; (set-face-attribute 'flymake-note nil
-    ;;     :underline nil)
-    (set-face-attribute 'flycheck-info nil
-        :underline nil)
-
     (add-to-list 'default-frame-alist `(font . ,fontstring))
     (set-face-attribute 'default t :font fontstring)
     (set-frame-font fontstring)
@@ -720,93 +391,98 @@
 
 (add-hook 'before-make-frame-hook 'window-divider-mode)
 
-(scroll-bar-mode -1)    ; Disable visible scrollbar
-(tool-bar-mode -1)      ; Disable the toolbar
-(set-fringe-mode 10)    ; Give some breathing room
-(setq use-dialog-box nil) ; Don't use popup dialogue box when prompting
+;; Disable visible scrollbar
+(scroll-bar-mode -1)
+;; Disable toolbar
+(tool-bar-mode -1)
+;; Some breathing room
+(set-fringe-mode 10)
+;; Don't use popup dialogue box when prompting
+(setq use-dialog-box nil)
 
-;; some more better settings
-(setq scroll-margin 2
+;; QOL
+(setq
+    scroll-margin 2
     delete-by-moving-to-trash t
     truncate-string-ellipsis "…"
     evil-want-fine-undo t
     browse-url-browser-function 'xwidget-webkit-browse-url)
 
-;; smoother scrolling
-(setq scroll-step 1
+;; Smoother scrolling
+(setq
+    redisplay-dont-pause t
+    scroll-step 1
 	scroll-conservatively 10000
 	scroll-preserve-screen-position 1)
 
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+;; One line at a time
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+;; Don't accelerate scrolling
+(setq mouse-wheel-progressive-speed nil)
+;; Scroll window under mouse
+(setq mouse-wheel-follow-mouse 't)
 
 (global-subword-mode 1)
 (pixel-scroll-precision-mode t)
 (setq pixel-scroll-precision-large-scroll-height 20.0)
 (setq pixel-scroll-precision-interpolation-factor 10)
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-;;--------------------------------------------------------------------------
-
-;;-----------------------------------------------------------------------ORG
-(use-package org
+;; Selectrum as a replacement for vertico, helm, and ido
+(use-package selectrum
     :config
-    (setq org-ellipsis " …")
-	(setq org-hide-emphasis-markers t)
-	(add-hook 'org-mode-hook 'variable-pitch-mode))
-
-(use-package org-bullets
-	:after org
-	:hook (org-mode . org-bullets-mode))
-
-;; replace list hyphen with dot
-(font-lock-add-keywords 'org-mode
-	'(("^ *\\([-]\\) "
-	      (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-
-;; proportional fonts for org mode
-(let* (   (variable-tuple     '(:font "IBM Plex Serif"))
-          (base-font-color     (face-foreground 'default nil 'default))
-          (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
-
-    ;; org level font settings
-    (custom-theme-set-faces
-        'user
-        `(org-level-8 ((t (,@headline ,@variable-tuple))))
-        `(org-level-7 ((t (,@headline ,@variable-tuple))))
-        `(org-level-6 ((t (,@headline ,@variable-tuple))))
-        `(org-level-5 ((t (,@headline ,@variable-tuple))))
-        `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
-        `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
-        `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
-        `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
-        `(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil))))))
-
-;; ;; variable pitch definitions
-;; (custom-theme-set-faces
-;;     'user
-;;     '(variable-pitch ((t (:family fontserif :height 160 :weight medium))))
-;;     '(fixed-pitch ((t (:family fontfamily :height 120)))))
-
-;; ;; headings go from bigger to smaller
-(dolist (face '((org-level-1 . 1.15)
-		           (org-level-2 . 1.12)
-		           (org-level-3 . 1.06)
-		           (org-level-4 . 1.03)
-		           (org-level-5 . 1.0)
-		           (org-level-6 . 1.0)
-		           (org-level-7 . 1.0)
-		           (org-level-8 . 1.0)))
-	(set-face-attribute (car face) nil :font fontserif :weight fontweight :height (cdr face)))
-
-;;--------------------------------------------------------------------------
+    (selectrum-mode +1)
+    (marginalia-mode 1)
+    (use-package selectrum-prescient
+        :config
+        (selectrum-prescient-mode 1)
+        (prescient-persist-mode 1))
+    )
 
 
-;; move customisation variables to different file and load it
+(use-package consult
+    :hook (completion-list-mode . consult-preview-at-point-mode)
+    :init
+    ;; Optionally configure the register formatting. This improves the register
+    ;; preview for `consult-register', `consult-register-load',
+    ;; `consult-register-store' and the Emacs built-ins.
+    (setq register-preview-delay 0.5
+        register-preview-function #'consult-register-format)
+
+    ;; Optionally tweak the register preview window.
+    ;; This adds thin lines, sorting and hides the mode line of the window.
+    (advice-add #'register-preview :override #'consult-register-window)
+
+    ;; Use Consult to select xref locations with preview
+    (setq xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref)
+    :config
+    ;; Optionally configure the narrowing key.
+    ;; Both < and C-+ work reasonably well.
+    (setq consult-narrow-key "<") ;; (kbd "C-+")
+    )
+
+;; Info in the margins, for the minibuffer
+(use-package marginalia
+    :bind (("M-A" . marginalia-cycle)
+              :map minibuffer-local-map
+              ("M-A" . marginalia-cycle))
+    :config
+    (marginalia-mode))
+
+;; These things are annoying and I do not need them
+(setq visible-bell nil)
+(setq ring-bell-function 'ignore)
+(setq server-client-instructions nil)
+(setq inhibit-startup-message t)
+(setq-default inhibit-startup-echo-area-message t)
+(setq server-client-instructions nil)
+
+;; Move customisation variables to different file and load it
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
 
-;; reset garbage collection to make gc pauses faster
+;; Reset garbage collection to make gc pauses faster
 (set 'gc-cons-threshold (* 50 1000 1000))
+

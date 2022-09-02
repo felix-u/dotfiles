@@ -37,29 +37,29 @@ in {
     };
 
     # emacs setup and overlay
-    # services.emacs.package = pkgs.emacsPgtkNativeComp;
-    # services.emacs.enable = true;
+    services.emacs.package = pkgs.emacsPgtkNativeComp;
+    services.emacs.enable = true;
     nixpkgs.overlays = [
       (import (builtins.fetchGit {
         url = "https://github.com/nix-community/emacs-overlay.git";
         ref = "master";
         rev = "b324b27d58fe93add90d80e081c39d452ae1cb98";
       }))
-        hyprland.overlays.default
-        (self: super: {
-            waybar = super.waybar.overrideAttrs (oldAttrs: {
-                mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-            });
-        })
+        # hyprland.overlays.default
+        # (self: super: {
+        #     waybar = super.waybar.overrideAttrs (oldAttrs: {
+        #         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        #     });
+        # })
         (import (builtins.fetchTarball {
           url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
         }))
     ];
 
-    programs.hyprland = {
-        enable = false;
-        package = pkgs.hyprland;
-    };
+    # programs.hyprland = {
+    #     enable = false;
+    #     package = pkgs.hyprland;
+    # };
 
     # packages for all systems
     environment.systemPackages =
@@ -167,8 +167,9 @@ in {
         # web (HTML, CSS, JS)
         nodejs yarn
         nodePackages.npm nodePackages.js-beautify
-        # # lisp
-        # # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts libvterm-neovim sbcl
+        # # lisp and emacs
+        # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts
+        # # clisp sbcl libvterm-neovim
         # lua
         lua sumneko-lua-language-server
         # nix

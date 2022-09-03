@@ -42,9 +42,6 @@ vim.opt.splitright = true -- vertical splits go to the right of the current wind
 vim.opt.swapfile = false -- don't keep swap files
 vim.opt.tabstop = 4 -- four spaces for a tab
 vim.opt.termguicolors = true -- truecolour
-vim.g.vimtex_view_method = "zathura"
-vim.g.vimtex_view_general_viewer = "zathura"
-vim.g.tex_conceal = "abdmg"
 vim.opt.timeoutlen = 400 -- time to wait for mapped sequence to complete
 vim.opt.undofile = true -- persistent undo history
 vim.opt.updatetime = 300 -- faster completion (4000ms default)
@@ -52,3 +49,12 @@ vim.opt.whichwrap:append("<,>,[,],h,l") -- see help page. controls which keys ca
 vim.opt.wildmenu = true -- command mode completion
 vim.opt.wrap = false -- lines can only take up one visual line, so long lines will go off-screen rather than wrapping
 vim.opt.writebackup = false -- if a file is being written to by another program, it cannot be edited
+
+-- PLUGIN OPTIONS
+
+vim.g.vimtex_view_method = "zathura"
+vim.g.vimtex_view_general_viewer = "zathura"
+vim.g.tex_conceal = "abdmg"
+-- vim.g.mkdp_browser = "qutebrowser"
+vim.g.mkdp_auto_start = 0
+vim.g.mdkp_markdown_css = "/home/felix/.config/nvim/lua/colours/markdown.css"

@@ -1,9 +1,9 @@
 let
   pkgs = import <nixpkgs> { };
 
-  wasm4-bin = pkgs.fetchurl {
-    url = "https://github.com/aduros/wasm4/releases/download/v2.5.1/w4-linux.zip";
-    sha256 = "677efe4d8831553a9be7bb4ff9f0e360966519f457b144b6e6f49161bdc93e00";
+  wasm4-bin = builtins.fetchurl {
+    url = "https://github.com/aduros/wasm4/releases/download/v2.5.3/w4-linux.zip";
+    # sha256 = "677efe4d8831553a9be7bb4ff9f0e360966519f457b144b6e6f49161bdc93e00";
   };
 in
 pkgs.runCommand "wasm4" {}

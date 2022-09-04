@@ -109,8 +109,8 @@ in {
             src = pkgs.fetchFromGitHub {
                 owner = "odin-lang";
                 repo = "Odin";
-                rev = "dev-2022-08";
-                sha256 = "sha256-SLzqb3hOwRhFuGT7JQRWoBZ81giLwV6Qeb+u3T0JAJQ=";
+                rev = "dev-2022-09";
+                sha256 = "sha256-qBAObLbgry+r/wOsFf7LDWJdOyn7RvEIbFCyAvN0waA=";
             };
             installPhase = ''
                 mkdir -p $out/bin
@@ -159,6 +159,12 @@ in {
         ttyper
 
         # DEV
+        # misc
+        android-tools bsdiff hexedit
+        libresprite # pixelorama rx
+        libxkbcommon mold
+        openssl_3_0 pkg-config protobuf
+        # unstable.godot godot4-alpha
         # c
         binutils-unwrapped-all-targets unstable.clang clang-tools cppcheck
         cmake cmake-language-server gcc gdb gnumake man-pages-posix tinycc valgrind
@@ -190,12 +196,6 @@ in {
         nodePackages.vim-language-server
         # zig
         zig-master
-        # other
-        android-tools bsdiff
-        libresprite # pixelorama rx
-        libxkbcommon mold
-        openssl_3_0 pkg-config protobuf
-        # unstable.godot godot4-alpha
 
         # MATHS
         bc gnuplot libqalculate maxima qalculate-gtk wxmaxima

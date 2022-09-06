@@ -1,15 +1,25 @@
+{ stdenv, fetchgit }:
+
 let
-  pkgs = import <nixpkgs> { };
+    pkgs = import <nixpkgs> { };
 in
-{rustPlatform}:
-rustPlatform.buildRustPackage {
+
+stdenv.mkDerivation rec {
     pname = "imgclr";
     version = "0.1";
-    src = pkgs.fetchFromGitHub {
-        owner = "felix-u";
-        repo = "imgclr";
-        rev = "e107cb51513f00fb2d237630eca4a7067451af09";
-        sha256 = "sha256-QiT/GU+coaeSqGMatq76L1Fr4OMss8xhoHG402AowNM=";
+
+    src = fetchgit {
+        url = "https://github.com/felix-u/imgclr";
+        sha256 = "sha256-kqM/3S0XQnULz4XBvVPkNnNaQ8utWljNwL/PBWGlt0U=";
+        rev = "401dc2920f397eb83a08fe9343a3736805e858b4";
     };
-    cargoSha256 = "sha256-3rd4WuktomiC8QNEWus1nupqU69gjpJYhf0hL2vSTNI=";
+
+    buildPhase = ''
+        make release
+    '';
+
+    installPhase = ''
+        mkdir -p $out/bin
+        cp ./imgclr $out/bin/
+    '';
 }

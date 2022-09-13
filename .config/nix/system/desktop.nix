@@ -75,7 +75,7 @@ in {
     hardware.bluetooth = {
       enable = true;
       package = pkgs.bluezFull;
-      hsphfpd.enable = true;
+      # hsphfpd.enable = true;
       settings = { General = { ControllerMode = "bredr"; }; };
     };
     services.blueman.enable = true;

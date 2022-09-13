@@ -17,19 +17,19 @@ function GM_addStyle (cssStr) {
 
 GM_addStyle ( `
 :root {
-    --fg: #95a7f7;
-    --bg: #192147;
-    --black: #283674;
-    --xcolor8: #283674;
-    --red: #ff0303;
-    --green: #98f339;
-    --orange: #ff7a15;
-    --yellow: #ffba2c;
-    --blue: #3c8cff;
-    --magenta: #7d47e7;
-    --cyan: #00e5ff;
-    --grey: #7a8ae6;
-    --xcolor15: #8698e4;
+    --fg: #586e75;
+    --bg: #eee8d5;
+    --black: #e2dac1;
+    --xcolor8: #c6bc9f;
+    --red: #dc322f;
+    --green: #859900;
+    --orange: #ca6721;
+    --yellow: #b58900;
+    --blue: #268bd2;
+    --magenta: #6c71c4;
+    --cyan: #2aa198;
+    --grey: #657b83;
+    --xcolor15: #839496;
 
     --sans: FreeSans;
     --mono: Iosevka;
@@ -56,7 +56,7 @@ code {
 .theme-light,
 :root {
     --background-primary: var(--bg) !important;
-    --background-secondary: #202b5d !important;
+    --background-secondary: #e8e1cb !important;
     --background-secondary-alt: var(--black) !important;
     --background-tertiary: var(--bg) !important;
     --background-accent: var(--bg) !important;
@@ -106,7 +106,7 @@ nav[aria-label="Servers sidebar"]:hover span.item-2LIpTv {
 
 /* server sidebar background colour */
 nav[aria-label="Servers sidebar"] div.scroller-3X7KbA.scrollerBase-_bVAAt {
-    /* background-color: #202b5d !important; */
+    /* background-color: #e8e1cb !important; */
     background-color: var(--black) !important;
     transition: background-color 0.2s linear;
 }
@@ -117,7 +117,7 @@ nav[aria-label="Servers sidebar"]:hover div.scroller-3X7KbA.scrollerBase-_bVAAt 
 
 /* thing at the bottom of server bar with personal settings */
 div.container-YkUktl {
-    background-color: #202b5d ;
+    background-color: #e8e1cb ;
 }
 
 /* server bar green buttons */
@@ -172,9 +172,9 @@ div.sidebar-1tnWFu:hover .container-YkUktl .avatar-1EWyVD {
 }
 /* header */
 div.sidebar-1tnWFu header.header-3OsQeK {
-    background-color: #202b5d !important;
+    background-color: #e8e1cb !important;
     transition: background-color 0.2s linear;
-    /* color: #202b5d !important; */
+    /* color: #e8e1cb !important; */
 }
 div.sidebar-1tnWFu:hover header.header-3OsQeK {
     background-color: transparent !important;

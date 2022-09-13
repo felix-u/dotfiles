@@ -12,9 +12,6 @@
 "comment" = "green"
 "string"  = "cyan"
 "ui.statusline" = { fg = "white", bg = "black" }
-# "ui.statusline.normal" = { fg = "black", bg = "blue" }
-# "ui.statusline.insert" = { fg = "black", bg = "green" }
-# "ui.statusline.select" = { fg = "black", bg = "cyan" }
 "ui.statusline.inactive" = { fg = "gray", bg = "black" }
 "ui.help" = { fg = "white", bg = "black" }
 "ui.cursor" = { fg = "light-gray", modifiers = ["reversed"] }
@@ -25,42 +22,25 @@
 # "constant.numeric" = "cyan"
 # "constant" = "cyan"
 # "constant.builtin" = "cyan"
-# "keyword" = "blue"
-# "function" = { modifiers = ["bold"] }
-
-# "attributes" = "yellow"
 # "type" = { fg = "pink" }
 # "type.builtin" = { fg = "pink" }
-# "ui.cursor.match" = { fg = "light-yellow", modifiers = ["underlined"] }
-# "constant.character.escape" = "magenta"
+# "function" = "blue"
 # "function.macro" = "pink"
 # "function.special" = { fg = "pink" }
-# "tag" = { fg = "pink" }
-# "constructor" = "light-blue"
-# "special" = "light-blue"
-# "label" = "light-magenta"
-# "namespace" = "blue"
+# "punctuation" = "light-gray"
+# "punctuation.delimiter" = "light-gray"
+# "keyword" = "magenta"
 
-# "markup.heading" = "light-blue"
-# "markup.list" = "light-red"
 "markup.bold" = { modifiers = ["bold"] }
 "markup.italic" = { modifiers = ["italic"] }
 "markup.link.url" = { fg = "blue", modifiers = ["underlined"] }
-# "markup.link.text" = "light-red"
-# "markup.quote" = "light-cyan"
-# "markup.raw" = "light-green"
-
-# "diff.plus" = "light-green"
-# "diff.delta" = "yellow"
-# "diff.minus" = "light-red"
-
 "diagnostic" = { modifiers = ["underlined"] }
-# "ui.gutter" = { bg = "" }
 "info" = "light-blue"
 "hint" = "gray"
 "debug" = "gray"
 "warning" = "yellow"
 "error" = "light-red"
 
-"punctuation" = "light-gray"
-"punctuation.delimiter" = "light-gray"
+[palette]
+pink = "#cf4072"
+orange = "#d64f15"

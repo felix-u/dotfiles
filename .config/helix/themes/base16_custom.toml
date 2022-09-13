@@ -6,70 +6,61 @@
 "ui.linenr" = { fg = "gray" }
 "ui.popup" = { bg = "black" }
 "ui.window" = { bg = "black" }
-"ui.linenr.selected" = { fg = "light-gray", modifiers = ["bold"] }
+"ui.linenr.selected" = "light-gray"
 "ui.selection" = { fg = "gray", modifiers = ["reversed"] }
 "ui.cursorline" = { bg = "black" }
-"comment" = { fg = "light-gray", modifiers = ["italic"] }
+"comment" = "green"
+"string"  = "cyan"
 "ui.statusline" = { fg = "white", bg = "black" }
-"ui.statusline.normal" = { fg = "black", bg = "blue" }
-"ui.statusline.insert" = { fg = "black", bg = "green" }
-"ui.statusline.select" = { fg = "black", bg = "cyan" }
+# "ui.statusline.normal" = { fg = "black", bg = "blue" }
+# "ui.statusline.insert" = { fg = "black", bg = "green" }
+# "ui.statusline.select" = { fg = "black", bg = "cyan" }
 "ui.statusline.inactive" = { fg = "gray", bg = "black" }
 "ui.help" = { fg = "white", bg = "black" }
 "ui.cursor" = { fg = "light-gray", modifiers = ["reversed"] }
 "ui.cursor.primary" = { fg = "light-gray", modifiers = ["reversed"] }
 "ui.virtual" = "light-gray"
-"ui.virtual.indent-guide" = { fg = "black" }
+"ui.virtual.indent-guide" = "black"
 
-"variable" = "white"
+# "constant.numeric" = "cyan"
+# "constant" = "cyan"
+# "constant.builtin" = "cyan"
+# "keyword" = "blue"
+# "function" = { modifiers = ["bold"] }
 
-"constant.numeric" = "orange"
-"constant" = "cyan"
-"constant.builtin" = { fg = "cyan", modifiers = ["bold"] }
+# "attributes" = "yellow"
+# "type" = { fg = "pink" }
+# "type.builtin" = { fg = "pink" }
+# "ui.cursor.match" = { fg = "light-yellow", modifiers = ["underlined"] }
+# "constant.character.escape" = "magenta"
+# "function.macro" = "pink"
+# "function.special" = { fg = "pink" }
+# "tag" = { fg = "pink" }
+# "constructor" = "light-blue"
+# "special" = "light-blue"
+# "label" = "light-magenta"
+# "namespace" = "blue"
 
-"attributes" = "yellow"
-"type" = { fg = "yellow", modifiers = ["italic"] }
-"type.builtin" = { fg = "light-yellow", modifiers = ["bold"] }
-"ui.cursor.match" = { fg = "light-yellow", modifiers = ["underlined"] }
-"string"  = "green"
-"variable.other.member" = "red"
-"constant.character.escape" = "light-cyan"
-"function" = "light-blue"
-"function.macro" = { fg = "pink" }
-"function.special" = { fg = "pink" }
-"tag" = { fg = "pink" }
-"constructor" = "light-blue"
-"special" = "light-blue"
-"keyword" = { fg = "magenta", modifiers = ["bold"] }
-"label" = "light-magenta"
-"namespace" = "blue"
+# "markup.heading" = "light-blue"
+# "markup.list" = "light-red"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.url" = { fg = "blue", modifiers = ["underlined"] }
+# "markup.link.text" = "light-red"
+# "markup.quote" = "light-cyan"
+# "markup.raw" = "light-green"
 
-"operator" = { fg = "cyan" }
-
-"markup.heading" = "light-blue"
-"markup.list" = "light-red"
-"markup.bold" = { fg = "light-yellow", modifiers = ["bold"] }
-"markup.italic" = { fg = "pink", modifiers = ["italic"] }
-"markup.link.url" = { fg = "yellow", modifiers = ["underlined"] }
-"markup.link.text" = "light-red"
-"markup.quote" = "light-cyan"
-"markup.raw" = "light-green"
-
-"diff.plus" = "light-green"
-"diff.delta" = "yellow"
-"diff.minus" = "light-red"
+# "diff.plus" = "light-green"
+# "diff.delta" = "yellow"
+# "diff.minus" = "light-red"
 
 "diagnostic" = { modifiers = ["underlined"] }
-"ui.gutter" = { bg = "" }
+# "ui.gutter" = { bg = "" }
 "info" = "light-blue"
 "hint" = "gray"
 "debug" = "gray"
 "warning" = "yellow"
 "error" = "light-red"
 
-"punctuation" = "pink"
-"punctuation.delimiter" = "pink"
-
-[palette]
-pink = "#cf4072"
-orange = "#d64f15"
+"punctuation" = "light-gray"
+"punctuation.delimiter" = "light-gray"

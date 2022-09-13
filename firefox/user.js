@@ -526,3 +526,7 @@ user_pref("privacy.resistFingerprinting", false);
 user_pref("_user.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
 
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+// WebGL
+user_pref("webgl.force_enabled", true);
+user_pref("webgl.disabled", false);

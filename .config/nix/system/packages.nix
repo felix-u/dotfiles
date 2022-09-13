@@ -88,7 +88,7 @@ in {
         # });
 
         helix-src = builtins.fetchTarball {
-            url = "https://github.com/helix-editor/helix/archive/0d76775453fcb99653c106bce62ec179eda2b196.tar.gz";
+            url = "https://github.com/helix-editor/helix/archive/23027a454a1f383739f353f722169a4d5b0506ff.tar.gz";
             # sha256 = "sha256:1c08nbdi6bgnhpc1clqy3swphnwj4jqgcm82g0n7ivsakz58nk4k";
         };
         helix-git = import flake-compat { src = helix-src; };

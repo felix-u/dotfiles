@@ -19,17 +19,17 @@
 "ui.virtual" = "light-gray"
 "ui.virtual.indent-guide" = "black"
 
-# "constant.numeric" = "cyan"
-# "constant" = "cyan"
-# "constant.builtin" = "cyan"
-# "type" = { fg = "pink" }
-# "type.builtin" = { fg = "pink" }
-# "function" = "blue"
-# "function.macro" = "pink"
-# "function.special" = { fg = "pink" }
-# "punctuation" = "light-gray"
-# "punctuation.delimiter" = "light-gray"
-# "keyword" = "magenta"
+"constant.numeric" = "cyan"
+"constant" = "cyan"
+"constant.builtin" = "cyan"
+"type" = { fg = "pink" }
+"type.builtin" = { fg = "pink" }
+"function" = "blue"
+"function.macro" = "pink"
+"function.special" = { fg = "pink" }
+"punctuation" = "light-gray"
+"punctuation.delimiter" = "light-gray"
+# "keyword" = "blue"
 
 "markup.bold" = { modifiers = ["bold"] }
 "markup.italic" = { modifiers = ["italic"] }

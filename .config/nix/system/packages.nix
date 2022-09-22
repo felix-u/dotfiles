@@ -254,7 +254,11 @@ in {
         w4 # wasm-4 fantasy console
 
         # LATEX
-        biber texinfo texlab texlive.combined.scheme-full
+        biber texinfo texlab
+        # texlive.combined.scheme-full
+        (texlive.combine {
+            inherit (texlive) scheme-full biblatex-mla;
+        })
 
         # KERNEL
         config.boot.kernelPackages.v4l2loopback

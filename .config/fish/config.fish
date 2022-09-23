@@ -14,6 +14,8 @@ end
 
 # use green, not blue, for valid commands
 set -U fish_color_command green
+# use cyan for quoted arguments
+set -U fish_color_quote cyan
 # don't use black background for search matches
 set -U fish_color_search_match --background=normal
 # WHY IS THIS ONE HARDCODED TO THE UGLIEST YELLOW

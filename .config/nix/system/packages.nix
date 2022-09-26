@@ -75,21 +75,10 @@ in {
             doas "$@"
         '');
 
-        # flake-compat = builtins.fetchTarball {
-        #     url = "https://github.com/edolstra/flake-compat/archive/b4a34015c698c7793d592d66adbab377907a2be8.tar.gz";
-        #     sha256 = "sha256:1qc703yg0babixi6wshn5wm2kgl5y1drcswgszh4xxzbrwkk9sv7";
-        # };
-
         godot4-alpha = import ../derivations/godot4alpha.nix;
 
-        # # this works, but goxel's UI ends up far too small
-        # goxel-wayland = pkgs.goxel.overrideAttrs (oldAttrs: rec {
-        #     buildInputs = with pkgs; [ glfw-wayland gtk3 libpng12 ];
-        # });
-
         helix-src = builtins.fetchTarball {
-            url = "https://github.com/helix-editor/helix/archive/23027a454a1f383739f353f722169a4d5b0506ff.tar.gz";
-            # sha256 = "sha256:1c08nbdi6bgnhpc1clqy3swphnwj4jqgcm82g0n7ivsakz58nk4k";
+            url = "https://github.com/helix-editor/helix/archive/98dd9c4f2bf71e9afb72f61af9d45100fda0526e.tar.gz";
         };
         helix-git = import flake-compat { src = helix-src; };
 
@@ -255,10 +244,10 @@ in {
 
         # LATEX
         biber texinfo texlab
-        # texlive.combined.scheme-full
-        (texlive.combine {
-            inherit (texlive) scheme-full biblatex-mla;
-        })
+        texlive.combined.scheme-full
+        # (texlive.combine {
+        #     inherit (texlive) scheme-full biblatex-mla;
+        # })
 
         # KERNEL
         config.boot.kernelPackages.v4l2loopback

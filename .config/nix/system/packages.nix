@@ -151,7 +151,7 @@ in {
 
         # DEV
         # misc
-        android-tools bsdiff hexedit
+        android-tools bsdiff bviplus
         libresprite # pixelorama rx
         libxkbcommon mold
         openssl_3_0 pkg-config protobuf

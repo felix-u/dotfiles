@@ -88,6 +88,8 @@ in {
         # };
         # hyprland-git = (pkgs.callPackage [ import flake-compat { src = hyprland-src; } {} ]);
 
+        nextvi = (pkgs.callPackage ../derivations/nextvi.nix {});
+
         odin-dev = pkgs.odin.overrideAttrs (oldAttrs: rec {
             nativeBuildInputs = with pkgs; oldAttrs.nativeBuildInputs ++ [
                 which llvmPackages.llvm.dev
@@ -134,7 +136,7 @@ in {
     with pkgs; [
 
         # ESSENTIAL
-        foot unstable.gh git neofetch pfetch starship stow wget
+        foot unstable.gh git neofetch nvi pfetch starship stow wget
 
         # UTILS IN RUST
         bat # cat

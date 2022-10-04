@@ -42,6 +42,7 @@ alias cp='cp -i'
 alias ln='ln -i'
 alias rmt="trash"
 
+alias g='gdb -tui'
 alias ksp='progl /mnt/sda1/Games/KSP_linux/KSP.x86_64'
 
 alias pipes="pipes-rs"

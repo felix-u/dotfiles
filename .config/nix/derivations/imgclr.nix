@@ -10,8 +10,8 @@ stdenv.mkDerivation rec {
 
     src = fetchgit {
         url = "https://github.com/felix-u/imgclr";
-        sha256 = "sha256-kqM/3S0XQnULz4XBvVPkNnNaQ8utWljNwL/PBWGlt0U=";
-        rev = "401dc2920f397eb83a08fe9343a3736805e858b4";
+        sha256 = "sha256-bMA+TGoQm2j10F3LgF8zzRufEC7fnUZr7US0jNzVQaI=";
+        rev = "92e4c383e970e3c8007b4854c7964b6e199004cc";
     };
 
     buildPhase = ''

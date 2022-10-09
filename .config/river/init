@@ -306,8 +306,9 @@ riverctl map normal $mod V spawn \
      notify-send 'Enabled cursor hiding'" &
 # wallpaper
 # riverctl background-color "0x$(pastel darken 0.01 "$(wq background)" | pastel format hex | tr -d \#)" &
-riverctl background-color "0x$(pastel lighten 0.01 "$(wq background)" | pastel format hex | tr -d \#)" &
-# riverctl background-color "0x$(pastel mix "$(wq color8)" "$(wq color7)" | pastel format hex | tr -d \#)" &
+# riverctl background-color "0x$(pastel mix "$(wq background)" "$(wq color0)" | pastel format hex | tr -d \#)" &
+# riverctl background-color "0x$(wqs color8)" &
+riverctl background-color "0x$(pastel mix "$(wq color0)" "$(wq color8)" | pastel format hex | tr -d \#)" &
 #"$XDG_CONFIG_HOME"/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 riverctl border-color-focused "0x$WS04" &
 riverctl border-color-unfocused "0x$WS00" &

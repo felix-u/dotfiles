@@ -99,14 +99,14 @@ return packer.startup{function(use, vim)
         },
     }
 
-    -- lsp eyecandy
-    use({
-      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-      config = function()
-        require("lsp_lines").setup()
-      end,
-    })
-    -- use { "RRethy/vim-illuminate" }
+    -- -- lsp eyecandy
+    -- use({
+    --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    --   config = function()
+    --     require("lsp_lines").setup()
+    --   end,
+    -- })
+    -- -- use { "RRethy/vim-illuminate" }
 
     -- cmp plugins
     use "hrsh7th/nvim-cmp"

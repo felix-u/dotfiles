@@ -90,16 +90,16 @@ window#waybar {
     transition: none;
     padding-left: 6px;
     padding-right: 6px;
-    /* color: $(pastel mix $(wq color8) $(wq color7) | pastel format hex); */
-    color: $(wq color8);
+    color: $(pastel mix $(wq color8) $(wq color7) | pastel format hex);
+    /* color: $(wq color7); */
 }
 #tags button:hover {
     background: transparent;
 }
 #tags button.occupied {
     transition: none;
-    /* color: $(wq color7); */
-    color: $(pastel mix $(wq color8) $(wq color7) | pastel format hex);
+    color: $(wq color7);
+    /* color: $(pastel mix $(wq color8) $(wq color7) | pastel format hex); */
 }
 #tags button.urgent {
     transition: none;
@@ -108,6 +108,7 @@ window#waybar {
 #tags button.focused {
     transition: none;
     color: $(wq color6);
+    /* color: $(wq foreground); */
     font-weight: bold;
 }
 

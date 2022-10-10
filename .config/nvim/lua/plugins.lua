@@ -237,7 +237,8 @@ return packer.startup{function(use, vim)
         "ellisonleao/gruvbox.nvim",
         "folke/tokyonight.nvim",
         "rafi/awesome-vim-colorschemes", -- this is a collection
-        "pineapplegiant/spaceduck"
+        "pineapplegiant/spaceduck",
+        "phha/zenburn.nvim",
     }
 
   -- automatically set up your configuration after cloning packer.nvim

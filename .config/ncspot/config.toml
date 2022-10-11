@@ -5,7 +5,7 @@ cover_max_scale = 2
 
 [theme]
 primary = "light white"
-secondary = "black"
+secondary = "light black"
 title = "green"
 playing = "green"
 playing_selected = "light green"

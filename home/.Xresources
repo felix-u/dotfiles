@@ -40,7 +40,7 @@ xgen.fontsans: FreeSans
 *.color15:      #839496
 
 ! alt colours for light mode
-*.lightfg:      #586e75
+*.lightfg:      #224750
 *.lightbg:      #eee8d5
 *.light0:       #e2dac1
 *.light8:       #c6bc9f

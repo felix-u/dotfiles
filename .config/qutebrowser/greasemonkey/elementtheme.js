@@ -17,18 +17,18 @@ function GM_addStyle (cssStr) {
 
 GM_addStyle ( `
 :root {
-    --fg: #dce0ef;
-    --bg: #1a1b26;
-    --black: #2d2f43;
-    --red: #f7768e;
-    --green: #9ece6a;
-    --orange: #ed957c;
-    --yellow: #e0af68;
-    --blue: #7aa2f7;
-    --magenta: #9a7ecc;
-    --cyan: #3ec0d5;
-    --grey: #6b7394;
-    --xcolor15: #acb0d0;
+    --fg: #93a1a1;
+    --bg: #002b36;
+    --black: #073642;
+    --red: #dc322f;
+    --green: #859900;
+    --orange: #ca6721;
+    --yellow: #b58900;
+    --blue: #268bd2;
+    --magenta: #6c71c4;
+    --cyan: #2aa198;
+    --grey: #657b83;
+    --xcolor15: #839496;
 
     --sans: FreeSans;
     --mono: Iosevka;

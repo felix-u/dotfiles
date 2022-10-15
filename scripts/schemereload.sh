@@ -68,10 +68,14 @@ echo "terminal theme files"
 shgen "$XDG_CONFIG_HOME"/imv/genconfig "$XDG_CONFIG_HOME"/imv/config &
 echo "imv"
 
-# wallpaper
-pkill swaybg
-swaybg -c "$(wq background)" &
-echo "wallpaper"
+# river
+"$XDG_CONFIG_HOME"/river/init &
+echo "river"
+
+# # wallpaper
+# pkill swaybg
+# swaybg -c "$(wq background)" &
+# echo "wallpaper"
 
 
 # no longer in use but here if needed

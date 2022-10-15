@@ -153,7 +153,7 @@ in {
         # misc
         android-tools bsdiff bviplus
         libresprite # pixelorama rx
-        libxkbcommon mold
+        libxkbcommon mold musl
         openssl_3_0 pkg-config protobuf
         # unstable.godot godot4-alpha
         # c

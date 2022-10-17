@@ -166,8 +166,9 @@ riverctl map normal $mod Right send-layout-cmd rivercarro "main-location right" 
 # terminal
 riverctl map normal $mod Return spawn $terminal &
 
-# browser
+# browsers
 riverctl map normal $mod+$alt B spawn "MOZ_ENABLE_WAYLAND=1 firefox" &
+riverctl map normal $mod B spawn "qutebrowser" &
 
 # menu
 riverctl map normal $mod D spawn "$XDG_CONFIG_HOME/sway/scripts/menu.sh" &

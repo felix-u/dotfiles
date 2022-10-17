@@ -78,7 +78,7 @@ in {
         godot4-alpha = import ../derivations/godot4alpha.nix;
 
         helix-src = builtins.fetchTarball {
-            url = "https://github.com/helix-editor/helix/archive/98dd9c4f2bf71e9afb72f61af9d45100fda0526e.tar.gz";
+            url = "https://github.com/helix-editor/helix/archive/a330b5d224274d3ca01def99408ce9e614a97c94.tar.gz";
         };
         helix-git = import flake-compat { src = helix-src; };
 

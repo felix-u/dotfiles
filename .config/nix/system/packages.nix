@@ -67,8 +67,6 @@ in {
 
         unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
-        dmux = (pkgs.callPackage ../derivations/dmux.nix {});
-
         # effectively "symlink" sudo to doas
         doas-as-sudo = (pkgs.writeShellScriptBin "sudo" ''
             echo "Warning: \"sudo\" runs \"doas\""

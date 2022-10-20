@@ -134,123 +134,123 @@ in {
     with pkgs; [
 
         # ESSENTIAL
-        foot unstable.gh git neofetch nvi pfetch starship stow wget
+            foot unstable.gh git neofetch nvi pfetch starship stow wget
 
         # UTILS IN RUST
-        bat # cat
-        fd # find
-        helix-git.defaultNix.packages.x86_64-linux.default
-        imgclr # haha, c'est a moi :D
-        lsd # ls
-        procs # ps
-        ripgrep # grep
-        skim # fzf
-        ttyper
+            bat # cat
+            fd # find
+            helix-git.defaultNix.packages.x86_64-linux.default
+            imgclr # haha, c'est a moi :D
+            lsd # ls
+            procs # ps
+            ripgrep # grep
+            skim # fzf
+            ttyper
 
-        # DEV
-        # misc
-        android-tools bsdiff bviplus
-        libresprite # pixelorama rx
-        libxkbcommon mold musl
-        openssl_3_0 pkg-config protobuf
-        # unstable.godot godot4-alpha
-        # c
-        binutils-unwrapped-all-targets unstable.clang clang-tools cppcheck
-        cmake cmake-language-server gcc gdb gnumake man-pages-posix tinycc valgrind
-        # go
-        go
-        # web (HTML, CSS, JS)
-        nodejs yarn
-        nodePackages.npm nodePackages.js-beautify
-        # # lisp and emacs
-        # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts
-        # # clisp sbcl libvterm-neovim
-        # lua
-        lua sumneko-lua-language-server
-        # nix
-        any-nix-shell cachix home-manager unstable.deadnix nix-index unstable.statix
-        rnix-lsp
-        # odin
-        odin-dev ols
-        # python
-        python3Full nodePackages.pyright
-        # rust
-        cargo cargo-flamegraph clippy rustc sccache
-        rust-analyzer
-        # shell
-        nodePackages.bash-language-server shellcheck
-        # vim
-        unstable.neovim tree-sitter
-        nodePackages.vscode-langservers-extracted
-        nodePackages.vim-language-server
-        # zig
-        zig-master
+        # DEV AND PROGRAMMING
+            # misc
+            android-tools bsdiff bviplus
+            libresprite # pixelorama rx
+            libxkbcommon mold musl
+            openssl_3_0 pkg-config protobuf
+            # unstable.godot godot4-alpha
+            # c
+            binutils-unwrapped-all-targets unstable.clang clang-tools cppcheck
+            cmake cmake-language-server gcc gdb gnumake man-pages-posix tinycc valgrind
+            # go
+            go
+            # web (HTML, CSS, JS)
+            nodejs yarn
+            nodePackages.npm nodePackages.js-beautify
+            # # lisp and emacs
+            # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts
+            # # clisp sbcl libvterm-neovim
+            # lua
+            lua sumneko-lua-language-server
+            # nix
+            any-nix-shell cachix home-manager unstable.deadnix nix-index unstable.statix
+            rnix-lsp
+            # odin
+            odin-dev ols
+            # python
+            python3Full nodePackages.pyright
+            # rust
+            cargo cargo-flamegraph clippy rustc sccache
+            rust-analyzer
+            # shell
+            nodePackages.bash-language-server shellcheck
+            # vim
+            unstable.neovim tree-sitter
+            nodePackages.vscode-langservers-extracted
+            nodePackages.vim-language-server
+            # zig
+            zig-master
 
         # MATHS
-        bc gnuplot libqalculate maxima qalculate-gtk wxmaxima
+            bc gnuplot libqalculate maxima qalculate-gtk wxmaxima
 
         # TERMINAL MISC
-        cava cmatrix dict doas-as-sudo xdragon entr figlet file
-        ffmpeg fzf
-        handlr htop
-        hunspell hunspellDicts.en-gb-ise hyperfine killall
-        lm_sensors lolcat lowdown unstable.lynis ncdu ncspot nvd onefetch oneshot pastel
-        pandoc pdftk poppler_utils sdcv shgen
-        termdown themesh tldr tmux tty-clock
-        udiskie udisks unrar unzip
-        v4l-utils libv4l
-        w3m xdg-utils youtube-dl unstable.ytfzf zip zsh _7zz
+            cava cmatrix dict doas-as-sudo xdragon entr figlet file
+            ffmpeg fzf
+            handlr htop
+            hunspell hunspellDicts.en-gb-ise hyperfine killall
+            lm_sensors lolcat lowdown unstable.lynis ncdu ncspot nvd onefetch oneshot pastel
+            pandoc pdftk poppler_utils sdcv shgen
+            termdown themesh tldr tmux tty-clock
+            udiskie udisks unrar unzip
+            v4l-utils libv4l
+            w3m xdg-utils youtube-dl unstable.ytfzf zip zsh _7zz
 
         # INTERNET & BLUETOOTH
-        blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
+            blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
 
         # DESKTOP
-        appimage-run anki-bin
-        bitwarden calibre font-manager
-        handlr
-        # hyprland-git
-        hyprland
-        # unstable.hyprland
-        imagemagick imv libreoffice
-        libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
-        mpv mpvScripts.youtube-quality
-        obs-studio obs-studio-plugins.wlrobs
-        pavucontrol profanity pulsemixer signal-desktop
-        qt5ct wally-cli
-        # xfce.thunar xfce.thunar-archive-plugin
-        pcmanfm
-        waybar zathura
+            appimage-run anki-bin
+            bitwarden calibre font-manager
+            handlr
+            # hyprland-git
+            hyprland
+            # unstable.hyprland
+            imagemagick imv libreoffice
+            libnotify libsForQt5.qtstyleplugin-kvantum libva libva-utils
+            mpv mpvScripts.youtube-quality
+            obs-studio obs-studio-plugins.wlrobs
+            pavucontrol profanity pulsemixer signal-desktop
+            qt5ct wally-cli
+            # xfce.thunar xfce.thunar-archive-plugin
+            pcmanfm
+            waybar zathura
 
         # VISUAL
-        gsettings-desktop-schemas gtk-engine-murrine gtk_engines
-        solarc-gtk-theme unstable.gnome.adwaita-icon-theme
+            gsettings-desktop-schemas gtk-engine-murrine gtk_engines
+            solarc-gtk-theme unstable.gnome.adwaita-icon-theme
 
         # PHOTO, GRAPHICS & VIDEO
-        unstable.darktable hugin inkscape-with-extensions jpegoptim krita luminanceHDR
-        mediainfo unstable.gimp-with-plugins
+            unstable.darktable hugin inkscape-with-extensions jpegoptim krita luminanceHDR
+            mediainfo unstable.gimp-with-plugins
 
         # GAMING
-        lutris minecraft unstable.optifine minetest
-        proton-caller protontricks protonup
-        unstable.heroic mangohud
-        # retro
-        (retroarchFull.overrideAttrs (oldAttrs: {
-            cores = oldAttrs.cores ++ [
-                libretro.tic80
-            ];
-        }))
-        vice # commodore emulation
-        w4 # wasm-4 fantasy console
+            lutris minecraft unstable.optifine minetest
+            proton-caller protontricks protonup
+            unstable.heroic mangohud
+            # retro
+            (retroarchFull.overrideAttrs (oldAttrs: {
+                cores = oldAttrs.cores ++ [
+                    libretro.tic80
+                ];
+            }))
+            vice # commodore emulation
+            w4 # wasm-4 fantasy console
 
         # LATEX
-        biber texinfo texlab
-        texlive.combined.scheme-full
-        # (texlive.combine {
-        #     inherit (texlive) scheme-full biblatex-mla;
-        # })
+            biber texinfo texlab
+            texlive.combined.scheme-full
+            # (texlive.combine {
+            #     inherit (texlive) scheme-full biblatex-mla;
+            # })
 
         # KERNEL
-        config.boot.kernelPackages.v4l2loopback
+            config.boot.kernelPackages.v4l2loopback
 
     ];
 

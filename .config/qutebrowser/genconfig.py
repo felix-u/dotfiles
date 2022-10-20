@@ -8,7 +8,7 @@ config.set("colors.webpage.darkmode.enabled", False)
 config.set("fonts.default_size", "12pt")
 config.load_autoconfig(False)
 
-config.set("zoom.default", "120%")
+config.set("zoom.default", "100%")
 config.set("qt.highdpi", True)
 
 term = '$TERMINAL'
@@ -255,6 +255,10 @@ config.bind(",d", "config-cycle content.user_stylesheets '~/dotfiles/misc/css/ev
 
 # clear downloads
 config.bind("xd", "download-clear")
+
+# toggle statusbar
+config.bind("gss", "set statusbar.show always")
+config.bind("gsh", "set statusbar.show in-mode")
 
 # ctrl instead of alt for navigation by tab number
 config.bind("<Ctrl-1>", "tab-focus 1")

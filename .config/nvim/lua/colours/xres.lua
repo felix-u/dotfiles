@@ -230,7 +230,7 @@ local highlight_groups = {
 
 	--[[ 4.1.3. Syntax]]
 	Statement   = {fg = c.red01},
-	Conditional = {fg = c.magenta05, style = 'bold'},
+	Conditional = {fg = c.blue04, style = 'bold'},
 	Repeat   = 'Conditional',
     -- this affects the currently highlighted scope in indent-blankline
 	Label    = {fg = c.black08, style = 'bold'},
@@ -397,6 +397,8 @@ local highlight_groups = {
 	--[[ 4.3.1. C ]]
 	cConstant    = 'Constant',
 	cCustomClass = 'Type',
+    cErrInParen = 'Delimiter',
+    cBlock = {fg = c.blue04},
 
 	--[[ 4.3.2. C++ ]]
 	cppSTLexception = 'Exception',
@@ -866,6 +868,7 @@ local highlight_groups = {
     TSStringEscape = {fg = c.magenta05},
     TSStringSpecial = {fg = c.blue04},
     TSSymbol = {fg = c.magenta05},
+    TSVariable = {fg = c.white15},
 
 	--[[ 4.4.9. barbar.nvim ]]
 	BufferCurrent       = 'TabLineSel',

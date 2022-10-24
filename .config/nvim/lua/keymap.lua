@@ -163,3 +163,7 @@ keymap("n", "<leader>tlh", ":set nonumber<CR>:set norelativenumber<CR>", opts)
 keymap("n", "<leader>thn", ":call SynGroup()<CR>", opts)
 keymap("n", "<leader>tht", ":TSHighlightCapturesUnderCursor<CR>", opts)
 keymap("n", "<leader>tm", ":MarkdownPreviewToggle<CR>", opts)
+
+-- Theme
+keymap("n", "<leader>sl", ":colo flattened_light<CR>:hi Statusline ctermbg=none cterm=bold guibg=none gui=bold<CR>", opts)
+keymap("n", "<leader>sd", ":colo flattened_dark<CR>:hi Statusline ctermbg=none cterm=bold guibg=none gui=bold<CR>", opts)

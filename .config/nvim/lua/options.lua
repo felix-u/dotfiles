@@ -26,7 +26,7 @@ vim.opt.numberwidth = 2 -- minimum width gutter can occupy (default 4)
 vim.opt.pumheight = 10 -- popup menu height
 vim.opt.number = true -- when used with "relativenumber", only the current line number is shown in its absolute form
 vim.opt.relativenumber = true -- enable line numbers and show relative numbers
-vim.opt.ruler = false -- position information at the bottom of the screen
+vim.opt.ruler = true -- position information at the bottom of the screen
 vim.opt.scrolloff = 5 -- keep 5 lines above or below the cursor at all times
 vim.opt.shiftwidth = 4 -- number of spaces inserted per indentation
 vim.opt.shortmess:append "c" -- see help page

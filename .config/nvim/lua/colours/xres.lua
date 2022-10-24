@@ -230,7 +230,7 @@ local highlight_groups = {
 
 	--[[ 4.1.3. Syntax]]
 	Statement   = {fg = c.red01},
-	Conditional = {fg = c.blue04, style = 'bold'},
+	Conditional = {fg = c.white15, style = 'bold'},
 	Repeat   = 'Conditional',
     -- this affects the currently highlighted scope in indent-blankline
 	Label    = {fg = c.black08, style = 'bold'},

@@ -190,16 +190,12 @@ in {
             bc gnuplot libqalculate maxima qalculate-gtk wxmaxima
 
         # TERMINAL MISC
-            cava cmatrix dict doas-as-sudo xdragon entr figlet file
-            ffmpeg fzf
-            handlr htop
-            hunspell hunspellDicts.en-gb-ise hyperfine killall
-            lm_sensors lolcat lowdown unstable.lynis ncdu ncspot nvd onefetch oneshot pastel
-            pandoc pdftk poppler_utils sdcv shgen
-            termdown themesh tldr tmux tty-clock
-            udiskie udisks unrar unzip
-            v4l-utils libv4l
-            w3m xdg-utils youtube-dl unstable.ytfzf zip zsh _7zz
+            cava cmatrix dict doas-as-sudo xdragon entr figlet file ffmpeg fzf
+            handlr htop hunspell hunspellDicts.en-gb-ise hyperfine killall
+            lm_sensors lolcat lowdown unstable.lynis ncdu ncspot nvd onefetch
+            oneshot oksh pastel pandoc pdftk poppler_utils sdcv shgen termdown
+            themesh tldr tmux tty-clock udiskie udisks unrar unzip v4l-utils
+            libv4l w3m xdg-utils youtube-dl unstable.ytfzf zip zsh _7zz
 
         # INTERNET & BLUETOOTH
             blueberry blueman bluez bluez-tools firefox newsboat qutebrowser

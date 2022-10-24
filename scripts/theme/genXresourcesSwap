@@ -36,7 +36,7 @@ xgen.fontsans: FreeSans
 
 ! white
 *.color7:       $(wq color7)
-*.color15:      $(wq color15)
+*.color15:      $(wq light15)
 
 ! alt colours
 *.lightfg:      $(wq foreground)

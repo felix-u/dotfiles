@@ -89,15 +89,15 @@ return packer.startup{function(use, vim)
     }
     use 'nvim-lua/popup.nvim'
 
-    -- status line :)))))
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {
-            'kyazdani42/nvim-web-devicons',
-            'SmiteshP/nvim-navic', -- shows location in code structure
-            opt = true
-        },
-    }
+    -- -- status line :)))))
+    -- use {
+    --     'nvim-lualine/lualine.nvim',
+    --     requires = {
+    --         'kyazdani42/nvim-web-devicons',
+    --         'SmiteshP/nvim-navic', -- shows location in code structure
+    --         opt = true
+    --     },
+    -- }
 
     -- -- lsp eyecandy
     -- use({

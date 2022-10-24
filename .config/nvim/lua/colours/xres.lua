@@ -240,21 +240,21 @@ local highlight_groups = {
 	Noise = 'Delimiter',
 
 	--[[ 4.1.4. Metatextual Information]]
-	PreProc = {fg = c.orange},
+	PreProc = {fg = c.yellow03},
 	Include = {fg = c.blue04, style = 'nocombine'},
 	Define = {fg = c.blue04, style = 'nocombine'},
-	Macro  = {fg = c.pink},
-	PreCondit = {fg = c.orange, style = 'italic'},
+	Macro  = {fg = c.magenta05},
+	PreCondit = {fg = c.yellow03, style = 'italic'},
 
 	--[[ 4.1.5. Semantics]]
-	Type         = {fg = c.pink},
-	StorageClass = {fg = c.orange, style = 'bold'},
+	Type         = {fg = c.magenta05},
+	StorageClass = {fg = c.yellow03, style = 'bold'},
 	Structure = {fg = c.magenta05, style = 'bold'},
 	Typedef = {fg = c.yellow03, style = 'italic'},
 
 	--[[ 4.1.6. Edge Cases]]
 	Special = {fg = c.cyan06, style = 'bold'},
-	SpecialChar = {fg = c.pink, style = 'italic'},
+	SpecialChar = {fg = c.magenta05, style = 'italic'},
 	SpecialKey = 'Character',
 	Tag = 'Underlined',
 	Delimiter = {fg = c.white15},
@@ -267,8 +267,8 @@ local highlight_groups = {
 	Error = {fg = c.background, bg = c.red01},
 	Todo = 'WarningMsg',
 	Hint = {fg = c.black00, bg = c.magenta05, style = 'bold'},
-	Info = {fg = c.black00, bg = c.pink, style = 'bold'},
-	Warning = {fg = c.black00, bg = c.orange, style = 'bold'},
+	Info = {fg = c.black00, bg = c.magenta05, style = 'bold'},
+	Warning = {fg = c.black00, bg = c.yellow03, style = 'bold'},
 
 	--[[ 4.2... Editor UI  ]]
 	--[[ 4.2.1. Status Line]]
@@ -316,22 +316,22 @@ local highlight_groups = {
 	--[[ 4.2.7. Searching]]
 	IncSearch  = {style = 'inverse'},
 	MatchParen = {fg = c.green02, style = {'bold', 'underline'}},
-	Search = {fg = c.background, bg = c.pink,style = {'bold'}},
+	Search = {fg = c.background, bg = c.magenta05,style = {'bold'}},
 
 	--[[ 4.2.8. Spelling]]
 	SpellBad   = {style = {'undercurl', color = c.red01}},
 	SpellCap   = {style = {'undercurl', color = c.yellow03}},
 	SpellLocal = {style = {'undercurl', color = c.green02}},
-	SpellRare  = {style = {'undercurl', color = c.orange}},
+	SpellRare  = {style = {'undercurl', color = c.yellow03}},
 
 	--[[ 4.2.9. Conditional Column Highlighting]]
 	ColorColumn = {style = 'inverse'},
 	SignColumn  = {fg = c.black08},
 
 	--[[ 4.2.10. Messages]]
-	ErrorMsg = {fg = c.background, bg = c.pink, style = 'bold'},
+	ErrorMsg = {fg = c.background, bg = c.magenta05, style = 'bold'},
 	HintMsg  = {fg = c.magenta05, style = 'italic'},
-	InfoMsg  = {fg = c.pink, style = 'italic'},
+	InfoMsg  = {fg = c.magenta05, style = 'italic'},
 	ModeMsg  = {fg = c.green02},
 	MoreMsg  = {fg = c.green02},
 	-- WarningMsg = {fg = c.background, bg = c.gr, style = 'bold'},
@@ -357,8 +357,8 @@ local highlight_groups = {
 
 	DiagnosticUnderlineError = {style = {'undercurl', color = c.red01}},
 	DiagnosticUnderlineHint  = {style = {'undercurl', color = c.magenta05}},
-	DiagnosticUnderlineInfo  = {style = {'undercurl', color = c.pink}},
-	DiagnosticUnderlineWarn = {style = {'undercurl', color = c.orange}},
+	DiagnosticUnderlineInfo  = {style = {'undercurl', color = c.magenta05}},
+	DiagnosticUnderlineWarn = {style = {'undercurl', color = c.yellow03}},
 
 	LspDiagnosticsDefaultError = 'DiagnosticError',
 	LspDiagnosticsFloatingError = 'DiagnosticFloatingError',
@@ -572,7 +572,7 @@ local highlight_groups = {
 	markdownCode = 'mkdCode',
 	markdownCodeDelimiter = 'mkdCodeDelimiter',
 	markdownH1 = {fg = c.red01, style = 'bold'},
-	markdownH2 = {fg = c.orange, style = 'bold'},
+	markdownH2 = {fg = c.yellow03, style = 'bold'},
 	markdownH3 = {fg = c.yellow03, style = 'bold'},
 	markdownH4 = {fg = c.green02, style = 'bold'},
 	markdownH5 = {fg = c.cyan06, style = 'bold'},
@@ -803,11 +803,11 @@ local highlight_groups = {
 	JumpMotion = 'EasyMotion',
 
     --[[ 4.4.3. lightspeed.nvim ]]
-    LightspeedDefault = {fg = c.pink, style = 'bold'},
+    LightspeedDefault = {fg = c.magenta05, style = 'bold'},
     LightspeedGreyWash = {fg = c.grey07},
     LightspeedLabel = {fg = c.background, bg = c.blue12, style = 'bold'},
-    LightspeedShortcut = {fg = c.background, bg = c.pink, style = 'bold'},
-    LightspeedLabelDistant = {fg = c.background, bg = c.orange},
+    LightspeedShortcut = {fg = c.background, bg = c.magenta05, style = 'bold'},
+    LightspeedLabelDistant = {fg = c.background, bg = c.yellow03},
     LightspeedMaskedChar = 'LightspeedDefault',
     LightspeedUnlabeledMatch = {fg = c.background, bg = c.foreground, style = 'bold'},
     LightspeedOneCharMatch = 'LightspeedShortcut',
@@ -818,7 +818,7 @@ local highlight_groups = {
 	GitGutterAdd    = {fg = c.green02},
 	GitGutterChange = {fg = c.blue04},
 	GitGutterDelete = {fg = c.red01},
-	GitGutterChangeDelete = {fg = c.orange},
+	GitGutterChangeDelete = {fg = c.yellow03},
 
 	SignifySignAdd    = 'GitGutterAdd',
 	SignifySignChange = 'GitGutterChange',
@@ -854,7 +854,7 @@ local highlight_groups = {
     TSPunctBracket = 'Delimiter',
 	TSTag = 'Tag',
     TSTypeBuiltin = 'TSType',
-    TSType = {fg = c.pink},
+    TSType = {fg = c.magenta05},
 	TSWarning = {fg = c.background, bg = c.green02, style = 'bold'},
     TSKeywordOperator = 'Keyword',
     TSKeyword = 'Keyword',
@@ -865,12 +865,12 @@ local highlight_groups = {
     -- TSNote = function(self) return {fg = self.ErrorMsg.fg} end,
     TSStringEscape = {fg = c.magenta05},
     TSStringSpecial = {fg = c.blue04},
-    TSSymbol = {fg = c.pink},
+    TSSymbol = {fg = c.magenta05},
 
 	--[[ 4.4.9. barbar.nvim ]]
 	BufferCurrent       = 'TabLineSel',
 	BufferCurrentIndex  = function(self) return {fg = self.InfoMsg.fg, bg = self.BufferCurrent.bg} end,
-	BufferCurrentMod    = {fg = c.orange, bg = c.black00, style = 'bold'},
+	BufferCurrentMod    = {fg = c.yellow03, bg = c.black00, style = 'bold'},
 	BufferCurrentSign   = 'HintMsg',
 	BufferCurrentTarget = 'BufferCurrentSign',
 
@@ -976,7 +976,7 @@ local highlight_groups = {
 
 	--[[ 4.4.18. nvim-tree ]]
 	NvimTreeGitDeleted = function(self) return {fg = self.DiffDelete.bg} end,
-	NvimTreeGitDirty = {fg = c.orange},
+	NvimTreeGitDirty = {fg = c.yellow03},
 	NvimTreeGitIgnored = 'Ignore',
 	NvimTreeGitMerge = 'NvimTreeGitRenamed',
 	NvimTreeGitNew = function(self) return {fg = self.DiffAdd.bg} end,
@@ -1030,7 +1030,7 @@ local terminal_colors = {
 	[1]  = c.black00,
 	[2]  = c.red01,
 	[3]  = c.green02,
-	[4]  = c.orange,
+	[4]  = c.yellow03,
 	[5]  = c.blue04,
 	[6]  = c.magenta05,
 	[7]  = c.cyan06,

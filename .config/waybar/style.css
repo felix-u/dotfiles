@@ -157,7 +157,7 @@ window#waybar {
 }
 
 #battery.warning {
-    color: #6c71c4;
+    color: #d33682;
 }
 
 #battery.critical {

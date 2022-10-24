@@ -4118,7 +4118,7 @@ DarkReader.enable({
     darkSchemeBackgroundColor: "#002b36",
     darkSchemeTextColor: "#93a1a1",
     // darkColorScheme: "Solarized",
-    lightSchemeBackgroundColor: "#eee8d5",
-    lightSchemeTextColor: "#224750",
+    lightSchemeBackgroundColor: "#fdf6e3",
+    lightSchemeTextColor: "#586e75",
     // lightColorScheme: "Solarized"
 });

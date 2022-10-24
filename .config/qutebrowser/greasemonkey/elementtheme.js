@@ -17,15 +17,15 @@ function GM_addStyle (cssStr) {
 
 GM_addStyle ( `
 :root {
-    --fg: #93a1a1;
-    --bg: #000000;
-    --black: #111111;
+    --fg: #586e75;
+    --bg: #fdf6e3;
+    --black: #eee8d5;
     --red: #dc322f;
     --green: #859900;
     --orange: #ca6721;
     --yellow: #b58900;
     --blue: #268bd2;
-    --magenta: #6c71c4;
+    --magenta: #d33682;
     --cyan: #2aa198;
     --grey: #657b83;
     --xcolor15: #839496;

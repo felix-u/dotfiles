@@ -14,6 +14,6 @@
 13: $(wq color13)
 14: $(wq color14)
 15: $(wq light15)
-foreground: $(wq color8)
+foreground: $(wq lightfg)
 background: $(wq lightbg)
-cursor: $(wq light8)
+cursor: $(wq lightfg)

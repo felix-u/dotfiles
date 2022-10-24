@@ -28,8 +28,8 @@ xgen.fontsans: FreeSans
 *.color12:      #268bd2
 
 ! magenta
-*.color5:       #6c71c4
-*.color13:      #6c71c4
+*.color5:       #d33682
+*.color13:      #d33682
 
 ! cyan
 *.color6:       #2aa198
@@ -40,8 +40,8 @@ xgen.fontsans: FreeSans
 *.color15:      #839496
 
 ! alt colours for light mode
-*.lightfg:      #224750
-*.lightbg:      #eee8d5
-*.light0:       #e2dac1
-*.light8:       #c6bc9f
+*.lightfg:      #586e75
+*.lightbg:      #fdf6e3
+*.light0:       #eee8d5
+*.light8:       #d6c89b
 *.light15:      #657b83

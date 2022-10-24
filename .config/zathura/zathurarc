@@ -47,14 +47,14 @@ set recolor-darkcolor           "#93a1a1" #foreground
 
 
 # light theme binding (press 1)
-map '1' feedkeys ":set statusbar-bg '#e2dac1'<Return>3"
-map '3' feedkeys ":set statusbar-fg '#224750'<Return>4"
-map '4' feedkeys ":set default-bg '#eee8d5'<Return>5"
-map '5' feedkeys ":set default-fg '#224750'<Return>6"
-map '6' feedkeys ":set render-loading-bg '#eee8d5'<Return>7"
-map '7' feedkeys ":set render-loading-fg '#224750'<Return>8"
-map '8' feedkeys ":set recolor-lightcolor '#eee8d5'<Return>9"
-map '9' feedkeys ":set recolor-darkcolor '#224750'<Return>"
+map '1' feedkeys ":set statusbar-bg '#eee8d5'<Return>3"
+map '3' feedkeys ":set statusbar-fg '#586e75'<Return>4"
+map '4' feedkeys ":set default-bg '#fdf6e3'<Return>5"
+map '5' feedkeys ":set default-fg '#586e75'<Return>6"
+map '6' feedkeys ":set render-loading-bg '#fdf6e3'<Return>7"
+map '7' feedkeys ":set render-loading-fg '#586e75'<Return>8"
+map '8' feedkeys ":set recolor-lightcolor '#fdf6e3'<Return>9"
+map '9' feedkeys ":set recolor-darkcolor '#586e75'<Return>"
 
 # dark theme binding (press 2)
 map '2' feedkeys ":set statusbar-bg '#073642'<Return>0"

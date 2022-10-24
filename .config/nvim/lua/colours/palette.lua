@@ -1,5 +1,5 @@
 local palette = {
-    background  = {"#002b36", 0,  "background"},
+    background  = {"#001321", 0,  "background"},
     foreground  = {"#93a1a1", 16, "foreground"},
     black00     = {"#073642",  1,  "black00"},
     red01       = {"#dc322f",  2,  "red01"},
@@ -17,17 +17,6 @@ local palette = {
     magenta13   = {"#6c71c4", 14, "magenta13"},
     cyan14      = {"#2aa198", 15, "cyan14"},
     white15     = {"#839496", 16, "white15"},
-
-    orange = {
-        "#cb4c15",
-        3,
-        "orange",
-    },
-    pink = {
-        "#d43682",
-        1,
-        "pink",
-    },
 }
 
 return palette

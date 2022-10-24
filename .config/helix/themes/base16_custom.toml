@@ -22,11 +22,11 @@
 "constant.numeric" = "cyan"
 "constant" = "cyan"
 "constant.builtin" = "cyan"
-"type" = { fg = "pink" }
-"type.builtin" = { fg = "pink" }
+"type" = { fg = "magenta" }
+"type.builtin" = { fg = "magenta" }
 "function" = "blue"
-"function.macro" = "pink"
-"function.special" = { fg = "pink" }
+"function.macro" = "magenta"
+"function.special" = { fg = "magenta" }
 "punctuation" = "light-gray"
 "punctuation.delimiter" = "light-gray"
 # "keyword" = "blue"
@@ -40,7 +40,3 @@
 "debug" = "gray"
 "warning" = "yellow"
 "error" = "light-red"
-
-[palette]
-pink = "#d43682"
-orange = "#d64f15"

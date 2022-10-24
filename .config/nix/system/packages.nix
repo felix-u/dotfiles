@@ -224,6 +224,7 @@ in {
         # VISUAL
             gsettings-desktop-schemas gtk-engine-murrine gtk_engines
             solarc-gtk-theme unstable.gnome.adwaita-icon-theme
+            numix-solarized-gtk-theme
 
         # PHOTO, GRAPHICS & VIDEO
             unstable.darktable hugin inkscape-with-extensions jpegoptim krita luminanceHDR

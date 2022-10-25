@@ -1,0 +1,65 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[american]{babel} \usepackage[utf8]{inputenc}
+\usepackage{times}
+
+\usepackage{setspace} \doublespacing
+\usepackage[document]{ragged2e} \usepackage{lipsum}
+
+\usepackage{geometry} \geometry{margin=2.5cm} \usepackage[parfill]{parskip}
+\setlength\parindent{1.25cm} \setlength{\headheight}{15pt}
+\setlength{\RaggedRightParindent}{1.25cm} \setlength{\parskip}{0cm}
+
+\usepackage{fancyhdr} \pagestyle{fancy}
+\fancyhf{} \fancyhead[R]{\thepage}
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[R]{\thepage}}
+\renewcommand{\headrulewidth}{0pt}
+
+\usepackage{csquotes}
+\usepackage{biblatex-chicago}
+\setlength{\footnotesep}{\baselineskip}
+\defbibheading{chicagobib}{\center{Bibliography}\break\break}
+\addbibresource{}
+\addtolength{\skip\footins}{16pt}
+
+\hfuzz=12pt
+
+% ---------
+\begin{document}
+
+% TITLE PAGE
+\thispagestyle{empty}
+\begin{center}
+    \vspace*{0.25\textheight}
+    \textbf{Title}
+    \vfill
+    Name Surname \\
+    Course 101 \\
+    Prof. Abc \\
+    January 1, 2000
+    \vspace*{0.33\textheight}
+\end{center}
+\newpage
+\setcounter{page}{1}
+% TITLE PAGE
+
+% % NO TITLE PAGE
+% {\setlength{\parindent}{0cm}
+%     Name Surname \\
+%     Prof. Abc \\
+%     Course 101 \\
+%     January 1, 2000
+% }
+% \begin{center}
+%     Title
+% \end{center}
+% % NO TITLE PAGE
+
+Body text.
+
+% \singlespacing
+% \newpage
+% \printbibliography[heading=chicagobib]
+
+\end{document}

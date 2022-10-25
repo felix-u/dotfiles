@@ -85,9 +85,10 @@ elif [[ "$(cat /proc/sys/kernel/hostname)" == "nixbtw" ]]; then
     pkill waybar
     waybar -c ~/.config/waybar/river_desktop.json &
 
-    MOUSE="pointer-1133-16514-Logitech_MX_Master_3"
+    # MOUSE="pointer-1133-16514-Logitech_MX_Master_3"
+    MOUSE="pointer-5426-101-Razer_Razer_Basilisk_Essential"
     riverctl input "$MOUSE" accel-profile flat &
-    riverctl input "$MOUSE" natural-scroll enabled &
+    riverctl input "$MOUSE" natural-scroll disabled &
 
     left="M"
     down="N"

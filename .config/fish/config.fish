@@ -53,3 +53,8 @@ end
 if type -q any-nix-shell
     any-nix-shell fish --info-right | source
 end
+
+# Set TERM appropriately when running over SSH
+if set -q SSH_CLIENT || set -q SSH_TTY
+    set -xg TERM screen-256color
+end

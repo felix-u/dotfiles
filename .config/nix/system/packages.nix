@@ -215,7 +215,7 @@ in {
             qt5ct wally-cli
             # xfce.thunar xfce.thunar-archive-plugin
             pcmanfm
-            waybar zathura
+            waybar zathura zoom-us
 
         # VISUAL
             gsettings-desktop-schemas gtk-engine-murrine gtk_engines

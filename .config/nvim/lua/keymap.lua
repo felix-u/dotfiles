@@ -43,6 +43,13 @@ keymap("n", "<leader><M-Right>", "9<C-w>>", opts)
 keymap("n", "<leader><PageDown>", ":split scratch<CR>", opts)
 keymap("n", "<leader><End>", ":vsplit scratch<CR>", opts)
 
+-- text formatting options
+keymap("n", "<leader>stb", ":set linebreak!<CR>", opts)
+keymap("n", "<leader>stf", ":set fo+=t<CR>", opts)
+keymap("n", "<leader>stl", ":set tw=120<CR>", opts)
+keymap("n", "<leader>sts", ":set tw=80<CR>", opts)
+keymap("n", "<leader>stw", ":set wrap!<CR>", opts)
+
 -- tab navigation
 keymap("n", "<leader>1", "1gt", opts)
 keymap("n", "<leader>2", "2gt", opts)

@@ -9,6 +9,10 @@ function clrpick
     end
 end
 
+function dict
+    /usr/bin/env dict $argv | cat
+end
+
 function fetch
     set -Ux PF_INFO "ascii title os host kernel de shell memory"
     set -Ux PF_COL1 2

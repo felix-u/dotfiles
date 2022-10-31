@@ -254,6 +254,18 @@ in {
     # steam here, not working in packages
     programs.steam.enable = true;
 
+    # dict
+    environment.etc."dict.conf".text = ''
+        server localhost
+    '';
+    environment.etc."conf.d/dictd".text = ''
+        DICTD_ARGS="--locale en_GB.UTF-8"
+    '';
+    services.dictd = {
+        enable = true;
+        DBs = with pkgs.dictdDBs; [ wiktionary fra2eng eng2fra ];
+    };
+
     # # wasn't working
     # programs.neovim = {
     #     enable = true;

@@ -193,7 +193,7 @@ in {
             cava cmatrix dict doas-as-sudo xdragon entr figlet file ffmpeg fzf
             handlr htop hunspell hunspellDicts.en-gb-ise hyperfine killall
             lm_sensors lolcat lowdown unstable.lynis ncdu ncspot nvd onefetch
-            oneshot pastel pandoc pdftk poppler_utils sdcv shgen termdown
+            oneshot pastel pandoc pdftk poppler_utils shgen termdown
             themesh tldr tmux tty-clock udiskie udisks unrar unzip v4l-utils
             libv4l w3m xdg-utils youtube-dl unstable.ytfzf zip zsh _7zz
 
@@ -254,17 +254,17 @@ in {
     # steam here, not working in packages
     programs.steam.enable = true;
 
-    # dict
-    environment.etc."dict.conf".text = ''
-        server localhost
-    '';
-    environment.etc."conf.d/dictd".text = ''
-        DICTD_ARGS="--locale en_GB.UTF-8"
-    '';
-    services.dictd = {
-        enable = true;
-        DBs = with pkgs.dictdDBs; [ wiktionary fra2eng eng2fra ];
-    };
+    # # dict
+    # environment.etc."dict.conf".text = ''
+    #     server localhost
+    # '';
+    # environment.etc."conf.d/dictd".text = ''
+    #     DICTD_ARGS="--locale en_GB.UTF-8"
+    # '';
+    # services.dictd = {
+    #     enable = false;
+    #     DBs = with pkgs.dictdDBs; [ wiktionary fra2eng eng2fra ];
+    # };
 
     # # wasn't working
     # programs.neovim = {

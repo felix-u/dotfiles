@@ -1,4 +1,4 @@
-# wayland colour picker
+# Wayland colour picker
 function clrpick
     while true;
 	grim -g (slurp -b "00000000" -p) - -t png -o | \
@@ -7,10 +7,6 @@ function clrpick
 	    pastel format hex
 	sleep 0.5
     end
-end
-
-function dict
-    /usr/bin/env dict $argv | cat
 end
 
 function fetch
@@ -22,30 +18,16 @@ function fetch
     pfetch
 end
 
-function ximgclr
-   imgclr $argv -p \
-    (wqs background) (wqs foreground) (wqs color1) (wqs color2) \
-    (wqs color3) (wqs color4) (wqs color5) (wqs color6) \
-    (wqs color7) (wqs color8) (wqs color9) (wqs color10) \
-    (wqs color11) (wqs color12) (wqs color13) (wqs color14) \
-    (wqs color15)
-end
-
-function simgclr
-   imgclr $argv -p \
-   (wqs background) (wqs foreground) (wqs color7) (wqs color8) (wqs color15)
-end
-
-# pull or commit all changes to personal repos
+# Pull or commit all changes to personal repos
 function gitall
     if [ $argv[1] = "pull" ]
-	set CWD (pwd)
-	echo "dotfiles" && cd ~/dotfiles && git pull
-	echo "uni" && cd ~/uni && git pull
-	echo "privateconfig" && cd ~/privateconfig && git pull
-	cd $CWD
+        set CWD (pwd)
+        echo "dotfiles" && cd ~/dotfiles && git pull
+        echo "uni" && cd ~/uni && git pull
+        echo "privateconfig" && cd ~/privateconfig && git pull
+        cd $CWD
     else if [ $argv[1] = "com" ]
-	set CWD (pwd)
+        set CWD (pwd)
         echo "dotfiles" && cd ~/dotfiles && gitcom
         echo "uni" && cd ~/uni && gitcom
         echo "privateconfig" && cd ~/privateconfig && gitcom
@@ -59,7 +41,7 @@ function gitcom
     git add . && git commit -a && git push
 end
 
-# read markdown with w3m
+# Read markdown with w3m
 function mdread
     pandoc $argv[1] --to html5 | w3m -T text/html
 end
@@ -74,19 +56,19 @@ function nrs
         doas nixos-rebuild switch \
 	        -I nixos-config=$XDG_CONFIG_HOME/nix/thinkpad/configuration.nix
     else if [ (hostname) = "nixbtw" ]
-	doas nixos-rebuild switch \
-		-I nixos-config=$XDG_CONFIG_HOME/nix/pc/configuration.nix
+        doas nixos-rebuild switch \
+            -I nixos-config=$XDG_CONFIG_HOME/nix/pc/configuration.nix
     else if [ (hostname) = "toshiba" ]
-	doas nixos-rebuild switch \
-		-I nixos-config=$XDG_CONFIG_HOME/nix/toshiba/configuration.nix
+        doas nixos-rebuild switch \
+            -I nixos-config=$XDG_CONFIG_HOME/nix/toshiba/configuration.nix
     else
-	echo "No config corresponding to this machine's hostname"
+        echo "No config corresponding to this machine's hostname"
     end
 end
 
-# get diff from latest switch
+# Get diff from latest switch
 function nvdd
-    \ls -v /nix/var/nix/profiles | tail -n 2 | \
+    /usr/bin/env ls -v /nix/var/nix/profiles | tail -n 2 | \
 	awk '{print "/nix/var/nix/profiles/" $0}' - | xargs nvd diff
 end
 
@@ -99,12 +81,11 @@ function schemereload
     ~/dotfiles/scripts/schemereload.sh
 end
 
-# swaybg
 function swaybgset
     pkill swaybg; swaybg -m fill -i $argv[1] &
 end
 
-# swap between light and dark terminal theme
+# Swap between light and dark terminal theme
 function themeterm
     if [ $argv[1] = 'l' ]
 	theme.sh < ~/dotfiles/scripts/theme/lighttheme
@@ -122,8 +103,21 @@ end
 function wfrec
     wf-recorder -f ~/Desktop/recordings/(date +%Y-%m-%d-%H%M).mp4
 end
-
 function wfrecwindow
     wf-recorder -f ~/Desktop/recordings/(date +%Y-%m-%d-%H%M).mp4 -g \
 	(slurp -d -b (wq color7)40 -c (wq color7) -w 3)
 end
+
+function ximgclr
+    imgclr $argv -p \
+    (wqs background) (wqs foreground) (wqs color1) (wqs color2) \
+    (wqs color3) (wqs color4) (wqs color5) (wqs color6) \
+    (wqs color7) (wqs color8) (wqs color9) (wqs color10) \
+    (wqs color11) (wqs color12) (wqs color13) (wqs color14) \
+    (wqs color15)
+end
+function simgclr
+   imgclr $argv -p \
+   (wqs background) (wqs foreground) (wqs color7) (wqs color8) (wqs color15)
+end
+

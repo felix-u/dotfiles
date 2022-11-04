@@ -239,6 +239,7 @@ return packer.startup{function(use, vim)
         "rafi/awesome-vim-colorschemes", -- this is a collection
         "pineapplegiant/spaceduck",
         "phha/zenburn.nvim",
+        "olivertaylor/vacme",
     }
 
   -- automatically set up your configuration after cloning packer.nvim

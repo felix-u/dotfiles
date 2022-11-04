@@ -6,7 +6,7 @@ set -Ux DOTSCONF "$DOTFILES/.config"
 
 if type -q fish_add_path
     fish_add_path "$HOME/.local/bin"
-    fish_add_path "$XDG_CONFIG_HOME/zsh/scripts-in-path"
+    fish_add_path "$XDG_CONFIG_HOME/sh/scripts-in-path"
 end
 set -Ux PKG_CONFIG_PATH "/usr/include"
 set -Ux BAT_THEME "ansi"

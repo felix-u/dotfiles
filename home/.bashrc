@@ -10,10 +10,10 @@ bind '"\e[B":history-search-forward'
 # set vi-ins-mode-string "\1\e[6 q\2"
 
 # Environment variables
-source "$XDG_CONFIG_HOME"/zsh/ENV_VARS.sh
+source "$XDG_CONFIG_HOME"/sh/zsh/ENV_VARS.sh
 
 # Functions and aliases
-source "$XDG_CONFIG_HOME"/zsh/ALIASES.sh
+source "$XDG_CONFIG_HOME"/sh/zsh/ALIASES.sh
 
 # Starship prompt
 eval "$(starship init bash)"

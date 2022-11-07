@@ -1,7 +1,6 @@
 xgen.fontmono: Iosevka
 xgen.fontsans: FreeSans
 
-! solarized
 ! special
 *.foreground:   #93a1a1
 *.background:   #002b36
@@ -39,7 +38,7 @@ xgen.fontsans: FreeSans
 *.color7:       #657b83
 *.color15:      #839496
 
-! alt colours for light mode
+! alt colours
 *.lightfg:      #586e75
 *.lightbg:      #fdf6e3
 *.light0:       #eee8d5

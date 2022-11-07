@@ -18,8 +18,6 @@ alias fd="fd --color never -uu"
 # sk instead of fzf, xres colours, and imv rather than sxiv
 alias fontpreview="~/dotfiles/scripts/fontpreview"
 
-alias h="hx"
-
 if type -q lsd
     alias la="lsd -lA"
     alias ls="lsd -A --icon never"

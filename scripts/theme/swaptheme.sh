@@ -5,7 +5,7 @@ cp "$XRESOURCES" ~/.Xresources.bckup
 
 # write new file
 shgen ~/dotfiles/scripts/theme/genXresourcesSwap ~/.Xresourcestemp
-mv ~/.Xresourcestemp "$XRESOURCES"
+mv ~/.Xresourcestemp ~/dotfiles/home/.Xresources
 
 # regenerate configs and everything
 ~/dotfiles/scripts/schemereload.sh

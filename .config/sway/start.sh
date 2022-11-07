@@ -194,8 +194,6 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 
     pkill waybar
     waybar -c ~/.config/waybar/thinkpad.json &
-fi
-
 # ____   ____
 #|  _ \ / ___|
 #| |_) | |
@@ -205,7 +203,7 @@ fi
 #
 #
 #
-if [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
+elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
 
     "$XDG_CONFIG_HOME"/sway/scripts/binds colemak "$MOD" "$ALT" "$TERM" &
 
@@ -219,8 +217,10 @@ if [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
     waybar -c ~/.config/waybar/desktop.json &
 fi
 
-# wallpaper
-~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
+# Background colour
+swaybg -c "$(pastel mix "$(wq color0)" "$(wq color8)" | pastel format hex)" &
+# # wallpaper
+# ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 
 #
 # _.  _|_ _  __|_ _..__|_
@@ -233,11 +233,9 @@ fi
 # polkit-dumb-agent &
 /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
-pkill dunst
-dunst &
+pkill flashfocus; flashfocus &
 
-# emacs daemon
-# emacs --daemon &
+pkill dunst; dunst &
 
 # foot terminal server
 foot --server &

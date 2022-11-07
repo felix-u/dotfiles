@@ -50,8 +50,8 @@ seat * hide_cursor 10000
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-# smart_gaps off
-hide_edge_borders smart
+smart_gaps off
+hide_edge_borders none
 focus_follows_mouse no
 
 include /etc/sway/config.d/*
@@ -62,8 +62,8 @@ exec_always gsettings set org.gnome.desktop.interface cursor-size 24
 # set icons
 exec_always gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
 
-# flash focus
-exec_always --no-startup-id flashfocus &
+# # flash focus
+# exec_always --no-startup-id flashfocus &
 
 # bash scripting, babyyy
 exec_always --no-startup-id ~/.config/sway/start.sh

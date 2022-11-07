@@ -7,20 +7,17 @@
     with pkgs; [
 
         # TERMINAL MISC
-        #
+            #
 
         # DESKTOP
-        ckan
+            ckan
 
         # AUDIO/VIDEO
-        davinci-resolve # runs through xwayland :(
-        libsForQt5.kdenlive # QT dropdowns not working on wayland :(((
+            davinci-resolve # runs through xwayland :(
+            libsForQt5.kdenlive
 
         # GAMING
-        corectrl glxinfo
-        config.boot.kernelPackages.amdgpu-pro
-        # unstable.linuxKernel.packages.linux_5_17.amdgpu-pro
-        openspades
+            corectrl glxinfo config.boot.kernelPackages.amdgpu-pro openspades
 
     ];
 }

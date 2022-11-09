@@ -133,6 +133,11 @@ swaymsg "bindsym $MOD+$ALT+period gaps outer current set 0" &
 # swap between qwerty and colemak bindings on the fly
 swaymsg "bindsym $MOD+Shift+t exec $XDG_CONFIG_HOME/sway/scripts/bindswitch" &
 
+# Cursor hiding (disable when gaming!)
+swaymsg "bindsym $MOD+$ALT+v exec $XDG_CONFIG_HOME/sway/scripts/cursor show && \
+    notify-send Cursor shown" &
+swaymsg "bindsym $MOD+$ALT+Shift+v exec $XDG_CONFIG_HOME/sway/scripts/cursor hide && \
+    notify-send Cursor hidden" &
 
 #
 # _.._ ._  _  _..__.._  _ _
@@ -239,3 +244,6 @@ pkill dunst; dunst &
 
 # foot terminal server
 foot --server &
+
+# Fix for first workspace having gaps 0 on startup
+swaymsg gaps inner current set 15 &

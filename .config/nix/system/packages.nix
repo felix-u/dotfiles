@@ -134,7 +134,7 @@ in {
     with pkgs; [
 
         # ESSENTIAL
-            foot gh git neofetch nvi pfetch starship stow wget
+            unstable.foot gh git neofetch nvi pfetch starship stow wget
 
         # UTILS IN RUST
             # bat # cat

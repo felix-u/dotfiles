@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+if [ "$1" = "show" ]; then
+    swaymsg "seat * hide_cursor 0"
+    swaymsg "seat * hide_cursor when-typing disable"
+elif [ "$1" = "hide" ]; then
+    swaymsg "seat * hide_cursor 10000"
+    swaymsg "seat * hide_cursor when-typing enable"
+else
+    echo "Needs argument \"show\" or \"hide\""
+fi

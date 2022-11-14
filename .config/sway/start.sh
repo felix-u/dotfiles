@@ -155,6 +155,8 @@ swaymsg "gaps inner 15" &
 swaymsg "font pango:$(wq fontsans) 12" &
 swaymsg "title_format %app_id" &
 
+# CLRFOCUSED="$(pastel mix "$W08" "$W07" | pastel format hex)"
+# CLRUNFOCUSED="$(pastel mix "$W00" "$W08" | pastel format hex)"
 CLRFOCUSED="$W08"
 CLRUNFOCUSED="$W00"
 swaymsg "default_border pixel 3"
@@ -223,7 +225,8 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
 fi
 
 # Background colour
-swaybg -c "$(pastel mix "$(wq color0)" "$(wq color8)" | pastel format hex)" &
+pkill swaybg; swaybg -c "$(pastel mix "$(wq color0)" "$(wq color8)" | pastel format hex)" &
+# pkill swaybg; swaybg -c "$(wq color8)" &
 # # wallpaper
 # ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 

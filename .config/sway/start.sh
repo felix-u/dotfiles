@@ -68,8 +68,8 @@ swaymsg "bindsym $MOD+Shift+b exec ~/.config/sway/scripts/randwall.sh \
     ~/dotfiles/Pictures/cafe-walls" &
 #
 swaymsg "bindsym XF86AudioMute exec pulsemixer --toggle-mute" &
-swaymsg "bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +10" &
-swaymsg "bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -10" &
+swaymsg "bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5" &
+swaymsg "bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5" &
 #
 # lock system
 swaymsg "bindsym $MOD+x exec ~/.config/sway/scripts/swaylock.sh"

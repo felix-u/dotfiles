@@ -134,18 +134,16 @@ in {
     with pkgs; [
 
         # ESSENTIAL
-            unstable.foot gh git neofetch nvi pfetch starship stow wget
+            foot gh git neofetch nvi pfetch starship stow wget
 
         # UTILS IN RUST
-            # bat # cat
-            # fd # find
+                # bat # cat
+                # fd # find
             helix-git.defaultNix.packages.x86_64-linux.default
-            imgclr # haha, c'est a moi :D
-            # lsd # ls
-            # procs # ps
-            # ripgrep # grep
+                # lsd # ls
+                # procs # ps
+                # ripgrep # grep
             skim # fzf
-            ttyper
 
         # DEV AND PROGRAMMING
         # misc
@@ -189,13 +187,14 @@ in {
             # maxima qalculate-gtk wxmaxima
 
         # TERMINAL MISC
-            # dict lowdown
+                # dict lowdown
             cava cmatrix doas-as-sudo xdragon entr figlet file ffmpeg fzf
             handlr htop hunspell hunspellDicts.en-gb-ise hyperfine killall
             lm_sensors lolcat ncdu ncspot nvd onefetch
             oneshot pastel pandoc pdftk poppler_utils shgen termdown
             themesh tldr tmux tty-clock udiskie udisks unrar unzip v4l-utils
             libv4l w3m xdg-utils youtube-dl ytfzf zip zsh _7zz
+            imgclr # haha, c'est a moi :D
 
         # INTERNET & BLUETOOTH
             blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
@@ -237,7 +236,7 @@ in {
             # w4 # wasm-4 fantasy console
 
         # LATEX
-            biber texinfo texlab texlive.combined.scheme-full
+            biber texinfo texlab unstable.texlive.combined.scheme-full
 
         # KERNEL
             config.boot.kernelPackages.v4l2loopback

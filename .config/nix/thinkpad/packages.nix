@@ -8,13 +8,13 @@ in {
     with pkgs; [
 
         # ESSENTIAL
-        kmonad
+            kmonad
 
         # TERMINAL MISC
-        tlp
+            tlp
 
         # DESKTOP
-        unstable.rnote xournalpp
+            unstable.rnote xournalpp zoom-us
 
     ];
 }

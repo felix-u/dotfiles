@@ -22,8 +22,8 @@ alias fontpreview="~/dotfiles/scripts/fontpreview"
 #     alias la="lsd -lA"
 #     alias ls="lsd -A --icon never"
 # else
-alias la="ls -ogAh --group-directories-first --color=yes --time-style=long-iso"
-alias ls="ls -A --group-directories-first --color=yes"
+alias la="ls -ogAhF --group-directories-first --color=yes --time-style=long-iso"
+alias ls="ls -AF --group-directories-first --color=yes"
 # end
 
 alias ytfzf="ytfzf -t --thumb-viewer=catimg --thumbnail-quality=medium"
@@ -31,8 +31,10 @@ alias ytfzf="ytfzf -t --thumb-viewer=catimg --thumbnail-quality=medium"
 alias v="nvim"
 alias onefetch="onefetch --true-color never"
 
-# less should render ANSI colour codes
-alias less="less -r"
+# less should render ANSI colour codes, not page if the content fills one,
+# screen, ignore case when searching, and leave the contents on the screen
+# after quitting
+alias less="less -FIRX"
 
 # mkdir create parents
 alias mkdir='mkdir -pv'

@@ -20,4 +20,10 @@
             "vt.cur_default=0"
         ];
     };
+
+    systemd = {
+        services = {
+            NetworkManager-wait-online.enable = false;
+        };
+    };
 }

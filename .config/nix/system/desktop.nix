@@ -109,4 +109,15 @@ in {
     #   atomix # puzzle game
     # ]);
 
+
+    networking = {
+        dhcpcd = {
+            # No need to wait for this to continue booting
+            wait = "background";
+            # ARP not needed on home networks; can boot a little faster without it
+            extraConfig = "noarp";
+        };
+    };
+
+
 }

@@ -22,12 +22,14 @@ swaylock -e -F \
     --indicator-radius 150 --indicator-thickness 20 \
     --text-color "${WBACKGROUND}ff" \
     --font-size 40 --font "$(wq fontsans)" \
-    --clock --indicator --timestr "%a %d" --datestr "%H:%M" \
+    --color "$SCREENBG" \
+    --inside-color "${WCOLOR0}80" \
+    --inside-ver-color "${WCOLOR2}80" \
+    --inside-wrong-color "${WCOLOR1}80" \
+    --inside-clear-color "${WCOLOR4}80" \
     --fade-in 0.1 \
-    --color "$SCREENBG"
-    # --inside-color "${WCOLOR0}80" \
-    # --inside-ver-color "${WCOLOR2}80" \
-    # --inside-wrong-color "${WCOLOR1}80" \
-    # --inside-clear-color "${WCOLOR4}80" \
+    --timestr "%a %d" --datestr "%H:%M" \
+    --indicator \
+    --clock
     # --screenshots --effect-blur 15x7
     # -i "$LOCKWALL"

@@ -13,8 +13,7 @@ in {
             brightnessctl dmenu-wayland dmenu-wl_run dunst flashfocus glib
             grim polkit_gnome
             slurp swaybg swayidle
-            # swaylock-effects
-            swaylock
+            swaylock-effects
             waybar wayland wf-recorder wl-clipboard xwayland
         ];
     };

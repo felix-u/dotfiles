@@ -12,7 +12,9 @@ in {
         extraPackages = with pkgs; [
             brightnessctl dmenu-wayland dmenu-wl_run dunst flashfocus glib
             grim polkit_gnome
-            slurp swaybg swayidle swaylock-effects
+            slurp swaybg swayidle
+            # swaylock-effects
+            swaylock
             waybar wayland wf-recorder wl-clipboard xwayland
         ];
     };

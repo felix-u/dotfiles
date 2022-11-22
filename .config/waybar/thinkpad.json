@@ -40,14 +40,14 @@
     "states": {
       "warning": 35,
       "critical": 15
-    },
+    }
   },
   "network": {
     "interface": "wlan0",
     "format": "直",
     "format-disconnected": "睊",
     "tooltip-format": "{ifname} via {gwaddr} ",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) "
   },
   "custom/clock": {
     "exec": "~/.config/waybar/scripts/date",
@@ -60,21 +60,21 @@
       "headphone": [
         " ",
         " ",
-        " ",
+        " ",
         " "
       ],
       "default": [
         "",
         "",
-        "",
+        "",
         ""
       ],
       "bluetooth": [
         " ",
         " ",
-        " ",
+        " ",
         " "
-      ],
+      ]
     },
     "format-muted": "   {volume}%"
   }

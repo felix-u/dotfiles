@@ -26,6 +26,7 @@ window#waybar {
     background: transparent;
     color: $(wq foreground);
     /* border-bottom: 2px solid $(wq color0); */
+    /* border-bottom: 1px solid $(pastel darken 0.02 $(wq background) | pastel format hex); */
 }
 
 #window {

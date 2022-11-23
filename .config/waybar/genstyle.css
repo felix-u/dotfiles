@@ -19,6 +19,10 @@
     min-height: 20px;
 }
 
+/* For a solid bar: */
+    /* margin-top: 12px; */
+    /* margin-bottom: 0px; */
+
 window#waybar {
     padding: 0px;
     margin: 0px;

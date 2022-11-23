@@ -27,12 +27,12 @@ set -Ux XCURSOR_SIZE 24
 
 # LESS colours
 set -Ux LESS_TERMCAP_mb \e\[1\;36m
-set -Ux LESS_TERMCAP_md \e\[1\;34m
-set -Ux LESS_TERMCAP_me \e\[32m
+set -Ux LESS_TERMCAP_md \e\[1\;1m
+set -Ux LESS_TERMCAP_me \e\[0m
 set -Ux LESS_TERMCAP_se \e\[0m
-set -Ux LESS_TERMCAP_so \e\[1\;31m
+set -Ux LESS_TERMCAP_so \e\[1\;34m
+set -Ux LESS_TERMCAP_us \e\[1\;4m
 set -Ux LESS_TERMCAP_ue \e\[0m
-set -Ux LESS_TERMCAP_us \e\[1\;36m
 
 set -Ux QT_QPA_PLATFORMTHEME "qt5ct"
 
@@ -68,6 +68,14 @@ set -Ux XDG_CACHE_HOME "$HOME/.cache"
 set -Ux XDG_DATA_HOME "$HOME/.local/share"
 set -Ux XDG_STATE_HOME "$HOME/.local/state"
 set -Ux XDG_CURRENT_DESKTOP sway
+
+# # vi config
+# set TABWIDTH "4"
+# set -Ux NEXINIT "\
+# set number\
+# set autoindent\
+# set shiftwidth $TABWIDTH\
+# set noerrorbells"
 
 # git config
 git config --global core.editor $EDITOR

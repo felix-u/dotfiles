@@ -1,3 +1,4 @@
+/* Note: this version has white text on black, and a transparent background */
 /*                                                                    */
 /*_|          _|    _|_|    _|      _|  _|_|_|      _|_|    _|_|_|    */
 /*_|          _|  _|    _|    _|  _|    _|    _|  _|    _|  _|    _|  */
@@ -13,37 +14,29 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "FreeSans", "Iosevka NerdFont";
+    font-family: "$(wq fontsans)", "$(wq fontmono) NerdFont";
     box-shadow: inherit;
     text-shadow: inherit;
     min-height: 20px;
 }
 
-/* For a transparent bar: */
-    /* margin-top: 7px; */
-    /* margin-bottom: 6px; */
 /* For a solid bar: */
-    /* margin-top: 7px; */
-    /* margin-bottom: 6px; */
+    /* margin-top: 12px; */
+    /* margin-bottom: 0px; */
 
 window#waybar {
     padding: 0px;
     margin: 0px;
-
-    background: #93a1a1;
-    color: #002b36;
-    border-bottom: 1px solid #002b36;
-
-    /* background: transparent; */
-    /* color: #93a1a1; */
-
-    /* border-bottom: 2px solid #073642; */
-    /* border-bottom: 1px solid #00232c; */
+    /* background: $(wq background); */
+    background: transparent;
+    color: $(wq foreground);
+    /* border-bottom: 2px solid $(wq color0); */
+    /* border-bottom: 1px solid $(pastel darken 0.02 $(wq background) | pastel format hex); */
 }
 
 #window {
     margin-top: 0px;
-    margin-bottom: 6px;
+    margin-bottom: 0px;
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 0;
@@ -53,8 +46,8 @@ window#waybar {
 }
 
 #workspaces {
-    margin-top: 7px;
-    margin-bottom: 6px;
+    margin-top: 12px;
+    margin-bottom: 0px;
     margin-left: 8px;
     margin-right: 8px;
     transition: none;
@@ -68,8 +61,8 @@ window#waybar {
     padding-left: 6px;
     /* padding-right: 13px; */
     padding-right: 6px;
-    /* color: #657b83; */
-    color: #224750;
+    /* color: $(wq color7); */
+    color: $(wq color7);
 }
 
 #workspaces button:hover {
@@ -79,22 +72,21 @@ window#waybar {
 #workspaces button.active {
     transition: none;
     /* border-radius: 10px; */
-    /* background: #073642; */
-    /* color: #93a1a1; */
+    /* background: $(wq color0); */
+    color: $(wq foreground);
 }
 
 #workspaces button.focused {
     transition: none;
     /* border-radius: 10px; */
-    /* background: #073642; */
-    /* color: #2aa198; */
-    color: #002b36;
+    /* background: $(wq color0); */
+    color: $(wq color6);
     font-weight: bold;
 }
 
 #tags {
-    margin-top: 7px;
-    margin-bottom: 6px;
+    margin-top: 12px;
+    margin-bottom: 0px;
     margin-left: 8px;
     margin-right: 8px;
     transition: none;
@@ -105,122 +97,122 @@ window#waybar {
     transition: none;
     padding-left: 6px;
     padding-right: 6px;
-    color: #446069;
-    /* color: #657b83; */
+    color: $(pastel mix $(wq color8) $(wq color7) | pastel format hex);
+    /* color: $(wq color7); */
 }
 #tags button:hover {
     background: transparent;
 }
 #tags button.occupied {
     transition: none;
-    color: #657b83;
-    /* color: #446069; */
+    color: $(wq color7);
+    /* color: $(pastel mix $(wq color8) $(wq color7) | pastel format hex); */
 }
 #tags button.urgent {
     transition: none;
-    color: #dc322f;
+    color: $(wq color1);
 }
 #tags button.focused {
     transition: none;
-    color: #2aa198;
-    /* color: #93a1a1; */
+    color: $(wq color6);
+    /* color: $(wq foreground); */
     font-weight: bold;
 }
 
 #cpu {
     color: transparent;
-    margin-top: 7px;
-    margin-bottom: 6px;
+    margin-top: 12px;
+    margin-bottom: 0px;
     margin-left: 6px;
     margin-right: 6px;
     /* border-radius: 10px; */
     padding: 0px 10px;
 }
 #cpu.warning {
-    color: #b58900;
-    /* background: #073642; */
+    color: $(wq color3);
+    /* background: $(wq color0); */
 }
 #cpu.critical {
-    color: #dc322f;
-    /* background: #073642; */
+    color: $(wq color1);
+    /* background: $(wq color0); */
 }
 
 #custom-clock {
-    margin-top: 7px;
-    margin-bottom: 6px;
-    color: #002b36;
+    margin-top: 12px;
+    margin-bottom: 0px;
+    color: $(wq color15);
 }
 
 
 #battery {
-    margin-top: 7px;
-    margin-bottom: 6px;
+    margin-top: 12px;
+    margin-bottom: 0px;
     margin-right: 6px;
     margin-left: 0px;
     padding: 0px 9px;
 }
 
 #battery.discharging {
-    color: #002b36;
+    color: $(wq color15);
 }
 
 #battery.charging {
     /* padding: 0px 14px; */
     /* border-radius: 10px; */
-    /* background: #073642; */
-    color: #859900;
+    /* background: $(wq color0); */
+    color: $(wq color2);
 }
 
 #battery.warning {
-    color: #d33682;
+    color: $(wq color5);
 }
 
 #battery.critical {
     /* padding: 0px 14px; */
     /* border-radius: 10px; */
-    /* background: #dc322f; */
-    color: #dc322f;
+    /* background: $(wq color1); */
+    color: $(wq color1);
 }
 
 
 #network {
-    margin-top: 7px;
-    margin-bottom: 6px;
+    margin-top: 12px;
+    margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 20px;
     padding-left: 6px;
     padding-right: 6px;
-    color: #002b36;
+    color: $(wq color15);
 }
 #network.disconnected #network.disabled {
-    color: #dc322f;
+    color: $(wq color1);
     /* border-radius: 10px; */
-    /* background: #073642; */
+    /* background: $(wq color0); */
     /* padding-left: 9px; */
     /* padding-right: 15px; */
 }
 
 
 #pulseaudio {
-    margin-top: 7px;
-    margin-bottom: 6px;
+    margin-top: 12px;
+    margin-bottom: 0px;
     margin-left: 6px;
     margin-right: 6px;
     padding: 0px 10px;
-    color: #002b36;
+    color: $(wq color15);
 }
 
 #pulseaudio.muted {
-    color: #657b83;
+    color: $(wq color7);
 }
 
 #pulseaudio.bluetooth {
     /* padding: 0px 16px; */
     /* border-radius: 10px; */
-    /* background: #073642; */
-    color: #268bd2;
+    /* background: $(wq color0); */
+    color: $(wq color4);
 }
 
 #pulseaudio.bluetooth.muted {
-    color: #657b83;
+    color: $(wq color7);
 }

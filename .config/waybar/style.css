@@ -137,11 +137,13 @@ window#waybar {
     padding: 0px 10px;
 }
 #cpu.warning {
-    color: #b58900;
+    /* color: #b58900; */
+    color: #224750;
     /* background: #073642; */
 }
 #cpu.critical {
-    color: #dc322f;
+    /* color: #dc322f; */
+    color: #002b36;
     /* background: #073642; */
 }
 
@@ -168,18 +170,21 @@ window#waybar {
     /* padding: 0px 14px; */
     /* border-radius: 10px; */
     /* background: #073642; */
-    color: #859900;
+    /* color: #859900; */
+    color: #002b36;
 }
 
 #battery.warning {
-    color: #d33682;
+    /* color: #d33682; */
+    color: #002b36;
 }
 
 #battery.critical {
     /* padding: 0px 14px; */
     /* border-radius: 10px; */
     /* background: #dc322f; */
-    color: #dc322f;
+    /* color: #dc322f; */
+    color: #002b36;
 }
 
 
@@ -193,7 +198,7 @@ window#waybar {
     color: #002b36;
 }
 #network.disconnected #network.disabled {
-    color: #dc322f;
+    /* color: #dc322f; */
     /* border-radius: 10px; */
     /* background: #073642; */
     /* padding-left: 9px; */
@@ -211,16 +216,18 @@ window#waybar {
 }
 
 #pulseaudio.muted {
-    color: #657b83;
+    /* color: #657b83; */
+    color: #224750;
 }
 
 #pulseaudio.bluetooth {
     /* padding: 0px 16px; */
     /* border-radius: 10px; */
     /* background: #073642; */
-    color: #268bd2;
+    /* color: #268bd2; */
 }
 
 #pulseaudio.bluetooth.muted {
-    color: #657b83;
+    /* color: #657b83; */
+    color: #224750;
 }

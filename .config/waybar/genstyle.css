@@ -137,11 +137,13 @@ window#waybar {
     padding: 0px 10px;
 }
 #cpu.warning {
-    color: $(wq color3);
+    /* color: $(wq color3); */
+    color: $(wq color8);
     /* background: $(wq color0); */
 }
 #cpu.critical {
-    color: $(wq color1);
+    /* color: $(wq color1); */
+    color: $(wq background);
     /* background: $(wq color0); */
 }
 
@@ -168,18 +170,21 @@ window#waybar {
     /* padding: 0px 14px; */
     /* border-radius: 10px; */
     /* background: $(wq color0); */
-    color: $(wq color2);
+    /* color: $(wq color2); */
+    color: $(wq background);
 }
 
 #battery.warning {
-    color: $(wq color5);
+    /* color: $(wq color5); */
+    color: $(wq background);
 }
 
 #battery.critical {
     /* padding: 0px 14px; */
     /* border-radius: 10px; */
     /* background: $(wq color1); */
-    color: $(wq color1);
+    /* color: $(wq color1); */
+    color: $(wq background);
 }
 
 
@@ -193,7 +198,7 @@ window#waybar {
     color: $(wq background);
 }
 #network.disconnected #network.disabled {
-    color: $(wq color1);
+    /* color: $(wq color1); */
     /* border-radius: 10px; */
     /* background: $(wq color0); */
     /* padding-left: 9px; */
@@ -211,16 +216,18 @@ window#waybar {
 }
 
 #pulseaudio.muted {
-    color: $(wq color7);
+    /* color: $(wq color7); */
+    color: $(wq color8);
 }
 
 #pulseaudio.bluetooth {
     /* padding: 0px 16px; */
     /* border-radius: 10px; */
     /* background: $(wq color0); */
-    color: $(wq color4);
+    /* color: $(wq color4); */
 }
 
 #pulseaudio.bluetooth.muted {
-    color: $(wq color7);
+    /* color: $(wq color7); */
+    color: $(wq color8);
 }

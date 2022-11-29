@@ -67,3 +67,18 @@ exec_always gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
 
 # bash scripting, babyyy
 exec_always --no-startup-id ~/.config/sway/start.sh
+
+# ZOOM ---
+# Inhibit idle when zoom window is visible
+for_window [app_id="zoom"] inhibit_idle visible
+# Center zoom toolbar when screensharing
+for_window [app_id="zoom" title="as_toolbar"] {
+  floating enable
+  move position 50ppt 0
+  move left 402
+}
+# Fix Zoom notifications
+# Float any zoom window by default but specific ones
+for_window [app_id="zoom"] floating enable
+for_window [app_id="zoom" title="(Account|Chat|Meeting|Participants)"] floating di
+# --------

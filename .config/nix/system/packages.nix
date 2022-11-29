@@ -200,7 +200,7 @@ in {
             blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
 
         # DESKTOP
-            appimage-run anki-bin bitwarden calibre font-manager handlr
+            appimage-run anki-bin bitwarden calibre font-manager gnome.pomodoro handlr
             # hyprland-git
             # hyprland
             # unstable.hyprland

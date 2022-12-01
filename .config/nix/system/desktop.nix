@@ -18,7 +18,7 @@ in {
         ];
     };
     environment.pathsToLink = [ "/libexec" ]; # for polkit
-    programs.qt5ct.enable = true;
+    qt5.platformTheme = "qt5ct";
     environment.systemPackages =
     let
         river-with-xwayland = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {

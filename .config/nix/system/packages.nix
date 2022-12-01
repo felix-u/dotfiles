@@ -15,7 +15,6 @@ in {
         extraOptions = ''
             experimental-features = nix-command flakes
         '';
-        autoOptimiseStore = true;
         checkConfig = true;
         gc = {
             automatic = true;
@@ -24,7 +23,10 @@ in {
             options = "--delete-older-than 30d";
         };
         optimise.automatic = true;
-        trustedUsers = [ "root" "felix" ];
+        settings = {
+            auto-optimise-store = true;
+            trusted-users = [ "root" "felix" ];
+        };
     };
     nixpkgs.config.allowUnfree = true;
     # NUR

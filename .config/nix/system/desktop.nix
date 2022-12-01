@@ -18,6 +18,7 @@ in {
         ];
     };
     environment.pathsToLink = [ "/libexec" ]; # for polkit
+    environment.sessionVariables = { GTK_USE_PORTAL="1"; };
     qt5.platformTheme = "qt5ct";
     environment.systemPackages =
     let
@@ -67,7 +68,7 @@ in {
     services.flatpak.enable = true;
     xdg.portal = {
       enable = true;
-      gtkUsePortal = true;
+      # gtkUsePortal = true;
       wlr.enable = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };

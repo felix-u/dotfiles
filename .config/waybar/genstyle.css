@@ -154,6 +154,14 @@ window#waybar {
 }
 
 
+#custom-battery {
+    margin-top: 7px;
+    margin-bottom: 6px;
+    margin-right: 6px;
+    margin-left: 0px;
+    padding: 0px 9px;
+}
+
 #battery {
     margin-top: 7px;
     margin-bottom: 6px;

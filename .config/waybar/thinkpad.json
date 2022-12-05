@@ -23,6 +23,7 @@
   },
   "battery": {
     "format": "{icon}  {capacity}%",
+    "bat": "BAT0",
     "format-charging": "  {capacity}%",
     "format-icons": [
       "",
@@ -53,6 +54,11 @@
     "exec": "~/.config/waybar/scripts/date",
     "restart-interval": 5,
     "tooltip": false
+  },
+  "custom/battery": {
+    "exec": "~/.config/waybar/scripts/battery",
+    "restart-interval": "5",
+    "tooltip": "false"
   },
   "pulseaudio": {
     "format": "{icon}   {volume}%",

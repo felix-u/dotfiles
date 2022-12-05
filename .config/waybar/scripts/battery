@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+
+NUM="$(cat /sys/class/power_supply/BAT0/capacity | tr -d '\n')"
+STATE="$(cat /sys/class/power_supply/BAT0/status | tr -d '\n')"
+
+BAT=""
+
+if   [ "$STATE" = "Charging" ]; then
+    BAT=""
+elif [ "$STATE" = "Discharging" ]; then
+    if   [ "$NUM" -gt "95" ]; then
+        BAT=""
+    elif [ "$NUM" -gt "85" ]; then
+        BAT=""
+    elif [ "$NUM" -gt "70" ]; then
+        BAT=""
+    elif [ "$NUM" -gt "60" ]; then
+        BAT=""
+    elif [ "$NUM" -gt "50" ]; then
+        BAT=""
+    elif [ "$NUM" -gt "40" ]; then
+        BAT=""
+    elif [ "$NUM" -gt "30" ]; then
+        BAT=""
+    elif [ "$NUM" -gt "20" ]; then
+        BAT=""
+    else
+        BAT=""
+    fi
+fi
+
+printf "$BAT  $NUM%%"

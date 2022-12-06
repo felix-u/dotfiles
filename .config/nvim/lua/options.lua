@@ -57,6 +57,7 @@ vim.g.vimtex_view_general_viewer = "zathura"
 vim.g.tex_conceal = "abdmg"
 vim.g.tex_flavor = "latex"
 -- vim.g.vimtex_quickfix_enabled = 0
+vim.g.vimtex_quickfix_open_on_warning = 0
 
 -- vim.g.mkdp_browser = "qutebrowser"
 -- vim.g.mkdp_auto_start = 0

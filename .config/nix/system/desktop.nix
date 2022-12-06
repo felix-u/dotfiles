@@ -121,5 +121,7 @@ in {
         };
     };
 
+    # Automatically mount drives
+    services.udisks2.enable = true;
 
 }

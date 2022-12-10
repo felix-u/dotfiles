@@ -45,15 +45,15 @@ shgen genelement.css element.css &
 cd "$DIR" || exit
 echo "css"
 
-# qutebrowser
-shgen "$DOTSCONF"/qutebrowser/genconfig.py "$DOTSCONF"/qutebrowser/config.py &
-shgen "$DOTSCONF"/qutebrowser/greasemonkey/gendarkreader.js.disabled \
-     "$DOTSCONF"/qutebrowser/greasemonkey/darkreader.js &
-shgen "$DOTSCONF"/qutebrowser/greasemonkey/gendiscordtheme.js.disabled \
-     "$DOTSCONF"/qutebrowser/greasemonkey/discordtheme.js &
-shgen "$DOTSCONF"/qutebrowser/greasemonkey/genelementtheme.js.disabled \
-     "$DOTSCONF"/qutebrowser/greasemonkey/elementtheme.js &
-echo "qutebrowser"
+# # qutebrowser
+# shgen "$DOTSCONF"/qutebrowser/genconfig.py "$DOTSCONF"/qutebrowser/config.py &
+# shgen "$DOTSCONF"/qutebrowser/greasemonkey/gendarkreader.js.disabled \
+#      "$DOTSCONF"/qutebrowser/greasemonkey/darkreader.js &
+# shgen "$DOTSCONF"/qutebrowser/greasemonkey/gendiscordtheme.js.disabled \
+#      "$DOTSCONF"/qutebrowser/greasemonkey/discordtheme.js &
+# shgen "$DOTSCONF"/qutebrowser/greasemonkey/genelementtheme.js.disabled \
+#      "$DOTSCONF"/qutebrowser/greasemonkey/elementtheme.js &
+# echo "qutebrowser"
 
 # waybar
 shgen "$DOTSCONF"/waybar/genstyle.css "$DOTSCONF"/waybar/style.css &

@@ -34,6 +34,12 @@ WS07="$(wqs color7)"
 WS08="$(wqs color8)"
 WS15="$(wqs color15)"
 
+# WAFG="$(wq lightfg)"
+# WABG="$(wq lightbg)"
+# WA00="$(wq light0)"
+# WA08="$(wq light8)"
+# WA15="$(wq light15)"
+
 MOD="Mod4"
 ALT="Mod1"
 TERM="footclient"
@@ -155,10 +161,10 @@ swaymsg "gaps inner 15" &
 swaymsg "font pango:$(wq fontsans) 12" &
 swaymsg "title_format %app_id" &
 
-# CLRFOCUSED="$(pastel mix "$W08" "$W07" | pastel format hex)"
-# CLRUNFOCUSED="$(pastel mix "$W00" "$W08" | pastel format hex)"
 CLRFOCUSED="$W08"
 CLRUNFOCUSED="$W00"
+# CLRFOCUSED="$WA08"
+# CLRUNFOCUSED="$W08"
 swaymsg "default_border pixel 3"
 #               class        border       background       text     indicator    child border
 swaymsg "client.focused "$CLRUNFOCUSED" "$CLRFOCUSED" "$WFG" "$CLRFOCUSED" "$CLRFOCUSED"" &

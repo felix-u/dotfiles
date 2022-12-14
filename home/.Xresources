@@ -42,5 +42,5 @@ xgen.fontsans: FreeSans
 *.lightfg:      #586e75
 *.lightbg:      #fdf6e3
 *.light0:       #eee8d5
-*.light8:       #d6c89b
+*.light8:       #e2d8be
 *.light15:      #657b83

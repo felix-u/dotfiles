@@ -86,7 +86,7 @@ function swaybgset
 end
 
 # Swap between light and dark terminal theme
-function themeterm
+function t
     if [ $argv[1] = 'l' ]
 	theme.sh < ~/dotfiles/scripts/theme/lighttheme
     else if [ $argv[1] = 'd' ]
@@ -95,6 +95,7 @@ function themeterm
         echo "Requires option \"d\" or \"l\""
     end
 end
+alias themeterm="t"
 
 function tint
     convert $argv[3] -fill (wq $argv[1]) -colorize $argv[2] $argv[4]

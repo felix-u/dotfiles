@@ -59,8 +59,6 @@ alias sk="sk --color=16 --reverse"
 
 alias swaptheme="~/dotfiles/scripts/theme/swaptheme.sh"
 
-alias t="tmux"
-
 # get temps by watching lm_sensors every half a second
 alias temps="watch -n 0.5 sensors"
 

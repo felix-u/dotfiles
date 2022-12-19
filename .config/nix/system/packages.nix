@@ -78,7 +78,7 @@ in {
         godot4-alpha = import ../derivations/godot4alpha.nix;
 
         helix-src = builtins.fetchTarball {
-            url = "https://github.com/helix-editor/helix/archive/f0f295a6679655dccfab0c1e0e9bb4a87e351db5.tar.gz";
+            url = "https://github.com/helix-editor/helix/archive/ba3c24aa0268735ac57321442d458ab6a1ac662c.tar.gz";
         };
         helix-git = import flake-compat { src = helix-src; };
 
@@ -100,8 +100,8 @@ in {
             src = pkgs.fetchFromGitHub {
                 owner = "odin-lang";
                 repo = "Odin";
-                rev = "dev-2022-09";
-                sha256 = "sha256-qBAObLbgry+r/wOsFf7LDWJdOyn7RvEIbFCyAvN0waA=";
+                rev = "dev-2022-12";
+                sha256 = "sha256-FFAZLO2j0RjY2fvhyre+/efNpW36xK/wHnn1P9ZDzOI=";
             };
             installPhase = ''
                 mkdir -p $out/bin

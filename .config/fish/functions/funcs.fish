@@ -9,13 +9,20 @@ function clrpick
     end
 end
 
+# Use `fetch` to run neofetch with my custom config, which only works on NixOS
 function fetch
-    set -Ux PF_INFO "ascii title os host kernel de shell memory"
-    set -Ux PF_COL1 2
-    set -Ux PF_COL2 15
-    set -Ux PF_COL3 6
-    echo # newline
-    pfetch
+        # # Clean pfetch, if I ever want to come back to it
+        # set -Ux PF_INFO "ascii title os host kernel de shell memory"
+        # set -Ux PF_COL1 2
+        # set -Ux PF_COL2 15
+        # set -Ux PF_COL3 6
+        # echo # newline
+        # pfetch
+    command neofetch
+end
+# Use `neofetch` to run neofetch with no custom config
+function neofetch
+    command neofetch --config none
 end
 
 # Pull or commit all changes to personal repos

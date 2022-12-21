@@ -136,7 +136,7 @@ in {
     with pkgs; [
 
         # ESSENTIAL
-            foot gh git neofetch nvi pfetch starship stow wget
+            foot gh git neofetch nvi starship stow wget
 
         # UTILS IN RUST
                 # bat # cat
@@ -202,7 +202,7 @@ in {
             blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
 
         # DESKTOP
-            appimage-run anki-bin bitwarden calibre font-manager gnome.pomodoro handlr
+            appimage-run anki-bin bitwarden calibre font-manager gnome-solanum handlr
             # hyprland-git
             # hyprland
             # unstable.hyprland

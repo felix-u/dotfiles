@@ -1,10 +1,11 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 let
     dmenu-wl_run = import ../derivations/dmenu-wl.nix;
     unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
     pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
+
     # wayland schtuff
     programs.sway = {
         enable = true;

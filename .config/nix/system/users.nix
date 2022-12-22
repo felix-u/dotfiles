@@ -1,22 +1,27 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 
 
 let
     homedir = config.home-manager.users.felix.home.homeDirectory;
     pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
+
+    imports = [ <home-manager/nixos> ];
+
     # user account
     users.users.felix = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "networkmanager" "input" "uinput" ];
+        extraGroups = [ "wheel" "networkmanager" "input" "uinput" "sway" ];
+        # extraGroups = [ "wheel" "networkmanager" "input" "uinput" ];
     };
 
     # shell
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs-unstable.fish;
 
+    # services.getty.autologinUser = "felix";
+
     # home-manager
-    imports = [ <home-manager/nixos> ];
     home-manager = {
       useUserPackages = true;
       useGlobalPkgs = true;

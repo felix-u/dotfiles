@@ -397,8 +397,10 @@ local highlight_groups = {
 	--[[ 4.3.1. C ]]
 	cConstant    = 'Constant',
 	cCustomClass = 'Type',
+    cStorageClass = 'Type',
     cErrInParen = 'Delimiter',
     cBlock = {fg = c.blue04},
+    -- cConditional = {fg = c.blue04},
 
 	--[[ 4.3.2. C++ ]]
 	cppSTLexception = 'Exception',

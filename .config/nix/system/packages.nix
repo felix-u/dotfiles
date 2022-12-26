@@ -226,7 +226,7 @@ in {
             luminanceHDR mediainfo unstable.gimp-with-plugins
 
         # GAMING
-            lutris minecraft unstable.optifine minetest prismlauncher proton-caller
+            lutris minetest proton-caller
             protontricks protonup unstable.heroic mangohud
             # # retro
             # (retroarchFull.overrideAttrs (oldAttrs: {

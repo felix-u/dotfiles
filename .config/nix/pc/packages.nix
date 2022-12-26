@@ -18,6 +18,7 @@
 
         # GAMING
             corectrl glxinfo config.boot.kernelPackages.amdgpu-pro openspades
+            minecraft unstable.optifine prismlauncher
 
     ];
 }

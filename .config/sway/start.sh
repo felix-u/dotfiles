@@ -131,7 +131,7 @@ swaymsg "bindsym $MOD+$ALT+c exec dunstctl history-pop" &
 # inner gaps
 swaymsg "bindsym $MOD+g gaps inner current plus 15" &
 swaymsg "bindsym $MOD+Shift+g gaps inner current minus 15" &
-swaymsg "bindsym $MOD+$ALT+g gaps inner current set 0" &
+swaymsg "bindsym $MOD+$ALT+g gaps inner current set 15" &
 # outer gaps
 swaymsg "bindsym $MOD+period gaps outer current plus 15" &
 swaymsg "bindsym $MOD+Shift+period gaps outer current minus 15" &

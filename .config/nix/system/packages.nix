@@ -191,7 +191,7 @@ in {
         # TERMINAL MISC
                 # dict lowdown
             cava cmatrix doas-as-sudo xdragon entr figlet file ffmpeg fzf
-            handlr htop hunspell hunspellDicts.en-gb-ise hyperfine killall
+            handlr htop hunspell hunspellDicts.en-gb-ise hyperfine jq killall
             lm_sensors lolcat ncdu ncspot nvd onefetch
             oneshot pastel pandoc pdftk poppler_utils shgen termdown
             themesh tldr tmux tty-clock udiskie udisks unrar unzip v4l-utils

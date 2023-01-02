@@ -243,10 +243,10 @@ local highlight_groups = {
 	Noise = 'Delimiter',
 
 	--[[ 4.1.4. Metatextual Information]]
-	PreProc = {fg = c.magenta05},
 	Include = {fg = c.blue04, style = 'nocombine'},
 	Define = {fg = c.blue04, style = 'nocombine'},
 	Macro  = {fg = c.magenta05, style = 'nocombine'},
+	PreProc = 'Macro',
 	PreCondit = {fg = c.yellow03, style = 'italic'},
 
 	--[[ 4.1.5. Semantics]]

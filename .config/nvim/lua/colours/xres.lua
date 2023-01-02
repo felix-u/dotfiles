@@ -200,10 +200,12 @@ local c = require "colours.palette"
 
 --[[ These are the ones you should edit. ]]
 -- This is the only highlight that must be defined separately.
-local highlight_group_normal = {fg = c.white15}
+local highlight_group_normal = {fg = c.white15, italic = false}
 
 -- This is where the rest of your highlights should go.
 local highlight_groups = {
+
+    NORMAL = highlight_group_normal,
 
     -- General vim
     Bold = {style = 'bold'},
@@ -217,7 +219,7 @@ local highlight_groups = {
 	whitespace  = 'NonText',
 
 	--[[ 4.1.1. Literals]]
-	Constant = {fg = c.cyan06},
+	Constant = {fg = c.cyan06, style = 'nocombine'},
 	String = {fg = c.cyan06},
 	Character = 'String',
 	Number  = {fg = c.cyan06},
@@ -225,8 +227,9 @@ local highlight_groups = {
 	Float   = 'Number',
 
 	--[[ 4.1.2. Identifiers]]
+    Variable = 'NORMAL',
 	Identifier = {fg = c.red01, style = 'italic'},
-	Function = {fg = c.blue04},
+	Function = {fg = c.blue04, style = 'nocombine'},
 
 	--[[ 4.1.3. Syntax]]
 	Statement   = {fg = c.red01},
@@ -243,7 +246,7 @@ local highlight_groups = {
 	PreProc = {fg = c.magenta05},
 	Include = {fg = c.blue04, style = 'nocombine'},
 	Define = {fg = c.blue04, style = 'nocombine'},
-	Macro  = {fg = c.magenta05},
+	Macro  = {fg = c.magenta05, style = 'nocombine'},
 	PreCondit = {fg = c.yellow03, style = 'italic'},
 
 	--[[ 4.1.5. Semantics]]
@@ -852,25 +855,27 @@ local highlight_groups = {
     TSConstMacro = 'Macro',
 	TSConstructor = 'Delimiter',
 	TSDanger = 'ErrorMsg',
-    TSField = {fg = c.white15},
+    TSField = 'NORMAL',
+    TSFunction = 'Function',
 	TSFuncBuiltin = 'Function',
     TSFuncMacro = 'Macro',
     TSPunctBracket = 'Delimiter',
 	TSTag = 'Tag',
-    TSTypeBuiltin = 'TSType',
     TSType = {fg = c.magenta05},
+    TSTypeBuiltin = 'TSType',
 	TSWarning = {fg = c.background, bg = c.green02, style = 'bold'},
     TSKeywordOperator = 'Keyword',
     TSKeyword = 'Keyword',
     TSKeywordFunction = 'TSKeyword',
     TSNote = 'WarningMsg',
-    TSParameter = {fg = c.white15},
-    TSProperty = {fg = c.white15},
+    TSProperty = 'NORMAL',
     -- TSNote = function(self) return {fg = self.ErrorMsg.fg} end,
     TSStringEscape = {fg = c.magenta05},
     TSStringSpecial = {fg = c.blue04},
     TSSymbol = {fg = c.magenta05},
-    TSVariable = {fg = c.white15},
+    TSVariable = 'Variable',
+    ["@variable"] = 'NORMAL',
+    TSParameter = 'Variable',
 
 	--[[ 4.4.9. barbar.nvim ]]
 	BufferCurrent       = 'TabLineSel',

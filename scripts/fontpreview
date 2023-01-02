@@ -6,7 +6,7 @@
 
 VERSION=1.0.7
 
-alias fzf="sk --color=16"
+alias fzf="fzf --color=16 --reverse"
 
 wq () {
     grep "$1:" ~/.Xresources | awk '{print $2}'
@@ -104,7 +104,7 @@ main(){
     while true; do
         # List out all the fonts which imagemagick is able to find, extract
         # the font names and then pass them to fzf
-        font=$(convert -list font | awk -F: '/^[ ]*Font: /{print substr($NF,2)}' | sk --color=16 --reverse --prompt="$SEARCH_PROMPT")
+        font=$(convert -list font | awk -F: '/^[ ]*Font: /{print substr($NF,2)}' | fzf --color=16 --reverse --prompt="$SEARCH_PROMPT")
 
         # Exit if nothing is returned by fzf, which also means that the user
         # has pressed [ESCAPE]

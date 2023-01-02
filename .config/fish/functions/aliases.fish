@@ -15,7 +15,7 @@ alias cdu="cd ~/uni/2022/autumn"
 # alias fd="fd --color never -uu"
 
 # my fontpreview version
-# sk instead of fzf, xres colours, and imv rather than sxiv
+# xres colours and imv rather than sxiv
 alias fontpreview="~/dotfiles/scripts/fontpreview"
 
 # if type -q lsd
@@ -56,6 +56,7 @@ alias rainsh="~/dotfiles/scripts/rain.sh"
 
 # fuzzy finding ftw
 alias sk="sk --color=16 --reverse"
+alias fzf="fzf --color=16 --reverse"
 
 alias swaptheme="~/dotfiles/scripts/theme/swaptheme.sh"
 

@@ -58,18 +58,13 @@ in {
         }))
     ];
 
-    # programs.hyprland = {
-    #     enable = false;
-    #     package = pkgs.hyprland;
-    # };
-
     # packages for all systems
     environment.systemPackages =
     let
 
         unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
-        # effectively "symlink" sudo to doas
+        # "sudo" runs doas
         doas-as-sudo = (pkgs.writeShellScriptBin "sudo" ''
             echo "Warning: \"sudo\" runs \"doas\""
             doas "$@"
@@ -81,12 +76,6 @@ in {
             url = "https://github.com/helix-editor/helix/archive/ba3c24aa0268735ac57321442d458ab6a1ac662c.tar.gz";
         };
         helix-git = import flake-compat { src = helix-src; };
-
-        # hyprland-src = builtins.fetchTarball {
-        #     url = "https://github.com/hyprwm/Hyprland/archive/1626707b7f4fd3d2b313e78cb3a41783f072f73b.tar.gz";
-        #     sha256 = "sha256:0lmka2724m0ylsmwd9zkrv8bvhhrn7jvrznn50qqbnp42h27dw11";
-        # };
-        # hyprland-git = (pkgs.callPackage [ import flake-compat { src = hyprland-src; } {} ]);
 
         nextvi = (pkgs.callPackage ../derivations/nextvi.nix {});
 
@@ -139,13 +128,7 @@ in {
             foot gh git neofetch nvi starship stow wget
 
         # UTILS IN RUST
-                # bat # cat
-                # fd # find
             helix-git.defaultNix.packages.x86_64-linux.default
-                # lsd # ls
-                # procs # ps
-                # ripgrep # grep
-            skim # fzf
 
         # DEV AND PROGRAMMING
         # misc
@@ -162,9 +145,6 @@ in {
         # web (HTML, CSS, JS)
             nodejs yarn
             nodePackages.npm nodePackages.js-beautify
-        # lisp and emacs
-            # clisp emacsPgtkNativeComp emacs-all-the-icons-fonts
-            # # clisp sbcl libvterm-neovim
         # lua
             lua sumneko-lua-language-server
         # nix
@@ -178,7 +158,8 @@ in {
         # shell
             nodePackages.bash-language-server shellcheck
         # vim
-            unstable.neovim tree-sitter
+            # neovim itself is managed by home-manager in system/users.nix
+            tree-sitter
             nodePackages.vscode-langservers-extracted
             nodePackages.vim-language-server
         # zig
@@ -186,10 +167,8 @@ in {
 
         # MATHS
             bc gnuplot libqalculate
-            # maxima qalculate-gtk wxmaxima
 
         # TERMINAL MISC
-                # dict lowdown
             cava cmatrix doas-as-sudo xdragon entr figlet file ffmpeg fzf
             handlr htop hunspell hunspellDicts.en-gb-ise hyperfine jq killall
             lm_sensors lolcat ncdu ncspot nvd onefetch
@@ -203,23 +182,17 @@ in {
 
         # DESKTOP
             appimage-run anki-bin bitwarden calibre font-manager gnome-solanum handlr
-            # hyprland-git
-            # hyprland
-            # unstable.hyprland
             imagemagick imv libreoffice libnotify
             # libsForQt5.qtstyleplugin-kvantum
             libva libva-utils mpv
             mpvScripts.youtube-quality obs-studio obs-studio-plugins.wlrobs
             pavucontrol
-            # profanity
             pulsemixer signal-desktop qt5ct wally-cli
-            # xfce.thunar xfce.thunar-archive-plugin
             pcmanfm zathura
 
         # VISUAL
             gsettings-desktop-schemas gtk-engine-murrine gtk_engines
             solarc-gtk-theme gnome.adwaita-icon-theme
-            # numix-solarized-gtk-theme
 
         # PHOTO, GRAPHICS & VIDEO
             unstable.darktable hugin inkscape-with-extensions jpegoptim krita
@@ -228,14 +201,6 @@ in {
         # GAMING
             lutris minetest proton-caller
             protontricks protonup unstable.heroic mangohud
-            # # retro
-            # (retroarchFull.overrideAttrs (oldAttrs: {
-            #     cores = oldAttrs.cores ++ [
-            #         libretro.tic80
-            #     ];
-            # }))
-            # vice # commodore emulation
-            # w4 # wasm-4 fantasy console
 
         # LATEX
             biber texinfo texlab unstable.texlive.combined.scheme-full
@@ -258,21 +223,6 @@ in {
     # services.dictd = {
     #     enable = false;
     #     DBs = with pkgs.dictdDBs; [ wiktionary fra2eng eng2fra ];
-    # };
-
-    # # wasn't working
-    # programs.neovim = {
-    #     enable = true;
-    #     # package = pkgs.neovim-nightly;
-    #     package = pkgs-unstable.neovim;
-    #     withNodeJs = true;
-    #     withPython3 = true;
-    #     withRuby = true;
-    #     configure = {
-    #         customRC = ''
-    #             :luafile ${builtins.getEnv "XDG_CONFIG_HOME" }/nvim/init.lua
-    #         '';
-    #     };
     # };
 
 }

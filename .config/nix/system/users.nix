@@ -12,14 +12,11 @@ in {
     users.users.felix = {
         isNormalUser = true;
         extraGroups = [ "wheel" "networkmanager" "input" "uinput" "sway" ];
-        # extraGroups = [ "wheel" "networkmanager" "input" "uinput" ];
     };
 
     # shell
     programs.zsh.enable = true;
     users.defaultUserShell = pkgs-unstable.fish;
-
-    # services.getty.autologinUser = "felix";
 
     # home-manager
     home-manager = {
@@ -51,10 +48,11 @@ in {
         services.udiskie.enable = true;
 
         programs.neovim = {
-          plugins = with pkgs.vimPlugins; [
-            markdown-preview-nvim
-            packer-nvim
-          ];
+            enable = true;
+            package = pkgs-unstable.neovim-unwrapped;
+            plugins = with pkgs.vimPlugins; [
+                nvim-treesitter.withAllGrammars
+            ];
         };
 
         programs.nnn = {

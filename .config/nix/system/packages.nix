@@ -169,13 +169,16 @@ in {
             bc gnuplot libqalculate
 
         # TERMINAL MISC
-            cava cmatrix doas-as-sudo xdragon entr figlet file ffmpeg fzf
+            cmatrix doas-as-sudo xdragon entr figlet file ffmpeg fzf
             handlr htop hunspell hunspellDicts.en-gb-ise hyperfine jq killall
-            lm_sensors lolcat ncdu ncspot nvd onefetch
+            lm_sensors lolcat ncdu nvd onefetch
             oneshot pastel pandoc pdftk poppler_utils shgen termdown
             themesh tldr tmux tty-clock udiskie udisks unrar unzip v4l-utils
             libv4l w3m xdg-utils youtube-dl ytfzf zip zsh _7zz
             imgclr # haha, c'est a moi :D
+
+        # MUSIC & AUDIO
+            cava cmus ncspot pavucontrol pulsemixer
 
         # INTERNET & BLUETOOTH
             blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
@@ -186,8 +189,7 @@ in {
             # libsForQt5.qtstyleplugin-kvantum
             libva libva-utils mpv
             mpvScripts.youtube-quality obs-studio obs-studio-plugins.wlrobs
-            pavucontrol
-            pulsemixer signal-desktop qt5ct wally-cli
+            signal-desktop qt5ct wally-cli
             pcmanfm zathura
 
         # VISUAL

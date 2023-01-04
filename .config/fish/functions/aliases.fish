@@ -1,6 +1,6 @@
 alias shutdwn="shutdown -h now"
 alias weather="curl 'wttr.in/dc?m&format=3'"
-alias weatherreport="curl 'wttr.in/dc?m&format=v2d'"
+alias weatherreport="curl 'wttr.in/dc?m&format=v2d' | $PAGER "
 
 # if type -q bat
 #     alias cat="bat --style plain"

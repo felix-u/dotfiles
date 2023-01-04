@@ -8,7 +8,7 @@ confirm-mark-feed-read no
 
 # external browser
 browser "/usr/bin/env w3m %u"
-macro m set browser "/usr/bin/env mpv --ytdl-format=\"bestvideo[height<=?1200]+bestaudio/best\" %u" ; open-in-browser ; set browser "/usr/bin/env w3m %u"
+macro m set browser "/usr/bin/env mpv --ytdl-format=\"bestvideo[height<=?1200]+bestaudio/best\" --ytdl-raw-options=sub-lang=\"en\",write-sub=,write-auto-sub= --sid=1 --speed=2 %u" ; open-in-browser ; set browser "/usr/bin/env w3m %u"
 macro l set browser "/usr/bin/env qutebrowser %u" ; open-in-browser ; set browser "/usr/bin/env w3m %u"
 macro b set browser "/usr/bin/env firefox %u" ; open-in-browser ; set browser "/usr/bin/env w3m %u"
 macro y set browser "/usr/bin/env wl-copy %u" ; open-in-browser ; set browser "/usr/bin/env w3m %u"
@@ -27,8 +27,8 @@ bind-key I rev-sort
 color background         default   default
 color listnormal         color7    default
 color listnormal_unread  default   default
-color listfocus          black     cyan
-color listfocus_unread   black     cyan
+color listfocus          black     green
+color listfocus_unread   black     green
 color info               default   black
 color article            default   default
 
@@ -40,5 +40,5 @@ highlight article "\\[image\\ [0-9]+\\]" green default
 # highlight section separators
 # highlight feedlist "---.*---" blue default bold
 highlight feedlist "⋅⋅⋅.*⋅⋅⋅" blue default bold
-highlight feedlist "-.*-" green default bold
+highlight feedlist "-.*-" magenta default bold
 highlight feedlist ".*0/0.." default default invis

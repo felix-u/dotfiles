@@ -3,13 +3,13 @@
 let
     pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
     flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
-    hyprland = (import flake-compat {
-        src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
-    }).defaultNix;
+    # hyprland = (import flake-compat {
+    #     src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
+    # }).defaultNix;
 in {
-    imports = [
-        hyprland.nixosModules.default
-    ];
+    # imports = [
+    #     hyprland.nixosModules.default
+    # ];
     nix = {
         package = pkgs.nixFlakes;
         extraOptions = ''
@@ -29,34 +29,34 @@ in {
         };
     };
     nixpkgs.config.allowUnfree = true;
-    # NUR
-    nixpkgs.config.packageOverrides = pkgs: {
-        nur = import
-            (builtins.fetchTarball
-                "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-            inherit pkgs;
-        };
-    };
+    # # NUR
+    # nixpkgs.config.packageOverrides = pkgs: {
+    #     nur = import
+    #         (builtins.fetchTarball
+    #             "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+    #         inherit pkgs;
+    #     };
+    # };
 
-    # emacs setup and overlay
-    services.emacs.package = pkgs.emacsPgtkNativeComp;
-    services.emacs.enable = false;
-    nixpkgs.overlays = [
-      (import (builtins.fetchGit {
-        url = "https://github.com/nix-community/emacs-overlay.git";
-        ref = "master";
-        rev = "b324b27d58fe93add90d80e081c39d452ae1cb98";
-      }))
-        # hyprland.overlays.default
-        # (self: super: {
-        #     waybar = super.waybar.overrideAttrs (oldAttrs: {
-        #         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-        #     });
-        # })
-        (import (builtins.fetchTarball {
-          url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-        }))
-    ];
+    # # Overlays
+    # services.emacs.package = pkgs.emacsPgtkNativeComp;
+    # services.emacs.enable = false;
+    # nixpkgs.overlays = [
+    #   (import (builtins.fetchGit {
+    #     url = "https://github.com/nix-community/emacs-overlay.git";
+    #     ref = "master";
+    #     rev = "b324b27d58fe93add90d80e081c39d452ae1cb98";
+    #   }))
+    #     hyprland.overlays.default
+    #     (self: super: {
+    #         waybar = super.waybar.overrideAttrs (oldAttrs: {
+    #             mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    #         });
+    #     })
+    #     (import (builtins.fetchTarball {
+    #       url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    #     }))
+    # ];
 
     # packages for all systems
     environment.systemPackages =
@@ -70,14 +70,10 @@ in {
             doas "$@"
         '');
 
-        godot4-alpha = import ../derivations/godot4alpha.nix;
-
         helix-src = builtins.fetchTarball {
             url = "https://github.com/helix-editor/helix/archive/ba3c24aa0268735ac57321442d458ab6a1ac662c.tar.gz";
         };
         helix-git = import flake-compat { src = helix-src; };
-
-        nextvi = (pkgs.callPackage ../derivations/nextvi.nix {});
 
         odin-dev = pkgs.odin.overrideAttrs (oldAttrs: rec {
             nativeBuildInputs = with pkgs; oldAttrs.nativeBuildInputs ++ [
@@ -116,8 +112,6 @@ in {
         shgen = import ../derivations/shgen.nix;
 
         themesh = import ../derivations/themesh.nix;
-
-        w4 = import ../derivations/wasm-4.nix;
 
         zig-master = import ../derivations/zig-master.nix;
 
@@ -169,13 +163,22 @@ in {
             bc gnuplot libqalculate
 
         # TERMINAL MISC
-            cmatrix doas-as-sudo xdragon entr figlet file ffmpeg fzf
+            catimg cmatrix doas-as-sudo xdragon entr figlet file ffmpeg
             handlr htop hunspell hunspellDicts.en-gb-ise hyperfine jq killall
             lm_sensors lolcat ncdu nvd onefetch
-            oneshot pastel pandoc pdftk poppler_utils shgen termdown
+            pastel pandoc pdftk poppler_utils shgen termdown
             themesh tldr tmux tty-clock udiskie udisks unrar unzip v4l-utils
             libv4l w3m xdg-utils youtube-dl ytfzf zip zsh _7zz
             imgclr # haha, c'est a moi :D
+            (pkgs.symlinkJoin { # fzf should always run with '--color=16'
+                name = "fzf";
+                paths = [ pkgs.fzf ];
+                buildInputs = [ pkgs.makeWrapper ];
+                postBuild = ''
+                    wrapProgram $out/bin/fzf --add-flags "--color=16"
+                    wrapProgram $out/bin/fzf-tmux --add-flags "--color=16"
+                '';
+            })
 
         # MUSIC & AUDIO
             cava cmus ncspot pavucontrol pulsemixer
@@ -212,19 +215,7 @@ in {
 
     ];
 
-    # steam here, not working in packages
+    # Isn't installed correctly if in package list
     programs.steam.enable = true;
-
-    # # dict
-    # environment.etc."dict.conf".text = ''
-    #     server localhost
-    # '';
-    # environment.etc."conf.d/dictd".text = ''
-    #     DICTD_ARGS="--locale en_GB.UTF-8"
-    # '';
-    # services.dictd = {
-    #     enable = false;
-    #     DBs = with pkgs.dictdDBs; [ wiktionary fra2eng eng2fra ];
-    # };
 
 }

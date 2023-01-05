@@ -54,10 +54,6 @@ alias rainsh="~/dotfiles/scripts/rain.sh"
 # # ripgrep - ignore .gitignore and show hidden files, like grep
 # alias rg="rg -uuu"
 
-# fuzzy finding ftw
-alias sk="sk --color=16 --reverse"
-alias fzf="fzf --color=16 --reverse"
-
 alias swaptheme="~/dotfiles/scripts/theme/swaptheme.sh"
 
 # get temps by watching lm_sensors every half a second

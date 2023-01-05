@@ -60,13 +60,13 @@ end
 
 function nrs
     if [ (hostname) = "thonkpad" ]
-        doas nixos-rebuild switch \
+        doas nixos-rebuild switch --fast \
 	        -I nixos-config=$XDG_CONFIG_HOME/nix/thinkpad/configuration.nix
     else if [ (hostname) = "nixbtw" ]
-        doas nixos-rebuild switch \
+        doas nixos-rebuild switch --fast \
             -I nixos-config=$XDG_CONFIG_HOME/nix/pc/configuration.nix
     else if [ (hostname) = "toshiba" ]
-        doas nixos-rebuild switch \
+        doas nixos-rebuild switch --fast \
             -I nixos-config=$XDG_CONFIG_HOME/nix/toshiba/configuration.nix
     else
         echo "No config corresponding to this machine's hostname"

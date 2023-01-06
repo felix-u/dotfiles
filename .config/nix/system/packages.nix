@@ -126,16 +126,16 @@ in {
 
         # DEV AND PROGRAMMING
         # misc
+            bviplus
             # android-tools bsdiff
-            bviplus libresprite
-            # pixelorama rx
+            # libresprite pixelorama rx
             # openssl_3_0 pkg-config protobuf unstable.godot godot4-alpha
         # c
             binutils-unwrapped-all-targets clang clang-tools cppcheck
             cmake cmake-language-server gcc gdb gnumake man-pages-posix tinycc
             valgrind
         # go
-            go
+            go gopls
         # web (HTML, CSS, JS)
             nodejs yarn
             nodePackages.npm nodePackages.js-beautify
@@ -153,7 +153,6 @@ in {
             nodePackages.bash-language-server shellcheck
         # vim
             # neovim itself is managed by home-manager in system/users.nix
-            tree-sitter
             nodePackages.vscode-langservers-extracted
             nodePackages.vim-language-server
         # zig

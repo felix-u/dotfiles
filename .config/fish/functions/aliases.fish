@@ -1,3 +1,5 @@
+alias agenda="nota ~/uni/2023/spring/agenda -u -n Task"
+
 alias shutdwn="shutdown -h now"
 alias weather="curl 'wttr.in/dc?m&format=3'"
 alias weatherreport="curl 'wttr.in/dc?m&format=v2d' | $PAGER "

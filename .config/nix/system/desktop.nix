@@ -11,7 +11,8 @@ in {
         enable = true;
         wrapperFeatures.gtk = true;
         extraPackages = with pkgs; [
-            brightnessctl dmenu-wayland dmenu-wl_run dunst flashfocus glib
+            brightnessctl dmenu-wayland dmenu-wl_run dunst eww-wayland
+            flashfocus glib
             grim polkit_gnome
             slurp swaybg swayidle
             swaylock-effects
@@ -21,38 +22,39 @@ in {
     environment.pathsToLink = [ "/libexec" ]; # for polkit
     environment.sessionVariables = { GTK_USE_PORTAL="1"; };
     qt5.platformTheme = "qt5ct";
-    environment.systemPackages =
-    let
-        river-with-xwayland = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
-            src = pkgs.fetchFromGitHub {
-                owner = "riverwm";
-                repo = "river";
-                rev = "d4b2f2b0fc5766c8ae14a6f42fe76d058bfb3505";
-                sha256 = "sha256-Sb2EoVW06Iq734PHTw8+F2Q3DdAolOfvmKebqmqMiTU=";
-                fetchSubmodules = true;
-            };
-            buildInputs = with pkgs; [
-                wayland-protocols
-                wlroots
-                libxkbcommon
-                pixman
-                udev
-                libevdev
-                libinput
-                libGL
-                xorg.libX11
-            ];
-            installPhase = ''
-                runHook preInstall
-                zig build -Drelease-safe -Dcpu=baseline -Dxwayland -Dman-pages --prefix $out install
-                runHook postInstall
-              '';
-        });
-    in
-    with pkgs; [
-        # unstable.kile-wl
-        river-with-xwayland unstable.rivercarro wlr-randr
-    ];
+
+    # environment.systemPackages =
+    # let
+    #     river-with-xwayland = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
+    #         src = pkgs.fetchFromGitHub {
+    #             owner = "riverwm";
+    #             repo = "river";
+    #             rev = "d4b2f2b0fc5766c8ae14a6f42fe76d058bfb3505";
+    #             sha256 = "sha256-Sb2EoVW06Iq734PHTw8+F2Q3DdAolOfvmKebqmqMiTU=";
+    #             fetchSubmodules = true;
+    #         };
+    #         buildInputs = with pkgs; [
+    #             wayland-protocols
+    #             wlroots
+    #             libxkbcommon
+    #             pixman
+    #             udev
+    #             libevdev
+    #             libinput
+    #             libGL
+    #             xorg.libX11
+    #         ];
+    #         installPhase = ''
+    #             runHook preInstall
+    #             zig build -Drelease-safe -Dcpu=baseline -Dxwayland -Dman-pages --prefix $out install
+    #             runHook postInstall
+    #           '';
+    #     });
+    # in
+    # with pkgs; [
+    #     # unstable.kile-wl
+    #     river-with-xwayland unstable.rivercarro wlr-randr
+    # ];
 
     # pipewire
     services.pipewire = {

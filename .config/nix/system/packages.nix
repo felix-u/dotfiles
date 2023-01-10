@@ -196,7 +196,7 @@ in {
 
         # VISUAL
             gsettings-desktop-schemas gtk-engine-murrine gtk_engines
-            solarc-gtk-theme gnome.adwaita-icon-theme
+            solarc-gtk-theme adw-gtk3 gnome.adwaita-icon-theme
 
         # PHOTO, GRAPHICS & VIDEO
             unstable.darktable hugin inkscape-with-extensions jpegoptim krita

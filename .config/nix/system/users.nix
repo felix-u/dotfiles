@@ -35,7 +35,7 @@ in {
             font.name = "FreeSans";
             font.size = 11;
             iconTheme.name = "Adwaita";
-            theme.name = "SolArc-Dark";
+            theme.name = "adw-gtk3";
             gtk3.extraConfig = {
                 gtk-decoration-layout = "menu:";
                 # button-layout = "";

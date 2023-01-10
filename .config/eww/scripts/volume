@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+pulsemixer --get-volume | cut -f 1 -d " "

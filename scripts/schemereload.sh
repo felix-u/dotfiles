@@ -36,14 +36,19 @@ echo "helix"
 shgen "$DOTSCONF"/zathura/genzathurarc "$DOTSCONF"/zathura/zathurarc &
 echo "zathura"
 
-# css
-DIR=$(pwd)
-cd ~/dotfiles/misc/css || exit
-shgen gendiscord.css discord.css &
-shgen gengithub.css github.css &
-shgen genelement.css element.css &
-cd "$DIR" || exit
-echo "css"
+# # css
+# DIR=$(pwd)
+# cd ~/dotfiles/misc/css || exit
+# shgen gendiscord.css discord.css &
+# shgen gengithub.css github.css &
+# shgen genelement.css element.css &
+# cd "$DIR" || exit
+# echo "css"
+
+# gtk
+shgen "$DOTSCONF"/gtk-3.0/gengtk.css "$DOTSCONF"/gtk-3.0/gtk.css
+shgen "$DOTSCONF"/gtk-4.0/gengtk.css "$DOTSCONF"/gtk-4.0/gtk.css
+echo "gtk"
 
 # qutebrowser
 shgen "$DOTSCONF"/qutebrowser/genconfig.py "$DOTSCONF"/qutebrowser/config.py &

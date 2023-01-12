@@ -1,3 +1,4 @@
+alias vagenda="$EDITOR ~/uni/2023/spring/agenda"
 alias agenda="nota ~/uni/2023/spring/agenda -u -n Task"
 
 alias shutdwn="shutdown -h now"

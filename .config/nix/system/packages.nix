@@ -71,7 +71,7 @@ in {
         '');
 
         helix-src = builtins.fetchTarball {
-            url = "https://github.com/helix-editor/helix/archive/ba3c24aa0268735ac57321442d458ab6a1ac662c.tar.gz";
+            url = "https://github.com/helix-editor/helix/archive/051cd786a43a84912413b526782adffa9698fcd9.tar.gz";
         };
         helix-git = import flake-compat { src = helix-src; };
 
@@ -85,17 +85,17 @@ in {
             src = pkgs.fetchFromGitHub {
                 owner = "odin-lang";
                 repo = "Odin";
-                rev = "dev-2022-12";
-                sha256 = "sha256-FFAZLO2j0RjY2fvhyre+/efNpW36xK/wHnn1P9ZDzOI=";
+                rev = "dev-2023-01";
+                sha256 = "sha256-ExdOCasKlCJsHN01JioBrqx/5EoCzCSVFI4bcE6aLPk=";
             };
             installPhase = ''
                 mkdir -p $out/bin
                 cp odin $out/bin/odin
                 cp -r core $out/bin/core
-                CWD="$(pwd)"
-                cd vendor/stb/src && ${pkgs.gnumake}/bin/make
-                cd "$CWD"
-                cp -r vendor $out/bin/vendor
+                # CWD="$(pwd)"
+                # cd vendor/stb/src && ${pkgs.gnumake}/bin/make
+                # cd "$CWD"
+                # cp -r vendor $out/bin/vendor
                 wrapProgram $out/bin/odin --prefix PATH : ${lib.makeBinPath (with pkgs.llvmPackages; [
                   bintools
                   llvm

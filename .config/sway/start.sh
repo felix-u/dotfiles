@@ -158,23 +158,28 @@ swaymsg "bindsym $MOD+$ALT+Shift+v exec $XDG_CONFIG_HOME/sway/scripts/cursor hid
 # otherwise
 swaymsg "gaps inner 15" &
 #
-swaymsg "font pango:$(wq fontsans) 12" &
+swaymsg "font pango:$(wq fontmono) Bold 12" &
 swaymsg "title_format %app_id" &
 
-CLRFOCUSED="$W08"
-CLRUNFOCUSED="$W00"
-# CLRFOCUSED="$WA08"
-# CLRUNFOCUSED="$W08"
+CLRFOCUSED="$W07"
+CLRUNFOCUSED="$W08"
+TEXTFOCFG="$WBG"
+TEXTFOCBG="$W06"
+TEXTUNFOCFG="$WBG"
+TEXTUNFOCBG="$WFG"
+TEXTFOCINACTIVEBG="$W04"
+TEXTFOCINACTIVEFG="$WBG"
 swaymsg "default_border pixel 3"
-#               class        border       background       text     indicator    child border
-swaymsg "client.focused "$CLRUNFOCUSED" "$CLRFOCUSED" "$WFG" "$CLRFOCUSED" "$CLRFOCUSED"" &
+#               class        border       background             text                indicator      child border
+swaymsg "client.focused "$TEXTFOCBG"     "$TEXTFOCBG"        "$TEXTFOCFG"          "$CLRFOCUSED"   "$CLRFOCUSED"" &
 swaymsg "client.focused_inactive \
-                        "$CLRUNFOCUSED" "$CLRUNFOCUSED" "$WFG" "$CLRUNFOCUSED" "$CLRUNFOCUSED"" &
+                    "$TEXTFOCINACTIVEBG" "$TEXTFOCINACTIVEBG" "$TEXTFOCINACTIVEFG" "$CLRUNFOCUSED" "$CLRUNFOCUSED"" &
 swaymsg "client.unfocused \
-                        "$CLRUNFOCUSED" "$WBG" "$WFG" "$W15" "$CLRUNFOCUSED"" &
+                        "$TEXTUNFOCBG"   "$TEXTUNFOCBG"   "$TEXTUNFOCFG"          "$W15"        "$CLRUNFOCUSED"" &
 swaymsg "client.urgent  "$W01" "$CLRUNFOCUSED" "$WFG" "$W15" "$CLRUNFOCUSED"" &
-swaymsg "client.placeholder \
-                  "$WBG" "$WBG" "$WFG" "$WBG" "$WBG"" &
+# swaymsg "client.placeholder \
+#                   "$WBG" "$WBG" "$WFG" "$WBG" "$WBG"" &
+
 # # #
 # # rounded borders with sway-borders
 # swaymsg "default_border none" # remove titlebar
@@ -233,7 +238,8 @@ fi
 # Background colour
 # pkill swaybg; swaybg -c "$(pastel mix "$(wq color0)" "$(wq color8)" | pastel format hex)" &
 # pkill swaybg; swaybg -c "$(pastel darken 0.02 "$(wq background)" | pastel format hex)" &
-pkill swaybg; swaybg -c "$(wq color7)" &
+# pkill swaybg; swaybg -c "$(wq color7)" &
+pkill swaybg; swaybg -c "$(pastel mix "$W08" "$W04" | pastel desaturate 0.2 | pastel format hex)" &
 # # wallpaper
 # ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 

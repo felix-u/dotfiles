@@ -32,7 +32,7 @@ window#waybar {
 
     background: $(wq foreground);
     color: $(wq background);
-    border-bottom: 1px solid $(wq background);
+    border-bottom: 2px solid $(wq background);
 
     /* background: transparent; */
     /* color: $(wq foreground); */

@@ -1,5 +1,7 @@
-alias vagenda="$EDITOR ~/uni/2023/spring/agenda"
+alias aggpreset="agg --theme solarized-dark --font-family 'JetBrains Mono'  --font-size 25"
+
 alias agenda="nota ~/uni/2023/spring/agenda -u -n Task"
+alias vagenda="$EDITOR ~/uni/2023/spring/agenda"
 
 alias shutdwn="shutdown -h now"
 alias weather="curl 'wttr.in/dc?m&format=3'"

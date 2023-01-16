@@ -111,7 +111,13 @@ in {
 
         shgen = import ../derivations/shgen.nix;
 
+        signal-desktop = pkgs.signal-desktop.overrideAttrs (oldAttrs: rec {
+            runtimeDependencies = oldAttrs.runtimeDependencies ++ [ pkgs.wayland ];
+        });
+
         themesh = import ../derivations/themesh.nix;
+
+        wl-screenrec = import ../derivations/wl-screenrec.nix;
 
         zig-master = import ../derivations/zig-master.nix;
 
@@ -148,7 +154,7 @@ in {
         # python
             python3Full nodePackages.pyright
         # rust
-            cargo clippy rust-analyzer
+            cargo clippy rust-analyzer sccache
         # shell
             nodePackages.bash-language-server shellcheck
         # vim
@@ -186,7 +192,8 @@ in {
             blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
 
         # DESKTOP
-            appimage-run anki-bin bitwarden calibre font-manager gnome-solanum handlr
+            appimage-run anki-bin
+            bitwarden calibre font-manager gnome-solanum handlr
             imagemagick imv libreoffice libnotify
             # libsForQt5.qtstyleplugin-kvantum
             libva libva-utils mpv
@@ -199,6 +206,7 @@ in {
             solarc-gtk-theme adw-gtk3 gnome.adwaita-icon-theme
 
         # PHOTO, GRAPHICS & VIDEO
+            asciinema asciinema-agg
             unstable.darktable hugin inkscape-with-extensions jpegoptim krita
             luminanceHDR mediainfo unstable.gimp-with-plugins
 

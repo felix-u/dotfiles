@@ -14,7 +14,7 @@ in {
             tlp
 
         # DESKTOP
-            unstable.rnote xournalpp zoom-us
+            brightnessctl unstable.rnote xournalpp zoom-us
 
     ];
 }

@@ -11,7 +11,7 @@ in {
         enable = true;
         wrapperFeatures.gtk = true;
         extraPackages = with pkgs; [
-            brightnessctl dmenu-wayland dmenu-wl_run dunst eww-wayland
+            dmenu-wayland dmenu-wl_run dunst
             flashfocus glib
             grim polkit_gnome
             slurp swaybg swayidle

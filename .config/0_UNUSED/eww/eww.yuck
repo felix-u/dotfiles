@@ -1,61 +1,40 @@
-(defwidget bar []
-  (centerbox :orientation "v"
-    (workspaces)
-    (workspaces)
-    (bottomstuff)))
-
-(defwidget bottomstuff []
-  (box :class "bottomstuff" :orientation "v" :space-evenly false :valign "end"
-    (metric :label "🔊"
-            :value volume
-            :onchange "amixer -D pulse sset Master {}%")
-    (metric :label ""
-            :value {EWW_RAM.used_mem_perc}
-            :onchange "")
-    (metric :label "💾"
-            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
-            :onchange "")
-    time))
-
-(defwidget workspaces []
-  (box :class "workspaces"
-    :orientation "v"
-    :space-evenly true
-    :valign "start"
-    :spacing 10
-    (button :onclick "wmctrl -s 0" 1)
-    (button :onclick "wmctrl -s 1" 2)
-    (button :onclick "wmctrl -s 2" 3)
-    (button :onclick "wmctrl -s 3" 4)
-    (button :onclick "wmctrl -s 4" 5)
-    (button :onclick "wmctrl -s 5" 6)))
-
-
-(defwidget metric [label value onchange]
-  (box :orientation "v"
-        :class "metric"
-        :space-evenly false
-    (box :class "label" label)
-    (scale :min 0
-           :max 101
-           :active {onchange != ""}
-           :value value
-           :onchange onchange)))
-
-(defpoll volume :interval "1s"
-  "scripts/volume")
-
-(defpoll time :interval "10s"
-  "date '+%H:%M'")
-
 (defwindow bar
-           :monitor 0
-           :geometry (geometry :x "0%"
-                               :y "0%"
-                               :width "48px"
-                               :height "100%"
-                               :anchor "left center")
-           :stacking "fg"
-           :windowtype "dock"
-           :wm-ignore false
+  :monitor 0
+  :windowtype "dock"
+  :geometry
+    (geometry :x "0%"
+              :y "0%"
+              :width "100%"
+              :height "38px"
+              :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  :windowtype "dock"
   (bar))
+
+(defwidget bar []
+  (centerbox :orientation "h"
+    (box :orientation "h" :space-evenly false (time)) ; workspaces
+    (box :orientation "h" :space-evenly false (time))
+    (volume) ; stuff on the right
+  )
+)
+
+(defvar text-x-align 0.5)
+(defvar text-y-align 0.55)
+
+(defpoll time_poll :interval "10s" "scripts/time")
+(defwidget time []
+  (label :xalign text-x-align
+         :yalign text-y-align
+         :text time_poll)
+)
+
+(defpoll volume_poll :interval "1s" "scripts/volume")
+(defwidget volume []
+  (label
+    :xalign text-x-align
+    :yalign text-y-align
+    :text "${volume_poll}%")
+)

@@ -14,7 +14,7 @@ alias clock="tty-clock -c -C 6 -D"
 alias cmatrix="cmatrix -u 2"
 # alias dsk="startx \"$HOME/.xinitrc\""
 # alias dsk="sx \"$HOME/.xinitrc\""
-alias cdu="cd ~/uni/2022/autumn"
+alias cdu="cd ~/uni/2023/spring"
 
 # # fd (find) - what is it with people hardcoding colours instead of using ansi??
 # alias fd="fd --color never -uu"

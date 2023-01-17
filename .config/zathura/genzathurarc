@@ -48,13 +48,13 @@ set recolor-darkcolor           "$(wq foreground)" #foreground
 
 # light theme binding (press 1)
 map '1' feedkeys ":set statusbar-bg '$(wq light0)'<Return>3"
-map '3' feedkeys ":set statusbar-fg '$(wq lightfg)'<Return>4"
+map '3' feedkeys ":set statusbar-fg '$(wq color8)'<Return>4"
 map '4' feedkeys ":set default-bg '$(wq lightbg)'<Return>5"
-map '5' feedkeys ":set default-fg '$(wq lightfg)'<Return>6"
+map '5' feedkeys ":set default-fg '$(wq color8)'<Return>6"
 map '6' feedkeys ":set render-loading-bg '$(wq lightbg)'<Return>7"
-map '7' feedkeys ":set render-loading-fg '$(wq lightfg)'<Return>8"
+map '7' feedkeys ":set render-loading-fg '$(wq color8)'<Return>8"
 map '8' feedkeys ":set recolor-lightcolor '$(wq lightbg)'<Return>9"
-map '9' feedkeys ":set recolor-darkcolor '$(wq lightfg)'<Return>"
+map '9' feedkeys ":set recolor-darkcolor '$(wq color8)'<Return>"
 
 # dark theme binding (press 2)
 map '2' feedkeys ":set statusbar-bg '$(wq color0)'<Return>0"

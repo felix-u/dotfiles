@@ -142,6 +142,8 @@ in {
             valgrind
         # go
             go gopls
+        # java
+            jdk
         # web (HTML, CSS, JS)
             nodejs yarn
             nodePackages.npm nodePackages.js-beautify

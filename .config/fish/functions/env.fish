@@ -20,7 +20,7 @@ set -Ux READER 'zathura'
 set -Ux VIDEO 'mpv'
 set -Ux IMAGE 'imv'
 set -Ux WM 'sway'
-set -Ux PAGER 'less'
+set -Ux PAGER 'less -FIRX'
 set -Ux MANPAGER $PAGER
 set -Ux BROWSER "qutebrowser"
 set -Ux XCURSOR_SIZE 24

@@ -138,7 +138,8 @@ in {
             # openssl_3_0 pkg-config protobuf unstable.godot godot4-alpha
         # c
             binutils-unwrapped-all-targets clang clang-tools cppcheck
-            cmake cmake-language-server gcc gdb gnumake man-pages-posix tinycc
+            cmake cmake-language-server gcc gdb gnumake man-pages-posix
+            tinycc
             valgrind
         # go
             go gopls

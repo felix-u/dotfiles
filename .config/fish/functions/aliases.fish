@@ -1,9 +1,9 @@
 alias aggpreset="agg --theme solarized-dark --font-family 'JetBrains Mono'  --font-size 25"
 
 set -l AGENDAFILE ~/uni/2023/spring/agenda
-alias agenda="nota $AGENDAFILE -u -n Task"
+alias agenda="nota $AGENDAFILE -un Task --force-colour | $PAGER"
 alias vagenda="$EDITOR $AGENDAFILE"
-alias timetable="nota $AGENDAFILE -n Timetable | $PAGER"
+alias timetable="nota $AGENDAFILE -n Timetable --force-colour | $PAGER"
 
 alias shutdwn="shutdown -h now"
 alias weather="curl 'wttr.in/dc?m&format=3'"
@@ -24,6 +24,8 @@ alias cdu="cd ~/uni/2023/spring"
 # my fontpreview version
 # xres colours and imv rather than sxiv
 alias fontpreview="~/dotfiles/scripts/fontpreview"
+
+alias grep="grep --exclude-dir .git"
 
 # if type -q lsd
 #     alias la="lsd -lA"

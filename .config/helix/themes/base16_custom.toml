@@ -1,42 +1,92 @@
-# based on official helix base16_terminal theme by
+# based on solarized_dark theme by:
 # Author: NNB <nnbnh@protonmail.com>
 
-"ui.menu" = { fg = "white", bg = "black" }
-"ui.menu.selected" = { fg = "white", bg = "gray", modifiers = ["reversed"] }
-"ui.linenr" = { fg = "gray" }
-"ui.popup" = { bg = "black" }
-"ui.window" = { bg = "black" }
-"ui.linenr.selected" = "light-gray"
-"ui.selection" = { fg = "gray", modifiers = ["reversed"] }
-"ui.cursorline" = { bg = "black" }
-"comment" = "green"
-"string"  = "cyan"
-"ui.statusline" = { fg = "white", bg = "black" }
-"ui.statusline.inactive" = { fg = "gray", bg = "black" }
-"ui.help" = { fg = "white", bg = "black" }
-"ui.cursor" = { fg = "light-gray", modifiers = ["reversed"] }
-"ui.cursor.primary" = { fg = "light-gray", modifiers = ["reversed"] }
-"ui.virtual" = "light-gray"
-"ui.virtual.indent-guide" = "black"
-
-"constant.numeric" = "cyan"
-"constant" = "cyan"
-"constant.builtin" = "cyan"
+"attribute" = { fg = "magenta" }
+"keyword" = { fg = "white", modifiers = ["bold"] }
+"keyword.directive" = { fg = "magenta" }
+"namespace" = { fg = "magenta" }
+"operator" = { }
+"special" = { fg = "magenta" }
+"variable.builtin" = { fg = "cyan", modifiers = ["bold"] }
+"variable.function" = { fg = "blue" }
 "type" = { fg = "magenta" }
 "type.builtin" = { fg = "magenta" }
-"function" = "blue"
-"function.macro" = "magenta"
+"constructor" = { fg = "blue" }
+"function" = { fg = "blue" }
+"function.macro" = { fg = "magenta" }
+"function.builtin" = { fg = "blue", modifiers = ["bold"] }
 "function.special" = { fg = "magenta" }
-"punctuation" = "light-gray"
-"punctuation.delimiter" = "light-gray"
-# "keyword" = "blue"
+"comment" = { fg = "green" }
+"string" = { fg = "cyan" }
+"constant" = { fg = "cyan" }
+"constant.builtin" = { fg = "cyan", modifiers = ["bold"] }
+"constant.character.escape" = { fg = "yellow", modifiers = ["bold"] }
+"label" = { fg = "green" }
+"module" = { fg = "magenta" }
+"tag" = { fg = "magenta" }
 
-"markup.bold" = { modifiers = ["bold"] }
-"markup.italic" = { modifiers = ["italic"] }
-"markup.link.url" = { fg = "blue", modifiers = ["underlined"] }
-"diagnostic" = { modifiers = ["underlined"] }
-"info" = "light-blue"
-"hint" = "gray"
-"debug" = "gray"
-"warning" = "yellow"
-"error" = "light-red"
+"markup.heading" = "blue"
+"markup.list" = "red"
+"markup.bold" = { fg = "yellow", modifiers = ["bold"] }
+"markup.italic" = { fg = "magenta", modifiers = ["italic"] }
+"markup.link.url" = { fg = "yellow", modifiers = ["underlined"] }
+"markup.link.text" = "red"
+"markup.quote" = "cyan"
+"markup.raw" = "green"
+
+"diff.plus" = { fg = "green" }
+"diff.delta" = { fg = "magenta" }
+"diff.minus" = { fg = "red" }
+
+"ui.background" = {}
+
+"ui.virtual.whitespace" = { fg = "gray" }
+
+"ui.linenr" = { fg = "gray" }
+"ui.linenr.selected" = { fg = "white" }
+"ui.cursorline" = {}
+
+"ui.statusline" = { fg = "black", bg = "white" }
+"ui.statusline.normal" = { fg = "black", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "black", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "black", modifiers = ["bold"] }
+
+"ui.statusline.inactive" = { fg = "white", bg = "black" }
+
+"ui.popup" = { bg = "black" }
+"ui.menu.selected" = { fg = "black", bg = "white"}
+"ui.menu" = { fg = "white", bg = "black" }
+"ui.window" = { fg = "white" }
+"ui.help" = { modifiers = ["reversed"] }
+
+"ui.popup.info" = {fg = "black", bg = "white", modifiers = ["bold"]}
+"ui.text.info" = {fg = "black", modifiers = ["bold"]}
+
+"ui.text" = { fg = "white" }
+"ui.text.focus" = { fg = "blue", modifiers = ["bold"]}
+"ui.highlight" = { fg = "red", modifiers = ["bold", "italic", "underlined"] }
+
+"ui.cursor.primary" = { fg = "black", bg = "white" }
+"ui.cursor.select" = { fg = "black", bg = "cyan" }
+"ui.cursorline.primary" = { bg = "black" }
+"ui.cursorline.secondary" = { bg = "black" }
+
+"ui.selection" = { bg = "gray" }
+"ui.selection.primary" = { bg = "gray" }
+
+"ui.virtual.indent-guide" = { fg = "black" }
+"ui.virtual.ruler" = { fg = "red" }
+
+"ui.cursor" = {fg = "black", bg = "cyan"}
+"ui.cursor.insert" = {fg = "black", bg = "white"}
+"ui.cursor.match" = { fg = "black", bg = "gray" }
+
+"warning" =  { fg = "magenta", modifiers= ["bold", "underlined"] }
+"error" = { fg = "red", modifiers= ["bold", "underlined"] }
+"info" = { fg = "blue", modifiers= ["bold", "underlined"] }
+"hint" = { fg = "gray", modifiers= ["bold", "underlined"] }
+
+"diagnostic.warning" = { underline = { style = "curl", color = "magenta" } }
+"diagnostic.error" = { underline = { style = "curl", color = "red" } }
+"diagnostic.info" = { underline = { style = "curl", color = "blue" } }
+"diagnostic.hint" = { underline = { style = "curl", color = "gray" } }

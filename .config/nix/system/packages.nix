@@ -197,11 +197,13 @@ in {
         # DESKTOP
             appimage-run anki-bin
             bitwarden calibre font-manager gnome-solanum handlr
-            imagemagick imv libreoffice libnotify
+            imagemagick
+            imv libreoffice libnotify
             # libsForQt5.qtstyleplugin-kvantum
             libva libva-utils mpv
             mpvScripts.youtube-quality obs-studio obs-studio-plugins.wlrobs
-            signal-desktop qt5ct wally-cli
+            signal-desktop
+            qt5ct wally-cli
             pcmanfm zathura
 
         # VISUAL

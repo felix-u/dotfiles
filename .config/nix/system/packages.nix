@@ -144,7 +144,7 @@ in {
         # go
             go gopls
         # java
-            jdk
+            jdk11
         # web (HTML, CSS, JS)
             nodejs yarn
             nodePackages.npm nodePackages.js-beautify

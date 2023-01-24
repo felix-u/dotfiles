@@ -121,6 +121,9 @@ in {
 
         zig-master = import ../derivations/zig-master.nix;
 
+        zls-src = builtins.fetchTarball { url = "https://github.com/zigtools/zls/archive/master.tar.gz"; };
+        zls-master = import flake-compat { src = zls-src; };
+
     in
     with pkgs; [
 
@@ -166,7 +169,7 @@ in {
             nodePackages.vim-language-server
         # zig
             zig-master
-
+            # zls-master.defaultNix.packages.x86_64-linux.default
         # MATHS
             bc gnuplot libqalculate
 

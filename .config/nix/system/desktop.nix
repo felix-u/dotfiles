@@ -6,7 +6,14 @@ let
     pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
 
+    nixpkgs.overlays = [
+        (self: super: {
+            sway = pkgs-unstable.sway;
+        })
+    ];
+
     # wayland schtuff
+
     programs.sway = {
         enable = true;
         wrapperFeatures.gtk = true;

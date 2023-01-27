@@ -70,6 +70,7 @@ window#waybar {
     padding-right: 6px;
     /* color: $(wq color7); */
     color: $(wq color8);
+    font-weight: normal;
 }
 
 #workspaces button:hover {

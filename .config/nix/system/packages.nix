@@ -216,7 +216,8 @@ in {
         # PHOTO, GRAPHICS & VIDEO
             asciinema asciinema-agg
             unstable.darktable hugin inkscape-with-extensions jpegoptim krita
-            luminanceHDR mediainfo unstable.gimp-with-plugins
+            luminanceHDR mediainfo
+            gimp-with-plugins
 
         # GAMING
             lutris minetest proton-caller

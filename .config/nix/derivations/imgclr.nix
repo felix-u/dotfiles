@@ -1,25 +1,15 @@
-{ stdenv, fetchgit }:
-
 let
-    pkgs = import <nixpkgs> { };
+  pkgs = import <nixpkgs> { };
+
+  imgclr-bin = pkgs.fetchurl {
+    url = "https://github.com/felix-u/imgclr/releases/download/v0.1/imgclr-v0.1-x86_64-linux";
+    sha256 = "sha256-QgHn6ACqqzpXcNZPBfT4yZ97yTzQ2jeYMyhoe8rkQ88=";
+  };
 in
-
-stdenv.mkDerivation rec {
-    pname = "imgclr";
-    version = "0.1";
-
-    src = fetchgit {
-        url = "https://github.com/felix-u/imgclr";
-        sha256 = "sha256-bMA+TGoQm2j10F3LgF8zzRufEC7fnUZr7US0jNzVQaI=";
-        rev = "92e4c383e970e3c8007b4854c7964b6e199004cc";
-    };
-
-    buildPhase = ''
-        make release
-    '';
-
-    installPhase = ''
-        mkdir -p $out/bin
-        cp ./imgclr $out/bin/
-    '';
-}
+pkgs.runCommand "imgclr" {}
+    ''
+      #!${pkgs.stdenv.shell}
+      mkdir -p $out/bin
+      cp ${imgclr-bin} $out/bin/imgclr
+      chmod +x $out/bin/*
+    ''

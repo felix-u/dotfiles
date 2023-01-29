@@ -107,7 +107,7 @@ in {
 
         ols = import ../derivations/ols.nix;
 
-        imgclr = (pkgs.callPackage ../derivations/imgclr.nix {});
+        imgclr = import ../derivations/imgclr.nix;
 
         shgen = import ../derivations/shgen.nix;
 

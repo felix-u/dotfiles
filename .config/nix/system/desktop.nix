@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 
 let
-    dmenu-wl_run = import ../derivations/dmenu-wl.nix;
+    # dmenu-wl_run = import ../derivations/dmenu-wl.nix;
     unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
     pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
@@ -18,11 +18,12 @@ in {
         enable = true;
         wrapperFeatures.gtk = true;
         extraPackages = with pkgs; [
-            dmenu-wayland dmenu-wl_run dunst
+            # dmenu-wayland dmenu-wl_run
+            dunst
             flashfocus glib
             grim polkit_gnome
             slurp swaybg swayidle
-            swaylock-effects
+            swaylock-effects tofi
             waybar wayland wf-recorder wl-clipboard xwayland
         ];
     };

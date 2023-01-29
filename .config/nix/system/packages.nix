@@ -171,7 +171,7 @@ in {
             zig-master
             # zls-master.defaultNix.packages.x86_64-linux.default
         # MATHS
-            bc gnuplot libqalculate
+            bc gnuplot libqalculate maxima octaveFull
 
         # TERMINAL MISC
             catimg cmatrix doas-as-sudo xdragon entr figlet file ffmpeg

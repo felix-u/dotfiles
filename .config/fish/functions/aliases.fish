@@ -1,8 +1,9 @@
 alias aggpreset="agg --theme solarized-dark --font-family 'JetBrains Mono'  --font-size 25"
 
 set -l AGENDAFILE ~/uni/2023/spring/agenda
-alias agenda="nota $AGENDAFILE -un Task --force-colour | $PAGER"
-alias shouldve="nota $AGENDAFILE -bs ascending -n Task --not-tagged --force-colour | $PAGER"
+set -l NOTAFLAGS "--force-colour --line-num"
+alias agenda="nota $AGENDAFILE -un Task $NOTAFLAGS | $PAGER"
+alias shouldve="nota $AGENDAFILE -bs ascending -n Task --not-tagged $NOTAFLAGS | $PAGER"
 alias vagenda="$EDITOR $AGENDAFILE"
 alias timetable="nota $AGENDAFILE -n Timetable --force-colour | $PAGER"
 

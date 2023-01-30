@@ -105,6 +105,8 @@ in {
             '';
         });
 
+        nota = import ../derivations/nota.nix;
+
         ols = import ../derivations/ols.nix;
 
         imgclr = import ../derivations/imgclr.nix;
@@ -176,7 +178,7 @@ in {
         # TERMINAL MISC
             catimg cmatrix doas-as-sudo xdragon entr figlet file ffmpeg
             handlr htop hunspell hunspellDicts.en-gb-ise hyperfine jq killall
-            lm_sensors lolcat ncdu nvd onefetch
+            lm_sensors lolcat ncdu nota nvd onefetch
             pastel pandoc pdftk poppler_utils shgen termdown
             themesh tldr tmux tty-clock udiskie udisks unrar unzip v4l-utils
             libv4l w3m xdg-utils youtube-dl ytfzf zip zsh _7zz

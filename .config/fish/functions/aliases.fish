@@ -4,6 +4,7 @@ set -l AGENDAFILE ~/uni/2023/spring/agenda
 set -l NOTAFLAGS "--force-colour --line-num"
 alias agenda="nota $AGENDAFILE -un Task $NOTAFLAGS | $PAGER"
 alias shouldve="nota $AGENDAFILE -bs ascending -n Task --not-tagged $NOTAFLAGS | $PAGER"
+alias todo="clear && shouldve && agenda"
 alias vagenda="$EDITOR $AGENDAFILE"
 alias timetable="nota $AGENDAFILE -n Timetable --force-colour | $PAGER"
 

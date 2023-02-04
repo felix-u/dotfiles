@@ -38,7 +38,7 @@ export KEYTIMEOUT=1
 export VI_MODE_SET_CURSOR=true
 bindkey "^?" backward-delete-char
 
-    # # Change cursor, with tmux support
+    # # Change cursor, with tmux support ---
     # function _set_cursor() {
     #     if [[ $TMUX = '' ]]; then
     #       echo -ne $1
@@ -108,20 +108,6 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=magenta"
 
 # Automatic syntax pairs
 source /home/felix/.config/sh/zsh/zsh-autopair/autopair.zsh
-
-# # Plugin: zsh-synax-highlighting
-# source \
-#     /home/felix/.config/sh/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
-# typeset -A ZSH_HIGHLIGHT_STYLES
-# ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=magenta'
-# ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=magenta'
-# ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta'
-# ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=magenta'
-# ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=blue'
-# ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=cyan'
-# ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=cyan'
-# ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=fg,bold'
 
 # Nix
 if [ -e "$HOME"/.nix_profile/etc/profile.d/nix.sh ]; then

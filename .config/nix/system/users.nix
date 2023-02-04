@@ -27,6 +27,20 @@ in {
             any-nix-shell zsh --info-right | source /dev/stdin
         '';
         setOptions = [ "SHARE_HISTORY" "AUTO_CD" "AUTOMENU" "EXTENDEDGLOB" "GLOBDOTS" ];
+        syntaxHighlighting = {
+            enable = true;
+            highlighters = [ "main" "brackets" ];
+            styles = {
+                "bracket-level-1" = "fg=magenta";
+                "bracket-level-2" = "fg=magenta";
+                "bracket-level-3" = "fg=magenta";
+                "bracket-level-4" = "fg=magenta";
+                "commandseparator" = "fg=blue";
+                "single-quoted-argument" = "fg=cyan";
+                "double-quoted-argument" = "fg=cyan";
+                "reserved-word" = "fg=fg,bold";
+            };
+        };
     };
     users.defaultUserShell = pkgs.zsh;
 

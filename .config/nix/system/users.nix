@@ -15,8 +15,20 @@ in {
     };
 
     # shell
-    programs.zsh.enable = true;
-    users.defaultUserShell = pkgs-unstable.fish;
+    programs.zsh = {
+        enable = true;
+        autosuggestions= {
+            enable = true;
+            strategy = [ "history" "completion" ];
+        };
+        histFile = "$XDG_CACHE_HOME/zsh_history";
+        histSize = 10000;
+        promptInit = ''
+            any-nix-shell zsh --info-right | source /dev/stdin
+        '';
+        setOptions = [ "SHARE_HISTORY" "AUTO_CD" "AUTOMENU" "EXTENDEDGLOB" "GLOBDOTS" ];
+    };
+    users.defaultUserShell = pkgs.zsh;
 
     # home-manager
     home-manager = {

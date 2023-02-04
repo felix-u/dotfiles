@@ -12,6 +12,7 @@ set -Ux PKG_CONFIG_PATH "/usr/include"
 set -Ux BAT_THEME "ansi"
 
 # Defaults
+set -Ux CC "zig cc"
 set -Ux TERMINAL 'foot'
 set -Ux TERM_ITALICS true
 set -Ux EDITOR 'nvim'

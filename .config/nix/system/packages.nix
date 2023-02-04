@@ -181,7 +181,7 @@ in {
             lm_sensors lolcat ncdu nota nvd onefetch
             pastel pandoc pdftk poppler_utils shgen termdown
             themesh tldr tmux tty-clock udiskie udisks unrar unzip v4l-utils
-            libv4l w3m xdg-utils youtube-dl ytfzf zip zsh _7zz
+            libv4l w3m xdg-utils youtube-dl ytfzf zip _7zz
             imgclr # haha, c'est a moi :D
             (pkgs.symlinkJoin { # fzf should always run with '--color=16'
                 name = "fzf";

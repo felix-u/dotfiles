@@ -42,7 +42,7 @@ WS15="$(wqs color15)"
 
 MOD="Mod4"
 ALT="Mod1"
-TERM="footclient"
+TERM="foot"
 
 FILES='pcmanfm'
 SLURP="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
@@ -257,9 +257,6 @@ pkill swaybg; swaybg -c "$(pastel mix "$W08" "$W04" | pastel desaturate 0.2 | pa
 pkill flashfocus; flashfocus &
 
 pkill dunst; dunst &
-
-# foot terminal server
-foot --server &
 
 # Fix for first workspace having gaps 0 on startup
 swaymsg gaps inner current set 15 &

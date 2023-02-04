@@ -2,15 +2,15 @@
 # Author: NNB <nnbnh@protonmail.com>
 
 "attribute" = { fg = "magenta" }
-"keyword" = { fg = "white", modifiers = ["bold"] }
-"keyword.directive" = { fg = "magenta" }
+"keyword" = { fg = "magenta" }
+"keyword.directive" = { fg = "red" }
 "namespace" = { fg = "magenta" }
 "operator" = { }
 "special" = { fg = "magenta" }
 "variable.builtin" = { fg = "cyan", modifiers = ["bold"] }
 "variable.function" = { fg = "blue" }
-"type" = { fg = "magenta" }
-"type.builtin" = { fg = "magenta" }
+"type" = { fg = "yellow" }
+"type.builtin" = { fg = "yellow" }
 "constructor" = { fg = "blue" }
 "function" = { fg = "blue" }
 "function.macro" = { fg = "magenta" }

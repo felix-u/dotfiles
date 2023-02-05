@@ -236,10 +236,8 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
 fi
 
 # Background colour
-# pkill swaybg; swaybg -c "$(pastel mix "$(wq color0)" "$(wq color8)" | pastel format hex)" &
-# pkill swaybg; swaybg -c "$(pastel darken 0.02 "$(wq background)" | pastel format hex)" &
-# pkill swaybg; swaybg -c "$(wq color7)" &
-pkill swaybg; swaybg -c "$(pastel mix "$W08" "$W04" | pastel desaturate 0.2 | pastel format hex)" &
+# pkill swaybg; swaybg -c "$(pastel mix "$W08" "$W04" | pastel desaturate 0.2 | pastel format hex)" &
+pkill swaybg; swaybg -c "$(wq background)" &
 # # wallpaper
 # ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 

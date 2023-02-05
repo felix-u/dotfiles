@@ -30,15 +30,15 @@ window#waybar {
     padding: 0px;
     margin: 0px;
 
-    background: #93a1a1;
-    color: #002b36;
-    border-bottom: 2px solid #002b36;
+    background: #002b36;
+    color: #839496;
+    border-bottom: 2px solid #224750;
 
     /* background: transparent; */
-    /* color: #93a1a1; */
+    /* color: #002b36; */
 
     /* border-bottom: 2px solid #073642; */
-    /* border-bottom: 1px solid #00232c; */
+    /* border-bottom: 1px solid #7d8f91; */
 }
 
 #window {
@@ -69,7 +69,7 @@ window#waybar {
     /* padding-right: 13px; */
     padding-right: 6px;
     /* color: #657b83; */
-    color: #224750;
+    color: #657b83;
     font-weight: normal;
 }
 
@@ -81,7 +81,7 @@ window#waybar {
     transition: none;
     /* border-radius: 10px; */
     /* background: #073642; */
-    /* color: #93a1a1; */
+    /* color: #002b36; */
 }
 
 #workspaces button.focused {
@@ -89,7 +89,7 @@ window#waybar {
     /* border-radius: 10px; */
     /* background: #073642; */
     /* color: #2aa198; */
-    color: #002b36;
+    color: #839496;
     font-weight: bold;
 }
 
@@ -106,7 +106,7 @@ window#waybar {
     transition: none;
     padding-left: 6px;
     padding-right: 6px;
-    color: #446069;
+    color: #657b83;
     /* color: #657b83; */
 }
 #tags button:hover {
@@ -115,7 +115,7 @@ window#waybar {
 #tags button.occupied {
     transition: none;
     color: #657b83;
-    /* color: #446069; */
+    /* color: #657b83; */
 }
 #tags button.urgent {
     transition: none;
@@ -124,7 +124,7 @@ window#waybar {
 #tags button.focused {
     transition: none;
     color: #2aa198;
-    /* color: #93a1a1; */
+    /* color: #002b36; */
     font-weight: bold;
 }
 
@@ -139,19 +139,19 @@ window#waybar {
 }
 #cpu.warning {
     /* color: #b58900; */
-    color: #224750;
+    color: #657b83;
     /* background: #073642; */
 }
 #cpu.critical {
     /* color: #dc322f; */
-    color: #002b36;
+    color: #839496;
     /* background: #073642; */
 }
 
 #custom-clock {
     margin-top: 7px;
     margin-bottom: 6px;
-    color: #002b36;
+    color: #839496;
 }
 
 
@@ -172,7 +172,7 @@ window#waybar {
 }
 
 #battery.discharging {
-    color: #002b36;
+    color: #839496;
 }
 
 #battery.charging {
@@ -180,12 +180,12 @@ window#waybar {
     /* border-radius: 10px; */
     /* background: #073642; */
     /* color: #859900; */
-    color: #002b36;
+    color: #839496;
 }
 
 #battery.warning {
     /* color: #d33682; */
-    color: #002b36;
+    color: #839496;
 }
 
 #battery.critical {
@@ -193,7 +193,7 @@ window#waybar {
     /* border-radius: 10px; */
     /* background: #dc322f; */
     /* color: #dc322f; */
-    color: #002b36;
+    color: #839496;
 }
 
 
@@ -204,7 +204,7 @@ window#waybar {
     margin-right: 20px;
     padding-left: 6px;
     padding-right: 6px;
-    color: #002b36;
+    color: #839496;
 }
 #network.disconnected #network.disabled {
     /* color: #dc322f; */
@@ -221,12 +221,12 @@ window#waybar {
     margin-left: 6px;
     margin-right: 6px;
     padding: 0px 10px;
-    color: #002b36;
+    color: #839496;
 }
 
 #pulseaudio.muted {
     /* color: #657b83; */
-    color: #224750;
+    color: #657b83;
 }
 
 #pulseaudio.bluetooth {
@@ -238,5 +238,5 @@ window#waybar {
 
 #pulseaudio.bluetooth.muted {
     /* color: #657b83; */
-    color: #224750;
+    color: #657b83;
 }

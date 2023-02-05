@@ -144,7 +144,7 @@ in {
         # c
             binutils-unwrapped-all-targets clang clang-tools cppcheck
             cmake cmake-language-server gcc gdb gnumake man-pages-posix
-            tinycc
+            rr tinycc
             valgrind
         # go
             go gopls

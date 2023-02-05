@@ -4,12 +4,12 @@
 alias aggpreset="agg --theme solarized-dark --font-family 'JetBrains Mono'  --font-size 25"
 
 AGENDAFILE="$HOME/uni/2023/spring/agenda"
-NOTAFLAGS="--force-colour --line-num"
-alias agenda="nota \$AGENDAFILE -un Task \$NOTAFLAGS | \$PAGER"
-alias shouldve="nota \$AGENDAFILE -bs ascending -n Task --not-tagged \$NOTAFLAGS | \$PAGER"
+alias notaflags="nota --force-colour --line-num"
+alias agenda="notaflags \$AGENDAFILE -un Task | \$PAGER"
+alias shouldve="notaflags \$AGENDAFILE -bs ascending -n Task --not-tagged | \$PAGER"
 alias todo="clear && shouldve && agenda"
 alias vagenda="\$EDITOR \$AGENDAFILE"
-alias timetable="nota \$AGENDAFILE -n Timetable --force-colour | \$PAGER"
+alias timetable="notaflags \$AGENDAFILE -n Timetable | \$PAGER"
 
 alias cdu="cd ~/uni/2023/spring"
 alias clock="tty-clock -c -C 6 -D"

@@ -15,6 +15,9 @@ export LESS_TERMCAP_so=$'\e\[1\;34m'
 export LESS_TERMCAP_ue=$'\e\[0m'
 export LESS_TERMCAP_us=$'\e\[1\;4m'
 
+export PAGER=(less -FIRX)
+export MANPAGER="$PAGER"
+
 # Auto/tab complete ---
 autoload -U compinit
 compinit

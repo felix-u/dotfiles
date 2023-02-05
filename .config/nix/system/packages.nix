@@ -71,7 +71,7 @@ in {
         '');
 
         helix-src = builtins.fetchTarball {
-            url = "https://github.com/helix-editor/helix/archive/68fc10903aad7b5dbb5b8be4ee17343e1a1b8f6c.tar.gz";
+            url = "https://github.com/helix-editor/helix/archive/b2e83f81e10089a0e81ce33c4beb51aefc29a62e.tar.gz";
         };
         helix-git = import flake-compat { src = helix-src; };
 
@@ -85,8 +85,8 @@ in {
             src = pkgs.fetchFromGitHub {
                 owner = "odin-lang";
                 repo = "Odin";
-                rev = "dev-2023-01";
-                sha256 = "sha256-ExdOCasKlCJsHN01JioBrqx/5EoCzCSVFI4bcE6aLPk=";
+                rev = "dev-2023-02";
+                sha256 = "sha256-E+XVyYbBGPG+Z2P08Vr/pS7Ry0ay0Z3tbDqLoOcPg4k=";
             };
             installPhase = ''
                 mkdir -p $out/bin

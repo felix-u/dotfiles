@@ -16,7 +16,7 @@
 "function.macro" = { fg = "magenta" }
 "function.builtin" = { fg = "blue", modifiers = ["bold"] }
 "function.special" = { fg = "magenta" }
-"comment" = { fg = "green" }
+"comment" = { fg = "green", modifiers = ["italic"] }
 "string" = { fg = "cyan" }
 "constant" = { fg = "cyan" }
 "constant.builtin" = { fg = "cyan", modifiers = ["bold"] }

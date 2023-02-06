@@ -75,6 +75,10 @@ in {
         };
         helix-git = import flake-compat { src = helix-src; };
 
+        jdtls = (pkgs.writeShellScriptBin "jdtls" ''
+            jdt-language-server "$@"
+        '');
+
         odin-dev = pkgs.odin.overrideAttrs (oldAttrs: rec {
             nativeBuildInputs = with pkgs; oldAttrs.nativeBuildInputs ++ [
                 which llvmPackages.llvm.dev
@@ -149,7 +153,7 @@ in {
         # go
             go gopls
         # java
-            jdk11
+            jdk11 jdt-language-server jdtls
         # web (HTML, CSS, JS)
             nodejs yarn
             nodePackages.npm nodePackages.js-beautify

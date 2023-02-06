@@ -8,6 +8,11 @@ wqs () {
     wq "$1" | tr -d \#
 }
 
+# wallpaper
+# pkill swaybg; swaybg -c "$(pastel mix "$W08" "$W04" | pastel desaturate 0.2 | pastel format hex)" &
+pkill swaybg; swaybg -c "$(wq background)" &
+# ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
+
 WFG="$(wq foreground)"
 WBG="$(wq background)"
 W00="$(wq color0)"
@@ -34,15 +39,55 @@ WS07="$(wqs color7)"
 WS08="$(wqs color8)"
 WS15="$(wqs color15)"
 
-# WAFG="$(wq lightfg)"
-# WABG="$(wq lightbg)"
-# WA00="$(wq light0)"
-# WA08="$(wq light8)"
-# WA15="$(wq light15)"
-
 MOD="Mod4"
 ALT="Mod1"
 TERM="foot"
+
+#
+#  |   |   _)      |                 |
+#   _|   \  |   \  | / _ \  _` |  _` |
+# \__|_| _|_|_| _|_\_\.__/\__,_|\__,_|
+#                    _|
+#
+#
+#
+if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
+
+    "$XDG_CONFIG_HOME"/sway/scripts/binds qwerty "$MOD" "$ALT" "$TERM" &
+
+    WDPI=2
+
+    swaymsg "bindsym XF86MonBrightnessUp exec brightnessctl set +5%" &
+    swaymsg "bindsym XF86MonBrightnessDown exec brightnessctl set 5%-" &
+
+    swaymsg "output * resolution 3840x2400 position 3840 0 scale $WDPI" &
+    swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
+    swaymsg "xwayland scale=$WDPI" &
+
+    pkill waybar
+    waybar -c ~/.config/waybar/thinkpad.json &
+#  ____   ____
+# |  _ \ / ___|
+# | |_) | |
+# |  __/| |___
+# |_|    \____|
+#
+#
+#
+#
+elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
+
+    "$XDG_CONFIG_HOME"/sway/scripts/binds colemak "$MOD" "$ALT" "$TERM" &
+
+    WDPI="1.3"
+
+    swaymsg "output * resolution 3840x2160 position 3840 0 scale $WDPI" &
+    swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
+    swaymsg "xwayland scale=$WDPI" &
+
+    pkill waybar
+    waybar -c ~/.config/waybar/desktop.json &
+fi
 
 FILES='pcmanfm'
 SLURP="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
@@ -188,58 +233,6 @@ swaymsg "client.urgent  "$W01" "$CLRUNFOCUSED" "$WFG" "$W15" "$CLRUNFOCUSED"" &
 # swaymsg "border_images.unfocused ~/.config/sway/borders/v3/color0.png"
 # swaymsg "border_images.urgent ~/.config/sway/borders/v3/color0.png"
 # # 3
-
-#
-#  |   |   _)      |                 |
-#   _|   \  |   \  | / _ \  _` |  _` |
-# \__|_| _|_|_| _|_\_\.__/\__,_|\__,_|
-#                    _|
-#
-#
-#
-if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
-
-    "$XDG_CONFIG_HOME"/sway/scripts/binds qwerty "$MOD" "$ALT" "$TERM" &
-
-    WDPI=2
-
-    swaymsg "bindsym XF86MonBrightnessUp exec brightnessctl set +5%" &
-    swaymsg "bindsym XF86MonBrightnessDown exec brightnessctl set 5%-" &
-
-    swaymsg "output * resolution 3840x2400 position 3840 0 scale $WDPI" &
-    swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
-    swaymsg "xwayland scale=$WDPI" &
-
-    pkill waybar
-    waybar -c ~/.config/waybar/thinkpad.json &
-#  ____   ____
-# |  _ \ / ___|
-# | |_) | |
-# |  __/| |___
-# |_|    \____|
-#
-#
-#
-#
-elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
-
-    "$XDG_CONFIG_HOME"/sway/scripts/binds colemak "$MOD" "$ALT" "$TERM" &
-
-    WDPI="1.3"
-
-    swaymsg "output * resolution 3840x2160 position 3840 0 scale $WDPI" &
-    swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
-    swaymsg "xwayland scale=$WDPI" &
-
-    pkill waybar
-    waybar -c ~/.config/waybar/desktop.json &
-fi
-
-# Background colour
-# pkill swaybg; swaybg -c "$(pastel mix "$W08" "$W04" | pastel desaturate 0.2 | pastel format hex)" &
-pkill swaybg; swaybg -c "$(wq background)" &
-# # wallpaper
-# ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 
 #
 #  _.  _|_ _  __|_ _..__|_

@@ -21,7 +21,7 @@
 "constant" = { fg = "cyan" }
 "constant.builtin" = { fg = "cyan", modifiers = ["bold"] }
 "constant.character.escape" = { fg = "yellow", modifiers = ["bold"] }
-"label" = { fg = "green" }
+"label" = { fg = "white" }
 "module" = { fg = "magenta" }
 "tag" = { fg = "magenta" }
 
@@ -42,14 +42,14 @@
 
 "ui.virtual.whitespace" = { fg = "gray" }
 
-"ui.linenr" = { fg = "gray" }
-"ui.linenr.selected" = { fg = "white" }
+"ui.linenr" = { fg = "light-gray", bg = "black" }
+"ui.linenr.selected" = { fg = "white", modifiers = ["bold"] }
 "ui.cursorline" = {}
 
-"ui.statusline" = { fg = "black", bg = "white" }
-"ui.statusline.normal" = { fg = "black", modifiers = ["bold"] }
-"ui.statusline.insert" = { fg = "black", modifiers = ["bold"] }
-"ui.statusline.select" = { fg = "black", modifiers = ["bold"] }
+"ui.statusline" = { fg = "white", bg = "black" }
+"ui.statusline.normal" = { fg = "blue", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "cyan", modifiers = ["bold"] }
 
 "ui.statusline.inactive" = { fg = "white", bg = "black" }
 

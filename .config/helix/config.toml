@@ -1,6 +1,7 @@
 theme = "base16_custom"
 
 [editor]
+auto-format = false
 line-number = "relative"
 idle-timeout = 0
 cursorline = true

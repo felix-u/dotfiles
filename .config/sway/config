@@ -51,8 +51,8 @@ seat * hide_cursor when-typing enable
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-smart_gaps off
-hide_edge_borders none
+smart_gaps on
+hide_edge_borders smart
 focus_follows_mouse no
 
 include /etc/sway/config.d/*

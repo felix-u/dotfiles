@@ -53,7 +53,7 @@
         wantedBy = [ "multi-user.target" ];
         description = "Start kmonad";
         serviceConfig = {
-            Type = "oneshot";
+            Type = "simple";
             ExecStart = "/run/current-system/sw/bin/kmonad /home/felix/dotfiles/.config/kmonad/nixpad.kbd";
             User = "felix";
         };

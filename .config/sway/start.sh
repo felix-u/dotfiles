@@ -161,7 +161,7 @@ swaymsg "gaps inner 15" &
 swaymsg "font pango:$(wq fontmono) Bold 12" &
 swaymsg "title_format %app_id" &
 
-CLRFOCUSED="$W07"
+CLRFOCUSED="$W04"
 CLRUNFOCUSED="$W08"
 TEXTFOCFG="$WBG"
 TEXTFOCBG="$W06"

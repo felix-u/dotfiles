@@ -213,7 +213,7 @@ local highlight_groups = {
     TooLong = {fg = c.red01},
 
 	--[[ 4.1. Text Analysis ]]
-	Comment = {fg = c.green02, style = 'italic'},
+	Comment = {fg = c.grey07, style = 'italic'},
 	NonText = {fg = c.black08},
 	EndOfBuffer = 'NonText',
 	whitespace  = 'NonText',
@@ -229,20 +229,21 @@ local highlight_groups = {
 	--[[ 4.1.2. Identifiers]]
     Variable = 'NORMAL',
 	Identifier = 'NORMAL',
-	Function = {fg = c.blue04, style = 'nocombine'},
+	Function = 'NORMAL',
 
 	--[[ 4.1.3. Syntax]]
 	Statement   = {fg = c.red01},
-	Conditional = {fg = c.white15, style = 'bold'},
+	Conditional = {fg = c.green02 },
 	Repeat   = 'Conditional',
     -- this affects the currently highlighted scope in indent-blankline
-	Label    = {fg = c.black08, style = 'bold'},
-	Operator = {fg = c.white15},
-	Keyword  = {fg = c.magenta13},
-	Exception = {fg = c.magenta05},
+	Label    = 'NORMAL',
+	Operator = {fg = c.green02},
+	Keyword  = {fg = c.blue04},
+	Exception = {fg = c.red09},
 	Noise = 'Delimiter',
 
 	--[[ 4.1.4. Metatextual Information]]
+    Attribute = { fg = c.red09 },
 	Macro  = {fg = c.red09, style = 'nocombine'},
 	PreProc = 'Macro',
 	Include = 'Macro',
@@ -256,7 +257,7 @@ local highlight_groups = {
 	Typedef = {fg = c.yellow03, style = 'italic'},
 
 	--[[ 4.1.6. Edge Cases]]
-	Special = {fg = c.cyan06, style = 'bold'},
+	Special = {fg = c.cyan06 },
 	SpecialChar = {fg = c.magenta13, style = 'italic'},
 	SpecialKey = 'Character',
 	Tag = 'Underlined',
@@ -851,14 +852,16 @@ local highlight_groups = {
 	NERDTreeLinkTarget = 'Tag',
 
 	--[[ 4.4.8. nvim-treesitter ]]
+    TSAttribute = 'Attribute',
 	TSConstBuiltin = {fg = c.cyan06},
     TSConstMacro = 'Macro',
 	TSConstructor = 'Delimiter',
 	TSDanger = 'ErrorMsg',
     TSField = 'NORMAL',
     TSFunction = 'Function',
-	TSFuncBuiltin = 'Function',
+	TSFunctionBuiltin = 'Function',
     TSFuncMacro = 'Macro',
+    TSInclude = 'Include',
     TSPunctBracket = 'Delimiter',
 	TSTag = 'Tag',
     TSType = {fg = c.magenta13},

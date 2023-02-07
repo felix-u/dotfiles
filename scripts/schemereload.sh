@@ -79,7 +79,7 @@ echo "imv"
 
 # wallpaper
 pkill swaybg
-swaybg -c "$(wq color7)" &
+swaybg -c "$(wq background)" &
 echo "wallpaper"
 
 

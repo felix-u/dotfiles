@@ -90,10 +90,10 @@ _G.packer_plugins = {
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/NeoSolarized",
     url = "https://github.com/overcache/NeoSolarized"
   },
-  ["awesome-vim-colorschemes"] = {
+  ["base16-vim"] = {
     loaded = true,
-    path = "/home/felix/.local/share/nvim/site/pack/packer/start/awesome-vim-colorschemes",
-    url = "https://github.com/rafi/awesome-vim-colorschemes"
+    path = "/home/felix/.local/share/nvim/site/pack/packer/start/base16-vim",
+    url = "https://github.com/chriskempson/base16-vim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -170,6 +170,11 @@ _G.packer_plugins = {
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/cutlass.nvim",
     url = "https://github.com/gbprod/cutlass.nvim"
   },
+  flattened = {
+    loaded = true,
+    path = "/home/felix/.local/share/nvim/site/pack/packer/start/flattened",
+    url = "https://github.com/romainl/flattened"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -179,11 +184,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  ["gruvbox.nvim"] = {
-    loaded = true,
-    path = "/home/felix/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   harpoon = {
     loaded = true,
@@ -285,11 +285,6 @@ _G.packer_plugins = {
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  spaceduck = {
-    loaded = true,
-    path = "/home/felix/.local/share/nvim/site/pack/packer/start/spaceduck",
-    url = "https://github.com/pineapplegiant/spaceduck"
-  },
   ["targets.vim"] = {
     loaded = true,
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/targets.vim",
@@ -304,16 +299,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/home/felix/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
-  },
-  vacme = {
-    loaded = true,
-    path = "/home/felix/.local/share/nvim/site/pack/packer/start/vacme",
-    url = "https://github.com/olivertaylor/vacme"
   },
   ["vim-hexokinase"] = {
     commands = { "HexokinaseToggle" },
@@ -345,24 +330,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
-  },
-  ["yuck.vim"] = {
-    loaded = true,
-    path = "/home/felix/.local/share/nvim/site/pack/packer/start/yuck.vim",
-    url = "https://github.com/elkowar/yuck.vim"
-  },
-  ["zenburn.nvim"] = {
-    loaded = true,
-    path = "/home/felix/.local/share/nvim/site/pack/packer/start/zenburn.nvim",
-    url = "https://github.com/phha/zenburn.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: marks.nvim
-time([[Config for marks.nvim]], true)
-try_loadstring("\27LJ\2\nb\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\18builtin_marks\1\0\1\21default_mappings\2\nsetup\nmarks\frequire\0", "config", "marks.nvim")
-time([[Config for marks.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
@@ -371,32 +346,32 @@ time([[Config for which-key.nvim]], false)
 time([[Config for cutlass.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fcutlass\frequire\0", "config", "cutlass.nvim")
 time([[Config for cutlass.nvim]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
+-- Config for: marks.nvim
+time([[Config for marks.nvim]], true)
+try_loadstring("\27LJ\2\nb\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\18builtin_marks\1\0\1\21default_mappings\2\nsetup\nmarks\frequire\0", "config", "marks.nvim")
+time([[Config for marks.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'NnnExplorer', function(cmdargs)
-          require('packer.load')({'nnn.nvim'}, { cmd = 'NnnExplorer', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'nnn.nvim'}, { cmd = 'NnnExplorer' }, _G.packer_plugins)
-          return vim.fn.getcompletion('NnnExplorer ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'HexokinaseToggle', function(cmdargs)
           require('packer.load')({'vim-hexokinase'}, { cmd = 'HexokinaseToggle', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
         {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-hexokinase'}, { cmd = 'HexokinaseToggle' }, _G.packer_plugins)
+          require('packer.load')({'vim-hexokinase'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('HexokinaseToggle ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'NnnExplorer', function(cmdargs)
+          require('packer.load')({'nnn.nvim'}, { cmd = 'NnnExplorer', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'nnn.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('NnnExplorer ', 'cmdline')
       end})
 pcall(vim.api.nvim_create_user_command, 'NnnPicker', function(cmdargs)
           require('packer.load')({'nnn.nvim'}, { cmd = 'NnnPicker', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
         {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'nnn.nvim'}, { cmd = 'NnnPicker' }, _G.packer_plugins)
+          require('packer.load')({'nnn.nvim'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('NnnPicker ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
@@ -405,9 +380,9 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType lua ++once lua require("packer.load")({'cmp-nvim-lua'}, { ft = "lua" }, _G.packer_plugins)]]
-vim.cmd [[au FileType tex ++once lua require("packer.load")({'cmp-latex-symbols', 'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
 vim.cmd [[au FileType fish ++once lua require("packer.load")({'cmp-fish'}, { ft = "fish" }, _G.packer_plugins)]]
+vim.cmd [[au FileType tex ++once lua require("packer.load")({'cmp-latex-symbols', 'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
+vim.cmd [[au FileType lua ++once lua require("packer.load")({'cmp-nvim-lua'}, { ft = "lua" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]

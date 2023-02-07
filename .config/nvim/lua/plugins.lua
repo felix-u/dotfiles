@@ -142,8 +142,8 @@ return packer.startup{function(use, vim)
     -- syntax highlighting for odin (no treesitter support that I've found)
     use "Tetralux/odin.vim"
 
-    -- syntax highlighting for eww's yuck
-    use "elkowar/yuck.vim"
+    -- -- syntax highlighting for eww's yuck
+    -- use "elkowar/yuck.vim"
 
     use {
         "iamcco/markdown-preview.nvim",
@@ -237,12 +237,14 @@ return packer.startup{function(use, vim)
     -- I don't actually use any though :P
     use {
         "overcache/NeoSolarized",
-        "ellisonleao/gruvbox.nvim",
-        "folke/tokyonight.nvim",
-        "rafi/awesome-vim-colorschemes", -- this is a collection
-        "pineapplegiant/spaceduck",
-        "phha/zenburn.nvim",
-        "olivertaylor/vacme",
+        "romainl/flattened",
+        "chriskempson/base16-vim",
+        -- "ellisonleao/gruvbox.nvim",
+        -- "folke/tokyonight.nvim",
+        -- "rafi/awesome-vim-colorschemes", -- this is a collection
+        -- "pineapplegiant/spaceduck",
+        -- "phha/zenburn.nvim",
+        -- "olivertaylor/vacme",
     }
 
   -- automatically set up your configuration after cloning packer.nvim

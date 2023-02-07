@@ -228,7 +228,7 @@ local highlight_groups = {
 
 	--[[ 4.1.2. Identifiers]]
     Variable = 'NORMAL',
-	Identifier = {fg = c.red01, style = 'italic'},
+	Identifier = 'NORMAL',
 	Function = {fg = c.blue04, style = 'nocombine'},
 
 	--[[ 4.1.3. Syntax]]
@@ -238,19 +238,19 @@ local highlight_groups = {
     -- this affects the currently highlighted scope in indent-blankline
 	Label    = {fg = c.black08, style = 'bold'},
 	Operator = {fg = c.white15},
-	Keyword  = {fg = c.blue12},
+	Keyword  = {fg = c.magenta05},
 	Exception = {fg = c.magenta13},
 	Noise = 'Delimiter',
 
 	--[[ 4.1.4. Metatextual Information]]
-	Include = {fg = c.blue04, style = 'nocombine'},
-	Define = {fg = c.blue04, style = 'nocombine'},
-	Macro  = {fg = c.magenta05, style = 'nocombine'},
+	Macro  = {fg = c.red09, style = 'nocombine'},
 	PreProc = 'Macro',
+	Include = 'Macro',
+	Define = 'Macro',
 	PreCondit = {fg = c.yellow03, style = 'italic'},
 
 	--[[ 4.1.5. Semantics]]
-	Type         = {fg = c.magenta05},
+	Type         = {fg = c.magenta13},
 	StorageClass = {fg = c.yellow03, style = 'bold'},
 	Structure = {fg = c.magenta05, style = 'bold'},
 	Typedef = {fg = c.yellow03, style = 'italic'},
@@ -319,7 +319,7 @@ local highlight_groups = {
 	--[[ 4.2.7. Searching]]
 	IncSearch  = {style = 'inverse'},
 	MatchParen = {fg = c.green02, style = {'bold', 'underline'}},
-	Search = {fg = c.background, bg = c.magenta05,style = {'bold'}},
+	Search = {fg = c.background, bg = c.yellow03, style = {'bold'}},
 
 	--[[ 4.2.8. Spelling]]
 	SpellBad   = {style = {'undercurl', color = c.red01}},

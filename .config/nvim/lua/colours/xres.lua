@@ -70,7 +70,7 @@ vim.g.colors_name = 'xres'
 		<16-bit color code>, -- Integer 0–255 used by terminals supporting 256 colors
 		'<ANSI color name>'  -- color name used by less capable color terminals, can be 'darkc.red01',
 		                       'c.red01', 'darkc.green02', 'c.green02', 'darkc.yellow03', 'c.yellow03', 'darkc.blue04',
-		                       'c.blue04', 'darkc.magenta05', 'c.magenta05', 'c.black00', 'darkgrey', 'grey',
+		                       'c.blue04', 'darkc.magenta13', 'c.magenta13', 'c.black00', 'darkgrey', 'grey',
 		                       'c.white15'
 	}
 ```
@@ -238,8 +238,8 @@ local highlight_groups = {
     -- this affects the currently highlighted scope in indent-blankline
 	Label    = {fg = c.black08, style = 'bold'},
 	Operator = {fg = c.white15},
-	Keyword  = {fg = c.magenta05},
-	Exception = {fg = c.magenta13},
+	Keyword  = {fg = c.magenta13},
+	Exception = {fg = c.magenta05},
 	Noise = 'Delimiter',
 
 	--[[ 4.1.4. Metatextual Information]]
@@ -250,14 +250,14 @@ local highlight_groups = {
 	PreCondit = {fg = c.yellow03, style = 'italic'},
 
 	--[[ 4.1.5. Semantics]]
-	Type         = {fg = c.magenta13},
+	Type         = {fg = c.magenta05},
 	StorageClass = {fg = c.yellow03, style = 'bold'},
-	Structure = {fg = c.magenta05, style = 'bold'},
+	Structure = {fg = c.magenta13, style = 'bold'},
 	Typedef = {fg = c.yellow03, style = 'italic'},
 
 	--[[ 4.1.6. Edge Cases]]
 	Special = {fg = c.cyan06, style = 'bold'},
-	SpecialChar = {fg = c.magenta05, style = 'italic'},
+	SpecialChar = {fg = c.magenta13, style = 'italic'},
 	SpecialKey = 'Character',
 	Tag = 'Underlined',
 	Delimiter = {fg = c.white15},
@@ -269,8 +269,8 @@ local highlight_groups = {
 	Ignore = {fg = c.gray07},
 	Error = {fg = c.background, bg = c.red01},
 	Todo = 'WarningMsg',
-	Hint = {fg = c.black00, bg = c.magenta05, style = 'bold'},
-	Info = {fg = c.black00, bg = c.magenta05, style = 'bold'},
+	Hint = {fg = c.black00, bg = c.magenta13, style = 'bold'},
+	Info = {fg = c.black00, bg = c.magenta13, style = 'bold'},
 	Warning = {fg = c.black00, bg = c.yellow03, style = 'bold'},
 
 	--[[ 4.2... Editor UI  ]]
@@ -332,9 +332,9 @@ local highlight_groups = {
 	SignColumn  = {fg = c.black08},
 
 	--[[ 4.2.10. Messages]]
-	ErrorMsg = {fg = c.background, bg = c.magenta05, style = 'bold'},
-	HintMsg  = {fg = c.magenta05, style = 'italic'},
-	InfoMsg  = {fg = c.magenta05, style = 'italic'},
+	ErrorMsg = {fg = c.background, bg = c.magenta13, style = 'bold'},
+	HintMsg  = {fg = c.magenta13, style = 'italic'},
+	InfoMsg  = {fg = c.magenta13, style = 'italic'},
 	ModeMsg  = {fg = c.green02},
 	MoreMsg  = {fg = c.green02},
 	-- WarningMsg = {fg = c.background, bg = c.gr, style = 'bold'},
@@ -359,8 +359,8 @@ local highlight_groups = {
 	DiagnosticSignInfo = 'DiagnosticFloatingInfo',
 
 	DiagnosticUnderlineError = {style = {'undercurl', color = c.red01}},
-	DiagnosticUnderlineHint  = {style = {'undercurl', color = c.magenta05}},
-	DiagnosticUnderlineInfo  = {style = {'undercurl', color = c.magenta05}},
+	DiagnosticUnderlineHint  = {style = {'undercurl', color = c.magenta13}},
+	DiagnosticUnderlineInfo  = {style = {'undercurl', color = c.magenta13}},
 	DiagnosticUnderlineWarn = {style = {'undercurl', color = c.yellow03}},
 
 	LspDiagnosticsDefaultError = 'DiagnosticError',
@@ -583,7 +583,7 @@ local highlight_groups = {
 	markdownH3 = {fg = c.yellow03, style = 'bold'},
 	markdownH4 = {fg = c.green02, style = 'bold'},
 	markdownH5 = {fg = c.cyan06, style = 'bold'},
-	markdownH6 = {fg = c.magenta05, style = 'bold'},
+	markdownH6 = {fg = c.magenta13, style = 'bold'},
 	markdownLinkDelimiter = 'mkdDelimiter',
 	markdownLinkText = 'mkdLink',
 	markdownLinkTextDelimiter = 'markdownLinkDelimiter',
@@ -810,10 +810,10 @@ local highlight_groups = {
 	JumpMotion = 'EasyMotion',
 
     --[[ 4.4.3. lightspeed.nvim ]]
-    LightspeedDefault = {fg = c.magenta05, style = 'bold'},
+    LightspeedDefault = {fg = c.magenta13, style = 'bold'},
     LightspeedGreyWash = {fg = c.grey07},
     LightspeedLabel = {fg = c.background, bg = c.blue12, style = 'bold'},
-    LightspeedShortcut = {fg = c.background, bg = c.magenta05, style = 'bold'},
+    LightspeedShortcut = {fg = c.background, bg = c.magenta13, style = 'bold'},
     LightspeedLabelDistant = {fg = c.background, bg = c.yellow03},
     LightspeedMaskedChar = 'LightspeedDefault',
     LightspeedUnlabeledMatch = {fg = c.background, bg = c.foreground, style = 'bold'},
@@ -861,7 +861,7 @@ local highlight_groups = {
     TSFuncMacro = 'Macro',
     TSPunctBracket = 'Delimiter',
 	TSTag = 'Tag',
-    TSType = {fg = c.magenta05},
+    TSType = {fg = c.magenta13},
     TSTypeBuiltin = 'TSType',
 	TSWarning = {fg = c.background, bg = c.green02, style = 'bold'},
     TSKeywordOperator = 'Keyword',
@@ -870,9 +870,9 @@ local highlight_groups = {
     TSNote = 'WarningMsg',
     TSProperty = 'NORMAL',
     -- TSNote = function(self) return {fg = self.ErrorMsg.fg} end,
-    TSStringEscape = {fg = c.magenta05},
+    TSStringEscape = {fg = c.magenta13},
     TSStringSpecial = {fg = c.blue04},
-    TSSymbol = {fg = c.magenta05},
+    TSSymbol = {fg = c.magenta13},
     TSVariable = 'Variable',
     ["@variable"] = 'NORMAL',
     TSParameter = 'Variable',
@@ -1020,7 +1020,7 @@ local highlight_groups = {
 	 | 3      | darkc.green02     |
 	 | 4      | darkc.yellow03    |
 	 | 5      | darkc.blue04      |
-	 | 6      | darkc.magenta05   |
+	 | 6      | darkc.magenta13   |
 	 | 7      | darkc.cyan06      |
 	 | 8      | c.gray07          |
 	 | 9      | darkgray      |
@@ -1028,7 +1028,7 @@ local highlight_groups = {
 	 | 11     | c.green02         |
 	 | 12     | c.yellow03        |
 	 | 13     | c.blue04          |
-	 | 14     | c.magenta05       |
+	 | 14     | c.magenta13       |
 	 | 15     | c.cyan06          |
 	 | 16     | c.white15         |
 
@@ -1042,7 +1042,7 @@ local terminal_colors = {
 	[3]  = c.green02,
 	[4]  = c.yellow03,
 	[5]  = c.blue04,
-	[6]  = c.magenta05,
+	[6]  = c.magenta13,
 	[7]  = c.cyan06,
 	[8]  = c.grey07,
 	[9]  = c.black08,
@@ -1050,7 +1050,7 @@ local terminal_colors = {
 	[11] = c.green02,
 	[12] = c.yellow03,
 	[13] = c.cyan06,
-	[14] = c.magenta05,
+	[14] = c.magenta13,
 	[15] = c.cyan06,
 	[16] = c.white15
 }

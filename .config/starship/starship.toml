@@ -43,6 +43,9 @@ error_symbol   = "[λ](bold purple)"
 [git_status]
 disabled = true
 
+[git_branch]
+style = 'bold bright-purple'
+
 # clutter
 [package]
 disabled = true

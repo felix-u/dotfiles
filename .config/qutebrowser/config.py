@@ -20,7 +20,7 @@ colours = {
         'color2': '#859900',
         'color3': '#b58900',
         'color4': '#268bd2',
-        'color5': '#6c71c4',
+        'color5': '#d33682',
         'color6': '#2aa198',
         'color7': '#657b83',
         'color8': '#224750',
@@ -28,7 +28,7 @@ colours = {
         'color10': '#859900',
         'color11': '#b58900',
         'color12': '#268bd2',
-        'color13': '#d33682',
+        'color13': '#6c71c4',
         'color14': '#2aa198',
         'color15': '#839496',
         'fontmono': 'Iosevka'

@@ -27,8 +27,8 @@ xgen.fontsans: FreeSans
 *.color12:      #268bd2
 
 ! magenta
-*.color5:       #6c71c4
-*.color13:      #d33682
+*.color5:       #d33682
+*.color13:      #6c71c4
 
 ! cyan
 *.color6:       #2aa198

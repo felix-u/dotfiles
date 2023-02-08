@@ -295,7 +295,7 @@ local highlight_groups = {
 	CursorLineNr = function(self) return {fg = c.white15, bg = self.CursorLine.bg} end,
 	debugBreakpoint = 'ErrorMsg',
 	debugPC = 'ColorColumn',
-	LineNr  = {fg = c.black08},
+	LineNr  = {fg = c.grey07, bg = c.black00},
 	QuickFixLine = function(self) return {bg = self.StatusLine.bg} end,
 	Visual    = {style = 'inverse'},
 	VisualNOS = {bg = c.black08},

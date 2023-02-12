@@ -37,13 +37,13 @@ in {
     #         src = pkgs.fetchFromGitHub {
     #             owner = "riverwm";
     #             repo = "river";
-    #             rev = "d4b2f2b0fc5766c8ae14a6f42fe76d058bfb3505";
-    #             sha256 = "sha256-Sb2EoVW06Iq734PHTw8+F2Q3DdAolOfvmKebqmqMiTU=";
+    #             rev = "e1ab51f";
+    #             sha256 = "sha256-Y6HGAiUpdH4flluBqOP4aXiPAoik5cSchtlPEiUvKlw=";
     #             fetchSubmodules = true;
     #         };
     #         buildInputs = with pkgs; [
     #             wayland-protocols
-    #             wlroots
+    #             pkgs-unstable.wlroots_0_16
     #             libxkbcommon
     #             pixman
     #             udev

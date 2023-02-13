@@ -37,7 +37,7 @@ in {
     #         src = pkgs.fetchFromGitHub {
     #             owner = "riverwm";
     #             repo = "river";
-    #             rev = "e1ab51f";
+    #             rev = "e1ab51f26071958bbeb2d0c637d3d00eb4326fdf";
     #             sha256 = "sha256-Y6HGAiUpdH4flluBqOP4aXiPAoik5cSchtlPEiUvKlw=";
     #             fetchSubmodules = true;
     #         };
@@ -52,15 +52,15 @@ in {
     #             libGL
     #             xorg.libX11
     #         ];
-    #         installPhase = ''
+    #           installPhase = ''
     #             runHook preInstall
     #             zig build -Drelease-safe -Dcpu=baseline -Dxwayland -Dman-pages --prefix $out install
+    #             install contrib/river.desktop -Dt $out/share/wayland-sessions
     #             runHook postInstall
     #           '';
     #     });
     # in
     # with pkgs; [
-    #     # unstable.kile-wl
     #     river-with-xwayland unstable.rivercarro wlr-randr
     # ];
 

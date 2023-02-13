@@ -109,6 +109,9 @@ in {
             '';
         });
 
+        # broken
+        nfm = pkgs.callPackage ../derivations/nfm.nix {};
+
         nota = import ../derivations/nota.nix;
 
         ols = import ../derivations/ols.nix;

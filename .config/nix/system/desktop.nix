@@ -31,38 +31,21 @@ in {
     environment.sessionVariables = { GTK_USE_PORTAL="1"; };
     qt5.platformTheme = "qt5ct";
 
-    # environment.systemPackages =
-    # let
-    #     river-with-xwayland = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
-    #         src = pkgs.fetchFromGitHub {
-    #             owner = "riverwm";
-    #             repo = "river";
-    #             rev = "e1ab51f26071958bbeb2d0c637d3d00eb4326fdf";
-    #             sha256 = "sha256-Y6HGAiUpdH4flluBqOP4aXiPAoik5cSchtlPEiUvKlw=";
-    #             fetchSubmodules = true;
-    #         };
-    #         buildInputs = with pkgs; [
-    #             wayland-protocols
-    #             pkgs-unstable.wlroots_0_16
-    #             libxkbcommon
-    #             pixman
-    #             udev
-    #             libevdev
-    #             libinput
-    #             libGL
-    #             xorg.libX11
-    #         ];
-    #           installPhase = ''
-    #             runHook preInstall
-    #             zig build -Drelease-safe -Dcpu=baseline -Dxwayland -Dman-pages --prefix $out install
-    #             install contrib/river.desktop -Dt $out/share/wayland-sessions
-    #             runHook postInstall
-    #           '';
-    #     });
-    # in
-    # with pkgs; [
-    #     river-with-xwayland unstable.rivercarro wlr-randr
-    # ];
+    environment.systemPackages =
+    let
+        # river-with-xwayland = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
+        #     src = pkgs.fetchFromGitHub {
+        #         owner = "riverwm";
+        #         repo = "river";
+        #         rev = "e1ab51f26071958bbeb2d0c637d3d00eb4326fdf";
+        #         sha256 = "sha256-Y6HGAiUpdH4flluBqOP4aXiPAoik5cSchtlPEiUvKlw=";
+        #         fetchSubmodules = true;
+        #     };
+        # });
+    in
+    with pkgs; [
+        unstable.river unstable.rivercarro wlr-randr
+    ];
 
     # pipewire
     services.pipewire = {

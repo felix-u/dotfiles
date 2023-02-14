@@ -85,10 +85,9 @@ elif [[ "$(cat /proc/sys/kernel/hostname)" == "nixbtw" ]]; then
     pkill waybar
     waybar -c ~/.config/waybar/river_desktop.json &
 
-    # MOUSE="pointer-1133-16514-Logitech_MX_Master_3"
-    MOUSE="pointer-5426-101-Razer_Razer_Basilisk_Essential"
+    MOUSE="pointer-1133-50504-Logitech_USB_Receiver_Mouse"
     riverctl input "$MOUSE" accel-profile flat &
-    riverctl input "$MOUSE" natural-scroll disabled &
+    riverctl input "$MOUSE" natural-scroll enabled &
 
     left="M"
     down="N"
@@ -270,7 +269,7 @@ riverctl map normal $mod+Shift $pagedown set-view-tags ${scratch_tag}
 
 # Set spawn tagmask to ensure new windows don't have the scratchpad tag unless
 # explicitly set.
-all_but_scratch_tag=$(( ((1 << 32) - 1) ^ $scratch_tag ))
+all_but_scratch_tag=$(( ((1 << 32) - 1) ^ scratch_tag ))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 
 
@@ -307,14 +306,11 @@ riverctl map normal $mod V spawn \
      riverctl hide-cursor when-typing enabled && \
      notify-send 'Enabled cursor hiding'" &
 # wallpaper
-# riverctl background-color "0x$(pastel darken 0.01 "$(wq background)" | pastel format hex | tr -d \#)" &
-# riverctl background-color "0x$(pastel mix "$(wq background)" "$(wq color0)" | pastel format hex | tr -d \#)" &
-# riverctl background-color "0x$(wqs color8)" &
-riverctl background-color "0x$(pastel mix "$(wq color0)" "$(wq color8)" | pastel format hex | tr -d \#)" &
+riverctl background-color "0x$WSBG" &
 # pkill swaybg; swaybg -m fill -i  ~/dotfiles/Pictures/cafe-walls/corentin-wunsche-parking.jpg &
 #"$XDG_CONFIG_HOME"/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 riverctl border-color-focused "0x$WS04" &
-riverctl border-color-unfocused "0x$WS00" &
+riverctl border-color-unfocused "0x$WS08" &
 riverctl border-color-urgent "0x$WS01" &
 riverctl border-width 3 &
 riverctl xcursor-theme Adwaita 24 &
@@ -322,22 +318,20 @@ riverctl xcursor-theme Adwaita 24 &
 
 /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
-pkill dunst
-dunst &
+pkill dunst; dunst &
 
-# TODO: use kile instead
-# Set and exec into rivercarro.
-# River will send the process group of the init executable SIGTERM on exit.
+DEFAULT_GAPS_OUTER=15
+DEFAULT_GAPS_INNER=15
 riverctl default-layout rivercarro &
 pkill rivercarro
-rivercarro -outer-gaps 13 -inner-gaps 9 -no-smart-gaps &
+rivercarro -outer-gaps "$DEFAULT_GAPS_OUTER" -inner-gaps "$DEFAULT_GAPS_INNER" -no-smart-gaps &
 
 riverctl map normal $mod G send-layout-cmd rivercarro "gaps +9" &
 riverctl map normal $mod+Shift G send-layout-cmd rivercarro "gaps -9" &
 riverctl map normal $mod Period send-layout-cmd rivercarro "outer-gaps +9" &
 riverctl map normal $mod+Shift Period send-layout-cmd rivercarro "outer-gaps -9" &
 resetgaps="\
-    riverctl send-layout-cmd rivercarro 'outer-gaps 13' & \
-    riverctl send-layout-cmd rivercarro 'inner-gaps 9' & \
+    riverctl send-layout-cmd rivercarro 'outer-gaps $DEFAULT_GAPS_OUTER' & \
+    riverctl send-layout-cmd rivercarro 'inner-gaps $DEFAULT_GAPS_INNER' & \
 "
 riverctl map normal $mod+$alt G spawn "$resetgaps" &

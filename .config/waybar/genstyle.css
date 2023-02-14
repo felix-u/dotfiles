@@ -106,8 +106,8 @@ window#waybar {
     transition: none;
     padding-left: 6px;
     padding-right: 6px;
-    color: $(pastel mix $(wq color7) $(wq color7) | pastel format hex);
-    /* color: $(wq color7); */
+    color: $(wq color8);
+    font-weight: normal;
 }
 #tags button:hover {
     background: transparent;
@@ -115,7 +115,7 @@ window#waybar {
 #tags button.occupied {
     transition: none;
     color: $(wq color7);
-    /* color: $(pastel mix $(wq color7) $(wq color7) | pastel format hex); */
+    font-weight: normal;
 }
 #tags button.urgent {
     transition: none;
@@ -123,8 +123,7 @@ window#waybar {
 }
 #tags button.focused {
     transition: none;
-    color: $(wq color6);
-    /* color: $(wq background); */
+    color: $(wq color15);
     font-weight: bold;
 }
 

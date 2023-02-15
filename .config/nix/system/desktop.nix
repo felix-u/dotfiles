@@ -18,9 +18,8 @@ in {
         enable = true;
         wrapperFeatures.gtk = true;
         extraPackages = with pkgs; [
-            # dmenu-wayland dmenu-wl_run
             dunst
-            flashfocus glib
+            glib
             grim polkit_gnome
             slurp swaybg swayidle
             swaylock-effects tofi

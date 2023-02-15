@@ -245,8 +245,6 @@ swaymsg "client.urgent  "$W01" "$CLRUNFOCUSED" "$WFG" "$W15" "$CLRUNFOCUSED"" &
 # polkit-dumb-agent &
 /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
-pkill flashfocus; flashfocus &
-
 pkill dunst; dunst &
 
 # Fix for first workspace having gaps 0 on startup

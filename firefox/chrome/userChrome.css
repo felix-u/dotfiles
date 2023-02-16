@@ -1,15 +1,15 @@
 :root {
-    --fg: #93a1a1;
-    --bg: #002b36;
-    --black: #073642;
-    --red: #dc322f;
-    --green: #859900;
-    --yellow: #b58900;
-    --blue: #268bd2;
-    --magenta: #d33682;
-    --cyan: #2aa198;
-    --grey: #657b83;
-    --xcolor15: #839496;
+    --fg: #000000;
+    --bg: #ffffff;
+    --black: #efefef;
+    --red: #a0342f;
+    --green: #065905;
+    --yellow: #999950;
+    --blue: #00a8ff;
+    --magenta: #8888cc;
+    --cyan: #57a8a8;
+    --grey: #777777;
+    --xcolor15: #000000;
 
     --sans: FreeSans;
     --mono: Iosevka;
@@ -262,19 +262,6 @@
 
 
 /* ------------------------------------------------------------------------- */
-/* Modifies the urlbar text color based on connection type - "normal" https: won't be mdofied */
-/* Mixed content including neterror */
-#identity-box[pageproxystate="valid"].unknownIdentity ~ .urlbar-input-box{ color: var(--red) }
-/* http: and potentially some other insecure connections like ftp: */
-#identity-box[pageproxystate="valid"].notSecure ~ .urlbar-input-box{ color: var(--red) }
-/* Extension pages */
-#identity-box[pageproxystate="valid"].extensionPage ~ .urlbar-input-box{ color: var(--magenta) }
-/* Internal about: and chrome:// urls (includes reader-view) */
-#identity-box[pageproxystate="valid"].localResource ~ .urlbar-input-box,
-#identity-box[pageproxystate="valid"].chromeUI ~ .urlbar-input-box{ color: var(--blue) }
-
-
-/* ------------------------------------------------------------------------- */
 /* Make bunch of things in the main UI round */
 
 /* :root{ --toolbarbutton-border-radius: 12 !important } */
@@ -353,7 +340,8 @@
     content: counter(nth-tab) " ";
     counter-increment: nth-tab;
     font-family: Iosevka !important;
-    color: var(--red); /* red */
+    font-weight: normal !important;
+    color: var(--background); /* red */
     border-radius: 16px;
     padding-left: 8px;
     margin-right: 25px;
@@ -363,7 +351,8 @@
     content: counter(nth-tab) " ";
     counter-increment: nth-tab;
     font-family: Iosevka !important;
-    color: var(--blue); /* blue */
+    font-weight: bold !important;
+    color: var(--color7); /* blue */
     border-radius: 16px;
     padding-left: 8px;
     margin-right: 25px;

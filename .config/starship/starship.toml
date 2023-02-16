@@ -31,8 +31,8 @@ $shell\
 $character"""
 
 [character]
-success_symbol = "[λ](bold blue)"
-error_symbol   = "[λ](bold purple)"
+success_symbol = "[λ](bold)"
+error_symbol   = "[λ](bold red)"
 # some more symbols:
 # ➜
 # 
@@ -44,7 +44,7 @@ error_symbol   = "[λ](bold purple)"
 disabled = true
 
 [git_branch]
-style = 'bold bright-purple'
+style = 'bright-black'
 
 # clutter
 [package]

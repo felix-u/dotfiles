@@ -9,8 +9,7 @@ wqs () {
 }
 
 # wallpaper
-# pkill swaybg; swaybg -c "$(pastel mix "$W08" "$W04" | pastel desaturate 0.2 | pastel format hex)" &
-pkill swaybg; swaybg -c "$(wq background)" &
+pkill swaybg; swaybg -c "$(wq color7)" &
 # ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 
 WFG="$(wq foreground)"
@@ -206,12 +205,12 @@ swaymsg "gaps inner 15" &
 swaymsg "font pango:$(wq fontmono) Bold 12" &
 swaymsg "title_format %app_id" &
 
-CLRFOCUSED="$W04"
-CLRUNFOCUSED="$W08"
-TEXTFOCFG="$WBG"
-TEXTFOCBG="$W06"
-TEXTUNFOCFG="$WBG"
-TEXTUNFOCBG="$WFG"
+CLRFOCUSED="$WFG"
+CLRUNFOCUSED="$W06"
+TEXTFOCFG="$WFG"
+TEXTFOCBG="$W00"
+TEXTUNFOCFG="$W07"
+TEXTUNFOCBG="$WBG"
 TEXTFOCINACTIVEBG="$W04"
 TEXTFOCINACTIVEFG="$WBG"
 swaymsg "default_border pixel 3"

@@ -30,15 +30,15 @@ window#waybar {
     padding: 0px;
     margin: 0px;
 
-    background: #002b36;
-    color: #839496;
-    border-bottom: 2px solid #224750;
+    background: #ffffff;
+    color: #000000;
+    border-bottom: 2px solid #989898;
 
     /* background: transparent; */
-    /* color: #002b36; */
+    /* color: #ffffff; */
 
-    /* border-bottom: 2px solid #073642; */
-    /* border-bottom: 1px solid #7d8f91; */
+    /* border-bottom: 2px solid #efefef; */
+    /* border-bottom: 1px solid #000000; */
 }
 
 #window {
@@ -68,8 +68,8 @@ window#waybar {
     padding-left: 6px;
     /* padding-right: 13px; */
     padding-right: 6px;
-    /* color: #657b83; */
-    color: #657b83;
+    /* color: #777777; */
+    color: #777777;
     font-weight: normal;
 }
 
@@ -80,16 +80,16 @@ window#waybar {
 #workspaces button.active {
     transition: none;
     /* border-radius: 10px; */
-    /* background: #073642; */
-    /* color: #002b36; */
+    /* background: #efefef; */
+    /* color: #ffffff; */
 }
 
 #workspaces button.focused {
     transition: none;
     /* border-radius: 10px; */
-    /* background: #073642; */
-    /* color: #2aa198; */
-    color: #839496;
+    /* background: #efefef; */
+    /* color: #57a8a8; */
+    color: #000000;
     font-weight: bold;
 }
 
@@ -106,7 +106,7 @@ window#waybar {
     transition: none;
     padding-left: 6px;
     padding-right: 6px;
-    color: #224750;
+    color: #989898;
     font-weight: normal;
 }
 #tags button:hover {
@@ -114,16 +114,16 @@ window#waybar {
 }
 #tags button.occupied {
     transition: none;
-    color: #657b83;
+    color: #777777;
     font-weight: normal;
 }
 #tags button.urgent {
     transition: none;
-    color: #dc322f;
+    color: #a0342f;
 }
 #tags button.focused {
     transition: none;
-    color: #839496;
+    color: #000000;
     font-weight: bold;
 }
 
@@ -137,20 +137,20 @@ window#waybar {
     padding: 0px 10px;
 }
 #cpu.warning {
-    /* color: #b58900; */
-    color: #657b83;
-    /* background: #073642; */
+    /* color: #999950; */
+    color: #777777;
+    /* background: #efefef; */
 }
 #cpu.critical {
-    /* color: #dc322f; */
-    color: #839496;
-    /* background: #073642; */
+    /* color: #a0342f; */
+    color: #000000;
+    /* background: #efefef; */
 }
 
 #custom-clock {
     margin-top: 7px;
     margin-bottom: 6px;
-    color: #839496;
+    color: #000000;
 }
 
 
@@ -171,28 +171,28 @@ window#waybar {
 }
 
 #battery.discharging {
-    color: #839496;
+    color: #000000;
 }
 
 #battery.charging {
     /* padding: 0px 14px; */
     /* border-radius: 10px; */
-    /* background: #073642; */
-    /* color: #859900; */
-    color: #839496;
+    /* background: #efefef; */
+    /* color: #065905; */
+    color: #000000;
 }
 
 #battery.warning {
-    /* color: #d33682; */
-    color: #839496;
+    /* color: #8888cc; */
+    color: #000000;
 }
 
 #battery.critical {
     /* padding: 0px 14px; */
     /* border-radius: 10px; */
-    /* background: #dc322f; */
-    /* color: #dc322f; */
-    color: #839496;
+    /* background: #a0342f; */
+    /* color: #a0342f; */
+    color: #000000;
 }
 
 
@@ -203,12 +203,12 @@ window#waybar {
     margin-right: 20px;
     padding-left: 6px;
     padding-right: 6px;
-    color: #839496;
+    color: #000000;
 }
 #network.disconnected #network.disabled {
-    /* color: #dc322f; */
+    /* color: #a0342f; */
     /* border-radius: 10px; */
-    /* background: #073642; */
+    /* background: #efefef; */
     /* padding-left: 9px; */
     /* padding-right: 15px; */
 }
@@ -220,22 +220,22 @@ window#waybar {
     margin-left: 6px;
     margin-right: 6px;
     padding: 0px 10px;
-    color: #839496;
+    color: #000000;
 }
 
 #pulseaudio.muted {
-    /* color: #657b83; */
-    color: #657b83;
+    /* color: #777777; */
+    color: #777777;
 }
 
 #pulseaudio.bluetooth {
     /* padding: 0px 16px; */
     /* border-radius: 10px; */
-    /* background: #073642; */
-    /* color: #268bd2; */
+    /* background: #efefef; */
+    /* color: #00a8ff; */
 }
 
 #pulseaudio.bluetooth.muted {
-    /* color: #657b83; */
-    color: #657b83;
+    /* color: #777777; */
+    color: #777777;
 }

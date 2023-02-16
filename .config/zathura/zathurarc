@@ -2,12 +2,12 @@ set guioptions ""
 set selection-clipboard clipboard
 set font                        "Iosevka Bold 12"
 
-set notification-error-fg       "#dc322f" #red
-set notification-warning-fg     "#b58900" #yellow
-set notification-fg             "#859900" #green
-set inputbar-fg                 "#268bd2" #bright-blue
-set highlight-color             "#b58900" #yellow
-set highlight-active-color      "#268bd2" #blue
+set notification-error-fg       "#a0342f" #red
+set notification-warning-fg     "#999950" #yellow
+set notification-fg             "#065905" #green
+set inputbar-fg                 "#00a8ff" #bright-blue
+set highlight-color             "#999950" #yellow
+set highlight-active-color      "#00a8ff" #blue
 
 set render-loading              true
 set recolor                     "true"
@@ -17,54 +17,54 @@ set recolor-keephue             "true"
 
 
 # dark theme by default
-set notification-error-bg       "#002b36" #background
-set notification-warning-bg     "#002b36" #background
-set notification-bg             "#002b36" #backgound
+set notification-error-bg       "#ffffea" #background
+set notification-warning-bg     "#ffffea" #background
+set notification-bg             "#ffffea" #backgound
 
-set completion-bg               "#073642" #colour0
-set completion-fg               "#839496" #foreground-dim
-set completion-group-bg         "#073642" #colour0
-set completion-group-fg         "#839496" #foreground-dim
-set completion-highlight-bg     "#224750" #bright black
-set completion-highlight-fg     "#839496" #foreground-dim
+set completion-bg               "#eeee9e" #colour0
+set completion-fg               "#444444" #foreground-dim
+set completion-group-bg         "#eeee9e" #colour0
+set completion-group-fg         "#444444" #foreground-dim
+set completion-highlight-bg     "#eeee9e" #bright black
+set completion-highlight-fg     "#444444" #foreground-dim
 
-set index-bg                    "#002b36" #background
-set index-fg                    "#839496" #foreground-dim
-set index-active-bg             "#224750" #colour8
-set index-active-fg             "#839496" #foreground-dim
+set index-bg                    "#ffffea" #background
+set index-fg                    "#444444" #foreground-dim
+set index-active-bg             "#eeee9e" #colour8
+set index-active-fg             "#444444" #foreground-dim
 
-set inputbar-bg                 "#073642" #background
-set statusbar-bg                "#073642" #background
-set statusbar-fg                "#839496" #foreground-dim
+set inputbar-bg                 "#eeee9e" #background
+set statusbar-bg                "#eeee9e" #background
+set statusbar-fg                "#444444" #foreground-dim
 
-set default-bg                  "#002b36" #background
-set default-fg                  "#93a1a1" #foreground
-set render-loading-bg           "#002b36" #background
-set render-loading-fg           "#93a1a1" #foreground
+set default-bg                  "#ffffea" #background
+set default-fg                  "#000000" #foreground
+set render-loading-bg           "#ffffea" #background
+set render-loading-fg           "#000000" #foreground
 
-set recolor-lightcolor          "#002b36" #background
-set recolor-darkcolor           "#93a1a1" #foreground
+set recolor-lightcolor          "#ffffea" #background
+set recolor-darkcolor           "#000000" #foreground
 
 
 # light theme binding (press 1)
-map '1' feedkeys ":set statusbar-bg '#eee8d5'<Return>3"
-map '3' feedkeys ":set statusbar-fg '#224750'<Return>4"
-map '4' feedkeys ":set default-bg '#fdf6e3'<Return>5"
-map '5' feedkeys ":set default-fg '#224750'<Return>6"
-map '6' feedkeys ":set render-loading-bg '#fdf6e3'<Return>7"
-map '7' feedkeys ":set render-loading-fg '#224750'<Return>8"
-map '8' feedkeys ":set recolor-lightcolor '#fdf6e3'<Return>9"
-map '9' feedkeys ":set recolor-darkcolor '#224750'<Return>"
+map '1' feedkeys ":set statusbar-bg '#eeee9e'<Return>3"
+map '3' feedkeys ":set statusbar-fg '#eeee9e'<Return>4"
+map '4' feedkeys ":set default-bg '#ffffea'<Return>5"
+map '5' feedkeys ":set default-fg '#eeee9e'<Return>6"
+map '6' feedkeys ":set render-loading-bg '#ffffea'<Return>7"
+map '7' feedkeys ":set render-loading-fg '#eeee9e'<Return>8"
+map '8' feedkeys ":set recolor-lightcolor '#ffffea'<Return>9"
+map '9' feedkeys ":set recolor-darkcolor '#eeee9e'<Return>"
 
 # dark theme binding (press 2)
-map '2' feedkeys ":set statusbar-bg '#073642'<Return>0"
-map '0' feedkeys ":set statusbar-fg '#839496'<Return>w"
-map 'w' feedkeys ":set default-bg '#002b36'<Return>f"
-map 'f' feedkeys ":set default-fg '#93a1a1'<Return>p"
-map 'p' feedkeys ":set render-loading-bg '#002b36'<Return>b"
-map 'b' feedkeys ":set render-loading-fg '#93a1a1'<Return>u"
-map 'u' feedkeys ":set recolor-lightcolor '#002b36'<Return>y"
-map 'y' feedkeys ":set recolor-darkcolor '#93a1a1'<Return>"
+map '2' feedkeys ":set statusbar-bg '#eeee9e'<Return>0"
+map '0' feedkeys ":set statusbar-fg '#444444'<Return>w"
+map 'w' feedkeys ":set default-bg '#ffffea'<Return>f"
+map 'f' feedkeys ":set default-fg '#000000'<Return>p"
+map 'p' feedkeys ":set render-loading-bg '#ffffea'<Return>b"
+map 'b' feedkeys ":set render-loading-fg '#000000'<Return>u"
+map 'u' feedkeys ":set recolor-lightcolor '#ffffea'<Return>y"
+map 'y' feedkeys ":set recolor-darkcolor '#000000'<Return>"
 
 
 

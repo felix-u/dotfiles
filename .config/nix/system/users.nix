@@ -28,7 +28,7 @@ in {
         '';
         setOptions = [ "SHARE_HISTORY" "AUTO_CD" "AUTOMENU" "EXTENDEDGLOB" "GLOBDOTS" ];
         syntaxHighlighting = {
-            enable = true;
+            enable = false;
             highlighters = [ "main" "brackets" ];
             styles = {
                 "bracket-level-1" = "fg=magenta";

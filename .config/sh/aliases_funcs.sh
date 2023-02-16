@@ -60,6 +60,8 @@ gitall() {
 
 alias grep="grep --exclude-dir .git"
 
+alias htop="htop --no-colour"
+
 imgclrs() {
     imgclr "$@" -p \
     "$(wqs background)" "$(wqs foreground)" "$(wqs color7)" "$(wqs color8)" "$(wqs color15)"
@@ -75,8 +77,8 @@ imgclrx() {
 
 alias ksp='progl /mnt/sda1/Games/KSP_linux/KSP.x86_64'
 
-alias la="ls -ogAhF --group-directories-first --color=yes --time-style=long-iso"
-alias ls="ls -AF --group-directories-first --color=yes"
+alias la="ls -ogAhF --group-directories-first --time-style=long-iso"
+alias ls="ls -AF1 --group-directories-first"
 
 # less should render ANSI colour, not page if content fills one screen, ignore
 # case when searching, and leave the contents on the screen after quitting.

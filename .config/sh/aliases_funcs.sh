@@ -28,7 +28,7 @@ clrpick() {
 alias cmatrix="cmatrix -u 2"
 
 # Runs neofetch with my custom config, which only works on NixOS
-alias fetch="\neofetch"
+alias fetch="printf '\n' && \neofetch"
 # Runs neofetch with no config
 alias neofetch="neofetch --config none"
 

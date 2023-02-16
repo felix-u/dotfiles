@@ -252,6 +252,7 @@ local highlight_groups = {
 
 	--[[ 4.1.5. Semantics]]
 	Type         = 'NORMAL',
+	-- Type         = {fg = c.magenta13},
 	StorageClass = {fg = c.yellow03, style = 'bold'},
 	Structure = {fg = c.magenta13, style = 'bold'},
 	Typedef = {fg = c.yellow03, style = 'italic'},

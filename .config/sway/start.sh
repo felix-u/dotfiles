@@ -9,7 +9,7 @@ wqs () {
 }
 
 # wallpaper
-pkill swaybg; swaybg -c "$(wq color7)" &
+pkill swaybg; swaybg -c "$(wq color8)" &
 # ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 
 WFG="$(wq foreground)"
@@ -56,8 +56,8 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 
     WDPI=2
 
-    swaymsg "bindsym XF86MonBrightnessUp exec brightnessctl set +5%" &
-    swaymsg "bindsym XF86MonBrightnessDown exec brightnessctl set 5%-" &
+    swaymsg "bindsym XF86MonBrightnessUp exec brightnessctl set +3%" &
+    swaymsg "bindsym XF86MonBrightnessDown exec brightnessctl set 3%-" &
 
     swaymsg "output * resolution 3840x2400 position 3840 0 scale $WDPI" &
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
@@ -248,3 +248,5 @@ pkill dunst; dunst &
 
 # Fix for first workspace having gaps 0 on startup
 swaymsg gaps inner current set 15 &
+
+wlsunset -S 06:00 -s 19:00 & disown

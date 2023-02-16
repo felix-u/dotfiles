@@ -48,24 +48,23 @@ set recolor-darkcolor           "#000000" #foreground
 
 # light theme binding (press 1)
 map '1' feedkeys ":set statusbar-bg '#eeee9e'<Return>3"
-map '3' feedkeys ":set statusbar-fg '#eeee9e'<Return>4"
+map '3' feedkeys ":set statusbar-fg '#000000'<Return>4"
 map '4' feedkeys ":set default-bg '#ffffea'<Return>5"
-map '5' feedkeys ":set default-fg '#eeee9e'<Return>6"
+map '5' feedkeys ":set default-fg '#000000'<Return>6"
 map '6' feedkeys ":set render-loading-bg '#ffffea'<Return>7"
-map '7' feedkeys ":set render-loading-fg '#eeee9e'<Return>8"
+map '7' feedkeys ":set render-loading-fg '#000000'<Return>8"
 map '8' feedkeys ":set recolor-lightcolor '#ffffea'<Return>9"
-map '9' feedkeys ":set recolor-darkcolor '#eeee9e'<Return>"
+map '9' feedkeys ":set recolor-darkcolor '#000000'<Return>"
 
 # dark theme binding (press 2)
-map '2' feedkeys ":set statusbar-bg '#eeee9e'<Return>0"
-map '0' feedkeys ":set statusbar-fg '#444444'<Return>w"
-map 'w' feedkeys ":set default-bg '#ffffea'<Return>f"
+map '2' feedkeys ":set statusbar-bg '#efefef'<Return>0"
+map '0' feedkeys ":set statusbar-fg '#000000'<Return>w"
+map 'w' feedkeys ":set default-bg '#ffffff'<Return>f"
 map 'f' feedkeys ":set default-fg '#000000'<Return>p"
-map 'p' feedkeys ":set render-loading-bg '#ffffea'<Return>b"
+map 'p' feedkeys ":set render-loading-bg '#ffffff'<Return>b"
 map 'b' feedkeys ":set render-loading-fg '#000000'<Return>u"
-map 'u' feedkeys ":set recolor-lightcolor '#ffffea'<Return>y"
+map 'u' feedkeys ":set recolor-lightcolor '#ffffff'<Return>y"
 map 'y' feedkeys ":set recolor-darkcolor '#000000'<Return>"
-
 
 
 # vim:ft=sh

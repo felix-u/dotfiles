@@ -48,24 +48,23 @@ set recolor-darkcolor           "$(wq lightfg)" #foreground
 
 # light theme binding (press 1)
 map '1' feedkeys ":set statusbar-bg '$(wq light0)'<Return>3"
-map '3' feedkeys ":set statusbar-fg '$(wq light8)'<Return>4"
+map '3' feedkeys ":set statusbar-fg '$(wq lightfg)'<Return>4"
 map '4' feedkeys ":set default-bg '$(wq lightbg)'<Return>5"
-map '5' feedkeys ":set default-fg '$(wq light8)'<Return>6"
+map '5' feedkeys ":set default-fg '$(wq lightfg)'<Return>6"
 map '6' feedkeys ":set render-loading-bg '$(wq lightbg)'<Return>7"
-map '7' feedkeys ":set render-loading-fg '$(wq light8)'<Return>8"
+map '7' feedkeys ":set render-loading-fg '$(wq lightfg)'<Return>8"
 map '8' feedkeys ":set recolor-lightcolor '$(wq lightbg)'<Return>9"
-map '9' feedkeys ":set recolor-darkcolor '$(wq light8)'<Return>"
+map '9' feedkeys ":set recolor-darkcolor '$(wq lightfg)'<Return>"
 
 # dark theme binding (press 2)
-map '2' feedkeys ":set statusbar-bg '$(wq light0)'<Return>0"
-map '0' feedkeys ":set statusbar-fg '$(wq light15)'<Return>w"
-map 'w' feedkeys ":set default-bg '$(wq lightbg)'<Return>f"
-map 'f' feedkeys ":set default-fg '$(wq lightfg)'<Return>p"
-map 'p' feedkeys ":set render-loading-bg '$(wq lightbg)'<Return>b"
-map 'b' feedkeys ":set render-loading-fg '$(wq lightfg)'<Return>u"
-map 'u' feedkeys ":set recolor-lightcolor '$(wq lightbg)'<Return>y"
-map 'y' feedkeys ":set recolor-darkcolor '$(wq lightfg)'<Return>"
-
+map '2' feedkeys ":set statusbar-bg '$(wq color0)'<Return>0"
+map '0' feedkeys ":set statusbar-fg '$(wq color15)'<Return>w"
+map 'w' feedkeys ":set default-bg '$(wq background)'<Return>f"
+map 'f' feedkeys ":set default-fg '$(wq foreground)'<Return>p"
+map 'p' feedkeys ":set render-loading-bg '$(wq background)'<Return>b"
+map 'b' feedkeys ":set render-loading-fg '$(wq foreground)'<Return>u"
+map 'u' feedkeys ":set recolor-lightcolor '$(wq background)'<Return>y"
+map 'y' feedkeys ":set recolor-darkcolor '$(wq foreground)'<Return>"
 
 
 # vim:ft=sh

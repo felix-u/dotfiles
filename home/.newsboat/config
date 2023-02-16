@@ -27,8 +27,8 @@ bind-key I rev-sort
 color background         default   default
 color listnormal         color7    default
 color listnormal_unread  default   default
-color listfocus          black     green
-color listfocus_unread   black     green
+color listfocus          default     color0
+color listfocus_unread   default     color0
 color info               default   black
 color article            default   default
 

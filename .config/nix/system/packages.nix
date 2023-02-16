@@ -166,6 +166,8 @@ in {
             any-nix-shell cachix home-manager deadnix nix-index statix rnix-lsp
         # odin
             odin-dev ols
+        # plan9 from user space
+            plan9port
         # python
             python3Full nodePackages.pyright
         # rust

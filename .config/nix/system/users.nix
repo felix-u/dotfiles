@@ -29,16 +29,20 @@ in {
         setOptions = [ "SHARE_HISTORY" "AUTO_CD" "AUTOMENU" "EXTENDEDGLOB" "GLOBDOTS" ];
         syntaxHighlighting = {
             enable = false;
-            highlighters = [ "main" "brackets" ];
+            highlighters = [ "main" ]; # "brackets"
             styles = {
-                "bracket-level-1" = "fg=magenta";
-                "bracket-level-2" = "fg=magenta";
-                "bracket-level-3" = "fg=magenta";
-                "bracket-level-4" = "fg=magenta";
-                "commandseparator" = "fg=blue";
-                "single-quoted-argument" = "fg=cyan";
-                "double-quoted-argument" = "fg=cyan";
-                "reserved-word" = "fg=fg,bold";
+                "alias" = "fg=fg,bold";
+                "builtin" = "fg=fg,bold";
+                "function" = "fg=fg,bold";
+                "command" = "fg=fg,bold";
+                # "bracket-level-1" = "fg=magenta";
+                # "bracket-level-2" = "fg=magenta";
+                # "bracket-level-3" = "fg=magenta";
+                # "bracket-level-4" = "fg=magenta";
+                # "commandseparator" = "fg=blue";
+                # "single-quoted-argument" = "fg=cyan";
+                # "double-quoted-argument" = "fg=cyan";
+                # "reserved-word" = "fg=fg,bold";
             };
         };
     };

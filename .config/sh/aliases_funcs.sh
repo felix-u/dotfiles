@@ -78,7 +78,7 @@ imgclrx() {
 alias ksp='progl /mnt/sda1/Games/KSP_linux/KSP.x86_64'
 
 alias la="ls -ogAhF --group-directories-first --time-style=long-iso"
-alias ls="ls -AF1 --group-directories-first"
+alias ls="ls -AFw 80 --group-directories-first"
 
 # less should render ANSI colour, not page if content fills one screen, ignore
 # case when searching, and leave the contents on the screen after quitting.
@@ -125,6 +125,9 @@ nvdd() {
     \ls -v /nix/var/nix/profiles/ | tail -n 2 | \
         awk '{print "/nix/var/nix/profiles/" $0}' - | xargs nvd diff
 }
+
+# default colour scheme is completely nonsensical
+alias ncdu="ncdu --color off"
 
 alias onefetch="onefetch --true-color never"
 

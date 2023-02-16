@@ -233,12 +233,12 @@ local highlight_groups = {
 
 	--[[ 4.1.3. Syntax]]
 	Statement   = {fg = c.red01},
-	Conditional = {fg = c.green02 },
+	Conditional = 'NORMAL',
 	Repeat   = 'Conditional',
     -- this affects the currently highlighted scope in indent-blankline
 	Label    = 'NORMAL',
-	Operator = {fg = c.green02},
-	Keyword  = {fg = c.blue04},
+	Operator = 'NORMAL',
+	Keyword  = 'NORMAL',
 	Exception = {fg = c.red09},
 	Noise = 'Delimiter',
 
@@ -251,7 +251,7 @@ local highlight_groups = {
 	PreCondit = {fg = c.yellow03, style = 'italic'},
 
 	--[[ 4.1.5. Semantics]]
-	Type         = {fg = c.magenta05},
+	Type         = 'NORMAL',
 	StorageClass = {fg = c.yellow03, style = 'bold'},
 	Structure = {fg = c.magenta13, style = 'bold'},
 	Typedef = {fg = c.yellow03, style = 'italic'},
@@ -864,7 +864,7 @@ local highlight_groups = {
     TSInclude = 'Include',
     TSPunctBracket = 'Delimiter',
 	TSTag = 'Tag',
-    TSType = {fg = c.magenta13},
+    TSType = 'Type',
     TSTypeBuiltin = 'TSType',
 	TSWarning = {fg = c.background, bg = c.green02, style = 'bold'},
     TSKeywordOperator = 'Keyword',

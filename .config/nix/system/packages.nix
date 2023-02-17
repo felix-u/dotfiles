@@ -192,7 +192,7 @@ in {
             themesh tldr tmux tty-clock udiskie udisks unrar unzip v4l-utils
             libv4l w3m xdg-utils youtube-dl ytfzf zip _7zz
             imgclr # haha, c'est a moi :D
-            irssi
+            # irssi
             (pkgs.symlinkJoin { # fzf should always run with '--color=16'
                 name = "fzf";
                 paths = [ pkgs.fzf ];

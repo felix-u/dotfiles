@@ -299,7 +299,7 @@ local highlight_groups = {
 	LineNr  = {fg = c.grey07, bg = c.black00},
 	QuickFixLine = function(self) return {bg = self.StatusLine.bg} end,
 	-- Visual    = {style = 'inverse'},
-	Visual = {bg = c.black00},
+	Visual = {bg = c.black08},
 	VisualNOS = {bg = c.black08},
 
 	--[[ 4.2.4. Popup Menu]]

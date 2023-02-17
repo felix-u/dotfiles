@@ -1,5 +1,5 @@
 @define-color accent_color #000000;
-@define-color accent_bg_color #989898;
+@define-color accent_bg_color #c0c0c0;
 @define-color accent_fg_color #000000;
 @define-color destructive_color #a0342f;
 @define-color destructive_bg_color #a0342f;
@@ -31,11 +31,11 @@
 @define-color popover_fg_color #000000;
 @define-color shade_color rgba(0,0,0,0.36);
 @define-color scrollbar_outline_color rgba(0,0,0,0.5);
-@define-color blue_1 #00a8ff;
-@define-color blue_2 #00a8ff;
-@define-color blue_3 #00a8ff;
-@define-color blue_4 #00a8ff;
-@define-color blue_5 #00a8ff;
+@define-color blue_1 #007ed6;
+@define-color blue_2 #007ed6;
+@define-color blue_3 #007ed6;
+@define-color blue_4 #007ed6;
+@define-color blue_5 #007ed6;
 @define-color green_1 #065905;
 @define-color green_2 #065905;
 @define-color green_3 #065905;
@@ -73,7 +73,7 @@
 @define-color light_5 #000000;
 @define-color dark_1 #777777;
 @define-color dark_2 #777777;
-@define-color dark_3 #989898;
+@define-color dark_3 #c0c0c0;
 @define-color dark_4 #efefef;
 @define-color dark_5 #ffffff;
 window.csd {

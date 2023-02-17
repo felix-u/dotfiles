@@ -32,7 +32,7 @@ window#waybar {
 
     background: #ffffff;
     color: #000000;
-    border-bottom: 2px solid #989898;
+    border-bottom: 2px solid #777777;
 
     /* background: transparent; */
     /* color: #ffffff; */
@@ -106,7 +106,7 @@ window#waybar {
     transition: none;
     padding-left: 6px;
     padding-right: 6px;
-    color: #989898;
+    color: #c0c0c0;
     font-weight: normal;
 }
 #tags button:hover {
@@ -232,7 +232,7 @@ window#waybar {
     /* padding: 0px 16px; */
     /* border-radius: 10px; */
     /* background: #efefef; */
-    /* color: #00a8ff; */
+    /* color: #007ed6; */
 }
 
 #pulseaudio.bluetooth.muted {

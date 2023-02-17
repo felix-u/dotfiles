@@ -5,9 +5,9 @@ set font                        "Iosevka Bold 12"
 set notification-error-fg       "#a0342f" #red
 set notification-warning-fg     "#999950" #yellow
 set notification-fg             "#065905" #green
-set inputbar-fg                 "#00a8ff" #bright-blue
+set inputbar-fg                 "#007ed6" #bright-blue
 set highlight-color             "#999950" #yellow
-set highlight-active-color      "#00a8ff" #blue
+set highlight-active-color      "#007ed6" #blue
 
 set render-loading              true
 set recolor                     "true"

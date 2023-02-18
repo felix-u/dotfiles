@@ -249,4 +249,4 @@ pkill dunst; dunst &
 # Fix for first workspace having gaps 0 on startup
 swaymsg gaps inner current set 15 &
 
-pkill wlsunset; wlsunset -S 06:00 -s 19:00 -T 6000 -t 4000  & disown
+pkill wlsunset; wlsunset -S 06:00 -s 19:00 -T 6000 -t 4500  & disown

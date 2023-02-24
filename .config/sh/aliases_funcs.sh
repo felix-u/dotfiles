@@ -152,6 +152,8 @@ swaybgset() {
 # get temps by watching lm_sensors every half a second
 alias temps="watch -n 0.5 sensors"
 
+alias termatonotif="termato -n \"notify-send '%s'\""
+
 themeterm() {
     if [ "$1" = "l" ]; then
         theme.sh < ~/dotfiles/scripts/theme/lighttheme

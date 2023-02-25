@@ -9,8 +9,8 @@ wqs () {
 }
 
 # wallpaper
-pkill swaybg; swaybg -c "$(wq color8)" &
-# ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
+# pkill swaybg; swaybg -c "$(wq color8)" &
+~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 
 WFG="$(wq foreground)"
 WBG="$(wq background)"

@@ -102,12 +102,13 @@ bindkey  "^[[F"   end-of-line
 
 bindkey '^n' autosuggest-accept
 
-# History-aware autocomplete
-source /home/felix/.config/sh/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=blue"
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=magenta"
+# # History-aware autocomplete
+# source /home/felix/.config/sh/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
+# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=blue"
+# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=magenta"
+source "$XDG_CONFIG_HOME"/sh/zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh
 
 # Automatic syntax pairs
 source /home/felix/.config/sh/zsh/zsh-autopair/autopair.zsh

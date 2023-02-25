@@ -84,6 +84,9 @@ alias ls="ls -AFw 80 --group-directories-first"
 # case when searching, and leave the contents on the screen after quitting.
 alias less="less -FIRX"
 
+# Execute jobs in parallel, with a limit of 8.
+alias make="make -j8"
+
 mdread() {
     pandoc "$1" --to html5 | w3m -T text/html
 }

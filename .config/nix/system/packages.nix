@@ -173,7 +173,7 @@ in {
         # python
             python3Full nodePackages.pyright
         # rust
-            cargo clippy rust-analyzer sccache
+            cargo clippy rust-analyzer # sccache
         # shell
             nodePackages.bash-language-server shellcheck
         # vim

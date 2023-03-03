@@ -42,6 +42,18 @@ MOD="Mod4"
 ALT="Mod1"
 TERM="foot"
 
+swaymsg "bar std mode invisible" &
+swaymsg "bar std hidden_state hide" &
+swaymsg "bar std position top" &
+swaymsg "bar std font pango:$(wq fontmono) Bold 12" &
+swaymsg "bar std status_padding 0" &
+swaymsg "bar std height 35" &
+swaymsg "bar std colors background $WBG" &
+swaymsg "bar std colors statusline $WFG" &
+swaymsg "bar std colors focused_workspace ${W00}ff ${W00}ff $WFG" &
+swaymsg "bar std colors inactive_workspace ${WBG}ff ${WBG}ff $W07" &
+swaymsg "bar std status_command \"while date +'%a %d  %H:%M  '; do sleep 1; done\"" &
+
 #
 #  |   |   _)      |                 |
 #   _|   \  |   \  | / _ \  _` |  _` |
@@ -63,8 +75,9 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
     swaymsg "xwayland scale=$WDPI" &
 
-    pkill waybar
-    waybar -c ~/.config/waybar/thinkpad.json &
+    # pkill waybar
+    # waybar -c ~/.config/waybar/thinkpad.json &
+
 #  ____   ____
 # |  _ \ / ___|
 # | |_) | |
@@ -84,8 +97,8 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
     swaymsg "xwayland scale=$WDPI" &
 
-    pkill waybar
-    waybar -c ~/.config/waybar/desktop.json &
+    # pkill waybar
+    # waybar -c ~/.config/waybar/desktop.json &
 fi
 
 FILES='pcmanfm'
@@ -109,7 +122,9 @@ swaymsg "bindsym $MOD+d exec ~/.config/sway/scripts/menu.sh" &
 # apps and scripts
 # when having xwayland installed, some apps may prefer X even if working fine
 # on wayland. launch them with DISPLAY=wayland-0
-swaymsg "bindsym $MOD+b exec $BROWSER" &
+swaymsg "bindsym $MOD+comma bar mode dock" &
+swaymsg "bindsym $MOD+Shift+comma bar mode invisible" &
+swaymsg "bindsym $MOD+$ALT+comma bar mode hide" &
 swaymsg "bindsym $MOD+Shift+v exec emacsclient -c" &
 swaymsg "bindsym $MOD+$ALT+b exec MOZ_ENABLE_WAYLAND=1 firefox" &
 swaymsg "bindsym $MOD+a exec $FILES" &
@@ -117,9 +132,9 @@ swaymsg "bindsym $MOD+a exec $FILES" &
 swaymsg "bindsym $MOD+Shift+b exec ~/.config/sway/scripts/randwall.sh \
     ~/dotfiles/Pictures/cafe-walls" &
 #
-swaymsg "bindsym XF86AudioMute exec pulsemixer --toggle-mute" & # && $XDG_CONFIG_HOME/sway/scripts/notify-mute.sh" &
-swaymsg "bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5" & # && $XDG_CONFIG_HOME/sway/scripts/notify-vol.sh" &
-swaymsg "bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5" & # && $XDG_CONFIG_HOME/sway/scripts/notify-vol.sh" &
+swaymsg "bindsym XF86AudioMute exec pulsemixer --toggle-mute && $XDG_CONFIG_HOME/sway/scripts/notify-mute.sh" &
+swaymsg "bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5 && $XDG_CONFIG_HOME/sway/scripts/notify-vol.sh" &
+swaymsg "bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5 && $XDG_CONFIG_HOME/sway/scripts/notify-vol.sh" &
 #
 # lock system
 swaymsg "bindsym $MOD+x exec ~/.config/sway/scripts/swaylock.sh"
@@ -249,4 +264,4 @@ pkill dunst; dunst &
 # Fix for first workspace having gaps 0 on startup
 swaymsg gaps inner current set 15 &
 
-pkill wlsunset; wlsunset -S 06:00 -s 19:00 -T 6000 -t 4500  & disown
+pkill wlsunset; wlsunset -S 06:30 -s 18:00 -T 6000 -t 4500  & disown

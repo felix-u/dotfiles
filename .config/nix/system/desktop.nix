@@ -23,7 +23,8 @@ in {
             grim polkit_gnome
             slurp swaybg swayidle
             swaylock-effects tofi
-            waybar wayland wf-recorder wl-clipboard wlsunset xwayland
+            # waybar
+            wayland wf-recorder wl-clipboard wlsunset xwayland
         ];
     };
     environment.pathsToLink = [ "/libexec" ]; # for polkit

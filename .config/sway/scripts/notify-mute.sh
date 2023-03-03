@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+wq () {
+    grep "$1:" "$XRESOURCES" | awk '{print $2}'
+}
+
 dunstctl close-all
 MUTE=$(pulsemixer --get-mute)
 VOLUME=$(pulsemixer --get-volume | cut -f 1 -d " ")

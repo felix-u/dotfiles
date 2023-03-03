@@ -78,5 +78,9 @@ for_window [app_id="zoom" title="as_toolbar"] {
 # Fix Zoom notifications
 # Float any zoom window by default but specific ones
 for_window [app_id="zoom"] floating enable
-for_window [app_id="zoom" title="(Account|Chat|Meeting|Participants)"] floating di
+for_window [app_id="zoom" title="(Account|Chat|Meeting|Participants)"] floating disable
 # --------
+
+bar  {
+    id std
+}

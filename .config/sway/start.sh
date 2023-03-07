@@ -52,7 +52,6 @@ swaymsg "bar std colors background $WBG" &
 swaymsg "bar std colors statusline $WFG" &
 swaymsg "bar std colors focused_workspace ${W00}ff ${W00}ff $WFG" &
 swaymsg "bar std colors inactive_workspace ${WBG}ff ${WBG}ff $W07" &
-swaymsg "bar std status_command \"while date +'%a %d  %H:%M  '; do sleep 1; done\"" &
 
 #
 #  |   |   _)      |                 |
@@ -77,6 +76,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 
     # pkill waybar
     # waybar -c ~/.config/waybar/thinkpad.json &
+    swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh battery; do sleep 1; done\"" &
 
 #  ____   ____
 # |  _ \ / ___|
@@ -99,6 +99,7 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
 
     # pkill waybar
     # waybar -c ~/.config/waybar/desktop.json &
+    swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh; do sleep 1; done\"" &
 fi
 
 FILES='pcmanfm'

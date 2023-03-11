@@ -42,7 +42,7 @@ MOD="Mod4"
 ALT="Mod1"
 TERM="foot"
 
-swaymsg "bar std mode invisible" &
+swaymsg "bar std mode dock" &
 swaymsg "bar std hidden_state hide" &
 swaymsg "bar std position top" &
 swaymsg "bar std font pango:$(wq fontmono) Bold 12" &

@@ -103,7 +103,7 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
     # waybar -c ~/.config/waybar/desktop.json &
     swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh; do sleep 1; done\"" &
 
-    pkill wlsunset; wlsunset -S 06:30 -s 18:00 -T 5000 -t 4500 &
+    pkill wlsunset; wlsunset -S 06:30 -s 18:00 -T 5500 -t 4500 &
 fi
 
 FILES='pcmanfm'

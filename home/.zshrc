@@ -2,10 +2,11 @@
 
 SAVEHIST=10000
 
-eval "$(starship init zsh)"
-
 source /home/felix/.config/sh/env.sh
 source /home/felix/.config/sh/aliases_funcs.sh
+
+NEWLINE=$'\n'
+PROMPT="%B%F{cyan}%5~%f${NEWLINE}%(?.%F{normal}.%F{red})%(!.#.${PROMPTCHAR})%f%b "
 
 export LESS_TERMCAP_mb=$'\e\[1\;36m'
 export LESS_TERMCAP_md=$'\e\[1\;1m'

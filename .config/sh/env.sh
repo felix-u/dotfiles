@@ -15,6 +15,7 @@ export NNN_TMPFILE="/tmp/nnn"
 export NNN_TRASH=1
 export PATH="$HOME/.local/bin/:$XDG_CONFIG_HOME/sh/scripts-in-path/:$PATH"
 export PKG_CONFIG_PATH="/usr/include"
+export PROMPTCHAR="λ"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export READER="zathura"
 export RUSTC_WRAPPER="sccache"

@@ -10,15 +10,15 @@
             #
 
         # DESKTOP
-            ckan
+            # ckan
 
         # AUDIO/VIDEO
-            davinci-resolve # runs through xwayland :(
+            # davinci-resolve # runs through xwayland :(
             libsForQt5.kdenlive
 
         # GAMING
-            corectrl glxinfo config.boot.kernelPackages.amdgpu-pro openspades
-            minecraft unstable.optifine prismlauncher
+            corectrl glxinfo config.boot.kernelPackages.amdgpu-pro
+            unstable.optifine prismlauncher
 
     ];
 }

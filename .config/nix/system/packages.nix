@@ -139,7 +139,7 @@ in {
     with pkgs; [
 
         # ESSENTIAL
-            foot gh git neofetch nvi starship stow wget
+            foot gh git neofetch nvi stow wget
 
         # UTILS IN RUST
             helix-git.defaultNix.packages.x86_64-linux.default
@@ -158,16 +158,16 @@ in {
         # go
             go gopls
         # java
-            jdk11 jdt-language-server jdtls
+            jdk11
         # web (HTML, CSS, JS)
             nodejs yarn
-            nodePackages.npm nodePackages.js-beautify
+            nodePackages.npm
         # lua
             lua sumneko-lua-language-server
         # nix
             any-nix-shell cachix home-manager deadnix nix-index statix rnix-lsp
         # odin
-            odin-dev ols
+            odin-dev # ols
         # plan9 from user space
             plan9port
         # python
@@ -209,7 +209,7 @@ in {
             cava cmus ncspot pavucontrol pulsemixer
 
         # INTERNET & BLUETOOTH
-            blueberry blueman bluez bluez-tools firefox newsboat qutebrowser
+            blueberry blueman bluez bluez-tools firefox newsboat
 
         # DESKTOP
             appimage-run anki-bin
@@ -225,7 +225,7 @@ in {
 
         # VISUAL
             gsettings-desktop-schemas gtk-engine-murrine gtk_engines
-            solarc-gtk-theme adw-gtk3 gnome.adwaita-icon-theme
+            adw-gtk3 gnome.adwaita-icon-theme
 
         # PHOTO, GRAPHICS & VIDEO
             asciinema asciinema-agg
@@ -234,8 +234,8 @@ in {
             gimp-with-plugins
 
         # GAMING
-            lutris minetest proton-caller
-            protontricks protonup unstable.heroic mangohud
+            proton-caller
+            protontricks protonup
 
         # LATEX
             biber texinfo texlab unstable.texlive.combined.scheme-full

@@ -42,8 +42,8 @@ MOD="Mod4"
 ALT="Mod1"
 TERM="foot"
 
+swaymsg "bar std mode invisible" &
 swaymsg "bar std position top" &
-swaymsg "bar std mode dock" &
 swaymsg "bar std hidden_state hide" &
 swaymsg "bar std font pango:$(wq fontmono) Bold 12" &
 swaymsg "bar std status_padding 0" &
@@ -52,6 +52,7 @@ swaymsg "bar std colors background $WBG" &
 swaymsg "bar std colors statusline $WFG" &
 swaymsg "bar std colors focused_workspace ${W00}ff ${W00}ff $WFG" &
 swaymsg "bar std colors inactive_workspace ${WBG}ff ${WBG}ff $W07" &
+swaymsg "bar std mode dock" &
 
 #
 #  |   |   _)      |                 |

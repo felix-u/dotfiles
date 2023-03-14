@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-TARGET="$(printf "qwerty\ncolemak" | tofi)"
+TARGET="$(printf "qwerty\ncolemak" | "$XDG_CONFIG_HOME"/sway/scripts/general_menu.sh)"
 
 if [ "$TARGET" = "qwerty" ]; then
     "$XDG_CONFIG_HOME"/sway/scripts/binds qwerty Mod4 Mod1 foot &

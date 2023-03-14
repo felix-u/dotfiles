@@ -79,6 +79,7 @@ for_window [app_id="zoom" title="as_toolbar"] {
 # Float any zoom window by default but specific ones
 for_window [app_id="zoom"] floating enable
 for_window [app_id="zoom" title="(Account|Chat|Meeting|Participants)"] floating disable
+for_window [title=".*"] saturation set 0
 # --------
 
 bar  {

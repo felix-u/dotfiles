@@ -1,9 +1,12 @@
 { pkgs, config, lib, ... }:
 
 let
-    # dmenu-wl_run = import ../derivations/dmenu-wl.nix;
     unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
     pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
+    # flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+
 in {
 
     nixpkgs.overlays = [
@@ -11,6 +14,16 @@ in {
             sway = pkgs-unstable.sway;
         })
     ];
+
+    # environment.systemPackages =
+    # let
+    #     swayfx-src = builtins.fetchTarball {
+    #         url = "https://github.com/WillPower3309/swayfx/archive/ac31a612164828ca6ae5478332eee3cd2317ffdc.tar.gz";
+    #     };
+    #     swayfx-git = import flake-compat { src = swayfx-src; };
+    # in with pkgs; [
+    #     swayfx-git.defaultNix.packages.x86_64-linux.default
+    # ];
 
     # wayland schtuff
 

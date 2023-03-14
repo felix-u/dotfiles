@@ -12,6 +12,9 @@ wqs () {
 # pkill swaybg; swaybg -c "$(wq color8)" &
 ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 
+pkill wlsunset
+"$XDG_CONFIG_HOME"/sway/scripts/screen_temp.sh default &
+
 WFG="$(wq foreground)"
 WBG="$(wq background)"
 W00="$(wq color0)"
@@ -79,8 +82,6 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     # waybar -c ~/.config/waybar/thinkpad.json &
     swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh battery; do sleep 1; done\"" &
 
-    pkill wlsunset; wlsunset -S 06:30 -s 18:00 -T 6000 -t 4500 &
-
 #  ____   ____
 # |  _ \ / ___|
 # | |_) | |
@@ -103,8 +104,6 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
     # pkill waybar
     # waybar -c ~/.config/waybar/desktop.json &
     swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh; do sleep 1; done\"" &
-
-    pkill wlsunset; wlsunset -S 06:30 -s 18:00 -T 5500 -t 4500 &
 fi
 
 FILES='pcmanfm'
@@ -143,7 +142,10 @@ swaymsg "bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5 && $XDG
 swaymsg "bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5 && $XDG_CONFIG_HOME/sway/scripts/notify-vol.sh" &
 #
 # lock system
-swaymsg "bindsym $MOD+x exec ~/.config/sway/scripts/swaylock.sh"
+swaymsg "bindsym $MOD+x exec ~/.config/sway/scripts/swaylock.sh" &
+
+# screen temp
+swaymsg "bindsym $MOD+$ALT+t exec $XDG_CONFIG_HOME/sway/scripts/screen_temp.sh" &
 
 # sway functionality
 swaymsg "bindsym $MOD+w kill" &
@@ -168,7 +170,7 @@ swaymsg "bindsym $MOD+t layout toggle split" &
 swaymsg "bindsym $MOD+f fullscreen" &
 swaymsg "bindsym $MOD+s floating toggle" &
 # make floating windows sticky
-swaymsg "bindsym $MOD+Shift+t sticky toggle" &
+# swaymsg "bindsym $MOD+Shift+t sticky toggle" &
 # swap focus between tiling and floating area
 swaymsg "bindsym $MOD+v focus mode_toggle" &
 swaymsg "bindsym $MOD+p focus parent" &

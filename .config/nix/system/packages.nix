@@ -209,7 +209,8 @@ in {
             cava cmus ncspot pavucontrol pulsemixer
 
         # INTERNET & BLUETOOTH
-            blueberry blueman bluez bluez-tools firefox newsboat
+            blueberry bluez bluez-tools firefox newsboat
+            # blueman
 
         # DESKTOP
             appimage-run anki-bin

@@ -881,6 +881,7 @@ local highlight_groups = {
     TSVariable = 'Variable',
     ["@variable"] = 'NORMAL',
     TSParameter = 'Variable',
+    TSTextEmphasis = {style = 'italic'},
 
 	--[[ 4.4.9. barbar.nvim ]]
 	BufferCurrent       = 'TabLineSel',

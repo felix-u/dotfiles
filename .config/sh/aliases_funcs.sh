@@ -6,10 +6,17 @@ alias aggpreset="agg --theme solarized-dark --font-family 'JetBrains Mono'  --fo
 AGENDAFILE="$HOME/uni/2023/spring/agenda"
 alias notaflags="nota --force-colour --line-num"
 alias agenda="notaflags \$AGENDAFILE -un Task | \$PAGER"
-alias shouldve="notaflags \$AGENDAFILE -bs ascending -n Task --not-tagged | \$PAGER"
-alias todo="clear && shouldve && agenda"
-alias vagenda="\$EDITOR \$AGENDAFILE"
+alias agendapast="notaflags \$AGENDAFILE -bs ascending -n Task --not-tagged | \$PAGER"
+alias agendav="\$EDITOR \$AGENDAFILE"
+alias todo="clear && agendapast && agenda"
 alias timetable="notaflags \$AGENDAFILE -n Timetable | \$PAGER"
+guide() {
+    if [ $# -eq 0 ]; then
+        notaflags ~/uni/misc/guide.md | $PAGER
+    else
+        notaflags ~/uni/misc/guide.md -n "$@" | $PAGER
+    fi
+}
 
 alias cdu="cd ~/uni/2023/spring"
 alias clock="tty-clock -c -C 6 -D"
@@ -155,7 +162,7 @@ swaybgset() {
 # get temps by watching lm_sensors every half a second
 alias temps="watch -n 0.5 sensors"
 
-alias termatonotif="termato -n \"notify-send '%s'\""
+alias termatonotif="termato -n \"notify-send '%s'\" -f 50 -b 10 -l 10"
 
 themeterm() {
     if [ "$1" = "l" ]; then

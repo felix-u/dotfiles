@@ -8,7 +8,9 @@ alias notaflags="nota --force-colour --line-num"
 alias agenda="notaflags \$AGENDAFILE -un Task | \$PAGER"
 alias agendapast="notaflags \$AGENDAFILE -bs ascending -n Task --not-tagged | \$PAGER"
 alias agendav="\$EDITOR \$AGENDAFILE"
-alias todo="clear && agendapast && agenda"
+alias errands="notaflags \$AGENDAFILE -un Errand | \$PAGER"
+alias errandspast="notaflags \$AGENDAFILE -bs ascending -n Errand --not-tagged | \$PAGER"
+alias todo="clear && errandspast && errands && agendapast && agenda"
 alias timetable="notaflags \$AGENDAFILE -n Timetable | \$PAGER"
 guide() {
     if [ $# -eq 0 ]; then

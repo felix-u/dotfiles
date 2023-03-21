@@ -222,7 +222,7 @@ in {
             mpvScripts.youtube-quality obs-studio obs-studio-plugins.wlrobs
             signal-desktop
             qt5ct wally-cli
-            pcmanfm zathura
+            pcmanfm xournalpp zathura
 
         # VISUAL
             gsettings-desktop-schemas gtk-engine-murrine gtk_engines

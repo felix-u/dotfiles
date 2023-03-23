@@ -17,8 +17,8 @@ SEARCH_PROMPT="❯ "
 SIZE=1000x686
 POSITION="+0+0"
 FONT_SIZE=64
-BG_COLOR="$(wq lightbg)"
-FG_COLOR="$(wq color8)"
+BG_COLOR="$(wq background)"
+FG_COLOR="$(wq foreground)"
 PREVIEW_TEXT="ABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijklm\nnopqrstuvwxyz\n1234567890\n!@$\%(){}[]"
 
 show_help() {

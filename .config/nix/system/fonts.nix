@@ -1,17 +1,31 @@
 { pkgs, ... }:
 
 let
+
+    eunomia    = import ../derivations/fonts/dotcolon/eunomia.nix;
+    fa-1       = import ../derivations/fonts/dotcolon/fa-1.nix;
+    ferrum     = import ../derivations/fonts/dotcolon/ferrum.nix;
+    medio      = import ../derivations/fonts/dotcolon/medio.nix;
+    melete     = import ../derivations/fonts/dotcolon/melete.nix;
+    nacelle    = import ../derivations/fonts/dotcolon/nacelle.nix;
+    penna      = import ../derivations/fonts/dotcolon/penna.nix;
+    route159   = import ../derivations/fonts/dotcolon/route159.nix;
+    seshat     = import ../derivations/fonts/dotcolon/seshat.nix;
+    tenderness = import ../derivations/fonts/dotcolon/tenderness.nix;
+
     alte-haas-grotesk = import ../derivations/fonts/alte-haas-grotesk.nix;
-    beteckna = import ../derivations/fonts/beteckna.nix;
-    league-spartan = import ../derivations/fonts/league-spartan.nix;
-    lora = import ../derivations/fonts/lora.nix;
-    metropolis = import ../derivations/fonts/metropolis.nix;
-    montserrat = import ../derivations/fonts/montserrat.nix;
-    oswald = import ../derivations/fonts/oswald.nix;
-    playfair = import ../derivations/fonts/playfair.nix;
-    sf-mono = import ../derivations/fonts/sfmononerdfont.nix;
-    space-grotesk = import ../derivations/fonts/space-grotesk.nix;
-    spacemono = import ../derivations/fonts/spacemono.nix;
+    # apple-fonts       = pkgs.callPackage ../derivations/fonts/apple-fonts.nix {};
+    beteckna          = import ../derivations/fonts/beteckna.nix;
+    chicagoflf        = import ../derivations/fonts/chicagoflf.nix;
+    league-spartan    = import ../derivations/fonts/league-spartan.nix;
+    lora              = import ../derivations/fonts/lora.nix;
+    metropolis        = import ../derivations/fonts/metropolis.nix;
+    montserrat        = import ../derivations/fonts/montserrat.nix;
+    oswald            = import ../derivations/fonts/oswald.nix;
+    playfair          = import ../derivations/fonts/playfair.nix;
+    sf-mono           = import ../derivations/fonts/sfmononerdfont.nix;
+    space-grotesk     = import ../derivations/fonts/space-grotesk.nix;
+    spacemono         = import ../derivations/fonts/spacemono.nix;
 in {
 
     # fonts
@@ -20,10 +34,26 @@ in {
         # essential
         fira nerdfonts noto-fonts-emoji
 
+        # # apple fonts
+        # apple-fonts
+
+        # https://dotcolon.net
+        eunomia
+        fa-1
+        ferrum
+        medio
+        melete
+        nacelle
+        penna
+        route159
+        seshat
+        tenderness
+
         # proportional fonts
         aileron open-sans # helvetica but FOSS
         alte-haas-grotesk # helvetica but with a printed appearance. not FOSS
         beteckna league-spartan # futura but FOSS
+        chicagoflf # retro Apple system font - vectorised
         crimson # oldstyle serif - FOSS
         eb-garamond # Garamond - FOSS
         fraunces vollkorn # cooper black (ish), but FOSS

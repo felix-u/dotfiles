@@ -17,6 +17,9 @@
     --br: 2em;
 }
 
+/* greyscale tabbar icons */
+.tab-icon-image { filter: grayscale( 100%) !important;}
+
 /* Mostly from https://github.com/MrOtherGuy/firefox-csshacks */
 
 /* ------------------------------------------------------------------------- */

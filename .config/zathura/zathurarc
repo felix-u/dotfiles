@@ -1,4 +1,4 @@
-set guioptions ""
+set guioptions s
 set selection-clipboard clipboard
 set font                        "Iosevka Bold 12"
 
@@ -17,53 +17,53 @@ set recolor-keephue             "true"
 
 
 # dark theme by default
-set notification-error-bg       "#ffffea" #background
-set notification-warning-bg     "#ffffea" #background
-set notification-bg             "#ffffea" #backgound
+set notification-error-bg       "#ffffff" #lightbg
+set notification-warning-bg     "#ffffff" #lightbg
+set notification-bg             "#ffffff" #backgound
 
-set completion-bg               "#eeee9e" #colour0
-set completion-fg               "#444444" #foreground-dim
-set completion-group-bg         "#eeee9e" #colour0
-set completion-group-fg         "#444444" #foreground-dim
-set completion-highlight-bg     "#eeee9e" #bright black
-set completion-highlight-fg     "#444444" #foreground-dim
+set completion-bg               "#efefef" #colour0
+set completion-fg               "#000000" #lightfg-dim
+set completion-group-bg         "#efefef" #colour0
+set completion-group-fg         "#000000" #lightfg-dim
+set completion-highlight-bg     "#c0c0c0" #bright black
+set completion-highlight-fg     "#000000" #lightfg-dim
 
-set index-bg                    "#ffffea" #background
-set index-fg                    "#444444" #foreground-dim
-set index-active-bg             "#eeee9e" #colour8
-set index-active-fg             "#444444" #foreground-dim
+set index-bg                    "#ffffff" #lightbg
+set index-fg                    "#000000" #lightfg-dim
+set index-active-bg             "#c0c0c0" #colour8
+set index-active-fg             "#000000" #lightfg-dim
 
-set inputbar-bg                 "#eeee9e" #background
-set statusbar-bg                "#eeee9e" #background
-set statusbar-fg                "#444444" #foreground-dim
+set inputbar-bg                 "#efefef" #lightbg
+set statusbar-bg                "#efefef" #lightbg
+set statusbar-fg                "#000000" #lightfg-dim
 
-set default-bg                  "#ffffea" #background
-set default-fg                  "#000000" #foreground
-set render-loading-bg           "#ffffea" #background
-set render-loading-fg           "#000000" #foreground
+set default-bg                  "#ffffff" #lightbg
+set default-fg                  "#000000" #lightfg
+set render-loading-bg           "#ffffff" #lightbg
+set render-loading-fg           "#000000" #lightfg
 
-set recolor-lightcolor          "#ffffea" #background
-set recolor-darkcolor           "#000000" #foreground
+set recolor-lightcolor          "#ffffff" #lightbg
+set recolor-darkcolor           "#000000" #lightfg
 
 
 # light theme binding (press 1)
-map '1' feedkeys ":set statusbar-bg '#eeee9e'<Return>3"
+map '1' feedkeys ":set statusbar-bg '#efefef'<Return>3"
 map '3' feedkeys ":set statusbar-fg '#000000'<Return>4"
-map '4' feedkeys ":set default-bg '#ffffea'<Return>5"
+map '4' feedkeys ":set default-bg '#ffffff'<Return>5"
 map '5' feedkeys ":set default-fg '#000000'<Return>6"
-map '6' feedkeys ":set render-loading-bg '#ffffea'<Return>7"
+map '6' feedkeys ":set render-loading-bg '#ffffff'<Return>7"
 map '7' feedkeys ":set render-loading-fg '#000000'<Return>8"
-map '8' feedkeys ":set recolor-lightcolor '#ffffea'<Return>9"
+map '8' feedkeys ":set recolor-lightcolor '#ffffff'<Return>9"
 map '9' feedkeys ":set recolor-darkcolor '#000000'<Return>"
 
 # dark theme binding (press 2)
-map '2' feedkeys ":set statusbar-bg '#efefef'<Return>0"
-map '0' feedkeys ":set statusbar-fg '#000000'<Return>w"
-map 'w' feedkeys ":set default-bg '#ffffff'<Return>f"
+map '2' feedkeys ":set statusbar-bg '#eeee9e'<Return>0"
+map '0' feedkeys ":set statusbar-fg '#444444'<Return>w"
+map 'w' feedkeys ":set default-bg '#ffffea'<Return>f"
 map 'f' feedkeys ":set default-fg '#000000'<Return>p"
-map 'p' feedkeys ":set render-loading-bg '#ffffff'<Return>b"
+map 'p' feedkeys ":set render-loading-bg '#ffffea'<Return>b"
 map 'b' feedkeys ":set render-loading-fg '#000000'<Return>u"
-map 'u' feedkeys ":set recolor-lightcolor '#ffffff'<Return>y"
+map 'u' feedkeys ":set recolor-lightcolor '#ffffea'<Return>y"
 map 'y' feedkeys ":set recolor-darkcolor '#000000'<Return>"
 
 

@@ -1,4 +1,4 @@
-set guioptions ""
+set guioptions s
 set selection-clipboard clipboard
 set font                        "$(wq fontmono) Bold 12"
 
@@ -17,54 +17,54 @@ set recolor-keephue             "true"
 
 
 # dark theme by default
-set notification-error-bg       "$(wq lightbg)" #background
-set notification-warning-bg     "$(wq lightbg)" #background
-set notification-bg             "$(wq lightbg)" #backgound
+set notification-error-bg       "$(wq background)" #lightbg
+set notification-warning-bg     "$(wq background)" #lightbg
+set notification-bg             "$(wq background)" #backgound
 
-set completion-bg               "$(wq light0)" #colour0
-set completion-fg               "$(wq light15)" #foreground-dim
-set completion-group-bg         "$(wq light0)" #colour0
-set completion-group-fg         "$(wq light15)" #foreground-dim
-set completion-highlight-bg     "$(wq light8)" #bright black
-set completion-highlight-fg     "$(wq light15)" #foreground-dim
+set completion-bg               "$(wq color0)" #colour0
+set completion-fg               "$(wq color15)" #lightfg-dim
+set completion-group-bg         "$(wq color0)" #colour0
+set completion-group-fg         "$(wq color15)" #lightfg-dim
+set completion-highlight-bg     "$(wq color8)" #bright black
+set completion-highlight-fg     "$(wq color15)" #lightfg-dim
 
-set index-bg                    "$(wq lightbg)" #background
-set index-fg                    "$(wq light15)" #foreground-dim
-set index-active-bg             "$(wq light8)" #colour8
-set index-active-fg             "$(wq light15)" #foreground-dim
+set index-bg                    "$(wq background)" #lightbg
+set index-fg                    "$(wq color15)" #lightfg-dim
+set index-active-bg             "$(wq color8)" #colour8
+set index-active-fg             "$(wq color15)" #lightfg-dim
 
-set inputbar-bg                 "$(wq light0)" #background
-set statusbar-bg                "$(wq light0)" #background
-set statusbar-fg                "$(wq light15)" #foreground-dim
+set inputbar-bg                 "$(wq color0)" #lightbg
+set statusbar-bg                "$(wq color0)" #lightbg
+set statusbar-fg                "$(wq color15)" #lightfg-dim
 
-set default-bg                  "$(wq lightbg)" #background
-set default-fg                  "$(wq lightfg)" #foreground
-set render-loading-bg           "$(wq lightbg)" #background
-set render-loading-fg           "$(wq lightfg)" #foreground
+set default-bg                  "$(wq background)" #lightbg
+set default-fg                  "$(wq foreground)" #lightfg
+set render-loading-bg           "$(wq background)" #lightbg
+set render-loading-fg           "$(wq foreground)" #lightfg
 
-set recolor-lightcolor          "$(wq lightbg)" #background
-set recolor-darkcolor           "$(wq lightfg)" #foreground
+set recolor-lightcolor          "$(wq background)" #lightbg
+set recolor-darkcolor           "$(wq foreground)" #lightfg
 
 
 # light theme binding (press 1)
-map '1' feedkeys ":set statusbar-bg '$(wq light0)'<Return>3"
-map '3' feedkeys ":set statusbar-fg '$(wq lightfg)'<Return>4"
-map '4' feedkeys ":set default-bg '$(wq lightbg)'<Return>5"
-map '5' feedkeys ":set default-fg '$(wq lightfg)'<Return>6"
-map '6' feedkeys ":set render-loading-bg '$(wq lightbg)'<Return>7"
-map '7' feedkeys ":set render-loading-fg '$(wq lightfg)'<Return>8"
-map '8' feedkeys ":set recolor-lightcolor '$(wq lightbg)'<Return>9"
-map '9' feedkeys ":set recolor-darkcolor '$(wq lightfg)'<Return>"
+map '1' feedkeys ":set statusbar-bg '$(wq color0)'<Return>3"
+map '3' feedkeys ":set statusbar-fg '$(wq foreground)'<Return>4"
+map '4' feedkeys ":set default-bg '$(wq background)'<Return>5"
+map '5' feedkeys ":set default-fg '$(wq foreground)'<Return>6"
+map '6' feedkeys ":set render-loading-bg '$(wq background)'<Return>7"
+map '7' feedkeys ":set render-loading-fg '$(wq foreground)'<Return>8"
+map '8' feedkeys ":set recolor-lightcolor '$(wq background)'<Return>9"
+map '9' feedkeys ":set recolor-darkcolor '$(wq foreground)'<Return>"
 
 # dark theme binding (press 2)
-map '2' feedkeys ":set statusbar-bg '$(wq color0)'<Return>0"
-map '0' feedkeys ":set statusbar-fg '$(wq color15)'<Return>w"
-map 'w' feedkeys ":set default-bg '$(wq background)'<Return>f"
-map 'f' feedkeys ":set default-fg '$(wq foreground)'<Return>p"
-map 'p' feedkeys ":set render-loading-bg '$(wq background)'<Return>b"
-map 'b' feedkeys ":set render-loading-fg '$(wq foreground)'<Return>u"
-map 'u' feedkeys ":set recolor-lightcolor '$(wq background)'<Return>y"
-map 'y' feedkeys ":set recolor-darkcolor '$(wq foreground)'<Return>"
+map '2' feedkeys ":set statusbar-bg '$(wq light0)'<Return>0"
+map '0' feedkeys ":set statusbar-fg '$(wq light15)'<Return>w"
+map 'w' feedkeys ":set default-bg '$(wq lightbg)'<Return>f"
+map 'f' feedkeys ":set default-fg '$(wq lightfg)'<Return>p"
+map 'p' feedkeys ":set render-loading-bg '$(wq lightbg)'<Return>b"
+map 'b' feedkeys ":set render-loading-fg '$(wq lightfg)'<Return>u"
+map 'u' feedkeys ":set recolor-lightcolor '$(wq lightbg)'<Return>y"
+map 'y' feedkeys ":set recolor-darkcolor '$(wq lightfg)'<Return>"
 
 
 # vim:ft=sh

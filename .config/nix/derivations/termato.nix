@@ -5,13 +5,13 @@
 
 stdenv.mkDerivation rec {
     pname = "termato";
-    version = "0.3";
+    version = "0.4";
 
     src = fetchFromGitHub {
         owner = "felix-u";
         repo = pname;
         rev = "v${version}";
-        sha256 = "sha256-F9P+6XefhA34WJy/gT6YYexm5nHKDCYCN+nx17ZIZDY=";
+        sha256 = "sha256-+qu5rMlDQpBKoUhzDKa3fnQI/RlY+DN8FCESK8E1Urc=";
     };
 
     buildInputs = [ ncurses ];

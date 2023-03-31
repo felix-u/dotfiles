@@ -196,4 +196,6 @@ wfrecwindow() {
 	"$(slurp -d -b "$(wq color7)"40 -c "$(wq color7)" -w 3)"
 }
 
+alias wm="\$EDITOR ~/uni/workingmemory"
+
 alias ytfzf="ytfzf -t --thumb-viewer=catimg --thumbnail-quality=medium"

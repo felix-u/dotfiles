@@ -1,7 +1,28 @@
 #!/usr/bin/env sh
 
 if [ "$1" = "battery" ]; then
-    BAT="$("$DOTFILES"/scripts/bat/bat0.sh)"
+    BATNUM="$(cat /sys/class/power_supply/BAT0/capacity)"
+    BATPERCENTAGE="${BATNUM}%"
+    BATSTATE="$(cat /sys/class/power_supply/BAT0/status)"
+    if [ "$BATSTATE" = "Charging" ]; then
+        BATICON="⠔"
+    elif [ "$BATNUM" -ge 80 ]; then
+        BATICON="⣿"
+    elif [ "$BATNUM" -ge 70 ]; then
+        BATICON="⣾"
+    elif [ "$BATNUM" -ge 60 ]; then
+        BATICON="⣶"
+    elif [ "$BATNUM" -ge 50 ]; then
+        BATICON="⣦"
+    elif [ "$BATNUM" -ge 40 ]; then
+        BATICON="⣤"
+    elif [ "$BATNUM" -ge 30 ]; then
+        BATICON="⣄"
+    elif [ "$BATNUM" -ge 20 ]; then
+        BATICON="⣀"
+    else
+        BATICON="!"
+    fi
 fi
 
 DATE="$(date +'%a %d  %H:%M')"
@@ -11,7 +32,7 @@ VOL="$(pulsemixer --get-volume | cut -f 1 -d " " | tr -d '\n')"
 SHAREDBAR="VOL:${VOL}%    $DATE   "
 
 if [ "$1" = "battery" ]; then
-    echo "$BAT |   $SHAREDBAR"
+    echo "$BATICON $BATPERCENTAGE    $SHAREDBAR"
 else
     echo "$SHAREDBAR"
 fi

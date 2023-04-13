@@ -9,8 +9,8 @@ wqs () {
 }
 
 # wallpaper
-pkill swaybg; swaybg -c "$(wq background)" &
-# ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
+# pkill swaybg; swaybg -c "$(wq background)" &
+~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 
 pkill wlsunset
 "$XDG_CONFIG_HOME"/sway/scripts/screen_temp.sh default &

@@ -55,7 +55,6 @@ swaymsg "bar std colors background $WBG"
 swaymsg "bar std colors statusline $WFG"
 swaymsg "bar std colors focused_workspace ${W00}ff ${W00}ff $WFG"
 swaymsg "bar std colors inactive_workspace ${WBG}ff ${WBG}ff $W07"
-swaymsg "bar std mode dock"
 swaymsg "bar modifier $ALT"
 
 #
@@ -155,14 +154,14 @@ swaymsg "bindsym $MOD+$ALT+r reload" &
 swaymsg "bindsym $MOD+$ALT+q exit" &
 #
 
-for i in {1..9}
+for i in {1..4}
 do
     swaymsg "bindsym $MOD+$i workspace number $i" &
     swaymsg "bindsym $MOD+Shift+$i move container to workspace number $i" &
 done
-# also use 0 for 10
-swaymsg "bindsym $MOD+0 workspace number 10" &
-swaymsg "bindsym $MOD+Shift+0 move container to workspace number 10" &
+# # also use 0 for 10
+# swaymsg "bindsym $MOD+0 workspace number 10" &
+# swaymsg "bindsym $MOD+Shift+0 move container to workspace number 10" &
 
 #
 swaymsg "bindsym $MOD+z layout stacking" &

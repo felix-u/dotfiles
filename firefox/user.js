@@ -9,6 +9,9 @@ user_pref("gfx.x11-egl.force-enabled", true);
 user_pref("gfx.x11-egl.force-disabled", false);
 user_pref("layers.acceleration.force-enabled", true);
 
+// limit fps
+user_pref("layout.frame_rate", 5);
+
 // Rest mostly from https://github.com/arkenfox/user.js
 /*** [SECTION 0100]: STARTUP ***/
 user_pref("_user.js.parrot", "0100 syntax error: the parrot's dead!");

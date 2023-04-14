@@ -3,12 +3,14 @@
 
 OPTIONS=$(cat <<-END
 time-sensitive
-4000 K (warmest)
+3000 K (warmest)
+3500 K
+4000 K
 4500 K
 5000 K
 5500 K
 6000 K
-6500 K (default)
+6500 K (off)
 7000 K (coldest)
 END
 )

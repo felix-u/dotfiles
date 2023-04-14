@@ -9,8 +9,8 @@ user_pref("gfx.x11-egl.force-enabled", true);
 user_pref("gfx.x11-egl.force-disabled", false);
 user_pref("layers.acceleration.force-enabled", true);
 
-// limit fps
-user_pref("layout.frame_rate", 5);
+// limit fps (or no limit when -1)
+user_pref("layout.frame_rate", -1);
 
 // Rest mostly from https://github.com/arkenfox/user.js
 /*** [SECTION 0100]: STARTUP ***/

@@ -74,6 +74,8 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     swaymsg "bindsym XF86MonBrightnessUp exec brightnessctl set +3%" &
     swaymsg "bindsym XF86MonBrightnessDown exec brightnessctl set 3%-" &
 
+    swaymsg "bindsym $MOD+$ALT+b exec notify-send \$(cat /sys/class/power_supply/BAT0/capacity)%" &
+
     swaymsg "output * resolution 3840x2400 position 3840 0 scale $WDPI" &
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
     swaymsg "xwayland scale=$WDPI" &
@@ -131,7 +133,7 @@ swaymsg "bindsym $MOD+comma bar mode dock" &
 swaymsg "bindsym $MOD+Shift+comma bar mode invisible" &
 swaymsg "bindsym $MOD+$ALT+comma bar mode hide" &
 swaymsg "bindsym $MOD+Shift+v exec emacsclient -c" &
-swaymsg "bindsym $MOD+$ALT+b exec MOZ_ENABLE_WAYLAND=1 firefox" &
+swaymsg "bindsym $MOD+b exec MOZ_ENABLE_WAYLAND=1 firefox" &
 swaymsg "bindsym $MOD+a exec $FILES" &
 #
 swaymsg "bindsym $MOD+Shift+b exec ~/.config/sway/scripts/randwall.sh \

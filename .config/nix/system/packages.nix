@@ -191,12 +191,11 @@ in {
             bc gnuplot libqalculate maxima octaveFull
 
         # TERMINAL MISC
-            catimg cmatrix doas-as-sudo xdragon entr figlet file ffmpeg gomuks
+            _7zz catimg cmatrix doas-as-sudo entr ffmpeg figlet file gomuks
             handlr htop hunspell hunspellDicts.en-gb-ise hyperfine jq killall
-            lm_sensors lolcat ncdu nota nvd onefetch
-            pastel pandoc pdftk poppler_utils shgen termato termdown
-            themesh tldr tmux tty-clock udiskie udisks unrar unzip v4l-utils
-            libv4l w3m xdg-utils youtube-dl ytfzf zip _7zz
+            libv4l lm_sensors lolcat moreutils ncdu nota nvd onefetch themesh
+            tldr tmux tty-clock udiskie udisks unrar unzip v4l-utils w3m
+            xdg-utils xdragon youtube-dl ytfzf zip
             imgclr # haha, c'est a moi :D
             # irssi
             (pkgs.symlinkJoin { # fzf should always run with '--color=16'

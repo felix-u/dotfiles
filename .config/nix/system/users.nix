@@ -152,25 +152,27 @@ in {
               filetype plugin indent on
 
               highlight clear
-              hi Comment    cterm=italic ctermfg=02
-              hi Constant   cterm=NONE   ctermfg=06
-              hi CursorLine cterm=NONE   ctermbg=00
-              hi Delimiter  cterm=NONE   ctermfg=White 
-              hi Function   cterm=NONE   ctermfg=White
-              hi Identifier cterm=NONE   ctermfg=White
-              hi MatchParen cterm=bold,underline ctermfg=Black ctermbg=04
-              hi Pmenu      ctermfg=White ctermbg=Black
-              hi PmenuSbar  ctermbg=08
-              hi PmenuSel   ctermfg=Black ctermbg=White
-              hi PmenuThumb ctermfg=08 ctermbg=08
-              hi PreProc    cterm=NONE   ctermfg=01
-              hi Search     cterm=bold   ctermfg=Black ctermbg=03
-              hi Special    cterm=NONE   ctermfg=05
-              hi Statement  cterm=NONE   ctermfg=White
-              hi String     cterm=NONE   ctermfg=06
-              hi Type       cterm=NONE   ctermfg=White
-              hi Visual     ctermbg=08
-              hi WildMenu   ctermfg=Black ctermbg=White
+              hi Comment      cterm=italic ctermfg=02
+              hi Constant     cterm=NONE   ctermfg=06
+              hi CursorLine   cterm=NONE   ctermbg=00
+              hi CursorLineNr cterm=NONE   ctermfg=15 ctermbg=00
+              hi Delimiter    cterm=NONE   ctermfg=White 
+              hi Function     cterm=NONE   ctermfg=White
+              hi Identifier   cterm=NONE   ctermfg=White
+              hi LineNr       ctermfg=07   ctermbg=00
+              hi MatchParen   cterm=bold,underline ctermfg=Black ctermbg=04
+              hi Pmenu        ctermfg=White ctermbg=Black
+              hi PmenuSbar    ctermbg=08
+              hi PmenuSel     ctermfg=Black ctermbg=White
+              hi PmenuThumb   ctermfg=08 ctermbg=08
+              hi PreProc      cterm=NONE   ctermfg=01
+              hi Search       cterm=bold   ctermfg=Black ctermbg=03
+              hi Special      cterm=NONE   ctermfg=05
+              hi Statement    cterm=NONE   ctermfg=White
+              hi String       cterm=NONE   ctermfg=06
+              hi Type         cterm=NONE   ctermfg=White
+              hi Visual       ctermbg=08
+              hi WildMenu     ctermfg=Black ctermbg=White
 
               let mapleader = " "
 

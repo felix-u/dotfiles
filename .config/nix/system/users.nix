@@ -106,8 +106,8 @@ in {
                 which-key-nvim
             ];
             extraConfig = ''
-              set autoread
               set autoindent
+              set autoread
               set backspace=indent,eol,start " backspace in insert mode
               set clipboard="unnamedplus"
               set complete-=i " don't complete keywords in included files
@@ -115,12 +115,13 @@ in {
               set display+=lastline
               set display+=truncate
               set expandtab
+              setglobal tags-=./tags tags-=./tags; tags^=./tags;	
               set history=1000
               set hlsearch
               set ignorecase
               set incsearch
-              set lazyredraw
               set laststatus=2
+              set lazyredraw
               set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
               set mouse="a"
               set nocompatible
@@ -131,18 +132,17 @@ in {
               set nowritebackup
               set nrformats-=octal
               set ruler
-              set sessionoptions-=options
               set scrolloff=1
+              set sessionoptions-=options
               set shiftwidth=4
               set showmatch
               set sidescrolloff=2
-              set smarttab
               set smartindent
+              set smarttab
               set splitbelow
               set splitright
               set tabpagemax=50
               set tabstop=4
-              setglobal tags-=./tags tags-=./tags; tags^=./tags;	
               set timeout
               set timeoutlen=200
               set undofile
@@ -153,24 +153,24 @@ in {
 
               highlight clear
               hi Comment    cterm=italic ctermfg=02
-              hi String     cterm=NONE   ctermfg=06
               hi Constant   cterm=NONE   ctermfg=06
-              hi Identifier cterm=NONE   ctermfg=White
-              hi Function   cterm=NONE   ctermfg=White
-              hi Statement  cterm=NONE   ctermfg=White
-              hi PreProc    cterm=NONE   ctermfg=01
-              hi Type       cterm=NONE   ctermfg=White
-              hi Special    cterm=NONE   ctermfg=05
-              hi Delimiter  cterm=NONE   ctermfg=White 
               hi CursorLine cterm=NONE   ctermbg=00
-              hi Search     cterm=bold   ctermfg=Black ctermbg=03
+              hi Delimiter  cterm=NONE   ctermfg=White 
+              hi Function   cterm=NONE   ctermfg=White
+              hi Identifier cterm=NONE   ctermfg=White
+              hi MatchParen cterm=bold,underline ctermfg=Black ctermbg=04
               hi Pmenu      ctermfg=White ctermbg=Black
               hi PmenuSbar  ctermbg=08
               hi PmenuSel   ctermfg=Black ctermbg=White
               hi PmenuThumb ctermfg=08 ctermbg=08
-              hi WildMenu   ctermfg=Black ctermbg=White
+              hi PreProc    cterm=NONE   ctermfg=01
+              hi Search     cterm=bold   ctermfg=Black ctermbg=03
+              hi Special    cterm=NONE   ctermfg=05
+              hi Statement  cterm=NONE   ctermfg=White
+              hi String     cterm=NONE   ctermfg=06
+              hi Type       cterm=NONE   ctermfg=White
               hi Visual     ctermbg=08
-              hi MatchParen cterm=bold,underline ctermfg=Black ctermbg=04
+              hi WildMenu   ctermfg=Black ctermbg=White
 
               let mapleader = " "
 

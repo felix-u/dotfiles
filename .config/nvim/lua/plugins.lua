@@ -51,13 +51,13 @@ return packer.startup{function(use, vim)
     -- more vim objects
     use { "wellle/targets.vim" }
 
-    -- git signs (like gitgutter, but better)
-    use {
-        'lewis6991/gitsigns.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim'
-        },
-    }
+    -- -- git signs (like gitgutter, but better)
+    -- use {
+    --     'lewis6991/gitsigns.nvim',
+    --     requires = {
+    --         'nvim-lua/plenary.nvim'
+    --     },
+    -- }
 
     -- better marks
     use {

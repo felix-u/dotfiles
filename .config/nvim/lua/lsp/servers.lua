@@ -25,7 +25,7 @@ local servers = {
     "rnix",
     "rust_analyzer",
     "spectral",
-    "sumneko_lua",
+    "lua_ls",
     "texlab",
     "tsserver",
     "vimls",

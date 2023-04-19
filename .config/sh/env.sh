@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 export AMD_VULKAN_ICD="RADV"
-export BROWSER="qutebrowser"
+export BROWSER="firefox"
 export CC="zig cc"
 export DOTFILES="$HOME/dotfiles"
 export DOTSCONF="$DOTFILES/.config"

@@ -9,11 +9,11 @@ let
 
 in {
 
-    nixpkgs.overlays = [
-        (self: super: {
-            sway = pkgs-unstable.sway;
-        })
-    ];
+    # nixpkgs.overlays = [
+    #     (self: super: {
+    #         sway = pkgs-unstable.sway;
+    #     })
+    # ];
 
     # environment.systemPackages =
     # let

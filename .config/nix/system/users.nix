@@ -87,117 +87,160 @@ in {
 
         services.udiskie.enable = true;
 
-	programs.vim = {
-	    enable = true;	
-	    plugins = with pkgs.vimPlugins; [
-          auto-pairs
-          targets-vim
-          vim-commentary
-          vim-cutlass
-          vim-easymotion
-          vim-endwise
-          vim-lastplace
-          vim-repeat
-          vim-speeddating
-          vim-surround
-          vim-unimpaired
-          vim-vinegar
-          vim-wayland-clipboard
-        ];
-	    settings = {
-          expandtab = true;		
-          ignorecase = true;
-          mouse = "a";
-          shiftwidth = 4;
-          tabstop = 4;
-          undofile = true;
-	    };
-	    extraConfig = ''
-		  set autoread
-		  set backspace=indent,eol,start " backspace in insert mode
-          set clipboard="unnamedplus"
-		  set complete-=i " don't complete keywords in included files
-          set cursorline
-		  set display+=lastline
-		  set display+=truncate
-		  set history=1000
-		  set incsearch
-		  set laststatus=2
-		  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-          set nocompatible
-		  set nolangremap
-		  set nrformats-=octal
-		  set ruler
-		  set sessionoptions-=options
-		  set smarttab
-		  set scrolloff=1
-		  set sidescrolloff=2
-		  set tabpagemax=50
-		  setglobal tags-=./tags tags-=./tags; tags^=./tags;	
-		  set ttimeout
-		  set ttimeoutlen=100
-		  set wildmenu
-		  set viewoptions-=options
-		  set viminfo^=!
-		  filetype plugin indent on
-
-          highlight clear
-          hi Comment    cterm=italic ctermfg=02
-          hi String     cterm=NONE   ctermfg=06
-          hi Constant   cterm=NONE   ctermfg=06
-          hi Identifier cterm=NONE   ctermfg=White
-          hi Function   cterm=NONE   ctermfg=White
-          hi Statement  cterm=NONE   ctermfg=White
-          hi PreProc    cterm=NONE   ctermfg=01
-          hi Type       cterm=NONE   ctermfg=White
-          hi Special    cterm=NONE   ctermfg=05
-          hi Delimiter  cterm=NONE   ctermfg=White 
-          hi CursorLine cterm=NONE   ctermbg=00
-
-          " return to last edit position when opening files
-          " autocmd BufReadPost *
-          "      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-          "      \   exe "normal! g`\"" |
-          "      \ endif
-          "`'")"'")"
-
-          let mapleader = " "
-
-          " print syntax grouping under cursor
-          function! SynStack()
-            if !exists("*synstack")
-                return
-              endif
-            echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-          endfunc
-          noremap <leader>hg :call SynStack()<CR>
-
-          " vim-cutlass
-          noremap <leader>c  c
-          noremap <leader>C  C
-          noremap <leader>cc cc
-          noremap <leader>d  d
-          noremap <leader>D  d
-          noremap <leader>dd dd
-
-          " copy and paste from system clipboard
-          map <leader>y "+y
-          map <leader>Y "+y$
-          map <leader>p "+p
-          map <leader>P "+P
-
-          " vim-easymotion
-          noremap s <Plug>(easymotion-overwin-f2)
-
-	    '';
-	};
-
         programs.neovim = {
             enable = true;
             package = pkgs-unstable.neovim-unwrapped;
             plugins = with pkgs.vimPlugins; [
-                nvim-treesitter.withAllGrammars
+                # nvim-treesitter.withAllGrammars
+                auto-pairs
+                comment-nvim
+                leap-nvim
+                targets-vim
+                vim-cutlass
+                vim-endwise
+                vim-lastplace
+                vim-repeat
+                vim-speeddating
+                vim-surround
+                vim-unimpaired
+                which-key-nvim
             ];
+            extraConfig = ''
+              set autoread
+              set autoindent
+              set backspace=indent,eol,start " backspace in insert mode
+              set clipboard="unnamedplus"
+              set complete-=i " don't complete keywords in included files
+              set cursorline
+              set display+=lastline
+              set display+=truncate
+              set expandtab
+              set history=1000
+              set hlsearch
+              set ignorecase
+              set incsearch
+              set lazyredraw
+              set laststatus=2
+              set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+              set mouse="a"
+              set nocompatible
+              set nolangremap
+              set noshowcmd
+              set noswapfile
+              set nowrap
+              set nowritebackup
+              set nrformats-=octal
+              set ruler
+              set sessionoptions-=options
+              set scrolloff=1
+              set shiftwidth=4
+              set showmatch
+              set sidescrolloff=2
+              set smarttab
+              set smartindent
+              set splitbelow
+              set splitright
+              set tabpagemax=50
+              set tabstop=4
+              setglobal tags-=./tags tags-=./tags; tags^=./tags;	
+              set timeout
+              set timeoutlen=200
+              set undofile
+              set viewoptions-=options
+              set viminfo^=!
+              set wildmenu
+              filetype plugin indent on
+
+              highlight clear
+              hi Comment    cterm=italic ctermfg=02
+              hi String     cterm=NONE   ctermfg=06
+              hi Constant   cterm=NONE   ctermfg=06
+              hi Identifier cterm=NONE   ctermfg=White
+              hi Function   cterm=NONE   ctermfg=White
+              hi Statement  cterm=NONE   ctermfg=White
+              hi PreProc    cterm=NONE   ctermfg=01
+              hi Type       cterm=NONE   ctermfg=White
+              hi Special    cterm=NONE   ctermfg=05
+              hi Delimiter  cterm=NONE   ctermfg=White 
+              hi CursorLine cterm=NONE   ctermbg=00
+              hi Search     cterm=bold   ctermfg=Black ctermbg=03
+              hi Pmenu      ctermfg=White ctermbg=Black
+              hi PmenuSbar  ctermbg=08
+              hi PmenuSel   ctermfg=Black ctermbg=White
+              hi PmenuThumb ctermfg=08 ctermbg=08
+              hi WildMenu   ctermfg=Black ctermbg=White
+              hi Visual     ctermbg=08
+              hi MatchParen cterm=bold,underline ctermfg=Black ctermbg=04
+
+              let mapleader = " "
+
+              " print syntax grouping under cursor
+              function! SynStack()
+                if !exists("*synstack")
+                    return
+                  endif
+                echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+              endfunc
+              noremap <leader>hg :call SynStack()<CR>
+
+              " vim-cutlass
+              noremap <leader>c  c
+              noremap <leader>C  C
+              noremap <leader>cc cc
+              noremap <leader>d  d
+              noremap <leader>D  d
+              noremap <leader>dd dd
+
+              " Copy and paste from system clipboard
+              noremap y "+y
+              noremap Y "+y$
+              noremap yy "+yy
+              noremap p "+p
+              noremap P "+P
+
+              lua require('leap').add_default_mappings()
+              lua require("which-key").setup{}
+
+              " Directional keys should navigate visual lines, not actual lines
+              nnoremap j gj
+              nnoremap k gk
+              nnoremap <Down> gj
+              nnoremap <Up> gk
+
+              " Keep search results centred
+              nnoremap n nzzzv
+              nnoremap N Nzzzv
+
+              " Text formatting
+              nnoremap <leader>stf :set linebreak!<CR> :set fo+=t<CR> :set tw=120<CR> :set wrap!<CR>
+
+              " Yank whole file
+              nnoremap <C-y> :%y+<CR>
+
+              " Swap more easily between last two buffers
+              nnoremap <leader>j <C-^>
+
+              " More breakpoints for undo
+              inoremap , ,<C-g>u
+              inoremap . .<C-g>u
+              inoremap ! !<C-g>u
+              inoremap ? ?<C-g>u
+
+              " Stay in visual mode when indenting
+              vnoremap < <gv
+              vnoremap > >gv
+
+              " Shift+Up/Down moves text
+              vnoremap J :m '>+1<CR>gv=gv
+              vnoremap K :m '>-2<CR>gv=gv
+              vnoremap <S-Down> :m '>+1<CR>gv=gv
+              vnoremap <S-Up> :m '>-2<CR>gv=gv
+
+              " toggling various things
+              nnoremap <leader>ts :setlocal spell! spelllang=en_gb<CR>
+              nnoremap <leader>tls :set number<CR> :set relativenumber<CR>
+              nnoremap <leader>tlh :set nonumber<CR> :set norelativenumber<CR>
+            '';
         };
 
         programs.nnn = {

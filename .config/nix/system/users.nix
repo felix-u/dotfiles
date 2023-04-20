@@ -93,9 +93,9 @@ in {
             plugins = with pkgs.vimPlugins; [
                 # nvim-treesitter.withAllGrammars
                 auto-pairs
-                comment-nvim
                 leap-nvim
                 targets-vim
+                vim-commentary
                 vim-cutlass
                 vim-endwise
                 vim-lastplace
@@ -175,6 +175,10 @@ in {
               hi WildMenu     ctermfg=Black ctermbg=White
 
               let mapleader = " "
+
+              set commentstring=#\ %s
+              autocmd FileType c   commentstring=//\ %s
+              autocmd FileType cpp commentstring=//\ %s
 
               " print syntax grouping under cursor
               function! SynStack()

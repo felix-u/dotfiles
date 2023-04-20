@@ -148,7 +148,7 @@ in {
 
         # DEV AND PROGRAMMING
         # misc
-            bviplus
+            ascii bviplus
             # android-tools bsdiff
             # libresprite pixelorama rx
             # openssl_3_0 pkg-config protobuf unstable.godot godot4-alpha

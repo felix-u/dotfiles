@@ -177,8 +177,8 @@ in {
               let mapleader = " "
 
               set commentstring=#\ %s
-              autocmd FileType c   commentstring=//\ %s
-              autocmd FileType cpp commentstring=//\ %s
+              autocmd FileType c   set commentstring=//\ %s
+              autocmd FileType cpp set commentstring=//\ %s
 
               " print syntax grouping under cursor
               function! SynStack()

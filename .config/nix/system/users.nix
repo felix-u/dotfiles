@@ -94,6 +94,7 @@ in {
                 # nvim-treesitter.withAllGrammars
                 auto-pairs
                 leap-nvim
+                nnn-vim
                 targets-vim
                 vim-commentary
                 vim-cutlass
@@ -246,6 +247,10 @@ in {
               nnoremap <leader>ts :setlocal spell! spelllang=en_gb<CR>
               nnoremap <leader>tls :set number<CR> :set relativenumber<CR>
               nnoremap <leader>tlh :set nonumber<CR> :set norelativenumber<CR>
+
+              " nnn file picker
+              let g:nnn#set_default_mappings = 0 " disable
+              nnoremap <leader>f :NnnPicker %:p:h<CR>
             '';
         };
 

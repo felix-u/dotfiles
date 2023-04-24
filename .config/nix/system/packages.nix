@@ -213,6 +213,14 @@ in {
 
         # INTERNET & BLUETOOTH
             blueberry bluez bluez-tools firefox newsboat
+            (pkgs.symlinkJoin { # microsoft-edge, needed for Bing Chat (internet-connected GPT)
+                name = "microsoft-edge";
+                paths = [ pkgs.microsoft-edge ];
+                buildInputs = [ pkgs.makeWrapper ];
+                postBuild = ''
+                    wrapProgram $out/bin/microsoft-edge --add-flags "--enable-features=UseOzonePlatform --ozone-platform=wayland"
+                '';
+            })
             # blueman
 
         # DESKTOP

@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, git, ... }:
 
 
 let
@@ -14,6 +14,15 @@ let
         sha256 = "sha256-j5W9q905ApDf3fvCIS4UwyHYnEZu5Ictn+6JkV/xjig=";
       };
     };
+    # cutlass-nvim = pkgs.vimUtils.buildVimPlugin {
+    #     name = "cutlass-nvim";
+    #     src = pkgs.fetchFromGitHub {
+    #         owner = "gbprod";
+    #         repo = "cutlass.nvim";
+    #         rev = "31a2099627cd1ef8898f442ee6a58c7400111395";
+    #         sha256 = "sha256-Bmf5qTLdCTOXbGMjVb4vsj6qkN4nL0LtmUwZF3rl0zc=";
+    #     };
+    # };
 in {
 
     imports = [ <home-manager/nixos> ];
@@ -98,6 +107,7 @@ in {
                 targets-vim
                 vim-commentary
                 vim-cutlass
+                # plenary-nvim cutlass-nvim
                 vim-endwise
                 vim-lastplace
                 vim-repeat
@@ -191,12 +201,14 @@ in {
               noremap <leader>hg :call SynStack()<CR>
 
               " vim-cutlass
-              noremap <leader>c  c
-              noremap <leader>C  C
-              noremap <leader>cc cc
-              noremap <leader>d  d
-              noremap <leader>D  d
-              noremap <leader>dd dd
+              noremap <leader>d  "+d
+              noremap <leader>d  "+d
+              noremap <leader>dd "+dd
+              noremap <leader>D  "+d
+              noremap <leader>c  "+c
+              noremap <leader>c  "+c
+              noremap <leader>cc "+cc
+              noremap <leader>c  "+c
 
               " Copy and paste from system clipboard
               noremap y "+y
@@ -207,6 +219,7 @@ in {
 
               lua require('leap').add_default_mappings()
               lua require("which-key").setup{}
+              " lua require("cutlass").setup{}
 
               " Directional keys should navigate visual lines, not actual lines
               nnoremap j gj
@@ -280,7 +293,7 @@ in {
             "-animation-duration-scale=0.5"
             "-enable-features=UseOzonePlatform"
             "-ozone-platform=wayland"
-            "-homepage='https://search.brave.com'"
+            "file"
           ];
           extensions = [
             # ublock origin

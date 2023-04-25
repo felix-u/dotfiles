@@ -12,6 +12,9 @@ user_pref("layers.acceleration.force-enabled", true);
 // limit fps (or no limit when -1)
 user_pref("layout.frame_rate", -1);
 
+// set custom home page
+user_pref("browser.startup.homepage", "file:///home/felix/dotfiles/misc/startpage.html");
+
 // Rest mostly from https://github.com/arkenfox/user.js
 /*** [SECTION 0100]: STARTUP ***/
 user_pref("_user.js.parrot", "0100 syntax error: the parrot's dead!");

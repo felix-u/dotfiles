@@ -143,6 +143,9 @@ alias ncdu="ncdu --color off"
 
 alias onefetch="onefetch --true-color never"
 
+# ChatGPT prompts
+alias prompts="\$EDITOR ~/uni/misc/prompts"
+
 # bash rain
 alias rainsh="~/dotfiles/scripts/rain.sh"
 

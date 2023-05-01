@@ -99,23 +99,29 @@ in {
         programs.neovim = {
             enable = true;
             package = pkgs-unstable.neovim-unwrapped;
+
             plugins = with pkgs.vimPlugins; [
                 # nvim-treesitter.withAllGrammars
                 auto-pairs
+                harpoon
                 leap-nvim
                 nnn-vim
+                plenary-nvim
                 targets-vim
                 vim-commentary
                 vim-cutlass
-                # plenary-nvim cutlass-nvim
                 vim-endwise
                 vim-lastplace
+                vim-manpager
+                vim-pager
+                vim-plugin-AnsiEsc
                 vim-repeat
                 vim-speeddating
                 vim-surround
                 vim-unimpaired
                 which-key-nvim
             ];
+
             extraConfig = ''
               set autoindent
               set autoread
@@ -184,6 +190,7 @@ in {
               hi Type         cterm=NONE   ctermfg=White
               hi Visual       ctermbg=08
               hi WildMenu     ctermfg=Black ctermbg=White
+              autocmd BufReadPost *.c,*.h hi cError cterm=NONE
 
               let mapleader = " "
 
@@ -217,9 +224,9 @@ in {
               noremap p "+p
               noremap P "+P
 
+              " Plugins
               lua require('leap').add_default_mappings()
               lua require("which-key").setup{}
-              " lua require("cutlass").setup{}
 
               " Directional keys should navigate visual lines, not actual lines
               nnoremap j gj
@@ -264,6 +271,17 @@ in {
               " nnn file picker
               let g:nnn#set_default_mappings = 0 " disable
               nnoremap <leader>f :NnnPicker %:p:h<CR>
+
+              " harpoon
+              nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
+              nnoremap <leader>v :lua require("harpoon.ui").toggle_quick_menu()<CR>
+              nnoremap <C-Left>  :lua require("harpoon.ui").nav_file(3)<CR>
+              nnoremap <C-Down>  :lua require("harpoon.ui").nav_file(1)<CR>
+              nnoremap <C-Up>    :lua require("harpoon.ui").nav_file(2)<CR>
+              nnoremap <C-Right> :lua require("harpoon.ui").nav_file(4)<CR>
+
+              " convenience
+              nnoremap <leader>q :q<CR>
             '';
         };
 

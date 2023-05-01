@@ -143,6 +143,8 @@ alias ncdu="ncdu --color off"
 
 alias onefetch="onefetch --true-color never"
 
+alias page="\$PAGER"
+
 # ChatGPT prompts
 alias prompts="\$EDITOR ~/uni/misc/prompts"
 

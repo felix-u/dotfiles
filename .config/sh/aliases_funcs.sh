@@ -166,6 +166,8 @@ swaybgset() {
     pkill swaybg; swaybg -m fill -i "$1"
 }
 
+alias tm="tmux"
+
 # get temps by watching lm_sensors every half a second
 alias temps="watch -n 0.5 sensors"
 

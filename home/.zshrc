@@ -43,6 +43,9 @@ export KEYTIMEOUT=1
 export VI_MODE_SET_CURSOR=true
 bindkey "^?" backward-delete-char
 
+bindkey -M viins '^P' vi-cmd-mode
+bindkey -M vicmd '^P' vi-insert-mode
+
     # # Change cursor, with tmux support ---
     # function _set_cursor() {
     #     if [[ $TMUX = '' ]]; then

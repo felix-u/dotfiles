@@ -44,9 +44,3 @@ xgen.fontsans: FreeSans
 *.light0:       #eeee9e
 *.light8:       #eeee9e
 *.light15:      #444444
-
-! *.darkfg:      #ffffff
-! *.darkbg:      #000000
-! *.dark0:       #000000
-! *.dark8:       #000000
-! *.dark15:      #efefef

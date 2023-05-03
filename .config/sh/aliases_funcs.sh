@@ -36,6 +36,25 @@ clrpick() {
 
 alias cmatrix="cmatrix -u 2"
 
+alias f="fzf"
+FDEPTH=4
+fcd () {
+    cd $(find . -maxdepth "$FDEPTH" -type d -printf "%P\n" -not -path "*/.git/*" \
+        -not -path "*cache*" -not -path "*share*" -not -path "*/lib/*"  \
+        | fzf)
+}
+fword () {
+    WORDS=$(find -L . -maxdepth "$FDEPTH" -type f \
+        -not -path "*/.git/*" -not -path "*cache*" -not -path "*share*" \
+        -not -path "*/lib/*" -exec grep -Iq . {} \; -printf "%P\n" | \
+        xargs grep -Eo '\w+')
+    LIST=$(echo "$WORDS" | awk -F : '{print $NF}' | sort -u --ignore-case)
+    SELECT=$(echo "$LIST" | fzf)
+    find -L . -maxdepth "$FDEPTH" -type f \
+        -not -path "*/.git/*" -not -path "*cache*" -not -path "*share*" \
+        -not -path "*/lib/*" -exec grep --color=always -Ir "$SELECT" {} +
+}
+
 # Runs neofetch with my custom config, which only works on NixOS
 alias fetch="printf '\n' && \neofetch"
 # Runs neofetch with no config

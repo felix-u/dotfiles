@@ -59,6 +59,7 @@ in {
     # ];
 
     # packages for all systems
+    documentation.man.generateCaches = true;
     environment.systemPackages =
     let
 

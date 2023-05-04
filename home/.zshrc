@@ -114,6 +114,7 @@ bindkey '^n' autosuggest-accept
 # HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=blue"
 # HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=magenta"
 source "$XDG_CONFIG_HOME"/sh/zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh
+bindkey -s "^G" 'fcd^M'
 
 # Automatic syntax pairs
 source /home/felix/.config/sh/zsh/zsh-autopair/autopair.zsh

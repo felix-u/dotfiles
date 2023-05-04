@@ -111,6 +111,7 @@ in {
                 vim-repeat
                 vim-speeddating
                 vim-surround
+                vimtex
                 vim-unimpaired
                 which-key-nvim
             ];
@@ -303,6 +304,10 @@ in {
 
               " escape to enter normal mode in terminal mode
               tnoremap <Esc> <C-\><C-n>
+
+              " vimtex
+              let maplocalleader="\\"
+              let g:vimtex_view_method = 'zathura'
 
             '';
         };

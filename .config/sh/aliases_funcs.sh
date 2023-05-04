@@ -39,9 +39,51 @@ alias cmatrix="cmatrix -u 2"
 alias f="fzf"
 FDEPTH=4
 fcd () {
-    cd $(find . -maxdepth "$FDEPTH" -type d -printf "%P\n" -not -path "*/.git/*" \
-        -not -path "*cache*" -not -path "*share*" -not -path "*/lib/*"  \
-        | fzf)
+    DIR=$(find . -maxdepth "$FDEPTH" -type d -not -path "*/.git/*" \
+        -not -path "*cache*" -not -path "*share*" -not -path "*/lib/*" \
+        -printf "%P\n" | fzf --preview "tree -shL $FDEPTH --du {}")
+    [ $? = 0 ] && cd "$DIR"
+}
+fnota () {
+    [ $# -ge 1 ] && FILE="$1" || FILE="$HOME/uni/misc/guide.md"
+    if [ ! -e "$FILE" ]; then 
+        echo "File does not exist."
+        return 1
+    fi
+    NODES=$(nota --line-num "$FILE" | grep "|" | sed 's/^[ \t]*//' | sort | \
+        uniq)
+    SELECT=$(echo "$NODES" | fzf --preview \
+        "tail --lines=+\$(echo {} | awk -F '|' '{print \$NF}' | \
+        awk '{print \$NF}') $FILE")
+    [ $? = 0 ] && less +$(echo "$SELECT" | awk -F '|' '{print $NF}' | \
+        awk '{print $NF}') "$FILE"
+}
+fkill () {
+    DOOMEDPID=$(ps aux | fzf) 
+    [ $? != 0 ] && return 1
+    kill -9 $(echo "$DOOMEDPID" | awk '{print $2}')
+}
+fman () {
+    PAGES=$(man -k . | awk '{print $2 " " $1}' | tr -d '()')
+    field () {
+        NUM=$1
+        shift
+        echo "$@" | awk "{print \$$NUM}"
+    }
+    SELECT=$(echo "$PAGES" | \
+        fzf --preview "man '$(field 1 {})' '$(field 2 {})'" \
+        --preview-window=80%)
+    [ $? != 0 ] && return 1
+    SECTION=$(echo "$SELECT" | awk '{print $1}')
+    CMD=$(echo "$SELECT" | awk '{print $2}')
+    man "$SECTION" "$CMD"
+}
+fsnip () {
+    SNIPDIR="$DOTFILES"/misc/snippets
+    SNIP=$(/usr/bin/env ls -1 "$SNIPDIR" | \
+        fzf --preview "cat $SNIPDIR/{}" --preview-window=80%)
+    [ $? != 0 ] && return 1
+    cp "$SNIPDIR"/"$SNIP" . && echo "cp $SNIPDIR/$SNIP ."
 }
 fword () {
     WORDS=$(find -L . -maxdepth "$FDEPTH" -type f \
@@ -49,7 +91,9 @@ fword () {
         -not -path "*/lib/*" -exec grep -Iq . {} \; -printf "%P\n" | \
         xargs grep -Eo '\w+')
     LIST=$(echo "$WORDS" | awk -F : '{print $NF}' | sort -u --ignore-case)
-    SELECT=$(echo "$LIST" | fzf)
+    SELECT=$(echo "$LIST" | fzf --preview "grep --color=always -Ir {} ." \
+        --preview-window=80%)
+    [ $? != 0 ] && return 1
     find -L . -maxdepth "$FDEPTH" -type f \
         -not -path "*/.git/*" -not -path "*cache*" -not -path "*share*" \
         -not -path "*/lib/*" -exec grep --color=always -Ir "$SELECT" {} +

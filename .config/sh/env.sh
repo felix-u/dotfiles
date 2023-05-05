@@ -6,6 +6,7 @@ export CC="zig cc"
 export DOTFILES="$HOME/dotfiles"
 export DOTSCONF="$DOTFILES/.config"
 export EDITOR="nvim"
+export FZF_DEFAULT_OPTS="--color=16"
 export GREP_COLORS="ms=1;97"
 export IMAGE="imv"
 export NIXOS_OZONE_WL=1

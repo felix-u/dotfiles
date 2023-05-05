@@ -194,7 +194,8 @@ in {
         # TERMINAL MISC
             _7zz catimg cmatrix doas-as-sudo entr ffmpeg figlet file gomuks
             handlr htop hunspell hunspellDicts.en-gb-ise hyperfine jq killall
-            libv4l lm_sensors lolcat moreutils ncdu nota nvd onefetch pastel themesh
+            libv4l lm_sensors lolcat moreutils ncdu nota nvd onefetch pastel 
+            poppler_utils ripgrep themesh
             tldr termato tree tty-clock udiskie udisks unrar unzip v4l-utils w3m
             xdg-utils xdragon youtube-dl ytfzf zip
             imgclr # haha, c'est a moi :D

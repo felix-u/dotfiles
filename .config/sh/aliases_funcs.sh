@@ -44,6 +44,56 @@ fcd () {
         -printf "%P\n" | fzf --preview "tree -shL $FDEPTH --du {}")
     [ $? = 0 ] && cd "$DIR"
 }
+fdb () {
+    query="$@"
+    [ -z "$query" ] && echo "fdb: expected search keywords" && return 1
+    query=$(echo "$query" | sed 's/ /%20/g')
+    response=$(curl -s "https://doaj.org/api/v2/search/articles/$query")
+    titles=$(printf "%s" "$response" | jq -r '.results[] | .bibjson.title')
+    urls=$(printf "%s" "$response" | jq -r '.results[] | .bibjson.link[0].url')
+    list=$(paste <(echo "$titles") <(echo "$urls") | column -t -s $'\t')
+    echo "$list" | fzf --preview='fdbpreview() {
+        url="$1"
+        TMP=$(mktemp)
+        wget -q --max-redirect=5 "$url" -O "$TMP"
+        file_type=$(file -b --mime-type "$TMP")
+        if echo "$file_type" | grep -qi "pdf"; then
+            PREVTEXT=$(pdftotext "$TMP" - | awk "/abstract/ {flag=1} flag" IGNORECASE=1)
+        else
+            PREVTEXT=$(w3m -T text/html -dump < "$TMP" | awk "/abstract/ {flag=1} flag" IGNORECASE=1)
+        fi
+        [ "$PREVTEXT" = "" ] && PREVTEXT="NO PREVIEW"
+        rm "$TMP"
+        echo "$PREVTEXT"
+    }
+    fdbpreview {-1}' \
+        --preview-window=up:50%:wrap --bind "enter:execute($BROWSER {-1})"
+}
+# # doesn't work for now, and needs xmlstarlet to be installed
+# fdba () {
+#     query="$@"
+#     [ -z "$query" ] && echo "fdbarxiv: expected search keywords" && return 1
+#     query=$(echo "$query" | sed 's/ /+/g')
+#     response=$(curl -s "https://export.arxiv.org/api/query?search_query=all:$query&start=0&max_results=100")
+#     titles=$(printf "%s" "$response" | xml sel -N x="http://www.w3.org/2005/Atom" -t -m "//x:entry/x:title" -v . -n)
+#     urls=$(printf "%s" "$response" | xml sel -N x="http://www.w3.org/2005/Atom" \
+#         -t -m "//x:entry/x:id" -v . -n | sed 's/abs/pdf/' | sed 's/$/.pdf/')
+#     list=$(paste <(echo "$titles") <(echo "$urls") | column -t -s $'\t')
+#     echo "$list" | fzf --preview='fdbpreview() {
+#         url=$1
+#         PREVTEXT=$(curl "$url" -so - | pdftotext - - | awk "/abstract/ {flag=1} flag" IGNORECASE=1)
+#         [ "$PREVTEXT" = "" ] && PREVTEXT="NO PREVIEW"
+#         rm "$TMP"
+#         echo "$PREVTEXT"
+#     }
+#     fdbpreview {-1}' \
+#         --preview-window=up:50%:wrap --bind "enter:execute($BROWSER {-1})"
+# }
+femoji () {
+    EMOJI=$(curl -sSL 'https://git.io/JXXO7' | tr -d :) # emoji.txt file from a gist
+    SELECT=$(echo "$EMOJI" | fzf | awk '{print $1}')
+    [ $? = 0 ] && wl-copy "$SELECT"
+}
 fnota () {
     [ $# -ge 1 ] && FILE="$1" || FILE="$HOME/uni/misc/guide.md"
     if [ ! -e "$FILE" ]; then 
@@ -83,7 +133,7 @@ fsnip () {
     SNIP=$(/usr/bin/env ls -1 "$SNIPDIR" | \
         fzf --preview "cat $SNIPDIR/{}" --preview-window=80%)
     [ $? != 0 ] && return 1
-    cp "$SNIPDIR"/"$SNIP" . && echo "cp $SNIPDIR/$SNIP ."
+    wl-copy < "$SNIPDIR"/"$SNIP" && echo "Copied contents of $SNIPDIR/$SNIP to clipboard"
 }
 fword () {
     WORDS=$(find -L . -maxdepth "$FDEPTH" -type f \

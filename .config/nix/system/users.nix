@@ -96,9 +96,9 @@ in {
             plugins = with pkgs.vimPlugins; [
                 # nvim-treesitter.withAllGrammars
                 auto-pairs
+                fzf-vim
                 harpoon
                 leap-nvim
-                nnn-vim
                 plenary-nvim
                 targets-vim
                 vim-commentary
@@ -284,10 +284,6 @@ in {
               endfunction
               nnoremap <silent> <leader>tt :call ToggleTerminal()<CR>
 
-              " nnn file picker
-              let g:nnn#set_default_mappings = 0 " disable
-              nnoremap <leader>f :NnnPicker %:p:h<CR>
-
               " harpoon
               nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
               nnoremap <leader>v :lua require("harpoon.ui").toggle_quick_menu()<CR>
@@ -308,6 +304,16 @@ in {
               " vimtex
               let maplocalleader="\\"
               let g:vimtex_view_method = 'zathura'
+
+              " fzf
+              nnoremap <leader>fi :Files<CR>
+              nnoremap <leader>fb :Buffers<CR>
+              nnoremap <leader>fg :Rg<CR>
+              nnoremap <leader>fl :Lines<CR>
+              nnoremap <leader>fc :Commands<CR>
+              nnoremap <leader>fm :Maps<CR>
+              nnoremap <leader>fh :Helptags<CR>
+              nnoremap <leader>ft :Filetypes<CR>
 
             '';
         };
@@ -386,24 +392,24 @@ in {
             terminal = "screen-256color";
         };
 
-        programs.nnn = {
-          enable = true;
-          bookmarks = {
-            d = "${homedir}/dotfiles";
-            h = "${homedir}";
-            m = "/mnt";
-            r = "${homedir}/Desktop/recordings";
-            s = "${homedir}/Pictures/screenshots";
-            u = "${homedir}/uni/2022/spring";
-          };
-          plugins.mappings = {
-            d = "dragdrop";
-            p = "preview-tui";
-            r = "imgresize";
-            w = "waypaper";
-            v = "imgview";
-          };
-        };
+        # programs.nnn = {
+        #   enable = true;
+        #   bookmarks = {
+        #     d = "${homedir}/dotfiles";
+        #     h = "${homedir}";
+        #     m = "/mnt";
+        #     r = "${homedir}/Desktop/recordings";
+        #     s = "${homedir}/Pictures/screenshots";
+        #     u = "${homedir}/uni/2022/spring";
+        #   };
+        #   plugins.mappings = {
+        #     d = "dragdrop";
+        #     p = "preview-tui";
+        #     r = "imgresize";
+        #     w = "waypaper";
+        #     v = "imgview";
+        #   };
+        # };
 
         programs.chromium = {
           enable = true;

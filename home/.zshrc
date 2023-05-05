@@ -107,6 +107,10 @@ bindkey  "^[[F"   end-of-line
 
 bindkey '^n' autosuggest-accept
 
+source "$XDG_CONFIG_HOME"/sh/zsh/fzf-tab/fzf-tab.plugin.zsh
+disable-fzf-tab
+bindkey '^t' toggle-fzf-tab
+
 # # History-aware autocomplete
 # source /home/felix/.config/sh/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # bindkey '^[[A' history-substring-search-up

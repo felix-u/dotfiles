@@ -44,7 +44,7 @@ fcd () {
         -printf "%P\n" | fzf --preview "tree -shL $FDEPTH --du {}")
     [ $? = 0 ] && cd "$DIR"
 }
-fdb () {
+fdoaj () {
     query="$@"
     [ -z "$query" ] && echo "fdb: expected search keywords" && return 1
     query=$(echo "$query" | sed 's/ /%20/g')
@@ -134,6 +134,28 @@ fsnip () {
         fzf --preview "cat $SNIPDIR/{}" --preview-window=80%)
     [ $? != 0 ] && return 1
     wl-copy < "$SNIPDIR"/"$SNIP" && echo "Copied contents of $SNIPDIR/$SNIP to clipboard"
+}
+fwiki () {
+    local api_url="https://en.wikipedia.org/w/api.php"
+    local search_term="$@"
+
+    results=$(curl -s -G "${api_url}" \
+        --data-urlencode "action=query" \
+        --data-urlencode "format=json" \
+        --data-urlencode "list=search" \
+        --data-urlencode "formatversion=2" \
+        --data-urlencode "srsearch=${search_term}" \
+        --data-urlencode "srprop=snippet" \
+        --data-urlencode "srlimit=50" \
+        --data-urlencode "utf8=1")
+    titles=$(echo "$results" | jq -r '.query.search[] | .title')
+
+    SELECT=$(echo "$titles" | fzf \
+        --preview "curl -s \"${api_url}?action=parse&format=json&page=\$(echo {} \
+        | sed 's/ /%20/g')&prop=text\" | jq -r '.parse.text.\"*\"' | \
+        w3m -dump -T text/html" --preview-window="70%,wrap")
+    [ $? != 0 ] && return 1
+    $BROWSER "https://en.wikipedia.org/wiki/$(echo "$SELECT" | sed 's/ /_/g')"
 }
 fword () {
     WORDS=$(find -L . -maxdepth "$FDEPTH" -type f \

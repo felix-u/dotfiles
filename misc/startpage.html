@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Start Page</title>
   <style>
+
     body {
-      font-family: "EB Garamond", serif;
+      font-family: "FreeSans", sans-serif;
       color: #000;
       display: flex;
       justify-content: center;
@@ -44,17 +45,19 @@
 
     .search-input {
       width: 100%;
-      padding: 0.5rem;
+      /* padding: 0.5rem; */
       font-size: 1.2rem;
-      font-family: "EB Garamond", serif;
-      color: #000;
-      background-color: #ddd;
-      border: 3px solid #000;
+      color: #777;
+      /* background-color: #ddd; */
+      background-color: #fff;
+      /* border: 0.15em solid #000; */
+      border: none;
       outline: none;
     }
 
     .search-input:focus {
         background-color: #fff;
+        color: #000;
     }
 
     button {
@@ -64,7 +67,6 @@
         width: 100%;
         padding: 0.5rem;
         font-size: 1.2rem;
-        font-family: "EB Garamond", serif;
         color: #fff;
         background-color: #282828;
         border: 3px solid #000;
@@ -72,14 +74,13 @@
     }
 
     .selectable {
-        box-shadow: 4px 4px 0px 0px #000;
         cursor: pointer;
         transition: all 0.2s;
     }
 
-    .selectable:hover, .selectable:focus {
-        box-shadow: 10px 10px 0px 0px #000;
-        transform: translateY(-3px) translateX(-3px);
+    .selectable:hover, .selectable:focus .selectable {
+        background-color: #fff;
+        foreground: #000;
     }
 
     .keymap {
@@ -107,14 +108,14 @@
               <form class="search-container" action="https://www.bing.com/search" method="get">
                   <input class="selectable search-input" type="text" name="q" autofocus placeholder="Bing" autocomplete="off">
               </form>
-              <form class=" search-container" action="https://www.google.com/search" method="get">
-                  <input class="selectable search-input" type="text" name="q" placeholder="Google" autocomplete="off">
-              </form>
-              <button class="selectable search-container">
-                  ChatGPT
-                  <span class="spacer"></span>
-                  <span class="keymap">[c]</span>
-              </button>
+              <!-- <form class=" search-container" action="https://www.google.com/search" method="get"> -->
+              <!--     <input class="selectable search-input" type="text" name="q" placeholder="Google" autocomplete="off"> -->
+              <!-- </form> -->
+              <!-- <button class="selectable search-container"> -->
+              <!--     ChatGPT -->
+              <!--     <span class="spacer"></span> -->
+              <!--     <span class="keymap">[c]</span> -->
+              <!-- </button> -->
           </div>
 </div>
       <script>

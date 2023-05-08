@@ -155,7 +155,7 @@ fwiki () {
         | sed 's/ /%20/g')&prop=text\" | jq -r '.parse.text.\"*\"' | \
         w3m -dump -T text/html" --preview-window="70%,wrap")
     [ $? != 0 ] && return 1
-    $BROWSER "https://en.wikipedia.org/wiki/$(echo "$SELECT" | sed 's/ /_/g')"
+    $BROWSER "https://en.wikipedia.org/wiki/$(echo "$SELECT" | sed 's/ /_/g')" & disown
 }
 fword () {
     WORDS=$(find -L . -maxdepth "$FDEPTH" -type f \
@@ -306,7 +306,7 @@ alias tm="tmux"
 # get temps by watching lm_sensors every half a second
 alias temps="watch -n 0.5 sensors"
 
-alias termatonotif="termato -n \"notify-send '%s'\" -f 50 -b 10 -l 10"
+alias termatonotif="termato -n \"notify-send '%s'\" -f 25 -b 10 -l 20"
 
 themeterm() {
     if [ "$1" = "l" ]; then

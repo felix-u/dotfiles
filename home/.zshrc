@@ -16,8 +16,7 @@ export LESS_TERMCAP_so=$'\e\[0\;37m'
 export LESS_TERMCAP_ue=$'\e\[0m'
 export LESS_TERMCAP_us=$'\e\[1\;4m'
 
-# export PAGER=(less -FIRX)
-export PAGER="nvim -c PAGER"
+export PAGER=(less -FIRX)
 export MANPAGER="nvim -c ASMANPAGER"
 
 # Auto/tab complete ---

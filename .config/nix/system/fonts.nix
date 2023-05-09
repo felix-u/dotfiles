@@ -58,6 +58,7 @@ in {
         eb-garamond # Garamond - FOSS
         fraunces vollkorn # cooper black (ish), but FOSS
         freefont_ttf # FOSS versions of helvetica, times, and courier
+        helvetica-neue-lt-std # actual helvetica
         inter # like a mix between roboto and apple san francisco - FOSS
         gyre-fonts # TeX fonts - FOSS
                    # Gyre Schola = Century Expanded, and many other FOSS

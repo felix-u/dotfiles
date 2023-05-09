@@ -10,7 +10,10 @@ wqs () {
 
 # wallpaper
 # pkill swaybg; swaybg -c "$(wq background)" &
-~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
+# ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
+pkill swaybg; swaybg -c "#b0d5aa" &
+# pkill swaybg; swaybg -c "#6ac4a2" &
+# todo: randomly pick between a few pastel colours?
 
 pkill wlsunset
 "$XDG_CONFIG_HOME"/sway/scripts/screen_temp.sh default &
@@ -186,11 +189,11 @@ swaymsg "bindsym $MOD+q move position center" &
 #
 # screenshot and screen recording
 swaymsg "bindsym $MOD+Shift+d exec $SLURP | grim -g - \
-    ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H%M).png" &
+    ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
 swaymsg "bindsym $MOD+Shift+s exec $SLURP | grim -g - /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
 swaymsg "bindsym $MOD+$ALT+d exec grim \
-   ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H%M).png" &
+   ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
 swaymsg "bindsym $MOD+$ALT+s exec grim /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
 # notifs

@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="1000"
-   height="1000"
-   viewBox="0 0 264.58333 264.58333"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
@@ -16,35 +16,98 @@
   <sodipodi:namedview
      id="namedview7"
      pagecolor="#ffffff"
-     bordercolor="#000000"
+     bordercolor="#111111"
      borderopacity="1"
      inkscape:showpageshadow="0"
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="1"
-     inkscape:deskcolor="#ffffff"
+     inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.68305562"
-     inkscape:cx="399.67463"
-     inkscape:cy="553.39564"
-     inkscape:window-width="1920"
-     inkscape:window-height="1159"
+     inkscape:zoom="14.638496"
+     inkscape:cx="199.47404"
+     inkscape:cy="132.6639"
+     inkscape:window-width="1848"
+     inkscape:window-height="1625"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="text113" />
   <defs
-     id="defs2" />
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1482">
+      <rect
+         style="fill:#260d19;fill-opacity:1;stroke-width:1.00795"
+         id="rect1484"
+         width="9.9756575"
+         height="9.9756575"
+         x="44.464397"
+         y="27.258415"
+         clip-path="none"
+         mask="none" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1486">
+      <rect
+         style="fill:#260d19;fill-opacity:1;stroke-width:1.00795"
+         id="rect1488"
+         width="9.9756575"
+         height="9.9756575"
+         x="44.464397"
+         y="27.258415"
+         clip-path="none"
+         mask="none" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="background"
+     clip-path="url(#clipPath1486)">
+    <rect
+       style="fill:#260d19;fill-opacity:1;stroke-width:1.00795"
+       id="rect1157"
+       width="9.9756575"
+       height="9.9756575"
+       x="44.464397"
+       y="27.258415" />
+  </g>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
-    <rect
-       style="fill:#9fecef;stroke-width:0.264583;fill-opacity:1"
-       id="rect111"
-       width="264.58334"
-       height="264.58334"
-       x="0"
-       y="0" />
+     id="layer1"
+     clip-path="url(#clipPath1482)">
+    <g
+       aria-label="F"
+       transform="rotate(-60,8.592987,12.336002)"
+       id="text113"
+       style="font-size:10.5833px;line-height:1.25;fill:#dfdfdc;fill-opacity:1;stroke-width:0.264583">
+      <circle
+         style="fill:#c15826;fill-opacity:1;stroke-width:5.18223"
+         id="path1375"
+         cx="-56.374741"
+         cy="18.267567"
+         transform="matrix(-0.5,-0.8660254,-0.8660254,0.5,0,0)"
+         r="3.8618548" />
+      <circle
+         style="font-size:10.5833px;line-height:1.25;fill:#46a6b6;fill-opacity:1;stroke-width:29.8245"
+         id="circle1544"
+         cx="-52.271832"
+         cy="40.173843"
+         transform="matrix(-0.5,-0.8660254,-0.8660254,0.5,0,0)"
+         r="22.225534" />
+      <path
+         d="m 9.9801416,54.324884 c 0.7879534,-1.068716 3.1186454,0.551257 3.7307344,1.105113 1.931932,1.748132 2.650333,3.289027 1.661711,2.897533 -1.35375,-0.536085 -3.092408,-2.46443 -3.092408,-2.46443 l -0.370527,0.945281 c 0,0 1.676681,0.35093 3.122028,1.66923 0.189762,0.173083 0.601684,0.510019 -0.568738,0.450346 -2.306784,-0.117608 -2.733771,-0.364246 -2.733771,-0.364246 0,0 -0.211388,0.306129 0.496782,1.190019 0.201041,0.250925 0.874746,0.705218 0.710696,0.824802 -3.8805888,2.828755 -3.8107701,-5.094996 -2.9565094,-6.253647 z"
+         id="path951"
+         sodipodi:nodetypes="sssccsscssss"
+         style="fill:#dfdfdc;fill-opacity:1" />
+    </g>
   </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="clip" />
 </svg>

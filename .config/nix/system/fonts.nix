@@ -17,6 +17,7 @@ let
     # apple-fonts       = pkgs.callPackage ../derivations/fonts/apple-fonts.nix {};
     beteckna          = import ../derivations/fonts/beteckna.nix;
     chicagoflf        = import ../derivations/fonts/chicagoflf.nix;
+    fragment-mono     = import ../derivations/fonts/fragment-mono.nix;
     league-spartan    = import ../derivations/fonts/league-spartan.nix;
     lora              = import ../derivations/fonts/lora.nix;
     metropolis        = import ../derivations/fonts/metropolis.nix;
@@ -27,6 +28,8 @@ let
     space-grotesk     = import ../derivations/fonts/space-grotesk.nix;
     spacemono         = import ../derivations/fonts/spacemono.nix;
 in {
+
+    nixpkgs.config.input-fonts.acceptLicense = true;
 
     # fonts
     fonts.fonts = with pkgs; [
@@ -50,35 +53,38 @@ in {
         tenderness
 
         # proportional fonts
-        aileron open-sans # helvetica but FOSS
-        alte-haas-grotesk # helvetica but with a printed appearance. not FOSS
+        aileron open-sans       # helvetica but FOSS
+        alte-haas-grotesk       # helvetica but with a printed appearance. not FOSS
         beteckna league-spartan # futura but FOSS
-        chicagoflf # retro Apple system font - vectorised
-        crimson # oldstyle serif - FOSS
-        eb-garamond # Garamond - FOSS
-        fraunces vollkorn # cooper black (ish), but FOSS
-        freefont_ttf # FOSS versions of helvetica, times, and courier
-        helvetica-neue-lt-std # actual helvetica
-        inter # like a mix between roboto and apple san francisco - FOSS
-        gyre-fonts # TeX fonts - FOSS
-                   # Gyre Schola = Century Expanded, and many other FOSS
-                   # imitations of well-known fonts
-        liberation_ttf # FOSS versions of arial, times new roman, and courier new
-        libre-baskerville  # baskerville - FOSS
-        libre-bodoni # bodoni - FOSS
-        lora # oldstyle-ish serif - FOSS
-        metropolis montserrat # gotham but FOSS
-        oswald # classic gothic style sans-serif - FOSS
-        playfair # "luxury" serif vaguely resempling bodoni - FOSS
-        roboto roboto-slab # Google's helvetica-ish grotesque - FOSS
-        source-serif source-serif-pro # classic serifs from adobe - FOSS
-        space-grotesk # similar to Futura, but does its own thing.
-                      # based on Space Mono - foss
-        work-sans # another oldstyle grotesque
+        chicagoflf              # retro Apple system font - vectorised
+        crimson                 # oldstyle serif - FOSS
+        eb-garamond             # Garamond - FOSS
+        fraunces vollkorn       # cooper black (ish), but FOSS
+        freefont_ttf            # FOSS versions of helvetica, times, and courier
+        helvetica-neue-lt-std   # actual helvetica
+        inter                   # like a mix between roboto and apple san francisco - FOSS
+        gyre-fonts              # TeX fonts - FOSS
+                                # Gyre Schola = Century Expanded, and many other FOSS
+                                # imitations of well-known fonts
+        liberation_ttf          # FOSS versions of arial, times new roman, and courier new
+        libre-baskerville       # baskerville - FOSS
+        libre-bodoni            # bodoni - FOSS
+        lora                    # oldstyle-ish serif - FOSS
+        metropolis montserrat   # gotham but FOSS
+        oswald                  # classic gothic style sans-serif - FOSS
+        playfair                # "luxury" serif vaguely resempling bodoni - FOSS
+        roboto roboto-slab      # Google's helvetica-ish grotesque - FOSS
+        source-serif            # classic serifs from adobe - FOSS
+            source-serif-pro    
+        space-grotesk           # similar to Futura, but does its own thing.
+                                # based on Space Mono - foss
+        work-sans               # another oldstyle grotesque
 
 
         # some more monospace fonts
+        fragment-mono # basically helvetica, but fixed-width
         ibm-plex jetbrains-mono office-code-pro roboto-mono
+        input-fonts
         sf-mono # apple's programming font, patched with nerd fonts
         spacemono # slab monospace font which inspired space-grotesk - FOSS
 

@@ -21,7 +21,7 @@ guide() {
 }
 
 alias cdu="cd ~/uni/2023/spring"
-alias clock="tty-clock -c -C 6 -D"
+alias clock="tty-clock -c -C 5 -D"
 
 clrpick() {
     while true
@@ -306,7 +306,7 @@ alias tm="tmux"
 # get temps by watching lm_sensors every half a second
 alias temps="watch -n 0.5 sensors"
 
-alias termatonotif="termato -n \"notify-send '%s'\" -f 25 -b 5 -l 15"
+alias termatonotif="termato -n \"notify-send '%s'\" -f 25 -b 5 -l 20"
 
 themeterm() {
     if [ "$1" = "l" ]; then

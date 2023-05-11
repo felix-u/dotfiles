@@ -6,12 +6,12 @@ wq () {
 
 PADDINGV="4%"
 PADDINGH="2%"
-tofi-drun --font "$(wq fontmono)" --width 36% --height 50% --hint-font false \
+tofi-drun --font "$(wq fontsans)" --width 36% --height 50% --hint-font false \
     --background-color "$(wq background)" --text-color "$(wq color15)" \
     --font-size 20 --prompt-text " λ " --outline-width 0 --border-width 4 \
-    --border-color "$(wq color8)" --selection-color "$(wq background)" \
+    --border-color "$(wq color0)" --selection-color "$(wq background)" \
     --selection-background "$(wq foreground)" --selection-padding 16 \
-    --result-spacing 9 --padding-top $PADDINGV --padding-bottom $PADDINGV \
+    --result-spacing 16 --padding-top $PADDINGV --padding-bottom $PADDINGV \
     --padding-left $PADDINGH --padding-right $PADDINGH --fuzzy-match true \
     --drun-launch true
 

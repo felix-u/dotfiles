@@ -10,8 +10,8 @@ wqs () {
 
 # wallpaper
 # pkill swaybg; swaybg -c "$(wq background)" &
-# ~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
-pkill swaybg; swaybg -c "#b0d5aa" &
+~/.config/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
+# pkill swaybg; swaybg -c "#b0d5aa" &
 # pkill swaybg; swaybg -c "#6ac4a2" &
 # todo: randomly pick between a few pastel colours?
 

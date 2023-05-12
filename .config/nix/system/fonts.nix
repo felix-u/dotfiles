@@ -82,9 +82,9 @@ in {
 
 
         # some more monospace fonts
-        fragment-mono # basically helvetica, but fixed-width
+        # fragment-mono # basically helvetica, but fixed-width
         ibm-plex jetbrains-mono office-code-pro roboto-mono
-        input-fonts
+        # input-fonts
         sf-mono # apple's programming font, patched with nerd fonts
         spacemono # slab monospace font which inspired space-grotesk - FOSS
 

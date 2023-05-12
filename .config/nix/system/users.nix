@@ -97,6 +97,7 @@ in {
                 # nvim-treesitter.withAllGrammars
                 auto-pairs
                 fzf-vim
+                goyo-vim
                 harpoon
                 leap-nvim
                 plenary-nvim
@@ -162,29 +163,34 @@ in {
               set wildmenu
               filetype plugin indent on
 
-              highlight clear
-              hi Comment      cterm=italic ctermfg=02
-              hi Constant     cterm=NONE   ctermfg=06
-              hi CursorLine   cterm=NONE   ctermbg=00
-              hi CursorLineNr cterm=NONE   ctermfg=15 ctermbg=00
-              hi Delimiter    cterm=NONE   ctermfg=White 
-              hi Function     cterm=NONE   ctermfg=White
-              hi Identifier   cterm=NONE   ctermfg=White
-              hi LineNr       ctermfg=07   ctermbg=00
-              hi MatchParen   cterm=bold,underline ctermfg=Black ctermbg=04
-              hi Pmenu        ctermfg=White ctermbg=Black
-              hi PmenuSbar    ctermbg=08
-              hi PmenuSel     ctermfg=Black ctermbg=White
-              hi PmenuThumb   ctermfg=08 ctermbg=08
-              hi PreProc      cterm=NONE   ctermfg=01
-              hi Search       cterm=bold   ctermfg=Black ctermbg=03
-              hi Special      cterm=NONE   ctermfg=05
-              hi Statement    cterm=NONE   ctermfg=White
-              hi String       cterm=NONE   ctermfg=06
-              hi Type         cterm=NONE   ctermfg=White
-              hi Visual       ctermbg=08
-              hi WildMenu     ctermfg=Black ctermbg=White
-              autocmd BufReadPost *.c,*.h hi cError cterm=NONE
+              function! s:tweak_default_colours()
+                  highlight clear
+                  hi Comment      cterm=italic ctermfg=02
+                  hi Constant     cterm=NONE   ctermfg=06
+                  hi CursorLine   cterm=NONE   ctermbg=00
+                  hi CursorLineNr cterm=NONE   ctermfg=15 ctermbg=00
+                  hi Delimiter    cterm=NONE   ctermfg=White 
+                  hi Function     cterm=NONE   ctermfg=White
+                  hi Identifier   cterm=NONE   ctermfg=White
+                  hi LineNr       ctermfg=07   ctermbg=00
+                  hi MatchParen   cterm=bold,underline ctermfg=Black ctermbg=04
+                  hi Pmenu        ctermfg=White ctermbg=Black
+                  hi PmenuSbar    ctermbg=08
+                  hi PmenuSel     ctermfg=Black ctermbg=White
+                  hi PmenuThumb   ctermfg=08 ctermbg=08
+                  hi PreProc      cterm=NONE   ctermfg=01
+                  hi Search       cterm=bold   ctermfg=Black ctermbg=03
+                  hi Special      cterm=NONE   ctermfg=05
+                  hi Statement    cterm=NONE   ctermfg=White
+                  hi StatusLine   cterm=NONE   ctermfg=White ctermbg=00
+                  hi String       cterm=NONE   ctermfg=06
+                  hi Type         cterm=NONE   ctermfg=White
+                  hi Visual       ctermbg=08
+                  hi WildMenu     ctermfg=Black ctermbg=White
+                  autocmd BufReadPost *.c,*.h hi cError cterm=NONE
+              endfunction
+              autocmd! ColorScheme default call s:tweak_default_colours()
+              colorscheme default
 
               let mapleader = " "
 
@@ -258,6 +264,8 @@ in {
               vnoremap <S-Up> :m '>-2<CR>gv=gv
 
               " toggling various things
+              let g:goyo_width = "80%"
+              nnoremap <silent> <leader>tf :Goyo<CR>
               nnoremap <leader>ts :setlocal spell! spelllang=en_gb<CR>
               nnoremap <leader>tls :set number<CR> :set relativenumber<CR>
               nnoremap <leader>tlh :set nonumber<CR> :set norelativenumber<CR>

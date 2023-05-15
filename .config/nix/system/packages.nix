@@ -72,13 +72,9 @@ in {
         '');
 
         helix-src = builtins.fetchTarball {
-            url = "https://github.com/helix-editor/helix/archive/2bd8bc8d84.tar.gz";
+            url = "https://github.com/helix-editor/helix/archive/d5fe08ddb8.tar.gz";
         };
         helix-git = import flake-compat { src = helix-src; };
-
-        jdtls = (pkgs.writeShellScriptBin "jdtls" ''
-            jdt-language-server "$@"
-        '');
 
         odin-dev = pkgs.odin.overrideAttrs (oldAttrs: rec {
             nativeBuildInputs = with pkgs; oldAttrs.nativeBuildInputs ++ [

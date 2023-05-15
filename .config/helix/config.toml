@@ -6,6 +6,7 @@ line-number = "relative"
 idle-timeout = 0
 cursorline = true
 color-modes = true
+gutters = ["spacer"]
 
 [editor.auto-pairs]
 '(' = ')'
@@ -63,7 +64,7 @@ D = ["extend_to_line_end", "delete_selection"]
 esc = ["collapse_selection", "keep_primary_selection"]
 i = ["insert_mode", "collapse_selection"]
 a = ["append_mode", "collapse_selection"]
-  
+
 [keys.select]
 "{" = ["extend_to_line_bounds", "goto_prev_paragraph"]
 "}" = ["extend_to_line_bounds", "goto_next_paragraph"]

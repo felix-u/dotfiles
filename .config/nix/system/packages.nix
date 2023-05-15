@@ -115,8 +115,6 @@ in {
 
         imgclr = import ../derivations/imgclr.nix;
 
-        r_with_packages = pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ weights ]; };
-
         shgen = import ../derivations/shgen.nix;
 
         signal-desktop = pkgs.signal-desktop.overrideAttrs (oldAttrs: rec {
@@ -171,8 +169,6 @@ in {
             plan9port
         # python
             python3Full nodePackages.pyright
-        # r
-            r_with_packages
         # rust
             cargo clippy rust-analyzer # sccache
         # shell

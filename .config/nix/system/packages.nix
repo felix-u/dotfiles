@@ -38,24 +38,24 @@ in {
     #     };
     # };
 
-    # # Overlays
-    # services.emacs.package = pkgs.emacsPgtkNativeComp;
+    # Overlays
+    # services.emacs.package = pkgs.emacsPgtk;
     # services.emacs.enable = false;
     # nixpkgs.overlays = [
     #   (import (builtins.fetchGit {
     #     url = "https://github.com/nix-community/emacs-overlay.git";
     #     ref = "master";
-    #     rev = "b324b27d58fe93add90d80e081c39d452ae1cb98";
+    #     rev = "f438072ac6d2a0271a0ac5ad566d9612a9b35bb9";
     #   }))
-    #     hyprland.overlays.default
-    #     (self: super: {
-    #         waybar = super.waybar.overrideAttrs (oldAttrs: {
-    #             mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    #         });
-    #     })
-    #     (import (builtins.fetchTarball {
-    #       url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-    #     }))
+    #   hyprland.overlays.default
+    #   (self: super: {
+    #       waybar = super.waybar.overrideAttrs (oldAttrs: {
+    #           mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    #       });
+    #   })
+    #   (import (builtins.fetchTarball {
+    #     url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    #   }))
     # ];
 
     # packages for all systems
@@ -72,7 +72,7 @@ in {
         '');
 
         helix-src = builtins.fetchTarball {
-            url = "https://github.com/helix-editor/helix/archive/d5fe08ddb8.tar.gz";
+            url = "https://github.com/helix-editor/helix/archive/7f5940be80.tar.gz";
         };
         helix-git = import flake-compat { src = helix-src; };
 

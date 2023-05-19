@@ -327,13 +327,13 @@
 }
 
 
-/* ------------------------------------------------------------------------- */
-/* Auto-hide navbar */
-:root[sessionrestored] #nav-bar:not(:focus-within){
-    transition: 0.25s !important;
-    height:     0px !important;
-    min-height: 0px !important;
-}
+/* /1* ------------------------------------------------------------------------- *1/ */
+/* /1* Auto-hide navbar *1/ */
+/* :root[sessionrestored] #nav-bar:not(:focus-within){ */
+/*     transition: 0.25s !important; */
+/*     height:     0px !important; */
+/*     min-height: 0px !important; */
+/* } */
 
 /* /1* Hide addons "puzzle piece" button *1/ */
 /* #unified-extensions-button, #unified-extensions-button > .toolbarbutton-icon{ */

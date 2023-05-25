@@ -388,6 +388,9 @@ in {
                 inoremap <C-^> <C-\><C-n><C-w>w
                 tnoremap <C-^> <C-\><C-n><C-w>w
 
+              nnoremap <C-d> <C-d>zz
+              nnoremap <C-u> <C-u>zz
+
               " convenience
               nnoremap <leader>q :q<CR>
 

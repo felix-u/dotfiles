@@ -15,6 +15,16 @@ let
       };
     };
 
+    # vim-conque-gdb = pkgs.vimUtils.buildVimPlugin {
+    #   name = "vim-conque-gdb";
+    #   src = pkgs.fetchFromGitHub {
+    #     owner = "vim-scripts";
+    #     repo = "Conque-GDB";
+    #     rev = "855adfca8d4b120e54a9a76f25a4f987ccd21abb";
+    #     sha256 = "sha256-NSvJn5Uc4NOY317eNMi438Vr4644E18js+nuw2wY75k=";
+    #   };
+    # };
+
     resizeAmount = "4";
 in {
 
@@ -97,11 +107,7 @@ in {
                 # nvim-treesitter.withAllGrammars
                 auto-pairs
                 fzf-vim
-                goyo-vim
-                harpoon
-                leap-nvim
-                # pkgs-unstable.vimPlugins.lsp-zero-nvim
-                plenary-nvim
+                # pkgs-unstable.vimPlugins.lsp-zero-nvim plenary-nvim
                 targets-vim
                 vim-commentary
                 vim-cutlass
@@ -128,12 +134,12 @@ in {
               set display+=lastline
               set display+=truncate
               set expandtab
-              setglobal tags-=./tags tags-=./tags; tags^=./tags;	
               set history=1000
               set hlsearch
               set ignorecase
               set incsearch
-              set laststatus=2
+              " set laststatus=2
+              set laststatus=0
               set lazyredraw
               set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
               set mouse="a"
@@ -144,11 +150,14 @@ in {
               set nowrap
               set nowritebackup
               set nrformats-=octal
+              set number
+              set relativenumber
               set ruler
               set scrolloff=1
               set sessionoptions-=options
               set shiftwidth=4
               set showmatch
+              set showtabline=2
               set sidescrolloff=2
               set smartindent
               set smarttab
@@ -162,6 +171,7 @@ in {
               set viewoptions-=options
               set viminfo^=!
               set wildmenu
+              setglobal tags-=./tags tags-=./tags; tags^=./tags;	
               filetype plugin indent on
 
               function! s:tweak_default_colours()
@@ -185,6 +195,10 @@ in {
                   hi Statement    cterm=NONE   ctermfg=White
                   hi StatusLine   cterm=NONE   ctermfg=White ctermbg=00
                   hi String       cterm=NONE   ctermfg=06
+                  hi TabLine      cterm=NONE   ctermfg=White ctermbg=00
+                  hi TabLineFill  ctermbg=NONE
+                  hi TabLineSel   cterm=bold   ctermfg=Black ctermbg=White
+                  hi TermCursor   ctermfg=Black ctermbg=White
                   hi Type         cterm=NONE   ctermfg=White
                   hi Visual       ctermbg=08
                   hi WildMenu     ctermfg=Black ctermbg=White
@@ -192,6 +206,8 @@ in {
               endfunction
               autocmd! ColorScheme default call s:tweak_default_colours()
               colorscheme default
+
+              autocmd FileType c,zig setlocal makeprg=zig\ build\ debug
 
               let mapleader = " "
 
@@ -206,27 +222,24 @@ in {
                   endif
                 echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
               endfunc
-              noremap <leader>hg :call SynStack()<CR>
+              noremap <leader>thg :call SynStack()<CR>
 
               " vim-cutlass
               noremap <leader>d  "+d
-              noremap <leader>d  "+d
               noremap <leader>dd "+dd
-              noremap <leader>D  "+d
-              noremap <leader>c  "+c
+              noremap <leader>D  "+d$
               noremap <leader>c  "+c
               noremap <leader>cc "+cc
-              noremap <leader>c  "+c
+              noremap <leader>C  "+c$
 
               " Copy and paste from system clipboard
               noremap y "+y
-              noremap Y "+y$
               noremap yy "+yy
+              noremap Y "+y$
               noremap p "+p
               noremap P "+P
 
               " Plugins
-              lua require('leap').add_default_mappings()
               lua require("which-key").setup{}
 
               " Directional keys should navigate visual lines, not actual lines
@@ -246,7 +259,7 @@ in {
               nnoremap <C-y> :%y+<CR>
 
               " Swap more easily between last two buffers
-              nnoremap <leader>j <C-^>
+              nnoremap gj :bprevious<CR>
 
               " More breakpoints for undo
               inoremap , ,<C-g>u
@@ -293,13 +306,70 @@ in {
               endfunction
               nnoremap <silent> <leader>tt :call ToggleTerminal()<CR>
 
-              " harpoon
-              nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
-              nnoremap <leader>v :lua require("harpoon.ui").toggle_quick_menu()<CR>
-              nnoremap <C-Left>  :lua require("harpoon.ui").nav_file(3)<CR>
-              nnoremap <C-Down>  :lua require("harpoon.ui").nav_file(1)<CR>
-              nnoremap <C-Up>    :lua require("harpoon.ui").nav_file(2)<CR>
-              nnoremap <C-Right> :lua require("harpoon.ui").nav_file(4)<CR>
+              " better window navigation
+              nnoremap <leader><Left> <C-w>h
+              nnoremap <leader><Down> <C-w>j
+              nnoremap <leader><Up>   <C-w>k
+              nnoremap <leader><Right> <C-w>l
+
+              " better tab navigation
+              nnoremap <leader>m :tabn 3<CR>
+              nnoremap <leader>n :tabn 1<CR>
+              nnoremap <leader>e :tabn 2<CR>
+              nnoremap <leader>i :tabn 4<CR>
+              nnoremap <leader>h :tabn 3<CR>
+              nnoremap <leader>j :tabn 1<CR>
+              nnoremap <leader>k :tabn 2<CR>
+              nnoremap <leader>l :tabn 4<CR>
+              nnoremap <leader>bm :make<CR>
+              nnoremap <leader>be :tabnew<CR>:Explore<CR>
+              nnoremap <leader>bf :tabnew<CR>:Files<CR>
+                " Switch to last active tab
+                if !exists('g:Lasttab')
+                    let g:Lasttab = 1
+                    let g:Lasttab_backup = 1
+                endif
+                autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
+                autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
+              nnoremap gl :exe "tabn ".g:Lasttab<CR>
+              nnoremap <leader>bo :tabonly<CR>
+
+              " show tab numbers in tab line
+                function! MyTabLine()
+                  let s = ""
+                  for i in range(tabpagenr('$'))
+                    let tabnum = i + 1
+                    let buflist = tabpagebuflist(i + 1)
+                    let winnr = tabpagewinnr(i + 1)
+                    let s .= '%' . tabnum . 'T'
+                    let s .= (tabnum == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
+                    let s .= ' ' . tabnum . ' '
+                    let bufnr = buflist[winnr - 1]
+                    if getbufvar(bufnr, '&modified')
+                      let s .= '+ '
+                    endif
+                    let file = bufname(bufnr)
+                    let file = fnamemodify(file, ':t')
+                    if file == ""
+                      let file = '[No Name]'
+                    endif
+                    let s .= file . ' '
+                  endfor
+                  let s .= '%T%#TabLineFill#%='
+                  return s
+                endfunction
+                set tabline=%!MyTabLine()
+
+              " debugging
+              packadd termdebug
+              nnoremap <leader>db :Break<CR>
+              nnoremap <leader>dgv :vsplit<CR>:TermdebugCommand
+              nnoremap <leader>dgs :split<CR>:TermdebugCommand
+
+                " always switch to last window with <C-^>, insert mode or not
+                nnoremap <C-^> <C-w>w
+                inoremap <C-^> <C-\><C-n><C-w>w
+                tnoremap <C-^> <C-\><C-n><C-w>w
 
               " convenience
               nnoremap <leader>q :q<CR>

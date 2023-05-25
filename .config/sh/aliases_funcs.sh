@@ -179,7 +179,7 @@ alias neofetch="neofetch --config none"
 # edited to be wayland-compatible
 alias fontpreview="~/dotfiles/scripts/fontpreview"
 
-alias g='gdb -tui'
+alias gdb="gdb -tui -ex 'set style enabled off'"
 
 # Pull or commit all changes to personal repos
 alias gitcom="git add . && git commit -a && git push"

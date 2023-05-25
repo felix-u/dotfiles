@@ -184,7 +184,7 @@ in {
             bc gnuplot libqalculate maxima octaveFull
 
         # TERMINAL MISC
-            _7zz catimg cmatrix doas-as-sudo entr ffmpeg figlet file gomuks
+            _7zz catimg cmatrix doas-as-sudo entr fd ffmpeg figlet file gomuks
             handlr htop hunspell hunspellDicts.en-gb-ise hyperfine jq killall
             libv4l lm_sensors lolcat moreutils ncdu nota nvd onefetch pandoc
             pastel 

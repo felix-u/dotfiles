@@ -104,27 +104,27 @@ in {
             package = pkgs-unstable.neovim-unwrapped;
 
             plugins = with pkgs.vimPlugins; [
-                # nvim-treesitter.withAllGrammars
-                auto-pairs
-                fzf-vim
-                # pkgs-unstable.vimPlugins.lsp-zero-nvim plenary-nvim
-                targets-vim
-                vim-commentary
-                vim-cutlass
-                vim-endwise
-                vim-lastplace
-                vim-manpager
-                vim-pager
-                vim-plugin-AnsiEsc
-                vim-repeat
-                vim-speeddating
-                vim-surround
-                vimtex
-                vim-unimpaired
-                which-key-nvim
+                auto-pairs # insert or delete brackets, parens, quotes in pairs 
+                # fzf-vim
+                targets-vim # provides additional text objects 
+                telescope-nvim # Find, Filter, Preview, Pick. All lua, all the time. 
+                vim-commentary # comment stuff out 
+                vim-cutlass # Plugin that adds a 'cut' operation separate from 'delete' 
+                vim-endwise # helps to end certain structures automatically
+                vim-lastplace # Intelligently reopen files at your last edit position in Vim. 
+                vim-manpager # Use Vim as a MANPAGER program 
+                vim-plugin-AnsiEsc # ansi escape sequences concealed, but highlighted as specified (conceal) 
+                vim-repeat # enable repeating supported plugin maps with "."
+                vim-speeddating # use CTRL-A/CTRL-X to increment dates, times, and more 
+                vim-surround # Delete/change/add parentheses/quotes/XML-tags/much more with ease 
+                vim-unimpaired # Pairs of handy bracket mappings 
+                vimtex # filetype plugin for LaTeX files. 
+                which-key-nvim # displays a popup with possible keybindings of the command you started typing. 
             ];
 
             extraConfig = ''
+              lua vim.loader.enable()
+
               set autoindent
               set autoread
               set backspace=indent,eol,start " backspace in insert mode
@@ -259,7 +259,7 @@ in {
               nnoremap <C-y> :%y+<CR>
 
               " Swap more easily between last two buffers
-              nnoremap gj :bprevious<CR>
+              nnoremap gj <C-^>
 
               " More breakpoints for undo
               inoremap , ,<C-g>u
@@ -307,23 +307,40 @@ in {
               nnoremap <silent> <leader>tt :call ToggleTerminal()<CR>
 
               " better window navigation
-              nnoremap <leader><Left> <C-w>h
-              nnoremap <leader><Down> <C-w>j
-              nnoremap <leader><Up>   <C-w>k
-              nnoremap <leader><Right> <C-w>l
+              nnoremap <C-Left> <C-w>h
+              nnoremap <C-Down> <C-w>j
+              nnoremap <C-Up>   <C-w>k
+              nnoremap <C-Right> <C-w>l
+              inoremap <C-Left> <C-w>h
+              inoremap <C-Down> <C-w>j
+              inoremap <C-Up>   <C-w>k
+              inoremap <C-Right> <C-w>l
 
               " better tab navigation
-              nnoremap <leader>m :tabn 3<CR>
-              nnoremap <leader>n :tabn 1<CR>
-              nnoremap <leader>e :tabn 2<CR>
-              nnoremap <leader>i :tabn 4<CR>
-              nnoremap <leader>h :tabn 3<CR>
-              nnoremap <leader>j :tabn 1<CR>
-              nnoremap <leader>k :tabn 2<CR>
-              nnoremap <leader>l :tabn 4<CR>
+              nnoremap <C-1> :tabn 1<CR>
+              nnoremap <C-2> :tabn 2<CR>
+              nnoremap <C-3> :tabn 3<CR>
+              nnoremap <C-4> :tabn 4<CR>
+              nnoremap <C-5> :tabn 5<CR>
+              nnoremap <C-6> :tabn 6<CR>
+              nnoremap <C-7> :tabn 7<CR>
+              nnoremap <C-8> :tabn 8<CR>
+              nnoremap <C-9> :tabn 9<CR>
+              nnoremap <C-0> :tabn 10<CR>
+              inoremap <C-1> <ESC>:tabn 1<CR>
+              inoremap <C-2> <ESC>:tabn 2<CR>
+              inoremap <C-3> <ESC>:tabn 3<CR>
+              inoremap <C-4> <ESC>:tabn 4<CR>
+              inoremap <C-5> <ESC>:tabn 5<CR>
+              inoremap <C-6> <ESC>:tabn 6<CR>
+              inoremap <C-7> <ESC>:tabn 7<CR>
+              inoremap <C-8> <ESC>:tabn 8<CR>
+              inoremap <C-9> <ESC>:tabn 9<CR>
+              inoremap <C-0> <ESC>:tabn 10<CR>
               nnoremap <leader>bm :make<CR>
+              nnoremap <leader>bn :tabnew<CR>
               nnoremap <leader>be :tabnew<CR>:Explore<CR>
-              nnoremap <leader>bf :tabnew<CR>:Files<CR>
+              nnoremap <leader>bf :tabnew<CR>:Telescope find_files<CR>
                 " Switch to last active tab
                 if !exists('g:Lasttab')
                     let g:Lasttab = 1
@@ -385,14 +402,20 @@ in {
               let g:vimtex_view_method = 'zathura'
 
               " fzf
-              nnoremap <leader>fi :Files<CR>
-              nnoremap <leader>fb :Buffers<CR>
-              nnoremap <leader>fg :Rg<CR>
-              nnoremap <leader>fl :Lines<CR>
-              nnoremap <leader>fc :Commands<CR>
-              nnoremap <leader>fm :Maps<CR>
-              nnoremap <leader>fh :Helptags<CR>
-              nnoremap <leader>ft :Filetypes<CR>
+              " nnoremap <leader>fi :Files<CR>
+              " nnoremap <leader>fb :Buffers<CR>
+              " nnoremap <leader>fg :Rg<CR>
+              " nnoremap <leader>fl :Lines<CR>
+              " nnoremap <leader>fc :Commands<CR>
+              " nnoremap <leader>fm :Maps<CR>
+              " nnoremap <leader>fh :Helptags<CR>
+              " nnoremap <leader>ft :Filetypes<CR>
+
+              " telescope
+              nnoremap <leader>fb :Telescope buffers<CR>
+              nnoremap <leader>ff :Telescope find_files<CR>
+              nnoremap <leader>fg :Telescope live_grep<CR>
+              nnoremap <leader>fh :Telescope help_tags<CR>
 
               " lua << EOF
               "   local lsp = require("lsp-zero")

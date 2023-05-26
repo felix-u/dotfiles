@@ -129,6 +129,12 @@ swaymsg "bindsym $MOD+d exec ~/.config/sway/scripts/menu.sh" &
 #
 #
 
+# focus over parent containers
+swaymsg "bindsym $MOD+Home exec swaymsg focus parent && swaymsg focus left && swaymsg focus child" &
+swaymsg "bindsym $MOD+Page_Down exec swaymsg focus parent && swaymsg focus down && swaymsg focus child" &
+swaymsg "bindsym $MOD+Page_Up exec swaymsg focus parent && swaymsg focus up && swaymsg focus child" &
+swaymsg "bindsym $MOD+End exec swaymsg focus parent && swaymsg focus right && swaymsg focus child" &
+
 # apps and scripts
 # when having xwayland installed, some apps may prefer X even if working fine
 # on wayland. launch them with DISPLAY=wayland-0
@@ -235,12 +241,12 @@ swaymsg "title_format %app_id" &
 
 CLRFOCUSED="$WFG"
 CLRUNFOCUSED="$W06"
-TEXTFOCFG="$WFG"
-TEXTFOCBG="$W00"
+TEXTFOCFG="$WBG"
+TEXTFOCBG="$WFG"
 TEXTUNFOCFG="$W07"
 TEXTUNFOCBG="$WBG"
-TEXTFOCINACTIVEBG="$W04"
-TEXTFOCINACTIVEFG="$WBG"
+TEXTFOCINACTIVEBG="$W00"
+TEXTFOCINACTIVEFG="$WFG"
 swaymsg "default_border pixel 3"
 #               class        border       background             text                indicator      child border
 swaymsg "client.focused "$TEXTFOCBG"     "$TEXTFOCBG"        "$TEXTFOCFG"          "$CLRFOCUSED"   "$CLRFOCUSED"" &

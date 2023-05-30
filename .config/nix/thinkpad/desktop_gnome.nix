@@ -85,27 +85,28 @@ in {
         #     # name='Open terminal2'
         # '';
     };
-    environment.gnome.excludePackages = (with pkgs; [
-      gnome-photos
-      gnome-tour
-    ]) ++ (with pkgs.gnome; [
-      # cheese # webcam tool
-      gnome-music
-      gnome-terminal
-      gedit # text editor
-      epiphany # web browser
-      geary # email reader
-      evince # document viewer
-      gnome-characters
-      gnome-software
-      gnome-music
-      simple-scan
-      totem # video player
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
-    ]);
+
+    # environment.gnome.excludePackages = (with pkgs; [
+    #   gnome-photos
+    #   gnome-tour
+    # ]) ++ (with pkgs.gnome; [
+    #   # cheese # webcam tool
+    #   gnome-music
+    #   gnome-terminal
+    #   gedit # text editor
+    #   epiphany # web browser
+    #   geary # email reader
+    #   evince # document viewer
+    #   gnome-characters
+    #   gnome-software
+    #   gnome-music
+    #   simple-scan
+    #   totem # video player
+    #   tali # poker game
+    #   iagno # go game
+    #   hitori # sudoku game
+    #   atomix # puzzle game
+    # ]);
 
     services.power-profiles-daemon.enable = false;
 }

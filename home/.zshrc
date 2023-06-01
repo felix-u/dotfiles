@@ -100,6 +100,11 @@ add-zsh-hook -Uz chpwd osc7_cwd
 
 cdpath=($HOME)
 
+# CTRL-Z brings to foreground the background process.
+_zsh_cli_fg() { fg; }
+zle -N _zsh_cli_fg
+bindkey '^Z' _zsh_cli_fg
+
 # Home and End keys should work as expected
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line

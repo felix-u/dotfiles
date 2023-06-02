@@ -6,7 +6,6 @@
             # Grub is disabled in favour of systemd-boot
             grub = {
                 enable = false;
-                version = 2;
                 devices = [ "nodev" ];
                 efiSupport = true;
                 useOSProber = false;

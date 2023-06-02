@@ -6,322 +6,322 @@ riverctl map normal $mod+$alt R spawn "$XDG_CONFIG_HOME/river/init" &
 # Mod+Alt+q to exit river
 riverctl map normal $mod+$alt Q exit &
 
-## fixes xdg-desktop-portal bug causing GTK apps to launch very slowly
-#dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
+# fixes xdg-desktop-portal bug causing GTK apps to launch very slowly
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
 
-#wq () {
-#    grep "$1:" "$XRESOURCES" | awk '{print $2}'
-#}
+wq () {
+    grep "$1:" "$XRESOURCES" | awk '{print $2}'
+}
 
-#wqs () {
-#    wq "$1" | tr -d \#
-#}
+wqs () {
+    wq "$1" | tr -d \#
+}
 
-#WFG="$(wq foreground)"
-#WBG="$(wq background)"
-#W00="$(wq color0)"
-#W01="$(wq color1)"
-#W02="$(wq color2)"
-#W03="$(wq color3)"
-#W04="$(wq color4)"
-#W05="$(wq color5)"
-#W06="$(wq color6)"
-#W07="$(wq color7)"
-#W08="$(wq color8)"
-#W15="$(wq color15)"
+WFG="$(wq foreground)"
+WBG="$(wq background)"
+W00="$(wq color0)"
+W01="$(wq color1)"
+W02="$(wq color2)"
+W03="$(wq color3)"
+W04="$(wq color4)"
+W05="$(wq color5)"
+W06="$(wq color6)"
+W07="$(wq color7)"
+W08="$(wq color8)"
+W15="$(wq color15)"
 
-#WSFG="$(wqs foreground)"
-#WSBG="$(wqs background)"
-#WS00="$(wqs color0)"
-#WS01="$(wqs color1)"
-#WS02="$(wqs color2)"
-#WS03="$(wqs color3)"
-#WS04="$(wqs color4)"
-#WS05="$(wqs color5)"
-#WS06="$(wqs color6)"
-#WS07="$(wqs color7)"
-#WS08="$(wqs color8)"
-#WS15="$(wqs color15)"
+WSFG="$(wqs foreground)"
+WSBG="$(wqs background)"
+WS00="$(wqs color0)"
+WS01="$(wqs color1)"
+WS02="$(wqs color2)"
+WS03="$(wqs color3)"
+WS04="$(wqs color4)"
+WS05="$(wqs color5)"
+WS06="$(wqs color6)"
+WS07="$(wqs color7)"
+WS08="$(wqs color8)"
+WS15="$(wqs color15)"
 
-#mod="Mod4"
-#alt="Mod1"
+mod="Mod4"
+alt="Mod1"
 
-#terminal="foot"
-#files="pcmanfm"
-#SLURPCOMMAND="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
+terminal="foot"
+files="pcmanfm"
+SLURPCOMMAND="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
 
-## laptop-specific configuration
-#if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
-#    WDPI=2
+# laptop-specific configuration
+if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
+    WDPI=2
 
-#    riverctl map normal None XF86MonBrightnessUp spawn "brightnessctl set +5%" &
-#    riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl set 5%-" &
-#    riverctl map locked None XF86MonBrightnessUp spawn "brightnessctl set +5%" &
-#    riverctl map locked None XF86MonBrightnessDown spawn "brightnessctl set 5%-" &
+    riverctl map normal None XF86MonBrightnessUp spawn "brightnessctl set +5%" &
+    riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl set 5%-" &
+    riverctl map locked None XF86MonBrightnessUp spawn "brightnessctl set +5%" &
+    riverctl map locked None XF86MonBrightnessDown spawn "brightnessctl set 5%-" &
 
-#    wlr-randr --output "eDP-1" --scale "$WDPI" &
+    wlr-randr --output "eDP-1" --scale "$WDPI" &
 
-#    TOUCHPAD="pointer-1739-52824-SYNA8008:00_06CB:CE58_Touchpad"
-#    riverctl input "$TOUCHPAD" click-method clickfinger &
-#    riverctl input "$TOUCHPAD" disable-while-typing enabled &
-#    riverctl input "$TOUCHPAD" natural-scroll enabled &
-#    riverctl input "$TOUCHPAD" tap enabled &
-#    riverctl input "$TOUCHPAD" tap-button-map left-right-middle &
+    TOUCHPAD="pointer-1739-52824-SYNA8008:00_06CB:CE58_Touchpad"
+    riverctl input "$TOUCHPAD" click-method clickfinger &
+    riverctl input "$TOUCHPAD" disable-while-typing enabled &
+    riverctl input "$TOUCHPAD" natural-scroll enabled &
+    riverctl input "$TOUCHPAD" tap enabled &
+    riverctl input "$TOUCHPAD" tap-button-map left-right-middle &
 
-#    left="H"
-#    down="J"
-#    up="K"
-#    right="L"
-#    ret="Semicolon"
-#    home="Y"
-#    end="O"
-#    pagedown="U"
-#    pageup="I"
+    left="H"
+    down="J"
+    up="K"
+    right="L"
+    ret="Semicolon"
+    home="Y"
+    end="O"
+    pagedown="U"
+    pageup="I"
 
-## desktop-specific configuration
-#elif [[ "$(cat /proc/sys/kernel/hostname)" == "nixbtw" ]]; then
+# desktop-specific configuration
+elif [[ "$(cat /proc/sys/kernel/hostname)" == "nixbtw" ]]; then
 
-#    WDPI="1.3"
+    WDPI="1.3"
 
-#    wlr-randr --output "DP-2" --scale "$WDPI" &
+    wlr-randr --output "DP-2" --scale "$WDPI" &
 
-#    MOUSE="pointer-1133-50504-Logitech_USB_Receiver_Mouse"
-#    riverctl input "$MOUSE" accel-profile flat &
-#    riverctl input "$MOUSE" natural-scroll enabled &
+    MOUSE="pointer-1133-50504-Logitech_USB_Receiver_Mouse"
+    riverctl input "$MOUSE" accel-profile flat &
+    riverctl input "$MOUSE" natural-scroll enabled &
 
-#    left="M"
-#    down="N"
-#    up="E"
-#    right="I"
-#    ret="O"
-#    home="J"
-#    end="Y"
-#    pagedown="L"
-#    pageup="U"
-#fi
-##                  _  __ _      _         _            _                      _
-##  ____ __  ___ __(_)/ _(_)__  | |_ ___  | |_____ _  _| |__  ___  __ _ _ _ __| |
-## (_-< '_ \/ -_) _| |  _| / _| |  _/ _ \ | / / -_) || | '_ \/ _ \/ _` | '_/ _` |
-## /__/ .__/\___\__|_|_| |_\__|  \__\___/ |_\_\___|\_, |_.__/\___/\__,_|_| \__,_|
-##    |_|                                          |__/
-##  _                    _
-## | |__ _ _  _ ___ _  _| |_
-## | / _` | || / _ \ || |  _|
-## |_\__,_|\_, \___/\_,_|\__|
-##         |__/
-##
-#offset_amount=100
-#riverctl map normal $mod $ret spawn $terminal &
-## focus the next/previous view in the layout stack
-#riverctl map normal $mod $down focus-view next &
-#riverctl map normal $mod $up focus-view previous &
-## swap the focused view with the next/previous view in the layout stack
-#riverctl map normal $mod+Shift $down swap next &
-#riverctl map normal $mod+Shift $up swap previous &
-## decrease/increase the main_factor value of rivertile by 0.05
-#riverctl map normal $mod+$alt $right send-layout-cmd rivercarro "main-ratio +0.05" &
-#riverctl map normal $mod+$alt $left send-layout-cmd rivercarro "main-ratio -0.05" &
-## increment/decrement the main_count value of rivertile.
-#riverctl map normal $mod $home send-layout-cmd rivercarro "main-count +1" &
-#riverctl map normal $mod $end send-layout-cmd rivercarro "main-count -1" &
-## move views
-#riverctl map normal $mod+Control Left move left $offset_amount &
-#riverctl map normal $mod+Control Down move down $offset_amount &
-#riverctl map normal $mod+Control Up move up $offset_amount &
-#riverctl map normal $mod+Control Right move right $offset_amount &
-## snap views to screen edges
-#riverctl map normal $mod+Shift Left snap left &
-#riverctl map normal $mod+Shift Down snap down &
-#riverctl map normal $mod+Shift Up snap up &
-#riverctl map normal $mod+Shift Right snap right &
-## resize views
-#riverctl map normal $mod+$alt Left resize horizontal -$offset_amount &
-#riverctl map normal $mod+$alt Down resize vertical $offset_amount &
-#riverctl map normal $mod+$alt Up resize vertical -$offset_amount &
-#riverctl map normal $mod+$alt Right resize horizontal $offset_amount &
-## swap current view with master, or master with second slave
-#riverctl map normal $mod $pageup zoom &
-## Mod+{Up,Right,Down,Left} to change layout orientation
-#riverctl map normal $mod Left  send-layout-cmd rivercarro "main-location left" &
-#riverctl map normal $mod Down  send-layout-cmd rivercarro "main-location bottom" &
-#riverctl map normal $mod Up    send-layout-cmd rivercarro "main-location top" &
-#riverctl map normal $mod Right send-layout-cmd rivercarro "main-location right" &
-##
-##              _                          _
-##  _   _ _ __ (_)_   _____ _ __ ___  __ _| |
-## | | | | '_ \| \ \ / / _ \ '__/ __|/ _` | |
-## | |_| | | | | |\ V /  __/ |  \__ \ (_| | |
-##  \__,_|_| |_|_| \_/ \___|_|  |___/\__,_|_|
-##
-##  _     _           _ _
-## | |__ (_)_ __   __| (_)_ __   __ _ ___
-## | '_ \| | '_ \ / _` | | '_ \ / _` / __|
-## | |_) | | | | | (_| | | | | | (_| \__ \
-## |_.__/|_|_| |_|\__,_|_|_| |_|\__, |___/
-##                              |___/
-##
-## terminal
-#riverctl map normal $mod Return spawn $terminal &
+    left="M"
+    down="N"
+    up="E"
+    right="I"
+    ret="O"
+    home="J"
+    end="Y"
+    pagedown="L"
+    pageup="U"
+fi
+#                  _  __ _      _         _            _                      _
+#  ____ __  ___ __(_)/ _(_)__  | |_ ___  | |_____ _  _| |__  ___  __ _ _ _ __| |
+# (_-< '_ \/ -_) _| |  _| / _| |  _/ _ \ | / / -_) || | '_ \/ _ \/ _` | '_/ _` |
+# /__/ .__/\___\__|_|_| |_\__|  \__\___/ |_\_\___|\_, |_.__/\___/\__,_|_| \__,_|
+#    |_|                                          |__/
+#  _                    _
+# | |__ _ _  _ ___ _  _| |_
+# | / _` | || / _ \ || |  _|
+# |_\__,_|\_, \___/\_,_|\__|
+#         |__/
+#
+offset_amount=100
+riverctl map normal $mod $ret spawn $terminal &
+# focus the next/previous view in the layout stack
+riverctl map normal $mod $down focus-view next &
+riverctl map normal $mod $up focus-view previous &
+# swap the focused view with the next/previous view in the layout stack
+riverctl map normal $mod+Shift $down swap next &
+riverctl map normal $mod+Shift $up swap previous &
+# decrease/increase the main_factor value of rivertile by 0.05
+riverctl map normal $mod+$alt $right send-layout-cmd rivercarro "main-ratio +0.05" &
+riverctl map normal $mod+$alt $left send-layout-cmd rivercarro "main-ratio -0.05" &
+# increment/decrement the main_count value of rivertile.
+riverctl map normal $mod $home send-layout-cmd rivercarro "main-count +1" &
+riverctl map normal $mod $end send-layout-cmd rivercarro "main-count -1" &
+# move views
+riverctl map normal $mod+Control Left move left $offset_amount &
+riverctl map normal $mod+Control Down move down $offset_amount &
+riverctl map normal $mod+Control Up move up $offset_amount &
+riverctl map normal $mod+Control Right move right $offset_amount &
+# snap views to screen edges
+riverctl map normal $mod+Shift Left snap left &
+riverctl map normal $mod+Shift Down snap down &
+riverctl map normal $mod+Shift Up snap up &
+riverctl map normal $mod+Shift Right snap right &
+# resize views
+riverctl map normal $mod+$alt Left resize horizontal -$offset_amount &
+riverctl map normal $mod+$alt Down resize vertical $offset_amount &
+riverctl map normal $mod+$alt Up resize vertical -$offset_amount &
+riverctl map normal $mod+$alt Right resize horizontal $offset_amount &
+# swap current view with master, or master with second slave
+riverctl map normal $mod $pageup zoom &
+# Mod+{Up,Right,Down,Left} to change layout orientation
+riverctl map normal $mod Left  send-layout-cmd rivercarro "main-location left" &
+riverctl map normal $mod Down  send-layout-cmd rivercarro "main-location bottom" &
+riverctl map normal $mod Up    send-layout-cmd rivercarro "main-location top" &
+riverctl map normal $mod Right send-layout-cmd rivercarro "main-location right" &
+#
+#              _                          _
+#  _   _ _ __ (_)_   _____ _ __ ___  __ _| |
+# | | | | '_ \| \ \ / / _ \ '__/ __|/ _` | |
+# | |_| | | | | |\ V /  __/ |  \__ \ (_| | |
+#  \__,_|_| |_|_| \_/ \___|_|  |___/\__,_|_|
+#
+#  _     _           _ _
+# | |__ (_)_ __   __| (_)_ __   __ _ ___
+# | '_ \| | '_ \ / _` | | '_ \ / _` / __|
+# | |_) | | | | | (_| | | | | | (_| \__ \
+# |_.__/|_|_| |_|\__,_|_|_| |_|\__, |___/
+#                              |___/
+#
+# terminal
+riverctl map normal $mod Return spawn $terminal &
 
-## browsers
-#riverctl map normal $mod+B spawn "MOZ_ENABLE_WAYLAND=1 firefox" &
+# browsers
+riverctl map normal $mod+B spawn "MOZ_ENABLE_WAYLAND=1 firefox" &
 
-## menu
-#riverctl map normal $mod D spawn "$XDG_CONFIG_HOME/sway/scripts/menu.sh" &
+# menu
+riverctl map normal $mod D spawn "$XDG_CONFIG_HOME/sway/scripts/menu.sh" &
 
-## files
-#riverctl map normal $mod A spawn "$files" &
+# files
+riverctl map normal $mod A spawn "$files" &
 
-## Mod+w to close the focused view
-#riverctl map normal $mod W close &
+# Mod+w to close the focused view
+riverctl map normal $mod W close &
 
-## Mod+x for swaylock
-#riverctl map normal $mod X spawn "$XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
+# Mod+x for swaylock
+riverctl map normal $mod X spawn "$XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
 
-## Mod+Tab between the two most recent tags, with Shift to send window there
-#riverctl map normal $mod Tab focus-previous-tags &
-#riverctl map normal $mod+Shift Tab send-to-previous-tags &
+# Mod+Tab between the two most recent tags, with Shift to send window there
+riverctl map normal $mod Tab focus-previous-tags &
+riverctl map normal $mod+Shift Tab send-to-previous-tags &
 
-## screenshots
-#riverctl map normal $mod+Shift D spawn "${SLURPCOMMAND} | grim -g - \
-#    ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
-#riverctl map normal $mod+Shift S spawn "${SLURPCOMMAND} | grim -g - /tmp/screenshot.png && \
-#    cat /tmp/screenshot.png | wl-copy -t image/png" &
-#riverctl map normal $mod+$alt D spawn "grim \
-#   ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
-#riverctl map normal $mod+$alt S spawn "grim /tmp/screenshot.png && \
-#    cat /tmp/screenshot.png | wl-copy -t image/png" &
-## notifs
-#riverctl map normal $mod C spawn "dunstctl close" &
-#riverctl map normal $mod+Shift C spawn "dunstctl close-all" &
-#riverctl map normal $mod+$alt C spawn "dunstctl history-pop" &
+# screenshots
+riverctl map normal $mod+Shift D spawn "${SLURPCOMMAND} | grim -g - \
+    ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
+riverctl map normal $mod+Shift S spawn "${SLURPCOMMAND} | grim -g - /tmp/screenshot.png && \
+    cat /tmp/screenshot.png | wl-copy -t image/png" &
+riverctl map normal $mod+$alt D spawn "grim \
+   ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
+riverctl map normal $mod+$alt S spawn "grim /tmp/screenshot.png && \
+    cat /tmp/screenshot.png | wl-copy -t image/png" &
+# notifs
+riverctl map normal $mod C spawn "dunstctl close" &
+riverctl map normal $mod+Shift C spawn "dunstctl close-all" &
+riverctl map normal $mod+$alt C spawn "dunstctl history-pop" &
 
-## # Mod+Period and Mod+Comma to focus the next/previous output
-## riverctl map normal $mod Period focus-output next
-## riverctl map normal $mod Comma focus-output previous
-## # Mod+Shift+{Period,Comma} to send the focused view to the next/previous output
-## riverctl map normal $mod+Shift Period send-to-output next
-## riverctl map normal $mod+Shift Comma send-to-output previous
-## Mod+Return to bump the focused view to the top of the layout stack
-##riverctl map normal $mod Return zoom
+# # Mod+Period and Mod+Comma to focus the next/previous output
+# riverctl map normal $mod Period focus-output next
+# riverctl map normal $mod Comma focus-output previous
+# # Mod+Shift+{Period,Comma} to send the focused view to the next/previous output
+# riverctl map normal $mod+Shift Period send-to-output next
+# riverctl map normal $mod+Shift Comma send-to-output previous
+# Mod+Return to bump the focused view to the top of the layout stack
+#riverctl map normal $mod Return zoom
 
-## Mod + Left Mouse Button to move views
-#riverctl map-pointer normal $mod BTN_LEFT move-view &
+# Mod + Left Mouse Button to move views
+riverctl map-pointer normal $mod BTN_LEFT move-view &
 
-## Mod + Right Mouse Button to resize views
-#riverctl map-pointer normal $mod BTN_RIGHT resize-view &
+# Mod + Right Mouse Button to resize views
+riverctl map-pointer normal $mod BTN_RIGHT resize-view &
 
-#for i in $(seq 1 4)
-#do
-#    tags=$((1 << (i - 1)))
+for i in $(seq 1 4)
+do
+    tags=$((1 << (i - 1)))
 
-#    # Mod+[1-9] to focus tag [0-8]
-#    riverctl map normal $mod "$i" set-focused-tags $tags &
+    # Mod+[1-9] to focus tag [0-8]
+    riverctl map normal $mod "$i" set-focused-tags $tags &
 
-#    # Mod+Shift+[1-9] to tag focused view with tag [0-8]
-#    riverctl map normal $mod+Shift "$i" set-view-tags $tags &
+    # Mod+Shift+[1-9] to tag focused view with tag [0-8]
+    riverctl map normal $mod+Shift "$i" set-view-tags $tags &
 
-#    # Mod+Ctrl+[1-9] to toggle focus of tag [0-8]
-#    riverctl map normal $mod+$alt "$i" toggle-focused-tags $tags &
+    # Mod+Ctrl+[1-9] to toggle focus of tag [0-8]
+    riverctl map normal $mod+$alt "$i" toggle-focused-tags $tags &
 
-#    # Mod+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
-#    riverctl map normal $mod+Control "$i" toggle-view-tags $tags &
-#done
+    # Mod+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
+    riverctl map normal $mod+Control "$i" toggle-view-tags $tags &
+done
 
-## Mod+0 to focus all tags
-## Mod+Shift+0 to tag focused view with all tags
-#all_tags=$(((1 << 32) - 1))
-#riverctl map normal $mod 0 set-focused-tags $all_tags &
-#riverctl map normal $mod+Shift 0 set-view-tags $all_tags &
+# Mod+0 to focus all tags
+# Mod+Shift+0 to tag focused view with all tags
+all_tags=$(((1 << 32) - 1))
+riverctl map normal $mod 0 set-focused-tags $all_tags &
+riverctl map normal $mod+Shift 0 set-view-tags $all_tags &
 
-## Mod+S to toggle float
-#riverctl map normal $mod S toggle-float &
+# Mod+S to toggle float
+riverctl map normal $mod S toggle-float &
 
-## Mod+F to toggle fullscreen
-#riverctl map normal $mod F toggle-fullscreen &
-#riverctl map normal $mod+Shift F send-layout-cmd rivercarro "main-location monocle" &
+# Mod+F to toggle fullscreen
+riverctl map normal $mod F toggle-fullscreen &
+riverctl map normal $mod+Shift F send-layout-cmd rivercarro "main-location monocle" &
 
-## Mod+Shift+B to fetch random wallpaper
-#riverctl map normal $mod+Shift B spawn "${XDG_CONFIG_HOME}/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls" &
-## Mod+Alt+Shift+B to kill swaybg and get back solid colour background
-#riverctl map normal $mod+${alt}+Shift B spawn "killall -q swaybg" &
+# Mod+Shift+B to fetch random wallpaper
+riverctl map normal $mod+Shift B spawn "${XDG_CONFIG_HOME}/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls" &
+# Mod+Alt+Shift+B to kill swaybg and get back solid colour background
+riverctl map normal $mod+${alt}+Shift B spawn "killall -q swaybg" &
 
-## scratchpad
-## The scratchpad will live on an unused tag. Which tags are used depends on your
-## config, but rivers default uses the first 9 tags.
-#scratch_tag=$((1 << 20 ))
+# scratchpad
+# The scratchpad will live on an unused tag. Which tags are used depends on your
+# config, but rivers default uses the first 9 tags.
+scratch_tag=$((1 << 20 ))
 
-## Toggle the scratchpad with Super+P
-#riverctl map normal $mod $pagedown toggle-focused-tags ${scratch_tag}
+# Toggle the scratchpad with Super+P
+riverctl map normal $mod $pagedown toggle-focused-tags ${scratch_tag}
 
-## Send windows to the scratchpad with Super+Shift+P
-#riverctl map normal $mod+Shift $pagedown set-view-tags ${scratch_tag}
+# Send windows to the scratchpad with Super+Shift+P
+riverctl map normal $mod+Shift $pagedown set-view-tags ${scratch_tag}
 
-## Set spawn tagmask to ensure new windows don't have the scratchpad tag unless
-## explicitly set.
-#all_but_scratch_tag=$(( ((1 << 32) - 1) ^ scratch_tag ))
-#riverctl spawn-tagmask ${all_but_scratch_tag}
+# Set spawn tagmask to ensure new windows don't have the scratchpad tag unless
+# explicitly set.
+all_but_scratch_tag=$(( ((1 << 32) - 1) ^ scratch_tag ))
+riverctl spawn-tagmask ${all_but_scratch_tag}
 
 
-## Various media key mapping examples for both normal and locked mode which do
-## not have a modifier
-#for mode in normal locked
-#do
-#    riverctl map $mode None XF86AudioRaiseVolume  spawn "pulsemixer --change-volume +10" &
-#    riverctl map $mode None XF86AudioLowerVolume  spawn "pulsemixer --change-volume -10" &
-#    riverctl map $mode None XF86AudioMute         spawn "pulsemixer --toggle-mute" &
-#done
+# Various media key mapping examples for both normal and locked mode which do
+# not have a modifier
+for mode in normal locked
+do
+    riverctl map $mode None XF86AudioRaiseVolume  spawn "pulsemixer --change-volume +10" &
+    riverctl map $mode None XF86AudioLowerVolume  spawn "pulsemixer --change-volume -10" &
+    riverctl map $mode None XF86AudioMute         spawn "pulsemixer --toggle-mute" &
+done
 
-## Set repeat rate
-#riverctl set-repeat 50 200 &
+# Set repeat rate
+riverctl set-repeat 50 200 &
 
-## Set app-ids of views which should float
-#riverctl float-filter-add "float" &
-#riverctl float-filter-add "popup" &
+# Set app-ids of views which should float
+riverctl float-filter-add "float" &
+riverctl float-filter-add "popup" &
 
-## # Set app-ids of views which should use client side decorations
-## riverctl csd-filter-add "gedit"
+# # Set app-ids of views which should use client side decorations
+# riverctl csd-filter-add "gedit"
 
-#riverctl attach-mode bottom &
-## hide cursor when typing or after ten seconds of inactivity
-#riverctl hide-cursor timeout 10000 &
-#riverctl hide-cursor when-typing enabled &
-## binding to toggle this behaviour (it interferes with mouse control in games)
-#riverctl map normal $mod+Shift V spawn \
-#    "riverctl hide-cursor timeout 0 && \
-#     riverctl hide-cursor when-typing disabled && \
-#     notify-send 'Disabled cursor hiding'" &
-#riverctl map normal $mod V spawn \
-#    "riverctl hide-cursor timeout 10000 && \
-#     riverctl hide-cursor when-typing enabled && \
-#     notify-send 'Enabled cursor hiding'" &
-## wallpaper
-#riverctl background-color "0x$WSBG" &
-## pkill swaybg; swaybg -m fill -i  ~/dotfiles/Pictures/cafe-walls/corentin-wunsche-parking.jpg &
-#"$XDG_CONFIG_HOME"/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
-#riverctl border-color-focused "0x$WSFG" &
-#riverctl border-color-unfocused "0x$WS06" &
-#riverctl border-color-urgent "0x$WS01" &
-#riverctl border-width 3 &
-#riverctl xcursor-theme Adwaita 24 &
-## gsettings set org.gnome.desktop.wm.preferences button-layout "" &
+riverctl attach-mode bottom &
+# hide cursor when typing or after ten seconds of inactivity
+riverctl hide-cursor timeout 10000 &
+riverctl hide-cursor when-typing enabled &
+# binding to toggle this behaviour (it interferes with mouse control in games)
+riverctl map normal $mod+Shift V spawn \
+    "riverctl hide-cursor timeout 0 && \
+     riverctl hide-cursor when-typing disabled && \
+     notify-send 'Disabled cursor hiding'" &
+riverctl map normal $mod V spawn \
+    "riverctl hide-cursor timeout 10000 && \
+     riverctl hide-cursor when-typing enabled && \
+     notify-send 'Enabled cursor hiding'" &
+# wallpaper
+riverctl background-color "0x$WSBG" &
+# pkill swaybg; swaybg -m fill -i  ~/dotfiles/Pictures/cafe-walls/corentin-wunsche-parking.jpg &
+"$XDG_CONFIG_HOME"/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
+riverctl border-color-focused "0x$WSFG" &
+riverctl border-color-unfocused "0x$WS06" &
+riverctl border-color-urgent "0x$WS01" &
+riverctl border-width 3 &
+riverctl xcursor-theme Adwaita 24 &
+# gsettings set org.gnome.desktop.wm.preferences button-layout "" &
 
-#/run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
+/run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
-#pkill dunst; dunst &
+pkill dunst; dunst &
 
-#DEFAULT_GAPS_OUTER=0 
-#DEFAULT_GAPS_INNER=0
-#riverctl default-layout rivercarro &
-#pkill rivercarro
-#rivercarro -outer-gaps "$DEFAULT_GAPS_OUTER" -inner-gaps "$DEFAULT_GAPS_INNER" -no-smart-gaps &
+DEFAULT_GAPS_OUTER=0 
+DEFAULT_GAPS_INNER=0
+riverctl default-layout rivercarro &
+pkill rivercarro
+rivercarro -outer-gaps "$DEFAULT_GAPS_OUTER" -inner-gaps "$DEFAULT_GAPS_INNER" -no-smart-gaps &
 
-#riverctl map normal $mod G send-layout-cmd rivercarro "gaps +9" &
-#riverctl map normal $mod+Shift G send-layout-cmd rivercarro "gaps -9" &
-#riverctl map normal $mod Period send-layout-cmd rivercarro "outer-gaps +9" &
-#riverctl map normal $mod+Shift Period send-layout-cmd rivercarro "outer-gaps -9" &
-#resetgaps="\
-#    riverctl send-layout-cmd rivercarro 'outer-gaps $DEFAULT_GAPS_OUTER' & \
-#    riverctl send-layout-cmd rivercarro 'inner-gaps $DEFAULT_GAPS_INNER' & \
-#"
-#riverctl map normal $mod+$alt G spawn "$resetgaps" &
+riverctl map normal $mod G send-layout-cmd rivercarro "gaps +9" &
+riverctl map normal $mod+Shift G send-layout-cmd rivercarro "gaps -9" &
+riverctl map normal $mod Period send-layout-cmd rivercarro "outer-gaps +9" &
+riverctl map normal $mod+Shift Period send-layout-cmd rivercarro "outer-gaps -9" &
+resetgaps="\
+    riverctl send-layout-cmd rivercarro 'outer-gaps $DEFAULT_GAPS_OUTER' & \
+    riverctl send-layout-cmd rivercarro 'inner-gaps $DEFAULT_GAPS_INNER' & \
+"
+riverctl map normal $mod+$alt G spawn "$resetgaps" &

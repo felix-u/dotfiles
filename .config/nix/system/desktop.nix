@@ -42,7 +42,7 @@ in {
     };
     environment.pathsToLink = [ "/libexec" ]; # for polkit
     environment.sessionVariables = { GTK_USE_PORTAL="1"; };
-    qt5.platformTheme = "qt5ct";
+    qt.platformTheme = "qt5ct";
 
     environment.systemPackages =
     let

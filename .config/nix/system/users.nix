@@ -477,79 +477,79 @@ in {
             '';
         };
 
-        programs.tmux = {
-            aggressiveResize = true;
-            baseIndex = 1;
-            clock24 = true;
-            enable = true;
-            escapeTime = 0; 
-            extraConfig = ''
-                set -g repeat-time 400
-                set -g automatic-rename on
-                set -g renumber-windows on
-                set -g set-titles on
-                set -g display-time 2500 # increase tmux message display duration 
-                set -g status-interval 5 # redraw more often
-                set -g status-justify left
-                set-option -g status-position top
-                set-option -g status-style bg=black
-                set -g status-right-style default
-                set -g status-right "[#S]"
-                set -g status-left-style default
-                set -g status-left "#[default]"
-                # inactive window style
-                set -g window-status-style fg=white,bg=default
-                set -g window-status-format '#I #W '
-                # active window style
-                set -g window-status-current-style fg=default,bold,bg=default
-                set -g window-status-current-format '#I #W '
-                set -g focus-events on
-                set-option -sa terminal-overrides ",xterm*:Tc"
-                bind C-p previous-window
-                bind C-n next-window
-                bind f last-window # should be same key as prefix
-                unbind '"'
-                unbind %
-                bind v split-window -h -c "#{pane_current_path}"
-                bind s split-window -v -c "#{pane_current_path}"
-                bind Enter if-shell "[ $(($(tmux display -p '8*#{pane_width}-20*#{pane_height}'))) -lt 0 ]" "splitw -v -c '#{pane_current_path}'" "splitw -h -c '#{pane_current_path}' "
-                bind o if-shell "[ $(($(tmux display -p '8*#{pane_width}-20*#{pane_height}'))) -lt 0 ]" "splitw -v -c '#{pane_current_path}'" "splitw -h -c '#{pane_current_path}' "
-                bind-key -T copy-mode-vi v send-keys -X begin-selection
-                bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-                bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-                # better navigation
-                bind -r j last-window
-                bind -n c-left select-pane -L
-                bind -n c-right select-pane -R
-                bind -n c-up select-pane -U
-                bind -n c-down select-pane -D
-                bind -n c-m-left resize-pane -L ${resizeAmount}
-                bind -n c-m-right resize-pane -R ${resizeAmount}
-                bind -n c-m-up resize-pane -U ${resizeAmount}
-                bind -n c-m-down resize-pane -D ${resizeAmount}
-                bind -n c-s-left swap-pane -U
-                bind -n c-s-right swap-pane -D
-                bind -n c-s-up swap-pane -U
-                bind -n c-s-down swap-pane -D
-                unbind x
-                bind w kill-pane
-                # pane separator style
-                set -g pane-border-style "fg=black bg=terminal"
-                set -g pane-active-border-style "fg=black bg=black"
-                set -g mouse on
-                # PLUGINS
-                set -g @continuum-restore 'on'
-            '';
-            historyLimit = 5000;
-            keyMode = "vi"; # hmm
-            plugins = with pkgs.tmuxPlugins; [
-                continuum 
-                resurrect   
-                yank
-            ];
-            shortcut = "f";
-            terminal = "screen-256color";
-        };
+        # programs.tmux = {
+        #     aggressiveResize = true;
+        #     baseIndex = 1;
+        #     clock24 = true;
+        #     enable = true;
+        #     escapeTime = 0; 
+        #     extraConfig = ''
+        #         set -g repeat-time 400
+        #         set -g automatic-rename on
+        #         set -g renumber-windows on
+        #         set -g set-titles on
+        #         set -g display-time 2500 # increase tmux message display duration 
+        #         set -g status-interval 5 # redraw more often
+        #         set -g status-justify left
+        #         set-option -g status-position top
+        #         set-option -g status-style bg=black
+        #         set -g status-right-style default
+        #         set -g status-right "[#S]"
+        #         set -g status-left-style default
+        #         set -g status-left "#[default]"
+        #         # inactive window style
+        #         set -g window-status-style fg=white,bg=default
+        #         set -g window-status-format '#I #W '
+        #         # active window style
+        #         set -g window-status-current-style fg=default,bold,bg=default
+        #         set -g window-status-current-format '#I #W '
+        #         set -g focus-events on
+        #         set-option -sa terminal-overrides ",xterm*:Tc"
+        #         bind C-p previous-window
+        #         bind C-n next-window
+        #         bind f last-window # should be same key as prefix
+        #         unbind '"'
+        #         unbind %
+        #         bind v split-window -h -c "#{pane_current_path}"
+        #         bind s split-window -v -c "#{pane_current_path}"
+        #         bind Enter if-shell "[ $(($(tmux display -p '8*#{pane_width}-20*#{pane_height}'))) -lt 0 ]" "splitw -v -c '#{pane_current_path}'" "splitw -h -c '#{pane_current_path}' "
+        #         bind o if-shell "[ $(($(tmux display -p '8*#{pane_width}-20*#{pane_height}'))) -lt 0 ]" "splitw -v -c '#{pane_current_path}'" "splitw -h -c '#{pane_current_path}' "
+        #         bind-key -T copy-mode-vi v send-keys -X begin-selection
+        #         bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+        #         bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+        #         # better navigation
+        #         bind -r j last-window
+        #         bind -n c-left select-pane -L
+        #         bind -n c-right select-pane -R
+        #         bind -n c-up select-pane -U
+        #         bind -n c-down select-pane -D
+        #         bind -n c-m-left resize-pane -L ${resizeAmount}
+        #         bind -n c-m-right resize-pane -R ${resizeAmount}
+        #         bind -n c-m-up resize-pane -U ${resizeAmount}
+        #         bind -n c-m-down resize-pane -D ${resizeAmount}
+        #         bind -n c-s-left swap-pane -U
+        #         bind -n c-s-right swap-pane -D
+        #         bind -n c-s-up swap-pane -U
+        #         bind -n c-s-down swap-pane -D
+        #         unbind x
+        #         bind w kill-pane
+        #         # pane separator style
+        #         set -g pane-border-style "fg=black bg=terminal"
+        #         set -g pane-active-border-style "fg=black bg=black"
+        #         set -g mouse on
+        #         # PLUGINS
+        #         set -g @continuum-restore 'on'
+        #     '';
+        #     historyLimit = 5000;
+        #     keyMode = "vi"; # hmm
+        #     plugins = with pkgs.tmuxPlugins; [
+        #         continuum 
+        #         resurrect   
+        #         yank
+        #     ];
+        #     shortcut = "f";
+        #     terminal = "screen-256color";
+        # };
 
         # programs.nnn = {
         #   enable = true;

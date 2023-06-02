@@ -196,7 +196,7 @@ in {
                   hi StatusLine   cterm=NONE   ctermfg=White ctermbg=00
                   hi String       cterm=NONE   ctermfg=06
                   hi TabLine      cterm=NONE   ctermfg=White ctermbg=00
-                  hi TabLineFill  ctermbg=NONE
+                  hi TabLineFill  cterm=NONE   ctermfg=NONE  ctermbg=NONE
                   hi TabLineSel   cterm=bold   ctermfg=Black ctermbg=White
                   hi TermCursor   ctermfg=Black ctermbg=White
                   hi Type         cterm=NONE   ctermfg=White

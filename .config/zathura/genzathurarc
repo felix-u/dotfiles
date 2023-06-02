@@ -1,6 +1,6 @@
 set guioptions s
 set selection-clipboard clipboard
-set font                        "$(wq fontmono) Bold 12"
+set font                        "$(wq fontsans) Bold 12"
 
 set notification-error-fg       "$(wq color1)" #red
 set notification-warning-fg     "$(wq color3)" #yellow

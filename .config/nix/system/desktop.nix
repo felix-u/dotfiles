@@ -46,7 +46,6 @@ in {
 
     environment.systemPackages =
     let
-        # not working
         river-git = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
             src = pkgs.fetchFromGitHub {
                 owner = "riverwm";
@@ -57,10 +56,21 @@ in {
             };
 
         });
-        # river-git = pkgs.callPackage ../derivations/river.nix {};
+        # kile-git = pkgs-unstable.kile-wl.overrideAttrs (oldAttrs: rec {
+        #     src = pkgs.fetchgit {
+        #         url = "https://gitlab.com/snakedye/kile";
+        #         rev = "625f91010b920587dbf0ee23113eb8aa51cc6ec3";
+        #         hash = "sha256-4sfzF2g2kSz+Q55gTCePjM+7kvfrEJ2uLKyy/V+SLF4=";
+        #     };
+        #     cargoSha256 = "5598a195360c96a337aca9399b074f9239184d418c597cc4dfbc8450d1c62443";
+        # });
     in
     with pkgs; [
-        river-git unstable.rivercarro wlr-randr
+        unstable.river-luatile
+        river-git 
+        unstable.rivercarro 
+        unstable.river-tag-overlay
+        wlr-randr
     ];
 
     # pipewire

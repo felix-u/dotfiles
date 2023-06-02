@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# Mod+Alt+R to run init script
-riverctl map normal $mod+$alt R spawn "$XDG_CONFIG_HOME/river/init" &
-
-# Mod+Alt+q to exit river
-riverctl map normal $mod+$alt Q exit &
-
 # fixes xdg-desktop-portal bug causing GTK apps to launch very slowly
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
 
@@ -46,6 +40,11 @@ WS15="$(wqs color15)"
 mod="Mod4"
 alt="Mod1"
 
+# Reload
+riverctl map normal $mod+$alt R spawn "$XDG_CONFIG_HOME/river/init" &
+# Quit
+riverctl map normal $mod+$alt Q exit &
+
 terminal="foot"
 files="pcmanfm"
 SLURPCOMMAND="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
@@ -67,6 +66,8 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     riverctl input "$TOUCHPAD" natural-scroll enabled &
     riverctl input "$TOUCHPAD" tap enabled &
     riverctl input "$TOUCHPAD" tap-button-map left-right-middle &
+
+    riverctl map normal $mod+$alt B spawn "notify-send \$(cat /sys/class/power_supply/BAT0/capacity)%" &
 
     left="H"
     down="J"
@@ -119,11 +120,11 @@ riverctl map normal $mod $up focus-view previous &
 riverctl map normal $mod+Shift $down swap next &
 riverctl map normal $mod+Shift $up swap previous &
 # decrease/increase the main_factor value of rivertile by 0.05
-riverctl map normal $mod+$alt $right send-layout-cmd rivercarro "main-ratio +0.05" &
-riverctl map normal $mod+$alt $left send-layout-cmd rivercarro "main-ratio -0.05" &
+riverctl map normal $mod $right send-layout-cmd rivercarro "main-ratio +0.05" &
+riverctl map normal $mod $left send-layout-cmd rivercarro "main-ratio -0.05" &
 # increment/decrement the main_count value of rivertile.
-riverctl map normal $mod $home send-layout-cmd rivercarro "main-count +1" &
-riverctl map normal $mod $end send-layout-cmd rivercarro "main-count -1" &
+riverctl map normal $mod+Shift $left send-layout-cmd rivercarro "main-count +1" &
+riverctl map normal $mod+Shift $right send-layout-cmd rivercarro "main-count -1" &
 # move views
 riverctl map normal $mod+Control Left move left $offset_amount &
 riverctl map normal $mod+Control Down move down $offset_amount &
@@ -139,7 +140,7 @@ riverctl map normal $mod+$alt Left resize horizontal -$offset_amount &
 riverctl map normal $mod+$alt Down resize vertical $offset_amount &
 riverctl map normal $mod+$alt Up resize vertical -$offset_amount &
 riverctl map normal $mod+$alt Right resize horizontal $offset_amount &
-# swap current view with master, or master with second slave
+# swap current view with master, or master with first slave
 riverctl map normal $mod $pageup zoom &
 # Mod+{Up,Right,Down,Left} to change layout orientation
 riverctl map normal $mod Left  send-layout-cmd rivercarro "main-location left" &
@@ -164,7 +165,7 @@ riverctl map normal $mod Right send-layout-cmd rivercarro "main-location right" 
 riverctl map normal $mod Return spawn $terminal &
 
 # browsers
-riverctl map normal $mod+B spawn "MOZ_ENABLE_WAYLAND=1 firefox" &
+riverctl map normal $mod B spawn "MOZ_ENABLE_WAYLAND=1 firefox" &
 
 # menu
 riverctl map normal $mod D spawn "$XDG_CONFIG_HOME/sway/scripts/menu.sh" &
@@ -182,19 +183,18 @@ riverctl map normal $mod X spawn "$XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
 riverctl map normal $mod Tab focus-previous-tags &
 riverctl map normal $mod+Shift Tab send-to-previous-tags &
 
+# temperature control
+riverctl map normal $mod+$alt T spawn "$XDG_CONFIG_HOME/sway/scripts/screen_temp.sh" &
+
 # screenshots
 riverctl map normal $mod+Shift D spawn "${SLURPCOMMAND} | grim -g - \
-    ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
+    ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png && notify-send 'Saved screenshot to ~/Pictures/screenshots/'" &
 riverctl map normal $mod+Shift S spawn "${SLURPCOMMAND} | grim -g - /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
 riverctl map normal $mod+$alt D spawn "grim \
-   ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
+   ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png && notify-send 'Saved screenshot to ~/Pictures/screenshots/'" &
 riverctl map normal $mod+$alt S spawn "grim /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
-# notifs
-riverctl map normal $mod C spawn "dunstctl close" &
-riverctl map normal $mod+Shift C spawn "dunstctl close-all" &
-riverctl map normal $mod+$alt C spawn "dunstctl history-pop" &
 
 # # Mod+Period and Mod+Comma to focus the next/previous output
 # riverctl map normal $mod Period focus-output next
@@ -211,7 +211,8 @@ riverctl map-pointer normal $mod BTN_LEFT move-view &
 # Mod + Right Mouse Button to resize views
 riverctl map-pointer normal $mod BTN_RIGHT resize-view &
 
-for i in $(seq 1 4)
+TAG_NUMBER=4
+for i in $(seq 1 $TAG_NUMBER)
 do
     tags=$((1 << (i - 1)))
 
@@ -267,9 +268,9 @@ riverctl spawn-tagmask ${all_but_scratch_tag}
 # not have a modifier
 for mode in normal locked
 do
-    riverctl map $mode None XF86AudioRaiseVolume  spawn "pulsemixer --change-volume +10" &
-    riverctl map $mode None XF86AudioLowerVolume  spawn "pulsemixer --change-volume -10" &
-    riverctl map $mode None XF86AudioMute         spawn "pulsemixer --toggle-mute" &
+    riverctl map $mode None XF86AudioRaiseVolume  spawn "pulsemixer --change-volume +10 && $XDG_CONFIG_HOME/sway/scripts/notify-vol.sh" &
+    riverctl map $mode None XF86AudioLowerVolume  spawn "pulsemixer --change-volume -10 && $XDG_CONFIG_HOME/sway/scripts/notify-vol.sh" &
+    riverctl map $mode None XF86AudioMute         spawn "pulsemixer --toggle-mute && $XDG_CONFIG_HOME/sway/scripts/notify-mute.sh" &
 done
 
 # Set repeat rate
@@ -295,27 +296,41 @@ riverctl map normal $mod V spawn \
     "riverctl hide-cursor timeout 10000 && \
      riverctl hide-cursor when-typing enabled && \
      notify-send 'Enabled cursor hiding'" &
-# wallpaper
-riverctl background-color "0x$WSBG" &
-# pkill swaybg; swaybg -m fill -i  ~/dotfiles/Pictures/cafe-walls/corentin-wunsche-parking.jpg &
-"$XDG_CONFIG_HOME"/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
-riverctl border-color-focused "0x$WSFG" &
-riverctl border-color-unfocused "0x$WS06" &
-riverctl border-color-urgent "0x$WS01" &
-riverctl border-width 3 &
-riverctl xcursor-theme Adwaita 24 &
-# gsettings set org.gnome.desktop.wm.preferences button-layout "" &
 
+# Background
+riverctl background-color "0x$WSBG" &
+"$XDG_CONFIG_HOME"/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
+
+# Theming
+BORDER_FOCUSED=$WSFG
+BORDER_UNFOCUSED=$WS06
+BORDER_URGENT=$WS01
+BORDER_WIDTH=3
+riverctl border-color-focused "0x$BORDER_FOCUSED" &
+riverctl border-color-unfocused "0x$BORDER_UNFOCUSED" &
+riverctl border-color-urgent "0x$BORDER_URGENT" &
+riverctl border-width $BORDER_WIDTH &
+riverctl xcursor-theme Adwaita 24 &
+
+# Screen temperature
+pkill wlsunset
+"$XDG_CONFIG_HOME"/sway/scripts/screen_temp.sh default &
+
+# Superuser authentication popup
 /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
+# Notifications
+riverctl map normal $mod C spawn "dunstctl close" &
+riverctl map normal $mod+Shift C spawn "dunstctl close-all" &
+riverctl map normal $mod+$alt C spawn "dunstctl history-pop" &
 pkill dunst; dunst &
 
+# Gaps
 DEFAULT_GAPS_OUTER=0 
 DEFAULT_GAPS_INNER=0
 riverctl default-layout rivercarro &
 pkill rivercarro
 rivercarro -outer-gaps "$DEFAULT_GAPS_OUTER" -inner-gaps "$DEFAULT_GAPS_INNER" -no-smart-gaps &
-
 riverctl map normal $mod G send-layout-cmd rivercarro "gaps +9" &
 riverctl map normal $mod+Shift G send-layout-cmd rivercarro "gaps -9" &
 riverctl map normal $mod Period send-layout-cmd rivercarro "outer-gaps +9" &
@@ -325,3 +340,25 @@ resetgaps="\
     riverctl send-layout-cmd rivercarro 'inner-gaps $DEFAULT_GAPS_INNER' & \
 "
 riverctl map normal $mod+$alt G spawn "$resetgaps" &
+
+# Tag overlay
+killall -q river-tag-overlay
+river-tag-overlay \
+    --border-width $BORDER_WIDTH \
+    --tag-amount $TAG_NUMBER \
+    --tags-per-row $TAG_NUMBER \
+    --square-size 36 \
+    --square-padding 25 \
+    --square-inner-padding 9 \
+    --square-border-width 0 \
+    --background-colour 0x$WSBG \
+    --border-colour 0x$WS00 \
+    --square-active-background-colour 0x$BORDER_FOCUSED \
+    --square-active-occupied-colour 0x$WS05 \
+    --square-inactive-background-colour 0x$WS08 \
+    --square-inactive-occupied-colour 0x$WS00 \
+    --square-urgent-background-colour 0x$WS01 \
+    --square-urgent-occupied-colour 0x$BORDER_FOCUSED \
+    --anchors 0:0:1:0 \
+    --margins 0:0:100:0 \
+    &

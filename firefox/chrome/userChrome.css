@@ -71,7 +71,7 @@
 .tab-text::before{
     content: counter(nth-tab) " ";
     counter-increment: nth-tab;
-    font-family: Iosevka !important;
+    font-family: var(--sans) !important;
     font-weight: normal !important;
     color: var(--background); /* red */
     border-radius: 16px;
@@ -82,7 +82,7 @@
 .tabbrowser-tab[selected] .tab-text::before{
     content: counter(nth-tab) " ";
     counter-increment: nth-tab;
-    font-family: Iosevka !important;
+    font-family: var(--sans) !important;
     font-weight: bold !important;
     color: var(--color7); /* blue */
     border-radius: 16px;

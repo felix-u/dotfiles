@@ -234,7 +234,8 @@ swaymsg "bindsym $MOD+$ALT+Shift+v exec $XDG_CONFIG_HOME/sway/scripts/cursor hid
 # swaymsg "gaps inner 50" &
 # swaymsg "smart_gaps on" &
 # otherwise
-swaymsg "gaps inner 15" &
+DEFAULT_GAPS=0
+swaymsg "gaps inner $DEFAULT_GAPS" &
 #
 swaymsg "font pango:$(wq fontmono) Bold 12" &
 swaymsg "title_format %app_id" &
@@ -281,4 +282,4 @@ swaymsg "client.urgent  "$W01" "$CLRUNFOCUSED" "$WFG" "$W15" "$CLRUNFOCUSED"" &
 pkill dunst; dunst &
 
 # Fix for first workspace having gaps 0 on startup
-swaymsg gaps inner current set 15 &
+swaymsg gaps inner current set $DEFAULT_GAPS &

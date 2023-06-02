@@ -41,13 +41,18 @@
 
 
     # amdgpu stuff
-    hardware.opengl.extraPackages = with pkgs; [
-        rocm-opencl-icd
-        rocm-opencl-runtime
-        amdvlk
-        vaapiVdpau libvdpau-va-gl
-    ];
-    hardware.opengl.driSupport = true;
+    hardware.opengl = {
+        # package = pkgs.mesa;
+        driSupport = true;
+        extraPackages = with pkgs; [
+            rocm-opencl-icd
+            rocm-opencl-runtime
+            amdvlk
+            vaapiVdpau libvdpau-va-gl
+            mesa
+            libdrm
+        ];
+    };
 
 
     system.stateVersion = "21.11";

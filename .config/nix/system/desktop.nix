@@ -44,21 +44,24 @@ in {
     environment.sessionVariables = { GTK_USE_PORTAL="1"; };
     qt5.platformTheme = "qt5ct";
 
-    # environment.systemPackages =
-    # let
-    #     # river-with-xwayland = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
-    #     #     src = pkgs.fetchFromGitHub {
-    #     #         owner = "riverwm";
-    #     #         repo = "river";
-    #     #         rev = "e1ab51f26071958bbeb2d0c637d3d00eb4326fdf";
-    #     #         sha256 = "sha256-Y6HGAiUpdH4flluBqOP4aXiPAoik5cSchtlPEiUvKlw=";
-    #     #         fetchSubmodules = true;
-    #     #     };
-    #     # });
-    # in
-    # with pkgs; [
-    #     unstable.river unstable.rivercarro wlr-randr
-    # ];
+    environment.systemPackages =
+    let
+        # not working
+        river-git = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
+            src = pkgs.fetchFromGitHub {
+                owner = "riverwm";
+                repo = "river";
+                rev = "792d94253c191e653e4025a648d574d9f8ce99bf";
+                sha256 = "sha256-4Gwi7PiITj6i41YnngecFWd/pt5UQwslOM71C7tUR4k=";
+                fetchSubmodules = true;
+            };
+
+        });
+        # river-git = pkgs.callPackage ../derivations/river.nix {};
+    in
+    with pkgs; [
+        river-git unstable.rivercarro wlr-randr
+    ];
 
     # pipewire
     services.pipewire = {
@@ -90,34 +93,6 @@ in {
     services.blueman.enable = true;
 
     hardware.opengl.enable = true;
-
-    # # gnome on x for testing
-    # hardware.pulseaudio.enable = false;
-    # services.xserver.enable = true;
-    # # services.xserver.displayManager.gdm.enable = true;
-    # services.xserver.desktopManager.gnome.enable = true;
-    # environment.gnome.excludePackages = (with pkgs; [
-    #   gnome-photos
-    #   gnome-tour
-    # ]) ++ (with pkgs.gnome; [
-    #   cheese # webcam tool
-    #   gnome-music
-    #   gnome-terminal
-    #   gedit # text editor
-    #   epiphany # web browser
-    #   geary # email reader
-    #   evince # document viewer
-    #   gnome-characters
-    #   gnome-software
-    #   gnome-music
-    #   simple-scan
-    #   totem # video player
-    #   tali # poker game
-    #   iagno # go game
-    #   hitori # sudoku game
-    #   atomix # puzzle game
-    # ]);
-
 
     networking = {
         dhcpcd = {

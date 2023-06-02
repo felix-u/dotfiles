@@ -2,6 +2,7 @@
 input type:keyboard {
     repeat_delay 200
     repeat_rate 50
+    xkb_options compose:caps
 }
 
 # touchpad settings
@@ -14,16 +15,10 @@ input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" {
     # middle_emulation enabled
 }
 
-# compose key
-input type:keyboard {
-    xkb_options compose:caps
-}
-
-# mouse settings
-input "5426:101:Razer_Razer_Basilisk_Essential" {
+input "12951:6505:ZSA_Technology_Labs_Moonlander_Mark_I_Consumer_Control" {
     accel_profile flat
 }
-# input "1133:16514:Logitech_MX_Master_3" {
+
 input "1133:50504:Logitech_USB_Receiver_Mouse" {
     accel_profile flat
     natural_scroll enabled
@@ -52,8 +47,8 @@ seat * hide_cursor when-typing enable
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 # smart_gaps on
-# hide_edge_borders smart
-smart_gaps off
+hide_edge_borders smart
+smart_gaps on
 hide_edge_borders none
 focus_follows_mouse no
 

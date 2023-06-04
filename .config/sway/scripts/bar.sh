@@ -29,7 +29,7 @@ DATE="$(date +'%a %d  %H:%M')"
 
 VOL="$(pulsemixer --get-volume | cut -f 1 -d " " | tr -d '\n')"
 
-SHAREDBAR="VOL:${VOL}%    $DATE   "
+SHAREDBAR="Vol ${VOL}%    $DATE   "
 
 if [ "$1" = "battery" ]; then
     echo "$BATICON $BATPERCENTAGE    $SHAREDBAR"

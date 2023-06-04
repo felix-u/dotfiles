@@ -44,12 +44,14 @@ WS07="$(wqs color7)"
 WS08="$(wqs color8)"
 WS15="$(wqs color15)"
 
+SWAYFONT="$(wq fontsans) Semi-Bold 12"
+
 MOD="Mod4"
 ALT="Mod1"
 TERM="foot"
 
 swaymsg "bar std mode invisible"
-swaymsg "bar std font pango:$(wq fontmono) Bold 12"
+swaymsg "bar std font pango:$SWAYFONT"
 swaymsg "bar std position top"
 swaymsg "bar std hidden_state hide"
 swaymsg "bar std status_padding 0"
@@ -237,15 +239,15 @@ swaymsg "bindsym $MOD+$ALT+Shift+v exec $XDG_CONFIG_HOME/sway/scripts/cursor hid
 DEFAULT_GAPS=0
 swaymsg "gaps inner $DEFAULT_GAPS" &
 #
-swaymsg "font pango:$(wq fontmono) Bold 12" &
+swaymsg "font pango:$SWAYFONT" &
 swaymsg "title_format %app_id" &
 
 CLRFOCUSED="$WFG"
 CLRUNFOCUSED="$W06"
 TEXTFOCFG="$WBG"
 TEXTFOCBG="$WFG"
-TEXTUNFOCFG="$W07"
-TEXTUNFOCBG="$WBG"
+TEXTUNFOCFG="$WFG"
+TEXTUNFOCBG="$W00"
 TEXTFOCINACTIVEBG="$W00"
 TEXTFOCINACTIVEFG="$WFG"
 swaymsg "default_border pixel 3"

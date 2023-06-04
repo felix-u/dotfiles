@@ -229,6 +229,7 @@ in {
             signal-desktop
             qt5ct wally-cli
             pcmanfm xournalpp zathura
+            tuner
 
         # VISUAL
             gsettings-desktop-schemas gtk-engine-murrine gtk_engines

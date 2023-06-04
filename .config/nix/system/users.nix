@@ -84,8 +84,8 @@ in {
             enable = true;
             cursorTheme.name = "Adwaita";
             cursorTheme.size = 24;
-            font.name = "FreeSans";
-            font.size = 11;
+            font.name = "Inter Medium";
+            font.size = 12;
             iconTheme.name = "Adwaita";
             theme.name = "adw-gtk3";
             gtk3.extraConfig = {

@@ -1,5 +1,5 @@
 xgen.fontmono: Iosevka 
-xgen.fontsans: FreeSans
+xgen.fontsans: Inter
 
 ! special
 *.foreground:   #000000

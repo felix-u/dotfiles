@@ -14,24 +14,25 @@ WCOLOR6="$(wq color6)"
 WCOLOR7="$(wq color7)"
 WCOLOR8="$(wq color8)"
 
-# LOCKWALL=$(find ~/dotfiles/Pictures/cafe-walls/ -name "*.jpg" -type f | shuf -n 1)
+TR="ff"
+LOCKWALL=$(find ~/dotfiles/Pictures/cafe-walls/ -type f | shuf -n 1)
 swaylock -e -F \
-    --ring-clear-color "${WCOLOR4}ff" --ring-ver-color "${WCOLOR2}ff" \
-    --ring-color "${WCOLOR8}ff" \
-    --ring-wrong-color "${WCOLOR1}ff" --line-color "${WCOLOR8}ff" \
-    --key-hl-color "${WCOLOR7}ff" --bs-hl-color "${WCOLOR8}ff" \
-    --separator-color "${WCOLOR8}ff" \
+    --ring-clear-color "${WCOLOR4}$TR" --ring-ver-color "${WCOLOR2}$TR" \
+    --ring-color "${WCOLOR8}$TR" \
+    --ring-wrong-color "${WCOLOR1}$TR" --line-color "${WCOLOR8}$TR" \
+    --key-hl-color "${WCOLOR7}$TR" --bs-hl-color "${WCOLOR8}$TR" \
+    --separator-color "${WCOLOR8}$TR" \
     --indicator-radius 150 --indicator-thickness 20 \
-    --text-color "${WFOREGROUND}ff" \
+    --text-color "${WFOREGROUND}$TR" \
     --font-size 40 --font "$(wq fontsans)" \
     --color "$SCREENBG" \
-    --inside-color "${WCOLOR0}80" \
-    --inside-ver-color "${WCOLOR2}80" \
-    --inside-wrong-color "${WCOLOR1}80" \
-    --inside-clear-color "${WCOLOR4}80" \
-    --fade-in 0.1 \
+    --inside-color "${WCOLOR0}$TR" \
+    --inside-ver-color "${WCOLOR2}$TR" \
+    --inside-wrong-color "${WCOLOR1}$TR" \
+    --inside-clear-color "${WCOLOR4}$TR" \
     --timestr "%a %d" --datestr "%H:%M" \
     --indicator \
-    --clock
+    --clock \
+    -i "$LOCKWALL"
+    # --fade-in 0.1 
     # --screenshots --effect-blur 15x7
-    # -i "$LOCKWALL"

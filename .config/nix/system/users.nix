@@ -86,8 +86,10 @@ in {
             cursorTheme.size = 24;
             font.name = "Inter Medium";
             font.size = 12;
-            iconTheme.name = "Adwaita";
-            theme.name = "adw-gtk3";
+            # iconTheme.name = "Adwaita";
+            # theme.name = "adw-gtk3";
+            iconTheme.name = "elementary";
+            theme.name = "io.elementary.stylesheet.slate";
             gtk3.extraConfig = {
                 gtk-decoration-layout = "menu:";
                 # button-layout = "";

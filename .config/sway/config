@@ -58,7 +58,7 @@ include /etc/sway/config.d/*
 exec_always gsettings set org.gnome.desktop.interface cursor-theme Adwaita
 exec_always gsettings set org.gnome.desktop.interface cursor-size 24
 # set icons
-exec_always gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
+exec_always gsettings set org.gnome.desktop.interface icon-theme 'elementary'
 
 # bash scripting, babyyy
 exec_always --no-startup-id ~/.config/sway/start.sh

@@ -49,6 +49,7 @@ SWAYFONT="$(wq fontsans) Semi-Bold 12"
 MOD="Mod4"
 ALT="Mod1"
 TERM="foot"
+FILES='io.elementary.files'
 
 swaymsg "bar std mode invisible"
 swaymsg "bar std font pango:$SWAYFONT"
@@ -113,7 +114,6 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
     swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh; do sleep 1; done\"" &
 fi
 
-FILES='pcmanfm'
 SLURP="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
 
 swaymsg "bindsym $MOD+Return exec $TERM" &
@@ -242,14 +242,14 @@ swaymsg "gaps inner $DEFAULT_GAPS" &
 swaymsg "font pango:$SWAYFONT" &
 swaymsg "title_format %app_id" &
 
-CLRFOCUSED="$WFG"
-CLRUNFOCUSED="$W06"
-TEXTFOCFG="$WBG"
-TEXTFOCBG="$WFG"
-TEXTUNFOCFG="$WFG"
+CLRFOCUSED="$W08"
+CLRUNFOCUSED="$W00"
+TEXTFOCFG="$WFG"
+TEXTFOCBG="$W08"
+TEXTUNFOCFG="$W07"
 TEXTUNFOCBG="$W00"
-TEXTFOCINACTIVEBG="$W00"
 TEXTFOCINACTIVEFG="$WFG"
+TEXTFOCINACTIVEBG="$W00"
 swaymsg "default_border pixel 3"
 #               class        border       background             text                indicator      child border
 swaymsg "client.focused "$TEXTFOCBG"     "$TEXTFOCBG"        "$TEXTFOCFG"          "$CLRFOCUSED"   "$CLRFOCUSED"" &

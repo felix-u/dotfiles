@@ -228,12 +228,15 @@ in {
             mpvScripts.youtube-quality obs-studio obs-studio-plugins.wlrobs
             signal-desktop
             qt5ct wally-cli
-            pcmanfm xournalpp zathura
+            xournalpp zathura
+            pantheon.elementary-files
             tuner
 
         # VISUAL
             gsettings-desktop-schemas gtk-engine-murrine gtk_engines
             adw-gtk3 gnome.adwaita-icon-theme
+            pantheon.elementary-gtk-theme
+            elementary-xfce-icon-theme
 
         # PHOTO, GRAPHICS & VIDEO
             asciinema asciinema-agg

@@ -1,17 +1,21 @@
 {
   "layer": "top",
   "modules-left": [
-    "sway/workspaces",
+    "wlr/workspaces",
     "cpu"
-  ],
-  "modules-center": [
-    "custom/clock"
   ],
   "modules-right": [
     "pulseaudio",
     "battery",
-    "network"
+    "custom/clock"
   ],
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "on-click": "activate",
+    "sort-by-number": true
+  },
   "cpu": {
     "interval": 2,
     "format": "   {usage}%",
@@ -42,13 +46,6 @@
       "warning": 35,
       "critical": 15
     }
-  },
-  "network": {
-    "interface": "wlan0",
-    "format": "直",
-    "format-disconnected": "睊",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) "
   },
   "custom/clock": {
     "exec": "~/.config/waybar/scripts/date",

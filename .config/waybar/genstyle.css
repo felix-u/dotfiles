@@ -1,0 +1,116 @@
+/*                                                                    */
+/*_|          _|    _|_|    _|      _|  _|_|_|      _|_|    _|_|_|    */
+/*_|          _|  _|    _|    _|  _|    _|    _|  _|    _|  _|    _|  */
+/*_|    _|    _|  _|_|_|_|      _|      _|_|_|    _|_|_|_|  _|_|_|    */
+/*  _|  _|  _|    _|    _|      _|      _|    _|  _|    _|  _|    _|  */
+/*    _|  _|      _|    _|      _|      _|_|_|    _|    _|  _|    _|  */
+/*                                                                    */
+/*                                                                    */
+/**/
+/**/
+/**/
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "$(wq fontsans)", "$(wq fontmono) NerdFont";
+    font-weight: normal;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    min-height: 25px;
+}
+
+
+window#waybar {
+    background: $(wq background);
+    color: $(wq foreground);
+    border-bottom: 1px solid $(wq color7);
+}
+
+#window {
+    margin-top: 0px;
+    margin-bottom: 6px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 13px;
+    transition: none;
+
+}
+
+#workspaces {
+    margin-left: 8px;
+    transition: none;
+    background: transparent;
+}
+
+#workspaces button {
+    padding-left: 6px;
+    padding-right: 6px;
+    color: $(wq color7);
+}
+
+#workspaces button:hover {
+    background: transparent;
+}
+
+#workspaces button.focused, #workspaces button.active {
+    color: $(wq foreground);
+    text-shadow: 0px 0.5px, 0.5px 0px, 0.5px 0.5px;
+}
+
+#cpu {
+    color: transparent;
+    margin-top: 7px;
+    margin-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 0px 10px;
+}
+#cpu.warning {
+    color: $(wq color7);
+}
+#cpu.critical {
+    color: $(wq foreground);
+}
+
+#custom-clock {
+    margin-top: 7px;
+    margin-bottom: 6px;
+    margin-right: 20px;
+    margin-left: 0px;
+    padding: 0px 9px;
+    color: $(wq foreground);
+}
+
+
+#custom-battery {
+    margin-top: 7px;
+    margin-bottom: 6px;
+    margin-right: 6px;
+    margin-left: 0px;
+    padding: 0px 9px;
+}
+
+#battery {
+    margin-top: 7px;
+    margin-bottom: 6px;
+    margin-right: 6px;
+    margin-left: 0px;
+    padding: 0px 9px;
+    color: $(wq foreground);
+}
+
+#pulseaudio, #pulseaudio.bluetooth {
+    margin-top: 7px;
+    margin-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 0px 10px;
+    color: $(wq color15);
+}
+
+#pulseaudio.muted, #pulseaudio.bluetooth.muted {
+    color: $(wq color7);
+}

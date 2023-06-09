@@ -47,11 +47,6 @@ WS07="$(wqs color7)"
 WS08="$(wqs color8)"
 WS15="$(wqs color15)"
 
-# Apps
-browser="firefox"
-files="io.elementary.files"
-term="foot"
-
 # Bar
 # TODO
 
@@ -66,38 +61,62 @@ if [ "$(cat /proc/sys/kernel/hostname)" = "thonkpad" ]; then
     # Battery check (temporary)
     hyprctl keyword bind "SUPER ALT, B, exec, notify-send \$(cat /sys/class/power_supply/BAT0/capacity)%" &
 
-    # Display output
-    hyprctl keyword monitor ", 3840x2400@60, 0x0, $dpi" &
+    # Bar
+    pkill waybar; waybar -c "$XDG_CONFIG_HOME"/waybar/thinkpad.json &
 
     # Gestures
     hyprctl keyword gestures:workspace_swipe on &
 
     # Keybindings
     "$XDG_CONFIG_HOME"/hypr/bind.sh "qwerty" &
+
 elif [ "$(cat /proc/sys/kernel/hostname)" = "nixbtw" ]; then
     dpi="1.3"
     
-    # Display output
-    hyprctl keyword monitor ", 3840x2160@60, 0x0, $dpi" &
+    # Bar
+    pkill waybar; waybar -c "$XDG_CONFIG_HOME"/waybar/desktop.json &
 
     # Keybindings
     "$XDG_CONFIG_HOME"/hypr/bind.sh "colemak-dh" &
 fi
 
+# Display output
+hyprctl keyword monitor ", hires, auto, $dpi"
+hyprctl keyword exec-once "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE $dpi"
+hyprctl keyword env "GDK_SCALE, $dpi"
+hyprctl keyword env "XCURSOR_SIZE, 24"
+
+# Input
+hyprctl keyword input:kb_layout "us" &
+hyprctl keyword input:repeat_rate 50 &
+hyprctl keyword input:repeat_delay 200 &
+hyprctl keyword input:follow_mouse 2 &
+hyprctl keyword input:sensitivity 0 &
+
+hyprctl keyword input:touchpad:disable_while_typing true &
+hyprctl keyword input:touchpad:natural_scroll yes &
+hyprctl keyword input:mouse:natural_scroll yes &
+hyprctl keyword input:mouse:accel_profile flat &
+
+hyprctl keyword general:cursor_inactive_timeout 9 &
+hyprctl keyword general:no_cursor_warps true &
+
 # Notifications
 pkill dunst; dunst &
 
 # Gaps
-gaps=9
+gaps=0
 hyprctl keyword general:gaps_in "$gaps" &
 hyprctl keyword general:gaps_out "$((gaps * 2))" &
 
 # Window borders
 hyprctl keyword general:border_size 3 &
 hyprctl keyword general:col.active_border "rgb($WSFG)" &
-hyprctl keyword general:col.inactive_border "rgb($WS06)" &
+hyprctl keyword general:col.inactive_border "rgb($WS08)" &
 hyprctl keyword decoration:rounding 0 &
 hyprctl keyword decoration:drop_shadow no &
+hyprctl keyword decoration:dim_inactive true &
+hyprctl keyword decoration:dim_strength 0.05 &
 
 # Blur
 hyprctl keyword decoration:blur no &
@@ -108,6 +127,7 @@ hyprctl keyword animations:enabled no &
 # Layout behaviour
 hyprctl keyword general:layout dwindle &
 hyprctl keyword dwindle:force_split 2 &
+hyprctl keyword dwindle:no_gaps_when_only true &
 hyprctl keyword dwindle:pseudotile no &
 hyprctl keyword dwindle:preserve_split yes &
 hyprctl keyword misc:enable_swallow true &

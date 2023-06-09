@@ -13,7 +13,7 @@ in {
     #     (self: super: {
     #         sway = pkgs-unstable.sway;
     #     })
-    # ];
+    # ];  
 
     # environment.systemPackages =
     # let
@@ -26,17 +26,31 @@ in {
     # ];
 
     # wayland schtuff
-
+    nixpkgs.overlays = [
+        (self: super: {
+          waybar = super.waybar.overrideAttrs (oldAttrs: {
+            mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+          });
+        })
+    ];
+    nix.settings = {
+        substituters = ["https://hyprland.cachix.org"];
+        trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    };
     programs.hyprland = {
         enable = true;
         package = pkgs-unstable.hyprland.override {
-            enableXWayland = config.programs.hyprland.xwayland.enable;
-            hidpiXWayland = config.programs.hyprland.xwayland.hidpi;
+            enableXWayland = true;
+            hidpiXWayland = true;
         }; 
+        xwayland = {
+            enable = true;
+            hidpi = true;
+        };
     };
     environment.systemPackages = with pkgs; [
-        dunst glib grim polkit_gnome slurp swaybg swaylock-effects tofi waybar
-        wf-recorder wl-clipboard wlsunset
+        dunst glib grim polkit_gnome slurp swaybg swaylock-effects tofi
+        waybar wf-recorder wl-clipboard wlsunset xorg.xprop
     ];
 
     # programs.sway = {
@@ -97,12 +111,12 @@ in {
 
     # flatpak and xdg portals
     services.flatpak.enable = true;
-    # xdg.portal = {
-    #   enable = true;
-    #   # gtkUsePortal = true;
-    #   wlr.enable = true;
-    #   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    # };
+    xdg.portal = {
+      enable = true;
+      # gtkUsePortal = true;
+      wlr.enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
+    };
 
     # bluetooth
     hardware.bluetooth = {

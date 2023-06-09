@@ -45,12 +45,15 @@ bind "SUPER, B, exec, $browser" &
 bind "SUPER, A, exec, $files" &
 bind "SUPER, Return, exec, $term" &
 bind "SUPER, D, exec, $XDG_CONFIG_HOME/sway/scripts/menu.sh" &
+bind "SUPER SHIFT, T, exec, $XDG_CONFIG_HOME/sway/scripts/screen_temp.sh" &
+bind "SUPER, X, exec, $XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
+bind "SUPER SHIFT, B, exec, $XDG_CONFIG_HOME/sway/scripts/randwall.sh $DOTFILES/Pictures/cafe-walls" &
 
 # Window management
 bind "SUPER, W, killactive," &
 bind "SUPER ALT, Q, exit" &
 bind "SUPER, S, togglefloating," &
-bind "SUPER, T, togglesplit," &
+bind "SUPER, T, layoutmsg, togglesplit," &
 bind "SUPER, F, fullscreen, 0" &
 bind "SUPER ALT, F, fullscreen, 1" &
 bind "SUPER SHIFT, F, fakefullscreen," &
@@ -61,17 +64,21 @@ hyprctl keyword bindm "SUPER,mouse:273, resizewindow" &
 # Screenshots
 slurp_cmd="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
 pic_dir="$HOME/Pictures/screenshots/"
-hyprctl keyword bind "SUPER SHIFT, D, exec, $slurp_cmd | grim -g - $pic_dir/\$(date +%Y-%m-%d-%H:%M:%S).png" &
-hyprctl keyword bind "SUPER SHIFT, S, exec, $slurp_cmd | grim -g - /tmp/screenshot.png && cat /tmp/screenshot.png | \
+bind "SUPER SHIFT, D, exec, $slurp_cmd | grim -g - $pic_dir/\$(date +%Y-%m-%d-%H:%M:%S).png" &
+bind "SUPER SHIFT, S, exec, $slurp_cmd | grim -g - /tmp/screenshot.png && cat /tmp/screenshot.png | \
     wl-copy -t image/png" &
-hyprctl keyword bind "SUPER ALT, D, exec, grim $pic_dir/\$(date +%Y-%m-%d-%H:%M:%S).png" &
-hyprctl keyword bind "SUPER ALT, S, exec, grim /tmp/screenshot.png && cat /tmp/screenshot.png | \
-    wl-copy -t image/png" &
+bind "SUPER ALT, D, exec, grim $pic_dir/\$(date +%Y-%m-%d-%H:%M:%S).png" &
+bind "SUPER ALT, S, exec, grim /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
 
 # Notifications
-hyprctl keyword bind "SUPER, C, exec, dunstctl close" &
-hyprctl keyword bind "SUPER SHIFT, C, exec, dunstctl close-all" &
-hyprctl keyword bind "SUPER ALT, C, exec, dunstctl history-pop" &
+bind "SUPER, C, exec, dunstctl close" &
+bind "SUPER SHIFT, C, exec, dunstctl close-all" &
+bind "SUPER ALT, C, exec, dunstctl history-pop" &
+
+# Volume
+bind ", XF86AudioMute, exec, pulsemixer --toggle-mute" &
+bind ", XF86AudioRaiseVolume, exec, pulsemixer --change-volume +5" &
+bind ", XF86AudioLowerVolume, exec, pulsemixer --change-volume -5" &
 
 # Layout-dependent bindings
 
@@ -80,14 +87,33 @@ if [ "$1" = "qwerty" ]; then
     down="J"
     up="K"
     right="L"
+
+    home="Y"
+    pgdown="U"
+    pgup="I"
+    end="O"
+
     return="semicolon"
 elif [ "$1" = "colemak-dh" ]; then
     left="M"
     down="N"
     up="E"
     right="I"
+
+    home="J"
+    pgdown="L"
+    pgup="U"
+    end="Y"
+
     return="O"
 fi
+
+bind "SUPER, $home, layoutmsg, preselect l" &
+bind "SUPER, $pgdown, layoutmsg, preselect d" &
+bind "SUPER, $pgup, layoutmsg, preselect u" &
+bind "SUPER, $end, layoutmsg, preselect r" &
+
+bind "SUPER, $return, exec, $term" &
 
 # Window management
 

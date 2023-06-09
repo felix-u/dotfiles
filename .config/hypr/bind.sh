@@ -58,6 +58,7 @@ bind "SUPER, F, fullscreen, 0" &
 bind "SUPER ALT, F, fullscreen, 1" &
 bind "SUPER SHIFT, F, fakefullscreen," &
 bind "SUPER, Q, centerwindow," &
+bind "SUPER, tab, focuscurrentorlast," &
 hyprctl keyword bindm "SUPER,mouse:272, movewindow" &
 hyprctl keyword bindm "SUPER,mouse:273, resizewindow" &
 

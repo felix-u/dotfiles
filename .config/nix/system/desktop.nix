@@ -5,70 +5,65 @@ let
 
     pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
-    # flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+    flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
 in {
 
+    # Hyprland
+
     # nixpkgs.overlays = [
     #     (self: super: {
-    #         sway = pkgs-unstable.sway;
+    #       waybar = super.waybar.overrideAttrs (oldAttrs: {
+    #         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    #       });
     #     })
-    # ];  
-
-    # environment.systemPackages =
-    # let
-    #     swayfx-src = builtins.fetchTarball {
-    #         url = "https://github.com/WillPower3309/swayfx/archive/ac31a612164828ca6ae5478332eee3cd2317ffdc.tar.gz";
+    # ];
+    # programs.hyprland = {
+    #     enable = true;
+    #     package = pkgs-unstable.hyprland.override {
+    #         enableXWayland = true;
+    #         hidpiXWayland = true;
+    #     }; 
+    #     xwayland = {
+    #         enable = true;
+    #         hidpi = true;
     #     };
-    #     swayfx-git = import flake-compat { src = swayfx-src; };
-    # in with pkgs; [
-    #     swayfx-git.defaultNix.packages.x86_64-linux.default
+    # };
+    # environment.systemPackages = with pkgs; [
+    #     dunst glib grim polkit_gnome slurp swaybg swaylock-effects tofi
+    #     waybar wf-recorder wl-clipboard wlsunset xorg.xprop
     # ];
 
-    # wayland schtuff
-    nixpkgs.overlays = [
-        (self: super: {
-          waybar = super.waybar.overrideAttrs (oldAttrs: {
-            mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-          });
-        })
-    ];
-    nix.settings = {
-        substituters = ["https://hyprland.cachix.org"];
-        trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-    };
-    programs.hyprland = {
-        enable = true;
-        package = pkgs-unstable.hyprland.override {
-            enableXWayland = true;
-            hidpiXWayland = true;
-        }; 
-        xwayland = {
-            enable = true;
-            hidpi = true;
-        };
-    };
-    environment.systemPackages = with pkgs; [
-        dunst glib grim polkit_gnome slurp swaybg swaylock-effects tofi
-        waybar wf-recorder wl-clipboard wlsunset xorg.xprop
-    ];
+    # Sway
 
-    # programs.sway = {
-    #     enable = true;
-    #     wrapperFeatures.gtk = true;
-    #     extraPackages = with pkgs; [
-    #         dunst
-    #         glib
-    #         grim polkit_gnome
-    #         slurp swaybg swayidle
-    #         swaylock-effects tofi
-    #         # waybar
-    #         wayland wf-recorder wl-clipboard wlsunset xwayland
-    #     ];
-    # };
-    # environment.pathsToLink = [ "/libexec" ]; # for polkit
-    # environment.sessionVariables = { GTK_USE_PORTAL="1"; };
-    # qt.platformTheme = "qt5ct";
+    # nixpkgs.overlays = [
+    #     (self: super: {
+    #         sway = pkgs-unstable.swayfx;
+    #     })
+    # ];  
+    programs.sway = {
+        enable = true;
+        wrapperFeatures.gtk = true;
+        extraPackages = with pkgs; [
+            # pkgs-unstable.swayfx
+            dunst
+            glib
+            grim 
+            polkit_gnome
+            slurp 
+            swaybg
+            swaylock-effects 
+            tofi
+            waybar
+            wayland
+            wf-recorder 
+            wl-clipboard 
+            wlsunset 
+            xwayland
+        ];
+    };
+
+    # River
 
     # environment.systemPackages =
     # let
@@ -81,14 +76,6 @@ in {
     #             fetchSubmodules = true;
     #         };
     #     });
-    #     # kile-git = pkgs-unstable.kile-wl.overrideAttrs (oldAttrs: rec {
-    #     #     src = pkgs.fetchgit {
-    #     #         url = "https://gitlab.com/snakedye/kile";
-    #     #         rev = "625f91010b920587dbf0ee23113eb8aa51cc6ec3";
-    #     #         hash = "sha256-4sfzF2g2kSz+Q55gTCePjM+7kvfrEJ2uLKyy/V+SLF4=";
-    #     #     };
-    #     #     cargoSha256 = "5598a195360c96a337aca9399b074f9239184d418c597cc4dfbc8450d1c62443";
-    #     # });
     # in
     # with pkgs; [
     #     unstable.river-luatile
@@ -97,6 +84,11 @@ in {
     #     unstable.river-tag-overlay
     #     wlr-randr
     # ];
+
+    environment.pathsToLink = [ "/libexec" ]; # for polkit
+    environment.sessionVariables = { GTK_USE_PORTAL="1"; };
+    qt.platformTheme = "qt5ct";
+
 
     # pipewire
     services.pipewire = {

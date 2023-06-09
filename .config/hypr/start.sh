@@ -70,6 +70,9 @@ if [ "$(cat /proc/sys/kernel/hostname)" = "thonkpad" ]; then
     # Keybindings
     "$XDG_CONFIG_HOME"/hypr/bind.sh "qwerty" &
 
+    # Display output
+    hyprctl keyword monitor ",3840x2400@60,0x0,$dpi" &
+
 elif [ "$(cat /proc/sys/kernel/hostname)" = "nixbtw" ]; then
     dpi="1.3"
     
@@ -78,10 +81,15 @@ elif [ "$(cat /proc/sys/kernel/hostname)" = "nixbtw" ]; then
 
     # Keybindings
     "$XDG_CONFIG_HOME"/hypr/bind.sh "colemak-dh" &
+
+    # Display output
+    hyprctl keyword monitor ",3840x2160@60,0x0,$dpi" &
+
+    # For le mouse
+    hyprctl keyword input:accel_profile flat &
 fi
 
 # Display output
-hyprctl keyword monitor ", hires, auto, $dpi"
 hyprctl keyword exec-once "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE $dpi"
 hyprctl keyword env "GDK_SCALE, $dpi"
 hyprctl keyword env "XCURSOR_SIZE, 24"
@@ -94,9 +102,7 @@ hyprctl keyword input:follow_mouse 2 &
 hyprctl keyword input:sensitivity 0 &
 
 hyprctl keyword input:touchpad:disable_while_typing true &
-hyprctl keyword input:touchpad:natural_scroll yes &
-hyprctl keyword input:mouse:natural_scroll yes &
-hyprctl keyword input:mouse:accel_profile flat &
+hyprctl keyword input:natural_scroll yes &
 
 hyprctl keyword general:cursor_inactive_timeout 9 &
 hyprctl keyword general:no_cursor_warps true &
@@ -105,7 +111,7 @@ hyprctl keyword general:no_cursor_warps true &
 pkill dunst; dunst &
 
 # Gaps
-gaps=0
+gaps=4
 hyprctl keyword general:gaps_in "$gaps" &
 hyprctl keyword general:gaps_out "$((gaps * 2))" &
 

@@ -52,8 +52,8 @@ TERM="foot"
 FILES='io.elementary.files'
 
 swaymsg "bar std mode invisible"
-swaymsg "bar std font pango:$SWAYFONT"
 swaymsg "bar std position top"
+swaymsg "bar std font pango:$SWAYFONT"
 swaymsg "bar std hidden_state hide"
 swaymsg "bar std status_padding 0"
 swaymsg "bar std height 35"
@@ -86,9 +86,10 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
     swaymsg "xwayland scale=$WDPI" &
 
-    # pkill waybar
-    # waybar -c ~/.config/waybar/thinkpad.json &
-    swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh battery; do sleep 1; done\"" &
+    pkill waybar
+    waybar -c ~/.config/waybar/thinkpad.json &
+
+    # swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh battery; do sleep 1; done\"" &
 
 #  ____   ____
 # |  _ \ / ___|
@@ -109,9 +110,10 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
     swaymsg "xwayland scale=$WDPI" &
 
-    # pkill waybar
-    # waybar -c ~/.config/waybar/desktop.json &
-    swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh; do sleep 1; done\"" &
+    pkill waybar
+    waybar -c ~/.config/waybar/desktop.json &
+
+    # swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh; do sleep 1; done\"" &
 fi
 
 SLURP="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"

@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "modules-left": [
-    "wlr/workspaces",
+    "sway/workspaces",
     "cpu"
   ],
   "modules-right": [
@@ -9,13 +9,6 @@
     "battery",
     "custom/clock"
   ],
-  "wlr/workspaces": {
-    "format": "{icon}",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1",
-    "on-click": "activate",
-    "sort-by-number": true
-  },
   "cpu": {
     "interval": 2,
     "format": "   {usage}%",

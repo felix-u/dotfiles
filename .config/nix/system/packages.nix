@@ -249,8 +249,10 @@ in {
             protontricks protonup
 
         # LATEX
-            # biber
-            # texinfo texlab unstable.texlive.combined.scheme-full
+            biber
+            texinfo 
+            texlab 
+            texlive.combined.scheme-full
 
         # KERNEL
             config.boot.kernelPackages.v4l2loopback

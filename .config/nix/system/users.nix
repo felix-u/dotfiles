@@ -187,6 +187,7 @@ in {
                   hi Identifier   cterm=NONE   ctermfg=White
                   hi LineNr       ctermfg=07   ctermbg=00
                   hi MatchParen   cterm=bold,underline ctermfg=Black ctermbg=04
+                  hi netrwDir     ctermfg=04
                   hi Pmenu        ctermfg=White ctermbg=Black
                   hi PmenuSbar    ctermbg=08
                   hi PmenuSel     ctermfg=Black ctermbg=White

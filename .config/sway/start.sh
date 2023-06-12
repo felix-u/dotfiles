@@ -49,7 +49,7 @@ SWAYFONT="$(wq fontsans) Semi-Bold 12"
 MOD="Mod4"
 ALT="Mod1"
 TERM="foot"
-FILES='io.elementary.files'
+FILES='io.elementary.files --new-window'
 
 swaymsg "bar std mode invisible"
 swaymsg "bar std position top"

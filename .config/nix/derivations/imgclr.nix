@@ -6,10 +6,10 @@ let
     sha256 = "sha256-QgHn6ACqqzpXcNZPBfT4yZ97yTzQ2jeYMyhoe8rkQ88=";
   };
 in
-pkgs.runCommand "imgclr" {}
-    ''
-      #!${pkgs.stdenv.shell}
-      mkdir -p $out/bin
-      cp ${imgclr-bin} $out/bin/imgclr
-      chmod +x $out/bin/*
-    ''
+pkgs.runCommand "imgclr" { }
+  ''
+    #!${pkgs.stdenv.shell}
+    mkdir -p $out/bin
+    cp ${imgclr-bin} $out/bin/imgclr
+    chmod +x $out/bin/*
+  ''

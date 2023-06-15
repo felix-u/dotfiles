@@ -8,10 +8,10 @@ let
     sha256 = "sha256-Cm3xzxe37VKbYZC2NDoHTbiNK46XwPvHtFW0ygB/hlc=";
   };
 in
-pkgs.runCommand "oswald" {}
-    ''
-      #!${pkgs.stdenv.shell}
-      mkdir -p $out/share/fonts/truetype
-      ${pkgs.unzip}/bin/unzip ${oswald-bin}
-      mv OswaldFont-${rev}/3.0/*/*/*.ttf $out/share/fonts/truetype
-    ''
+pkgs.runCommand "oswald" { }
+  ''
+    #!${pkgs.stdenv.shell}
+    mkdir -p $out/share/fonts/truetype
+    ${pkgs.unzip}/bin/unzip ${oswald-bin}
+    mv OswaldFont-${rev}/3.0/*/*/*.ttf $out/share/fonts/truetype
+  ''

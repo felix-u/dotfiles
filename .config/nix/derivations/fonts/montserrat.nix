@@ -8,10 +8,10 @@ let
     sha256 = "sha256-skj6AaEmxBUrImLQ2afzO0tAPOfuHoa64C5iTLva8RY=";
   };
 in
-pkgs.runCommand "montserrat" {}
-    ''
-      #!${pkgs.stdenv.shell}
-      mkdir -p $out/share/fonts/opentype
-      ${pkgs.unzip}/bin/unzip ${montserrat-bin}
-      mv Montserrat-${rev}/fonts/otf/*.otf $out/share/fonts/opentype
-    ''
+pkgs.runCommand "montserrat" { }
+  ''
+    #!${pkgs.stdenv.shell}
+    mkdir -p $out/share/fonts/opentype
+    ${pkgs.unzip}/bin/unzip ${montserrat-bin}
+    mv Montserrat-${rev}/fonts/otf/*.otf $out/share/fonts/opentype
+  ''

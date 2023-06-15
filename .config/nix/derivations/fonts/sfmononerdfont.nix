@@ -8,10 +8,10 @@ let
     sha256 = "sha256-hHffgOMgvCLBjz49ZKQs8soz7bY8aNL2tFo4SasAAzE=";
   };
 in
-pkgs.runCommand "sf-mono" {}
-    ''
-      #!${pkgs.stdenv.shell}
-      mkdir -p $out/share/fonts/opentype
-      ${pkgs.unzip}/bin/unzip ${sf-mono-bin}
-      mv SF-Mono-Nerd-Font-${rev}/*.otf $out/share/fonts/opentype
-    ''
+pkgs.runCommand "sf-mono" { }
+  ''
+    #!${pkgs.stdenv.shell}
+    mkdir -p $out/share/fonts/opentype
+    ${pkgs.unzip}/bin/unzip ${sf-mono-bin}
+    mv SF-Mono-Nerd-Font-${rev}/*.otf $out/share/fonts/opentype
+  ''

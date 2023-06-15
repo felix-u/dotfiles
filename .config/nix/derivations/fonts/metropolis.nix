@@ -8,10 +8,10 @@ let
     sha256 = "sha256-vQMwru85LuL2m1kX2KwhfoXwEY1oiOdD0sDqS6W8IWo=";
   };
 in
-pkgs.runCommand "metropolis" {}
-    ''
-      #!${pkgs.stdenv.shell}
-      mkdir -p $out/share/fonts/opentype
-      ${pkgs.unzip}/bin/unzip ${metropolis-bin}
-      mv Metropolis-${rev}/Fonts/OpenType/*.otf $out/share/fonts/opentype
-    ''
+pkgs.runCommand "metropolis" { }
+  ''
+    #!${pkgs.stdenv.shell}
+    mkdir -p $out/share/fonts/opentype
+    ${pkgs.unzip}/bin/unzip ${metropolis-bin}
+    mv Metropolis-${rev}/Fonts/OpenType/*.otf $out/share/fonts/opentype
+  ''

@@ -6,10 +6,10 @@ let
     sha256 = "sha256:0qv3n5yk68hg25mcilpr90k30flmnvl6pbznbv11i8rixgllchzv";
   };
 in
-pkgs.runCommand "melete" {}
-    ''
-      #!${pkgs.stdenv.shell}
-      mkdir -p $out/share/fonts/opentype
-      ${pkgs.unzip}/bin/unzip ${melete-bin}
-      mv *.otf $out/share/fonts/opentype
-    ''
+pkgs.runCommand "melete" { }
+  ''
+    #!${pkgs.stdenv.shell}
+    mkdir -p $out/share/fonts/opentype
+    ${pkgs.unzip}/bin/unzip ${melete-bin}
+    mv *.otf $out/share/fonts/opentype
+  ''

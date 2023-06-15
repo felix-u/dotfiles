@@ -1,15 +1,17 @@
 let
   pkgs = import <nixpkgs> { };
 
+  rev = "3395+1e7dcaa3a";
+
   zig-bin = builtins.fetchurl {
-    url = "https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.3382+c16d4ab9e.tar.xz";
+    url = "https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.${rev}.tar.xz";
   };
 in
-pkgs.runCommand "zig" {}
-    ''
-      #!${pkgs.stdenv.shell}
-      ${pkgs.gnutar}/bin/tar xf ${zig-bin}
-      mkdir -p $out/bin
-      cp -r zig-linux-x86_64-0.11.0-dev.3382+c16d4ab9e/*  $out/bin/
-      chmod +x $out/bin/zig
-    ''
+pkgs.runCommand "zig" { }
+  ''
+    #!${pkgs.stdenv.shell}
+    ${pkgs.gnutar}/bin/tar xf ${zig-bin}
+    mkdir -p $out/bin
+    cp -r zig-linux-x86_64-0.11.0-dev.${rev}/*  $out/bin/
+    chmod +x $out/bin/zig
+  ''

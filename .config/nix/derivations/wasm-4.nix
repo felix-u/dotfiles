@@ -6,16 +6,16 @@ let
     # sha256 = "677efe4d8831553a9be7bb4ff9f0e360966519f457b144b6e6f49161bdc93e00";
   };
 in
-pkgs.runCommand "wasm4" {}
-    ''
-      #!${pkgs.stdenv.shell}
-      ${pkgs.unzip}/bin/unzip ${wasm4-bin}
-      mkdir -p $out/bin
-      cp w4 $out/bin/
-      # cp w4 $out/bin/wasm4-bin
-      # printf "#\!${pkgs.bash}/bin/bash\nsteam-run wasm4-bin $@" > $out/bin/w4
-      chmod +x $out/bin/*
-    ''
+pkgs.runCommand "wasm4" { }
+  ''
+    #!${pkgs.stdenv.shell}
+    ${pkgs.unzip}/bin/unzip ${wasm4-bin}
+    mkdir -p $out/bin
+    cp w4 $out/bin/
+    # cp w4 $out/bin/wasm4-bin
+    # printf "#\!${pkgs.bash}/bin/bash\nsteam-run wasm4-bin $@" > $out/bin/w4
+    chmod +x $out/bin/*
+  ''
 
 #
 # {

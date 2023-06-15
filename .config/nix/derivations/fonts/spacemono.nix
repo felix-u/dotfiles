@@ -8,10 +8,10 @@ let
     sha256 = "sha256-NKVzj4o1d7TcroHepgt4CqqaxjcRi29Np4oH+lIPpMk=";
   };
 in
-pkgs.runCommand "spacemono" {}
-    ''
-      #!${pkgs.stdenv.shell}
-      mkdir -p $out/share/fonts/truetype
-      ${pkgs.unzip}/bin/unzip ${spacemono-bin}
-      mv spacemono-${rev}/fonts/*.ttf $out/share/fonts/truetype
-    ''
+pkgs.runCommand "spacemono" { }
+  ''
+    #!${pkgs.stdenv.shell}
+    mkdir -p $out/share/fonts/truetype
+    ${pkgs.unzip}/bin/unzip ${spacemono-bin}
+    mv spacemono-${rev}/fonts/*.ttf $out/share/fonts/truetype
+  ''

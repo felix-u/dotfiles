@@ -6,10 +6,10 @@ let
     sha256 = "sha256-6JSmZHikj1+cgeMUD5pTX02PvgDsHxkyGkT9xoncC8I=";
   };
 in
-pkgs.runCommand "nota" {}
-    ''
-      #!${pkgs.stdenv.shell}
-      mkdir -p $out/bin
-      cp ${nota-bin} $out/bin/nota
-      chmod +x $out/bin/*
-    ''
+pkgs.runCommand "nota" { }
+  ''
+    #!${pkgs.stdenv.shell}
+    mkdir -p $out/bin
+    cp ${nota-bin} $out/bin/nota
+    chmod +x $out/bin/*
+  ''

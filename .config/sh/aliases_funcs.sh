@@ -69,26 +69,6 @@ fdoaj () {
     fdbpreview {-1}' \
         --preview-window=up:50%:wrap --bind "enter:execute($BROWSER {-1})"
 }
-# # doesn't work for now, and needs xmlstarlet to be installed
-# fdba () {
-#     query="$@"
-#     [ -z "$query" ] && echo "fdbarxiv: expected search keywords" && return 1
-#     query=$(echo "$query" | sed 's/ /+/g')
-#     response=$(curl -s "https://export.arxiv.org/api/query?search_query=all:$query&start=0&max_results=100")
-#     titles=$(printf "%s" "$response" | xml sel -N x="http://www.w3.org/2005/Atom" -t -m "//x:entry/x:title" -v . -n)
-#     urls=$(printf "%s" "$response" | xml sel -N x="http://www.w3.org/2005/Atom" \
-#         -t -m "//x:entry/x:id" -v . -n | sed 's/abs/pdf/' | sed 's/$/.pdf/')
-#     list=$(paste <(echo "$titles") <(echo "$urls") | column -t -s $'\t')
-#     echo "$list" | fzf --preview='fdbpreview() {
-#         url=$1
-#         PREVTEXT=$(curl "$url" -so - | pdftotext - - | awk "/abstract/ {flag=1} flag" IGNORECASE=1)
-#         [ "$PREVTEXT" = "" ] && PREVTEXT="NO PREVIEW"
-#         rm "$TMP"
-#         echo "$PREVTEXT"
-#     }
-#     fdbpreview {-1}' \
-#         --preview-window=up:50%:wrap --bind "enter:execute($BROWSER {-1})"
-# }
 femoji () {
     EMOJI=$(curl -sSL 'https://git.io/JXXO7' | tr -d :) # emoji.txt file from a gist
     SELECT=$(echo "$EMOJI" | fzf | awk '{print $1}')
@@ -170,6 +150,8 @@ fword () {
         -not -path "*/.git/*" -not -path "*cache*" -not -path "*share*" \
         -not -path "*/lib/*" -exec grep --color=always -Ir "$SELECT" {} +
 }
+
+alias files="$FILES"
 
 # Runs neofetch with my custom config, which only works on NixOS
 alias fetch="printf '\n' && \neofetch"

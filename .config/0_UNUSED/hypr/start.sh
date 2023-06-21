@@ -1,13 +1,27 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
+
+# GTK fixes
+gsettings set org.gnome.desktop.interface cursor-theme Adwaita &
+gsettings set org.gnome.desktop.interface cursor-size 24 &
+gsettings set org.gnome.desktop.interface icon-theme "elementary" &
 
 wq () {
     grep "$1:" "$XRESOURCES" | awk '{print $2}'
 }
-
 wqs () {
     wq "$1" | tr -d \#
 }
 
+# Wallpaper
+hyprctl keyword misc:disable_hyprland_logo true &
+hyprctl keyword misc:disable_splash_rendering true &
+"$XDG_CONFIG_HOME"/sway/scripts/randwall.sh "$DOTFILES"/Pictures/cafe-walls &
+
+# Warm the display based on time.
+pkill wlsunset
+"$XDG_CONFIG_HOME"/sway/scripts/screen_temp.sh default &
+
+# Save theme colours.
 WFG="$(wq foreground)"
 WBG="$(wq background)"
 W00="$(wq color0)"
@@ -20,7 +34,6 @@ W06="$(wq color6)"
 W07="$(wq color7)"
 W08="$(wq color8)"
 W15="$(wq color15)"
-
 WSFG="$(wqs foreground)"
 WSBG="$(wqs background)"
 WS00="$(wqs color0)"
@@ -34,222 +47,96 @@ WS07="$(wqs color7)"
 WS08="$(wqs color8)"
 WS15="$(wqs color15)"
 
-TERM="foot"
+# Bar
+# TODO
 
-FILES='pcmanfm'
-SLURP="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
+# Thinkpad
+if [ "$(cat /proc/sys/kernel/hostname)" = "thonkpad" ]; then
+    dpi="2"
 
-#
-# |   |   _)      |                 |
-#  _|   \  |   \  | / _ \  _` |  _` |
-#\__|_| _|_|_| _|_\_\.__/\__,_|\__,_|
-#                   _|
-#
-#
-#
-if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
+    # Brightness control
+    hyprctl keyword bind ", XF86MonBrightnessUp, exec, brightnessctl set +3%" &
+    hyprctl keyword bind ", XF86MonBrightnessDown, exec, brightnessctl set 3%-" &
 
-    WDPI=2
+    # Battery check (temporary)
+    hyprctl keyword bind "SUPER ALT, B, exec, notify-send \$(cat /sys/class/power_supply/BAT0/capacity)%" &
 
-    hyprctl keyword bind ",XF86MonBrightnessUp,exec,brightnessctl set +5%" &
-    hyprctl keyword bind ",XF86MonBrightnessDown,exec,brightnessctl set 5%-" &
+    # Bar
+    pkill waybar; waybar -c "$XDG_CONFIG_HOME"/waybar/thinkpad.json &
 
-    hyprctl keyword monitor ",3840x2400@60,0x0,$WDPI"
-    Xwayland &
+    # Gestures
+    hyprctl keyword gestures:workspace_swipe on &
 
-    killall -s SIGKILL waybar; killall -s SIGKILL .waybar-wrapped
-    waybar -c ~/.config/waybar/thinkpad.json &
+    # Keybindings
+    "$XDG_CONFIG_HOME"/hypr/bind.sh "qwerty" &
 
-    hyprctl keyword gestures:workspace_swipe 1 &
-    hyprctl keyword gestures:workspace_swipe_fingers 3 &
-    hyprctl keyword gestures:workspace_swipe_distance 200 &
-    hyprctl keyword gestures:workspace_swipe_min_speed_to_force 20 &
-        
-    VIM_L="H"
-    VIM_D="J"
-    VIM_U="K"
-    VIM_R="L"
-    HI_L="Y"
-    HI_D="U"
-    HI_U="I"
-    HI_R="O"
-    RET="semicolon"
+    # Display output
+    hyprctl keyword monitor ",3840x2400@60,0x0,$dpi" &
+
+elif [ "$(cat /proc/sys/kernel/hostname)" = "nixbtw" ]; then
+    dpi="1.3"
     
-    hyprctl keyword bind "SUPER,$RET,exec,$TERM" &
-    hyprctl keyword bind "SUPER,$VIM_L,movefocus,l" &
-    hyprctl keyword bind "SUPER,$VIM_D,movefocus,d" &
-    hyprctl keyword bind "SUPER,$VIM_U,movefocus,u" &
-    hyprctl keyword bind "SUPER,$VIM_R,movefocus,r" &
+    # Bar
+    pkill waybar; waybar -c "$XDG_CONFIG_HOME"/waybar/desktop.json &
 
-    hyprctl keyword bind "SUPERSHIFT,$VIM_L,movewindow,l" &
-    hyprctl keyword bind "SUPERSHIFT,$VIM_D,movewindow,d" &
-    hyprctl keyword bind "SUPERSHIFT,$VIM_U,movewindow,u" &
-    hyprctl keyword bind "SUPERSHIFT,$VIM_R,movewindow,r" &
+    # Keybindings
+    "$XDG_CONFIG_HOME"/hypr/bind.sh "colemak-dh" &
 
-    hyprctl keyword bind "SUPER,$HI_L,resizeactive,-40 0" &
-    hyprctl keyword bind "SUPER,$HI_D,resizeactive,0 -40" &
-    hyprctl keyword bind "SUPER,$HI_U,resizeactive,0 40" &
-    hyprctl keyword bind "SUPER,$HI_R,resizeactive,40 0" &
-    
+    # Display output
+    hyprctl keyword monitor ",3840x2160@60,0x0,$dpi" &
 
-# ____   ____
-#|  _ \ / ___|
-#| |_) | |
-#|  __/| |___
-#|_|    \____|
-#
-#
-#
-#
-elif [[ $(cat /proc/sys/kernel/hostname) == "nixbtw" ]]; then
-
-    WDPI="1.3"
-
-    hyprctl keyword monitor ",3840x2160@60,0x0,$WDPI"
-    Xwayland &
-
-    killall -s SIGKILL waybar; killall -s SIGKILL .waybar-wrapped
-    waybar -c ~/.config/waybar/desktop.json &
-
-    VIM_L="M"
-    VIM_D="N"
-    VIM_U="E"
-    VIM_R="I"            
-    HI_L="J"
-    HI_D="L"
-    HI_U="U"
-    HI_R="Y"
-    RET="O"
-    
-    hyprctl keyword bind "SUPER,$RET,exec,$TERM" &
-    hyprctl keyword bind "SUPER,$VIM_L,movefocus,l" &
-    hyprctl keyword bind "SUPER,$VIM_D,movefocus,d" &
-    hyprctl keyword bind "SUPER,$VIM_U,movefocus,u" &
-    hyprctl keyword bind "SUPER,$VIM_R,movefocus,r" &
-
-    hyprctl keyword bind "SUPERSHIFT,$VIM_L,movewindow,l" &
-    hyprctl keyword bind "SUPERSHIFT,$VIM_D,movewindow,d" &
-    hyprctl keyword bind "SUPERSHIFT,$VIM_U,movewindow,u" &
-    hyprctl keyword bind "SUPERSHIFT,$VIM_R,movewindow,r" &
-
-    hyprctl keyword bind "SUPER,$HI_L,resizeactive,-40 0" &
-    hyprctl keyword bind "SUPER,$HI_D,resizeactive,0 -40" &
-    hyprctl keyword bind "SUPER,$HI_U,resizeactive,0 40" &
-    hyprctl keyword bind "SUPER,$HI_R,resizeactive,40 0" &
+    # For le mouse
+    hyprctl keyword input:accel_profile flat &
 fi
 
-#
-# _.._ ._  _  _..__.._  _ _
-#(_||_)|_)(/_(_||(_|| |(_(/_
-#   |  |
-#
-#
-#
-hyprctl keyword general:sensitivity 1.0 &
-hyprctl keyword general:main_mod SUPER &
-hyprctl keyword general:gaps_in 5 &
-hyprctl keyword general:gaps_out 20 &
-hyprctl keyword general:border_size 4 &
-hyprctl keyword general:col.active_border 0xff"$WS08" &
-hyprctl keyword general:col.inactive_border 0xff"$WS00" &
-hyprctl keyword general:cursor_inactive_timeout 10 &
-hyprctl keyword general:apply_sens_to_raw 0 &
-hyprctl keyword general:damage_tracking full &
-#
-hyprctl keyword decoration:rounding 20 &
-hyprctl keyword decoration:blur 1 &
-hyprctl keyword decoration:blur_size 9 &
-hyprctl keyword decoration:blur_passes 3 &
-hyprctl keyword decoration:active_opacity 1 &
-hyprctl keyword decoration:inactive_opacity 0.81 &
-hyprctl keyword decoration:multisample_edges 1 &
-hyprctl keyword decoration:drop_shadow 1 &
-hyprctl keyword decoration:shadow_range 9 &
-hyprctl keyword decoration:shadow_render_power 1 &
-hyprctl keyword decoration:shadow_ignore_window 0 &
-hyprctl keyword decoration:col.shadow 0x40000000 &
-hyprctl keyword decoration:col.shadow_inactive 0x20000000 &
-#
-# animations configured in hyprland.conf
-#
-hyprctl keyword dwindle:pseudotile 1 &
+# Display output
+hyprctl keyword exec-once "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE $dpi"
+hyprctl keyword env "GDK_SCALE, $dpi"
+hyprctl keyword env "XCURSOR_SIZE, 24"
+
+# Input
+hyprctl keyword input:kb_layout "us" &
+hyprctl keyword input:repeat_rate 50 &
+hyprctl keyword input:repeat_delay 200 &
+hyprctl keyword input:follow_mouse 2 &
+hyprctl keyword input:sensitivity 0 &
+
+hyprctl keyword input:touchpad:disable_while_typing true &
+hyprctl keyword input:natural_scroll yes &
+
+hyprctl keyword general:cursor_inactive_timeout 9 &
+hyprctl keyword general:no_cursor_warps true &
+
+# Notifications
+pkill dunst; dunst &
+
+# Gaps
+gaps=4
+hyprctl keyword general:gaps_in "$gaps" &
+hyprctl keyword general:gaps_out "$((gaps * 2))" &
+
+# Window borders
+hyprctl keyword general:border_size 3 &
+hyprctl keyword general:col.active_border "rgb($WSFG)" &
+hyprctl keyword general:col.inactive_border "rgb($WS08)" &
+hyprctl keyword decoration:rounding 0 &
+hyprctl keyword decoration:drop_shadow no &
+hyprctl keyword decoration:dim_inactive true &
+hyprctl keyword decoration:dim_strength 0.05 &
+
+# Blur
+hyprctl keyword decoration:blur no &
+
+# Animations
+hyprctl keyword animations:enabled no &
+
+# Layout behaviour
+hyprctl keyword general:layout dwindle &
 hyprctl keyword dwindle:force_split 2 &
-hyprctl keyword bind "SUPER,left,moveactive,-40 0" &
-hyprctl keyword bind "SUPER,down,moveactive,0 40" &
-hyprctl keyword bind "SUPER,up,moveactive,0 -40" &
-hyprctl keyword bind "SUPER,right,moveactive,40 0" &
-hyprctl keyword bind "SUPERSHIFT,left,movewindow,l" &
-hyprctl keyword bind "SUPERSHIFT,right,movewindow,r" &
-hyprctl keyword bind "SUPERSHIFT,up,movewindow,u" &
-hyprctl keyword bind "SUPERSHIFT,down,movewindow,d" &
-hyprctl keyword bind "SUPERALT,left,resizeactive,-40 0" &
-hyprctl keyword bind "SUPERALT,down,resizeactive,0 40" &
-hyprctl keyword bind "SUPERALT,up,resizeactive,0 -40" &
-hyprctl keyword bind "SUPERALT,right,resizeactive,40 0" &
+hyprctl keyword dwindle:no_gaps_when_only true &
+hyprctl keyword dwindle:pseudotile no &
+hyprctl keyword dwindle:preserve_split yes &
+hyprctl keyword misc:enable_swallow true &
 
-hyprctl keyword bind "SUPER,return,exec,$TERM" &
-hyprctl keyword bind "SUPER,D,exec,rofi -show drun" &
-
-
-#
-#####  # #    # #####  # #    #  ####   ####
-#    # # ##   # #    # # ##   # #    # #
-#####  # # #  # #    # # # #  # #       ####
-#    # # #  # # #    # # #  # # #  ###      #
-#    # # #   ## #    # # #   ## #    # #    #
-#####  # #    # #####  # #    #  ####   ####
-#
-#
-#
-#
-
-# apps and scripts
-# when having xwayland installed, some apps may prefer X even if working fine
-# on wayland. launch them with DISPLAY=wayland-0
-hyprctl keyword bind "SUPER,B,exec,$BROWSER" &
-hyprctl keyword bind "SUPERALT,B,exec,MOZ_ENABLE_WAYLAND=1 firefox" &
-hyprctl keyword bind "SUPER,A,exec,$FILES" &
-#
-hyprctl keyword bind ",XF86AudioMute,exec,pulsemixer --toggle-mute" &
-hyprctl keyword bind ",XF86AudioRaiseVolume,exec,pulsemixer --change-volume +10" &
-hyprctl keyword bind ",XF86AudioLowerVolume,exec,pulsemixer --change-volume -10" &
-#
-hyprctl keyword bind "SUPER,F,fullscreen" &
-hyprctl keyword bind "SUPER,S,togglefloating" &
-hyprctl keyword bind "SUPERSHIFT,T,pseudo" &
-hyprctl keyword bind "SUPER,tab,cyclenext,prev" &
-hyprctl keyword bind "SUPER,W,killactive" &
-hyprctl keyword bind "SUPERALT,Q,exit" &
-hyprctl keyword bind "SUPERALT,R,exec,~/.config/hypr/start.sh" &
-#
-
-for i in {1..9}
-do
-    hyprctl keyword bind "SUPER,$i,workspace,$i" &
-done
-# also use 0 for 10
-hyprctl keyword bind "SUPER,0,workspace,10" &
-# move to workspace
-hyprctl keyword bind "SUPERSHIFT,exclam,movetoworkspace,1"
-hyprctl keyword bind "SUPERSHIFT,at,movetoworkspace,2"
-hyprctl keyword bind "SUPERSHIFT,numbersign,movetoworkspace,3"
-hyprctl keyword bind "SUPERSHIFT,dollar,movetoworkspace,4"
-hyprctl keyword bind "SUPERSHIFT,percent,movetoworkspace,5"
-hyprctl keyword bind "SUPERSHIFT,asciicircum,movetoworkspace,6"
-hyprctl keyword bind "SUPERSHIFT,ampersand,movetoworkspace,7"
-hyprctl keyword bind "SUPERSHIFT,asterisk,movetoworkspace,8"
-hyprctl keyword bind "SUPERSHIFT,parenleft,movetoworkspace,9"
-hyprctl keyword bind "SUPERSHIFT,parenright,movetoworkspace,10"
-#
-
-#
-# screenshot and screen recording
-# hyprctl keyword bind "SUPERALT,D,exec,$SLURP | grim -g - ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
-# hyprctl keyword bind "SUPERALT,S,exec,$SLURP | grim -g - /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
-# hyprctl keyword bind "SUPERCONTROL,D,exec,grim ~/Pictures/screenshots/\$(date ,%Y-%m-%d-%H%M).png" &
-# hyprctl keyword bind "SUPERCONTROL,S,exec,grim /tmp/screenshot.png && cat /tmp/screenshot.png | wl-copy -t image/png" &
-
-# notifs
-hyprctl keyword bind "SUPER,C,exec,dunstctl close" &
-hyprctl keyword bind "SUPERSHIFT,C,exec,dunstctl close-all" &
-hyprctl keyword bind "SUPERALT,C,exec,dunstctl history-pop" &
+# Polkit
+/run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &

@@ -2,8 +2,8 @@ let
   pkgs = import <nixpkgs> { };
 
   poop-bin = pkgs.fetchurl {
-    url = "https://github.com/andrewrk/poop/releases/download/0.2.0/x86_64-linux-poop";
-    sha256 = "0d83878e108844fb30eb5ebae9d34d828dd93f4b9bcdd193f200f7291b1cd5bb";
+    url = "https://github.com/andrewrk/poop/releases/download/0.3.0/x86_64-linux-poop";
+    sha256 = "sha256-5ohSOOIpEBjpNSqoBIpHUFIIgW6eMc97tPgRj54+8KA=";
   };
 in
 pkgs.runCommand "poop" { }

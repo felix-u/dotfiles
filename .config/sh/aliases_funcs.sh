@@ -1,26 +1,22 @@
 #!/usr/bin/env sh
 
+alias agenda="agendanota \$AGENDAFILE -un Task | \$PAGER"
+
+alias agendanota="nota --force-colour --line-num"
+
+alias agendapast="agendanota \$AGENDAFILE -bs ascending -n Task --not-tagged | \$PAGER"
+
+alias agendav="\$EDITOR \$AGENDAFILE"
+
+alias agerrands="agendanota \$AGENDAFILE -un Errand | \$PAGER"
+
+alias agerrandspast="agendanota \$AGENDAFILE -bs ascending -n Errand --not-tagged | \$PAGER"
+
 # agg converts asciinema files to GIFs
 alias aggpreset="agg --theme solarized-dark --font-family 'JetBrains Mono'  --font-size 25"
 
-AGENDAFILE="$HOME/uni/2023/spring/agenda"
-alias notaflags="nota --force-colour --line-num"
-alias agenda="notaflags \$AGENDAFILE -un Task | \$PAGER"
-alias agendapast="notaflags \$AGENDAFILE -bs ascending -n Task --not-tagged | \$PAGER"
-alias agendav="\$EDITOR \$AGENDAFILE"
-alias errands="notaflags \$AGENDAFILE -un Errand | \$PAGER"
-alias errandspast="notaflags \$AGENDAFILE -bs ascending -n Errand --not-tagged | \$PAGER"
-alias todo="clear && errandspast && errands && agendapast && agenda"
-alias timetable="notaflags \$AGENDAFILE -n Timetable | \$PAGER"
-guide() {
-    if [ $# -eq 0 ]; then
-        notaflags ~/uni/misc/guide.md | $PAGER
-    else
-        notaflags ~/uni/misc/guide.md -n "$@" | $PAGER
-    fi
-}
-
 alias cdu="cd ~/uni/2023/spring"
+
 alias clock="tty-clock -c -C 5 -D"
 
 clrpick() {
@@ -37,6 +33,7 @@ clrpick() {
 alias cmatrix="cmatrix -u 2"
 
 alias f="fzf"
+alias fh="history 100 | less | fzf --tac --no-sort --height=16%"
 FDEPTH=4
 fcd () {
     DIR=$(find . -maxdepth "$FDEPTH" -type d -not -path "*/.git/*" \
@@ -155,6 +152,19 @@ alias files="$FILES"
 
 # Runs neofetch with my custom config, which only works on NixOS
 alias fetch="printf '\n' && \neofetch"
+
+alias todo="clear && errandspast && errands && agendapast && agenda"
+
+alias timetable="agendanota \$AGENDAFILE -n Timetable | \$PAGER"
+
+guide() {
+    if [ $# -eq 0 ]; then
+        agendanota ~/uni/misc/guide.md | $PAGER
+    else
+        agendanota ~/uni/misc/guide.md -n "$@" | $PAGER
+    fi
+}
+
 # Runs neofetch with no config
 alias neofetch="neofetch --config none"
 

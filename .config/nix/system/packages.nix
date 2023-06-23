@@ -72,10 +72,10 @@ in
         doas "$@"
       '');
 
-      helix-src = builtins.fetchTarball {
-        url = "https://github.com/helix-editor/helix/archive/7f5940be80.tar.gz";
-      };
-      helix-git = import flake-compat { src = helix-src; };
+      # helix-src = builtins.fetchTarball {
+      #   url = "https://github.com/helix-editor/helix/archive/7f5940be80.tar.gz";
+      # };
+      # helix-git = import flake-compat { src = helix-src; };
 
       odin-dev = pkgs.odin.overrideAttrs (oldAttrs: rec {
         nativeBuildInputs = with pkgs; oldAttrs.nativeBuildInputs ++ [
@@ -220,7 +220,7 @@ in
       figlet
       file
       fzf
-      helix-git.defaultNix.packages.x86_64-linux.default
+      # helix-git.defaultNix.packages.x86_64-linux.default
       htop
       hunspell
       hunspellDicts.en-gb-ise

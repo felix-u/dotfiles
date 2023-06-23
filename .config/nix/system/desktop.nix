@@ -34,25 +34,25 @@ in
 
   # River
 
-  # environment.systemPackages =
-  # let
-  #     river-git = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
-  #         src = pkgs.fetchFromGitHub {
-  #             owner = "riverwm";
-  #             repo = "river";
-  #             rev = "792d94253c191e653e4025a648d574d9f8ce99bf";
-  #             sha256 = "sha256-4Gwi7PiITj6i41YnngecFWd/pt5UQwslOM71C7tUR4k=";
-  #             fetchSubmodules = true;
-  #         };
-  #     });
-  # in
-  # with pkgs; [
-  #     unstable.river-luatile
-  #     river-git 
-  #     unstable.rivercarro 
-  #     unstable.river-tag-overlay
-  #     wlr-randr
-  # ];
+  environment.systemPackages =
+    let
+      river-git = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
+        src = pkgs.fetchFromGitHub {
+          owner = "riverwm";
+          repo = "river";
+          rev = "470eb222803a6382fd444e133b675fcc168fbf60";
+          sha256 = "sha256-v12+HGX3aVCW1QrmHYaYYaX/ZhFpinFGOVRc2pZxKE0=";
+          fetchSubmodules = true;
+        };
+      });
+    in
+    with pkgs; [
+      unstable.river-luatile
+      river-git
+      unstable.rivercarro
+      unstable.river-tag-overlay
+      wlr-randr
+    ];
 
   environment.pathsToLink = [ "/libexec" ]; # for polkit
   environment.sessionVariables = { GTK_USE_PORTAL = "1"; };

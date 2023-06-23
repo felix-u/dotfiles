@@ -26,6 +26,9 @@ in
   };
 
   # shell
+  programs.bash = {
+    vteIntegration = true;
+  };
   programs.zsh = {
     enable = true;
     autosuggestions = {
@@ -38,24 +41,6 @@ in
       any-nix-shell zsh --info-right | source /dev/stdin
     '';
     setOptions = [ "SHARE_HISTORY" "AUTO_CD" "AUTOMENU" "EXTENDEDGLOB" "GLOBDOTS" ];
-    syntaxHighlighting = {
-      enable = false;
-      highlighters = [ "main" ]; # "brackets"
-      styles = {
-        "alias" = "fg=fg,bold";
-        "builtin" = "fg=fg,bold";
-        "function" = "fg=fg,bold";
-        "command" = "fg=fg,bold";
-        # "bracket-level-1" = "fg=magenta";
-        # "bracket-level-2" = "fg=magenta";
-        # "bracket-level-3" = "fg=magenta";
-        # "bracket-level-4" = "fg=magenta";
-        # "commandseparator" = "fg=blue";
-        # "single-quoted-argument" = "fg=cyan";
-        # "double-quoted-argument" = "fg=cyan";
-        # "reserved-word" = "fg=fg,bold";
-      };
-    };
   };
   users.defaultUserShell = pkgs.zsh;
 
@@ -102,7 +87,6 @@ in
           vim-cutlass # Plugin that adds a 'cut' operation separate from 'delete' 
           vim-endwise # helps to end certain structures automatically
           vim-lastplace # Intelligently reopen files at your last edit position in Vim. 
-          vim-manpager # Use Vim as a MANPAGER program 
           vim-plugin-AnsiEsc # ansi escape sequences concealed, but highlighted as specified (conceal) 
           vim-repeat # enable repeating supported plugin maps with "."
           vim-speeddating # use CTRL-A/CTRL-X to increment dates, times, and more 

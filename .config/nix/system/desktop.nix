@@ -50,7 +50,7 @@ in
       unstable.river-luatile
       river-git
       unstable.rivercarro
-      unstable.river-tag-overlay
+      # unstable.river-tag-overlay
       wlr-randr
     ];
 

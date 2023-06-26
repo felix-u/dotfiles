@@ -42,7 +42,7 @@ in
     '';
     setOptions = [ "SHARE_HISTORY" "AUTO_CD" "AUTOMENU" "EXTENDEDGLOB" "GLOBDOTS" ];
   };
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.bash;
 
   # home-manager
   home-manager = {

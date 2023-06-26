@@ -28,28 +28,25 @@
 )
 
 (defalias
-    sym (layer-toggle symbols)
     nav (layer-toggle navigation)
-    num (layer-toggle numpad)
+    sym (layer-toggle symbols)
     dflt (layer-switch default)
 
-    lspc (tap-hold 170 spc @sym)
-    ssft (tap-hold 170 / rsft)
-    nalt (tap-hold 170 n lalt)
-    zsft (tap-hold 170 z lsft)
+    spcnav (tap-hold 200 spc @nav)
+    bspcsym (tap-hold 200 bspc @sym)
+
+    a (tap-hold 200 a lalt)
+    s (tap-hold 200 s lctl)
+    d (tap-hold 200 d lsft)
+    f (tap-hold 200 f lmet)
+
+    j (tap-hold 200 j rmet)
+    k (tap-hold 200 k rsft)
+    l (tap-hold 200 l rctl)
+    ; (tap-hold 200 ; ralt)
 
     vnla (layer-switch vanilla)
-    semi (layer-switch semi)
-    col (layer-switch colemakdh)
 
-    m1 M-1
-    m2 M-2
-    m3 M-3
-    m4 M-4
-    m5 M-5
-    m6 M-6
-
-    cb C-bspc
 )
 
 #| empty layer template
@@ -64,12 +61,12 @@
 |#
 
 (deflayer default
-  caps  f1  f2  f3  f4  f5  f6 f7  f8  f9  f10  f11  f12 @vnla @col @semi del
+  caps  f1  f2  f3  f4  f5  f6 f7  f8  f9  f10  f11  f12 @vnla end ins del
   grv  1    2    3    4    5    6    7    8    9    0    -    =     bspc
   tab  q    w    e    r    t    y    u    i    o    p     [   ]    \
-  esc  a    s    d    f    g    h    j    k    l    ;     '      ret
+  esc  @a   @s   @d   @f   g    h    @j   @k   @l   @;    '      ret
   lsft z    x   c    v     b    n    m    ,    .    /          rsft        pgup  up  ralt
-  lalt     lctl lmet         spc          @nav  ralt rctl                  left down rght
+  lalt lctl esc        @spcnav       @bspcsym ralt rctl                  left down rght
 )
 
 
@@ -83,23 +80,19 @@
 )
 
 
+(defalias
+    1 (tap-hold 200 1 lalt)
+    8 (tap-hold 200 8 ralt)
+)
 (deflayer symbols
-  _  _  _  _  _  _  _ _  _  _  _  _  _ _ _ _ _
-  _  _    _    _    _    _    _    _    _    _    _    _    _     _
-  _  !    @    w    q    %    ^    &    *    ~    =     _   _    _
-  _ esc   "    +   \_   del   \  bspc   '    :   ret    _       _
-  _ tab   |    {    }   grv   [  \(     \)   ]     -    _            _  _  _
-  _     _ _                     _           _  _ _                     _ _ _
+  _    _   _   _   _   _   _  _   _   _   _   _    _   _    _   _   _
+  _    _    _    _    _    _    _    _    _    _    _    _    _     _
+  _    _    2    3    4    =    -    5    6    7    _    _    _     _
+  _    @1 lctl lsft lmet   0    9  rmet rsft rctl   @8   _      _
+  _    _    \    [    ]   grv   '   \(   \)    /    _             _     _   _
+  _    _   _    _         _             _     _    _              _    _    _
 )
 
-(deflayer numpad
-  _  _  _  _  _  _  _ _  _  _  _  _  _ _ _ _ _
-  _  _    _    _    _    _    _    _    _    _    _    _    _     _
-  _  _    2    3    4    _    _    5    6    7   _     _   _    _
-  _  1    _    _    0    _    _    9    k    _   8     _       _
-  _  _    _    _    _    _    _    j    _    _   _     _           _ _ _
-  _     _ _                 _           _  _ _                     _ _ _
-)
 
 (deflayer vanilla
   esc  f1  f2  f3  f4  f5  f6 f7  f8  f9  f10  f11  f12 @dflt end ins del
@@ -108,22 +101,4 @@
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft     pgup  up  pgdn
   lctl     lmet lalt      spc           ralt  ssrq rctl           left down rght
-)
-
-(deflayer semi
-  _  _  _  _  _  _  _ _  _  _  _  _  _ _ _ @dflt _
-  _  _    _    _    _    _    _    _    _    _    _    _    _     _
-  _  f    l    h    v    z    ;    w    u    o    y     _   _    _
-  _  s    r    n    t    k    c    d    e    a    i     _      _
-  _  x    j    b    m    q    p    g    ,    .    /       _            _  _  _
-  _     _ _             _                  _  _ _                     _ _ _
-)
-
-(deflayer colemakdh
-  caps  f1  f2  f3  f4  f5  f6 f7  f8  f9  f10  f11  f12 @vnla @dflt @semi del
-  grv  1    2    3    4    5    6    7    8    9    0    -    =     bspc
-  tab  q    w    f    p    b    j    l    u    y    ;     [   ]    \
-  esc  a    r    s    t    g    m    n    e    i    o     '      ret
-  lsft z    x    c    d    v    k    h    ,    .    /       rsft            pgup  up  ralt
-  lalt     lctl lmet      @lspc         @nav  @num rctl                     left down rght
 )

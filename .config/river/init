@@ -241,8 +241,9 @@ riverctl map normal $mod S toggle-float &
 riverctl map normal $mod F toggle-fullscreen &
 riverctl map normal $mod+Shift F send-layout-cmd rivercarro "main-location monocle" &
 
-# Mod+Shift+B to fetch random wallpaper
-riverctl map normal $mod+Shift B spawn "${XDG_CONFIG_HOME}/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls" &
+# # Mod+Shift+B to fetch random wallpaper
+# riverctl map normal $mod+Shift B spawn "${XDG_CONFIG_HOME}/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls" &
+
 # Mod+Alt+Shift+B to kill swaybg and get back solid colour background
 riverctl map normal $mod+${alt}+Shift B spawn "killall -q swaybg" &
 
@@ -298,12 +299,13 @@ riverctl map normal $mod V spawn \
      notify-send 'Enabled cursor hiding'" &
 
 # Background
-riverctl background-color "0x$WSBG" &
-"$XDG_CONFIG_HOME"/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
+BG="$WS08"
+riverctl background-color "0x$BG" &
+# "$XDG_CONFIG_HOME"/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 
 # Theming
 BORDER_FOCUSED=$WSFG
-BORDER_UNFOCUSED=$WS06
+BORDER_UNFOCUSED=$WSBG
 BORDER_URGENT=$WS01
 BORDER_WIDTH=3
 riverctl border-color-focused "0x$BORDER_FOCUSED" &
@@ -326,8 +328,8 @@ riverctl map normal $mod+$alt C spawn "dunstctl history-pop" &
 pkill dunst; dunst &
 
 # Gaps
-DEFAULT_GAPS_OUTER=0 
-DEFAULT_GAPS_INNER=0
+DEFAULT_GAPS_OUTER=10 
+DEFAULT_GAPS_INNER=10
 riverctl default-layout rivercarro &
 pkill rivercarro
 rivercarro -outer-gaps "$DEFAULT_GAPS_OUTER" -inner-gaps "$DEFAULT_GAPS_INNER" -no-smart-gaps &

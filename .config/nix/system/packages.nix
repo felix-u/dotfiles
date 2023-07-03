@@ -186,11 +186,9 @@ in
       zip
 
       # MUSIC & AUDIO
-      cava
       ncspot
       pavucontrol
       pulsemixer
-      # cmus
 
       # INTERNET & BLUETOOTH
       blueberry

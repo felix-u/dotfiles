@@ -258,11 +258,9 @@ nnoremap <leader>fm :Maps<CR>
 nnoremap <leader>fh :Helptags<CR>
 nnoremap <leader>ft :Filetypes<CR>
 
-" " telescope
-" nnoremap <leader>fb :Telescope buffers<CR>
-" nnoremap <leader>ff :Telescope find_files<CR>
-" nnoremap <leader>fg :Telescope live_grep<CR>
-" nnoremap <leader>fh :Telescope help_tags<CR>
+" Nicer binds to add empty lines without leaving normal mode.
+nnoremap [<space> O<Esc>
+nnoremap ]<space> o<Esc>
 
 " filetype plugins
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %

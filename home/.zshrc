@@ -1,6 +1,13 @@
 #!/usr/bin/env zsh
 
 SAVEHIST=10000
+HISTSIZE=$SAVEHIST
+HISTFILE="$XDG_CACHE_HOME/zsh_history"
+
+setopt autocd
+setopt extendedglob
+setopt globdots
+setopt sharehistory
 
 source /home/felix/.config/sh/env.sh
 source /home/felix/.config/sh/aliases_funcs.sh
@@ -82,3 +89,4 @@ bindkey -s "^G" 'fcd^M'
 if [ -e "$HOME"/.nix_profile/etc/profile.d/nix.sh ]; then
     "$HOME"/.nix_profile/etc/profile.d/nix.sh
 fi
+any-nix-shell zsh --info-right | source /dev/stdin

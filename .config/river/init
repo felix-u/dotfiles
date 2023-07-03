@@ -124,15 +124,15 @@ riverctl map normal $mod $left send-layout-cmd rivercarro "main-ratio -0.05" &
 riverctl map normal $mod+Shift $left send-layout-cmd rivercarro "main-count +1" &
 riverctl map normal $mod+Shift $right send-layout-cmd rivercarro "main-count -1" &
 # move views
-riverctl map normal $mod+Control Left move left $offset_amount &
-riverctl map normal $mod+Control Down move down $offset_amount &
-riverctl map normal $mod+Control Up move up $offset_amount &
-riverctl map normal $mod+Control Right move right $offset_amount &
+riverctl map normal $mod+Shift Left move left $offset_amount &
+riverctl map normal $mod+Shift Down move down $offset_amount &
+riverctl map normal $mod+Shift Up move up $offset_amount &
+riverctl map normal $mod+Shift Right move right $offset_amount &
 # snap views to screen edges
-riverctl map normal $mod+Shift Left snap left &
-riverctl map normal $mod+Shift Down snap down &
-riverctl map normal $mod+Shift Up snap up &
-riverctl map normal $mod+Shift Right snap right &
+riverctl map normal $mod+Control Left snap left &
+riverctl map normal $mod+Control Down snap down &
+riverctl map normal $mod+Control Up snap up &
+riverctl map normal $mod+Control Right snap right &
 # resize views
 riverctl map normal $mod+$alt Left resize horizontal -$offset_amount &
 riverctl map normal $mod+$alt Down resize vertical $offset_amount &
@@ -305,7 +305,7 @@ riverctl background-color "0x$BG" &
 
 # Theming
 BORDER_FOCUSED=$WSFG
-BORDER_UNFOCUSED=$WSBG
+BORDER_UNFOCUSED=$BG
 BORDER_URGENT=$WS01
 BORDER_WIDTH=3
 riverctl border-color-focused "0x$BORDER_FOCUSED" &

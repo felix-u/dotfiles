@@ -14,7 +14,6 @@ in
     enable = true;
     wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
-      # pkgs-unstable.swayfx
       dunst
       glib
       grim
@@ -29,6 +28,7 @@ in
       wl-clipboard
       wlsunset
       xwayland
+      yambar
     ];
   };
 

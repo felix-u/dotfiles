@@ -15,7 +15,6 @@ WCOLOR7="$(wq color7)"
 WCOLOR8="$(wq color8)"
 
 TR="ff"
-LOCKWALL=$(find ~/dotfiles/Pictures/cafe-walls/ -type f | shuf -n 1)
 swaylock -e -F \
     --ring-clear-color "${WCOLOR4}$TR" --ring-ver-color "${WCOLOR2}$TR" \
     --ring-color "${WCOLOR8}$TR" \
@@ -32,7 +31,7 @@ swaylock -e -F \
     --inside-clear-color "${WCOLOR4}$TR" \
     --timestr "%a %d" --datestr "%H:%M" \
     --indicator \
-    --clock \
-    -i "$LOCKWALL"
+    --clock
+    # -i "$LOCKWALL"
     # --fade-in 0.1 
     # --screenshots --effect-blur 15x7

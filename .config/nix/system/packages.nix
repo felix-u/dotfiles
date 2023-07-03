@@ -3,14 +3,8 @@
 let
   pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
-  # hyprland = (import flake-compat {
-  #     src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
-  # }).defaultNix;
 in
 {
-  # imports = [
-  #     hyprland.nixosModules.default
-  # ];
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
@@ -30,34 +24,6 @@ in
     };
   };
   nixpkgs.config.allowUnfree = true;
-  # # NUR
-  # nixpkgs.config.packageOverrides = pkgs: {
-  #     nur = import
-  #         (builtins.fetchTarball
-  #             "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-  #         inherit pkgs;
-  #     };
-  # };
-
-  # Overlays
-  # services.emacs.package = pkgs.emacsPgtk;
-  # services.emacs.enable = false;
-  # nixpkgs.overlays = [
-  #   (import (builtins.fetchGit {
-  #     url = "https://github.com/nix-community/emacs-overlay.git";
-  #     ref = "master";
-  #     rev = "f438072ac6d2a0271a0ac5ad566d9612a9b35bb9";
-  #   }))
-  #   hyprland.overlays.default
-  #   (self: super: {
-  #       waybar = super.waybar.overrideAttrs (oldAttrs: {
-  #           mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-  #       });
-  #   })
-  #   (import (builtins.fetchTarball {
-  #     url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-  #   }))
-  # ];
 
   documentation.man.generateCaches = true;
 
@@ -71,42 +37,6 @@ in
         echo "Warning: \"sudo\" runs \"doas\""
         doas "$@"
       '');
-
-      # helix-src = builtins.fetchTarball {
-      #   url = "https://github.com/helix-editor/helix/archive/7f5940be80.tar.gz";
-      # };
-      # helix-git = import flake-compat { src = helix-src; };
-
-      odin-dev = pkgs.odin.overrideAttrs (oldAttrs: rec {
-        nativeBuildInputs = with pkgs; oldAttrs.nativeBuildInputs ++ [
-          which
-          llvmPackages.llvm.dev
-        ];
-        preBuild = ''
-          patchShebangs build_odin.sh
-        '';
-        src = pkgs.fetchFromGitHub {
-          owner = "odin-lang";
-          repo = "Odin";
-          rev = "dev-2023-03";
-          sha256 = "sha256-SIU1VZgac0bL6byai2vMvgl3nrWZaU9Hn0wRqazzxn4=";
-        };
-        installPhase = ''
-          mkdir -p $out/bin
-          cp odin $out/bin/odin
-          cp -r core $out/bin/core
-          # CWD="$(pwd)"
-          # cd vendor/stb/src && ${pkgs.gnumake}/bin/make
-          # cd "$CWD"
-          # cp -r vendor $out/bin/vendor
-          wrapProgram $out/bin/odin --prefix PATH : ${lib.makeBinPath (with pkgs.llvmPackages; [
-            bintools
-            llvm
-            clang
-            lld
-          ])}
-        '';
-      });
 
       # broken
       nfm = pkgs.callPackage ../derivations/nfm.nix { };

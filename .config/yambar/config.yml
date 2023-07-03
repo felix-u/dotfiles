@@ -1,0 +1,11 @@
+bar:
+  height: 60
+  location: bottom
+  font: Inter:pixelsize=30
+  foreground: 000000ff
+  background: ffffffff
+
+  right:
+    - clock:
+        content:
+          - string: {text: "{time}"}

@@ -213,8 +213,8 @@ imgclrx() {
 
 alias ksp='progl /mnt/sda1/Games/KSP_linux/KSP.x86_64'
 
-alias la="ls -ogAhF --group-directories-first --time-style=long-iso"
-alias ls="ls -AFw 80 --group-directories-first"
+alias la="ls -lgAhF --group-directories-first --color=never"
+alias ls="ls -AFw 80 --group-directories-first --color=never"
 
 # less should render ANSI colour, not page if content fills one screen, ignore
 # case when searching, and leave the contents on the screen after quitting.

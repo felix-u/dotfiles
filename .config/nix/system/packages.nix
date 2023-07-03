@@ -74,6 +74,7 @@ in
       gh
       git
       neofetch
+      neovim
       nvi
       stow
       wget

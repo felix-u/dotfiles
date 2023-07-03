@@ -101,6 +101,39 @@ autocmd BufReadPost *
   \ exe "normal! g`\"" |
   \ endif
 
+" " Toggle commenting.
+" function! ToggleComment(type)
+"     " Get commentstring, remove trailing spaces if any
+"     let l:comment = substitute(&commentstring, '%s.*', '', '')
+"     " Determine lines to operate on based on type
+"     if a:type == 'line'
+"         let l:line1 = line('.')
+"         let l:line2 = line('.')
+"     elseif a:type == 'v'
+"         let l:line1 = line("'<")
+"         let l:line2 = line("'>")
+"     endif
+"     " Get line content of first line
+"     let l:first_line = getline(l:line1)
+"     " Determine whether we are adding or removing comments
+"     let l:adding_comments = l:first_line !~ '^\s*' . l:comment
+"     " Iterate over lines
+"     for l:lnum in range(l:line1, l:line2)
+"         " Get line content
+"         let l:line = getline(l:lnum)
+"         " If line starts with commentstring, remove it
+"         if l:line =~ '^\s*' . l:comment
+"             call setline(l:lnum, substitute(l:line, '\(\s*\)' . l:comment . '\s*', '\1', ''))
+"         " Else, add commentstring at the start
+"         else
+"             let l:indent = match(l:line, '\S')
+"             call setline(l:lnum, strpart(l:line, 0, l:indent) . l:comment . strpart(l:line, l:indent))
+"         endif
+"     endfor
+" endfunction
+" nnoremap gcc :call ToggleComment('line')<CR>
+" xnoremap gc :<C-u>'<,'>g/^/execute "normal! I" . substitute(&commentstring, '%s', '', '') \| nohlsearch<CR>
+
 " Don't copy to clipboard with d/c/y unless after <leader>.
 noremap d  "_d
 noremap dd "_dd
@@ -233,12 +266,6 @@ function! MyTabLine()
 endfunction
 set tabline=%!MyTabLine()
 
-" " debugging
-" packadd termdebug
-" nnoremap <leader>db :Break<CR>
-" nnoremap <leader>dgv :vsplit<CR>:TermdebugCommand
-" nnoremap <leader>dgs :split<CR>:TermdebugCommand
-
 " always switch to last window with <C-^>, insert mode or not
 nnoremap <C-^> <C-w>w
 inoremap <C-^> <C-\><C-n><C-w>w
@@ -276,3 +303,5 @@ nnoremap ]<space> o<Esc>
 
 " filetype plugins
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
+
+source ~/.config/nvim/pack/plugins/start/fzf/fzf.vim

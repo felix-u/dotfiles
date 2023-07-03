@@ -58,32 +58,12 @@ in
 
       services.udiskie.enable = true;
 
-      programs.neovim = {
-        enable = true;
-        package = pkgs-unstable.neovim-unwrapped;
-        plugins = with pkgs.vimPlugins; [
-          fzf-vim
-          vim-commentary # comment stuff out 
-          vimtex # filetype plugin for LaTeX files. 
-
-          # auto-pairs # insert or delete brackets, parens, quotes in pairs 
-          # targets-vim # provides additional text objects 
-          # vim-cutlass # Plugin that adds a 'cut' operation separate from 'delete' 
-          # vim-lastplace # Intelligently reopen files at your last edit position in Vim. 
-          # vim-repeat # enable repeating supported plugin maps with "."
-          # vim-surround # Delete/change/add parentheses/quotes/XML-tags/much more with ease 
-          # vim-unimpaired # Pairs of handy bracket mappings 
-        ];
-      };
-
       programs.chromium = {
         enable = true;
         package = pkgs.chromium;
         commandLineArgs = [
-          "-animation-duration-scale=0.5"
           "-enable-features=UseOzonePlatform"
           "-ozone-platform=wayland"
-          "file"
         ];
         extensions = [
           # ublock origin
@@ -98,11 +78,6 @@ in
           { id = "clngdbkpkpeebahjckkjfobafhncgmne"; }
         ];
       };
-
-      # w3m config
-      home.file.".w3m/config".text = ''
-        confirm_qq false
-      '';
 
     };
 

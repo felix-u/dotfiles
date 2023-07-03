@@ -97,6 +97,10 @@ elif [[ "$(cat /proc/sys/kernel/hostname)" == "nixbtw" ]]; then
     pagedown="L"
     pageup="U"
     hide="H"
+
+    pkill waybar
+    waybar -c "$XDG_CONFIG_HOME"/waybar/river_desktop.json &
+
 fi
 #                  _  __ _      _         _            _                      _
 #  ____ __  ___ __(_)/ _(_)__  | |_ ___  | |_____ _  _| |__  ___  __ _ _ _ __| |

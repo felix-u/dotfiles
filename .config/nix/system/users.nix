@@ -64,12 +64,12 @@ in
         plugins = with pkgs.vimPlugins; [
           fzf-vim
           vim-commentary # comment stuff out 
-          vim-cutlass # Plugin that adds a 'cut' operation separate from 'delete' 
-          vim-lastplace # Intelligently reopen files at your last edit position in Vim. 
           vimtex # filetype plugin for LaTeX files. 
 
           # auto-pairs # insert or delete brackets, parens, quotes in pairs 
           # targets-vim # provides additional text objects 
+          # vim-cutlass # Plugin that adds a 'cut' operation separate from 'delete' 
+          # vim-lastplace # Intelligently reopen files at your last edit position in Vim. 
           # vim-repeat # enable repeating supported plugin maps with "."
           # vim-surround # Delete/change/add parentheses/quotes/XML-tags/much more with ease 
           # vim-unimpaired # Pairs of handy bracket mappings 

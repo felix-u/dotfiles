@@ -9,6 +9,9 @@
     "pulseaudio",
     "custom/clock"
   ],
+  "river/tags": {
+      "num-tags": 4
+  },
   "cpu": {
     "interval": 2,
     "format": "   {usage}%",

@@ -95,7 +95,19 @@ echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 noremap <leader>thg :call SynStack()<CR>
 
-" vim-cutlass
+" Return to last edit position.
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \ exe "normal! g`\"" |
+  \ endif
+
+" Don't copy to clipboard with d/c/y unless after <leader>.
+noremap d  "_d
+noremap dd "_dd
+noremap D  "_d$
+noremap c  "_c
+noremap cc "_cc
+noremap C  "_c$
 noremap <leader>d  "+d
 noremap <leader>dd "+dd
 noremap <leader>D  "+d$

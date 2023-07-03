@@ -311,7 +311,7 @@ riverctl background-color "0x$BG" &
 BORDER_FOCUSED=$WSFG
 BORDER_UNFOCUSED=$BG
 BORDER_URGENT=$WS01
-BORDER_WIDTH=3
+BORDER_WIDTH=4
 riverctl border-color-focused "0x$BORDER_FOCUSED" &
 riverctl border-color-unfocused "0x$BORDER_UNFOCUSED" &
 riverctl border-color-urgent "0x$BORDER_URGENT" &

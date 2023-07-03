@@ -48,9 +48,6 @@ in
         font.size = 12;
         iconTheme.name = "elementary";
         theme.name = "io.elementary.stylesheet.slate";
-        gtk3.extraConfig = {
-          gtk-decoration-layout = "menu:";
-        };
       };
 
       xdg.userDirs.enable = true;

@@ -17,8 +17,6 @@ alias aggpreset="agg --theme solarized-dark --font-family 'JetBrains Mono'  --fo
 
 alias cdu="cd ~/uni/2023/spring"
 
-alias clock="tty-clock -c -C 5 -D"
-
 clrpick() {
     while true
     do

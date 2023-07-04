@@ -32,6 +32,3 @@ swaylock -e -F \
     --timestr "%a %d" --datestr "%H:%M" \
     --indicator \
     --clock
-    # -i "$LOCKWALL"
-    # --fade-in 0.1 
-    # --screenshots --effect-blur 15x7

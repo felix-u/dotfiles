@@ -10,29 +10,14 @@ let
 in
 {
 
+  # River
+
   programs.sway = {
     enable = true;
-    wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
-      dunst
-      glib
-      grim
-      polkit_gnome
-      slurp
-      swaybg
       swaylock-effects
-      tofi
-      waybar
-      wayland
-      wf-recorder
-      wl-clipboard
-      wlsunset
-      xwayland
-      yambar
     ];
   };
-
-  # River
 
   environment.systemPackages =
     let
@@ -47,11 +32,19 @@ in
       });
     in
     with pkgs; [
-      unstable.river-luatile
+      glib
+      grim
+      polkit_gnome
       river-git
+      slurp
+      tofi
       unstable.rivercarro
-      # unstable.river-tag-overlay
+      waybar
+      wf-recorder
+      wl-clipboard
       wlr-randr
+      wlsunset
+      xwayland
     ];
 
   environment.pathsToLink = [ "/libexec" ]; # for polkit
@@ -97,8 +90,5 @@ in
       extraConfig = "noarp";
     };
   };
-
-  # Automatically mount drives
-  services.udisks2.enable = true;
 
 }

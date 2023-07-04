@@ -60,8 +60,6 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     riverctl input "$TOUCHPAD" tap enabled &
     riverctl input "$TOUCHPAD" tap-button-map left-right-middle &
 
-    riverctl map normal $mod+$alt B spawn "notify-send \$(cat /sys/class/power_supply/BAT0/capacity)%" &
-
     left="H"
     down="J"
     up="K"
@@ -195,11 +193,11 @@ riverctl map normal $mod+$alt T spawn "$XDG_CONFIG_HOME/sway/scripts/screen_temp
 
 # screenshots
 riverctl map normal $mod+Shift D spawn "${SLURPCOMMAND} | grim -g - \
-    ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png && notify-send 'Saved screenshot to ~/Pictures/screenshots/'" &
+    ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png'" &
 riverctl map normal $mod+Shift S spawn "${SLURPCOMMAND} | grim -g - /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
 riverctl map normal $mod+$alt D spawn "grim \
-   ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png && notify-send 'Saved screenshot to ~/Pictures/screenshots/'" &
+   ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png'" &
 riverctl map normal $mod+$alt S spawn "grim /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
 
@@ -299,12 +297,10 @@ riverctl hide-cursor when-typing enabled &
 # binding to toggle this behaviour (it interferes with mouse control in games)
 riverctl map normal $mod+Shift V spawn \
     "riverctl hide-cursor timeout 0 && \
-     riverctl hide-cursor when-typing disabled && \
-     notify-send 'Disabled cursor hiding'" &
+     riverctl hide-cursor when-typing disabled" &
 riverctl map normal $mod V spawn \
     "riverctl hide-cursor timeout 10000 && \
-     riverctl hide-cursor when-typing enabled && \
-     notify-send 'Enabled cursor hiding'" &
+     riverctl hide-cursor when-typing enabled" &
 
 # Background
 BG="$WS08"
@@ -328,11 +324,11 @@ pkill wlsunset
 # Superuser authentication popup
 /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
-# Notifications
-riverctl map normal $mod C spawn "dunstctl close" &
-riverctl map normal $mod+Shift C spawn "dunstctl close-all" &
-riverctl map normal $mod+$alt C spawn "dunstctl history-pop" &
-pkill dunst; dunst &
+# # Notifications
+# riverctl map normal $mod C spawn "dunstctl close" &
+# riverctl map normal $mod+Shift C spawn "dunstctl close-all" &
+# riverctl map normal $mod+$alt C spawn "dunstctl history-pop" &
+# pkill dunst; dunst &
 
 # Gaps
 DEFAULT_GAPS_OUTER=10 

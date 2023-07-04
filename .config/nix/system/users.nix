@@ -3,17 +3,6 @@
 
 let
   pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-
-  vim-cutlass = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-cutlass";
-    src = pkgs.fetchFromGitHub {
-      owner = "svermeulen";
-      repo = "vim-cutlass";
-      rev = "7afd649415541634c8ce317fafbc31cd19d57589";
-      sha256 = "sha256-j5W9q905ApDf3fvCIS4UwyHYnEZu5Ictn+6JkV/xjig=";
-    };
-  };
-
 in
 {
 
@@ -52,8 +41,6 @@ in
 
       xdg.userDirs.enable = true;
       xdg.userDirs.createDirectories = true;
-
-      services.udiskie.enable = true;
 
       programs.chromium = {
         enable = true;

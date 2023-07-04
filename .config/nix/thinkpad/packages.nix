@@ -8,6 +8,7 @@ in {
     with pkgs; [
 
       # ESSENTIAL
+      keyd
       kmonad
 
       # TERMINAL MISC

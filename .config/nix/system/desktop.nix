@@ -25,8 +25,8 @@ in
         src = pkgs.fetchFromGitHub {
           owner = "riverwm";
           repo = "river";
-          rev = "470eb222803a6382fd444e133b675fcc168fbf60";
-          sha256 = "sha256-v12+HGX3aVCW1QrmHYaYYaX/ZhFpinFGOVRc2pZxKE0=";
+          rev = "5ce2ca1bc0411b43e94e8a1dfdf3a90a5dc7fd20";
+          sha256 = "sha256-sa5yWeuQzR/dcN74ok3QkP/FdiCcxifbmDVcHiAZkhU=";
           fetchSubmodules = true;
         };
       });
@@ -75,7 +75,6 @@ in
   hardware.bluetooth = {
     enable = true;
     package = pkgs.bluezFull;
-    # hsphfpd.enable = true;
     settings = { General = { ControllerMode = "bredr"; }; };
   };
   services.blueman.enable = true;

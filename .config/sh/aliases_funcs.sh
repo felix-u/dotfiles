@@ -31,7 +31,7 @@ clrpick() {
 alias cmatrix="cmatrix -u 2"
 
 alias f="fzf"
-alias fh="history 100 | less | fzf --tac --no-sort --height=16%"
+alias fh="tail -n 1000 \$HISTFILE | cut -d ';' -f 2- | uniq | fzf --tac --no-sort --height=50% --bind 'enter:become(sh -c {})'"
 FDEPTH=4
 fcd () {
     DIR=$(find . -maxdepth "$FDEPTH" -type d -not -path "*/.git/*" \

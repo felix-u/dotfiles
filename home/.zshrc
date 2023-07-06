@@ -81,9 +81,9 @@ bindkey '^Z' _zsh_cli_fg
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 
-bindkey '^n' autosuggest-accept
-
 bindkey -s "^G" 'fcd^M'
+
+source "$XDG_CONFIG_HOME"/sh/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
 
 # Nix
 if [ -e "$HOME"/.nix_profile/etc/profile.d/nix.sh ]; then

@@ -12,6 +12,9 @@ setopt sharehistory
 source /home/felix/.config/sh/env.sh
 source /home/felix/.config/sh/aliases_funcs.sh
 
+export PAGER=(less -FIRX)
+export MANPAGER="$PAGER"
+
 NEWLINE=$'\n'
 PS1="%B%F{cyan}%5~%f${NEWLINE}%(?.%F{normal}.%F{red})%(!.#.${PROMPTCHAR})%f%b "
 

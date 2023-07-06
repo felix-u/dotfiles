@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-export AGENDAFILE="$HOME/uni/2023/spring/agenda"
+export AGENDAFILE="$HOME/uni/2023/autumn/agenda"
 export AMD_VULKAN_ICD="RADV"
 export BROWSER="firefox"
 export CC="zig cc"
@@ -20,7 +20,7 @@ export LESS_TERMCAP_so=$'\e[7m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4m'
 export NIXOS_OZONE_WL=1
-export PAGER="less -FIRX"
+export PAGER="less"
 export PATH="$HOME/.local/bin/:$XDG_CONFIG_HOME/sh/scripts-in-path/:$PATH"
 export PKG_CONFIG_PATH="/usr/include"
 export PROMPTCHAR="%%" #"λ"

@@ -1,21 +1,17 @@
 #!/usr/bin/env sh
 
-alias agenda="agendanota \$AGENDAFILE -un Task | \$PAGER"
-
-alias agendanota="nota --force-colour --line-num"
-
-alias agendapast="agendanota \$AGENDAFILE -bs ascending -n Task --not-tagged | \$PAGER"
-
-alias agendav="\$EDITOR \$AGENDAFILE"
-
-alias agerrands="agendanota \$AGENDAFILE -un Errand | \$PAGER"
-
-alias agerrandspast="agendanota \$AGENDAFILE -bs ascending -n Errand --not-tagged | \$PAGER"
+alias ag="agnota \$AGENDAFILE -un task | \$PAGER"
+alias agerrands="agnota \$AGENDAFILE -un errand | \$PAGER"
+alias agerrandspast="agnota \$AGENDAFILE -bs ascending -n Errand --not-tagged | \$PAGER"
+alias agnota="nota --force-colour --line-num"
+alias agpast="agnota \$AGENDAFILE -bs ascending -n task --not-tagged | \$PAGER"
+alias agtodo="agerrandspast && agerrands && agpast && ag"
+alias agv="\$EDITOR \$AGENDAFILE"
 
 # agg converts asciinema files to GIFs
 alias aggpreset="agg --theme solarized-dark --font-family 'JetBrains Mono'  --font-size 25"
 
-alias cdu="cd ~/uni/2023/spring"
+alias cdu="cd ~/uni/2023/autumn"
 
 clrpick() {
     while true
@@ -150,8 +146,6 @@ alias files="$FILES"
 
 # Runs neofetch with my custom config, which only works on NixOS
 alias fetch="printf '\n' && \neofetch"
-
-alias todo="clear && errandspast && errands && agendapast && agenda"
 
 alias timetable="agendanota \$AGENDAFILE -n Timetable | \$PAGER"
 

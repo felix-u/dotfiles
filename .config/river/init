@@ -3,9 +3,6 @@
 source "$XDG_CONFIG_HOME"/sh/env.sh
 source "$XDG_CONFIG_HOME"/sh/aliases_funcs.sh
 
-# fixes xdg-desktop-portal bug causing GTK apps to launch very slowly
-dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
-
 WFG="$(wq foreground)"
 WBG="$(wq background)"
 W00="$(wq color0)"
@@ -76,8 +73,11 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 
     BORDER_WIDTH=3
 
+    # fixes xdg-desktop-portal bug causing GTK apps to launch very slowly
+    dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
+
 # desktop-specific configuration
-elif [[ "$(cat /proc/sys/kernel/hostname)" == "nixbtw" ]]; then
+elif [[ "$(cat /proc/sys/kernel/hostname)" == "alpinebtw" ]]; then
 
     WDPI="1.3"
 
@@ -103,6 +103,8 @@ elif [[ "$(cat /proc/sys/kernel/hostname)" == "nixbtw" ]]; then
 
     BORDER_WIDTH=5
 
+    /usr/libexec/pipewire-launcher & disown
+
 fi
 #                  _  __ _      _         _            _                      _
 #  ____ __  ___ __(_)/ _(_)__  | |_ ___  | |_____ _  _| |__  ___  __ _ _ _ __| |
@@ -124,11 +126,11 @@ riverctl map normal $mod $up focus-view previous &
 riverctl map normal $mod+Shift $down swap next &
 riverctl map normal $mod+Shift $up swap previous &
 # decrease/increase the main_factor value of rivertile by 0.05
-riverctl map normal $mod $right send-layout-cmd rivercarro "main-ratio +0.05" &
-riverctl map normal $mod $left send-layout-cmd rivercarro "main-ratio -0.05" &
+riverctl map normal $mod $right send-layout-cmd rivertile "main-ratio +0.05" &
+riverctl map normal $mod $left send-layout-cmd rivertile "main-ratio -0.05" &
 # increment/decrement the main_count value of rivertile.
-riverctl map normal $mod+Shift $left send-layout-cmd rivercarro "main-count +1" &
-riverctl map normal $mod+Shift $right send-layout-cmd rivercarro "main-count -1" &
+riverctl map normal $mod+Shift $left send-layout-cmd rivertile "main-count +1" &
+riverctl map normal $mod+Shift $right send-layout-cmd rivertile "main-count -1" &
 # move views
 riverctl map normal $mod+Shift Left move left $offset_amount &
 riverctl map normal $mod+Shift Down move down $offset_amount &
@@ -147,10 +149,10 @@ riverctl map normal $mod+$alt Right resize horizontal $offset_amount &
 # swap current view with master, or master with first slave
 riverctl map normal $mod $pageup zoom &
 # Mod+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal $mod Left  send-layout-cmd rivercarro "main-location left" &
-riverctl map normal $mod Down  send-layout-cmd rivercarro "main-location bottom" &
-riverctl map normal $mod Up    send-layout-cmd rivercarro "main-location top" &
-riverctl map normal $mod Right send-layout-cmd rivercarro "main-location right" &
+riverctl map normal $mod Left  send-layout-cmd rivertile "main-location left" &
+riverctl map normal $mod Down  send-layout-cmd rivertile "main-location bottom" &
+riverctl map normal $mod Up    send-layout-cmd rivertile "main-location top" &
+riverctl map normal $mod Right send-layout-cmd rivertile "main-location right" &
 
 #
 #              _                          _
@@ -245,7 +247,7 @@ riverctl map normal $mod S toggle-float &
 
 # Mod+F to toggle fullscreen
 riverctl map normal $mod F toggle-fullscreen &
-riverctl map normal $mod+Shift F send-layout-cmd rivercarro "main-location monocle" &
+riverctl map normal $mod+Shift F send-layout-cmd rivertile "main-location monocle" &
 
 # # Mod+Shift+B to fetch random wallpaper
 # riverctl map normal $mod+Shift B spawn "${XDG_CONFIG_HOME}/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls" &
@@ -285,6 +287,7 @@ riverctl set-repeat 50 200 &
 # Set app-ids of views which should float
 riverctl rule-add float -app-id "*float*" &
 riverctl rule-add float -app-id "*popup*" &
+riverctl rule-add float -app-id "*zathura*" &
 
 # Set app-ids of views which should use server-side decorations
 riverctl rule-add ssd -app-id firefox &
@@ -324,27 +327,26 @@ pkill wlsunset
 # Superuser authentication popup
 /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
-# # Notifications
-# riverctl map normal $mod C spawn "dunstctl close" &
-# riverctl map normal $mod+Shift C spawn "dunstctl close-all" &
-# riverctl map normal $mod+$alt C spawn "dunstctl history-pop" &
-# pkill dunst; dunst &
+# gsettings set org.gnome.desktop.wm.preferences titlebar-font "$(wq fontsans) 12"
+# gsettings set org.gnome.desktop.interface font-name "$(wq fontsans) 12"
+# gsettings set org.gnome.desktop.interface document-font-name "$(wq fontsans) 12"
+# gsettings set org.gnome.desktop.interface monospace-font-name "$(wq fontmono) 12"
 
 # Gaps
-DEFAULT_GAPS_OUTER=10 
-DEFAULT_GAPS_INNER=10
-riverctl default-layout rivercarro &
-pkill rivercarro
-rivercarro -outer-gaps "$DEFAULT_GAPS_OUTER" -inner-gaps "$DEFAULT_GAPS_INNER" -no-smart-gaps &
-riverctl map normal $mod G send-layout-cmd rivercarro "gaps +10" &
-riverctl map normal $mod+Shift G send-layout-cmd rivercarro "gaps -10" &
-riverctl map normal $mod Period send-layout-cmd rivercarro "outer-gaps +10" &
-riverctl map normal $mod+Shift Period send-layout-cmd rivercarro "outer-gaps -10" &
-resetgaps="\
-    riverctl send-layout-cmd rivercarro 'outer-gaps $DEFAULT_GAPS_OUTER' & \
-    riverctl send-layout-cmd rivercarro 'inner-gaps $DEFAULT_GAPS_INNER' & \
-"
-riverctl map normal $mod+$alt G spawn "$resetgaps" &
+DEFAULT_GAPS_OUTER=5 
+DEFAULT_GAPS_INNER=5
+riverctl default-layout rivertile &
+pkill rivertile
+rivertile -outer-padding "$DEFAULT_GAPS_OUTER" -view-padding "$DEFAULT_GAPS_INNER" &
+# riverctl map normal $mod G send-layout-cmd rivertile "gaps +10" &
+# riverctl map normal $mod+Shift G send-layout-cmd rivertile "gaps -10" &
+# riverctl map normal $mod Period send-layout-cmd rivertile "outer-gaps +10" &
+# riverctl map normal $mod+Shift Period send-layout-cmd rivertile "outer-gaps -10" &
+# resetgaps="\
+#     riverctl send-layout-cmd rivertile 'outer-gaps $DEFAULT_GAPS_OUTER' & \
+#     riverctl send-layout-cmd rivertile 'inner-gaps $DEFAULT_GAPS_INNER' & \
+# "
+# riverctl map normal $mod+$alt G spawn "$resetgaps" &
 
 # # Tag overlay
 # killall -q river-tag-overlay

@@ -15,6 +15,14 @@ source /home/felix/.config/sh/aliases_funcs.sh
 export PAGER=(less -FIRX)
 export MANPAGER="$PAGER"
 
+if test -z "${XDG_RUNTIME_DIR}"; then
+    export XDG_RUNTIME_DIR=/tmp/$(id -u)-runtime-dir
+    if ! test -d "${XDG_RUNTIME_DIR}"; then
+        mkdir "${XDG_RUNTIME_DIR}"
+        chmod 0700 "${XDG_RUNTIME_DIR}"
+    fi
+fi
+
 NEWLINE=$'\n'
 PS1="%B%F{cyan}%5~%f${NEWLINE}%(?.%F{normal}.%F{red})%(!.#.${PROMPTCHAR})%f%b "
 
@@ -91,5 +99,5 @@ source "$XDG_CONFIG_HOME"/sh/zsh-fzf-history-search/zsh-fzf-history-search.plugi
 # Nix
 if [ -e "$HOME"/.nix_profile/etc/profile.d/nix.sh ]; then
     "$HOME"/.nix_profile/etc/profile.d/nix.sh
+    any-nix-shell zsh --info-right | source /dev/stdin
 fi
-any-nix-shell zsh --info-right | source /dev/stdin

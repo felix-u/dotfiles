@@ -13,7 +13,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Inter", "Iosevka NerdFont";
+    font-family: "Inter", "FiraCode Nerd Font";
     font-weight: normal;
     box-shadow: inherit;
     text-shadow: inherit;
@@ -46,8 +46,8 @@ window#waybar {
 }
 
 #workspaces button, #tags button {
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 2px;
+    padding-right: 2px;
     color: #777777;
 }
 

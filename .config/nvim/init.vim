@@ -53,6 +53,7 @@ function! s:tweak_default_colours()
   hi CursorLine   cterm=NONE   ctermbg=00
   hi CursorLineNr cterm=NONE   ctermfg=15 ctermbg=00
   hi Delimiter    cterm=NONE   ctermfg=White 
+  hi Error        cterm=NONE   ctermfg=NONE   ctermbg=NONE
   hi Function     cterm=NONE   ctermfg=White
   hi Identifier   cterm=NONE   ctermfg=White
   hi LineNr       ctermfg=07   ctermbg=00

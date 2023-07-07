@@ -35,12 +35,12 @@
     display: none !important;
 }
 
-/* ------------------------------------------------------------------------- */
-/* background colour of selected tab */
-.tab-background[selected="true"] {
-    background-color: var(--black) !important;
-    background-image: none !important;
-}
+/* /1* ------------------------------------------------------------------------- *1/ */
+/* /1* background colour of selected tab *1/ */
+/* .tab-background[selected="true"] { */
+/*     background-color: var(--black) !important; */
+/*     background-image: none !important; */
+/* } */
 
 
 /* ------------------------------------------------------------------------- */

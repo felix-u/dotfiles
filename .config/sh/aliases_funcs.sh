@@ -85,7 +85,7 @@ fkill () {
     kill -9 $(echo "$DOOMEDPID" | awk '{print $2}')
 }
 fman () {
-    PAGES=$(man -k . | awk '{print $2 " " $1}' | tr -d '()')
+    PAGES=$(/usr/bin/env man -k . | awk '{print $2 " " $1}' | tr -d '()')
     field () {
         NUM=$1
         shift
@@ -144,21 +144,50 @@ fword () {
 
 alias files="$FILES"
 
-# Runs neofetch with my custom config, which only works on NixOS
-alias fetch="printf '\n' && \neofetch"
+fetch () {
+    bold="$(tput bold)"
+    reset="$(tput sgr0)"
+    spacer="    "
 
-alias timetable="agendanota \$AGENDAFILE -n Timetable | \$PAGER"
+    printf "${bold}OS${reset}${spacer}"
+    uname -mrs
+    
+    printf "${bold}WM${reset}${spacer}"
+    echo "river"
+    
+    printf "${bold}TE${reset}${spacer}"
+    echo "$TERMINAL"
+
+    printf "${bold}SH${reset}${spacer}"
+    echo "$(basename $SHELL)"
+
+    printf "\n"
+
+    echo "${bold}MEM${reset}"
+    memnum="$(cat /proc/meminfo | grep MemTotal | sed 's/^[^0-9]*//g' | cut -d ' ' -f 1)"
+    gbnum="$(echo "$memnum / 1000000" | bc)"
+    echo "$gbnum GB"
+    printf "\n"
+
+    echo "${bold}CPU${reset}"
+    cpuinfo="$(cat /proc/cpuinfo)"
+    echo "$cpuinfo" | grep -m 1 "model name" | sed 's/\t/ /g'
+    echo "$cpuinfo" | grep -m 1 "cores" | sed 's/\t/ /g'
+    printf "\n"
+
+    echo "${bold}GPU${reset}"
+    glxinfo | grep -m 1 "Device" | sed 's/^[ ]*//g; s/(.*//g'
+}
+
+alias timetable="agnota \$AGENDAFILE -n Timetable | \$PAGER"
 
 guide() {
     if [ $# -eq 0 ]; then
-        agendanota ~/uni/misc/guide.md | $PAGER
+        agnota ~/uni/misc/guide.md | $PAGER
     else
-        agendanota ~/uni/misc/guide.md -n "$@" | $PAGER
+        agnota ~/uni/misc/guide.md -n "$@" | $PAGER
     fi
 }
-
-# Runs neofetch with no config
-alias neofetch="neofetch --config none"
 
 # edited to be wayland-compatible
 alias fontpreview="~/dotfiles/scripts/fontpreview"
@@ -185,8 +214,6 @@ gitall() {
         return 1
     fi
 }
-
-alias grep="grep --exclude-dir .git"
 
 alias htop="htop --no-colour"
 
@@ -218,6 +245,8 @@ alias make="make -j8"
 mdread() {
     pandoc "$1" --to html5 | w3m -T text/html
 }
+
+alias mem="free -h | awk 'NR==1 {print \$1 \"  \" \$2} NR==2 {print \$2 \"  \" \$3}'"
 
 mkcd() {
     mkdir -p "$1"
@@ -274,6 +303,8 @@ resize4k() {
     convert "$1" -resize 4000 "$1"
     echo "Resized $1"
 }
+
+alias river="dbus-run-session -- river"
 
 alias schemereload="~/dotfiles/scripts/schemereload.sh"
 

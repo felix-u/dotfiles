@@ -4,15 +4,13 @@
 CWD=$(pwd)
 
 # get dotfiles directory
-DIR=$(dirname "$(dirname "$(readlink -f "$0")")")
-echo "Path from which to symlink: $DIR"
-cd "$DIR" || exit
+cd "$HOME/dotfiles" || exit
 
 
 # symlink configs
 stow --restow --target="$XDG_CONFIG_HOME" .config
 # firefox config
-for dir in ~/.mozilla/firefox/*.default; do
+for dir in "$HOME"/.mozilla/firefox/*.default*; do
     stow --restow --target="$dir" firefox
 done
 

@@ -38,7 +38,7 @@ set splitright
 set tabpagemax=50
 set tabstop=4
 set timeout
-set timeoutlen=200
+set timeoutlen=400
 set undofile
 set viewoptions-=options
 set viminfo^=!

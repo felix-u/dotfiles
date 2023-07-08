@@ -327,10 +327,10 @@ pkill wlsunset
 # Superuser authentication popup
 /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
-# gsettings set org.gnome.desktop.wm.preferences titlebar-font "$(wq fontsans) 12"
-# gsettings set org.gnome.desktop.interface font-name "$(wq fontsans) 12"
-# gsettings set org.gnome.desktop.interface document-font-name "$(wq fontsans) 12"
-# gsettings set org.gnome.desktop.interface monospace-font-name "$(wq fontmono) 12"
+gsettings set org.gnome.desktop.wm.preferences titlebar-font "$(wq fontsans) 12"
+gsettings set org.gnome.desktop.interface font-name "$(wq fontsans) 12"
+gsettings set org.gnome.desktop.interface document-font-name "$(wq fontsans) 12"
+gsettings set org.gnome.desktop.interface monospace-font-name "$(wq fontmono) 12"
 
 # Gaps
 DEFAULT_GAPS_OUTER=5 

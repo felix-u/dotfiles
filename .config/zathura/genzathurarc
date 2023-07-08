@@ -10,10 +10,10 @@ set highlight-color             "$(wq color3)" #yellow
 set highlight-active-color      "$(wq color4)" #blue
 
 set render-loading              true
-set recolor                     "true"
+set recolor                     "false"
 # setting recolor-keep true will keep any color your pdf has.
 # if it is false, it'll just be black and white
-set recolor-keephue             "true"
+set recolor-keephue             "false"
 
 
 # dark theme by default

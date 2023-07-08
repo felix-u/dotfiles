@@ -61,9 +61,13 @@ fdoaj () {
         --preview-window=up:50%:wrap --bind "enter:execute($BROWSER {-1})"
 }
 femoji () {
-    EMOJI=$(curl -sSL 'https://git.io/JXXO7' | tr -d :) # emoji.txt file from a gist
-    SELECT=$(echo "$EMOJI" | fzf | awk '{print $1}')
-    [ $? = 0 ] && wl-copy "$SELECT"
+    index="$(mktemp)"
+    cat /usr/share/unicode/Index.txt | \
+        perl -CSD -pe 's/([^\t]*)\t([^\t]*)$/$1 . "\t" . chr(hex("0x$2")) . "\n" /ge' > "$index" 2>/dev/null
+    select="$(cat "$index" | fzf)"
+    char="$(echo "$select" | awk '{print $NF}')"
+    echo "$char" && wl-copy "$char"
+    rm "$index"
 }
 fnota () {
     [ $# -ge 1 ] && FILE="$1" || FILE="$HOME/uni/misc/guide.md"
@@ -85,15 +89,8 @@ fkill () {
     kill -9 $(echo "$DOOMEDPID" | awk '{print $2}')
 }
 fman () {
-    PAGES=$(/usr/bin/env man -k . | awk '{print $2 " " $1}' | tr -d '()')
-    field () {
-        NUM=$1
-        shift
-        echo "$@" | awk "{print \$$NUM}"
-    }
-    SELECT=$(echo "$PAGES" | \
-        fzf --preview "man '$(field 1 {})' '$(field 2 {})'" \
-        --preview-window=80%)
+    PAGES=$(man -k . | cut -d ' ' -f 1-2 | tr -d '(' | tr -d ')')
+    SELECT=$(echo "$PAGES" | fzf --preview "whatis {1} -s {2} | head -n 1" --preview-window=80%)
     [ $? != 0 ] && return 1
     SECTION=$(echo "$SELECT" | awk '{print $1}')
     CMD=$(echo "$SELECT" | awk '{print $2}')
@@ -241,6 +238,10 @@ alias less="less -FIRX"
 
 # Execute jobs in parallel, with a limit of 8.
 alias make="make -j8"
+
+manpdf () {
+    man -Tpdf "$@" | zathura -
+}
 
 mdread() {
     pandoc "$1" --to html5 | w3m -T text/html

@@ -62,6 +62,7 @@ window#waybar {
 #workspaces button.focused, #workspaces button.active, #tags button.focused {
     color: $(wq foreground);
     text-shadow: 0px 0.5px, 0.5px 0px, 0.5px 0.5px;
+    transition: none;
 }
 
 #cpu {

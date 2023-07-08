@@ -173,6 +173,7 @@ riverctl map normal $mod Return spawn $TERMINAL &
 
 # browsers
 riverctl map normal $mod B spawn "MOZ_ENABLE_WAYLAND=1 firefox" &
+riverctl map normal $mod+$alt B spawn "qutebrowser" &
 
 # menu
 riverctl map normal $mod D spawn "$XDG_CONFIG_HOME/sway/scripts/menu.sh" &

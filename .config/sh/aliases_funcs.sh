@@ -240,7 +240,8 @@ alias less="less -FIRX"
 alias make="make -j8"
 
 manpdf () {
-    man -Tpdf "$@" | zathura -
+    man -k "$@" > /dev/null
+    [ $? -eq 0 ] && man -Tpdf "$@" | zathura -
 }
 
 mdread() {

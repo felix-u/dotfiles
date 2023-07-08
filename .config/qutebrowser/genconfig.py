@@ -62,7 +62,7 @@ config.set("fonts.default_family", theme['fontsans'])
 # c.colors.completion.item.selected.fg = theme['foreground']
 # c.colors.completion.match.fg = theme['color2']
 # c.colors.completion.scrollbar.bg = theme['color0']
-# c.colors.completion.scrollbar.fg = theme['color7']
+# c.colors.completion.scrollbar.fg = theme['foreground']
 
 # # context menu (right click) 
 # c.colors.contextmenu.disabled.bg = theme['color0']

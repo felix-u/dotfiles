@@ -12,7 +12,7 @@ setopt sharehistory
 source /home/felix/.config/sh/env.sh
 source /home/felix/.config/sh/aliases_funcs.sh
 
-export PAGER=(less -FIRX)
+export PAGER=(less -FIR)
 export MANPAGER="$PAGER"
 
 if test -z "${XDG_RUNTIME_DIR}"; then

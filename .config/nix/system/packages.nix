@@ -52,8 +52,6 @@ in
 
       wl-screenrec = import ../derivations/wl-screenrec.nix;
 
-      zig-master = import ../derivations/zig-master.nix;
-
     in
     with pkgs; [
 
@@ -61,7 +59,6 @@ in
       foot
       gh
       git
-      neofetch
       neovim
       nvi
       stow
@@ -109,8 +106,8 @@ in
       cargo
       # shell
       shellcheck
-      # zig
-      zig-master
+      # # zig
+      # zig-master
       # MATHS
       bc
       libqalculate
@@ -123,6 +120,7 @@ in
       figlet
       file
       fzf
+      glxinfo
       htop
       hunspell
       hunspellDicts.en-gb-ise

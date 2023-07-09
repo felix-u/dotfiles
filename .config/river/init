@@ -71,7 +71,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     pkill waybar
     waybar -c "$XDG_CONFIG_HOME"/waybar/river_thinkpad.json &
 
-    BORDER_WIDTH=3
+    BORDER_WIDTH=4
 
     # fixes xdg-desktop-portal bug causing GTK apps to launch very slowly
     dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &

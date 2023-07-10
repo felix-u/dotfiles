@@ -266,6 +266,8 @@ alias ln='ln -i'
 # build package from repos locally
 alias nb="nix-build '<nixpkgs>' -A"
 
+alias newsraft="newsraft -d $XDG_CONFIG_HOME/newsraft/newsraft.sqlite3"
+
 nrs() {
     if [ "$(hostname)" = "thonkpad" ]; then
         doas nixos-rebuild switch --fast \

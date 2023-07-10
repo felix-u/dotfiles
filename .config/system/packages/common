@@ -49,12 +49,43 @@ xdg-desktop-portal-wlr
 xwayland
 
 # Fonts
+# Many recommended by https://wiki.alpinelinux.org/wiki/Fonts to cover all languages.
+font-arabic-misc
+font-awesome
+font-cronyx-cyrillic
 font-dejavu
 font-eb-garamond
+font-inconsolata
 font-inter
 font-iosevka
+font-ipa
+font-isas-misc
+font-jis-misc
 font-manager
+font-misc-cyrillic
+font-mutt-misc
+font-noto
+font-noto-arabic
+font-noto-armenian
+font-noto-cherokee
+font-noto-cjk
+font-noto-devanagari
 font-noto-emoji
+font-noto-ethiopic
+font-noto-extra
+font-noto-georgian
+font-noto-hebrew
+font-noto-lao
+font-noto-malayalam
+font-noto-tamil
+font-noto-thaana
+font-noto-thai
+font-noto-tibetan
+font-screen-cyrillic
+font-sony-misc
+font-terminus
+font-vollkorn
+font-winitzki-cyrillic
 nerd-fonts-all
 terminus-font
 
@@ -93,7 +124,6 @@ lsblk
 mkinitfs
 ncdu
 neovim
-newsboat
 newsraft
 onefetch
 openssh
@@ -110,3 +140,5 @@ vis
 w3m
 xdg-user-dirs
 xz
+yt-dlp
+zzz

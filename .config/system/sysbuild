@@ -1,26 +1,49 @@
 #!/usr/bin/env sh
 set -e
-scriptdir="$(dirname $0)"
+
+scriptdir="$(dirname "$0")"
 pkgdir="$scriptdir"/packages
+servicedir="$scriptdir"/services
 
 [ "$(id -u)" -ne 0 ] && echo "error: run as root" && return 1
 
 [ -z "$1" ] && echo "error: specify which configuration to build" && return 1
 
-if [ "$1" != "pc" ] && [ "$1" != "thinkpad" ]; then
-    echo "error: no such configuration '$1'" && return 1
-fi
 conf="$1"
 
-[ ! -d "$pkgdir" ] && echo "error: no directory '$pkgdir'" && return 1
-[ ! -f "$pkgdir"/common ] && echo "error: no file '$pkgdir/common'" && return 1
-[ ! -f "$pkgdir"/"$conf" ] && echo "error: no file '$pkgdir/$conf'" && return 1
+{
+    [ ! -d "$pkgdir" ] && echo "error: no directory '$pkgdir'" 
+    [ ! -f "$pkgdir"/common ] && echo "error: no file '$pkgdir/common'" 
+    [ ! -f "$pkgdir"/"$conf" ] && echo "error: no file '$pkgdir/$conf'" 
+    [ ! -d "$servicedir" ] && echo "error: no directory '$servicedir'" 
+    [ ! -f "$servicedir"/common ] && echo "error: no file '$servicedir/common'" 
+    [ ! -f "$servicedir"/"$conf" ] && echo "error: no file '$servicedir/$conf'" 
+} && return 1
 
-pkgs() {
-    grep -v "^#" "$1"
+of () {
+    grep -v "^#" "$1" | grep -v "^$" | sort
 }
 
-pkgs "$pkgdir"/common
-pkgs "$pkgdir"/"$conf"
+touch /etc/apk/world
+mv /etc/apk/world /etc/apk/world.last
+
+of "$pkgdir"/common >> /etc/apk/world
+of "$pkgdir"/"$conf" >> /etc/apk/world
+chmod -w /etc/apk/world
+
+apk fix
+
+diff -U 0 /etc/apk/world.last /etc/apk/world
+
+service_add="$(mktemp)"
+service_del="$(mktemp)"
+
+of "$servicedir"/common | grep "^+" | tr -d '+' >> "$service_add"
+of "$servicedir"/common | grep "^-" | tr -d '-' >> "$service_del"
+
+xargs -I {} rc-update add {} < "$service_add"
+xargs -I {} rc-update del {} < "$service_del"
+
+rm "$service_add" "$service_del"
 
 echo "Done!"

@@ -22,8 +22,8 @@ set noswapfile
 set nowrap
 set nowritebackup
 set nrformats-=octal
-set number
-set relativenumber
+set nonumber
+set norelativenumber
 set ruler
 set scrolloff=1
 set sessionoptions-=options

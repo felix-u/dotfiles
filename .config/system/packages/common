@@ -67,7 +67,6 @@ foot
 imv
 mpv
 pulsemixer
-qutebrowser
 zathura
 zathura-pdf-poppler
 
@@ -97,6 +96,7 @@ ncdu
 neovim
 newsboat
 newsraft
+onefetch
 openssh
 openssl
 pastel
@@ -106,6 +106,7 @@ udev-init-scripts
 udev-init-scripts-openrc
 unicode-character-database
 unzip
+vis
 w3m
 xdg-user-dirs
 xz

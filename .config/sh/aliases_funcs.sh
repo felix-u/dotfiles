@@ -301,6 +301,8 @@ alias prompts="\$EDITOR ~/uni/misc/prompts"
 # bash rain
 alias rainsh="~/dotfiles/scripts/rain.sh"
 
+alias rebuild="doas $XDG_CONFIG_HOME/system/sysbuild"
+
 resize4k() {
     convert "$1" -resize 4000 "$1"
     echo "Resized $1"
@@ -320,7 +322,6 @@ swaybgset() {
 
 alias tm="tmux"
 
-# get temps by watching lm_sensors every half a second
 alias temps="watch -n 0.5 sensors"
 
 alias termatonotif="termato -n \"notify-send '%s'\" -f 25 -b 5 -l 20"

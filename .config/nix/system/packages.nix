@@ -62,6 +62,7 @@ in
       neovim
       nvi
       stow
+      vis
       wget
 
       # DEV AND PROGRAMMING

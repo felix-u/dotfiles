@@ -71,7 +71,6 @@ zathura
 zathura-pdf-poppler
 
 # Utils
-9base
 acct
 clinfo
 curl
@@ -100,6 +99,7 @@ onefetch
 openssh
 openssl
 pastel
+plan9port
 stow
 texlab
 udev-init-scripts

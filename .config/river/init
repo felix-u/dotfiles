@@ -196,11 +196,10 @@ riverctl map normal $mod+$alt T spawn "$XDG_CONFIG_HOME/sway/scripts/screen_temp
 
 # screenshots
 riverctl map normal $mod+Shift D spawn "${SLURPCOMMAND} | grim -g - \
-    ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png'" &
+    ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
 riverctl map normal $mod+Shift S spawn "${SLURPCOMMAND} | grim -g - /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
-riverctl map normal $mod+$alt D spawn "grim \
-   ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png'" &
+riverctl map normal $mod+$alt D spawn "grim ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
 riverctl map normal $mod+$alt S spawn "grim /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
 

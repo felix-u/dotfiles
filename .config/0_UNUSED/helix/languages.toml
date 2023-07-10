@@ -1,7 +1,0 @@
-[[language]]
-name = "org"
-scope = "source.org"
-injection-regex = "^org$"
-file-types = ["org"]
-comment-token = "#"
-indent = { tab-width = 4, unit = " " }

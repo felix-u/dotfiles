@@ -37,7 +37,9 @@ chmod -w /etc/apk/world
 
 apk fix --upgrade
 
+set +e
 diff -U 0 /etc/apk/world.last /etc/apk/world
+set -e
 
 service_fix () {
     of "$1" | while IFS= read -r line; do

@@ -4,6 +4,7 @@ alpine-sdk
 apk-tools
 build-base
 docs
+elogind
 grub-efi
 iw
 linux-firmware-intel
@@ -18,6 +19,7 @@ mesa-egl
 mesa-utils
 mesa-va-gallium
 opencl
+polkit-elogind
 wpa_supplicant
 
 # Devel

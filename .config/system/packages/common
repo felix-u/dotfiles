@@ -18,6 +18,7 @@ mesa-egl
 mesa-utils
 mesa-va-gallium
 opencl
+polkit-noelogind-libs
 wpa_supplicant
 
 # Devel

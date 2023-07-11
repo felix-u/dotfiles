@@ -83,12 +83,19 @@ add-zsh-hook -Uz chpwd osc7_cwd
 
 cdpath=($HOME)
 
-# CTRL-Z brings to foreground the background process.
 _zsh_cli_fg() { fg; }
 zle -N _zsh_cli_fg
 bindkey '^Z' _zsh_cli_fg
 
-# Home and End keys should work as expected
+_clear_and_pwd () {
+    clear
+    pwd
+    zle redisplay
+}
+zle -N _clear_and_pwd
+bindkey "^L" _clear_and_pwd
+
+# Fix home and end keys.
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 
@@ -96,7 +103,6 @@ bindkey -s "^G" 'fcd^M'
 
 source "$XDG_CONFIG_HOME"/sh/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
 
-# Nix
 if [ -e "$HOME"/.nix_profile/etc/profile.d/nix.sh ]; then
     "$HOME"/.nix_profile/etc/profile.d/nix.sh
     any-nix-shell zsh --info-right | source /dev/stdin

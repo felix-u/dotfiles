@@ -62,7 +62,6 @@ in
       neovim
       nvi
       stow
-      vis
       wget
 
       # DEV AND PROGRAMMING
@@ -164,7 +163,6 @@ in
       bluez
       bluez-tools
       firefox
-      newsboat
 
       # DESKTOP
       anki-bin

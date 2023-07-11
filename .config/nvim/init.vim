@@ -7,6 +7,7 @@ set cursorline
 set display+=lastline
 set display+=truncate
 set expandtab
+set guicursor=n-v-c-i:block
 set history=1000
 set hlsearch
 set ignorecase
@@ -17,13 +18,13 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set mouse=a
 set nocompatible
 set nolangremap
+set nonumber
+set norelativenumber
 set noshowcmd
 set noswapfile
 set nowrap
 set nowritebackup
 set nrformats-=octal
-set nonumber
-set norelativenumber
 set ruler
 set scrolloff=1
 set sessionoptions-=options
@@ -48,32 +49,24 @@ filetype plugin indent on
 
 function! s:tweak_default_colours()
   highlight clear
-  hi Comment      cterm=italic ctermfg=02
-  hi Constant     cterm=NONE   ctermfg=06
-  hi CursorLine   cterm=NONE   ctermbg=00
-  hi CursorLineNr cterm=NONE   ctermfg=15 ctermbg=00
-  hi Delimiter    cterm=NONE   ctermfg=White 
-  hi Error        cterm=NONE   ctermfg=NONE   ctermbg=NONE
-  hi Function     cterm=NONE   ctermfg=White
-  hi Identifier   cterm=NONE   ctermfg=White
+  for hlgroup in getcompletion('', 'highlight')
+      execute 'highlight' hlgroup 'NONE'
+  endfor
+  hi link zigDummyVariable NONE
+  hi Comment      cterm=bold   ctermfg=White ctermbg=00
   hi LineNr       ctermfg=07   ctermbg=00
-  hi MatchParen   cterm=bold,underline ctermfg=Black ctermbg=04
+  hi MatchParen   cterm=bold,underline ctermfg=Black ctermbg=White
   hi netrwDir     ctermfg=04
   hi Pmenu        ctermfg=White ctermbg=Black
   hi PmenuSbar    ctermbg=08
   hi PmenuSel     ctermfg=Black ctermbg=White
   hi PmenuThumb   ctermfg=08 ctermbg=08
-  hi PreProc      cterm=NONE   ctermfg=01
   hi Search       cterm=bold   ctermfg=Black ctermbg=03
-  hi Special      cterm=NONE   ctermfg=05
-  hi Statement    cterm=NONE   ctermfg=White
   hi StatusLine   cterm=NONE   ctermfg=White ctermbg=00
-  hi String       cterm=NONE   ctermfg=06
   hi TabLine      cterm=NONE   ctermfg=White ctermbg=00
   hi TabLineFill  cterm=NONE   ctermfg=NONE  ctermbg=NONE
   hi TabLineSel   cterm=bold   ctermfg=Black ctermbg=White
   hi TermCursor   ctermfg=Black ctermbg=White
-  hi Type         cterm=NONE   ctermfg=White
   hi Visual       ctermbg=08
   hi WildMenu     ctermfg=Black ctermbg=White
   autocmd BufReadPost *.c,*.h hi cError cterm=NONE
@@ -96,46 +89,12 @@ echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 noremap <leader>thg :call SynStack()<CR>
 
-" Return to last edit position.
+" Remember edit position.
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \ exe "normal! g`\"" |
   \ endif
 
-" " Toggle commenting.
-" function! ToggleComment(type)
-"     " Get commentstring, remove trailing spaces if any
-"     let l:comment = substitute(&commentstring, '%s.*', '', '')
-"     " Determine lines to operate on based on type
-"     if a:type == 'line'
-"         let l:line1 = line('.')
-"         let l:line2 = line('.')
-"     elseif a:type == 'v'
-"         let l:line1 = line("'<")
-"         let l:line2 = line("'>")
-"     endif
-"     " Get line content of first line
-"     let l:first_line = getline(l:line1)
-"     " Determine whether we are adding or removing comments
-"     let l:adding_comments = l:first_line !~ '^\s*' . l:comment
-"     " Iterate over lines
-"     for l:lnum in range(l:line1, l:line2)
-"         " Get line content
-"         let l:line = getline(l:lnum)
-"         " If line starts with commentstring, remove it
-"         if l:line =~ '^\s*' . l:comment
-"             call setline(l:lnum, substitute(l:line, '\(\s*\)' . l:comment . '\s*', '\1', ''))
-"         " Else, add commentstring at the start
-"         else
-"             let l:indent = match(l:line, '\S')
-"             call setline(l:lnum, strpart(l:line, 0, l:indent) . l:comment . strpart(l:line, l:indent))
-"         endif
-"     endfor
-" endfunction
-" nnoremap gcc :call ToggleComment('line')<CR>
-" xnoremap gc :<C-u>'<,'>g/^/execute "normal! I" . substitute(&commentstring, '%s', '', '') \| nohlsearch<CR>
-
-" Don't copy to clipboard with d/c/y unless after <leader>.
 noremap d  "_d
 noremap dd "_dd
 noremap D  "_d$
@@ -149,32 +108,24 @@ noremap <leader>c  "+c
 noremap <leader>cc "+cc
 noremap <leader>C  "+c$
 
-" Copy and paste from system clipboard
 noremap y "+y
 noremap yy "+yy
 noremap Y "+y$
 noremap p "+p
 noremap P "+P
 
-" Plugins
-
-" Directional keys should navigate visual lines, not actual lines
 nnoremap j gj
 nnoremap k gk
 nnoremap <Down> gj
 nnoremap <Up> gk
 
-" Keep search results centred
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-" Text formatting
 nnoremap <leader>stf :set linebreak!<CR> :set fo+=t<CR> :set tw=120<CR> :set wrap!<CR>
 
-" Yank whole file
 nnoremap <C-y> :%y+<CR>
 
-" Swap more easily between last two buffers
 nnoremap gj <C-^>
 
 " More breakpoints for undo
@@ -187,25 +138,16 @@ inoremap ? ?<C-g>u
 vnoremap < <gv
 vnoremap > >gv
 
-" Shift+Up/Down moves text
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '>-2<CR>gv=gv
-vnoremap <S-Down> :m '>+1<CR>gv=gv
-vnoremap <S-Up> :m '>-2<CR>gv=gv
-
-" toggling various things
 nnoremap <leader>ts :setlocal spell! spelllang=en_gb<CR>
 nnoremap <leader>tls :set number<CR> :set relativenumber<CR>
 nnoremap <leader>tlh :set nonumber<CR> :set norelativenumber<CR>
 nnoremap <leader>tn :Lex<CR>
 
-" window navigation
 nnoremap <C-w><Left> <C-w>h
 nnoremap <C-w><Down> <C-w>j
 nnoremap <C-w><Up> <C-w>k
 nnoremap <C-w><Right> <C-w>l
 
-" better tab navigation
 nnoremap <C-1> :tabn 1<CR>
 nnoremap <C-2> :tabn 2<CR>
 nnoremap <C-3> :tabn 3<CR>
@@ -229,8 +171,8 @@ inoremap <C-0> <ESC>:tabn 10<CR>
 nnoremap <leader>bm :make<CR>
 nnoremap <leader>bn :tabnew<CR>
 nnoremap <leader>be :tabnew<CR>:Explore<CR>
-" nnoremap <leader>bf :tabnew<CR>:Telescope find_files<CR>
 nnoremap <leader>bf :tabnew<CR>:Files<CR>
+
 " Switch to last active tab
 if !exists('g:Lasttab')
     let g:Lasttab = 1
@@ -267,16 +209,8 @@ function! MyTabLine()
 endfunction
 set tabline=%!MyTabLine()
 
-" always switch to last window with <C-^>, insert mode or not
-nnoremap <C-^> <C-w>w
-inoremap <C-^> <C-\><C-n><C-w>w
-tnoremap <C-^> <C-\><C-n><C-w>w
-
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
-
-" convenience
-nnoremap <leader>q :q<CR>
 
 " netrw is far too large by default (50%)
 let g:netrw_winsize = 16
@@ -298,12 +232,11 @@ nnoremap <leader>fm :Maps<CR>
 nnoremap <leader>fh :Helptags<CR>
 nnoremap <leader>ft :Filetypes<CR>
 
-" Nicer binds to add empty lines without leaving normal mode.
+" Add empty lines without leaving normal mode.
 nnoremap [<space> O<Esc>
 nnoremap ]<space> o<Esc>
 
-" filetype plugins
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
 source ~/.config/nvim/pack/plugins/start/fzf/fzf.vim
-syntax off
+syntax on

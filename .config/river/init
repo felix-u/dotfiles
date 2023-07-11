@@ -3,6 +3,8 @@
 source "$XDG_CONFIG_HOME"/sh/env.sh
 source "$XDG_CONFIG_HOME"/sh/aliases_funcs.sh
 
+/usr/libexec/pipewire-launcher & disown
+
 WFG="$(wq foreground)"
 WBG="$(wq background)"
 W00="$(wq color0)"
@@ -102,8 +104,6 @@ elif [[ "$(cat /proc/sys/kernel/hostname)" == "alpinebtw" ]]; then
     waybar -c "$XDG_CONFIG_HOME"/waybar/river_desktop.json &
 
     BORDER_WIDTH=5
-
-    /usr/libexec/pipewire-launcher & disown
 
 fi
 #                  _  __ _      _         _            _                      _

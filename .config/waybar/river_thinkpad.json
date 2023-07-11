@@ -24,19 +24,19 @@
   "battery": {
     "format": "{icon}  {capacity}%",
     "bat": "BAT0",
-    "format-charging": "  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
     "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "󰂃",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
     ],
     "states": {
       "warning": 35,

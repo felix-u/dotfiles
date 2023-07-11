@@ -101,4 +101,12 @@ option_fix () {
 option_fix "$optdir"/common
 option_fix "$optdir"/"$conf"
 
+setup-devd udev &
+
+addgroup felix audio
+addgroup felix input
+addgroup felix seat
+addgroup felix video
+addgroup felix wheel
+
 echo "Done!"

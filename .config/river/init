@@ -75,8 +75,11 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 
     BORDER_WIDTH=4
 
-    # fixes xdg-desktop-portal bug causing GTK apps to launch very slowly
-    dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
+    # # fixes xdg-desktop-portal bug causing GTK apps to launch very slowly
+    # dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
+    
+    # https://wiki.alpinelinux.org/wiki/Suspend_on_LID_close
+    /etc/init.d/acpid start &
 
 # desktop-specific configuration
 elif [[ "$(cat /proc/sys/kernel/hostname)" == "alpinebtw" ]]; then

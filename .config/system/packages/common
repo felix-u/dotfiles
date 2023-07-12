@@ -132,6 +132,7 @@ openssh
 openssl
 pastel
 plan9port
+ripgrep
 stow
 texlab
 udev-init-scripts

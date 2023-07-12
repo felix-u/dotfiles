@@ -5,6 +5,7 @@ scriptdir="$(dirname "$0")"
 pkgdir="$scriptdir"/packages
 servicedir="$scriptdir"/services
 optdir="$scriptdir"/options
+rundir="$scriptdir"/run
 
 [ "$(id -u)" -ne 0 ] && echo "error: run as root" && return 1
 
@@ -22,6 +23,9 @@ conf="$1"
     [ ! -d "$optdir" ] && echo "error: no directory '$optdir'" 
     [ ! -f "$optdir"/common ] && echo "error: no file '$optdir/common'" 
     [ ! -f "$optdir"/"$conf" ] && echo "error: no file '$optdir/$conf'" 
+    [ ! -d "$rundir" ] && echo "error: no directory '$rundir'" 
+    [ ! -f "$rundir"/common ] && echo "error: no file '$rundir/common'" 
+    [ ! -f "$rundir"/"$conf" ] && echo "error: no file '$rundir/$conf'" 
 } && return 1
 
 of () {
@@ -108,5 +112,8 @@ addgroup felix input
 addgroup felix seat
 addgroup felix video
 addgroup felix wheel
+
+. "$rundir"/common
+. "$rundir"/"$conf"
 
 echo "Done!"

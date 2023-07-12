@@ -310,6 +310,15 @@ resize4k() {
     echo "Resized $1"
 }
 
+rg () {
+    /usr/bin/env rg \
+        --colors 'match:none' --colors 'match:style:bold' \
+        --colors 'match:bg:black' --colors 'path:none' \
+        --colors 'path:style:underline' \
+        --column --no-heading --smart-case \
+        $@
+}
+
 alias river="dbus-run-session -- river"
 
 alias schemereload="~/dotfiles/scripts/schemereload.sh"

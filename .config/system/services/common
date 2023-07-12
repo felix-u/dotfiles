@@ -1,4 +1,3 @@
 boot:add:consolefont
 default:add:dbus
 default:add:seatd
-default:add:elogind

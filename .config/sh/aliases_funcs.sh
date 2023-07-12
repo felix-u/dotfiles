@@ -24,9 +24,6 @@ clrpick() {
     done
 }
 
-alias cmatrix="cmatrix -u 2"
-
-alias f="fzf"
 alias fh="tail -n 1000 \$HISTFILE | cut -d ';' -f 2- | uniq | fzf --tac --no-sort --height=50% --bind 'enter:become(sh -c {})'"
 FDEPTH=4
 fcd () {
@@ -295,7 +292,7 @@ alias ncdu="ncdu --color off"
 
 alias onefetch="onefetch --true-color never"
 
-alias page="\$PAGER"
+alias pager="\$PAGER"
 
 # ChatGPT prompts
 alias prompts="\$EDITOR ~/uni/misc/prompts"
@@ -323,19 +320,7 @@ alias river="dbus-run-session -- river"
 
 alias schemereload="~/dotfiles/scripts/schemereload.sh"
 
-alias shutdwn="shutdown -h now"
-
 alias swaptheme="~/dotfiles/scripts/theme/swaptheme.sh"
-
-swaybgset() {
-    pkill swaybg; swaybg -m fill -i "$1"
-}
-
-alias tm="tmux"
-
-alias temps="watch -n 0.5 sensors"
-
-alias termatonotif="termato -n \"notify-send '%s'\" -f 25 -b 5 -l 20"
 
 themeterm() {
     if [ "$1" = "l" ]; then
@@ -368,5 +353,3 @@ wfrecwindow() {
 }
 
 alias wm="\$EDITOR ~/uni/workingmemory"
-
-alias ytfzf="ytfzf -t --thumb-viewer=catimg --thumbnail-quality=medium"

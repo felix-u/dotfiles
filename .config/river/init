@@ -45,8 +45,6 @@ SLURPCOMMAND="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
 if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     WDPI=2
 
-    riverctl map normal None XF86MonBrightnessUp spawn "brightnessctl set +3%" &
-    riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl set 3%-" &
     riverctl map locked None XF86MonBrightnessUp spawn "brightnessctl set +3%" &
     riverctl map locked None XF86MonBrightnessDown spawn "brightnessctl set 3%-" &
 

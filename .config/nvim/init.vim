@@ -239,4 +239,4 @@ nnoremap ]<space> o<Esc>
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
 source ~/.config/nvim/pack/plugins/start/fzf/fzf.vim
-syntax on
+syntax off

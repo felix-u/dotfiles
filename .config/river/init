@@ -75,9 +75,6 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 
     BORDER_WIDTH=4
 
-    # # fixes xdg-desktop-portal bug causing GTK apps to launch very slowly
-    # dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
-    
     # https://wiki.alpinelinux.org/wiki/Suspend_on_LID_close
     /etc/init.d/acpid start &
 
@@ -206,15 +203,6 @@ riverctl map normal $mod+$alt D spawn "grim ~/Pictures/screenshots/\$(date +%Y-%
 riverctl map normal $mod+$alt S spawn "grim /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
 
-# # Mod+Period and Mod+Comma to focus the next/previous output
-# riverctl map normal $mod Period focus-output next
-# riverctl map normal $mod Comma focus-output previous
-# # Mod+Shift+{Period,Comma} to send the focused view to the next/previous output
-# riverctl map normal $mod+Shift Period send-to-output next
-# riverctl map normal $mod+Shift Comma send-to-output previous
-# Mod+Return to bump the focused view to the top of the layout stack
-#riverctl map normal $mod Return zoom
-
 # Mod + Left Mouse Button to move views
 riverctl map-pointer normal $mod BTN_LEFT move-view &
 
@@ -251,9 +239,6 @@ riverctl map normal $mod S toggle-float &
 # Mod+F to toggle fullscreen
 riverctl map normal $mod F toggle-fullscreen &
 riverctl map normal $mod+Shift F send-layout-cmd rivertile "main-location monocle" &
-
-# # Mod+Shift+B to fetch random wallpaper
-# riverctl map normal $mod+Shift B spawn "${XDG_CONFIG_HOME}/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls" &
 
 # Mod+Alt+Shift+B to kill swaybg and get back solid colour background
 riverctl map normal $mod+${alt}+Shift B spawn "killall -q swaybg" &
@@ -311,7 +296,6 @@ riverctl map normal $mod V spawn \
 # Background
 BG="$WS08"
 riverctl background-color "0x$BG" &
-# "$XDG_CONFIG_HOME"/sway/scripts/randwall.sh ~/dotfiles/Pictures/cafe-walls &
 
 # Theming
 BORDER_FOCUSED=$WSFG
@@ -341,34 +325,3 @@ DEFAULT_GAPS_INNER=5
 riverctl default-layout rivertile &
 pkill rivertile
 rivertile -outer-padding "$DEFAULT_GAPS_OUTER" -view-padding "$DEFAULT_GAPS_INNER" &
-# riverctl map normal $mod G send-layout-cmd rivertile "gaps +10" &
-# riverctl map normal $mod+Shift G send-layout-cmd rivertile "gaps -10" &
-# riverctl map normal $mod Period send-layout-cmd rivertile "outer-gaps +10" &
-# riverctl map normal $mod+Shift Period send-layout-cmd rivertile "outer-gaps -10" &
-# resetgaps="\
-#     riverctl send-layout-cmd rivertile 'outer-gaps $DEFAULT_GAPS_OUTER' & \
-#     riverctl send-layout-cmd rivertile 'inner-gaps $DEFAULT_GAPS_INNER' & \
-# "
-# riverctl map normal $mod+$alt G spawn "$resetgaps" &
-
-# # Tag overlay
-# killall -q river-tag-overlay
-# river-tag-overlay \
-#     --border-width $BORDER_WIDTH \
-#     --tag-amount $TAG_NUMBER \
-#     --tags-per-row $TAG_NUMBER \
-#     --square-size 36 \
-#     --square-padding 25 \
-#     --square-inner-padding 9 \
-#     --square-border-width 0 \
-#     --background-colour 0x$WSBG \
-#     --border-colour 0x$WS00 \
-#     --square-active-background-colour 0x$BORDER_FOCUSED \
-#     --square-active-occupied-colour 0x$WS05 \
-#     --square-inactive-background-colour 0x$WS08 \
-#     --square-inactive-occupied-colour 0x$WS00 \
-#     --square-urgent-background-colour 0x$WS01 \
-#     --square-urgent-occupied-colour 0x$BORDER_FOCUSED \
-#     --anchors 0:0:1:0 \
-#     --margins 0:0:100:0 \
-#     &

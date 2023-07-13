@@ -27,10 +27,6 @@ ncurses
 ncurses-dev
 # C
 tcc
-# rust
-cargo
-rust
-sccache
 # shell
 bash
 shellcheck

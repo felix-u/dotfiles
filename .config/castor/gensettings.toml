@@ -1,0 +1,46 @@
+[colors]
+h1 = "$(wq color1)"
+h2 = "$(wq color3)"
+h3 = "$(wq color2)"
+list = "$(wq foreground)"
+text = "$(wq foreground)"
+background = "$(wq background)"
+[colors.quote]
+    foreground = "$(wq foreground)"
+    background = "$(wq color0)"
+
+[characters]
+h1 = "# "
+h2 = "## "
+h3 = "### "
+list = "• "
+
+[fonts]
+[fonts.finger]
+    family = "monospace"
+    size = 12
+[fonts.gemini.text]
+    family = "sans"
+    size = 12
+[fonts.gemini.h1]
+    family = "sans"
+    size = 16
+    style = "bold"
+[fonts.gemini.h2]
+    family = "sans"
+    size = 14
+    style = "bold"
+[fonts.gemini.h3]
+    family = "sans"
+    size = 13
+[fonts.gemini.list]
+    family = "sans"
+    size = 12
+[fonts.gemini.quote]
+    family = "sans"
+    size = 12
+    style = "italic"
+[fonts.gopher]
+    family = "sans"
+    size = 12
+

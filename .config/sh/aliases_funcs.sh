@@ -24,6 +24,10 @@ clrpick() {
     done
 }
 
+fall () {
+    tree -alf --gitignore -in --noreport -I "*cache*" "$@"
+}
+
 alias fh="tail -n 1000 \$HISTFILE | cut -d ';' -f 2- | uniq | fzf --tac --no-sort --height=50% --bind 'enter:become(sh -c {})'"
 FDEPTH=4
 fcd () {

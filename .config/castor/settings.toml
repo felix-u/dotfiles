@@ -1,0 +1,45 @@
+[colors]
+h1 = "#a0342f"
+h2 = "#999950"
+h3 = "#065905"
+list = "#000000"
+text = "#000000"
+background = "#ffffff"
+[colors.quote]
+    foreground = "#000000"
+    background = "#efefef"
+
+[characters]
+h1 = "# "
+h2 = "## "
+h3 = "### "
+list = "• "
+
+[fonts]
+[fonts.finger]
+    family = "monospace"
+    size = 12
+[fonts.gemini.text]
+    family = "sans"
+    size = 12
+[fonts.gemini.h1]
+    family = "sans"
+    size = 16
+    style = "bold"
+[fonts.gemini.h2]
+    family = "sans"
+    size = 14
+    style = "bold"
+[fonts.gemini.h3]
+    family = "sans"
+    size = 13
+[fonts.gemini.list]
+    family = "sans"
+    size = 12
+[fonts.gemini.quote]
+    family = "sans"
+    size = 12
+    style = "italic"
+[fonts.gopher]
+    family = "sans"
+    size = 12

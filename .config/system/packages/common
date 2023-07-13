@@ -25,12 +25,16 @@ wpa_supplicant
 # libraries
 ncurses
 ncurses-dev
+# C
+tcc
+# rust
+cargo
+rust
+sccache
 # shell
 bash
 shellcheck
 zsh
-# C
-tcc
 
 # Desktop
 adwaita-icon-theme
@@ -92,6 +96,7 @@ nerd-fonts-all
 terminus-font
 
 # GUI
+castor
 darktable
 dragon-drop
 firefox
@@ -135,6 +140,7 @@ plan9port
 ripgrep
 stow
 texlab
+tree
 udev-init-scripts
 udev-init-scripts-openrc
 unicode-character-database

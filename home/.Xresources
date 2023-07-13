@@ -1,5 +1,6 @@
 xgen.fontmono: Iosevka 
 xgen.fontsans: Inter
+xgen.fontserif: EBGaramond12
 
 ! special
 *.foreground:   #000000

@@ -241,8 +241,12 @@ alias less="less -FIRX"
 alias make="make -j8"
 
 manpdf () {
-    man -k "$@" > /dev/null
-    [ $? -eq 0 ] && man -Tpdf "$@" | zathura -
+    tmpfile="$(mktemp)"
+    mv "$tmpfile" "$tmpfile".pdf
+    man -Tpdf "$@" > "$tmpfile".pdf
+    [ ! "$?" -eq 0 ] && return
+    zathura "$tmpfile.pdf"
+    rm "$tmpfile".pdf
 }
 
 mdread() {

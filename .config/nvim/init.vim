@@ -54,6 +54,7 @@ function! s:tweak_default_colours()
   endfor
   hi link zigDummyVariable NONE
   hi Comment      cterm=bold   ctermfg=White ctermbg=00
+  hi CursorLine   ctermbg=00
   hi LineNr       ctermfg=07   ctermbg=00
   hi MatchParen   cterm=bold,underline ctermfg=Black ctermbg=White
   hi netrwDir     ctermfg=04

@@ -27,6 +27,8 @@ ncurses
 ncurses-dev
 # C
 tcc
+# go
+go
 # shell
 bash
 shellcheck

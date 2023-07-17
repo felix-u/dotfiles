@@ -94,6 +94,7 @@ nerd-fonts-all
 terminus-font
 
 # GUI
+calibre
 castor
 darktable
 dragon-drop
@@ -104,7 +105,9 @@ imv
 mpv
 pulsemixer
 zathura
-zathura-pdf-poppler
+zathura-djvu
+zathura-pdf-mupdf
+zathura-ps
 
 # Utils
 acct
@@ -143,7 +146,6 @@ udev-init-scripts
 udev-init-scripts-openrc
 unicode-character-database
 unzip
-vis
 w3m
 xdg-user-dirs
 xz

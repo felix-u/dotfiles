@@ -12,6 +12,7 @@ linux-firmware-other
 linux-firmware-rtl_bt
 linux-lts
 man-db
+man-pages
 man-pages-posix
 mesa-dri-gallium
 mesa-egl

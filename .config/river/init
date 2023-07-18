@@ -324,4 +324,4 @@ DEFAULT_GAPS_OUTER=5
 DEFAULT_GAPS_INNER=5
 riverctl default-layout rivertile &
 pkill rivertile
-rivertile -outer-padding "$DEFAULT_GAPS_OUTER" -view-padding "$DEFAULT_GAPS_INNER" -main-ratio 0.5 &
+rivertile -outer-padding "$DEFAULT_GAPS_OUTER" -view-padding "$DEFAULT_GAPS_INNER" &

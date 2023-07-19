@@ -13,27 +13,27 @@ xgen.fontserif: EBGaramond12
 
 ! red
 *.color1:       #a0342f
-*.color9:       #a0342f
+*.color9:       #fff7f2
 
 ! green
 *.color2:       #065905
-*.color10:      #065905
+*.color10:      #e9fceb
 
 ! yellow
 *.color3:       #999950
-*.color11:      #999950
+*.color11:      #fefce3
 
 ! blue
 *.color4:       #007ed6
-*.color12:      #007ed6
+*.color12:      #e8fcfe
 
 ! magenta
 *.color5:       #8888cc
-*.color13:      #8888cc
+*.color13:      #e1e1f2
 
 ! cyan
 *.color6:       #57a8a8
-*.color14:      #57a8a8
+*.color14:      #94f1f9
 
 ! white
 *.color7:       #777777

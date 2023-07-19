@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+riverctl background-color "0x$1" &
+riverctl border-color-unfocused "0x$1" &

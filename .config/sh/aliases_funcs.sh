@@ -13,14 +13,29 @@ alias aggpreset="agg --theme solarized-dark --font-family 'JetBrains Mono'  --fo
 
 alias cdu="cd ~/uni/2023/autumn"
 
-clrpick() {
-    while true
-    do
-        grim -g "$(slurp -b "00000000" -p)" - -t png -o | \
-            convert png:- -format '%[pixel:s]\n' info:- | \
-            awk -F '[(,)]' '{printf("#%02x%02x%02x\n",$2,$3,$4)}' | \
-            pastel format hex
-        sleep 0.5
+clrpick () {
+    while true; do
+        position=$(slurp -b 00000000 -p)
+        sleep 0.2
+        if command -v /usr/bin/gm &> /dev/null; then
+            color=$(grim -g "$position" -t png - \
+                | /usr/bin/gm convert - -format '%[pixel:p{0,0}]' txt:- \
+                | tail -n 1 \
+                | rev \
+                | cut -d ' ' -f 1 \
+                | rev
+            )
+        else
+            color=$(grim -g "$position" -t png - \
+                | convert - -format '%[pixel:p{0,0}]' txt:- \
+                | tail -n 1 \
+                | cut -d ' ' -f 4
+            )
+        fi
+
+        echo $color | pastel format hex
+        echo $color | wl-copy -n
+        sleep 1
     done
 }
 

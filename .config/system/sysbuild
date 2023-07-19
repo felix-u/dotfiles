@@ -108,10 +108,14 @@ option_fix "$optdir"/"$conf"
 setup-devd udev &
 
 addgroup felix audio
+addgroup felix flatpak
 addgroup felix input
+addgroup felix lp
 addgroup felix seat
 addgroup felix video
 addgroup felix wheel
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo &
 
 . "$rundir"/common
 . "$rundir"/"$conf"

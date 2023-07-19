@@ -5,6 +5,9 @@ source "$XDG_CONFIG_HOME"/sh/aliases_funcs.sh
 
 /usr/libexec/pipewire-launcher & disown
 
+/usr/libexec/xdg-desktop-portal-gtk & disown
+/usr/libexec/xdg-desktop-portal-wlr & disown
+
 WFG="$(wq foreground)"
 WBG="$(wq background)"
 W00="$(wq color0)"

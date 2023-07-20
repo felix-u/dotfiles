@@ -345,7 +345,7 @@ alias schemereload="~/dotfiles/scripts/schemereload.sh"
 
 alias swaptheme="~/dotfiles/scripts/theme/swaptheme.sh"
 
-themeterm() {
+theme () {
     if [ "$1" = "l" ]; then
         theme.sh < ~/dotfiles/scripts/theme/lighttheme
     elif [ "$1" = "d" ]; then

@@ -6,14 +6,14 @@
 5: #8888cc
 6: #57a8a8
 7: #777777
-8: #eeee9e
+8: #c1c270
 9: #fff7f2
 10: #e9fceb
 11: #fefce3
 12: #e8fcfe
 13: #e1e1f2
 14: #94f1f9
-15: #444444
+15: #000000
 foreground: #000000
-background: #ffffea
+background: #fdffea
 cursor: #000000

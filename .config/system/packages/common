@@ -42,6 +42,7 @@ zsh
 # Desktop
 adwaita-icon-theme
 grim
+pavucontrol
 pipewire
 pipewire-pulse
 river

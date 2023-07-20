@@ -41,7 +41,7 @@ xgen.fontserif: EBGaramond12
 
 ! alt colours
 *.lightfg:      #000000
-*.lightbg:      #ffffea
+*.lightbg:      #fdffea
 *.light0:       #eeee9e
-*.light8:       #eeee9e
-*.light15:      #444444
+*.light8:       #c1c270
+*.light15:      #000000

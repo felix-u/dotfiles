@@ -8,7 +8,6 @@ shgen "$DOTSCONF"/fontconfig/genfonts.conf "$DOTSCONF"/fontconfig/fonts.conf &
 
 # foot
 shgen "$DOTSCONF"/foot/gencolours.ini "$DOTSCONF"/foot/colours.ini &
-shgen "$DOTSCONF"/foot/genaltcolours.ini "$DOTSCONF"/foot/altcolours.ini &
 
 # darktable
 shgen "$XDG_CONFIG_HOME"/darktable/genuser.css "$XDG_CONFIG_HOME"/darktable/user.css &

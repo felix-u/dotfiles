@@ -1,2 +1,3 @@
 /etc/conf.d/consolefont:set:consolefont=:"ter-132n.psf.gz"
 /etc/mkinitfs/mkinitfs.conf:sed:  ^[[:space:]]*features=".*\(kms\).*"$  s/\(^[[:space:]]*features=".*\)\("$\)/\1 kms\2/  mkinitfs
+/etc/bluetooth/main.conf:sed:  ^ControllerMode = bredr$  s/^.*ControllerMode =.*$/ControllerMode = bredr/  echo

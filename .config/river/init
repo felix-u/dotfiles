@@ -3,10 +3,9 @@
 source "$XDG_CONFIG_HOME"/sh/env.sh
 source "$XDG_CONFIG_HOME"/sh/aliases_funcs.sh
 
-/usr/libexec/pipewire-launcher & disown
-
-/usr/libexec/xdg-desktop-portal-gtk & disown
-/usr/libexec/xdg-desktop-portal-wlr & disown
+[ ! pgrep -x "pipewire-launcher" > /dev/null ] && /usr/libexec/pipewire-launcher &
+[ ! pgrep -x "xdg-desktop-portal-gtk" > /dev/null ] && /usr/libexec/xdg-desktop-portal-gtk &
+[ ! pgrep -x "xdg-desktop-portal-wlr" > /dev/null ] && /usr/libexec/xdg-desktop-portal-wlr &
 
 WFG="$(wq foreground)"
 WBG="$(wq background)"
@@ -275,14 +274,11 @@ done
 # Set repeat rate
 riverctl set-repeat 50 200 &
 
-# Set app-ids of views which should float
-riverctl rule-add float -app-id "*float*" &
-riverctl rule-add float -app-id "*popup*" &
-riverctl rule-add float -app-id "*zathura*" &
-
-# Set app-ids of views which should use server-side decorations
-riverctl rule-add ssd -app-id firefox &
-riverctl rule-add ssd -app-id io.elementary.files &
+# riverctl rule-add float -app-id "*float*" &
+# riverctl rule-add float -app-id "*popup*" &
+# riverctl rule-add float -app-id "*zathura*" &
+# riverctl rule-add ssd -app-id firefox &
+# riverctl rule-add ssd -app-id io.elementary.files &
 
 riverctl attach-mode top &
 # hide cursor when typing or after ten seconds of inactivity
@@ -314,8 +310,8 @@ riverctl xcursor-theme Adwaita 24 &
 pkill wlsunset
 "$XDG_CONFIG_HOME"/sway/scripts/screen_temp.sh default &
 
-# Superuser authentication popup
-/run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
+# # Superuser authentication popup
+# /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
 gsettings set org.gnome.desktop.wm.preferences titlebar-font "$(wq fontsans) 12"
 gsettings set org.gnome.desktop.interface font-name "$(wq fontsans) 12"

@@ -49,6 +49,7 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[7m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4m'
+export MANWIDTH=80
 export MOZ_ENABLE_WAYLAND="1"
 export NIXOS_OZONE_WL=1
 export PAGER="less"

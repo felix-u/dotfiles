@@ -2,6 +2,7 @@ set autoindent
 set autoread
 set backspace=indent,eol,start " backspace in insert mode
 set clipboard="unnamedplus"
+set colorcolumn=80
 set complete-=i " don't complete keywords in included files
 set cursorline
 set display+=lastline
@@ -53,6 +54,7 @@ function! s:tweak_default_colours()
       execute 'highlight' hlgroup 'NONE'
   endfor
   hi link zigDummyVariable NONE
+  hi ColorColumn  ctermbg=00
   hi Comment      cterm=bold   ctermfg=White ctermbg=00
   hi CursorLine   ctermbg=00
   hi LineNr       ctermfg=07   ctermbg=00

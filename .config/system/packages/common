@@ -152,6 +152,7 @@ plan9port
 ripgrep
 stow
 texlab
+texlive
 tree
 udev-init-scripts
 udev-init-scripts-openrc

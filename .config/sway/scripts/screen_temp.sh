@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-
 OPTIONS=$(cat <<-END
 time-sensitive
 3000 K (warmest)
@@ -26,7 +25,7 @@ fi
 
 if [ "$OPT" = "time" ]; then
     LOW_TEMP=4500
-    if [ "$(hostname)" = "nixbtw" ]; then
+    if [ "$(hostname)" = "alpinebtw" ]; then
         HIGH_TEMP=5500
     elif [ "$(hostname)" = "thonkpad" ]; then
         HIGH_TEMP=6000

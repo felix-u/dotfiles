@@ -1,13 +1,13 @@
 set guioptions s
 set selection-clipboard clipboard
-set font                        "$(wq fontsans) Bold 12"
+set font                        "$FONT_SANS Bold 12"
 
-set notification-error-fg       "$(wq color1)" #red
-set notification-warning-fg     "$(wq color3)" #yellow
-set notification-fg             "$(wq color2)" #green
-set inputbar-fg                 "$(wq color12)" #bright-blue
-set highlight-color             "$(wq color3)" #yellow
-set highlight-active-color      "$(wq color4)" #blue
+set notification-error-fg       "#$CLR_01" #red
+set notification-warning-fg     "#$CLR_03" #yellow
+set notification-fg             "#$CLR_02" #green
+set inputbar-fg                 "#$CLR_12" #bright-blue
+set highlight-color             "#$CLR_03" #yellow
+set highlight-active-color      "#$CLR_04" #blue
 
 set render-loading              true
 set recolor                     "false"
@@ -17,54 +17,54 @@ set recolor-keephue             "false"
 
 
 # dark theme by default
-set notification-error-bg       "$(wq background)" #lightbg
-set notification-warning-bg     "$(wq background)" #lightbg
-set notification-bg             "$(wq background)" #backgound
+set notification-error-bg       "#$CLR_BG" #lightbg
+set notification-warning-bg     "#$CLR_BG" #lightbg
+set notification-bg             "#$CLR_BG" #backgound
 
-set completion-bg               "$(wq color0)" #colour0
-set completion-fg               "$(wq color15)" #lightfg-dim
-set completion-group-bg         "$(wq color0)" #colour0
-set completion-group-fg         "$(wq color15)" #lightfg-dim
-set completion-highlight-bg     "$(wq color8)" #bright black
-set completion-highlight-fg     "$(wq color15)" #lightfg-dim
+set completion-bg               "#$CLR_00" #colour0
+set completion-fg               "#$CLR_15" #lightfg-dim
+set completion-group-bg         "#$CLR_00" #colour0
+set completion-group-fg         "#$CLR_15" #lightfg-dim
+set completion-highlight-bg     "#$CLR_08" #bright black
+set completion-highlight-fg     "#$CLR_15" #lightfg-dim
 
-set index-bg                    "$(wq background)" #lightbg
-set index-fg                    "$(wq color15)" #lightfg-dim
-set index-active-bg             "$(wq color8)" #colour8
-set index-active-fg             "$(wq color15)" #lightfg-dim
+set index-bg                    "#$CLR_BG" #lightbg
+set index-fg                    "#$CLR_15" #lightfg-dim
+set index-active-bg             "#$CLR_08" #colour8
+set index-active-fg             "#$CLR_15" #lightfg-dim
 
-set inputbar-bg                 "$(wq color0)" #lightbg
-set statusbar-bg                "$(wq color0)" #lightbg
-set statusbar-fg                "$(wq color15)" #lightfg-dim
+set inputbar-bg                 "#$CLR_00" #lightbg
+set statusbar-bg                "#$CLR_00" #lightbg
+set statusbar-fg                "#$CLR_15" #lightfg-dim
 
-set default-bg                  "$(wq background)" #lightbg
-set default-fg                  "$(wq foreground)" #lightfg
-set render-loading-bg           "$(wq background)" #lightbg
-set render-loading-fg           "$(wq foreground)" #lightfg
+set default-bg                  "#$CLR_BG" #lightbg
+set default-fg                  "#$CLR_FG" #lightfg
+set render-loading-bg           "#$CLR_BG" #lightbg
+set render-loading-fg           "#$CLR_FG" #lightfg
 
-set recolor-lightcolor          "$(wq background)" #lightbg
-set recolor-darkcolor           "$(wq foreground)" #lightfg
+set recolor-lightcolor          "#$CLR_BG" #lightbg
+set recolor-darkcolor           "#$CLR_FG" #lightfg
 
 
 # light theme binding (press 1)
-map '1' feedkeys ":set statusbar-bg '$(wq color0)'<Return>3"
-map '3' feedkeys ":set statusbar-fg '$(wq foreground)'<Return>4"
-map '4' feedkeys ":set default-bg '$(wq background)'<Return>5"
-map '5' feedkeys ":set default-fg '$(wq foreground)'<Return>6"
-map '6' feedkeys ":set render-loading-bg '$(wq background)'<Return>7"
-map '7' feedkeys ":set render-loading-fg '$(wq foreground)'<Return>8"
-map '8' feedkeys ":set recolor-lightcolor '$(wq background)'<Return>9"
-map '9' feedkeys ":set recolor-darkcolor '$(wq foreground)'<Return>"
+map '1' feedkeys ":set statusbar-bg '#$CLR_00'<Return>3"
+map '3' feedkeys ":set statusbar-fg '#$CLR_FG'<Return>4"
+map '4' feedkeys ":set default-bg '#$CLR_BG'<Return>5"
+map '5' feedkeys ":set default-fg '#$CLR_FG'<Return>6"
+map '6' feedkeys ":set render-loading-bg '#$CLR_BG'<Return>7"
+map '7' feedkeys ":set render-loading-fg '#$CLR_FG'<Return>8"
+map '8' feedkeys ":set recolor-lightcolor '#$CLR_BG'<Return>9"
+map '9' feedkeys ":set recolor-darkcolor '#$CLR_FG'<Return>"
 
 # dark theme binding (press 2)
-map '2' feedkeys ":set statusbar-bg '$(wq light0)'<Return>0"
-map '0' feedkeys ":set statusbar-fg '$(wq light15)'<Return>w"
-map 'w' feedkeys ":set default-bg '$(wq lightbg)'<Return>f"
-map 'f' feedkeys ":set default-fg '$(wq lightfg)'<Return>p"
-map 'p' feedkeys ":set render-loading-bg '$(wq lightbg)'<Return>b"
-map 'b' feedkeys ":set render-loading-fg '$(wq lightfg)'<Return>u"
-map 'u' feedkeys ":set recolor-lightcolor '$(wq lightbg)'<Return>y"
-map 'y' feedkeys ":set recolor-darkcolor '$(wq lightfg)'<Return>"
+map '2' feedkeys ":set statusbar-bg '#$CLR_00_ALT'<Return>0"
+map '0' feedkeys ":set statusbar-fg '#$CLR_15_ALT'<Return>w"
+map 'w' feedkeys ":set default-bg '#$CLR_BG_ALT'<Return>f"
+map 'f' feedkeys ":set default-fg '#$CLR_FG_ALT'<Return>p"
+map 'p' feedkeys ":set render-loading-bg '#$CLR_BG_ALT'<Return>b"
+map 'b' feedkeys ":set render-loading-fg '#$CLR_FG_ALT'<Return>u"
+map 'u' feedkeys ":set recolor-lightcolor '#$CLR_BG_ALT'<Return>y"
+map 'y' feedkeys ":set recolor-darkcolor '#$CLR_FG_ALT'<Return>"
 
 
 # vim:ft=sh

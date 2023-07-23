@@ -2,10 +2,10 @@
 
 [options]
 
-background = $(pastel darken 0.05 $(wqs background) | pastel format hex)
-overlay_font = $(wq fontsans)Sans:12
-overlay_text_color = $(wqs foreground)
-overlay_background_color = $(wqs color0)
+background = $(pastel darken 0.05 $CLR_BG | pastel format hex)
+overlay_font = ${FONT_SANS}:12
+overlay_text_color = $CLR_FG
+overlay_background_color = $CLR_00
 overlay_position_bottom = true
 
 scaling_mode = shrink

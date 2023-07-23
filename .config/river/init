@@ -3,45 +3,19 @@
 source "$XDG_CONFIG_HOME"/sh/env.sh
 source "$XDG_CONFIG_HOME"/sh/aliases_funcs.sh
 
-[ ! pgrep -x "pipewire-launcher" > /dev/null ] && /usr/libexec/pipewire-launcher &
-[ ! pgrep -x "xdg-desktop-portal-gtk" > /dev/null ] && /usr/libexec/xdg-desktop-portal-gtk &
-[ ! pgrep -x "xdg-desktop-portal-wlr" > /dev/null ] && /usr/libexec/xdg-desktop-portal-wlr &
-
-WFG="$(wq foreground)"
-WBG="$(wq background)"
-W00="$(wq color0)"
-W01="$(wq color1)"
-W02="$(wq color2)"
-W03="$(wq color3)"
-W04="$(wq color4)"
-W05="$(wq color5)"
-W06="$(wq color6)"
-W07="$(wq color7)"
-W08="$(wq color8)"
-W15="$(wq color15)"
-
-WSFG="$(wqs foreground)"
-WSBG="$(wqs background)"
-WS00="$(wqs color0)"
-WS01="$(wqs color1)"
-WS02="$(wqs color2)"
-WS03="$(wqs color3)"
-WS04="$(wqs color4)"
-WS05="$(wqs color5)"
-WS06="$(wqs color6)"
-WS07="$(wqs color7)"
-WS08="$(wqs color8)"
-WS15="$(wqs color15)"
+pgrep "pipewire" > /dev/null || /usr/libexec/pipewire-launcher &
+pgrep "xdg-desktop-portal-gtk" > /dev/null || /usr/libexec/xdg-desktop-portal-gtk &
+pgrep "xdg-desktop-portal-wlr" > /dev/null || /usr/libexec/xdg-desktop-portal-wlr &
 
 mod="Mod4"
 alt="Mod1"
 
 # Reload
-riverctl map normal $mod+$alt R spawn "$XDG_CONFIG_HOME/river/init" &
+riverctl map normal $mod+$alt R spawn ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/river/init" &
 # Quit
 riverctl map normal $mod+$alt Q exit &
 
-SLURPCOMMAND="slurp -d -b '${WS07}40' -c '${WS07}' -w 3"
+SLURPCOMMAND="slurp -d -b '${CLR_07}40' -c '${CLR_07}' -w 3"
 
 # laptop-specific configuration
 if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
@@ -178,7 +152,7 @@ riverctl map normal $mod B spawn "MOZ_ENABLE_WAYLAND=1 firefox" &
 riverctl map normal $mod+$alt B spawn "qutebrowser" &
 
 # menu
-riverctl map normal $mod D spawn "$XDG_CONFIG_HOME/sway/scripts/menu.sh" &
+riverctl map normal $mod D spawn ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/menu.sh" &
 
 # files
 riverctl map normal $mod A spawn "$FILES" &
@@ -187,14 +161,14 @@ riverctl map normal $mod A spawn "$FILES" &
 riverctl map normal $mod W close &
 
 # Mod+x for swaylock
-riverctl map normal $mod X spawn "$XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
+riverctl map normal $mod X spawn ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
 
 # Mod+Tab between the two most recent tags, with Shift to send window there
 riverctl map normal $mod Tab focus-previous-tags &
 riverctl map normal $mod+Shift Tab send-to-previous-tags &
 
 # temperature control
-riverctl map normal $mod+$alt T spawn "$XDG_CONFIG_HOME/sway/scripts/screen_temp.sh" &
+riverctl map normal $mod+$alt T spawn ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/screen_temp.sh" &
 
 # screenshots
 riverctl map normal $mod+Shift D spawn "${SLURPCOMMAND} | grim -g - \
@@ -241,9 +215,6 @@ riverctl map normal $mod S toggle-float &
 # Mod+F to toggle fullscreen
 riverctl map normal $mod F toggle-fullscreen &
 riverctl map normal $mod+Shift F send-layout-cmd rivertile "main-location monocle" &
-
-# Mod+Alt+Shift+B to kill swaybg and get back solid colour background
-riverctl map normal $mod+${alt}+Shift B spawn "killall -q swaybg" &
 
 # scratchpad
 # The scratchpad will live on an unused tag. Which tags are used depends on your
@@ -292,16 +263,14 @@ riverctl map normal $mod V spawn \
     "riverctl hide-cursor timeout 10000 && \
      riverctl hide-cursor when-typing enabled" &
 
-# Background
-BG="$WS08"
-riverctl background-color "0x$BG" &
+"$XDG_CONFIG_HOME"/river/wp "$CLR_07" &
+riverctl map normal $mod+$alt B spawn ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/river/wp" &
 
 # Theming
-BORDER_FOCUSED=$WSFG
+BORDER_FOCUSED=$CLR_FG
 BORDER_UNFOCUSED=$BG
-BORDER_URGENT=$WS01
+BORDER_URGENT=$CLR_01
 riverctl border-color-focused "0x$BORDER_FOCUSED" &
-riverctl border-color-unfocused "0x$BORDER_UNFOCUSED" &
 riverctl border-color-urgent "0x$BORDER_URGENT" &
 riverctl border-width $BORDER_WIDTH &
 riverctl xcursor-theme Adwaita 24 &
@@ -313,10 +282,10 @@ pkill wlsunset
 # # Superuser authentication popup
 # /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
-gsettings set org.gnome.desktop.wm.preferences titlebar-font "$(wq fontsans) 12"
-gsettings set org.gnome.desktop.interface font-name "$(wq fontsans) 12"
-gsettings set org.gnome.desktop.interface document-font-name "$(wq fontsans) 12"
-gsettings set org.gnome.desktop.interface monospace-font-name "$(wq fontmono) 12"
+gsettings set org.gnome.desktop.wm.preferences titlebar-font "$FONT_SANS 12"
+gsettings set org.gnome.desktop.interface font-name "$FONT_SANS 12"
+gsettings set org.gnome.desktop.interface document-font-name "$FONT_SANS 12"
+gsettings set org.gnome.desktop.interface monospace-font-name "$FONT_MONO 12"
 
 # Gaps
 DEFAULT_GAPS_OUTER=5 

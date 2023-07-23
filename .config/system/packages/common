@@ -32,6 +32,8 @@ ncurses
 ncurses-dev
 # C
 tcc
+# forth
+gforth
 # go
 go
 # shell
@@ -144,6 +146,7 @@ newsraft
 onefetch
 openssh
 openssl
+pandoc-cli
 pastel
 plan9port
 ripgrep

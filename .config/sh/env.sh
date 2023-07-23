@@ -1,5 +1,34 @@
 #!/usr/bin/env sh
 
+export FONT_MONO="Iosevka"
+export FONT_SANS="Inter"
+export FONT_SERIF="EBGaramond12"
+
+export CLR_FG="000000"
+export CLR_BG="ffffff"
+export CLR_00="efefef"
+export CLR_08="c0c0c0"
+export CLR_01="a0342f"
+export CLR_09="a0342f"
+export CLR_02="065905"
+export CLR_10="065905"
+export CLR_03="999950"
+export CLR_11="999950"
+export CLR_04="007ed6"
+export CLR_12="007ed6"
+export CLR_05="8888cc"
+export CLR_13="8888cc"
+export CLR_06="57a8a8"
+export CLR_14="57a8a8"
+export CLR_07="777777"
+export CLR_15="000000"
+
+export CLR_FG_ALT="000000"
+export CLR_BG_ALT="fdffea"
+export CLR_00_ALT="eeee9e"
+export CLR_08_ALT="c1c270"
+export CLR_15_ALT="000000"
+
 export AGENDAFILE="$HOME/uni/2023/autumn/agenda"
 export AMD_VULKAN_ICD="RADV"
 export BROWSER="firefox"
@@ -10,6 +39,7 @@ export EDITOR="nvim"
 export FILES="io.elementary.files --new-window"
 export FZF_DEFAULT_COMMAND="fd"
 export FZF_DEFAULT_OPTS="--color=16"
+export GFORTHHIST="$XDG_CACHE_HOME"/.gforth-history
 export GREP_COLORS="ms=1;97"
 export IMAGE="imv"
 export LESS_TERMCAP_mb=$'\e[1;36m'

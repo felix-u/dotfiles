@@ -14,7 +14,7 @@ while true; do
     font="$(convert -list font | awk -F: '/^[ ]*Font: /{print substr($NF,2)}' | fzf)"
     [ "$font" = "" ] && break
 
-    convert -size 4000x3000 xc:"$(wq background)" -fill "$(wq foreground)" \
+    convert -size 4000x3000 xc:"#$CLR_BG" -fill "#$CLR_FG" \
         -gravity center -pointsize 250 -font "$font" -annotate +0+0 \
         "$preview_text" -flatten "$tmpfile"
 

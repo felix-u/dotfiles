@@ -1,16 +1,12 @@
 #!/usr/bin/env sh
 
-wq () {
-    grep "$1:" ~/.Xresources | awk '{print $2}'
-}
-
 PADDINGV="4%"
 PADDINGH="2%"
-tofi-drun --font "$(wq fontsans)" --width 36% --height 50% --hint-font false \
-    --background-color "$(wq background)" --text-color "$(wq color15)" \
+tofi-drun --font "$FONT_SANS" --width 36% --height 50% --hint-font false \
+    --background-color "#$CLR_BG" --text-color "#$CLR_15" \
     --font-size 20 --prompt-text " % " --outline-width 0 --border-width 4 \
-    --border-color "$(wq foreground)" --selection-color "$(wq background)" \
-    --selection-background "$(wq foreground)" --selection-padding 16 \
+    --border-color "#$CLR_FG" --selection-color "#$CLR_BG" \
+    --selection-background "#$CLR_FG" --selection-background-padding 4 \
     --result-spacing 16 --padding-top $PADDINGV --padding-bottom $PADDINGV \
     --padding-left $PADDINGH --padding-right $PADDINGH --fuzzy-match true \
     --drun-launch true

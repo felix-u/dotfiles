@@ -1,18 +1,18 @@
 :root {
-    --fg: $(wq foreground);
-    --bg: $(wq background);
-    --black: $(wq color0);
-    --red: $(wq color1);
-    --green: $(wq color2);
-    --yellow: $(wq color3);
-    --blue: $(wq color4);
-    --magenta: $(wq color5);
-    --cyan: $(wq color6);
-    --grey: $(wq color7);
-    --xcolor15: $(wq color15);
+    --fg: #$CLR_FG;
+    --bg: #$CLR_BG;
+    --black: #$CLR_00;
+    --red: #$CLR_01;
+    --green: #$CLR_02;
+    --yellow: #$CLR_03;
+    --blue: #$CLR_04;
+    --magenta: #$CLR_05;
+    --cyan: #$CLR_06;
+    --grey: #$CLR_07;
+    --xcolor15: #$CLR_15;
 
-    --sans: $(wq fontsans);
-    --mono: $(wq fontmono);
+    --sans: $FONT_SANS;
+    --mono: $FONT_MONO;
 
     --br: 2em;
 }

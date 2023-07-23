@@ -13,7 +13,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "$(wq fontsans)", "FiraCode Nerd Font";
+    font-family: "${FONT_SANS}", "FiraCode Nerd Font";
     font-weight: normal;
     box-shadow: inherit;
     text-shadow: inherit;
@@ -22,9 +22,8 @@
 
 
 window#waybar {
-    background: $(wq background);
-    color: $(wq foreground);
-    /* border-bottom: 1pt solid $(wq color8); */
+    background: #$CLR_BG;
+    color: #$CLR_FG;
 }
 
 #window {
@@ -48,7 +47,7 @@ window#waybar {
 #workspaces button, #tags button {
     padding-left: 2px;
     padding-right: 2px;
-    color: $(wq color7);
+    color: #$CLR_07;
 }
 
 #workspaces button:hover, #tags button:hover {
@@ -56,11 +55,11 @@ window#waybar {
 }
 
 #tags button.occupied {
-    color: $(wq foreground);
+    color: #$CLR_FG;
 }
 
 #workspaces button.focused, #workspaces button.active, #tags button.focused {
-    color: $(wq foreground);
+    color: #$CLR_FG;
     text-shadow: 0px 0.5px, 0.5px 0px, 0.5px 0.5px;
     transition: none;
 }
@@ -74,10 +73,10 @@ window#waybar {
     padding: 0px 10px;
 }
 #cpu.warning {
-    color: $(wq color7);
+    color: #$CLR_07;
 }
 #cpu.critical {
-    color: $(wq foreground);
+    color: #$CLR_FG;
 }
 
 #custom-clock {
@@ -86,7 +85,7 @@ window#waybar {
     margin-right: 20px;
     margin-left: 0px;
     padding: 0px 9px;
-    color: $(wq foreground);
+    color: #$CLR_FG;
 }
 
 
@@ -104,7 +103,7 @@ window#waybar {
     margin-right: 6px;
     margin-left: 0px;
     padding: 0px 9px;
-    color: $(wq foreground);
+    color: #$CLR_FG;
 }
 
 #pulseaudio, #pulseaudio.bluetooth {
@@ -113,9 +112,9 @@ window#waybar {
     margin-left: 6px;
     margin-right: 6px;
     padding: 0px 10px;
-    color: $(wq color15);
+    color: #$CLR_15;
 }
 
 #pulseaudio.muted, #pulseaudio.bluetooth.muted {
-    color: $(wq color7);
+    color: #$CLR_07;
 }

@@ -24,7 +24,7 @@ if test -z "${XDG_RUNTIME_DIR}"; then
 fi
 
 pwd
-PS1="%(?.%F{normal}.%F{red})%(!.#.${PROMPTCHAR})%f "
+PROMPT="%(?.%F{normal}.%F{red})%(!.#.${PROMPTCHAR})%f "
 
 # Auto/tab complete ---
 autoload -U compinit

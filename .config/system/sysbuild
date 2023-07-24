@@ -110,7 +110,9 @@ setup-devd udev &
 addgroup felix audio
 addgroup felix flatpak
 addgroup felix input
+addgroup felix kvm
 addgroup felix lp
+addgroup felix qemu
 addgroup felix seat
 addgroup felix video
 addgroup felix wheel

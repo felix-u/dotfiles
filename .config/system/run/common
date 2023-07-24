@@ -7,4 +7,3 @@ fc-cache -f &
 # Bluetooth
 
 modprobe btusb
-

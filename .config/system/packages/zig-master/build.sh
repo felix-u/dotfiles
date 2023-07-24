@@ -3,7 +3,7 @@ set -e
 
 install_dir="$HOME"/.local/bin/
 mkdir -p "$install_dir"
-pkg_ver="0.11.0-dev.4056+996eb0174"
+pkg_ver="0.11.0-dev.4191+1bf16b172"
 pkg_arch="x86_64"
 src_dir="zig-linux-$pkg_arch-$pkg_ver"
 archive="$src_dir.tar.xz"

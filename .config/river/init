@@ -4,14 +4,17 @@ source "$XDG_CONFIG_HOME"/sh/env.sh
 source "$XDG_CONFIG_HOME"/sh/aliases_funcs.sh
 
 pgrep "pipewire" > /dev/null || /usr/libexec/pipewire-launcher &
-pgrep "xdg-desktop-portal-gtk" > /dev/null || /usr/libexec/xdg-desktop-portal-gtk &
-pgrep "xdg-desktop-portal-wlr" > /dev/null || /usr/libexec/xdg-desktop-portal-wlr &
+pgrep "xdg-desktop-portal-gtk" > /dev/null || \
+    /usr/libexec/xdg-desktop-portal-gtk &
+pgrep "xdg-desktop-portal-wlr" > /dev/null || \
+    /usr/libexec/xdg-desktop-portal-wlr &
 
 mod="Mod4"
 alt="Mod1"
 
 # Reload
-riverctl map normal $mod+$alt R spawn ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/river/init" &
+riverctl map normal $mod+$alt R spawn \
+    ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/river/init" &
 # Quit
 riverctl map normal $mod+$alt Q exit &
 
@@ -21,10 +24,14 @@ SLURPCOMMAND="slurp -d -b '${CLR_07}40' -c '${CLR_07}' -w 3"
 if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     WDPI=2
 
-    riverctl map normal None XF86MonBrightnessUp spawn "brightnessctl set +3%" &
-    riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl set 3%-" &
-    riverctl map locked None XF86MonBrightnessUp spawn "brightnessctl set +3%" &
-    riverctl map locked None XF86MonBrightnessDown spawn "brightnessctl set 3%-" &
+    riverctl map normal None XF86MonBrightnessUp spawn \
+        "brightnessctl set +3%" &
+    riverctl map normal None XF86MonBrightnessDown spawn \
+        "brightnessctl set 3%-" &
+    riverctl map locked None XF86MonBrightnessUp spawn \
+        "brightnessctl set +3%" &
+    riverctl map locked None XF86MonBrightnessDown spawn \
+        "brightnessctl set 3%-" &
 
     wlr-randr --output "eDP-1" --scale "$WDPI" &
 
@@ -105,8 +112,10 @@ riverctl map normal $mod+Shift $up swap previous &
 riverctl map normal $mod $right send-layout-cmd rivertile "main-ratio +0.05" &
 riverctl map normal $mod $left send-layout-cmd rivertile "main-ratio -0.05" &
 # increment/decrement the main_count value of rivertile.
-riverctl map normal $mod+Shift $left send-layout-cmd rivertile "main-count +1" &
-riverctl map normal $mod+Shift $right send-layout-cmd rivertile "main-count -1" &
+riverctl map normal $mod+Shift $left send-layout-cmd \
+    rivertile "main-count +1" &
+riverctl map normal $mod+Shift $right send-layout-cmd \
+    rivertile "main-count -1" &
 # move views
 riverctl map normal $mod+Shift Left move left $offset_amount &
 riverctl map normal $mod+Shift Down move down $offset_amount &
@@ -125,10 +134,14 @@ riverctl map normal $mod+$alt Right resize horizontal $offset_amount &
 # swap current view with master, or master with first slave
 riverctl map normal $mod $pageup zoom &
 # Mod+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal $mod Left  send-layout-cmd rivertile "main-location left" &
-riverctl map normal $mod Down  send-layout-cmd rivertile "main-location bottom" &
-riverctl map normal $mod Up    send-layout-cmd rivertile "main-location top" &
-riverctl map normal $mod Right send-layout-cmd rivertile "main-location right" &
+riverctl map normal $mod Left  send-layout-cmd \
+    rivertile "main-location left" &
+riverctl map normal $mod Down  send-layout-cmd \
+    rivertile "main-location bottom" &
+riverctl map normal $mod Up    send-layout-cmd \
+    rivertile "main-location top" &
+riverctl map normal $mod Right send-layout-cmd \
+    rivertile "main-location right" &
 
 #
 #              _                          _
@@ -152,7 +165,8 @@ riverctl map normal $mod B spawn "MOZ_ENABLE_WAYLAND=1 firefox" &
 riverctl map normal $mod+$alt B spawn "qutebrowser" &
 
 # menu
-riverctl map normal $mod D spawn ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/menu.sh" &
+riverctl map normal $mod D spawn \
+    ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/menu.sh" &
 
 # files
 riverctl map normal $mod A spawn "$FILES" &
@@ -161,21 +175,25 @@ riverctl map normal $mod A spawn "$FILES" &
 riverctl map normal $mod W close &
 
 # Mod+x for swaylock
-riverctl map normal $mod X spawn ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
+riverctl map normal $mod X spawn \
+    ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
 
 # Mod+Tab between the two most recent tags, with Shift to send window there
 riverctl map normal $mod Tab focus-previous-tags &
 riverctl map normal $mod+Shift Tab send-to-previous-tags &
 
 # temperature control
-riverctl map normal $mod+$alt T spawn ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/screen_temp.sh" &
+riverctl map normal $mod+$alt T spawn \
+    ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/screen_temp.sh" &
 
 # screenshots
 riverctl map normal $mod+Shift D spawn "${SLURPCOMMAND} | grim -g - \
     ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
-riverctl map normal $mod+Shift S spawn "${SLURPCOMMAND} | grim -g - /tmp/screenshot.png && \
+riverctl map normal $mod+Shift S spawn "${SLURPCOMMAND} | \
+    grim -g - /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
-riverctl map normal $mod+$alt D spawn "grim ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
+riverctl map normal $mod+$alt D spawn \
+    "grim ~/Pictures/screenshots/\$(date +%Y-%m-%d-%H:%M:%S).png" &
 riverctl map normal $mod+$alt S spawn "grim /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
 
@@ -214,7 +232,8 @@ riverctl map normal $mod S toggle-float &
 
 # Mod+F to toggle fullscreen
 riverctl map normal $mod F toggle-fullscreen &
-riverctl map normal $mod+Shift F send-layout-cmd rivertile "main-location monocle" &
+riverctl map normal $mod+Shift F send-layout-cmd \
+    rivertile "main-location monocle" &
 
 # scratchpad
 # The scratchpad will live on an unused tag. Which tags are used depends on your
@@ -237,9 +256,12 @@ riverctl spawn-tagmask ${all_but_scratch_tag}
 # not have a modifier
 for mode in normal locked
 do
-    riverctl map $mode None XF86AudioRaiseVolume  spawn "pulsemixer --change-volume +10" &
-    riverctl map $mode None XF86AudioLowerVolume  spawn "pulsemixer --change-volume -10" &
-    riverctl map $mode None XF86AudioMute         spawn "pulsemixer --toggle-mute" &
+    riverctl map $mode None XF86AudioRaiseVolume spawn \
+        "pulsemixer --change-volume +10" &
+    riverctl map $mode None XF86AudioLowerVolume spawn \
+        "pulsemixer --change-volume -10" &
+    riverctl map $mode None XF86AudioMute        spawn \
+        "pulsemixer --toggle-mute" &
 done
 
 # Set repeat rate
@@ -264,7 +286,8 @@ riverctl map normal $mod V spawn \
      riverctl hide-cursor when-typing enabled" &
 
 "$XDG_CONFIG_HOME"/river/wp "$CLR_07" &
-riverctl map normal $mod+$alt B spawn ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/river/wp" &
+riverctl map normal $mod+$alt B spawn \
+    ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/river/wp" &
 
 # Theming
 BORDER_FOCUSED=$CLR_FG
@@ -292,4 +315,8 @@ DEFAULT_GAPS_OUTER=5
 DEFAULT_GAPS_INNER=5
 riverctl default-layout rivertile &
 pkill rivertile
-rivertile -outer-padding "$DEFAULT_GAPS_OUTER" -view-padding "$DEFAULT_GAPS_INNER" &
+rivertile \
+    -outer-padding "$DEFAULT_GAPS_OUTER" \
+    -view-padding "$DEFAULT_GAPS_INNER" \
+    -main-ratio 0.5 \
+    &

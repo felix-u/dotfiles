@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
-alias ag="agnota \$AGENDAFILE -un task | \$PAGER"
+alias agnota="nota --no-colour --line-num"
+
+alias ag="agnota \$AGENDAFILE -un task --no-colour | \$PAGER"
 alias agerrands="agnota \$AGENDAFILE -un errand | \$PAGER"
 alias agerrandspast="agnota \$AGENDAFILE -bs ascending -n Errand --not-tagged | \$PAGER"
-alias agnota="nota --force-colour --line-num"
 alias agpast="agnota \$AGENDAFILE -bs ascending -n task --not-tagged | \$PAGER"
 alias agtodo="agerrandspast && agerrands && agpast && ag"
 alias agv="\$EDITOR \$AGENDAFILE"

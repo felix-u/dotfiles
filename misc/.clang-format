@@ -23,26 +23,26 @@ AllowShortFunctionsOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 AllowShortLoopsOnASingleLine: true
 AlwaysBreakAfterDefinitionReturnType: None
-AlwaysBreakAfterReturnType: AllDefinitions
+AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 BinPackArguments: false
 BinPackParameters: false
 BitFieldColonSpacing: Both
 BraceWrapping:
-  AfterCaseLabel:  true
-  AfterControlStatement: Always
-  AfterEnum:       true
-  AfterExternBlock: true
-  AfterFunction:   true
-  AfterStruct:     true
-  AfterUnion:      true
-  BeforeElse:      true
-  BeforeWhile:     true
+  AfterCaseLabel:  false
+  AfterControlStatement: MultiLine
+  AfterEnum:       false
+  AfterExternBlock: false
+  AfterFunction:   false
+  AfterStruct:     false
+  AfterUnion:      false
+  BeforeElse:      false
+  BeforeWhile:     false
   IndentBraces:    false
   SplitEmptyFunction: false
   SplitEmptyRecord: false
 BreakBeforeBinaryOperators: None
-BreakBeforeBraces: Allman
+BreakBeforeBraces: Custom
 BreakBeforeTernaryOperators: true
 BreakStringLiterals: true
 ColumnLimit:     80

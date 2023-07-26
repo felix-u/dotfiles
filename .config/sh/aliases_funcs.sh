@@ -293,7 +293,7 @@ nrs() {
     if [ "$(hostname)" = "thonkpad" ]; then
         doas nixos-rebuild switch --fast \
 	        -I nixos-config="$XDG_CONFIG_HOME"/nix/thinkpad/configuration.nix
-    elif [ "$(hostname)" = "nixbtw" ]; then
+    elif [ "$(hostname)" = "nixbtw" ] || [ "$(hostname)" = "pc" ]; then
         doas nixos-rebuild switch --fast \
             -I nixos-config="$XDG_CONFIG_HOME"/nix/pc/configuration.nix
     elif [ "$(hostname)" = "toshiba" ]; then
@@ -345,6 +345,8 @@ alias river="dbus-run-session -- river"
 alias schemereload="~/dotfiles/scripts/schemereload.sh"
 
 alias swaptheme="~/dotfiles/scripts/theme/swaptheme.sh"
+
+alias sway="dbus-run-session -- sway"
 
 theme () {
     if [ "$1" = "l" ]; then

@@ -20,6 +20,7 @@ mesa-egl
 mesa-utils
 mesa-va-gallium
 opencl
+opencl-icd-loader
 polkit-noelogind-libs
 wpa_supplicant
 

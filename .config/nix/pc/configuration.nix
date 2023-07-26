@@ -34,10 +34,8 @@
 
   # networking
   networking = {
-    hostName = "nixbtw";
+    hostName = "pc";
     networkmanager.enable = true;
-    # useDHCP = false;
-    # interfaces.wlan0.useDHCP = true;
   };
 
 
@@ -57,5 +55,5 @@
   };
 
 
-  system.stateVersion = "21.11";
+  system.stateVersion = "23.05";
 }

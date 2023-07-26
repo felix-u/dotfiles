@@ -62,7 +62,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     /etc/init.d/acpid start &
 
 # desktop-specific configuration
-elif [[ "$(cat /proc/sys/kernel/hostname)" == "alpinebtw" ]]; then
+elif [ "$(cat /proc/sys/kernel/hostname)" = "alpinebtw" ] || [ "$(cat /proc/sys/kernel/hostname)" = "pc" ]; then
 
     WDPI="1.3"
 
@@ -305,10 +305,10 @@ pkill wlsunset
 # # Superuser authentication popup
 # /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1 &
 
-gsettings set org.gnome.desktop.wm.preferences titlebar-font "$FONT_SANS 12"
-gsettings set org.gnome.desktop.interface font-name "$FONT_SANS 12"
-gsettings set org.gnome.desktop.interface document-font-name "$FONT_SANS 12"
-gsettings set org.gnome.desktop.interface monospace-font-name "$FONT_MONO 12"
+gsettings set org.gnome.desktop.wm.preferences titlebar-font "$FONT_SANS 12" &
+gsettings set org.gnome.desktop.interface font-name "$FONT_SANS 12" &
+gsettings set org.gnome.desktop.interface document-font-name "$FONT_SANS 12" &
+gsettings set org.gnome.desktop.interface monospace-font-name "$FONT_MONO 12" &
 
 # Gaps
 DEFAULT_GAPS_OUTER=5 

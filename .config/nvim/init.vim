@@ -83,6 +83,19 @@ set commentstring=#\ %s
 autocmd FileType c   set commentstring=//\ %s
 autocmd FileType cpp set commentstring=//\ %s
 
+function! ClangFormat()
+  let l:save_cursor = getcurpos()
+  let l:save_view = winsaveview()
+  silent! :%!clang-format --style=file:/home/felix/dotfiles/misc/.clang-format
+  call setpos('.', l:save_cursor)
+  call winrestview(l:save_view)
+endfunction
+
+augroup fmt
+    autocmd!
+    autocmd BufWritePre *.c,*.h :call ClangFormat()
+augroup END
+
 " print syntax grouping under cursor
 function! SynStack()
 if !exists("*synstack")

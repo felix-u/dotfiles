@@ -52,7 +52,7 @@ export LESS_TERMCAP_us=$'\e[1;4m'
 export MANWIDTH=80
 export MOZ_ENABLE_WAYLAND="1"
 export NIXOS_OZONE_WL=1
-export PAGER="less"
+#export PAGER="less"
 export PATH="$HOME/.local/bin/:$XDG_CONFIG_HOME/sh/scripts-in-path/:$PATH"
 export PKG_CONFIG_PATH="/usr/include"
 export PROMPTCHAR="%%" #"λ"
@@ -77,4 +77,4 @@ export XRESOURCES="$HOME/.Xresources"
 
 # Depends on the above.
 
-export MANPAGER=$PAGER
+#export MANPAGER=$PAGER

@@ -105,5 +105,6 @@ source "$XDG_CONFIG_HOME"/sh/zsh-fzf-history-search/zsh-fzf-history-search.plugi
 
 if [ -e "$HOME"/.nix_profile/etc/profile.d/nix.sh ]; then
     "$HOME"/.nix_profile/etc/profile.d/nix.sh
-    any-nix-shell zsh --info-right | source /dev/stdin
 fi
+
+any-nix-shell zsh --info-right | source /dev/stdin

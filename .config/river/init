@@ -3,11 +3,8 @@
 source "$XDG_CONFIG_HOME"/sh/env.sh
 source "$XDG_CONFIG_HOME"/sh/aliases_funcs.sh
 
-pgrep "pipewire" > /dev/null || /usr/libexec/pipewire-launcher &
-pgrep "xdg-desktop-portal-gtk" > /dev/null || \
-    /usr/libexec/xdg-desktop-portal-gtk &
-pgrep "xdg-desktop-portal-wlr" > /dev/null || \
-    /usr/libexec/xdg-desktop-portal-wlr &
+dbus-update-activation-environment \
+    --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
 
 mod="Mod4"
 alt="Mod1"
@@ -62,7 +59,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     /etc/init.d/acpid start &
 
 # desktop-specific configuration
-elif [ "$(cat /proc/sys/kernel/hostname)" = "alpinebtw" ] || [ "$(cat /proc/sys/kernel/hostname)" = "pc" ]; then
+elif [ "$(cat /proc/sys/kernel/hostname)" = "pc" ]; then
 
     WDPI="1.3"
 
@@ -86,7 +83,7 @@ elif [ "$(cat /proc/sys/kernel/hostname)" = "alpinebtw" ] || [ "$(cat /proc/sys/
     pkill waybar
     waybar -c "$XDG_CONFIG_HOME"/waybar/river_desktop.json &
 
-    BORDER_WIDTH=5
+    BORDER_WIDTH=6
 
 fi
 #                  _  __ _      _         _            _                      _
@@ -267,13 +264,14 @@ done
 # Set repeat rate
 riverctl set-repeat 50 200 &
 
-# riverctl rule-add float -app-id "*float*" &
-# riverctl rule-add float -app-id "*popup*" &
-# riverctl rule-add float -app-id "*zathura*" &
-# riverctl rule-add ssd -app-id firefox &
-# riverctl rule-add ssd -app-id io.elementary.files &
+riverctl rule-add float -app-id "*float*" &
+riverctl rule-add float -app-id "*popup*" &
+riverctl rule-add float -app-id "*zathura*" &
+riverctl rule-add ssd -app-id firefox &
+riverctl rule-add ssd -app-id io.elementary.files &
 
 riverctl attach-mode top &
+
 # hide cursor when typing or after ten seconds of inactivity
 riverctl hide-cursor timeout 10000 &
 riverctl hide-cursor when-typing enabled &

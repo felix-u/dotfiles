@@ -59,6 +59,7 @@ in
       foot
       gh
       git
+      neofetch
       neovim
       nvi
       stow

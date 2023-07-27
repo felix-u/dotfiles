@@ -12,6 +12,27 @@ setopt sharehistory
 source /home/felix/.config/sh/env.sh
 source /home/felix/.config/sh/aliases_funcs.sh
 
+# if [[ $(tty) == /dev/tty* ]];then
+#     printf "
+# \033]P0$CLR_BG 
+# \033]P1$CLR_01 
+# \033]P2$CLR_02 
+# \033]P3$CLR_03 
+# \033]P4$CLR_04 
+# \033]P5$CLR_05 
+# \033]P6$CLR_06 
+# \033]P7$CLR_FG 
+# \033]P8$CLR_08 
+# \033]P9$CLR_09 
+# \033]PA$CLR_10 
+# \033]PB$CLR_11 
+# \033]PC$CLR_12 
+# \033]PD$CLR_13 
+# \033]PE$CLR_14 
+# \033]PF$CLR_FG 
+# "
+# fi
+
 export PAGER=(less -FIR)
 export MANPAGER="$PAGER"
 

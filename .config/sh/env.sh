@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-export FONT_MONO="GoMonoNerdFont"
+export FONT_MONO="CommitMono"
 export FONT_SANS="Inter"
 export FONT_SERIF="EBGaramond12"
 

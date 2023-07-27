@@ -193,6 +193,8 @@ fetch () {
     glxinfo | grep -m 1 "Device" | sed 's/^[ ]*//g; s/(.*//g'
 }
 
+alias shutdwn="shutdown -h now"
+
 alias timetable="agnota \$AGENDAFILE -n Timetable | \$PAGER"
 
 guide() {

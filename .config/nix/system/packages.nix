@@ -52,6 +52,8 @@ in
 
       wl-screenrec = import ../derivations/wl-screenrec.nix;
 
+      zig-master = import ../derivations/zig-master.nix;
+
     in
     with pkgs; [
 
@@ -107,13 +109,13 @@ in
       cargo
       # shell
       shellcheck
-      # # zig
-      # zig-master
+      # zig
+      zig-master
       # MATHS
       bc
       libqalculate
 
-      # TERMINAL MISC
+      # Utils
       _7zz
       entr
       fd
@@ -141,6 +143,7 @@ in
       poppler_utils
       ripgrep
       sdcv
+      shgen
       termato
       themesh
       tldr

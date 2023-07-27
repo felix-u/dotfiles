@@ -55,7 +55,7 @@
     description = "Start kmonad";
     serviceConfig = {
       Type = "simple";
-      ExecStart = "/run/current-system/sw/bin/kmonad /home/felix/dotfiles/.config/kmonad/nixpad.kbd";
+      ExecStart = "/run/current-system/sw/bin/kmonad /home/felix/dotfiles/.config/kmonad/thinkpad.kbd";
       User = "felix";
     };
   };

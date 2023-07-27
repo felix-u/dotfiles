@@ -45,8 +45,8 @@ window#waybar {
 }
 
 #workspaces button, #tags button {
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
     color: #777777;
 }
 

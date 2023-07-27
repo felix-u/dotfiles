@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-[ "$TMUX" = "" ] && [[ ! "$(tty)" = /dev/tty* ]] && tmux
-
 SAVEHIST=10000
 HISTSIZE=$SAVEHIST
 HISTFILE="$XDG_CACHE_HOME/zsh_history"
@@ -16,26 +14,27 @@ source /home/felix/.config/sh/aliases_funcs.sh
 
 # if [[ $(tty) == /dev/tty* ]];then
 #     printf "
-# \033]P0$CLR_BG 
-# \033]P1$CLR_01 
-# \033]P2$CLR_02 
-# \033]P3$CLR_03 
-# \033]P4$CLR_04 
-# \033]P5$CLR_05 
-# \033]P6$CLR_06 
-# \033]P7$CLR_FG 
-# \033]P8$CLR_08 
-# \033]P9$CLR_09 
-# \033]PA$CLR_10 
-# \033]PB$CLR_11 
-# \033]PC$CLR_12 
-# \033]PD$CLR_13 
-# \033]PE$CLR_14 
-# \033]PF$CLR_FG 
+# \033]P00662f2
+# \033]P1f12700
+# \033]P222f202
+# \033]P3f0f101
+# \033]P49b9af3
+# \033]P5f116f1
+# \033]P622f202
+# \033]P7f2f1f0
+# \033]P8aa84f4
+# \033]P9f12700
+# \033]PA22f202
+# \033]PBf0f101
+# \033]PC9b9af3
+# \033]PDf116f1
+# \033]PE22f202
+# \033]PFf2f1f0
 # "
+#     clear
 # fi
 
-export PAGER=(less -FIR)
+export PAGER=(less -FIRX)
 export MANPAGER="$PAGER"
 
 if test -z "${XDG_RUNTIME_DIR}"; then

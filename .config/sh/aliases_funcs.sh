@@ -342,6 +342,16 @@ alias prompts="\$EDITOR ~/uni/misc/prompts"
 # bash rain
 alias rainsh="~/dotfiles/scripts/rain.sh"
 
+ready () {
+    echo
+    echo -e " \e[41m            \e[0m"
+    echo -e " \e[43m          \e[0m"
+    echo -e " \e[46m        \e[0m"
+    echo -en " \e[44m      \e[0m    "; date +%a
+    echo -en " \e[45m    \e[0m    "; date +%H:%M
+    echo "\n READY.\n"
+}
+
 alias rebuild="doas $XDG_CONFIG_HOME/system/sysbuild"
 
 resize4k() {

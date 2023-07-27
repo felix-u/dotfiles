@@ -147,6 +147,7 @@ in
       termato
       themesh
       tldr
+      tmux
       tree
       unrar
       unzip

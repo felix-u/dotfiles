@@ -2,7 +2,6 @@
 
 MOD="$2"
 ALT="$3"
-TERM="$4"
 
 RESIZEWINAMOUNT="100px"
 
@@ -33,14 +32,9 @@ else
     echo "Valid options: qwerty, colemak" && exit
 fi
 
-# keybinds
 swaymsg "bindsym $MOD+$SPLITH splith" &
 swaymsg "bindsym $MOD+$SPLITV splitv" &
-# term
-swaymsg "bindsym $MOD+$RETURN exec $TERM" &
-# emacs
-swaymsg "bindsym $MOD+Shift+$RETURN exec emacs" &
-# navigation
+swaymsg "bindsym $MOD+$RETURN exec $TERMINAL" &
 swaymsg "bindsym $MOD+$LEFT focus left" &
 swaymsg "bindsym $MOD+$DOWN focus down" &
 swaymsg "bindsym $MOD+$UP focus up" &
@@ -49,13 +43,10 @@ swaymsg "bindsym $MOD+Shift+$LEFT move left $RESIZEWINAMOUNT" &
 swaymsg "bindsym $MOD+Shift+$DOWN move down $RESIZEWINAMOUNT" &
 swaymsg "bindsym $MOD+Shift+$UP move up $RESIZEWINAMOUNT" &
 swaymsg "bindsym $MOD+Shift+$RIGHT move right $RESIZEWINAMOUNT" &
-# layout stuff
 swaymsg "bindsym $MOD+Control+t splitt" &
-# resizing
 swaymsg "bindsym $MOD+$ALT+$LEFT  resize shrink width  $RESIZEWINAMOUNT" &
 swaymsg "bindsym $MOD+$ALT+$DOWN  resize grow   height $RESIZEWINAMOUNT" &
 swaymsg "bindsym $MOD+$ALT+$UP    resize shrink height $RESIZEWINAMOUNT" &
 swaymsg "bindsym $MOD+$ALT+$RIGHT resize grow   width  $RESIZEWINAMOUNT" &
-#
 swaymsg "bindsym $MOD+Shift+$SCRATCH move scratchpad" &
 swaymsg "bindsym $MOD+$SCRATCH scratchpad show" &

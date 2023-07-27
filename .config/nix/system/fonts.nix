@@ -43,6 +43,8 @@ in
     # # apple fonts
     # apple-fonts
 
+    (import ../derivations/fonts/commit-mono.nix)
+
     # https://dotcolon.net
     eunomia
     fa-1

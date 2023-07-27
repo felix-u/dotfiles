@@ -15,6 +15,7 @@ in
   programs.sway = {
     enable = true;
     extraPackages = with pkgs; [
+      swaybg
       swaylock-effects
     ];
   };
@@ -38,7 +39,6 @@ in
       river-git
       slurp
       tofi
-      unstable.rivercarro
       waybar
       wf-recorder
       wl-clipboard
@@ -48,7 +48,6 @@ in
     ];
 
   environment.pathsToLink = [ "/libexec" ]; # for polkit
-  environment.sessionVariables = { GTK_USE_PORTAL = "1"; };
   qt.platformTheme = "qt5ct";
 
   # pipewire
@@ -62,13 +61,12 @@ in
   # enable CUPS for printing
   services.printing.enable = true;
 
-  # flatpak and xdg portals
   services.flatpak.enable = true;
+  environment.sessionVariables = { GTK_USE_PORTAL = "1"; };
   xdg.portal = {
     enable = true;
-    # gtkUsePortal = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # bluetooth

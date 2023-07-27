@@ -7,31 +7,20 @@ pkill swaybg; swaybg -c "#$CLR_08" &
 
 SWAYFONT="$FONT_SANS Semi-Bold 12"
 
-# swaymsg "bar std mode invisible"
+swaymsg "bar std mode invisible" &
+
 # swaymsg "bar std position top"
 # swaymsg "bar std font pango:$SWAYFONT"
-# swaymsg "bar std hidden_state hide"
-# swaymsg "bar std status_padding 0"
 # swaymsg "bar std height 35"
-# swaymsg "bar std colors background $WBG"
-# swaymsg "bar std colors statusline $WFG"
-# swaymsg "bar std colors focused_workspace ${W00}ff ${W00}ff $WFG"
-# swaymsg "bar std colors inactive_workspace ${WBG}ff ${WBG}ff $W07"
-# swaymsg "bar modifier $ALT"
+# swaymsg "bar std colors background $CLR_BG"
+# swaymsg "bar std colors statusline $CLR_FG"
+# swaymsg "bar std colors focused_workspace ${CLR_00}ff ${CLR_00}ff $CLR_FG"
+# swaymsg "bar std colors inactive_workspace ${CLR_BG}ff ${CLR_BG}ff $CLR_07"
+# swaymsg "bar std hidden_state show"
+# swaymsg "bar std status_padding 0"
 
 pkill wlsunset
 "$XDG_CONFIG_HOME"/sway/scripts/screen_temp.sh default &
-
-pgrep "pipewire" > /dev/null || /usr/libexec/pipewire-launcher &
-pgrep "xdg-desktop-portal-gtk" > /dev/null || \
-    /usr/libexec/xdg-desktop-portal-gtk &
-pgrep "xdg-desktop-portal-wlr" > /dev/null || \
-    /usr/libexec/xdg-desktop-portal-wlr &
-
-gsettings set org.gnome.desktop.wm.preferences titlebar-font "$FONT_SANS 12" &
-gsettings set org.gnome.desktop.interface font-name "$FONT_SANS 12" &
-gsettings set org.gnome.desktop.interface document-font-name "$FONT_SANS 12" &
-gsettings set org.gnome.desktop.interface monospace-font-name "$FONT_MONO 12" &
 
 MOD="Mod4"
 ALT="Mod1"
@@ -50,10 +39,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 
     pkill waybar
     waybar -c ~/.config/waybar/thinkpad.json &
-
-    # swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh battery; do sleep 1; done\"" &
-
-elif [[ $(cat /proc/sys/kernel/hostname) == "alpinebtw" ]]; then
+elif [[ $(cat /proc/sys/kernel/hostname) == "pc" ]]; then
 
     "$XDG_CONFIG_HOME"/sway/scripts/binds colemak "$MOD" "$ALT" &
 
@@ -64,13 +50,11 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "alpinebtw" ]]; then
 
     pkill waybar
     waybar -c ~/.config/waybar/desktop.json &
-
-    # swaymsg "bar std status_command \"while $XDG_CONFIG_HOME/sway/scripts/bar.sh; do sleep 1; done\"" &
 fi
 
 SLURP="slurp -d -b '${CLR_07}40' -c '${CLR_07}' -w 3"
 
-swaymsg "bindsym $MOD+Return exec $TERM" &
+swaymsg "bindsym $MOD+Return exec $TERMINAL" &
 swaymsg "bindsym $MOD+d exec '. $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/menu.sh'" &
 
 # focus over parent containers
@@ -85,8 +69,8 @@ swaymsg "bindsym $MOD+$ALT+comma bar mode hide" &
 swaymsg "bindsym $MOD+b exec $BROWSER" &
 
 swaymsg "bindsym XF86AudioMute exec pulsemixer --toggle-mute" & 
-swaymsg "bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5" &
-swaymsg "bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5" & 
+swaymsg "bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +10" &
+swaymsg "bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -10" & 
 
 swaymsg "bindsym $MOD+x exec ~/.config/sway/scripts/swaylock.sh" &
 
@@ -146,15 +130,15 @@ swaymsg "gaps inner $DEFAULT_GAPS" &
 swaymsg "font pango:$SWAYFONT" &
 swaymsg "title_format %app_id" &
 
-CLRFOCUSED="#$CLR_08"
-CLRUNFOCUSED="#$CLR_00"
+CLRFOCUSED="#$CLR_FG"
+CLRUNFOCUSED="#$CLR_08"
 TEXTFOCFG="#$CLR_FG"
 TEXTFOCBG="#$CLR_08"
 TEXTUNFOCFG="#$CLR_07"
 TEXTUNFOCBG="#$CLR_00"
 TEXTFOCINACTIVEFG="#$CLR_FG"
 TEXTFOCINACTIVEBG="#$CLR_00"
-swaymsg "default_border pixel 4"
+swaymsg "default_border pixel 4" &
 #               class        border       background             text                indicator      child border
 swaymsg "client.focused "$TEXTFOCBG"     "$TEXTFOCBG"        "$TEXTFOCFG"          "$CLRFOCUSED"   "$CLRFOCUSED"" &
 swaymsg "client.focused_inactive \
@@ -163,5 +147,5 @@ swaymsg "client.unfocused \
                         "$TEXTUNFOCBG"   "$TEXTUNFOCBG"   "$TEXTUNFOCFG"          "$CLR_15"        "$CLRUNFOCUSED"" &
 swaymsg "client.urgent  "$CLR_01" "$CLRUNFOCUSED" "$CLR_FG" "$CLR_15" "$CLRUNFOCUSED"" &
 
-# # Fix for first workspace having gaps 0 on startup
-# swaymsg gaps inner current set $DEFAULT_GAPS &
+# Fix for first workspace having gaps 0 on startup
+swaymsg gaps inner current set $DEFAULT_GAPS &

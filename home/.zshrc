@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+[ "$TMUX" = "" ] && [[ ! "$(tty)" = /dev/tty* ]] && tmux
+
 SAVEHIST=10000
 HISTSIZE=$SAVEHIST
 HISTFILE="$XDG_CACHE_HOME/zsh_history"
@@ -44,8 +46,8 @@ if test -z "${XDG_RUNTIME_DIR}"; then
     fi
 fi
 
-pwd
-PROMPT="%(?.%F{normal}.%F{red})%(!.#.${PROMPTCHAR})%f "
+# pwd
+PROMPT="%(?.%F{normal}.%F{red})%(!.#.%${PROMPTCHAR})%f "
 
 # Auto/tab complete ---
 autoload -U compinit
@@ -108,13 +110,13 @@ _zsh_cli_fg() { fg; }
 zle -N _zsh_cli_fg
 bindkey '^Z' _zsh_cli_fg
 
-_clear_and_pwd () {
-    clear
-    pwd
-    zle redisplay
-}
-zle -N _clear_and_pwd
-bindkey "^L" _clear_and_pwd
+# _clear_and_pwd () {
+#     clear
+#     pwd
+#     zle redisplay
+# }
+# zle -N _clear_and_pwd
+# bindkey "^L" _clear_and_pwd
 
 # Fix home and end keys.
 bindkey  "^[[H"   beginning-of-line

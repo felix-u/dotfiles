@@ -257,15 +257,17 @@ alias ls="\
         -1 \
 "
 
-alias lc="ls | 9 mc -N80"
+lc () {
+    ls "$@" | 9 mc -N80
+}
 
-alias la="
-    ls \
+la () {
+    ls "$@" \
         --human-readable \
         --no-group \
         --time-style=long-iso \
-        -o \
-"
+        -o
+}
 
 # less should render ANSI colour, not page if content fills one screen, ignore
 # case when searching, and leave the contents on the screen after quitting.

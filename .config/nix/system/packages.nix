@@ -146,7 +146,6 @@ in
       termato
       themesh
       tldr
-      tmux
       tree
       unrar
       unzip
@@ -227,9 +226,6 @@ in
 
     ];
 
-  # Isn't installed correctly if in package list
-  programs.steam.enable = true;
-
   programs.neovim = {
     enable = true;
     configure = {
@@ -243,6 +239,14 @@ in
       };
     };
     defaultEditor = true;
+  };
+
+  # Isn't installed correctly if in package list
+  programs.steam.enable = true;
+
+  programs.tmux = {
+    enable = true;
+    extraConfig = builtins.readFile (toString ../config/tmux/tmux.conf);
   };
 
 }

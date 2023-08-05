@@ -15,9 +15,8 @@ in
   };
 
   # shell
-  programs.bash.vteIntegration = true;
-  programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
 
   # home-manager
   home-manager = {
@@ -66,6 +65,11 @@ in
       programs.ncspot = {
         enable = true;
         settings = import ../config/ncspot/ncspot.nix;
+      };
+
+      programs.zsh = {
+        enable = true;
+        initExtra = builtins.readFile (toString ../config/zsh/.zshrc);
       };
 
     };

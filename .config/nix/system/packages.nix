@@ -61,10 +61,18 @@ in
       foot
       gh
       git
-      neofetch
       nvi
       stow
       wget
+      (pkgs.symlinkJoin {
+        name = "neofetch";
+        paths = [ pkgs.neofetch ];
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/neofetch --add-flags "--config ${../config/neofetch/config.conf}";
+        '';
+      })
+
 
       # DEV AND PROGRAMMING
       # misc

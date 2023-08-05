@@ -63,6 +63,11 @@ in
         ];
       };
 
+      programs.ncspot = {
+        enable = true;
+        settings = import ../config/ncspot/ncspot.nix;
+      };
+
     };
 
   };

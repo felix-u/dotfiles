@@ -157,7 +157,6 @@ in
       zip
 
       # MUSIC & AUDIO
-      ncspot
       pavucontrol
       pulsemixer
 

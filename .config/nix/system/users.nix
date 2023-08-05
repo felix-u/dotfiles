@@ -57,8 +57,6 @@ in
           { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; }
           # decentraleyes
           { id = "ldpochfccmkkmhdbclfhpagapcfdljkj"; }
-          # stylus
-          { id = "clngdbkpkpeebahjckkjfobafhncgmne"; }
         ];
       };
 
@@ -69,6 +67,12 @@ in
 
       programs.zsh = {
         enable = true;
+        autocd = true;
+        cdpath = [ "/home/felix" ];
+        history = {
+          expireDuplicatesFirst = true;
+          path = "${config.home-manager.users.felix.xdg.cacheHome}/zsh_history";
+        };
         initExtra = builtins.readFile (toString ../config/zsh/.zshrc);
       };
 

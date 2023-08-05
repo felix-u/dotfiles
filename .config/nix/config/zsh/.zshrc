@@ -1,10 +1,5 @@
 #!/usr/bin/env zsh
 
-SAVEHIST=10000
-HISTSIZE=$SAVEHIST
-HISTFILE="$XDG_CACHE_HOME/zsh_history"
-
-setopt autocd
 setopt extendedglob
 setopt globdots
 setopt sharehistory
@@ -102,8 +97,6 @@ osc7_cwd() {
 }
 autoload -Uz add-zsh-hook
 add-zsh-hook -Uz chpwd osc7_cwd
-
-cdpath=($HOME)
 
 _zsh_cli_fg() { fg; }
 zle -N _zsh_cli_fg

@@ -312,13 +312,13 @@ alias newsraft="newsraft -d $XDG_CONFIG_HOME/newsraft/newsraft.sqlite3"
 nrs() {
     if [ "$(hostname)" = "thonkpad" ]; then
         doas nixos-rebuild switch --fast \
-	        -I nixos-config="$XDG_CONFIG_HOME"/nix/thinkpad/configuration.nix
+	        -I nixos-config="$XDG_CONFIG_HOME"/nix/thinkpad/configuration.nix "$@"
     elif [ "$(hostname)" = "nixbtw" ] || [ "$(hostname)" = "pc" ]; then
         doas nixos-rebuild switch --fast \
-            -I nixos-config="$XDG_CONFIG_HOME"/nix/pc/configuration.nix
+            -I nixos-config="$XDG_CONFIG_HOME"/nix/pc/configuration.nix "$@"
     elif [ "$(hostname)" = "toshiba" ]; then
         doas nixos-rebuild switch --fast \
-            -I nixos-config="$XDG_CONFIG_HOME"/nix/toshiba/configuration.nix
+            -I nixos-config="$XDG_CONFIG_HOME"/nix/toshiba/configuration.nix "$@"
     else
         echo "No config corresponding to this machine's hostname"
         return 1

@@ -1,10 +1,10 @@
 let
   pkgs = import <nixpkgs> { };
 
-  rev = "4252+6cee98eb3";
+  rev = "0.12.0-dev.3+9c05810be";
 
   zig-bin = builtins.fetchurl {
-    url = "https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.${rev}.tar.xz";
+    url = "https://ziglang.org/builds/zig-linux-x86_64-${rev}.tar.xz";
   };
 in
 pkgs.runCommand "zig" { }
@@ -12,6 +12,6 @@ pkgs.runCommand "zig" { }
     #!${pkgs.stdenv.shell}
     ${pkgs.gnutar}/bin/tar xf ${zig-bin}
     mkdir -p $out/bin
-    cp -r zig-linux-x86_64-0.11.0-dev.${rev}/*  $out/bin/
+    cp -r zig-linux-x86_64-${rev}/*  $out/bin/
     chmod +x $out/bin/zig
   ''

@@ -45,17 +45,16 @@
 
   # kmonad
   users.groups = { uinput = { }; };
-  services.udev.extraRules =
-    ''
-      # KMonad user access to /dev/uinput
-      KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
-    '';
+  services.udev.extraRules = ''
+    # KMonad user access to /dev/uinput
+    KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+  '';
   systemd.services.thinkpadkbd = {
     wantedBy = [ "multi-user.target" ];
     description = "Start kmonad";
     serviceConfig = {
       Type = "simple";
-      ExecStart = "/run/current-system/sw/bin/kmonad /home/felix/dotfiles/.config/kmonad/thinkpad.kbd";
+      ExecStart = "/run/current-system/sw/bin/kmonad ${toString ../config/kmonad/thinkpad.kbd}";
       User = "felix";
     };
   };

@@ -173,6 +173,7 @@ in
       appimage-run
       bitwarden
       calibre
+      castor
       font-manager
       imagemagick
       imv

@@ -38,8 +38,14 @@ in
         theme.name = "io.elementary.stylesheet.slate";
       };
 
-      xdg.userDirs.enable = true;
-      xdg.userDirs.createDirectories = true;
+      xdg.userDirs = {
+        enable = true;
+        createDirectories = true;
+        music = null;
+        publicShare = null;
+        templates = null;
+        videos = null;
+      };
 
       programs.chromium = {
         enable = true;

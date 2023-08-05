@@ -76,6 +76,11 @@ in
         initExtra = builtins.readFile (toString ../config/zsh/.zshrc);
       };
 
+      programs.bash = {
+        enable = true;
+        initExtra = builtins.readFile (toString ../config/bash/.bashrc);
+      };
+
     };
 
   };

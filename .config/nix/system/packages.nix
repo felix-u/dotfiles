@@ -172,7 +172,6 @@ in
       blueberry
       bluez
       bluez-tools
-      firefox
 
       # DESKTOP
       anki-bin
@@ -231,6 +230,12 @@ in
       config.boot.kernelPackages.v4l2loopback
 
     ];
+
+  programs.firefox = {
+    enable = true;
+    # TODO
+    # policies = {};
+  };
 
   programs.neovim = {
     enable = true;

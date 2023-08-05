@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
 
-# castor
-shgen "$DOTSCONF"/castor/gensettings.toml "$DOTSCONF"/castor/settings.toml &
-
 # fontconfig
 shgen "$DOTSCONF"/fontconfig/genfonts.conf "$DOTSCONF"/fontconfig/fonts.conf &
 

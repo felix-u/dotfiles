@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-# Fonts
-
-fc-cache -f &
-
-# Bluetooth
-
-modprobe btusb

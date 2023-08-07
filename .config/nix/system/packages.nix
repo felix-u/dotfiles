@@ -58,7 +58,6 @@ in
     with pkgs; [
 
       # ESSENTIAL
-      foot
       gh
       git
       nvi

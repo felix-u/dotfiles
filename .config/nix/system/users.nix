@@ -79,6 +79,11 @@ in
         };
       };
 
+      programs.foot = {
+        enable = true;
+        settings = import ../config/foot/foot.nix;
+      };
+
       programs.ncspot = {
         enable = true;
         settings = import ../config/ncspot/ncspot.nix;

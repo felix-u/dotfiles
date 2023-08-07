@@ -39,7 +39,6 @@ in
       river-git
       slurp
       tofi
-      waybar
       wf-recorder
       wl-clipboard
       wlr-randr

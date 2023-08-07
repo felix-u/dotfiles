@@ -89,7 +89,13 @@ in
         settings = import ../config/ncspot/ncspot.nix;
       };
 
-      programs.zathura = {
+      programs.waybar = {
+        enable = true;
+        style = import ../config/waybar/style.nix;
+        settings = (import ../config/waybar/bar.nix);
+      };
+
+      programs. zathura = {
         enable = true;
         extraConfig = import ../config/zathura/zathurarc.nix;
       };

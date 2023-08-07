@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-echo "   $(date "+%a %d  %H:%M")"

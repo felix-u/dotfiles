@@ -33,85 +33,85 @@ in
   nixpkgs.config.input-fonts.acceptLicense = true;
 
   # fonts
-  fonts.fonts = with pkgs; [
+  fonts = {
+    fonts = with pkgs; [
 
-    # essential
-    fira
-    nerdfonts
-    noto-fonts-emoji
+      # essential
 
-    # # apple fonts
-    # apple-fonts
+      (import ../derivations/fonts/commit-mono.nix)
+      eb-garamond
+      inter
+      nerdfonts
+      noto-fonts-emoji
 
-    (import ../derivations/fonts/commit-mono.nix)
+      # https://dotcolon.net
 
-    # https://dotcolon.net
-    eunomia
-    fa-1
-    ferrum
-    medio
-    melete
-    nacelle
-    penna
-    route159
-    seshat
-    tenderness
+      eunomia
+      fa-1
+      ferrum
+      medio
+      melete
+      nacelle
+      penna
+      route159
+      seshat
+      tenderness
 
-    # proportional fonts
-    aileron
-    open-sans # helvetica but FOSS
-    alte-haas-grotesk # helvetica but with a printed appearance. not FOSS
-    beteckna
-    league-spartan # futura but FOSS
-    chicagoflf # retro Apple system font - vectorised
-    crimson # oldstyle serif - FOSS
-    eb-garamond # Garamond - FOSS
-    fraunces
-    vollkorn # cooper black (ish), but FOSS
-    freefont_ttf # FOSS versions of helvetica, times, and courier
-    helvetica-neue-lt-std # actual helvetica
-    inter # like a mix between roboto and apple san francisco - FOSS
-    gyre-fonts # TeX fonts - FOSS
-    # Gyre Schola = Century Expanded, and many other FOSS
-    # imitations of well-known fonts
-    liberation_ttf # FOSS versions of arial, times new roman, and courier new
-    libre-baskerville # baskerville - FOSS
-    libre-bodoni # bodoni - FOSS
-    lora # oldstyle-ish serif - FOSS
-    metropolis
-    montserrat # gotham but FOSS
-    oswald # classic gothic style sans-serif - FOSS
-    playfair # "luxury" serif vaguely resempling bodoni - FOSS
-    roboto
-    roboto-slab # Google's helvetica-ish grotesque - FOSS
-    source-serif # classic serifs from adobe - FOSS
-    source-serif-pro
-    space-grotesk # similar to Futura, but does its own thing.
-    # based on Space Mono - foss
-    work-sans # another oldstyle grotesque
+      # proportional
 
+      # Gyre Schola = Century Expanded, and many other FOSS
+      # based on Space Mono - foss
+      # imitations of well-known fonts
+      aileron
+      alte-haas-grotesk # helvetica but with a printed appearance. not FOSS
+      beteckna
+      chicagoflf # retro Apple system font - vectorised
+      crimson # oldstyle serif - FOSS
+      fraunces
+      freefont_ttf # FOSS versions of helvetica, times, and courier
+      gyre-fonts # TeX fonts - FOSS
+      helvetica-neue-lt-std # actual helvetica
+      league-spartan # futura but FOSS
+      liberation_ttf # FOSS versions of arial, times new roman, and courier new
+      libre-baskerville # baskerville - FOSS
+      libre-bodoni # bodoni - FOSS
+      lora # oldstyle-ish serif - FOSS
+      metropolis
+      montserrat # gotham but FOSS
+      open-sans # helvetica but FOSS
+      oswald # classic gothic style sans-serif - FOSS
+      playfair # "luxury" serif vaguely resempling bodoni - FOSS
+      roboto
+      roboto-slab # Google's helvetica-ish grotesque - FOSS
+      source-serif # classic serifs from adobe - FOSS
+      source-serif-pro
+      space-grotesk # similar to Futura, but does its own thing.
+      vollkorn # cooper black (ish), but FOSS
+      work-sans # another oldstyle grotesque
 
-    # some more monospace fonts
-    fragment-mono # basically helvetica, but fixed-width
-    ibm-plex
-    jetbrains-mono
-    office-code-pro
-    roboto-mono
-    iosevka-bin
-    iosevka-comfy.comfy-fixed
-    # input-fonts
-    sf-mono # apple's programming font, patched with nerd fonts
-    spacemono # slab monospace font which inspired space-grotesk - FOSS
+      # monospace
 
-    # low res bitmap fonts, out of curiosity
-    cherry
-    cozette
-    creep
-    curie
-    dina-font
-    gohufont
-    scientifica
-    tamsyn
+      fira
+      fragment-mono
+      ibm-plex
+      iosevka-bin
+      iosevka-comfy.comfy-fixed
+      jetbrains-mono
+      office-code-pro
+      roboto-mono
+      sf-mono
+      spacemono
 
-  ];
+    ];
+
+    fontconfig = {
+      enable = true;
+      defaultFonts = let theme = import ./theme.nix; in {
+        monospace = [ "${theme.fontmono}" ];
+        sansSerif = [ "${theme.fontsans}" ];
+        serif = [ "${theme.fontserif}" ];
+      };
+    };
+  };
+
 }

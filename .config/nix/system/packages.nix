@@ -231,12 +231,6 @@ in
 
     ];
 
-  programs.firefox = {
-    enable = true;
-    # TODO
-    # policies = {};
-  };
-
   programs.neovim = {
     enable = true;
     configure = {

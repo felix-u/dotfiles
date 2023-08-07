@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+NIXDIR="$XDG_CONFIG_HOME/nix/config"
+
 # fontconfig
 shgen "$DOTSCONF"/fontconfig/genfonts.conf "$DOTSCONF"/fontconfig/fonts.conf &
 
@@ -10,7 +12,7 @@ shgen "$DOTSCONF"/foot/gencolours.ini "$DOTSCONF"/foot/colours.ini &
 shgen "$XDG_CONFIG_HOME"/darktable/genuser.css "$XDG_CONFIG_HOME"/darktable/user.css &
 
 # firefox
-shgen ~/dotfiles/firefox/chrome/genuserChrome.css ~/dotfiles/firefox/chrome/userChrome.css &
+shgen "$NIXDIR"/firefox/genuserChrome.css "$NIXDIR"/firefox/userChrome.css &
 
 # imv
 shgen "$XDG_CONFIG_HOME"/imv/genconfig "$XDG_CONFIG_HOME"/imv/config &

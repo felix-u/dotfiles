@@ -66,6 +66,16 @@ in
         ];
       };
 
+      programs.firefox = {
+        enable = true;
+        profiles.default = {
+          settings = import ../config/firefox/user.nix;
+          userChrome = builtins.readFile (
+            toString ../config/firefox/userChrome.css
+          );
+        };
+      };
+
       programs.ncspot = {
         enable = true;
         settings = import ../config/ncspot/ncspot.nix;

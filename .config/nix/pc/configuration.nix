@@ -9,6 +9,8 @@
       # grub, boot paramaters, etc.
       ../system/boot.nix
 
+      ../system/env.nix
+
       # time, localisation, TTY
       ../system/localisation.nix
 

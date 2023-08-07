@@ -70,9 +70,7 @@ in
         enable = true;
         profiles.default = {
           settings = import ../config/firefox/user.nix;
-          userChrome = builtins.readFile (
-            toString ../config/firefox/userChrome.css
-          );
+          userChrome = import ../config/firefox/userChrome.nix;
         };
       };
 

@@ -1,34 +1,37 @@
+let
+  theme = import ./theme.nix;
+in
 {
   environment.sessionVariables = rec {
 
-    FONT_MONO = "CommitMono";
-    FONT_SANS = "Inter";
-    FONT_SERIF = "EBGaramond12";
+    FONT_MONO = theme.fontmono;
+    FONT_SANS = theme.fontsans;
+    FONT_SERIF = theme.fontserif;
 
-    CLR_FG = "000000";
-    CLR_BG = "ffffff";
-    CLR_00 = "efefef";
-    CLR_08 = "c0c0c0";
-    CLR_01 = "a0342f";
-    CLR_09 = "a0342f";
-    CLR_02 = "065905";
-    CLR_10 = "065905";
-    CLR_03 = "999950";
-    CLR_11 = "999950";
-    CLR_04 = "007ed6";
-    CLR_12 = "007ed6";
-    CLR_05 = "8888cc";
-    CLR_13 = "8888cc";
-    CLR_06 = "57a8a8";
-    CLR_14 = "57a8a8";
-    CLR_07 = "777777";
-    CLR_15 = "000000";
+    CLR_FG = theme.cfg;
+    CLR_BG = theme.cbg;
+    CLR_00 = theme.c00;
+    CLR_08 = theme.c08;
+    CLR_01 = theme.c01;
+    CLR_09 = theme.c09;
+    CLR_02 = theme.c02;
+    CLR_10 = theme.c10;
+    CLR_03 = theme.c03;
+    CLR_11 = theme.c11;
+    CLR_04 = theme.c04;
+    CLR_12 = theme.c12;
+    CLR_05 = theme.c05;
+    CLR_13 = theme.c13;
+    CLR_06 = theme.c06;
+    CLR_14 = theme.c14;
+    CLR_07 = theme.c07;
+    CLR_15 = theme.c15;
 
-    CLR_FG_ALT = "000000";
-    CLR_BG_ALT = "fdffea";
-    CLR_00_ALT = "eeee9e";
-    CLR_08_ALT = "c1c270";
-    CLR_15_ALT = "000000";
+    CLR_FG_ALT = theme.afg;
+    CLR_BG_ALT = theme.abg;
+    CLR_00_ALT = theme.a00;
+    CLR_08_ALT = theme.a08;
+    CLR_15_ALT = theme.a15;
 
     AGENDAFILE = "$HOME/uni/2023/autumn/agenda";
     AMD_VULKAN_ICD = "RADV";

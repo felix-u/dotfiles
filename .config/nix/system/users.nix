@@ -47,6 +47,11 @@ in
         videos = null;
       };
 
+      programs.bash = {
+        enable = true;
+        initExtra = builtins.readFile (toString ../config/bash/.bashrc);
+      };
+
       programs.chromium = {
         enable = true;
         package = pkgs.chromium;
@@ -79,6 +84,11 @@ in
         settings = import ../config/ncspot/ncspot.nix;
       };
 
+      programs.zathura = {
+        enable = true;
+        extraConfig = import ../config/zathura/zathurarc.nix;
+      };
+
       programs.zsh = {
         enable = true;
         autocd = true;
@@ -88,11 +98,6 @@ in
           path = "${config.home-manager.users.felix.xdg.cacheHome}/zsh_history";
         };
         initExtra = builtins.readFile (toString ../config/zsh/.zshrc);
-      };
-
-      programs.bash = {
-        enable = true;
-        initExtra = builtins.readFile (toString ../config/bash/.bashrc);
       };
 
     };

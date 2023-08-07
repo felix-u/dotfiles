@@ -194,7 +194,6 @@ in
       signal-desktop
       wally-cli
       xournalpp
-      zathura
 
       # VISUAL
       elementary-xfce-icon-theme

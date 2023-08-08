@@ -128,7 +128,6 @@ in
       ffmpeg
       figlet
       file
-      fzf
       glxinfo
       htop
       hunspell

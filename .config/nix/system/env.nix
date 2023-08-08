@@ -41,8 +41,6 @@ in
     DOTSCONF = "$DOTFILES/.config";
     EDITOR = "nvim";
     FILES = "io.elementary.files --new-window";
-    FZF_DEFAULT_COMMAND = "fd";
-    FZF_DEFAULT_OPTS = "--color=16";
     GREP_COLORS = "ms=1;97";
     IMAGE = "imv";
     MANWIDTH = "80";

@@ -84,6 +84,14 @@ in
         settings = import ../config/foot/foot.nix;
       };
 
+      programs.fzf = {
+        enable = true;
+        enableBashIntegration = true;
+        enableZshIntegration = true;
+        defaultCommand = "fd";
+        defaultOptions = [ "--color=16" ];
+      };
+
       programs.ncspot = {
         enable = true;
         settings = import ../config/ncspot/ncspot.nix;

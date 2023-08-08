@@ -115,8 +115,6 @@ bindkey  "^[[F"   end-of-line
 
 bindkey -s "^G" 'fcd^M'
 
-source "$XDG_CONFIG_HOME"/sh/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
-
 if [ -e "$HOME"/.nix_profile/etc/profile.d/nix.sh ]; then
     "$HOME"/.nix_profile/etc/profile.d/nix.sh
 fi

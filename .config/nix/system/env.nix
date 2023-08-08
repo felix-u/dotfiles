@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 let
   theme = import ./theme.nix;
 in
@@ -66,4 +68,77 @@ in
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
   };
+
+  environment.shellAliases = {
+    agnota = "nota --no-colour --line-num";
+    ag = "agnota $AGENDAFILE -un task --no-colour | $PAGER";
+    agerrands = "agnota $AGENDAFILE -un errand | $PAGER";
+    agerrandspast = "agnota $AGENDAFILE -bs ascending -n Errand --not-tagged | $PAGER";
+    agpast = "agnota $AGENDAFILE -bs ascending -n task --not-tagged | $PAGER";
+    agtodo = "agerrandspast && agerrands && agpast && ag";
+    agv = "$EDITOR $AGENDAFILE";
+
+    aggpreset = "agg --theme solarized-dark --font-family 'JetBrains Mono'  --font-size 25";
+
+    cdu = "cd ~/uni/2023/autumn";
+
+    gdb = "gdb -tui -ex 'set style enabled off'";
+
+    gitcom = "git add . && git commit -a && git push";
+
+    htop = "htop --no-colour";
+
+    shutdwn = "shutdown -h now";
+
+    timetable = "agnota $AGENDAFILE -n Timetable | $PAGER";
+
+    less = "less -FIRX";
+
+    ls = ''
+      /usr/bin/env ls \
+        --almost-all - -classify - -color=never --group-directories-first -1'';
+
+    make = "make -j4";
+
+    mkdir = "mkdir -pv";
+
+    mv = "mv -i";
+    cp = "cp -i";
+    ln = "ln -i";
+
+    nb = "nix-build '<nixpkgs>' -A";
+
+    newsraft = "newsraft -d $XDG_CONFIG_HOME/newsraft/newsraft.sqlite3";
+
+    ncdu = "ncdu --color off";
+
+    onefetch = "onefetch --true-color never";
+
+    pager = "$PAGER";
+
+    prompts = "$EDITOR ~/uni/misc/prompts";
+
+    rainsh = "~/dotfiles/scripts/rain.sh";
+
+    rebuild = "doas $XDG_CONFIG_HOME/system/sysbuild";
+
+    river = "dbus-run-session -- river";
+
+    schemereload = "~/dotfiles/scripts/schemereload.sh";
+
+    swaptheme = "~/dotfiles/scripts/theme/swaptheme.sh";
+
+    sway = "dbus-run-session -- sway";
+
+    v = "nvim";
+
+    weather = "curl 'wttr.in/dc?m&format=3'";
+    weatherreport = "curl 'wttr.in/dc?m&format=v2d' | $PAGER";
+
+    wfrec = ''
+      mkdir -p ~/Desktop/recordings; \
+      wf-recorder -f ~/Desktop/recordings/"$(date +%Y-%m-%d-%H%M)".mp4'';
+
+  };
 }
+

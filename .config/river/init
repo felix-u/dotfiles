@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-source "$XDG_CONFIG_HOME"/sh/env.sh
 source "$XDG_CONFIG_HOME"/sh/aliases_funcs.sh
 
 dbus-update-activation-environment \
@@ -10,8 +9,7 @@ mod="Mod4"
 alt="Mod1"
 
 # Reload
-riverctl map normal $mod+$alt R spawn \
-    ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/river/init" &
+riverctl map normal $mod+$alt R spawn "$XDG_CONFIG_HOME/river/init" &
 # Quit
 riverctl map normal $mod+$alt Q exit &
 
@@ -51,9 +49,6 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     hide="M"
 
     BORDER_WIDTH=4
-
-    # https://wiki.alpinelinux.org/wiki/Suspend_on_LID_close
-    /etc/init.d/acpid start &
 
 # desktop-specific configuration
 elif [ "$(cat /proc/sys/kernel/hostname)" = "pc" ]; then
@@ -159,8 +154,7 @@ riverctl map normal $mod B spawn "MOZ_ENABLE_WAYLAND=1 firefox" &
 riverctl map normal $mod+$alt B spawn "qutebrowser" &
 
 # menu
-riverctl map normal $mod D spawn \
-    ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/menu.sh" &
+riverctl map normal $mod D spawn "$XDG_CONFIG_HOME/sway/scripts/menu.sh" &
 
 # files
 riverctl map normal $mod A spawn "$FILES" &
@@ -169,8 +163,7 @@ riverctl map normal $mod A spawn "$FILES" &
 riverctl map normal $mod W close &
 
 # Mod+x for swaylock
-riverctl map normal $mod X spawn \
-    ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
+riverctl map normal $mod X spawn "$XDG_CONFIG_HOME/sway/scripts/swaylock.sh" &
 
 # Mod+Tab between the two most recent tags, with Shift to send window there
 riverctl map normal $mod Tab focus-previous-tags &
@@ -178,7 +171,7 @@ riverctl map normal $mod+Shift Tab send-to-previous-tags &
 
 # temperature control
 riverctl map normal $mod+$alt T spawn \
-    ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/screen_temp.sh" &
+    "$XDG_CONFIG_HOME/sway/scripts/screen_temp.sh" &
 
 # screenshots
 riverctl map normal $mod+Shift D spawn "${SLURPCOMMAND} | grim -g - \
@@ -281,8 +274,7 @@ riverctl map normal $mod V spawn \
      riverctl hide-cursor when-typing enabled" &
 
 "$XDG_CONFIG_HOME"/river/wp "$CLR_07" &
-riverctl map normal $mod+$alt B spawn \
-    ". $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/river/wp" &
+riverctl map normal $mod+$alt B spawn "$XDG_CONFIG_HOME/river/wp" &
 
 # Theming
 BORDER_FOCUSED=$CLR_FG

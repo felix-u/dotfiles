@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-source "$XDG_CONFIG_HOME"/sh/env.sh
 source "$XDG_CONFIG_HOME"/sh/aliases_funcs.sh
 
 pkill swaybg; swaybg -c "#$CLR_08" &
@@ -55,7 +54,7 @@ fi
 SLURP="slurp -d -b '${CLR_07}40' -c '${CLR_07}' -w 3"
 
 swaymsg "bindsym $MOD+Return exec $TERMINAL" &
-swaymsg "bindsym $MOD+d exec '. $XDG_CONFIG_HOME/sh/env.sh && $XDG_CONFIG_HOME/sway/scripts/menu.sh'" &
+swaymsg "bindsym $MOD+d exec '$XDG_CONFIG_HOME/sway/scripts/menu.sh'" &
 
 # focus over parent containers
 swaymsg "bindsym $MOD+Home exec swaymsg focus parent && swaymsg focus left && swaymsg focus child" &

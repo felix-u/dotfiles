@@ -4,7 +4,6 @@ setopt extendedglob
 setopt globdots
 setopt sharehistory
 
-source /home/felix/.config/sh/env.sh
 source /home/felix/.config/sh/aliases_funcs.sh
 
 # if [[ $(tty) == /dev/tty* ]];then

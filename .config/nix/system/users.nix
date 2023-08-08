@@ -92,7 +92,7 @@ in
       programs.waybar = {
         enable = true;
         style = import ../config/waybar/style.nix;
-        settings = (import ../config/waybar/bar.nix);
+        settings = (import ../config/waybar/bar.nix) { config = config; pkgs = pkgs; };
       };
 
       programs. zathura = {

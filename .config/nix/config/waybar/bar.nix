@@ -1,11 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs }:
 
-let in
 {
   mainBar = {
     layer = "top";
     modules-left = [ "river/tags" "cpu" ];
-    modules-right = [ "pulseaudio" "battery" "custom/clock" ];
+    modules-right =
+      if config.networking.hostName == "thonkpad" then
+        [ "pulseaudio" "battery" "custom/clock" ]
+      else
+        [ "pulseaudio" "custom/clock" ];
     "river/tags" = {
       num-tags = 4;
     };

@@ -271,9 +271,12 @@ in
             cd "$CWD" || exit
         elif [ "$1" = "com" ]; then
             CWD="$(pwd)"
-            echo "dotfiles" && cd ~/dotfiles && gitcom
-            echo "uni" && cd ~/uni && gitcom
-            echo "privateconfig" && cd ~/privateconfig && gitcom
+            echo "dotfiles" && cd ~/dotfiles && \
+                git add . && git commit -a && git push
+            echo "uni" && cd ~/uni && \
+                git add . && git commit -a && git push
+            echo "privateconfig" && cd ~/privateconfig && \
+                git add . && git commit -a && git push
             cd "$CWD" || exit
         else
             echo "Requires option \"pull\" or \"com\""

@@ -119,6 +119,14 @@ in
         initExtra = builtins.readFile (toString ../config/zsh/.zshrc);
       };
 
+      home.file =
+        let
+          config_home = config.home-manager.users.felix.xdg.configHome;
+        in
+        {
+          "${config_home}/imv/config".text = import ../config/imv/config.nix;
+        };
+
     };
 
   };

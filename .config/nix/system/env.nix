@@ -96,7 +96,7 @@ in
 
     ls = ''
       /usr/bin/env ls \
-        --almost-all - -classify - -color=never --group-directories-first -1'';
+        --almost-all --classify --color=never --group-directories-first -1'';
 
     make = "make -j4";
 

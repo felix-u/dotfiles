@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-source /home/felix/.config/sh/aliases_funcs.sh
-
 # BOLD="\e[1;1m"
 # CYAN="\e[1;36m"
 # RESET="\e[0m"

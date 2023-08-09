@@ -49,7 +49,7 @@ in
     MOZ_ENABLE_WAYLAND = "1";
     NIXOS_OZONE_WL = "1";
     PAGER = "less";
-    PATH = "$HOME/.local/bin/:$XDG_CONFIG_HOME/sh/scripts-in-path/:$PATH";
+    PATH = "$HOME/.local/bin/:$PATH";
     PKG_CONFIG_PATH = "/usr/include";
     PROMPTCHAR = "%";
     PS1 = "$PROMPTCHAR ";
@@ -138,7 +138,228 @@ in
     wfrec = ''
       mkdir -p ~/Desktop/recordings; \
       wf-recorder -f ~/Desktop/recordings/"$(date +%Y-%m-%d-%H%M)".mp4'';
-
   };
+
+  environment.systemPackages =
+    let
+      script = pkgs.writeShellScriptBin;
+    in
+    [
+      (script "clrpick" ''
+        #!/usr/bin/env sh
+        while true; do
+            position=$(slurp -b 00000000 -p)
+            sleep 0.2
+            if command -v /usr/bin/gm &> /dev/null; then
+                color=$(grim -g "$position" -t png - \
+                    | /usr/bin/gm convert - -format '%[pixel:p{0,0}]' txt:- \
+                    | tail -n 1 \
+                    | rev \
+                    | cut -d ' ' -f 1 \
+                    | rev
+                )
+            else
+                color=$(grim -g "$position" -t png - \
+                    | convert - -format '%[pixel:p{0,0}]' txt:- \
+                    | tail -n 1 \
+                    | cut -d ' ' -f 4
+                )
+            fi
+
+            echo $color | pastel format hex
+            echo $color | wl-copy -n
+            sleep 1
+        done
+      '')
+
+      (script "fman" ''
+        #!/usr/bin/env sh
+        PAGES=$(man -k . | cut -d ' ' -f 1-2 | tr -d '(' | tr -d ')')
+        SELECT=$(echo "$PAGES" | fzf --preview "whatis {1} -s {2} | head -n 1" --preview-window=80%)
+        [ $? != 0 ] && return 1
+        SECTION=$(echo "$SELECT" | awk '{print $1}')
+        CMD=$(echo "$SELECT" | awk '{print $2}')
+        man "$SECTION" "$CMD"
+      '')
+
+      (script "fetch" ''
+        #!/usr/bin/env sh
+        bold="$(tput bold)"
+        reset="$(tput sgr0)"
+        spacer="    "
+
+        printf "$bold"
+        printf "OS"
+        printf "$reset$spacer"
+        uname -mrs
+    
+        printf "$bold"
+        printf "WM"
+        printf "$reset$spacer"
+        echo "river"
+    
+        printf "$bold"
+        printf "TE"
+        printf "$reset$spacer"
+        echo "$TERMINAL"
+
+        printf "$bold"
+        printf "SH"
+        printf "$reset$spacer"
+        echo "$(basename $SHELL)"
+
+        printf "\n"
+
+        printf "$bold"
+        printf "MEM"
+        echo "$reset"
+        memnum="$(cat /proc/meminfo | grep MemTotal | sed 's/^[^0-9]*//g' | cut -d ' ' -f 1)"
+        gbnum="$(echo "$memnum / 1000000" | bc)"
+        echo "$gbnum GB"
+        printf "\n"
+
+        printf "$bold"
+        printf "CPU"
+        echo "$reset"
+        cpuinfo="$(cat /proc/cpuinfo)"
+        echo "$cpuinfo" | grep -m 1 "model name" | sed 's/\t/ /g'
+        echo "$cpuinfo" | grep -m 1 "cores" | sed 's/\t/ /g'
+        printf "\n"
+
+        printf "$bold"
+        printf "GPU"
+        echo "$reset"
+        glxinfo | grep -m 1 "Device" | sed 's/^[ ]*//g; s/(.*//g'
+      '')
+
+      (script "fontlook" ''
+        #!/usr/bin/env sh
+        preview_text="ABCDEFGHIJKLM
+        NOPQRSTUVWXYZ
+        abcdefghijklm
+        nopqrstuvwxyz
+        1234567890
+        !@$\%(){}[]"
+        tmpfile="/tmp/fontlook.png"
+        while true; do
+            font="$(convert -list font | awk -F: '/^[ ]*Font: /{print substr($NF,2)}' | fzf)"
+            [ "$font" = "" ] && break
+            convert -size 4000x3000 xc:"#$CLR_BG" -fill "#$CLR_FG" \
+                -gravity center -pointsize 250 -font "$font" -annotate +0+0 \
+                "$preview_text" -flatten "$tmpfile"
+            imv "$tmpfile"
+        done
+        rm "$tmpfile"
+      '')
+
+      (script "guide" ''
+        #!/usr/bin/env sh
+        if [ $# -eq 0 ]; then
+            agnota ~/uni/misc/guide.md | $PAGER
+        else
+            agnota ~/uni/misc/guide.md -n "$@" | $PAGER
+        fi
+      '')
+
+      (script "gitall" ''
+        #!/usr/bin/env sh
+        if [ "$1" = "pull" ]; then
+            CWD="$(pwd)"
+            echo "dotfiles" && cd ~/dotfiles/ && git pull
+            echo "uni" && cd ~/uni && git pull
+            echo "privateconfig" && cd ~/privateconfig && git pull
+            cd "$CWD" || exit
+        elif [ "$1" = "com" ]; then
+            CWD="$(pwd)"
+            echo "dotfiles" && cd ~/dotfiles && gitcom
+            echo "uni" && cd ~/uni && gitcom
+            echo "privateconfig" && cd ~/privateconfig && gitcom
+            cd "$CWD" || exit
+        else
+            echo "Requires option \"pull\" or \"com\""
+            return 1
+        fi
+      '')
+
+      (script "lc" ''
+        #!/usr/bin/env sh
+        ls "$@" | 9 mc -N80
+      '')
+
+      (script "la" ''
+        #!/usr/bin/env sh
+        ls "$@" \
+            --human-readable \
+            --no-group \
+            --time-style=long-iso \
+            -o
+      '')
+
+      (script "mdread" ''
+        #!/usr/bin/env sh
+        pandoc "$1" --to html5 | w3m -T text/html
+      '')
+
+      (script "mkcd" ''
+        #!/usr/bin/env sh
+        mkdir -p "$1"
+        cd "$1" || exit
+      '')
+
+      (script "nrs" ''
+        #!/usr/bin/env sh
+        if [ "$(hostname)" = "thonkpad" ]; then
+            doas nixos-rebuild switch --fast \
+                -I nixos-config="$XDG_CONFIG_HOME"/nix/thinkpad/configuration.nix "$@"
+        elif [ "$(hostname)" = "nixbtw" ] || [ "$(hostname)" = "pc" ]; then
+            doas nixos-rebuild switch --fast \
+                -I nixos-config="$XDG_CONFIG_HOME"/nix/pc/configuration.nix "$@"
+        elif [ "$(hostname)" = "toshiba" ]; then
+            doas nixos-rebuild switch --fast \
+                -I nixos-config="$XDG_CONFIG_HOME"/nix/toshiba/configuration.nix "$@"
+        else
+            echo "No config corresponding to this machine's hostname"
+            return 1
+        fi
+      '')
+
+      (script "ready" ''
+        #!/usr/bin/env sh
+        echo
+        echo -e " \e[41m            \e[0m"
+        echo -e " \e[43m          \e[0m"
+        echo -e " \e[46m        \e[0m"
+        echo -en " \e[44m      \e[0m    "; date +%a
+        echo -en " \e[45m    \e[0m    "; date +%H:%M
+        echo
+        echo " READY."
+        echo
+      '')
+
+      (script "removedupframes" ''
+        #!/usr/bin/env sh
+        [ $# -lt 2 ] && echo "Not enough arguments supplied" && exit
+        [ -z "$3" ] && PRESET="medium"
+        [ -n "$3" ] && PRESET="$3"
+        ffmpeg -y -i "$1" -vf mpdecimate,setpts=N/FRAME_RATE/TB \
+               -an -preset "$PRESET" "$2"
+      '')
+
+      (script "resize4k" ''
+        #!/usr/bin/env sh
+        convert "$1" -resize 4000 "$1"
+        echo "Resized $1"
+      '')
+
+      (script "rg" ''
+        #!/usr/bin/env sh
+        /usr/bin/env rg \
+            --colors 'match:none' --colors 'match:style:bold' \
+            --colors 'match:bg:black' --colors 'path:none' \
+            --colors 'path:style:underline' \
+            --column --no-heading --smart-case \
+            $@
+      '')
+    ];
 }
 

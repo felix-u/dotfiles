@@ -4,30 +4,6 @@ setopt extendedglob
 setopt globdots
 setopt sharehistory
 
-source /home/felix/.config/sh/aliases_funcs.sh
-
-# if [[ $(tty) == /dev/tty* ]];then
-#     printf "
-# \033]P00662f2
-# \033]P1f12700
-# \033]P222f202
-# \033]P3f0f101
-# \033]P49b9af3
-# \033]P5f116f1
-# \033]P622f202
-# \033]P7f2f1f0
-# \033]P8aa84f4
-# \033]P9f12700
-# \033]PA22f202
-# \033]PBf0f101
-# \033]PC9b9af3
-# \033]PDf116f1
-# \033]PE22f202
-# \033]PFf2f1f0
-# "
-#     clear
-# fi
-
 export PAGER=(less -FIRX)
 export MANPAGER="$PAGER"
 
@@ -47,12 +23,17 @@ autoload -U compinit
 compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
+
 _comp_options+=(globdots) # Include hidden files
+
 # History awareness
+
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
+
 # Case-insensitive autocomplete
+
 zstyle ':completion:*' matcher-list '' \
   'm:{a-z\-}={A-Z\_}' \
   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
@@ -60,6 +41,7 @@ zstyle ':completion:*' matcher-list '' \
 # ---
 
 # Vim keys ---
+
 bindkey -v
 export KEYTIMEOUT=1
 export VI_MODE_SET_CURSOR=true
@@ -69,6 +51,7 @@ bindkey -M viins '^P' vi-cmd-mode
 bindkey -M vicmd '^P' vi-insert-mode
 
 # Block cursor, always:
+#
 function _set_cursor() {
     if [[ $TMUX = '' ]]; then
       echo -ne $1
@@ -78,9 +61,11 @@ function _set_cursor() {
 }
 function _set_block_cursor() { _set_cursor '\e[2 q' }
 precmd_functions+=(_set_block_cursor) #
+
 # ---
 
 # Emit escape sequence to spawn new terminals in current working directory
+
 _urlencode() {
 	local length="${#1}"
 	for (( i = 0; i < length; i++ )); do
@@ -110,10 +95,9 @@ bindkey '^Z' _zsh_cli_fg
 # bindkey "^L" _clear_and_pwd
 
 # Fix home and end keys.
+
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
-
-bindkey -s "^G" 'fcd^M'
 
 if [ -e "$HOME"/.nix_profile/etc/profile.d/nix.sh ]; then
     "$HOME"/.nix_profile/etc/profile.d/nix.sh

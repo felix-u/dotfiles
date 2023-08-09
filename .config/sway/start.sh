@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-source "$XDG_CONFIG_HOME"/sh/aliases_funcs.sh
-
 pkill swaybg; swaybg -c "#$CLR_08" &
 
 SWAYFONT="$FONT_SANS Semi-Bold 12"

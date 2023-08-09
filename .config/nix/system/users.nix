@@ -125,6 +125,14 @@ in
         in
         {
           "${config_home}/imv/config".text = import ../config/imv/config.nix;
+          "${config_home}/newsraft/config".text = ''
+            set scrolloff 5
+            set download-timeout 20
+            bind o exec w3m "%l"
+            bind i exec imv "%i"
+            bind b exec firefox "%l"
+            bind m exec mpv --ytdl-format='bestvideo[height<=?1200]+bestaudio/best' --ytdl-raw-options=sub-lang='en',write-sub=,write-auto-sub= --sid=1 --speed=2 "%l"
+          '';
         };
 
     };

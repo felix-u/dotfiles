@@ -15,8 +15,8 @@ if test -z "${XDG_RUNTIME_DIR}"; then
     fi
 fi
 
-# pwd
-PROMPT="%(?.%F{normal}.%F{red})%(!.#.%${PROMPTCHAR})%f "
+NEWLINE=$'\n'
+PROMPT="%B%F{cyan}%5~%f${NEWLINE}%(?.%F{normal}.%F{red})%(!.#.%${PROMPTCHAR})%f%b "
 
 # Auto/tab complete ---
 autoload -U compinit

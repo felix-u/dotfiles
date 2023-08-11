@@ -18,7 +18,7 @@
       max-length = 10;
       states = {
         warning = 50;
-        critical = 7;
+        critical = 80;
       };
     };
     battery = {

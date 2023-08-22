@@ -2,7 +2,6 @@
 
 # ncspot
 .config/ncspot/*
-!.config/ncspot/config.toml
 
 # qutebrowser stuff idk
 .config/qutebrowser/*

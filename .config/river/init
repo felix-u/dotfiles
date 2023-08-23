@@ -254,7 +254,6 @@ riverctl set-repeat 50 200 &
 
 riverctl rule-add float -app-id "*float*" &
 riverctl rule-add float -app-id "*popup*" &
-riverctl rule-add float -app-id "*zathura*" &
 riverctl rule-add ssd -app-id firefox &
 riverctl rule-add ssd -app-id io.elementary.files &
 

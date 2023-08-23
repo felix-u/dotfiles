@@ -92,6 +92,18 @@ in
         defaultOptions = [ "--color=16" ];
       };
 
+      programs.neovim = {
+        enable = true;
+        plugins = with pkgs.vimPlugins; [
+            fzf-vim
+            vim-clang-format
+            vim-commentary
+        ];
+        defaultEditor = true;
+	extraConfig = builtins.readFile (toString ../config/nvim/init.vim);
+      };
+
+
       programs.ncspot = {
         enable = true;
         settings = import ../config/ncspot/ncspot.nix;

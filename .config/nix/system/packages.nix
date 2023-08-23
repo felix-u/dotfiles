@@ -228,21 +228,6 @@ in
 
     ];
 
-  programs.neovim = {
-    enable = true;
-    configure = {
-      customRC = builtins.readFile (toString ../config/nvim/init.vim);
-      packages.myVimPackage = with pkgs.vimPlugins; {
-        start = [
-          fzf-vim
-          vim-clang-format
-          vim-commentary
-        ];
-      };
-    };
-    defaultEditor = true;
-  };
-
   # Isn't installed correctly if in package list
   programs.steam.enable = true;
 

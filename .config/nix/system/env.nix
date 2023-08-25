@@ -71,7 +71,7 @@ in
 
   environment.shellAliases = {
     agnota = "nota --no-colour --line-num";
-    ag = "agnota $AGENDAFILE -un task --no-colour | $PAGER";
+    ag = "agnota $AGENDAFILE -un task --no-colour --not-tagged | $PAGER";
     agerrands = "agnota $AGENDAFILE -un errand | $PAGER";
     agerrandspast = "agnota $AGENDAFILE -bs ascending -n Errand --not-tagged | $PAGER";
     agpast = "agnota $AGENDAFILE -bs ascending -n task --not-tagged | $PAGER";

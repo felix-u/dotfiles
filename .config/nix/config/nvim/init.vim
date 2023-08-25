@@ -238,6 +238,9 @@ nnoremap <leader>fm :Maps<CR>
 nnoremap <leader>fh :Helptags<CR>
 nnoremap <leader>ft :Filetypes<CR>
 
+" vimtex
+let g:vimtex_view_method = 'zathura'
+
 " Add empty lines without leaving normal mode.
 nnoremap [<space> O<Esc>
 nnoremap ]<space> o<Esc>

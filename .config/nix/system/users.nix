@@ -95,12 +95,13 @@ in
       programs.neovim = {
         enable = true;
         plugins = with pkgs.vimPlugins; [
-            fzf-vim
-            vim-clang-format
-            vim-commentary
+          fzf-vim
+          vim-clang-format
+          vim-commentary
+          vimtex
         ];
         defaultEditor = true;
-	extraConfig = builtins.readFile (toString ../config/nvim/init.vim);
+        extraConfig = builtins.readFile (toString ../config/nvim/init.vim);
       };
 
 

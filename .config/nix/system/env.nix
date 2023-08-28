@@ -71,11 +71,11 @@ in
 
   environment.shellAliases = {
     agnota = "nota --no-colour --line-num";
-    ag = "agnota $AGENDAFILE -un task --no-colour --not-tagged | $PAGER";
-    agerrands = "agnota $AGENDAFILE -un errand | $PAGER";
-    agerrandspast = "agnota $AGENDAFILE -bs ascending -n Errand --not-tagged | $PAGER";
-    agpast = "agnota $AGENDAFILE -bs ascending -n task --not-tagged | $PAGER";
-    agtodo = "agerrandspast && agerrands && agpast && ag";
+    ag = "agnota $AGENDAFILE -un task --no-colour --not-tagged";
+    agerrands = "agnota $AGENDAFILE -un errand";
+    agerrandspast = "agnota $AGENDAFILE -bs ascending -n Errand --not-tagged";
+    agpast = "agnota $AGENDAFILE -bs ascending -n task --not-tagged";
+    agtodo = "{ agerrandspast && agerrands && agpast && ag } | $PAGER";
     agv = "$EDITOR $AGENDAFILE";
 
     aggpreset = "agg --theme solarized-dark --font-family 'JetBrains Mono'  --font-size 25";

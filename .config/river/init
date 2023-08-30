@@ -259,6 +259,7 @@ riverctl rule-add float -app-id "*float*" &
 riverctl rule-add float -app-id "*popup*" &
 riverctl rule-add ssd -app-id firefox &
 riverctl rule-add ssd -app-id io.elementary.files &
+riverctl rule-add ssd -app-id org.pwmt.zathura &
 
 riverctl attach-mode top &
 

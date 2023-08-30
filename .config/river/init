@@ -35,6 +35,9 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     riverctl input "$TOUCHPAD" tap enabled &
     riverctl input "$TOUCHPAD" tap-button-map left-right-middle &
 
+    KEYBOARD="keyboard-4661-22137-My_KMonad_output"
+    # riverctl keyboard-layout -options "compose:caps" "us" &
+
     left="H"
     down="J"
     up="K"

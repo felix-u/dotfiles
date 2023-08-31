@@ -10,33 +10,14 @@ let
 in
 {
 
-  # River
-
   programs.sway = {
     enable = true;
     extraPackages = with pkgs; [
       swaybg
       swaylock-effects
-    ];
-  };
-
-  environment.systemPackages =
-    let
-      river-git = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
-        src = pkgs.fetchFromGitHub {
-          owner = "riverwm";
-          repo = "river";
-          rev = "c16628c7f57c51d50f2d10a96c265fb0afaddb02";
-          sha256 = "sha256-E3Xtv7JeCmafiNmpuS5VuLgh1TDAbibPtMo6A9Pz6EQ=";
-          fetchSubmodules = true;
-        };
-      });
-    in
-    with pkgs; [
       glib
       grim
       polkit_gnome
-      river-git
       slurp
       tofi
       wf-recorder
@@ -45,6 +26,23 @@ in
       wlsunset
       xwayland
     ];
+  };
+
+  # environment.systemPackages =
+  #   let
+  #     river-git = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
+  #       src = pkgs.fetchFromGitHub {
+  #         owner = "riverwm";
+  #         repo = "river";
+  #         rev = "c16628c7f57c51d50f2d10a96c265fb0afaddb02";
+  #         sha256 = "sha256-E3Xtv7JeCmafiNmpuS5VuLgh1TDAbibPtMo6A9Pz6EQ=";
+  #         fetchSubmodules = true;
+  #       };
+  #     });
+  #   in
+  #   with pkgs; [
+  #     river-git
+  #   ];
 
   environment.pathsToLink = [ "/libexec" ]; # for polkit
   qt.platformTheme = "qt5ct";

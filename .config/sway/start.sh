@@ -35,7 +35,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
 
     pkill waybar
-    waybar -c ~/.config/waybar/thinkpad.json &
+    waybar &
 elif [[ $(cat /proc/sys/kernel/hostname) == "pc" ]]; then
 
     "$XDG_CONFIG_HOME"/sway/scripts/binds colemak "$MOD" "$ALT" &
@@ -46,7 +46,7 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "pc" ]]; then
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
 
     pkill waybar
-    waybar -c ~/.config/waybar/desktop.json &
+    waybar &
 fi
 
 SLURP="slurp -d -b '${CLR_07}40' -c '${CLR_07}' -w 3"

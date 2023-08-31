@@ -16,11 +16,13 @@ in
   window#waybar {
       background: #${theme.cbg};
       color: #${theme.cfg};
+      border-bottom: 2px solid #${theme.cfg};
+      margin-bottom: 30px;
   }
 
   #window {
       margin-top: 0px;
-      margin-bottom: 6px;
+      /* margin-bottom: 6px; */
       padding-left: 16px;
       padding-right: 16px;
       padding-top: 0;

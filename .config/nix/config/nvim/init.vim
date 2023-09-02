@@ -19,13 +19,13 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set mouse=a
 set nocompatible
 set nolangremap
-set nonumber
-set norelativenumber
 set noshowcmd
 set noswapfile
 set nowrap
 set nowritebackup
 set nrformats-=octal
+set number
+set relativenumber
 set ruler
 set scrolloff=1
 set sessionoptions-=options

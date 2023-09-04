@@ -92,6 +92,11 @@ in
         defaultOptions = [ "--color=16" ];
       };
 
+      programs.ncspot = {
+        enable = true;
+        settings = import ../config/ncspot/ncspot.nix;
+      };
+
       programs.neovim = {
         enable = true;
         plugins = with pkgs.vimPlugins; [
@@ -104,19 +109,13 @@ in
         extraConfig = builtins.readFile (toString ../config/nvim/init.vim);
       };
 
-
-      programs.ncspot = {
-        enable = true;
-        settings = import ../config/ncspot/ncspot.nix;
-      };
-
       programs.waybar = {
         enable = true;
         style = import ../config/waybar/style.nix;
         settings = (import ../config/waybar/bar.nix) { config = config; pkgs = pkgs; };
       };
 
-      programs. zathura = {
+      programs.zathura = {
         enable = true;
         extraConfig = import ../config/zathura/zathurarc.nix;
       };

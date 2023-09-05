@@ -1,0 +1,48 @@
+#!/usr/bin/env sh
+
+options=$(cat <<-END
+CLR_01
+CLR_02
+CLR_03
+CLR_04
+CLR_05
+CLR_06
+CLR_07 
+END
+)
+
+set_bg () {
+    echo $to_set
+    pkill swaybg; swaybg -c "$1" &
+
+    CLRFOCUSED="#$CLR_FG"
+    CLRUNFOCUSED="$1"
+    TEXTFOCFG="#$CLR_FG"
+    TEXTFOCBG="#$CLR_08"
+    TEXTUNFOCFG="#$CLR_07"
+    TEXTUNFOCBG="#$CLR_00"
+    TEXTFOCINACTIVEFG="#$CLR_FG"
+    TEXTFOCINACTIVEBG="#$CLR_00"
+    swaymsg "default_border pixel 4" &
+    #               class        border       background             text                indicator      child border
+    swaymsg "client.focused "$TEXTFOCBG"     "$TEXTFOCBG"        "$TEXTFOCFG"          "$CLRFOCUSED"   "$CLRFOCUSED"" &
+    swaymsg "client.focused_inactive \
+                        "$TEXTFOCINACTIVEBG" "$TEXTFOCINACTIVEBG" "$TEXTFOCINACTIVEFG" "$CLRUNFOCUSED" "$CLRUNFOCUSED"" &
+    swaymsg "client.unfocused \
+                            "$TEXTUNFOCBG"   "$TEXTUNFOCBG"   "$TEXTUNFOCFG"          "$CLR_15"        "$CLRUNFOCUSED"" &
+    swaymsg "client.urgent  "$CLR_01" "$CLRUNFOCUSED" "$CLR_FG" "$CLR_15" "$CLRUNFOCUSED"" &
+}
+
+[ ! -z "$2" ] && set_bg "$2" && return 0
+
+if [ ! -z "$1" ]; then
+    to_set="$(pastel mix "$1" "$CLR_BG" | pastel format hex)"
+else
+    menu="$XDG_CONFIG_HOME"/sway/scripts/general_menu.sh
+    eval to_set="\$$(printf "%s" "$options" | "$menu")"
+    to_set="$(pastel mix "$to_set" "$CLR_BG" | pastel format hex)"
+fi
+
+[ "$to_set" = "" ] && exit
+
+set_bg "$to_set"

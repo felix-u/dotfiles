@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pkill swaybg; swaybg -c "#$CLR_08" &
+scripts/wp "$CLR_07" &
 
 SWAYFONT="$FONT_SANS Semi-Bold 12"
 
@@ -59,6 +59,8 @@ swaymsg "bindsym $MOD+Home exec swaymsg focus parent && swaymsg focus left && sw
 swaymsg "bindsym $MOD+Page_Down exec swaymsg focus parent && swaymsg focus down && swaymsg focus child" &
 swaymsg "bindsym $MOD+Page_Up exec swaymsg focus parent && swaymsg focus up && swaymsg focus child" &
 swaymsg "bindsym $MOD+End exec swaymsg focus parent && swaymsg focus right && swaymsg focus child" &
+
+swaymsg "bindsym $MOD+$ALT+b exec \$XDG_CONFIG_HOME/sway/scripts/wp" &
 
 swaymsg "bindsym $MOD+comma bar mode dock" &
 swaymsg "bindsym $MOD+Shift+comma bar mode invisible" &
@@ -126,23 +128,6 @@ DEFAULT_GAPS=10
 swaymsg "gaps inner $DEFAULT_GAPS" &
 swaymsg "font pango:$SWAYFONT" &
 swaymsg "title_format %app_id" &
-
-CLRFOCUSED="#$CLR_FG"
-CLRUNFOCUSED="#$CLR_08"
-TEXTFOCFG="#$CLR_FG"
-TEXTFOCBG="#$CLR_08"
-TEXTUNFOCFG="#$CLR_07"
-TEXTUNFOCBG="#$CLR_00"
-TEXTFOCINACTIVEFG="#$CLR_FG"
-TEXTFOCINACTIVEBG="#$CLR_00"
-swaymsg "default_border pixel 4" &
-#               class        border       background             text                indicator      child border
-swaymsg "client.focused "$TEXTFOCBG"     "$TEXTFOCBG"        "$TEXTFOCFG"          "$CLRFOCUSED"   "$CLRFOCUSED"" &
-swaymsg "client.focused_inactive \
-                    "$TEXTFOCINACTIVEBG" "$TEXTFOCINACTIVEBG" "$TEXTFOCINACTIVEFG" "$CLRUNFOCUSED" "$CLRUNFOCUSED"" &
-swaymsg "client.unfocused \
-                        "$TEXTUNFOCBG"   "$TEXTUNFOCBG"   "$TEXTUNFOCFG"          "$CLR_15"        "$CLRUNFOCUSED"" &
-swaymsg "client.urgent  "$CLR_01" "$CLRUNFOCUSED" "$CLR_FG" "$CLR_15" "$CLRUNFOCUSED"" &
 
 # Fix for first workspace having gaps 0 on startup
 swaymsg gaps inner current set $DEFAULT_GAPS &

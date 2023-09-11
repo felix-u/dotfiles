@@ -61,7 +61,7 @@ exec_always gsettings set org.gnome.desktop.interface cursor-size 24
 exec_always gsettings set org.gnome.desktop.interface icon-theme 'elementary'
 
 # bash scripting, babyyy
-exec_always --no-startup-id ~/.config/sway/start.sh
+exec_always --no-startup-id /home/felix/.config/sway/start.sh
 
 # ZOOM ---
 # Inhibit idle when zoom window is visible

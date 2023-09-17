@@ -1,11 +1,12 @@
 { pkgs, config, lib, ... }:
 
 let
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in
 {
 
   environment.pathsToLink = [ "/libexec" ]; # for polkit
-  qt.platformTheme = "qt5ct";
+  # qt.platformTheme = "qt5ct";
 
   # pipewire
   hardware.pulseaudio.enable = false;
@@ -23,7 +24,10 @@ in
   environment.sessionVariables = { GTK_USE_PORTAL = "1"; };
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal
+      xdg-desktop-portal-gnome
+    ];
   };
 
   # bluetooth
@@ -36,7 +40,15 @@ in
 
   hardware.opengl.enable = true;
 
+  nixpkgs.overlays = [
+    (self: super: {
+      gnome = unstable.gnome;
+      gnomeExtensions = unstable.gnomeExtensions;
+    })
+  ];
+
   services.xserver = {
+    enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };

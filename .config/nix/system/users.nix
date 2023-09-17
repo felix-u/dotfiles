@@ -15,7 +15,7 @@ in
   };
 
   # shell
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.bash;
   programs.zsh.enable = true;
 
   # home-manager
@@ -49,6 +49,7 @@ in
 
       programs.bash = {
         enable = true;
+        historyControl = [ "ignoredups" ];
         initExtra = builtins.readFile (toString ../config/bash/.bashrc);
       };
 

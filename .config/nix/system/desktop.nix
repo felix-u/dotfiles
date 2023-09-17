@@ -5,10 +5,28 @@ let
 
   pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
-  flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+  # flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
 in
 {
+
+  services.xserver = {
+    enable = false;
+    displayManager.gdm.enable = false;
+    desktopManager.gnome.enable = false;
+  };
+  # environment.gnome.excludePackages = (with pkgs; [
+  #   gnome-tour
+  # ]) ++ (with pkgs.gnome; [
+  #   gnome-contacts
+  #   epiphany
+  # ]);
+  # programs.dconf.enable = true;
+  # environment.systemPackages = with pkgs; [
+  #   # gnomeExtensions.appindicator
+  #   gnome.gnome-tweaks
+  # ];
+  # services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   programs.sway = {
     enable = true;
@@ -28,26 +46,10 @@ in
     ];
   };
 
-  # environment.systemPackages =
-  #   let
-  #     river-git = pkgs-unstable.river.overrideAttrs (oldAttrs: rec {
-  #       src = pkgs.fetchFromGitHub {
-  #         owner = "riverwm";
-  #         repo = "river";
-  #         rev = "c16628c7f57c51d50f2d10a96c265fb0afaddb02";
-  #         sha256 = "sha256-E3Xtv7JeCmafiNmpuS5VuLgh1TDAbibPtMo6A9Pz6EQ=";
-  #         fetchSubmodules = true;
-  #       };
-  #     });
-  #   in
-  #   with pkgs; [
-  #     river-git
-  #   ];
-
   environment.pathsToLink = [ "/libexec" ]; # for polkit
-  qt.platformTheme = "qt5ct";
 
   # pipewire
+  hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -59,7 +61,7 @@ in
   services.printing.enable = true;
 
   services.flatpak.enable = true;
-  environment.sessionVariables = { GTK_USE_PORTAL = "1"; };
+  # environment.sessionVariables = { GTK_USE_PORTAL = "1"; };
   xdg.portal = {
     enable = true;
     wlr.enable = true;

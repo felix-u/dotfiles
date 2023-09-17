@@ -24,6 +24,7 @@
     kernelParams = [
       "vt.cur_default=0"
     ];
+    supportedFilesystems = [ "ntfs" ];
   };
 
   systemd = {

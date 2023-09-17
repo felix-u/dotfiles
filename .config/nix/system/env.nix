@@ -292,6 +292,10 @@ in
       (script "la" ''
         #!/usr/bin/env sh
         ls "$@" \
+            --almost-all \
+            --classify \
+            --color=never \
+            --group-directories-first \
             --human-readable \
             --no-group \
             --time-style=long-iso \

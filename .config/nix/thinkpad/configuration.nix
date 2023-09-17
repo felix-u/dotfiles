@@ -19,6 +19,7 @@
 
       # various desktop-related: sway, QT, printing, pipewire, etc.
       ../system/desktop.nix
+      # ../system/desktop_gnome.nix
       # ../thinkpad/desktop_gnome.nix
 
       # user configuration (groups, shell, etc.)

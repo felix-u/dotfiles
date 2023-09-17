@@ -41,35 +41,38 @@ in
   hardware.pulseaudio.enable = false;
   services.xserver.enable = true;
 
-  # Pantheon
-  services.xserver.desktopManager.pantheon.enable = true;
+  # # Pantheon
+  # services.xserver.desktopManager.pantheon.enable = true;
 
-  # # Gnome
-  # services.xserver.displayManager.gdm.enable = true;
+  # Gnome
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.sessionPackages = [
+    pkgs.gnome.gnome-session.sessions
+  ];
   # services.xserver.desktopManager.gnome = {
   #   enable = true;
   # };
-  # environment.gnome.excludePackages = (with pkgs; [
-  #   gnome-photos
-  #   gnome-tour
-  # ]) ++ (with pkgs.gnome; [
-  #   # cheese # webcam tool
-  #   gnome-music
-  #   gnome-terminal
-  #   gedit # text editor
-  #   epiphany # web browser
-  #   geary # email reader
-  #   evince # document viewer
-  #   gnome-characters
-  #   gnome-software
-  #   gnome-music
-  #   simple-scan
-  #   totem # video player
-  #   tali # poker game
-  #   iagno # go game
-  #   hitori # sudoku game
-  #   atomix # puzzle game
-  # ]);
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    # cheese # webcam tool
+    gnome-music
+    gnome-terminal
+    gedit # text editor
+    epiphany # web browser
+    geary # email reader
+    evince # document viewer
+    gnome-characters
+    gnome-software
+    gnome-music
+    simple-scan
+    totem # video player
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+  ]);
 
   services.power-profiles-daemon.enable = false;
 }

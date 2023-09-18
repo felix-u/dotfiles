@@ -49,6 +49,7 @@ in
 
       programs.bash = {
         enable = true;
+        enableVteIntegration = true;
         historyControl = [ "ignoredups" ];
         initExtra = builtins.readFile (toString ../config/bash/.bashrc);
       };

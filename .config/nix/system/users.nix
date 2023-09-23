@@ -101,12 +101,6 @@ in
 
       programs.neovim = {
         enable = true;
-        plugins = with pkgs.vimPlugins; [
-          fzf-vim
-          vim-clang-format
-          vim-commentary
-          vimtex
-        ];
         defaultEditor = true;
         extraConfig = builtins.readFile (toString ../config/nvim/init.vim);
       };
@@ -138,6 +132,7 @@ in
           config_home = config.home-manager.users.felix.xdg.configHome;
         in
         {
+          "${config_home}/nvim/pack/plugins/start".source = ../config/nvim/start;
           "${config_home}/imv/config".text = import ../config/imv/config.nix;
           "${config_home}/newsraft/config".text = ''
             set scrolloff 5

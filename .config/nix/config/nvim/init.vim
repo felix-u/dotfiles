@@ -83,8 +83,8 @@ set commentstring=#\ %s
 autocmd FileType c   set commentstring=//\ %s
 autocmd FileType cpp set commentstring=//\ %s
 
-let g:clang_format#extra_args = "--style=file:/home/felix/dotfiles/misc/.clang-format"
-autocmd FileType c ClangFormatAutoEnable
+" let g:clang_format#extra_args = "--style=file:/home/felix/dotfiles/misc/.clang-format"
+" autocmd FileType c ClangFormatAutoEnable
 
 " print syntax grouping under cursor
 function! SynStack()

@@ -78,6 +78,7 @@ in
       ascii
       bviplus
       gdb
+      gf
       gnumake
       rr
       valgrind
@@ -175,6 +176,7 @@ in
       anki-bin
       appimage-run
       bitwarden
+      blanket
       calibre
       font-manager
       imagemagick

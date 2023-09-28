@@ -39,7 +39,7 @@ if [ ! -z "$1" ]; then
     to_set="$(pastel mix "$1" "$CLR_BG" | pastel format hex)"
 else
     menu="$XDG_CONFIG_HOME"/sway/scripts/general_menu.sh
-    eval to_set="\$$(printf "%s" "$options" | "$menu")"
+    eval to_set="\$$(printf "%s" "$options" | "$menu" bg)"
     to_set="$(pastel mix "$to_set" "$CLR_BG" | pastel format hex)"
 fi
 

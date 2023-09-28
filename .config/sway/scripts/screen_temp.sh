@@ -18,7 +18,7 @@ if [ "$1" = "default" ]; then
     OPT="time"
 else
     MENU="$XDG_CONFIG_HOME"/sway/scripts/general_menu.sh
-    OPT="$(printf "%s" "$OPTIONS" | "$MENU" | head -c 4)"
+    OPT="$(printf "%s" "$OPTIONS" | "$MENU" temp | head -c 4)"
 fi
 
 [ "$OPT" = "" ] && exit

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-"$XDG_CONFIG_HOME"/sway/scripts/wp "$CLR_07" &
+"$XDG_CONFIG_HOME"/sway/scripts/wp "$CLR_06" &
 
 SWAYFONT="$FONT_SANS Semi-Bold 12"
 

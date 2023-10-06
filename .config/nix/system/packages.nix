@@ -1,7 +1,6 @@
 { pkgs, config, lib, ... }:
 
 let
-  pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 in
 {
@@ -29,33 +28,7 @@ in
 
   environment.systemPackages =
     let
-
       unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-
-      newsraft = pkgs.callPackage ../derivations/newsraft.nix { };
-
-      nota = import ../derivations/nota.nix;
-
-      ols = import ../derivations/ols.nix;
-
-      poop = import ../derivations/poop.nix;
-
-      imgclr = import ../derivations/imgclr.nix;
-
-      shgen = import ../derivations/shgen.nix;
-
-      signal-desktop = pkgs.signal-desktop.overrideAttrs (oldAttrs: rec {
-        runtimeDependencies = oldAttrs.runtimeDependencies ++ [ pkgs.wayland ];
-      });
-
-      termato = pkgs.callPackage ../derivations/termato.nix { };
-
-      themesh = import ../derivations/themesh.nix;
-
-      wl-screenrec = import ../derivations/wl-screenrec.nix;
-
-      zig-master = import ../derivations/zig-master.nix;
-
     in
     with pkgs; [
 
@@ -119,7 +92,7 @@ in
       # shell
       shellcheck
       # zig
-      zig-master
+      (import ../derivations/zig-master.nix)
       # MATHS
       bc
       libqalculate
@@ -135,26 +108,26 @@ in
       htop
       hunspell
       hunspellDicts.en-gb-ise
-      imgclr
+      (import ../derivations/imgclr.nix)
       jq
       killall
       libv4l
       lm_sensors
       moreutils
       ncdu
-      newsraft
-      nota
+      (pkgs.callPackage ../derivations/newsraft.nix { })
+      (import ../derivations/nota.nix)
       nvd
       onefetch
       pandoc
       pastel
-      poop
+      (import ../derivations/poop.nix)
       poppler_utils
       ripgrep
       sdcv
-      shgen
-      termato
-      themesh
+      (import ../derivations/shgen.nix)
+      (pkgs.callPackage ../derivations/termato.nix { })
+      (import ../derivations/themesh.nix)
       tldr
       tree
       unrar
@@ -194,7 +167,9 @@ in
       obs-studio-plugins.wlrobs
       pantheon.elementary-files
       qt5ct
-      signal-desktop
+      (pkgs.signal-desktop.overrideAttrs (oldAttrs: rec {
+        runtimeDependencies = oldAttrs.runtimeDependencies ++ [ pkgs.wayland ];
+      }))
       wally-cli
       xournalpp
 

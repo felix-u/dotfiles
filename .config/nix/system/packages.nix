@@ -32,6 +32,8 @@ in
 
       unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
+      newsraft = pkgs.callPackage ../derivations/newsraft.nix { };
+
       nota = import ../derivations/nota.nix;
 
       ols = import ../derivations/ols.nix;
@@ -140,6 +142,7 @@ in
       lm_sensors
       moreutils
       ncdu
+      newsraft
       nota
       nvd
       onefetch

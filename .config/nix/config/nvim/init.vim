@@ -1,5 +1,6 @@
 set autoindent
 set autoread
+set background=light
 set backspace=indent,eol,start " backspace in insert mode
 set clipboard="unnamedplus"
 set colorcolumn=80
@@ -75,7 +76,6 @@ function! s:tweak_default_colours()
   autocmd BufReadPost *.c,*.h hi cError cterm=NONE
 endfunction
 autocmd! ColorScheme default call s:tweak_default_colours()
-colorscheme default
 
 let mapleader = " "
 
@@ -247,4 +247,5 @@ nnoremap ]<space> o<Esc>
 
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
+colorscheme default
 syntax off

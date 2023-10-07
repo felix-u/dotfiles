@@ -96,6 +96,7 @@ in
       # MATHS
       bc
       libqalculate
+      qalculate-gtk
 
       # Utils
       _7zz

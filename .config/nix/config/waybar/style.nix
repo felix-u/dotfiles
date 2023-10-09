@@ -14,7 +14,7 @@ in
 
 
   window#waybar {
-      background: #${theme.cbg};
+      background: #${theme.c00};
       color: #${theme.cfg};
       border-bottom: 2px solid #${theme.cfg};
       margin-bottom: 30px;

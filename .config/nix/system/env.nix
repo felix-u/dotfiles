@@ -86,8 +86,6 @@ in
 
     gitcom = "git add . && git commit -a && git push";
 
-    htop = "htop --no-colour";
-
     shutdwn = "shutdown -h now";
 
     timetable = "agnota $AGENDAFILE -n Timetable | $PAGER";
@@ -119,8 +117,6 @@ in
     prompts = "$EDITOR ~/uni/misc/prompts";
 
     rainsh = "~/dotfiles/scripts/rain.sh";
-
-    rebuild = "doas $XDG_CONFIG_HOME/system/sysbuild";
 
     river = "dbus-run-session -- river";
 

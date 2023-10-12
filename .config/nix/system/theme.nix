@@ -1,5 +1,6 @@
 {
   fontmono = "CommitMono";
+  # fontmono = "GoMonoNerdFont";
   fontsans = "Inter";
   fontserif = "EBGaramond12";
 

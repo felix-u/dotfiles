@@ -18,11 +18,11 @@ set_bg () {
     CLRFOCUSED="#$CLR_FG"
     CLRUNFOCUSED="$1"
     TEXTFOCFG="#$CLR_FG"
-    TEXTFOCBG="#$CLR_08"
+    TEXTFOCBG="#$CLR_00"
     TEXTUNFOCFG="#$CLR_07"
-    TEXTUNFOCBG="#$CLR_00"
+    TEXTUNFOCBG="#$CLR_BG"
     TEXTFOCINACTIVEFG="#$CLR_FG"
-    TEXTFOCINACTIVEBG="#$CLR_00"
+    TEXTFOCINACTIVEBG="#$CLR_BG"
     swaymsg "default_border pixel 4" &
     #               class        border       background             text                indicator      child border
     swaymsg "client.focused "$TEXTFOCBG"     "$TEXTFOCBG"        "$TEXTFOCFG"          "$CLRFOCUSED"   "$CLRFOCUSED"" &

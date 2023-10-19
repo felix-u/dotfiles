@@ -22,7 +22,7 @@ set_bg () {
     TEXTUNFOCFG="#$CLR_07"
     TEXTUNFOCBG="#$CLR_BG"
     TEXTFOCINACTIVEFG="#$CLR_FG"
-    TEXTFOCINACTIVEBG="#$CLR_BG"
+    TEXTFOCINACTIVEBG="#$CLR_00"
     swaymsg "default_border pixel 4" &
     #               class        border       background             text                indicator      child border
     swaymsg "client.focused "$TEXTFOCBG"     "$TEXTFOCBG"        "$TEXTFOCFG"          "$CLRFOCUSED"   "$CLRFOCUSED"" &

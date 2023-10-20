@@ -1,6 +1,5 @@
 set autoindent
 set autoread
-set background=light
 set backspace=indent,eol,start " backspace in insert mode
 set clipboard="unnamedplus"
 set colorcolumn=80
@@ -59,8 +58,7 @@ function! s:tweak_default_colours()
   hi Comment      cterm=bold   ctermfg=White ctermbg=00
   hi CursorLine   ctermbg=00
   hi LineNr       ctermfg=07   ctermbg=00
-  hi MatchParen   cterm=bold,underline ctermfg=Black ctermbg=White
-  hi netrwDir     ctermfg=04
+  hi MatchParen   cterm=bold,underline ctermfg=White ctermbg=08
   hi Pmenu        ctermfg=White ctermbg=Black
   hi PmenuSbar    ctermbg=08
   hi PmenuSel     ctermfg=Black ctermbg=White
@@ -82,9 +80,6 @@ let mapleader = " "
 set commentstring=#\ %s
 autocmd FileType c   set commentstring=//\ %s
 autocmd FileType cpp set commentstring=//\ %s
-
-" let g:clang_format#extra_args = "--style=file:/home/felix/dotfiles/misc/.clang-format"
-" autocmd FileType c ClangFormatAutoEnable
 
 " print syntax grouping under cursor
 function! SynStack()
@@ -228,24 +223,12 @@ tnoremap <Esc> <C-\><C-n>
 let maplocalleader="\\"
 let g:vimtex_view_method = 'zathura'
 
-" fzf
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>fg :Rg<CR>
-nnoremap <leader>fl :Lines<CR>
-nnoremap <leader>fc :Commands<CR>
-nnoremap <leader>fm :Maps<CR>
-nnoremap <leader>fh :Helptags<CR>
-nnoremap <leader>ft :Filetypes<CR>
-
-" vimtex
-let g:vimtex_view_method = 'zathura'
-
 " Add empty lines without leaving normal mode.
 nnoremap [<space> O<Esc>
 nnoremap ]<space> o<Esc>
 
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
-colorscheme default
 syntax off
+colorscheme default
+set background=light

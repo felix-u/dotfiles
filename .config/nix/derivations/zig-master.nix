@@ -1,7 +1,7 @@
 let
   pkgs = import <nixpkgs> { };
 
-  rev = "0.12.0-dev.1124+ec21da0d5";
+  rev = "0.12.0-dev.1127+32bc07767";
 
   zig-bin = builtins.fetchurl {
     url = "https://ziglang.org/builds/zig-linux-x86_64-${rev}.tar.xz";

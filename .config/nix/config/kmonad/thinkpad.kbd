@@ -83,12 +83,14 @@
 (defalias
     1 (tap-hold 200 1 lalt)
     8 (tap-hold 200 8 ralt)
+    sft (tap-hold 200 - rsft)
+    ctl (tap-hold 200 = rctl)
 )
 (deflayer symbols
   _    _   _   _   _   _   _  _   _   _   _   _    _   _    _   _   _
   _    _    _    _    _    _    _    _    _    _    _    _    _     _
-  _    _    2    3    4    =    -    5    6    7    _    _    _     _
-  _    @1 lctl lsft lmet   0    9  rmet rsft rctl   @8   _      _
+  _    _    2    3    4    _    _    5    6    7    _    _    _     _
+  _    @1 lctl lsft lmet   0    9  rmet @sft @ctl   @8   _      _
   _    _    \    [    ]   grv   '   \(   \)    /    _             _     _   _
   _    _   _    _         _             _     _    _              _    _    _
 )

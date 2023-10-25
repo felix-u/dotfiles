@@ -56,6 +56,7 @@ in
       gf
       gnumake
       rr
+      tokei
       valgrind
       # c
       binutils-unwrapped-all-targets

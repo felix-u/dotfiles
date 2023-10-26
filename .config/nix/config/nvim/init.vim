@@ -24,8 +24,8 @@ set noswapfile
 set nowrap
 set nowritebackup
 set nrformats-=octal
-set number
-set relativenumber
+set nonumber
+set norelativenumber
 set ruler
 set scrolloff=1
 set sessionoptions-=options
@@ -65,9 +65,9 @@ function! s:tweak_default_colours()
   hi PmenuThumb   ctermfg=08 ctermbg=08
   hi Search       cterm=bold   ctermfg=Black ctermbg=03
   hi StatusLine   cterm=NONE   ctermfg=White ctermbg=00
-  hi TabLine      cterm=NONE   ctermfg=White ctermbg=00
+  hi TabLine      cterm=NONE   ctermfg=07 ctermbg=NONE
   hi TabLineFill  cterm=NONE   ctermfg=NONE  ctermbg=NONE
-  hi TabLineSel   cterm=bold   ctermfg=Black ctermbg=White
+  hi TabLineSel   cterm=bold   ctermfg=15 ctermbg=00
   hi TermCursor   ctermfg=Black ctermbg=White
   hi Visual       ctermbg=08
   hi WildMenu     ctermfg=Black ctermbg=White

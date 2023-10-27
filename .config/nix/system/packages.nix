@@ -120,7 +120,6 @@ in
       (pkgs.callPackage ../derivations/newsraft.nix { })
       (import ../derivations/nota.nix)
       nvd
-      onefetch
       pandoc
       pastel
       (import ../derivations/poop.nix)

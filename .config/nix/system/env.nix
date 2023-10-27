@@ -78,8 +78,6 @@ in
     agtodo = "cat <(agerrandspast) <(agerrands) <(agpast) <(ag) | $PAGER";
     agv = "$EDITOR $AGENDAFILE";
 
-    aggpreset = "agg --theme solarized-dark --font-family 'JetBrains Mono'  --font-size 25";
-
     cdu = "cd ~/uni/2023/autumn";
 
     gdb = "gdb -tui -ex 'set style enabled off'";
@@ -87,8 +85,6 @@ in
     gitcom = "git add . && git commit -a && git push";
 
     shutdwn = "shutdown -h now";
-
-    timetable = "agnota $AGENDAFILE -n Timetable | $PAGER";
 
     less = "less -FIRX";
 
@@ -110,30 +106,13 @@ in
 
     ncdu = "ncdu --color off";
 
-    onefetch = "onefetch --true-color never";
-
     pager = "$PAGER";
 
-    prompts = "$EDITOR ~/uni/misc/prompts";
-
-    rainsh = "~/dotfiles/scripts/rain.sh";
-
     river = "dbus-run-session -- river";
-
-    schemereload = "~/dotfiles/scripts/schemereload.sh";
-
-    swaptheme = "~/dotfiles/scripts/theme/swaptheme.sh";
 
     sway = "dbus-run-session -- sway";
 
     v = "nvim";
-
-    weather = "curl 'wttr.in/dc?m&format=3'";
-    weatherreport = "curl 'wttr.in/dc?m&format=v2d' | $PAGER";
-
-    wfrec = ''
-      mkdir -p ~/Desktop/recordings; \
-      wf-recorder -f ~/Desktop/recordings/"$(date +%Y-%m-%d-%H%M)".mp4'';
   };
 
   environment.systemPackages =
@@ -178,56 +157,6 @@ in
         man "$SECTION" "$CMD"
       '')
 
-      (script "fetch" ''
-        #!/usr/bin/env sh
-        bold="$(tput bold)"
-        reset="$(tput sgr0)"
-        spacer="    "
-
-        printf "$bold"
-        printf "OS"
-        printf "$reset$spacer"
-        uname -mrs
-    
-        printf "$bold"
-        printf "WM"
-        printf "$reset$spacer"
-        echo "river"
-    
-        printf "$bold"
-        printf "TE"
-        printf "$reset$spacer"
-        echo "$TERMINAL"
-
-        printf "$bold"
-        printf "SH"
-        printf "$reset$spacer"
-        echo "$(basename $SHELL)"
-
-        printf "\n"
-
-        printf "$bold"
-        printf "MEM"
-        echo "$reset"
-        memnum="$(cat /proc/meminfo | grep MemTotal | sed 's/^[^0-9]*//g' | cut -d ' ' -f 1)"
-        gbnum="$(echo "$memnum / 1000000" | bc)"
-        echo "$gbnum GB"
-        printf "\n"
-
-        printf "$bold"
-        printf "CPU"
-        echo "$reset"
-        cpuinfo="$(cat /proc/cpuinfo)"
-        echo "$cpuinfo" | grep -m 1 "model name" | sed 's/\t/ /g'
-        echo "$cpuinfo" | grep -m 1 "cores" | sed 's/\t/ /g'
-        printf "\n"
-
-        printf "$bold"
-        printf "GPU"
-        echo "$reset"
-        glxinfo | grep -m 1 "Device" | sed 's/^[ ]*//g; s/(.*//g'
-      '')
-
       (script "fontlook" ''
         #!/usr/bin/env sh
         preview_text="ABCDEFGHIJKLM
@@ -246,15 +175,6 @@ in
             imv "$tmpfile"
         done
         rm "$tmpfile"
-      '')
-
-      (script "guide" ''
-        #!/usr/bin/env sh
-        if [ $# -eq 0 ]; then
-            agnota ~/uni/misc/guide.md | $PAGER
-        else
-            agnota ~/uni/misc/guide.md -n "$@" | $PAGER
-        fi
       '')
 
       (script "gitall" ''
@@ -326,19 +246,6 @@ in
         fi
       '')
 
-      (script "ready" ''
-        #!/usr/bin/env sh
-        echo
-        echo -e " \e[41m            \e[0m"
-        echo -e " \e[43m          \e[0m"
-        echo -e " \e[46m        \e[0m"
-        echo -en " \e[44m      \e[0m    "; date +%a
-        echo -en " \e[45m    \e[0m    "; date +%H:%M
-        echo
-        echo " READY."
-        echo
-      '')
-
       (script "removedupframes" ''
         #!/usr/bin/env sh
         [ $# -lt 2 ] && echo "Not enough arguments supplied" && exit
@@ -352,16 +259,6 @@ in
         #!/usr/bin/env sh
         convert "$1" -resize 4000 "$1"
         echo "Resized $1"
-      '')
-
-      (script "rg" ''
-        #!/usr/bin/env sh
-        /usr/bin/env rg \
-            --colors 'match:none' --colors 'match:style:bold' \
-            --colors 'match:bg:black' --colors 'path:none' \
-            --colors 'path:style:underline' \
-            --column --no-heading --smart-case \
-            $@
       '')
     ];
 }

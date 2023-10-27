@@ -22,7 +22,11 @@ in
       trusted-users = [ "root" "felix" ];
     };
   };
-  nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [ "electron-24.8.6" ];
+  };
 
   documentation.man.generateCaches = true;
 

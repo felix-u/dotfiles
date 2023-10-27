@@ -42,15 +42,7 @@ in
       nvi
       stow
       wget
-      (pkgs.symlinkJoin {
-        name = "neofetch";
-        paths = [ pkgs.neofetch ];
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/neofetch --add-flags "--config ${../config/neofetch/config.conf}";
-        '';
-      })
-
+      neofetch
 
       # DEV AND PROGRAMMING
       # misc

@@ -16,7 +16,6 @@ in
 
   # shell
   users.defaultUserShell = pkgs.bash;
-  programs.zsh.enable = true;
 
   # home-manager
   home-manager = {
@@ -89,7 +88,6 @@ in
       programs.fzf = {
         enable = true;
         enableBashIntegration = true;
-        enableZshIntegration = true;
         defaultCommand = "fd";
         defaultOptions = [ "--color=16" ];
       };
@@ -114,17 +112,6 @@ in
       programs.zathura = {
         enable = true;
         extraConfig = import ../config/zathura/zathurarc.nix;
-      };
-
-      programs.zsh = {
-        enable = true;
-        autocd = true;
-        cdpath = [ "/home/felix" ];
-        history = {
-          expireDuplicatesFirst = true;
-          path = "${config.home-manager.users.felix.xdg.cacheHome}/zsh_history";
-        };
-        initExtra = builtins.readFile (toString ../config/zsh/.zshrc);
       };
 
       home.file =

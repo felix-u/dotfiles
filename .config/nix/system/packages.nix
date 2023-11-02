@@ -51,9 +51,11 @@ in
       gdb
       gf
       gnumake
+      nasm
       rr
       tokei
       valgrind
+      xxd
       # c
       binutils-unwrapped-all-targets
       clang

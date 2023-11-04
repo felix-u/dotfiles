@@ -52,6 +52,7 @@ in
       gf
       gnumake
       nasm
+      ninja
       rr
       tokei
       valgrind
@@ -92,6 +93,7 @@ in
       shellcheck
       # zig
       (import ../derivations/zig-master.nix)
+      (import ../derivations/zig-stable.nix)
       # MATHS
       bc
       libqalculate

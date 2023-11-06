@@ -46,17 +46,13 @@ in
     GREP_COLORS = "ms=1;97";
     IMAGE = "imv";
     MANWIDTH = "80";
-    MOZ_ENABLE_WAYLAND = "1";
-    NIXOS_OZONE_WL = "1";
     PAGER = "less";
     PATH = "$HOME/.local/bin/:$PATH";
     PKG_CONFIG_PATH = "/usr/include";
     PROMPTCHAR = "%";
     PS1 = "$PROMPTCHAR ";
-    QT_QPA_PLATFORM = "wayland-egl";
     READER = "zathura";
     RUSTC_WRAPPER = "sccache";
-    SDL_VIDEODRIVER = "wayland";
     TERMINAL = "foot";
     TERM_ITALICS = "true";
     VIDEO = "mpv";
@@ -64,7 +60,6 @@ in
     XCURSOR_SIZE = "24";
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_CURRENT_DESKTOP = "sway";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
   };

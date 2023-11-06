@@ -6,6 +6,8 @@ SWAYFONT="$FONT_SANS Semi-Bold 12"
 
 swaymsg "bar std mode invisible" &
 
+rm -f /tmp/bar && mkfifo /tmp/bar && tail -f /tmp/bar | wob &
+
 # swaymsg "bar std position top"
 # swaymsg "bar std font pango:$SWAYFONT"
 # swaymsg "bar std height 35"
@@ -67,9 +69,10 @@ swaymsg "bindsym $MOD+Shift+comma bar mode invisible" &
 swaymsg "bindsym $MOD+$ALT+comma bar mode hide" &
 swaymsg "bindsym $MOD+b exec $BROWSER" &
 
-swaymsg "bindsym XF86AudioMute exec pulsemixer --toggle-mute" & 
-swaymsg "bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +10" &
-swaymsg "bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -10" & 
+volume_bar="$XDG_CONFIG_HOME/sway/scripts/volume_bar.sh"
+swaymsg "bindsym XF86AudioMute exec pulsemixer --toggle-mute && $volume_bar" & 
+swaymsg "bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +10 && $volume_bar" &
+swaymsg "bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -10 && $volume_bar" & 
 
 swaymsg "bindsym $MOD+x exec ~/.config/sway/scripts/swaylock.sh" &
 

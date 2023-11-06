@@ -119,6 +119,7 @@ in
           config_home = config.home-manager.users.felix.xdg.configHome;
         in
         {
+          "${config_home}/wob/wob.ini".text = import ../config/wob/wob.ini.nix;
           "${config_home}/nvim/pack/plugins/start".source = ../config/nvim/start;
           "${config_home}/imv/config".text = import ../config/imv/config.nix;
           "${config_home}/newsraft/config".text = ''

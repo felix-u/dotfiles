@@ -15,35 +15,32 @@ in
     displayManager.gdm.enable = false;
     desktopManager.gnome.enable = false;
   };
-  # environment.gnome.excludePackages = (with pkgs; [
-  #   gnome-tour
-  # ]) ++ (with pkgs.gnome; [
-  #   gnome-contacts
-  #   epiphany
-  # ]);
-  # programs.dconf.enable = true;
-  # environment.systemPackages = with pkgs; [
-  #   # gnomeExtensions.appindicator
-  #   gnome.gnome-tweaks
-  # ];
-  # services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   programs.sway = {
     enable = true;
     extraPackages = with pkgs; [
-      swaybg
-      swaylock-effects
       glib
       grim
       polkit_gnome
       slurp
+      swaybg
+      swaylock-effects
       tofi
       wf-recorder
       wl-clipboard
       wlr-randr
       wlsunset
+      wob
       xwayland
     ];
+  };
+
+  environment.sessionVariables = rec {
+    MOZ_ENABLE_WAYLAND = "1";
+    NIXOS_OZONE_WL = "1";
+    QT_QPA_PLATFORM = "wayland-egl";
+    SDL_VIDEODRIVER = "wayland";
+    XDG_CURRENT_DESKTOP = "sway";
   };
 
   environment.pathsToLink = [ "/libexec" ]; # for polkit

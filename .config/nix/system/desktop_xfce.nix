@@ -2,32 +2,43 @@
 
 let
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
+  pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
 in
 {
 
-  environment.pathsToLink = [ "/libexec" ]; # for polkit
-  # qt.platformTheme = "qt5ct";
-
-  # pipewire
-  hardware.pulseaudio.enable = false;
-  services.pipewire = {
+  services.xserver = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      xfce.enable = true;
+    };
+    displayManager.defaultSession = "xfce";
   };
+
+  environment.pathsToLink = [ "/libexec" ]; # for polkit
+
+  nixpkgs.config.pulseaudio = true;
+
+  # # pipewire
+  # hardware.pulseaudio.enable = false;
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   pulse.enable = true;
+  # };
 
   # enable CUPS for printing
   services.printing.enable = true;
 
   services.flatpak.enable = true;
-  environment.sessionVariables = { GTK_USE_PORTAL = "1"; };
+  # environment.sessionVariables = { GTK_USE_PORTAL = "1"; };
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal
-      xdg-desktop-portal-gnome
-    ];
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # bluetooth
@@ -39,15 +50,6 @@ in
   services.blueman.enable = true;
 
   hardware.opengl.enable = true;
-
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
-
-  # conflicts with TLP
-  services.power-profiles-daemon.enable = false;
 
   networking = {
     dhcpcd = {

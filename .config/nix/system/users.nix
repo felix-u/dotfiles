@@ -103,12 +103,6 @@ in
         extraConfig = builtins.readFile (toString ../config/nvim/init.vim);
       };
 
-      programs.waybar = {
-        enable = true;
-        style = import ../config/waybar/style.nix;
-        settings = (import ../config/waybar/bar.nix) { config = config; pkgs = pkgs; };
-      };
-
       programs.zathura = {
         enable = true;
         extraConfig = import ../config/zathura/zathurarc.nix;

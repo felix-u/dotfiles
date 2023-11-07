@@ -8,9 +8,9 @@ rm -f /tmp/bar && mkfifo /tmp/bar && tail -f /tmp/bar | wob &
 
 swaybar_status="$XDG_CONFIG_HOME"/sway/scripts/bar.sh
 swaymsg "bar std font pango:$SWAYFONT"
-swaymsg "bar std colors background $CLR_BG"
+swaymsg "bar std colors background $CLR_00"
 swaymsg "bar std colors focused_workspace ${CLR_08}ff ${CLR_08}ff $CLR_FG"
-swaymsg "bar std colors inactive_workspace ${CLR_BG}ff ${CLR_BG}ff $CLR_07"
+swaymsg "bar std colors inactive_workspace ${CLR_00}ff ${CLR_00}ff $CLR_07"
 swaymsg "bar std colors statusline $CLR_FG"
 
 pkill wlsunset

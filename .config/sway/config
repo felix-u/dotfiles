@@ -1,18 +1,15 @@
-# key repeat rate
 input type:keyboard {
     repeat_delay 200
     repeat_rate 50
     # xkb_options compose:caps
 }
 
-# touchpad settings
 input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" {
     natural_scroll enabled
     scroll_method two_finger
     click_method clickfinger
     dwt enabled # disable while typing
     tap enabled
-    # middle_emulation enabled
 }
 
 input "12951:6505:ZSA_Technology_Labs_Moonlander_Mark_I_Consumer_Control" {
@@ -24,9 +21,6 @@ input "1133:50504:Logitech_USB_Receiver_Mouse" {
     natural_scroll enabled
 }
 
-### Output configuration
-#
-# hide that bloody thing away
 seat * hide_cursor 10000
 seat * hide_cursor when-typing enable
 
@@ -46,21 +40,16 @@ seat * hide_cursor when-typing enable
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-# smart_gaps on
 hide_edge_borders smart
 smart_gaps on
-hide_edge_borders none
 focus_follows_mouse no
 
 include /etc/sway/config.d/*
 
-# cursor
 exec_always gsettings set org.gnome.desktop.interface cursor-theme Adwaita
 exec_always gsettings set org.gnome.desktop.interface cursor-size 24
-# set icons
 exec_always gsettings set org.gnome.desktop.interface icon-theme 'elementary'
 
-# bash scripting, babyyy
 exec_always --no-startup-id /home/felix/.config/sway/start.sh
 
 # ZOOM ---
@@ -76,9 +65,13 @@ for_window [app_id="zoom" title="as_toolbar"] {
 # Float any zoom window by default but specific ones
 for_window [app_id="zoom"] floating enable
 for_window [app_id="zoom" title="(Account|Chat|Meeting|Participants)"] floating disable
-for_window [title=".*"] saturation set 0
 # --------
 
 bar  {
     id std
+    height 35
+    hidden_state hide
+    mode dock
+    position top
+    status_padding 0
 }

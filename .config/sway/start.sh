@@ -4,19 +4,14 @@
 
 SWAYFONT="$FONT_SANS Semi-Bold 12"
 
-swaymsg "bar std mode invisible" &
-
 rm -f /tmp/bar && mkfifo /tmp/bar && tail -f /tmp/bar | wob &
 
-# swaymsg "bar std position top"
-# swaymsg "bar std font pango:$SWAYFONT"
-# swaymsg "bar std height 35"
-# swaymsg "bar std colors background $CLR_BG"
-# swaymsg "bar std colors statusline $CLR_FG"
-# swaymsg "bar std colors focused_workspace ${CLR_00}ff ${CLR_00}ff $CLR_FG"
-# swaymsg "bar std colors inactive_workspace ${CLR_BG}ff ${CLR_BG}ff $CLR_07"
-# swaymsg "bar std hidden_state show"
-# swaymsg "bar std status_padding 0"
+swaybar_status="$XDG_CONFIG_HOME"/sway/scripts/bar.sh
+swaymsg "bar std font pango:$SWAYFONT"
+swaymsg "bar std colors background $CLR_BG"
+swaymsg "bar std colors focused_workspace ${CLR_08}ff ${CLR_08}ff $CLR_FG"
+swaymsg "bar std colors inactive_workspace ${CLR_BG}ff ${CLR_BG}ff $CLR_07"
+swaymsg "bar std colors statusline $CLR_FG"
 
 pkill wlsunset
 "$XDG_CONFIG_HOME"/sway/scripts/screen_temp.sh default &
@@ -25,6 +20,8 @@ MOD="Mod4"
 ALT="Mod1"
 
 if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
+    swaymsg "bar std status_command \
+        \"while $swaybar_status battery; do sleep 1; done\""
 
     "$XDG_CONFIG_HOME"/sway/scripts/binds qwerty "$MOD" "$ALT" &
 
@@ -37,9 +34,9 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     swaymsg "output * resolution 3840x2400 position 3840 0 scale $WDPI" &
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
 
-    pkill waybar
-    waybar &
 elif [[ $(cat /proc/sys/kernel/hostname) == "pc" ]]; then
+    swaymsg "bar std status_command \
+        \"while $swaybar_status; do sleep 1; done\""
 
     "$XDG_CONFIG_HOME"/sway/scripts/binds colemak "$MOD" "$ALT" &
 
@@ -47,9 +44,6 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "pc" ]]; then
 
     swaymsg "output * resolution 3840x2160 position 3840 0 scale $WDPI" &
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
-
-    pkill waybar
-    waybar &
 fi
 
 SLURP="slurp -d -b '${CLR_07}40' -c '${CLR_07}' -w 3"

@@ -25,17 +25,14 @@ if [ "$1" = "battery" ]; then
     fi
 fi
 
-SEP="\t    "
+SEP="   "
 
 DATE="$(date +'%a %d  %H:%M')"
 
-VOL="$(pulsemixer --get-volume | cut -f 1 -d " " | tr -d '\n')"
-
-SHAREDBAR="<${VOL}%>${SEP}${DATE}      "
+SHAREDBAR="${SEP}${DATE}      "
 
 if [ "$1" = "battery" ]; then
     echo -e "$BATICON $BATPERCENTAGE${SEP}$SHAREDBAR"
 else
     echo -e "$SHAREDBAR"
 fi
-

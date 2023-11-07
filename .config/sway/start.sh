@@ -30,8 +30,9 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 
     WDPI=2
 
-    swaymsg "bindsym XF86MonBrightnessUp exec brightnessctl set +3%" &
-    swaymsg "bindsym XF86MonBrightnessDown exec brightnessctl set 3%-" &
+    brightness_adjust="$XDG_CONFIG_HOME/sway/scripts/brightness_bar.sh"
+    swaymsg "bindsym XF86MonBrightnessUp exec $brightness_adjust up" &
+    swaymsg "bindsym XF86MonBrightnessDown exec $brightness_adjust down" &
 
     swaymsg "output * resolution 3840x2400 position 3840 0 scale $WDPI" &
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &

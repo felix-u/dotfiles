@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-BOLD="\e[1;1m"
-CYAN="\e[1;36m"
-RED="\e[1;31m"
-RESET="\e[0m"
+BOLD="\[\e[1;1m\]"
+CYAN="\[\e[1;36m\]"
+RED="\[\e[1;31m\]"
+RESET="\[\e[0m\]"
 PS1="${BOLD}${CYAN}\w\n${RESET}${BOLD}\$(if [[ \$? != 0 ]]; then echo -e \"${RED}\"; fi)${PROMPTCHAR}${RESET} "
 
 # set -o vi

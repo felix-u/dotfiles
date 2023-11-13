@@ -1,11 +1,11 @@
 let
   pkgs = import <nixpkgs> { };
 
-  rev = "bc83e6dee609780659051469c72fba188be9aca5";
+  rev = "0c8c288c0d2d43f403b3b9ba216ef54a5fd7cced";
 
   commit-mono-bin = pkgs.fetchurl {
     url = "https://github.com/felix-u/commit-mono/archive/${rev}.zip";
-    sha256 = "sha256-Y3GvkU6qZpGszI4aTpXlQzAnvb1sn74hlDHjenDtHqw=";
+    sha256 = "sha256-gbsFq8CZS+itvGbfb26vRdIb/ZUFnRMDiia2P8zktWw=";
   };
 in
 pkgs.runCommand "commit-mono" { }

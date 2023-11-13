@@ -19,6 +19,10 @@ in
     desktopManager.pantheon.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    xclip
+  ];
+
   # conflicts with TLP
   services.power-profiles-daemon.enable = false;
 

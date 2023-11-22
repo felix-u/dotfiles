@@ -234,13 +234,4 @@ autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 syntax off
 colorscheme vacme
 set background=light
-set guifont=CommitMono:h10
-
-let g:neovide_cursor_animation_length = 0.04
-let g:neovide_cursor_trail_size = 0.4
-let g:neovide_padding_bottom = 10
-let g:neovide_padding_left = 15
-let g:neovide_padding_right = 15
-let g:neovide_padding_top = 10
-let g:neovide_scroll_animation_length = 0.2
-let g:neovide_theme = 'auto'
+set guifont=Hack\ Nerd\ Font\ Mono:h9

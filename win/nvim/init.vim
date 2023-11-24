@@ -231,6 +231,12 @@ nnoremap ]<space> o<Esc>
 
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
+set makeprg=build.bat
+nnoremap <leader>bb :Make<CR>
+nnoremap <leader>bl :cl<CR>
+nnoremap <leader>bn :cn<CR>
+nnoremap <leader>bp :cp<CR>
+
 syntax off
 colorscheme vacme
 set background=light

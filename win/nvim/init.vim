@@ -231,7 +231,7 @@ nnoremap ]<space> o<Esc>
 
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
-set makeprg=build.bat
+set makeprg=zig\ build
 nnoremap <leader>bb :Make<CR>
 nnoremap <leader>bc :cc<CR>
 nnoremap <leader>bl :cl<CR>

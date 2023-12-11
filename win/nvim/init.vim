@@ -239,6 +239,9 @@ nnoremap <leader>bl :cl<CR>
 nnoremap <leader>bn :cn<CR>
 nnoremap <leader>bp :cp<CR>
 
+nnoremap <leader>f :Explore<CR>
+nnoremap <leader>tf :Texplore<CR>
+
 syntax off
 colorscheme vacme
 set background=light

@@ -15,21 +15,22 @@ set ignorecase
 set incsearch
 set laststatus=0
 set lazyredraw
+set linebreak
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set mouse=a
 set nocompatible
 set nolangremap
 set noshowcmd
 set noswapfile
-set nowrap
 set nowritebackup
 set nrformats-=octal
-set nonumber
-set norelativenumber
+set number
+set relativenumber
 set ruler
 set scrolloff=1
 set sessionoptions-=options
 set shiftwidth=4
+set showbreak=>\
 set showmatch
 set showtabline=2
 set sidescrolloff=2
@@ -241,5 +242,5 @@ nnoremap <leader>bp :cp<CR>
 syntax off
 colorscheme vacme
 set background=light
-set guifont=Hack\ Nerd\ Font\ Mono:h9
 hi ColorColumn guibg=#effeec
+set guifont=JetBrains\ Mono:h9

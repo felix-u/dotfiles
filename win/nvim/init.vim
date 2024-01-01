@@ -232,7 +232,7 @@ nnoremap ]<space> o<Esc>
 
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
-set makeprg=zig\ build
+set makeprg=build
 nnoremap <leader>bb :Make<CR>
 nnoremap <leader>bc :cc<CR>
 nnoremap <leader>bl :cl<CR>

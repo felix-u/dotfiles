@@ -242,8 +242,8 @@ nnoremap <leader>bp :cp<CR>
 nnoremap <leader>f :Explore<CR>
 nnoremap <leader>tf :Texplore<CR>
 
-syntax off
-colorscheme vacme
+syntax on
+colorscheme quiet
 set background=light
-hi ColorColumn guibg=#effeec
+" hi ColorColumn guibg=#effeec
 set guifont=JetBrains\ Mono:h9

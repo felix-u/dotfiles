@@ -13,7 +13,6 @@ set history=1000
 set hlsearch
 set ignorecase
 set incsearch
-set laststatus=0
 set lazyredraw
 set linebreak
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
@@ -24,16 +23,13 @@ set noshowcmd
 set noswapfile
 set nowritebackup
 set nrformats-=octal
-set number
-set relativenumber
 set ruler
 set scrolloff=1
 set sessionoptions-=options
 set shiftwidth=4
 set showbreak=>\
 set showmatch
-set showtabline=2
-set sidescrolloff=2
+set sidescrolloff=0
 set smartindent
 set smarttab
 set splitbelow
@@ -242,8 +238,7 @@ nnoremap <leader>bp :cp<CR>
 nnoremap <leader>f :Explore<CR>
 nnoremap <leader>tf :Texplore<CR>
 
-syntax on
-colorscheme quiet
+syntax off
+colorscheme delek
 set background=light
-" hi ColorColumn guibg=#effeec
 set guifont=JetBrains\ Mono:h9

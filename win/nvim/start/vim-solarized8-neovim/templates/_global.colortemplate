@@ -1,4 +1,0 @@
-; vim: ft=colortemplate fdm=marker
-#let s:termtrans = get(g:, '@optionprefix_termtrans', 0) && !has('gui_running')
-Include: _linked_groups.colortemplate
-

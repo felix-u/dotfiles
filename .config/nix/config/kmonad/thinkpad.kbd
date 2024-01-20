@@ -2,8 +2,8 @@
   ;; For Linux
   ;; input  (device-file "/dev/input/event3") ;; arch install
   ;; input  (device-file "/dev/input/event0") ;; nixos
-  ;; input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd") ;; works on all, hopefully
-  ;; output (uinput-sink "My KMonad output")
+  input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd") ;; works on all, hopefully
+  output (uinput-sink "My KMonad output")
     ;; To understand the importance of the following line, see the section on
     ;; Compose-key sequences at the near-bottom of this file.
     ;;"/run/current-system/sw/bin/sleep 1 && /run/current-system/sw/bin/setxkbmap -option compose:caps")
@@ -17,8 +17,9 @@
   ;; Set this to false to disable any command-execution in KMonad
   allow-cmd true
 
-  input  (low-level-hook)
-  output (send-event-sink)
+  ;; ;; windows
+  ;; input  (low-level-hook)
+  ;; output (send-event-sink)
 )
 
 (defsrc

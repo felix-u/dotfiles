@@ -163,7 +163,7 @@ in
       libva
       libva-utils
       mpv
-      mpvScripts.youtube-quality
+      mpvScripts.quality-menu
       obs-studio
       obs-studio-plugins.wlrobs
       pantheon.elementary-files

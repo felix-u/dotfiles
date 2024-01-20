@@ -34,7 +34,7 @@ in
 
   # fonts
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
 
       # essential
 

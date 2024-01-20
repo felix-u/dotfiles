@@ -68,7 +68,7 @@ in
   # bluetooth
   hardware.bluetooth = {
     enable = true;
-    package = pkgs.bluezFull;
+    package = pkgs.bluez;
     settings = { General = { ControllerMode = "bredr"; }; };
   };
   services.blueman.enable = true;

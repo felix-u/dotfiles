@@ -218,12 +218,6 @@ in
         pandoc "$1" --to html5 | w3m -T text/html
       '')
 
-      (script "mkcd" ''
-        #!/usr/bin/env sh
-        mkdir -p "$1"
-        cd "$1" || exit
-      '')
-
       (script "nrs" ''
         #!/usr/bin/env sh
         if [ "$(hostname)" = "thonkpad" ]; then

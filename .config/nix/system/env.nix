@@ -144,8 +144,15 @@ in
 
       (script "fman" ''
         #!/usr/bin/env sh
-        PAGES=$(man -k . | cut -d ' ' -f 1-2 | tr -d '(' | tr -d ')')
-        SELECT=$(echo "$PAGES" | fzf --preview "whatis {1} -s {2} | head -n 1" --preview-window=80%)
+        PAGES=$(man -k . | awk '{print $2 " " $1}' | tr -d '()')
+        field () {
+            NUM=$1
+            shift
+            echo "$@" | awk "{print \$$NUM}"
+        }
+        SELECT=$(echo "$PAGES" | \
+            fzf --preview "man '$(field 1 {})' '$(field 2 {})'" \
+            --preview-window=80%)
         [ $? != 0 ] && return 1
         SECTION=$(echo "$SELECT" | awk '{print $1}')
         CMD=$(echo "$SELECT" | awk '{print $2}')

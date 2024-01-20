@@ -77,18 +77,9 @@ autocmd! ColorScheme default call s:tweak_default_colours()
 
 let mapleader = " "
 
-set commentstring=#\ %s
+set commentstring=//\ %s
 autocmd FileType c   set commentstring=//\ %s
 autocmd FileType cpp set commentstring=//\ %s
-
-" print syntax grouping under cursor
-function! SynStack()
-if !exists("*synstack")
-    return
-  endif
-echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-noremap <leader>thg :call SynStack()<CR>
 
 " Remember edit position.
 autocmd BufReadPost *
@@ -142,7 +133,6 @@ vnoremap > >gv
 nnoremap <leader>ts :setlocal spell! spelllang=en_gb<CR>
 nnoremap <leader>tls :set number<CR> :set relativenumber<CR>
 nnoremap <leader>tlh :set nonumber<CR> :set norelativenumber<CR>
-nnoremap <leader>tn :Lex<CR>
 
 nnoremap <C-w><Left> <C-w>h
 nnoremap <C-w><Down> <C-w>j
@@ -223,11 +213,10 @@ tnoremap <Esc> <C-\><C-n>
 let maplocalleader="\\"
 let g:vimtex_view_method = 'zathura'
 
-" Add empty lines without leaving normal mode.
-nnoremap [<space> O<Esc>
-nnoremap ]<space> o<Esc>
-
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
+
+nnoremap <leader>f :Explore<CR>
+nnoremap <leader>tf :Texplore<CR>
 
 syntax off
 colorscheme default

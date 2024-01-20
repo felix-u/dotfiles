@@ -47,6 +47,7 @@ in
       # DEV AND PROGRAMMING
       # misc
       ascii
+      blink
       bviplus
       gdb
       gf

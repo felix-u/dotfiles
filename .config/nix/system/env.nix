@@ -73,7 +73,7 @@ in
     agtodo = "cat <(agerrandspast) <(agerrands) <(agpast) <(ag) | $PAGER";
     agv = "$EDITOR $AGENDAFILE";
 
-    cdu = "cd ~/uni/2023/autumn";
+    cdu = "cd ~/uni/2024/spring";
 
     gdb = "gdb -tui -ex 'set style enabled off'";
 

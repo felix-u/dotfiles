@@ -15,21 +15,22 @@ set ignorecase
 set incsearch
 set laststatus=0
 set lazyredraw
+set linebreak
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set mouse=a
 set nocompatible
 set nolangremap
-set noshowcmd
-set noswapfile
-set nowrap
-set nowritebackup
-set nrformats-=octal
 set nonumber
 set norelativenumber
+set noshowcmd
+set noswapfile
+set nowritebackup
+set nrformats-=octal
 set ruler
 set scrolloff=1
 set sessionoptions-=options
 set shiftwidth=4
+set showbreak=↳•
 set showmatch
 set showtabline=2
 set sidescrolloff=2
@@ -45,6 +46,7 @@ set undofile
 set viewoptions-=options
 set viminfo^=!
 set wildmenu
+
 setglobal tags-=./tags tags-=./tags; tags^=./tags;	
 filetype plugin indent on
 

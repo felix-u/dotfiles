@@ -75,6 +75,13 @@ in
 
     cdu = "cd ~/uni/2024/spring";
 
+    dcc = ''
+      clang -std=c99 -pedantic \
+            -Wall -Werror -Wextra -Wshadow -Wconversion -Wdouble-promotion \
+            -Wno-unused-function -Wno-sign-conversion -fno-strict-aliasing \
+            -g3 -fsanitize=address,undefined -fsanitize-trap -DDEBUG \
+    '';
+
     gdb = "gdb -tui -ex 'set style enabled off'";
 
     gitcom = "git add . && git commit -a && git push";

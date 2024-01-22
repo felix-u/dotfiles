@@ -98,11 +98,11 @@ swaymsg "bindsym $MOD+Tab workspace back_and_forth" &
 swaymsg "bindsym $MOD+q move position center" &
 
 swaymsg "bindsym $MOD+Shift+d exec $SLURP | grim -g - \
-    ~/Pictures/\$(date +%Y-%m-%d-%H:%M:%S).png" &
+    ~/Pictures/\$(date +%Y-%m-%d-%H%M%S).png" &
 swaymsg "bindsym $MOD+Shift+s exec $SLURP | grim -g - /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
 swaymsg "bindsym $MOD+$ALT+d exec grim \
-   ~/Pictures/\$(date +%Y-%m-%d-%H:%M:%S).png" &
+   ~/Pictures/\$(date +%Y-%m-%d-%H%M%S).png" &
 swaymsg "bindsym $MOD+$ALT+s exec grim /tmp/screenshot.png && \
     cat /tmp/screenshot.png | wl-copy -t image/png" &
 

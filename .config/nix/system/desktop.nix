@@ -21,6 +21,7 @@ in
     extraPackages = with pkgs; [
       glib
       grim
+      playerctl
       polkit_gnome
       slurp
       swaybg

@@ -68,6 +68,9 @@ volume_bar="$XDG_CONFIG_HOME/sway/scripts/volume_bar.sh"
 swaymsg "bindsym XF86AudioMute exec pulsemixer --toggle-mute && $volume_bar" & 
 swaymsg "bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +10 && $volume_bar" &
 swaymsg "bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -10 && $volume_bar" & 
+swaymsg "bindsym XF86AudioPlay exec playerctl play-pause" &
+swaymsg "bindsym XF86AudioNext exec playerctl next" &
+swaymsg "bindsym XF86AudioPrev exec playerctl previous" &
 
 swaymsg "bindsym $MOD+x exec ~/.config/sway/scripts/swaylock.sh" &
 

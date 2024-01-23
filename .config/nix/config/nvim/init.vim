@@ -118,7 +118,7 @@ nnoremap N Nzzzv
 
 nnoremap <leader>stf :set linebreak!<CR> :set fo+=t<CR> :set tw=120<CR> :set wrap!<CR>
 
-nnoremap <C-y> :%y+<CR>
+nnoremap yf :%y+<CR>
 
 nnoremap gj <C-^>
 

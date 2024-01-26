@@ -63,6 +63,7 @@ in
       clang
       clang-tools
       cmake
+      cosmocc
       cppcheck
       gcc
       man-pages-posix

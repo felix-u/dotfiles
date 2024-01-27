@@ -102,6 +102,14 @@ in
       qalculate-gtk
 
       # Utils
+      (import ../derivations/imgclr.nix)
+      (import ../derivations/nota.nix)
+      (import ../derivations/poop.nix)
+      (import ../derivations/shgen.nix)
+      (import ../derivations/themesh.nix)
+      (import ../derivations/truly.nix)
+      (pkgs.callPackage ../derivations/newsraft.nix { })
+      (pkgs.callPackage ../derivations/termato.nix { })
       _7zz
       entr
       fd
@@ -112,25 +120,18 @@ in
       htop
       hunspell
       hunspellDicts.en-gb-ise
-      (import ../derivations/imgclr.nix)
       jq
       killall
       libv4l
       lm_sensors
       moreutils
       ncdu
-      (pkgs.callPackage ../derivations/newsraft.nix { })
-      (import ../derivations/nota.nix)
       nvd
       pandoc
       pastel
-      (import ../derivations/poop.nix)
       poppler_utils
       ripgrep
       sdcv
-      (import ../derivations/shgen.nix)
-      (pkgs.callPackage ../derivations/termato.nix { })
-      (import ../derivations/themesh.nix)
       tldr
       tree
       unrar

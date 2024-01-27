@@ -162,9 +162,6 @@ inoremap <C-8> <ESC>:tabn 8<CR>
 inoremap <C-9> <ESC>:tabn 9<CR>
 inoremap <C-0> <ESC>:tabn 10<CR>
 nnoremap <leader>bm :make<CR>
-nnoremap <leader>bn :tabnew<CR>
-nnoremap <leader>be :tabnew<CR>:Explore<CR>
-nnoremap <leader>bf :tabnew<CR>:Files<CR>
 
 " Switch to last active tab
 if !exists('g:Lasttab')
@@ -174,7 +171,6 @@ endif
 autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
 autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
 nnoremap gl :exe "tabn ".g:Lasttab<CR>
-nnoremap <leader>bo :tabonly<CR>
 
 " show tab numbers in tab line
 function! MyTabLine()
@@ -217,8 +213,16 @@ let g:vimtex_view_method = 'zathura'
 
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
-nnoremap <leader>f :Explore<CR>
-nnoremap <leader>tf :Texplore<CR>
+nnoremap <leader>fb :Buffers!<CR>
+nnoremap <leader>fc :Commands!<CR>
+nnoremap <leader>ff :Files!<CR>
+nnoremap <leader>fg :Rg!<CR>
+nnoremap <leader>fh :Helptags!<CR>
+nnoremap <leader>fl :Lines!<CR>
+nnoremap <leader>fm :Maps!<CR>
+nnoremap <leader>ft :Filetypes!<CR>
+
+nnoremap <leader>to :tabonly<CR>
 
 syntax off
 colorscheme default

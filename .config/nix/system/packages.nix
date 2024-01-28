@@ -94,6 +94,7 @@ in
       # shell
       shellcheck
       # zig
+      (import ../derivations/zig-mach.nix)
       (import ../derivations/zig-master.nix)
       (import ../derivations/zig-stable.nix)
       # MATHS

@@ -13,7 +13,6 @@ set history=1000
 set hlsearch
 set ignorecase
 set incsearch
-set laststatus=0
 set lazyredraw
 set linebreak
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
@@ -32,7 +31,6 @@ set sessionoptions-=options
 set shiftwidth=4
 set showbreak=↳•
 set showmatch
-set showtabline=2
 set sidescrolloff=2
 set smartindent
 set smarttab
@@ -212,17 +210,6 @@ let maplocalleader="\\"
 let g:vimtex_view_method = 'zathura'
 
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
-
-nnoremap <leader>fb :Buffers!<CR>
-nnoremap <leader>fc :Commands!<CR>
-nnoremap <leader>ff :Files!<CR>
-nnoremap <leader>fg :Rg!<CR>
-nnoremap <leader>fh :Helptags!<CR>
-nnoremap <leader>fl :Lines!<CR>
-nnoremap <leader>fm :Maps!<CR>
-nnoremap <leader>ft :Filetypes!<CR>
-
-nnoremap <leader>to :tabonly<CR>
 
 syntax off
 colorscheme default

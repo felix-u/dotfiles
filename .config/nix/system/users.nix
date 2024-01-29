@@ -133,7 +133,6 @@ in
         enable = true;
         defaultEditor = true;
         extraConfig = builtins.readFile (toString ../config/nvim/init.vim);
-        plugins = with pkgs.vimPlugins; [ fzf-vim ];
       };
 
       programs.zathura = {

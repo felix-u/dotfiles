@@ -48,33 +48,6 @@ set wildmenu
 setglobal tags-=./tags tags-=./tags; tags^=./tags;	
 filetype plugin indent on
 
-function! s:tweak_default_colours()
-  highlight clear
-  for hlgroup in getcompletion('', 'highlight')
-      execute 'highlight' hlgroup 'NONE'
-  endfor
-  hi link zigDummyVariable NONE
-  hi ColorColumn  ctermbg=00
-  hi Comment      cterm=bold   ctermfg=White ctermbg=00
-  hi CursorLine   ctermbg=00
-  hi LineNr       ctermfg=07   ctermbg=00
-  hi MatchParen   cterm=bold,underline ctermfg=White ctermbg=08
-  hi Pmenu        ctermfg=White ctermbg=Black
-  hi PmenuSbar    ctermbg=08
-  hi PmenuSel     ctermfg=Black ctermbg=White
-  hi PmenuThumb   ctermfg=08 ctermbg=08
-  hi Search       cterm=bold   ctermfg=Black ctermbg=03
-  hi StatusLine   cterm=NONE   ctermfg=White ctermbg=00
-  hi TabLine      cterm=NONE   ctermfg=07 ctermbg=NONE
-  hi TabLineFill  cterm=NONE   ctermfg=NONE  ctermbg=NONE
-  hi TabLineSel   cterm=bold   ctermfg=15 ctermbg=00
-  hi TermCursor   ctermfg=Black ctermbg=White
-  hi Visual       ctermbg=08
-  hi WildMenu     ctermfg=Black ctermbg=White
-  autocmd BufReadPost *.c,*.h hi cError cterm=NONE
-endfunction
-autocmd! ColorScheme default call s:tweak_default_colours()
-
 let mapleader = " "
 
 set commentstring=//\ %s
@@ -118,14 +91,6 @@ nnoremap <leader>stf :set linebreak!<CR> :set fo+=t<CR> :set tw=120<CR> :set wra
 
 nnoremap yf :%y+<CR>
 
-nnoremap gj <C-^>
-
-" More breakpoints for undo
-inoremap , ,<C-g>u
-inoremap . .<C-g>u
-inoremap ! !<C-g>u
-inoremap ? ?<C-g>u
-
 " Stay in visual mode when indenting
 vnoremap < <gv
 vnoremap > >gv
@@ -133,74 +98,6 @@ vnoremap > >gv
 nnoremap <leader>ts :setlocal spell! spelllang=en_gb<CR>
 nnoremap <leader>tls :set number<CR> :set relativenumber<CR>
 nnoremap <leader>tlh :set nonumber<CR> :set norelativenumber<CR>
-
-nnoremap <C-w><Left> <C-w>h
-nnoremap <C-w><Down> <C-w>j
-nnoremap <C-w><Up> <C-w>k
-nnoremap <C-w><Right> <C-w>l
-
-nnoremap <C-1> :tabn 1<CR>
-nnoremap <C-2> :tabn 2<CR>
-nnoremap <C-3> :tabn 3<CR>
-nnoremap <C-4> :tabn 4<CR>
-nnoremap <C-5> :tabn 5<CR>
-nnoremap <C-6> :tabn 6<CR>
-nnoremap <C-7> :tabn 7<CR>
-nnoremap <C-8> :tabn 8<CR>
-nnoremap <C-9> :tabn 9<CR>
-nnoremap <C-0> :tabn 10<CR>
-inoremap <C-1> <ESC>:tabn 1<CR>
-inoremap <C-2> <ESC>:tabn 2<CR>
-inoremap <C-3> <ESC>:tabn 3<CR>
-inoremap <C-4> <ESC>:tabn 4<CR>
-inoremap <C-5> <ESC>:tabn 5<CR>
-inoremap <C-6> <ESC>:tabn 6<CR>
-inoremap <C-7> <ESC>:tabn 7<CR>
-inoremap <C-8> <ESC>:tabn 8<CR>
-inoremap <C-9> <ESC>:tabn 9<CR>
-inoremap <C-0> <ESC>:tabn 10<CR>
-nnoremap <leader>bm :make<CR>
-
-" Switch to last active tab
-if !exists('g:Lasttab')
-    let g:Lasttab = 1
-    let g:Lasttab_backup = 1
-endif
-autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
-autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
-nnoremap gl :exe "tabn ".g:Lasttab<CR>
-
-" show tab numbers in tab line
-function! MyTabLine()
-  let s = ""
-  for i in range(tabpagenr('$'))
-    let tabnum = i + 1
-    let buflist = tabpagebuflist(i + 1)
-    let winnr = tabpagewinnr(i + 1)
-    let s .= '%' . tabnum . 'T'
-    let s .= (tabnum == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
-    let s .= ' ' . tabnum . ' '
-    let bufnr = buflist[winnr - 1]
-    if getbufvar(bufnr, '&modified')
-      let s .= '+ '
-    endif
-    let file = bufname(bufnr)
-    let file = fnamemodify(file, ':t')
-    if file == ""
-      let file = '[No Name]'
-    endif
-    let s .= file . ' '
-  endfor
-  let s .= '%T%#TabLineFill#%='
-  return s
-endfunction
-set tabline=%!MyTabLine()
-
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
-
-" netrw is far too large by default (50%)
-let g:netrw_winsize = 16
 
 " escape to enter normal mode in terminal mode
 tnoremap <Esc> <C-\><C-n>
@@ -212,5 +109,5 @@ let g:vimtex_view_method = 'zathura'
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
 syntax off
-colorscheme default
+colorscheme delek
 set background=light

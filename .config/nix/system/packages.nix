@@ -160,6 +160,7 @@ in
       blanket
       calibre
       font-manager
+      gnome.gnome-maps
       imagemagick
       imv
       libnotify

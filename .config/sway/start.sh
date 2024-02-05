@@ -40,7 +40,7 @@ elif [[ $(cat /proc/sys/kernel/hostname) == "pc" ]]; then
 
     "$XDG_CONFIG_HOME"/sway/scripts/binds colemak "$MOD" "$ALT" &
 
-    WDPI="1.3"
+    WDPI=2
 
     swaymsg "output * resolution 3840x2160 position 3840 0 scale $WDPI" &
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &

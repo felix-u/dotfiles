@@ -93,6 +93,8 @@ in
       cargo
       # shell
       shellcheck
+      # sql
+      sqlite
       # zig
       (import ../derivations/zig-mach.nix)
       (import ../derivations/zig-master.nix)

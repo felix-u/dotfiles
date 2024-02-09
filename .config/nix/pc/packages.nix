@@ -20,11 +20,11 @@
       libsForQt5.kdenlive
 
       # GAMING
+      config.boot.kernelPackages.amdgpu-pro
       corectrl
       glxinfo
-      config.boot.kernelPackages.amdgpu-pro
-      unstable.optifine
       prismlauncher
+      unstable.optifine
 
     ];
 }

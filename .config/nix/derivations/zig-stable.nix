@@ -14,5 +14,5 @@ pkgs.runCommand "zig" { }
     mkdir -p $out/bin
     cp zig-linux-x86_64-${rev}/zig $out/bin/zig11
     cp -r zig-linux-x86_64-${rev}/*  $out/bin/
-    chmod +x $out/bin/zig
+    chmod +x $out/bin/zig11
   ''

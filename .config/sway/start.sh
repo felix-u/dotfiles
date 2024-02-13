@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-"$XDG_CONFIG_HOME"/sway/scripts/wp "$CLR_07" &
+"$XDG_CONFIG_HOME"/sway/scripts/wp "$CLR_BG" &
 
 SWAYFONT="$FONT_SANS Semi-Bold 12"
 
@@ -125,7 +125,7 @@ swaymsg "bindsym $MOD+$ALT+Shift+v exec $XDG_CONFIG_HOME/sway/scripts/cursor hid
     notify-send Cursor hidden" &
 
 swaymsg "smart_gaps on" &
-DEFAULT_GAPS=10
+DEFAULT_GAPS=0
 swaymsg "gaps inner $DEFAULT_GAPS" &
 swaymsg "font pango:$SWAYFONT" &
 swaymsg "title_format %app_id" &

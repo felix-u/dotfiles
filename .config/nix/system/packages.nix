@@ -75,6 +75,8 @@ in
       # web (HTML, CSS, JS)
       nodePackages.npm
       nodejs
+      # lisp
+      sbcl
       # lua
       lua
       # nix

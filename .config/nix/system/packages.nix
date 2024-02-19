@@ -139,6 +139,7 @@ in
       sdcv
       tldr
       tree
+      twitch-dl
       unrar
       unzip
       v4l-utils

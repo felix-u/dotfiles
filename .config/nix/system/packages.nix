@@ -208,11 +208,12 @@ in
       protontricks
       protonup
 
-      # LATEX
+      # LATEX/TYPST
       biber
       texinfo
       texlab
       texlive.combined.scheme-full
+      typst
 
       # KERNEL
       config.boot.kernelPackages.v4l2loopback

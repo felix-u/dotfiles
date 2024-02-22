@@ -15,7 +15,13 @@ in
   };
 
   # shell
-  users.defaultUserShell = pkgs.bash;
+  users.defaultUserShell = pkgs.fish;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = builtins.readFile (
+      toString ../config/fish/config.fish
+    );
+  };
 
   # home-manager
   home-manager = {
@@ -88,41 +94,11 @@ in
       programs.fzf = {
         enable = true;
         enableBashIntegration = true;
+        enableFishIntegration = true;
+        enableZshIntegration = true;
         defaultCommand = "fd";
         defaultOptions = [ "--color=16" ];
       };
-
-      # programs.kitty = {
-      #   enable = true;
-      #   settings = {
-      #     active_border_color = "#${theme.cfg}";
-      #     background = "#${theme.cbg}";
-      #     color0 = "#${theme.c00}";
-      #     color1 = "#${theme.c01}";
-      #     color10 = "#${theme.c10}";
-      #     color11 = "#${theme.c11}";
-      #     color12 = "#${theme.c12}";
-      #     color13 = "#${theme.c13}";
-      #     color14 = "#${theme.c14}";
-      #     color15 = "#${theme.c15}";
-      #     color2 = "#${theme.c02}";
-      #     color3 = "#${theme.c03}";
-      #     color4 = "#${theme.c04}";
-      #     color5 = "#${theme.c05}";
-      #     color6 = "#${theme.c06}";
-      #     color7 = "#${theme.c07}";
-      #     color8 = "#${theme.c08}";
-      #     color9 = "#${theme.c09}";
-      #     cursor = "none";
-      #     font-family = "monospace Regular";
-      #     font-size = 12;
-      #     foreground = "#${theme.cfg}";
-      #     inactive_border_color = "#${theme.c00}";
-      #     window_border_width = "1.5pt";
-      #     window_padding_width = 10;
-      #   };
-      #   shellIntegration.enableBashIntegration = true;
-      # };
 
       programs.ncspot = {
         enable = true;

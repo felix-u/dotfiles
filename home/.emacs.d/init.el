@@ -1,3 +1,5 @@
+(load-theme 'modus-operandi t)
+
 (setq user-emacs-directory "~/.emacs.d/")
 (setq backup-directory-alist
     `(("." . ,(concat user-emacs-directory "backups"))))
@@ -20,46 +22,18 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 
-(unless (featurep 'straight)
-    (defvar bootstrap-version)
-    (let ((bootstrap-file
-              (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-             (bootstrap-version 5))
-        (unless (file-exists-p bootstrap-file)
-            (with-current-buffer
-                (url-retrieve-synchronously
-                    "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-                    'silent 'inhibit-cookies)
-                (goto-char (point-max))
-                (eval-print-last-sexp)))
-        (load bootstrap-file nil 'nomessage)))
-
-(require 'package)
-(setq package-archives '(
-			 ("melpa" . "https://melpa.org/packages/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
-
-(package-initialize)
-(unless package-archive-contents
-    (package-refresh-contents))
-
-(straight-use-package 'use-package)
-(require 'use-package)
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
-(use-package auto-package-update
-    :config
-    (setq auto-package-update-delete-old-versions t)
-    (setq auto-package-update-hide-results t)
-    (auto-package-update-maybe))
-
-(use-package evil
-  :init
-  (setq evil-undo-system 'undo-fu))
-(use-package undo-fu)
+(add-to-list 'load-path "~/.emacs.d/packages/evil")
+(require 'evil)
+(setq evil-undo-system 'undo-fu)
+(add-to-list 'load-path "~/.emacs.d/packages/undo-fu")
+(require 'undo-fu)
 (evil-mode)
 
-(use-package zig-mode)
+(add-to-list 'load-path "~/.emacs.d/packages/reformatter")
+(require 'reformatter)
+(add-to-list 'load-path "~/.emacs.d/packages/zig-mode")
+(autoload 'zig-mode "zig-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.zig\\'" . zig-mode))
 
 (require 'saveplace)
 (if (fboundp #'save-place-mode)
@@ -67,16 +41,12 @@
     (setq save-place-file "~/.cache/emacs_saveplace")
     (setq-default save-place t))
 
-(use-package which-key
-    :config
-    (which-key-mode)
-    (setq which-key-popup-type 'minibuffer))
+(add-to-list 'load-path "~/.emacs.d/packages/which-key")
+(require 'which-key)
+(which-key-mode)
+(setq which-key-popup-type 'minibuffer)
 
 (setq select-enable-clipboard t)
-
-(use-package modus-themes)
-(use-package nano-theme)
-(load-theme 'nano-light t)
 
 ; scroll behaviour
 (setq
@@ -114,46 +84,42 @@
 (defvar fontsizelarge (/ (* fontsize 6) 5))
 (defvar fontheightlarge (* fontsizelarge 10))
 
-(use-package frame
-    :ensure t
-    :config
-    (setq-default default-frame-alist
-        (append (list
-                    '(min-height . 1) '(min-width . 1)
-                    '(internal-border-width . 24)
-                    '(vertical-scroll-bars . nil)
-                    '(left-fringe       . 1)
-                    '(right-fringe      . 1)
-                    '(tool-bar-lines    . 0)
-                    '(menu-bar-lines    . 0)
-                    )))
-    (setq-default window-resize-pixelwise t)
-    (setq-default frame-resize-pixelwise t)
+(setq-default default-frame-alist
+    (append (list
+		'(min-height . 1) '(min-width . 1)
+		'(internal-border-width . 24)
+		'(vertical-scroll-bars . nil)
+		'(left-fringe       . 1)
+		'(right-fringe      . 1)
+		'(tool-bar-lines    . 0)
+		'(menu-bar-lines    . 0)
+		)))
+(setq-default window-resize-pixelwise t)
+(setq-default frame-resize-pixelwise t)
 
-    (set-face-attribute 'default nil
-        :font fontfamily
-        :weight fontweight
-        :height fontheight)
-    (set-face-attribute 'fixed-pitch nil
-        :font fontfamily
-        :weight fontweight
-        :height fontheight)
-    (set-face-attribute 'variable-pitch nil
-        :font fontfamily
-        :weight fontweight
-        :height fontheightlarge)
-    (set-face-attribute 'line-number nil
-        :font fontfamily
-        :weight fontweight
-        :height fontheight)
-    (add-to-list 'default-frame-alist `(font . ,fontstring))
-    (set-face-attribute 'default t :font fontstring)
-    (set-frame-font fontstring)
+(set-face-attribute 'default nil
+    :font fontfamily
+    :weight fontweight
+    :height fontheight)
+(set-face-attribute 'fixed-pitch nil
+    :font fontfamily
+    :weight fontweight
+    :height fontheight)
+(set-face-attribute 'variable-pitch nil
+    :font fontfamily
+    :weight fontweight
+    :height fontheightlarge)
+(set-face-attribute 'line-number nil
+    :font fontfamily
+    :weight fontweight
+    :height fontheight)
+(add-to-list 'default-frame-alist `(font . ,fontstring))
+(set-face-attribute 'default t :font fontstring)
+(set-frame-font fontstring)
 
-    :custom
-    (window-divider-default-right-width 2)
-    (window-divider-default-bottom-width 2)
-    (window-divider-default-places 'right-only)
-    (window-divider-mode t))
+(window-divider-default-right-width 2)
+(window-divider-default-bottom-width 2)
+(window-divider-default-places 'right-only)
+(window-divider-mode t)
 
 (add-hook 'before-make-frame-hook 'window-divider-mode)

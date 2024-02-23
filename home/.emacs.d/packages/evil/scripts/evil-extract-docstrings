@@ -1,0 +1,41 @@
+#!/usr/bin/env -S emacs --script
+
+(setq cur-path (file-name-directory load-file-name))
+
+(add-to-list 'load-path (expand-file-name ".." cur-path))
+(require 'evil)
+(require 'evil-digraphs)
+(require 'json)
+(require 'help)
+
+(defun mark-command-keys (string)
+  "Mark key bindings in STRING with the \":kbd:\" Sphinx role."
+  (when string
+    (cl-loop
+     for prev = 0 then pos until (>= prev (length string))
+     for pos = (next-single-property-change prev 'face string (length string))
+     concat
+     (let ((s (substring string prev pos)))
+       (if (eq (get-text-property prev 'face string) 'help-key-binding)
+           (format ":kbd:`%s`" s)
+         s)))))
+
+(let (vars)
+  (mapatoms
+   (lambda (sym)
+     (when (string-prefix-p "evil-" (symbol-name sym))
+       (let ((default (eval (car (get sym 'standard-value)))))
+         (push `(,sym (default . ,(cond
+                                   ((consp default) (format "%S" default))
+                                   ((symbolp default) (symbol-name default))
+                                   (t default)))
+                      (local . ,(local-variable-if-set-p sym))
+                      (default-type . ,(type-of default))
+                      (var-docstring . ,(mark-command-keys (documentation-property sym 'variable-documentation)))
+                      (fn-docstring . ,(ignore-errors (mark-command-keys (documentation sym))))
+                      (arglist . ,(help-function-arglist sym))
+                      (functionp . ,(functionp sym))
+                      (macrop . ,(macrop sym)))
+               vars)))))
+  (with-temp-file (expand-file-name "../doc/docstringdb.json" cur-path)
+    (insert (json-encode vars))))

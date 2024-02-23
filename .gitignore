@@ -24,5 +24,4 @@
 
 */.emacs.d/*
 !*/.emacs.d/init.el
-!*/.emacs.d/old_init.el
-!*/.emacs.d/custom/
+!*/.emacs.d/packages

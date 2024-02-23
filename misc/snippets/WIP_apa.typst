@@ -1,0 +1,17 @@
+#set text(
+    font: "Liberation Serif",
+    lang: "en",
+    region: "gb",
+    size: 12pt,
+)
+
+#set page(
+    paper: "us-letter",
+    margin: 2.5cm,
+)
+
+// BODY
+#lorem(150) \
+#lorem(150)
+
+// #bibliography("./sources.bib")

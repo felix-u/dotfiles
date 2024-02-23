@@ -220,11 +220,6 @@ in
 
     ];
 
-  services.emacs = {
-    enable = true;
-    package = pkgs.emacs29-pgtk;
-  };
-
   # Isn't installed correctly if in package list
   programs.steam.enable = true;
 

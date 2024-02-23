@@ -15,13 +15,7 @@ in
   };
 
   # shell
-  users.defaultUserShell = pkgs.fish;
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = builtins.readFile (
-      toString ../config/fish/config.fish
-    );
-  };
+  users.defaultUserShell = pkgs.bash;
 
   # home-manager
   home-manager = {

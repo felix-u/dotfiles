@@ -9,9 +9,7 @@
 (set-fringe-mode 10)
 (menu-bar-mode -1)
 (setq visible-bell nil)
-
-(set-face-attribute 'default nil :font "Inter Display Medium" :height 80)
-(set-face-attribute 'mode-line nil :font "Inter Display Medium" :height 160)
+(setq vc-follow-symlinks t)
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 

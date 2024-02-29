@@ -72,6 +72,7 @@ in
       go
       # java
       jdk11
+      plantuml
       # web (HTML, CSS, JS)
       nodePackages.npm
       nodejs

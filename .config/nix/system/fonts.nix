@@ -15,6 +15,7 @@ let
 
   alte-haas-grotesk = import ../derivations/fonts/alte-haas-grotesk.nix;
   # apple-fonts       = pkgs.callPackage ../derivations/fonts/apple-fonts.nix {};
+  bebas-neue = import ../derivations/fonts/bebas-neue.nix;
   beteckna = import ../derivations/fonts/beteckna.nix;
   chicagoflf = import ../derivations/fonts/chicagoflf.nix;
   fragment-mono = import ../derivations/fonts/fragment-mono.nix;
@@ -64,6 +65,7 @@ in
       # imitations of well-known fonts
       aileron
       alte-haas-grotesk # helvetica but with a printed appearance. not FOSS
+      bebas-neue # Handmade Logo font
       beteckna
       chicagoflf # retro Apple system font - vectorised
       crimson # oldstyle serif - FOSS

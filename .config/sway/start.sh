@@ -81,7 +81,7 @@ swaymsg "floating_modifier $MOD normal" &
 swaymsg "bindsym $MOD+$ALT+r reload" &
 swaymsg "bindsym $MOD+$ALT+q exit" &
 
-for i in {1..4}
+for i in {1..9}
 do
     swaymsg "bindsym $MOD+$i workspace number $i" &
     swaymsg "bindsym $MOD+Shift+$i move container to workspace number $i" &

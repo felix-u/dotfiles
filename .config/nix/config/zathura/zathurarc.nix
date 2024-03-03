@@ -39,7 +39,7 @@ in
   set statusbar-bg                "#${theme.c00}"
   set statusbar-fg                "#${theme.c15}"
 
-  set default-bg                  "#${theme.cbg}"
+  set default-bg                  "#${theme.c00}"
   set default-fg                  "#${theme.cfg}"
   set render-loading-bg           "#${theme.cbg}"
   set render-loading-fg           "#${theme.cfg}"

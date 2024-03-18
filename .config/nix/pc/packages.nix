@@ -4,7 +4,7 @@
   environment.systemPackages =
     let
       unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-      kmonad = import ../derivations/kmonad.nix;
+      # kmonad = import ../derivations/kmonad.nix;
     in
     with pkgs; [
 
@@ -13,7 +13,7 @@
 
       # DESKTOP
       # ckan
-      kmonad
+      # kmonad
 
       # AUDIO/VIDEO
       # davinci-resolve # runs through xwayland :(

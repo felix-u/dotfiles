@@ -59,6 +59,7 @@
       User = "felix";
     };
   };
+  # TODO: decide whether to keep or not
   systemd.services.thinkpadkbd.enable = true;
 
   # libva

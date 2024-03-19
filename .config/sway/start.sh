@@ -34,6 +34,8 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
     swaymsg "output * resolution 3840x2400 position 3840 0 scale $WDPI" &
     swaymsg "seat seat0 xcursor_theme 'Adwaita' 24" &
 
+    swaymsg "input type:keyboard xkb_options caps:swapescape" &
+
 elif [[ $(cat /proc/sys/kernel/hostname) == "pc" ]]; then
     swaymsg "bar std status_command \
         \"while $swaybar_status; do sleep 1; done\""

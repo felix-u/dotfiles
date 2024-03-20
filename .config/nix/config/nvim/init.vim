@@ -111,3 +111,5 @@ autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 syntax off
 colorscheme delek
 set background=light
+
+set guifont=CommitMono\ Nerd\ Font\ Mono:h10

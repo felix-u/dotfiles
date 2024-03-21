@@ -112,4 +112,24 @@ syntax off
 colorscheme delek
 set background=light
 
-set guifont=JetBrains\ Mono\ Medium:h10
+set guifont=CommitMono\ Nerd\ Font\ Mono:h10
+if exists("g:neovide")
+    let padding_horizontal = 16
+    let padding_vertical = 5
+    let g:neovide_padding_top = padding_vertical
+    let g:neovide_padding_bottom = padding_vertical
+    let g:neovide_padding_right = padding_horizontal
+    let g:neovide_padding_left = padding_horizontal
+
+    let g:neovide_scale_factor=1.0
+    function! ChangeScaleFactor(delta)
+      let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
+    endfunction
+    nnoremap <expr><C-=> ChangeScaleFactor(1.25)<CR>
+    nnoremap <expr><C--> ChangeScaleFactor(1/1.25)<CR>
+
+    let g:neovide_floating_shadow = v:false
+
+    let g:neovide_scroll_animation_length = 0.1
+    let g:neovide_cursor_animation_length = 0
+endif

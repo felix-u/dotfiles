@@ -112,4 +112,4 @@ syntax off
 colorscheme delek
 set background=light
 
-set guifont=CommitMono\ Nerd\ Font\ Mono:h10
+set guifont=JetBrains\ Mono\ Medium:h10

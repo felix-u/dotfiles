@@ -132,8 +132,8 @@ if exists("g:neovide")
     function! ChangeScaleFactor(delta)
       let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
     endfunction
-    nnoremap <expr><C-=> ChangeScaleFactor(1.25)<CR>
-    nnoremap <expr><C--> ChangeScaleFactor(1/1.25)<CR>
+    nnoremap <expr><C-=> ChangeScaleFactor(1.1)<CR>
+    nnoremap <expr><C--> ChangeScaleFactor(1/1.1)<CR>
 
     let g:neovide_floating_shadow = v:false
 

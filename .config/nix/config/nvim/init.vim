@@ -108,11 +108,18 @@ let g:vimtex_view_method = 'zathura'
 
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
+set makeprg=build
+nnoremap <leader>bm :Make<CR>
+nnoremap <leader>bc :cc<CR>
+nnoremap <leader>bl :cl<CR>
+nnoremap <leader>bn :cn<CR>
+nnoremap <leader>bp :cp<CR>
+
 syntax off
 colorscheme delek
 set background=light
 
-set guifont=CommitMono\ Nerd\ Font\ Mono:h10
+set guifont=CommitMono\ Nerd\ Font\ Mono:h9
 if exists("g:neovide")
     let padding_horizontal = 16
     let padding_vertical = 5

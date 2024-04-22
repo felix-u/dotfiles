@@ -19,6 +19,8 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set mouse=a
 set nocompatible
 set nolangremap
+set nonumber
+set norelativenumber
 set noshowcmd
 set noswapfile
 set nowritebackup
@@ -27,9 +29,9 @@ set ruler
 set scrolloff=1
 set sessionoptions-=options
 set shiftwidth=4
-set showbreak=>\
+set showbreak=↳•
 set showmatch
-set sidescrolloff=0
+set sidescrolloff=2
 set smartindent
 set smarttab
 set splitbelow
@@ -42,6 +44,7 @@ set undofile
 set viewoptions-=options
 set viminfo^=!
 set wildmenu
+
 setglobal tags-=./tags tags-=./tags; tags^=./tags;	
 filetype plugin indent on
 
@@ -84,15 +87,7 @@ nnoremap <Up> gk
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-nnoremap <C-y> :%y+<CR>
-
-nnoremap gj <C-^>
-
-" More breakpoints for undo
-inoremap , ,<C-g>u
-inoremap . .<C-g>u
-inoremap ! !<C-g>u
-inoremap ? ?<C-g>u
+nnoremap yf :%y+<CR>
 
 " Stay in visual mode when indenting
 vnoremap < <gv
@@ -102,84 +97,56 @@ nnoremap <leader>ts :setlocal spell! spelllang=en_gb<CR>
 nnoremap <leader>tls :set number<CR> :set relativenumber<CR>
 nnoremap <leader>tlh :set nonumber<CR> :set norelativenumber<CR>
 
-nnoremap <Left> h
-nnoremap <Down> j
-nnoremap <Up> k
-nnoremap <Right> l
-
-nnoremap <C-w><Left> <C-w>h
-nnoremap <C-w><Down> <C-w>j
-nnoremap <C-w><Up> <C-w>k
-nnoremap <C-w><Right> <C-w>l
-
-nnoremap <C-1> :tabn 1<CR>
-nnoremap <C-2> :tabn 2<CR>
-nnoremap <C-3> :tabn 3<CR>
-nnoremap <C-4> :tabn 4<CR>
-nnoremap <C-5> :tabn 5<CR>
-nnoremap <C-6> :tabn 6<CR>
-nnoremap <C-7> :tabn 7<CR>
-nnoremap <C-8> :tabn 8<CR>
-nnoremap <C-9> :tabn 9<CR>
-nnoremap <C-0> :tabn 10<CR>
-inoremap <C-1> <ESC>:tabn 1<CR>
-inoremap <C-2> <ESC>:tabn 2<CR>
-inoremap <C-3> <ESC>:tabn 3<CR>
-inoremap <C-4> <ESC>:tabn 4<CR>
-inoremap <C-5> <ESC>:tabn 5<CR>
-inoremap <C-6> <ESC>:tabn 6<CR>
-inoremap <C-7> <ESC>:tabn 7<CR>
-inoremap <C-8> <ESC>:tabn 8<CR>
-inoremap <C-9> <ESC>:tabn 9<CR>
-inoremap <C-0> <ESC>:tabn 10<CR>
-
-" Switch to last active tab
-if !exists('g:Lasttab')
-    let g:Lasttab = 1
-    let g:Lasttab_backup = 1
-endif
-autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
-autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
-nnoremap gl :exe "tabn ".g:Lasttab<CR>
-
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
-
 " escape to enter normal mode in terminal mode
 tnoremap <Esc> <C-\><C-n>
 
 " vimtex
 let maplocalleader="\\"
-let g:vimtex_view_general_viewer = 'SumatraPDF'
-let g:vimtex_view_general_options
-  \ = '-reuse-instance -forward-search @tex @line @pdf'
+let g:vimtex_view_method = 'zathura'
 
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
-function! GoFmt()
-    let saved_view = winsaveview()
-    silent %!gofmt
-    if v:shell_error > 0
-        cexpr getline(1, '$')->map({ idx, val -> val->substitute('<standard input>', expand('%'), '') })
-        silent undo
-        " cwindow
-    endif
-    cwindow
-    call winrestview(saved_view)
-endfunction
-autocmd BufWritePost *.go silent call GoFmt()
-
 set makeprg=build
-nnoremap <leader>bb :Make<CR>
+nnoremap <A-m>      :Make<CR>
 nnoremap <leader>bc :cc<CR>
 nnoremap <leader>bl :cl<CR>
 nnoremap <leader>bn :cn<CR>
 nnoremap <leader>bp :cp<CR>
 
-nnoremap <leader>f :Explore<CR>
-nnoremap <leader>tf :Texplore<CR>
+nnoremap <A-1> :tabn 1<CR>
+nnoremap <A-2> :tabn 2<CR>
+nnoremap <A-3> :tabn 3<CR>
+nnoremap <A-4> :tabn 4<CR>
+nnoremap <A-5> :tabn 5<CR>
+nnoremap <A-6> :tabn 6<CR>
+nnoremap <A-7> :tabn 7<CR>
+nnoremap <A-8> :tabn 8<CR>
+nnoremap <A-9> :tabn 9<CR>
+
+nnoremap <A-w> <C-w>w
 
 syntax off
 colorscheme delek
 set background=light
-set guifont=JetBrains\ Mono:h9
+
+set guifont=CommitMono\ Nerd\ Font\ Mono:h9
+if exists("g:neovide")
+    let padding_horizontal = 16
+    let padding_vertical = 5
+    let g:neovide_padding_top = padding_vertical
+    let g:neovide_padding_bottom = padding_vertical
+    let g:neovide_padding_right = padding_horizontal
+    let g:neovide_padding_left = padding_horizontal
+
+    let g:neovide_scale_factor=1.0
+    function! ChangeScaleFactor(delta)
+      let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
+    endfunction
+    nnoremap <expr><C-=> ChangeScaleFactor(1.1)<CR>
+    nnoremap <expr><C--> ChangeScaleFactor(1/1.1)<CR>
+
+    let g:neovide_floating_shadow = v:false
+
+    let g:neovide_scroll_animation_length = 0.1
+    let g:neovide_cursor_animation_length = 0
+endif

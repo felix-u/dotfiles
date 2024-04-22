@@ -87,8 +87,6 @@ nnoremap <Up> gk
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-nnoremap <leader>stf :set linebreak!<CR> :set fo+=t<CR> :set tw=120<CR> :set wrap!<CR>
-
 nnoremap yf :%y+<CR>
 
 " Stay in visual mode when indenting
@@ -109,11 +107,23 @@ let g:vimtex_view_method = 'zathura'
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
 set makeprg=build
-nnoremap <leader>bm :Make<CR>
+nnoremap <A-m>      :Make<CR>
 nnoremap <leader>bc :cc<CR>
 nnoremap <leader>bl :cl<CR>
 nnoremap <leader>bn :cn<CR>
 nnoremap <leader>bp :cp<CR>
+
+nnoremap <A-1> :tabn 1<CR>
+nnoremap <A-2> :tabn 2<CR>
+nnoremap <A-3> :tabn 3<CR>
+nnoremap <A-4> :tabn 4<CR>
+nnoremap <A-5> :tabn 5<CR>
+nnoremap <A-6> :tabn 6<CR>
+nnoremap <A-7> :tabn 7<CR>
+nnoremap <A-8> :tabn 8<CR>
+nnoremap <A-9> :tabn 9<CR>
+
+nnoremap <A-w> <C-w>w
 
 syntax off
 colorscheme delek

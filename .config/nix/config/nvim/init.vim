@@ -2,7 +2,7 @@ set autoindent
 set autoread
 set backspace=indent,eol,start " backspace in insert mode
 set clipboard="unnamedplus"
-set colorcolumn=80
+set colorcolumn=
 set complete-=i " don't complete keywords in included files
 set cursorline
 set display+=lastline

@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
-  theme = import ./theme.nix;
+  theme = (import ./theme.nix) { config = config; };
 in
 {
   environment.sessionVariables = rec {
@@ -62,6 +62,20 @@ in
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      alsa-lib
+      libGL.dev
+      libxkbcommon
+      xorg.libX11
+      xorg.libXcursor
+      xorg.libXi
+      xorg.libXinerama
+      xorg.libXrandr
+    ];
   };
 
   environment.shellAliases = {

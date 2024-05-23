@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   alte-haas-grotesk = import ../derivations/fonts/alte-haas-grotesk.nix;
@@ -83,7 +83,7 @@ in
 
     fontconfig = {
       enable = true;
-      defaultFonts = let theme = import ./theme.nix; in {
+      defaultFonts = let theme = (import ./theme.nix) { config = config; }; in {
         monospace = [ "${theme.fontmono}" ];
         sansSerif = [ "${theme.fontsans}" ];
         serif = [ "${theme.fontserif}" ];

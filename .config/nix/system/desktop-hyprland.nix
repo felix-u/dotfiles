@@ -16,7 +16,10 @@ in
     desktopManager.gnome.enable = false;
   };
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = pkgs-unstable.hyprland;
+  };
 
   environment.systemPackages = [
     pkgs-unstable.hyprlock
@@ -32,7 +35,6 @@ in
     pkgs.wl-clipboard
     pkgs.wlr-randr
     pkgs.wlsunset
-    pkgs.wob
   ];
 
   # programs.sway = {
@@ -66,7 +68,7 @@ in
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     GDK_SCALE = "2";
-    XCURSOR_SIZE = "32";
+    XCURSOR_SIZE = "24";
   };
 
   environment.pathsToLink = [ "/libexec" ]; # for polkit

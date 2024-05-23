@@ -8,7 +8,7 @@ pkill swaybg; swaybg -c "#$CLR_08" &
 
 pkill wlsunset; "$XDG_CONFIG_HOME"/sway/scripts/screen_temp.sh default &
 
-rm -f /tmp/bar && mkfifo /tmp/bar && tail -f /tmp/bar | wob &
+pkill waybar; waybar &
 
 hostname=$(cat /proc/sys/kernel/hostname)
 if [ "$hostname" = "thonkpad" ]; then
@@ -59,10 +59,9 @@ hyprctl keyword bind "${mod} ${alt}",B,exec,"$hypr_conf"/scripts/wp &
 hyprctl keyword bind "$mod",D,exec,"$XDG_CONFIG_HOME"/sway/scripts/menu.sh &
 hyprctl keyword bind "$mod",W,killactive &
 
-volume_bar="$XDG_CONFIG_HOME/sway/scripts/volume_bar.sh"
-hyprctl keyword bindl  ",XF86AudioMute,exec,pulsemixer --toggle-mute && $volume_bar" &
-hyprctl keyword bindel ",XF86AudioRaiseVolume,exec,pulsemixer --change-volume +10 && $volume_bar" &
-hyprctl keyword bindel ",XF86AudioLowerVolume,exec,pulsemixer --change-volume -10 && $volume_bar" &
+hyprctl keyword bindl  ",XF86AudioMute,exec,pulsemixer --toggle-mute" &
+hyprctl keyword bindel ",XF86AudioRaiseVolume,exec,pulsemixer --change-volume +10" &
+hyprctl keyword bindel ",XF86AudioLowerVolume,exec,pulsemixer --change-volume -10" &
 hyprctl keyword bindl  ",XF86AudioPlay,exec,playerctl play-pause" &
 hyprctl keyword bindl  ",XF86AudioNext,exec,playerctl next" &
 hyprctl keyword bindl  ",XF86AudioPrev,exec,playerctl previous" &
@@ -89,7 +88,7 @@ done
 hyprctl keyword bind "$mod",S,togglefloating &
 hyprctl keyword bind "$mod",F,fullscreen,0 &
 hyprctl keyword bind "$mod SHIFT",F,fullscreen,2 &
-hyprctl keyword bind "$mod",C,centerwindow &
+hyprctl keyword bind "$mod",Q,centerwindow &
 
 hyprctl keyword bind "$alt",Tab,focuscurrentorlast &
 
@@ -127,6 +126,17 @@ hyprctl keyword general:col.active_border "rgb($CLR_FG)" &
 hyprctl keyword general:col.inactive_border "rgb($CLR_BG)" &
 hyprctl keyword general:gaps_in 5 &
 hyprctl keyword general:gaps_out 10 &
+
+
+# TODO edit gaps on the fly
+
+
+hyprctl keyword cursor:inactive_timeout 10 &
+hyprctl keyword cursor:hide_on_key_press true &
+hyprctl keyword cursor:hide_on_touch true &
+hyprctl keyword cursor:no_warps true &
+hyprctl keyword bind "$mod",C,exec,"hyprctl keyword cursor:inactive_timout 0 && hyprctl keyword cursor:hide_on_key_press false" &
+hyprctl keyword bind "$mod SHIFT",C,exec,"hyprctl keyword cursor:inactive_timout 10 && hyprctl keyword cursor:hide_on_key_press true" &
 
 
 hyprctl keyword input:accel_profile flat &

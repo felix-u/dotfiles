@@ -1,12 +1,14 @@
+{ config }:
+
 let
-  theme = import ../../system/theme.nix;
+  theme = (import ../../system/theme.nix) { config = config; };
 in
 {
   main = {
-    font = "monospace:regular:size=12";
-    font-bold = "monospace:bold:size=12";
-    font-italic = "monospace:italic:size=12";
-    pad = "25x22";
+    font = "monospace:regular:size=${toString theme.fontmonosize}";
+    font-bold = "monospace:bold:size=${toString theme.fontmonosize}";
+    font-italic = "monospace:italic:size=${toString theme.fontmonosize}";
+    pad = "${toString (theme.fontmonosize * 2)}x${toString (theme.fontmonosize * 2)}";
     resize-delay-ms = 0;
   };
   cursor = {
@@ -33,5 +35,8 @@ in
     bright5 = "${theme.c13}";
     bright6 = "${theme.c14}";
     bright7 = "${theme.c15}";
+  };
+  scrollback = {
+    indicator-position = "none";
   };
 }

@@ -1,6 +1,9 @@
+{ config }:
 {
+  fontmonosize = if config.networking.hostName == "pc" then 10 else 12;
+  fontsanssize = if config.networking.hostName == "pc" then 11 else 12;
+
   fontmono = "CommitMono";
-  # fontmono = "GoMonoNerdFont";
   fontsans = "Inter";
   fontserif = "EBGaramond12";
 

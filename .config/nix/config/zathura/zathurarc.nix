@@ -1,10 +1,12 @@
+{ config }:
+
 let
-  theme = import ../../system/theme.nix;
+  theme = (import ../../system/theme.nix) { config = config; };
 in
 ''
   set guioptions s
   set selection-clipboard clipboard
-  set font                        "${theme.fontsans} Bold 12"
+  set font                        "${theme.fontsans} Bold ${toString theme.fontsanssize}"
 
   set notification-error-fg       "#${theme.c01}"
   set notification-warning-fg     "#${theme.c03}"

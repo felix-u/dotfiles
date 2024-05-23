@@ -1,5 +1,7 @@
+{ config }:
+
 let
-  theme = import ../../system/theme.nix;
+  theme = (import ../../system/theme.nix) { config = config; };
 in
 ''
   width = 200

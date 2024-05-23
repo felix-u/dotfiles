@@ -1,5 +1,7 @@
+{ config }:
+
 let
-  theme = import ../../system/theme.nix;
+  theme = (import ../../system/theme.nix) { config = config; };
 in
 ''
   # mostly default config
@@ -7,7 +9,7 @@ in
   [options]
 
   background = #${theme.c08}
-  overlay_font = ${theme.fontsans}:12
+  overlay_font = "${theme.fontsans}:${toString theme.fontsanssize}"
   overlay_text_color = #${theme.cfg}
   overlay_background_color = #${theme.c00}
   overlay_position_bottom = true

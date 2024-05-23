@@ -18,7 +18,7 @@
       ../system/fonts.nix
 
       # various desktop-related: sway, QT, printing, pipewire, etc.
-      ../system/desktop.nix
+      ../system/desktop-hyprland.nix
 
       # user configuration (groups, shell, etc.)
       ../system/users.nix

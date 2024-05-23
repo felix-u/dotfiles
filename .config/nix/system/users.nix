@@ -3,6 +3,8 @@
 let
   pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
   theme = import ./theme.nix;
+  config_home = config.home-manager.users.felix.xdg.configHome;
+  nixconfig = "${config_home}/nix/config";
 in
 {
 
@@ -111,9 +113,6 @@ in
       };
 
       home.file =
-        let
-          config_home = config.home-manager.users.felix.xdg.configHome;
-        in
         {
           "${config_home}/wob/wob.ini".text = import ../config/wob/wob.ini.nix;
           "${config_home}/nvim/pack/plugins/start".source = ../config/nvim/start;
@@ -127,6 +126,15 @@ in
             bind m exec mpv --ytdl-format='bestvideo[height<=?1200]+bestaudio/best' --ytdl-raw-options=sub-lang='en',write-sub=,write-auto-sub= --sid=1 --speed=2 "%l"
           '';
         };
+
+      wayland.windowManager.hyprland = {
+        enable = true;
+        settings = {
+          exec-once = [
+            "${nixconfig}/hyprland/start.sh"
+          ];
+        };
+      };
 
     };
 

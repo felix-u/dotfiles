@@ -12,7 +12,16 @@ rm -f /tmp/bar && mkfifo /tmp/bar && tail -f /tmp/bar | wob &
 
 hostname=$(cat /proc/sys/kernel/hostname)
 if [ "$hostname" = "thonkpad" ]; then
-    echo TODO
+    echo TODO bar
+    RETURN=Semicolon
+    LEFT=H
+    DOWN=J
+    UP=K
+    RIGHT=L
+
+    WDPI=2
+
+    hyprctl setcursor Adwaita 24 &
 elif [ "$hostname" = "pc" ]; then
     echo TODO bar
 

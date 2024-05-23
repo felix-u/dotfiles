@@ -1,18 +1,6 @@
 { pkgs, ... }:
 
 let
-
-  eunomia = import ../derivations/fonts/dotcolon/eunomia.nix;
-  fa-1 = import ../derivations/fonts/dotcolon/fa-1.nix;
-  ferrum = import ../derivations/fonts/dotcolon/ferrum.nix;
-  medio = import ../derivations/fonts/dotcolon/medio.nix;
-  melete = import ../derivations/fonts/dotcolon/melete.nix;
-  nacelle = import ../derivations/fonts/dotcolon/nacelle.nix;
-  penna = import ../derivations/fonts/dotcolon/penna.nix;
-  route159 = import ../derivations/fonts/dotcolon/route159.nix;
-  seshat = import ../derivations/fonts/dotcolon/seshat.nix;
-  tenderness = import ../derivations/fonts/dotcolon/tenderness.nix;
-
   alte-haas-grotesk = import ../derivations/fonts/alte-haas-grotesk.nix;
   # apple-fonts       = pkgs.callPackage ../derivations/fonts/apple-fonts.nix {};
   bebas-neue = import ../derivations/fonts/bebas-neue.nix;
@@ -44,19 +32,6 @@ in
       inter
       nerdfonts
       noto-fonts-emoji
-
-      # https://dotcolon.net
-
-      eunomia
-      fa-1
-      ferrum
-      medio
-      melete
-      nacelle
-      penna
-      route159
-      seshat
-      tenderness
 
       # proportional
 

@@ -48,6 +48,33 @@ set wildmenu
 setglobal tags-=./tags tags-=./tags; tags^=./tags;	
 filetype plugin indent on
 
+function! s:tweak_default_colours()
+  highlight clear
+  for hlgroup in getcompletion('', 'highlight')
+      execute 'highlight' hlgroup 'NONE'
+  endfor
+  hi link zigDummyVariable NONE
+  hi ColorColumn  ctermbg=00
+  hi Comment      cterm=bold   ctermfg=White ctermbg=00
+  hi CursorLine   ctermbg=00
+  hi LineNr       ctermfg=07   ctermbg=00
+  hi MatchParen   cterm=bold,underline ctermfg=White ctermbg=08
+  hi Pmenu        ctermfg=White ctermbg=Black
+  hi PmenuSbar    ctermbg=08
+  hi PmenuSel     ctermfg=Black ctermbg=White
+  hi PmenuThumb   ctermfg=08 ctermbg=08
+  hi Search       cterm=bold   ctermfg=Black ctermbg=03
+  hi StatusLine   cterm=NONE   ctermfg=White ctermbg=00
+  hi TabLine      cterm=NONE   ctermfg=07 ctermbg=NONE
+  hi TabLineFill  cterm=NONE   ctermfg=NONE  ctermbg=NONE
+  hi TabLineSel   cterm=bold   ctermfg=15 ctermbg=00
+  hi TermCursor   ctermfg=Black ctermbg=White
+  hi Visual       ctermbg=08
+  hi WildMenu     ctermfg=Black ctermbg=White
+  autocmd BufReadPost *.c,*.h hi cError cterm=NONE
+endfunction
+autocmd! ColorScheme default call s:tweak_default_colours()
+
 let mapleader = " "
 
 set commentstring=//\ %s
@@ -126,7 +153,7 @@ nnoremap <A-9> :tabn 9<CR>
 nnoremap <A-w> <C-w>w
 
 syntax off
-colorscheme delek
+colorscheme default
 set background=light
 
 set guifont=CommitMono\ Nerd\ Font\ Mono:h9

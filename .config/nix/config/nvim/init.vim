@@ -45,7 +45,7 @@ set viewoptions-=options
 set viminfo^=!
 set wildmenu
 
-setglobal tags-=./tags tags-=./tags; tags^=./tags;	
+setglobal tags-=./tags tags-=./tags; tags^=./tags;
 filetype plugin indent on
 
 function! s:tweak_default_colours()
@@ -153,7 +153,7 @@ nnoremap <A-9> :tabn 9<CR>
 nnoremap <A-w> <C-w>w
 
 syntax off
-colorscheme default
+colorscheme delek
 set background=light
 
 set guifont=CommitMono\ Nerd\ Font\ Mono:h9

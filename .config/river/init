@@ -53,14 +53,12 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 
 # desktop-specific configuration
 elif [ "$(cat /proc/sys/kernel/hostname)" = "pc" ]; then
+    WDPI=2
 
-    WDPI="1.3"
-
-    wlr-randr --output "DP-2" --scale "$WDPI" &
+    wlr-randr --output "DP-3" --scale "$WDPI" &
 
     MOUSE="pointer-1133-50504-Logitech_USB_Receiver_Mouse"
     riverctl input "$MOUSE" accel-profile flat &
-    riverctl input "$MOUSE" natural-scroll enabled &
 
     left="M"
     down="N"
@@ -73,8 +71,7 @@ elif [ "$(cat /proc/sys/kernel/hostname)" = "pc" ]; then
     pageup="U"
     hide="H"
 
-    BORDER_WIDTH=6
-
+    BORDER_WIDTH=3
 fi
 
 pkill waybar; waybar &
@@ -191,7 +188,7 @@ riverctl map-pointer normal $mod BTN_LEFT move-view &
 # Mod + Right Mouse Button to resize views
 riverctl map-pointer normal $mod BTN_RIGHT resize-view &
 
-TAG_NUMBER=4
+TAG_NUMBER=9
 for i in $(seq 1 $TAG_NUMBER)
 do
     tags=$((1 << (i - 1)))

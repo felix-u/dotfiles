@@ -3,14 +3,14 @@
 {
   mainBar = {
     layer = "top";
-    modules-left = [ "hyprland/workspaces" "cpu" ];
+    modules-left = [ "river/tags" "cpu" ];
     modules-right =
       if config.networking.hostName == "thonkpad" then
         [ "pulseaudio" "battery" "custom/clock" ]
       else
         [ "pulseaudio" "custom/clock" ];
     "river/tags" = {
-      num-tags = 4;
+      num-tags = 9;
     };
     cpu = {
       interval = 2;

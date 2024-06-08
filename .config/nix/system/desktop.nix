@@ -16,6 +16,11 @@ in
     desktopManager.gnome.enable = false;
   };
 
+  environment.systemPackages = with pkgs-unstable; [
+    river
+    waybar
+  ];
+
   programs.sway = {
     enable = true;
     extraPackages = with pkgs; [

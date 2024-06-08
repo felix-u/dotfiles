@@ -18,7 +18,6 @@ input "12951:6505:ZSA_Technology_Labs_Moonlander_Mark_I_Consumer_Control" {
 
 input "1133:50504:Logitech_USB_Receiver_Mouse" {
     accel_profile flat
-    natural_scroll enabled
     pointer_accel -0.2
 }
 

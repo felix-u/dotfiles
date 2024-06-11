@@ -20,7 +20,7 @@ in
   users.defaultUserShell = pkgs.bash;
 
   # home-manager
-  home-manager = { 
+  home-manager = {
     backupFileExtension = "backup";
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -138,15 +138,15 @@ in
           '';
         };
 
-      # wayland.windowManager.hyprland = {
-      #   enable = true;
-      #   package = pkgs-unstable.hyprland;
-      #   settings = {
-      #     exec-once = [
-      #       "${nixconfig}/hyprland/start.sh"
-      #     ];
-      #   };
-      # };
+      wayland.windowManager.hyprland = {
+        enable = true;
+        package = pkgs-unstable.hyprland;
+        settings = {
+          exec-once = [
+            "${nixconfig}/hyprland/start.sh"
+          ];
+        };
+      };
 
     };
 

@@ -12,7 +12,6 @@ pkill waybar; waybar &
 
 hostname=$(cat /proc/sys/kernel/hostname)
 if [ "$hostname" = "thonkpad" ]; then
-    echo TODO bar
     RETURN=Semicolon
     LEFT=H
     DOWN=J
@@ -23,8 +22,6 @@ if [ "$hostname" = "thonkpad" ]; then
 
     hyprctl setcursor Adwaita 24 &
 elif [ "$hostname" = "pc" ]; then
-    echo TODO bar
-
     RETURN=O
     LEFT=M
     DOWN=N
@@ -66,7 +63,8 @@ hyprctl keyword bindl  ",XF86AudioPlay,exec,playerctl play-pause" &
 hyprctl keyword bindl  ",XF86AudioNext,exec,playerctl next" &
 hyprctl keyword bindl  ",XF86AudioPrev,exec,playerctl previous" &
 
-# TODO: why lock no vork?
+# TODO: why lock no vork? 
+# something with PAM!
 # hyprctl keyword bind "$mod",X,exec,"$XDG_CONFIG_HOME"/sway/scripts/swaylock.sh &
 
 hyprctl keyword bind "${mod} ${alt}",T,exec,"$XDG_CONFIG_HOME"/sway/scripts/screen_temp.sh &

@@ -16,6 +16,11 @@ in
     desktopManager.gnome.enable = false;
   };
 
+  # services = {
+  #   displayManager.gdm.enable = true;
+  #   desktopManager.gnome.enable = true;
+  # };
+
   environment.systemPackages = with pkgs-unstable; [
     river
     waybar

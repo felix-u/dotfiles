@@ -2,4 +2,6 @@
 
 xset r rate 200 50
 
-xsetroot -solid "#$CLR_08"
+hsetroot -solid "#$CLR_08"
+
+pkill picom; picom -b --vsync

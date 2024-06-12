@@ -1,0 +1,26 @@
+*.foreground: #$CLR_FG
+*.background: #$CLR_BG
+
+*.color0:  #$CLR_00
+*.color8:  #$CLR_08
+
+*.color1:  #$CLR_01
+*.color9:  #$CLR_09
+
+*.color2:  #$CLR_02
+*.color10: #$CLR_10
+
+*.color3:  #$CLR_03
+*.color11: #$CLR_11
+
+*.color4:  #$CLR_04
+*.color12: #$CLR_12
+
+*.color5:  #$CLR_05
+*.color13: #$CLR_13
+
+*.color6:  #$CLR_06
+*.color14: #$CLR_14
+
+*.color7:  #$CLR_07
+*.color15: #$CLR_15

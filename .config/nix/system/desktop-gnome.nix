@@ -70,6 +70,32 @@ in
         toggle-tiled-left = [ "<Super><Shift>Left" "<Super><Shift>m" "<Super><Shift>h" ];
         toggle-tiled-right = [ "<Super><Shift>Right" "<Super><Shift>i" "<Super><Shift>l" ];
       };
+      "org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+      ];
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = "<Super>b";
+        command = "firefox";
+        name = "Browser";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        binding = "<Super>Return";
+        command = "kgx";
+        name = "Terminal";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+        binding = "<Super>o";
+        command = "kgx";
+        name = "Terminal";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
+        binding = "<Super>semicolon";
+        command = "kgx";
+        name = "Terminal";
+      };
       "org/gnome/settings-daemon/plugins/power" = {
         power-button-action = "interactive"; # power off
         sleep-inactive-ac-type = "nothing";
@@ -86,15 +112,15 @@ in
       "org/gnome/shell/keybindings" = {
         show-screenshot-ui = [ "<Shift><Super>s" ];
         show-screen-recording-ui = [ "<Shift><Super>r" ];
-        switch-to-application-1 = [ ];
-        switch-to-application-2 = [ ];
-        switch-to-application-3 = [ ];
-        switch-to-application-4 = [ ];
-        switch-to-application-5 = [ ];
-        switch-to-application-6 = [ ];
-        switch-to-application-7 = [ ];
-        switch-to-application-8 = [ ];
-        switch-to-application-9 = [ ];
+        switch-to-application-1 = [ "<Control><Super>1" ];
+        switch-to-application-2 = [ "<Control><Super>2" ];
+        switch-to-application-3 = [ "<Control><Super>3" ];
+        switch-to-application-4 = [ "<Control><Super>4" ];
+        switch-to-application-5 = [ "<Control><Super>5" ];
+        switch-to-application-6 = [ "<Control><Super>6" ];
+        switch-to-application-7 = [ "<Control><Super>7" ];
+        switch-to-application-8 = [ "<Control><Super>8" ];
+        switch-to-application-9 = [ "<Control><Super>9" ];
       };
     };
   };
@@ -105,6 +131,7 @@ in
     gnomeExtensions.light-style
     gnomeExtensions.user-themes
     gnomeExtensions.workspace-indicator
+    wl-clipboard
   ];
 
   # environment.pathsToLink = [ "/libexec" ]; # for polkit

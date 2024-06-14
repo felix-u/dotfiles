@@ -153,12 +153,11 @@ nnoremap <A-9> :tabn 9<CR>
 nnoremap <A-w> <C-w>w
 
 syntax off
-colorscheme default
+colorscheme quiet
 set background=light
 
 set guifont=CommitMono\ Nerd\ Font\ Mono:h9
 if exists("g:neovide")
-    colorscheme quiet
     let padding_horizontal = 16
     let padding_vertical = 5
     let g:neovide_padding_top = padding_vertical

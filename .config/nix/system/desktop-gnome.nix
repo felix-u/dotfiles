@@ -28,7 +28,7 @@ in
       };
       "org/gnome/desktop/peripherals/mouse" = {
         accel-profile = "flat";
-        speed = -0.2;
+        speed = 0;
       };
       "org/gnome/desktop/wm/preferences" = {
         resize-with-right-button = true;

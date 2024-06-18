@@ -18,7 +18,7 @@
       ../system/fonts.nix
 
       # various desktop-related: sway, QT, printing, pipewire, etc.
-      ../system/desktop-gnome.nix
+      ../system/desktop.nix
 
       # user configuration (groups, shell, etc.)
       ../system/users.nix

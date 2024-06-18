@@ -59,6 +59,7 @@ elif [ "$(cat /proc/sys/kernel/hostname)" = "pc" ]; then
 
     MOUSE="pointer-1133-50504-Logitech_USB_Receiver_Mouse"
     riverctl input "$MOUSE" accel-profile flat &
+    riverctl input "$MOUSE" pointer-accel -0.2 &
 
     left="M"
     down="N"

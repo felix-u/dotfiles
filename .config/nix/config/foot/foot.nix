@@ -36,7 +36,4 @@ in
     bright6 = "${theme.c14}";
     bright7 = "${theme.c15}";
   };
-  scrollback = {
-    indicator-position = "none";
-  };
 }

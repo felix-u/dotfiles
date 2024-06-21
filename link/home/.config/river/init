@@ -58,6 +58,7 @@ if [[ $(cat /proc/sys/kernel/hostname) == "thonkpad" ]]; then
 
     BORDER_WIDTH=4
 
+    # TODO waybar
 # desktop-specific configuration
 elif [ "$(cat /proc/sys/kernel/hostname)" = "pc" ]; then
     WDPI=2
@@ -80,9 +81,9 @@ elif [ "$(cat /proc/sys/kernel/hostname)" = "pc" ]; then
     hide="H"
 
     BORDER_WIDTH=3
-fi
 
-pkill waybar; waybar &
+    pkill waybar; waybar -c "$XDG_CONFIG_HOME"/waybar/desktop.json &
+fi
 
 #                  _  __ _      _         _            _                      _
 #  ____ __  ___ __(_)/ _(_)__  | |_ ___  | |_____ _  _| |__  ___  __ _ _ _ __| |

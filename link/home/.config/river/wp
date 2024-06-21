@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+
+options=$(cat <<-END
+CLR_01
+CLR_02
+CLR_03
+CLR_04
+CLR_05
+CLR_06
+CLR_07 
+END
+)
+
+set_bg () {
+    echo $to_set
+    riverctl background-color "0x$1" &
+    riverctl border-color-unfocused "0x$1" &
+}
+
+[ ! -z "$2" ] && set_bg "$2" && return 0
+
+if [ ! -z "$1" ]; then
+    to_set="$(pastel mix "$1" "$CLR_BG" | pastel format hex | tr -d '#')"
+else
+    menu="$XDG_CONFIG_HOME"/sway/scripts/general_menu.sh
+    eval to_set="\$$(printf "%s" "$options" | "$menu")"
+    to_set="$(pastel mix "$to_set" "$CLR_BG" | pastel format hex | tr -d '#')"
+fi
+
+[ "$to_set" = "" ] && exit
+
+set_bg "$to_set"

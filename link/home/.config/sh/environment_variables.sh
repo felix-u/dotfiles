@@ -1,8 +1,11 @@
 #!/usr/bin/env sh
 
 export FONT_MONO="CommitMono"
+export FONT_MONO_SIZE=9
 export FONT_SANS="Inter"
+export FONT_SANS_SIZE=11
 export FONT_SERIF="EBGaramond12"
+export FONT_SERIF_SIZE=12
 
 export CLR_FG="000000"
 export CLR_BG="ffffff"

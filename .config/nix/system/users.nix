@@ -125,9 +125,9 @@ in
 
       home.file =
         {
-          # "${config_home}/wob/wob.ini".text = import ../config/wob/wob.ini.nix;
+          "${config_home}/gf2_config.ini".text = (import ../config/gf2_config.nix) { config = config; };
+          # "${config_home}/imv/config".text = (import ../config/imv/config.nix) { config = config; };
           "${config_home}/nvim/pack/plugins/start".source = ../config/nvim/start;
-          "${config_home}/imv/config".text = (import ../config/imv/config.nix) { config = config; };
           "${config_home}/newsraft/config".text = ''
             set scrolloff 5
             set download-timeout 20

@@ -3,19 +3,16 @@
 let
   editor = "nvim.desktop";
   wordProcs = [ "writer.desktop" ];
-  imageViewers = [ "imv.desktop" "gimp.desktop" ];
+  imageViewers = [ "org.gnome.Loupe.desktop" "gimp.desktop" ];
 in
 {
   xdg.mime = {
     enable = true;
     defaultApplications = {
 
-      "application/pdf" = [
-        "zathura.desktop"
-        "firefox.desktop"
-      ];
+      "application/pdf" = [ "org.gnome.Evince.desktop" "zathura.desktop" ];
 
-      "inode/directory" = [ "Thunar.desktop" ];
+      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
 
       "text/plain" = [ "${editor}" ];
       "text/markdown" = [ "${editor}" ];
@@ -37,7 +34,7 @@ in
       "image/png" = imageViewers;
     };
     removedAssociations = {
-      "application/pdf" = [ "calibre-ebook-viewer.desktop" ];
+      "application/pdf" = [ "calibre-ebook-viewer.desktop" "firefox.desktop" ];
     };
   };
 }

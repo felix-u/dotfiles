@@ -3,6 +3,8 @@
 let
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
   pkgs-unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  home = config.home-manager.users.felix.home.homeDirectory;
+  theme = (import ./theme.nix) { config = config; };
 in
 {
 
@@ -22,6 +24,17 @@ in
   home-manager.users.felix.dconf = {
     enable = true;
     settings = {
+      "org/gnome/Console" = {
+        custom-font = "Monospace ${(toString theme.fontmonosize)}";
+        theme = "auto";
+        use-system-font = false;
+      };
+      "org/gnome/desktop/background" = {
+        color-shading-type = "solid";
+        picture-options = "zoom";
+        picture-uri = "${home}/dotfiles/win/teal.png";
+        picture-uri-dark = "${home}/dotfiles/win/teal.png";
+      };
       "org/gnome/desktop/peripherals/keyboard" = {
         delay = (lib.gvariant.mkUint32 200);
         repeat-interval = (lib.gvariant.mkUint32 20);
@@ -30,9 +43,15 @@ in
         accel-profile = "flat";
         speed = 0;
       };
+      "org/gnome/desktop/screensaver" = {
+        color-shading-type = "solid";
+        picture-options = "zoom";
+        picture-uri = "${home}/dotfiles/win/teal.png";
+      };
       "org/gnome/desktop/wm/preferences" = {
-        resize-with-right-button = true;
+        button-layout = "appmenu:minimize,maximize,close";
         num-workspaces = 9;
+        resize-with-right-button = true;
       };
       "org/gnome/desktop/session" = {
         idle-delay = (lib.gvariant.mkUint32 0);
@@ -104,9 +123,35 @@ in
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
           blur-my-shell.extensionUuid
+          dash-to-panel.extensionUuid
           light-style.extensionUuid
           user-themes.extensionUuid
           workspace-indicator.extensionUuid
+        ];
+      };
+      "org/gnome/shell/extensions/dash-to-panel" = {
+        dot-color-1 = "#${theme.cfg}";
+        dot-color-2 = "#${theme.cfg}";
+        dot-color-3 = "#${theme.cfg}";
+        dot-color-4 = "#${theme.cfg}";
+        dot-color-override = true;
+        dot-size = 4;
+        dot-style-focus = "DOTS";
+        dot-style-unfocused = "DOTS";
+        focus-highlight-opacity = 100;
+        panel-element-positions = "{\"0\":[{\"element\":\"showAppsButton\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"leftBox\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"taskbar\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"centerBox\",\"visible\":false,\"position\":\"stackedBR\"},{\"element\":\"rightBox\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"dateMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"desktopButton\",\"visible\":true,\"position\":\"stackedBR\"}]}";
+        panel-sizes = "{\"0\":42}";
+        progress-show-count = true;
+        show-tooltip = false;
+        trans-panel-opacity = 0.8;
+        trans-use-custom-opacity = true;
+        window-preview-title-font-color = "#${theme.cfg}";
+      };
+      "org/gnome/shell" = {
+        favorite-apps = [
+          "org.gnome.Nautilus.desktop"
+          "firefox.desktop"
+          "org.gnome.Console.desktop"
         ];
       };
       "org/gnome/shell/keybindings" = {
@@ -122,12 +167,16 @@ in
         switch-to-application-8 = [ "<Control><Super>8" ];
         switch-to-application-9 = [ "<Control><Super>9" ];
       };
+      "org/gtk/gtk4/settings/file-chooser" = {
+        show-hidden = true;
+      };
     };
   };
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
     gnomeExtensions.blur-my-shell
+    gnomeExtensions.dash-to-panel
     gnomeExtensions.light-style
     gnomeExtensions.user-themes
     gnomeExtensions.workspace-indicator

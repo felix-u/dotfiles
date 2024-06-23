@@ -167,7 +167,6 @@ in
       font-manager
       gnome.gnome-maps
       imagemagick
-      imv
       libnotify
       libreoffice
       libva
@@ -176,7 +175,6 @@ in
       mpvScripts.quality-menu
       obs-studio
       obs-studio-plugins.wlrobs
-      pantheon.elementary-files
       qt5ct
       (pkgs.signal-desktop.overrideAttrs (oldAttrs: rec {
         runtimeDependencies = oldAttrs.runtimeDependencies ++ [ pkgs.wayland ];

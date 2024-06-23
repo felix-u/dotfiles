@@ -99,12 +99,10 @@ in
       # sql
       sqlite
       # zig
-      # (import ../derivations/zig-mach.nix)
       (import ../derivations/zig-master.nix)
       # MATHS
       bc
       libqalculate
-      qalculate-gtk
 
       # Utils
       (import ../derivations/imgclr.nix)

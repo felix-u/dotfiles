@@ -83,11 +83,6 @@ in
         };
       };
 
-      programs.foot = {
-        enable = true;
-        settings = (import ../config/foot/foot.nix) { config = config; };
-      };
-
       programs.fzf = {
         enable = true;
         enableBashIntegration = true;
@@ -95,11 +90,6 @@ in
         enableZshIntegration = true;
         defaultCommand = "fd";
         defaultOptions = [ "--color=16" ];
-      };
-
-      programs.ncspot = {
-        enable = true;
-        settings = import ../config/ncspot/ncspot.nix;
       };
 
       programs.neovim = {

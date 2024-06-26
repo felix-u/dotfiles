@@ -116,7 +116,7 @@ in
       _7zz
       entr
       fd
-      ffmpeg
+      ffmpeg-full
       figlet
       file
       glxinfo
@@ -173,6 +173,8 @@ in
       mpvScripts.quality-menu
       obs-studio
       obs-studio-plugins.wlrobs
+      obs-studio-plugins.obs-vaapi
+      obs-studio-plugins.obs-vkcapture
       qt5ct
       (pkgs.signal-desktop.overrideAttrs (oldAttrs: rec {
         runtimeDependencies = oldAttrs.runtimeDependencies ++ [ pkgs.wayland ];

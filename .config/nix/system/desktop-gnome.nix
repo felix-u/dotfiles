@@ -14,6 +14,20 @@ in
     desktopManager.gnome.enable = true;
   };
 
+  environment.gnome.excludePackages = (with pkgs; [
+    epiphany
+  ]);
+
+  environment.systemPackages = with pkgs; [
+    contrast
+    eyedropper
+    gnome.gnome-tweaks
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.light-style
+    gnomeExtensions.user-themes
+    wl-clipboard
+  ];
+
   environment.sessionVariables = rec {
     MOZ_ENABLE_WAYLAND = "1";
     NIXOS_OZONE_WL = "1";
@@ -41,7 +55,7 @@ in
       };
       "org/gnome/desktop/peripherals/mouse" = {
         accel-profile = "flat";
-        speed = 0;
+        speed = -0.2;
       };
       "org/gnome/desktop/screensaver" = {
         color-shading-type = "solid";
@@ -49,7 +63,7 @@ in
         picture-uri = "${home}/dotfiles/win/teal.png";
       };
       "org/gnome/desktop/wm/preferences" = {
-        button-layout = "appmenu:minimize,maximize,close";
+        button-layout = "appmenu:close";
         num-workspaces = 9;
         resize-with-right-button = true;
       };
@@ -123,36 +137,18 @@ in
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
           blur-my-shell.extensionUuid
-          dash-to-panel.extensionUuid
           light-style.extensionUuid
           user-themes.extensionUuid
-          workspace-indicator.extensionUuid
         ];
-      };
-      "org/gnome/shell/extensions/dash-to-panel" = {
-        dot-color-1 = "#${theme.cfg}";
-        dot-color-2 = "#${theme.cfg}";
-        dot-color-3 = "#${theme.cfg}";
-        dot-color-4 = "#${theme.cfg}";
-        dot-color-override = true;
-        dot-size = 4;
-        dot-style-focus = "DOTS";
-        dot-style-unfocused = "DOTS";
-        focus-highlight-opacity = 100;
-        panel-element-positions = "{\"0\":[{\"element\":\"showAppsButton\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"leftBox\",\"visible\":false,\"position\":\"stackedTL\"},{\"element\":\"taskbar\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"centerBox\",\"visible\":false,\"position\":\"stackedBR\"},{\"element\":\"rightBox\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"dateMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"desktopButton\",\"visible\":true,\"position\":\"stackedBR\"}]}";
-        panel-sizes = "{\"0\":42}";
-        progress-show-count = true;
-        show-tooltip = false;
-        trans-panel-opacity = 0.8;
-        trans-use-custom-opacity = true;
-        window-preview-title-font-color = "#${theme.cfg}";
-      };
-      "org/gnome/shell" = {
         favorite-apps = [
           "org.gnome.Nautilus.desktop"
           "firefox.desktop"
           "org.gnome.Console.desktop"
         ];
+        last-selected-power-profile = if config.networking.hostName == "pc" then "performance" else "balanced";
+      };
+      "org/gnome/shell/extensions/blur-my-shell/panel" = {
+        blur = false;
       };
       "org/gnome/shell/keybindings" = {
         show-screenshot-ui = [ "<Shift><Super>s" ];
@@ -172,16 +168,6 @@ in
       };
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.dash-to-panel
-    gnomeExtensions.light-style
-    gnomeExtensions.user-themes
-    gnomeExtensions.workspace-indicator
-    wl-clipboard
-  ];
 
   # environment.pathsToLink = [ "/libexec" ]; # for polkit
 

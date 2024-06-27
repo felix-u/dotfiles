@@ -87,7 +87,7 @@ in
     agtodo = "cat <(agerrandspast) <(agerrands) <(agpast) <(ag) | $PAGER";
     agv = "$EDITOR $AGENDAFILE";
 
-    cdu = "cd ~/uni/2024/spring";
+    cdu = "cd ~/uni/2024/autumn";
 
     dcc = ''
       clang -std=c99 -pedantic \

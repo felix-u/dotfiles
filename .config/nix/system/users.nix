@@ -40,13 +40,6 @@ in
         theme.name = "io.elementary.stylesheet.slate";
       };
 
-      programs.bash = {
-        enable = true;
-        enableVteIntegration = true;
-        historyControl = [ "ignoredups" ];
-        initExtra = builtins.readFile (toString ../config/bash/.bashrc);
-      };
-
       programs.chromium = {
         enable = true;
         package = pkgs.chromium;

@@ -89,8 +89,6 @@ in
 
     cdu = "cd ~/uni/2024/autumn";
 
-    gdb = "gdb -tui -ex 'set style enabled off'";
-
     gitcom = "git add . && git commit -a && git push";
 
     shutdwn = "shutdown -h now";

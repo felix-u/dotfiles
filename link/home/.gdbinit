@@ -1,5 +1,3 @@
-set history save off
-
 python
 
 # GDB dashboard - Modular visual interface for GDB in Python.
@@ -2365,7 +2363,7 @@ end
 
 # Better GDB defaults ----------------------------------------------------------
 
-set history save
+set history save off
 set verbose off
 set print pretty on
 set print array off

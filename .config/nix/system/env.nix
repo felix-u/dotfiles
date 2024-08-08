@@ -89,13 +89,6 @@ in
 
     cdu = "cd ~/uni/2024/autumn";
 
-    dcc = ''
-      clang -std=c99 -pedantic \
-            -Wall -Werror -Wextra -Wshadow -Wconversion -Wdouble-promotion \
-            -Wno-unused-function -Wno-sign-conversion -fno-strict-aliasing \
-            -g3 -fsanitize=address,undefined -fsanitize-trap -DDEBUG \
-    '';
-
     gdb = "gdb -tui -ex 'set style enabled off'";
 
     gitcom = "git add . && git commit -a && git push";
@@ -136,6 +129,11 @@ in
       script = pkgs.writeShellScriptBin;
     in
     [
+      (script "build" ''
+        #!/usr/bin/env sh
+        ./build.sh
+      '')
+
       (script "clrpick" ''
         #!/usr/bin/env sh
         while true; do
@@ -264,6 +262,15 @@ in
             return e;
         }
         EOF
+      '')
+
+      (script "dcc" ''
+        #!/usr/bin/env sh
+        clang -std=c99 -pedantic \
+            -Wall -Werror -Wextra -Wshadow -Wconversion -Wdouble-promotion \
+            -Wno-unused-function -Wno-sign-conversion -fno-strict-aliasing \
+            -g3 -fsanitize=address,undefined -fsanitize-trap -DBUILD_DEBUG=1 \
+            "$@"
       '')
 
       (script "fman" ''

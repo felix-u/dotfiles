@@ -144,7 +144,7 @@ in
       w3m
       xdg-utils
       xdragon
-      youtube-dl
+      yt-dlp
       zip
 
       # MUSIC & AUDIO

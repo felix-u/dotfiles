@@ -40,15 +40,6 @@ in
         theme.name = "io.elementary.stylesheet.slate";
       };
 
-      xdg.userDirs = {
-        enable = true;
-        createDirectories = true;
-        music = null;
-        publicShare = null;
-        templates = null;
-        videos = null;
-      };
-
       programs.bash = {
         enable = true;
         enableVteIntegration = true;

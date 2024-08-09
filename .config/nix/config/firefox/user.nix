@@ -55,7 +55,7 @@
   "extensions.htmlaboutaddons.recommendations.enabled" = false;
   "extensions.pocket.enabled" = false;
   "extensions.webcompat-reporter.enabled" = false;
-  "full-screen-api.ignore-widgets" = true;
+  "full-screen-api.ignore-widgets" = false;
   "layout.css.backdrop-filter.enabled" = true;
   "layout.testing.overlay-scrollbars.always-visible" = true;
   "media.autoplay.blocking_policy" = 0;

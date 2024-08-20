@@ -83,6 +83,11 @@ in
         };
       };
 
+      programs.foot = {
+        enable = true;
+        settings = (import ../config/foot/foot.nix) { config = config; };
+      };
+
       programs.fzf = {
         enable = true;
         enableBashIntegration = true;

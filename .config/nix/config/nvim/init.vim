@@ -8,6 +8,8 @@ set cursorline
 set display+=lastline
 set display+=truncate
 set expandtab
+set fileformats=unix,dos
+set fileformat=unix
 set guicursor=n-v-c-i:block
 set history=1000
 set hlsearch
@@ -153,11 +155,12 @@ nnoremap <A-9> :tabn 9<CR>
 nnoremap <A-w> <C-w>w
 
 syntax off
-colorscheme quiet
+colo default
 set background=light
 
-set guifont=CommitMono\ Nerd\ Font\ Mono:h9
 if exists("g:neovide")
+    colorscheme quiet
+    set guifont=CommitMono\ Nerd\ Font\ Mono:h9
     let padding_horizontal = 16
     let padding_vertical = 5
     let g:neovide_padding_top = padding_vertical

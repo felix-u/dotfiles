@@ -10,7 +10,7 @@
       else
         [ "pulseaudio" "custom/clock" ];
     "river/tags" = {
-      num-tags = 9;
+      num-tags = 4;
     };
     cpu = {
       interval = 2;

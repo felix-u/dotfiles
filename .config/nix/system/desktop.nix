@@ -22,6 +22,7 @@ in
   # };
 
   environment.systemPackages = with pkgs-unstable; [
+    foot
     river
     waybar
   ];

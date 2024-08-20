@@ -189,7 +189,7 @@ riverctl map-pointer normal $mod BTN_LEFT move-view &
 # Mod + Right Mouse Button to resize views
 riverctl map-pointer normal $mod BTN_RIGHT resize-view &
 
-TAG_NUMBER=9
+TAG_NUMBER=4
 for i in $(seq 1 $TAG_NUMBER)
 do
     tags=$((1 << (i - 1)))
@@ -272,7 +272,7 @@ riverctl map normal $mod V spawn \
     "riverctl hide-cursor timeout 10000 && \
      riverctl hide-cursor when-typing enabled" &
 
-"$XDG_CONFIG_HOME"/river/wp "$CLR_07" &
+"$XDG_CONFIG_HOME"/river/wp "$CLR_06" &
 riverctl map normal $mod+$alt B spawn "$XDG_CONFIG_HOME/river/wp" &
 
 # Theming

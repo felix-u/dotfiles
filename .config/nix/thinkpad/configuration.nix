@@ -18,7 +18,7 @@
       ../system/fonts.nix
 
       # various desktop-related: sway, QT, printing, pipewire, etc.
-      ../system/desktop.nix
+      ../system/desktop-gnome.nix
 
       # user configuration (groups, shell, etc.)
       ../system/users.nix
@@ -60,7 +60,7 @@
     };
   };
   # TODO: decide whether to keep or not
-  systemd.services.thinkpadkbd.enable = true;
+  systemd.services.thinkpadkbd.enable = false;
 
   # libva
   nixpkgs.config.packageOverrides = pkgs: {
@@ -72,13 +72,13 @@
     libvdpau-va-gl
   ];
 
-  services.tlp = {
-    enable = true;
-    settings = {
-      # START_CHARGE_THRESH_BAT0 = 70;
-      STOP_CHARGE_THRESH_BAT0 = 75;
-    };
-  };
+  # services.tlp = {
+  #   enable = true;
+  #   settings = {
+  #     # START_CHARGE_THRESH_BAT0 = 70;
+  #     STOP_CHARGE_THRESH_BAT0 = 75;
+  #   };
+  # };
 
   system.stateVersion = "21.11";
 }

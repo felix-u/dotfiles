@@ -133,6 +133,7 @@ in
       pandoc
       pastel
       poppler_utils
+      qemu_full
       ripgrep
       sdcv
       tldr

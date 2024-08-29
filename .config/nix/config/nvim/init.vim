@@ -136,11 +136,10 @@ let g:vimtex_view_method = 'zathura'
 autocmd BufWritePost *.nix silent !nixpkgs-fmt %
 
 set makeprg=build
-nnoremap <A-m>      :Make<CR>
-nnoremap <leader>bc :cc<CR>
-nnoremap <leader>bl :cl<CR>
-nnoremap <leader>bn :cn<CR>
-nnoremap <leader>bp :cp<CR>
+nnoremap <A-m>     :Make<CR>
+nnoremap <leader>8 :cc<CR>
+nnoremap <F8>      :cn<CR>
+nnoremap <S-F8>    :cp<CR>
 
 nnoremap <A-1> :tabn 1<CR>
 nnoremap <A-2> :tabn 2<CR>
@@ -155,7 +154,7 @@ nnoremap <A-9> :tabn 9<CR>
 nnoremap <A-w> <C-w>w
 
 syntax off
-colo quiet
+colo delek
 set background=light
 
 if exists("g:neovide")

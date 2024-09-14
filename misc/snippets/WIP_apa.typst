@@ -1,17 +1,70 @@
-#set text(
-    font: "Liberation Serif",
-    lang: "en",
-    region: "gb",
-    size: 12pt,
-)
+// https://apastyle.apa.org
 
 #set page(
     paper: "us-letter",
-    margin: 2.5cm,
+    margin: 1in,
+    header: context [
+        #set align(end)
+        #counter(page).display("1")
+    ],
 )
 
-// BODY
-#lorem(150) \
+#set text(
+    font: "Times New Roman",
+    size: 12pt,
+)
+
+#set par(
+    leading: 2 * 0.65em,
+    first-line-indent: 0.5in,
+)
+#show par: set block(spacing: 2 * 0.65em)
+
+#set document(
+    title: "Assignment #1: Understanding the Sustainable Development Goals",
+    author: "Felix Ulmanu",
+    date: datetime(year: 2024, month: 09, day: 11),
+)
+#let department = "Department of Sustainability"
+#let university = "The George Washington University"
+#let course = "SUST 1001: Introduction to Sustainability"
+#let professor = "Professor Angela Melidosian"
+
+#page[
+    #set align(center)
+    #for line in (1, 2, 3) [ #linebreak() ]
+
+    *#context document.title*
+
+    #linebreak()
+
+    #context document.author.at(0)
+
+    #department, #university
+
+    #course
+
+    #professor
+
+    #context document.date.display("[month repr:long] [day], [year]")
+]
+
+#align(center)[*#context document.title*]
+
 #lorem(150)
 
-// #bibliography("./sources.bib")
+#lorem(200) @sdr
+
+// TODO: no par indent
+#pagebreak()
+#align(center)[*References*]
+#set par(
+    first-line-indent: 0em,
+    hanging-indent: 0.5in,
+)
+#bibliography(
+    "sources.bib",
+    title: none,
+    full: false,
+    style: "apa",
+)

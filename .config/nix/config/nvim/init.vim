@@ -154,6 +154,7 @@ nnoremap <A-9> :tabn 9<CR>
 nnoremap <A-w> <C-w>w
 
 inoremap <A-i> <esc>
+vnoremap <A-i> <esc>
 
 syntax off
 colo delek

@@ -94,6 +94,8 @@ in
       python3Full
       # rust
       cargo
+      rustc
+      sccache
       # shell
       shellcheck
       # sql

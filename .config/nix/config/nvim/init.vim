@@ -126,8 +126,6 @@ nnoremap <A-9> :tabn 9<CR>
 
 nnoremap <A-w> <C-w>w
 
-noremap <A-i> <esc><esc>
-
 syntax off
 colo delek
 set background=light
